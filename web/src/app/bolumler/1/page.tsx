@@ -1,4 +1,5 @@
 import Link from "next/link";
+import InteraktifQuiz from "@/components/InteraktifQuiz";
 
 const quizSorulari = [
   {
@@ -42,38 +43,6 @@ const quizSorulari = [
     dogru: 2,
   },
 ];
-
-function QuizBolumu() {
-  return (
-    <section className="rounded-2xl border border-[var(--color-border)] bg-[var(--color-bg-secondary)] p-6">
-      <h2 className="mb-6 text-2xl font-bold">Degerlendirme Testi</h2>
-      <div className="space-y-6">
-        {quizSorulari.map((s, i) => (
-          <div key={i}>
-            <p className="mb-3 font-medium">
-              <span className="mr-2 font-bold text-sky-600">{i + 1}.</span>
-              {s.soru}
-            </p>
-            <div className="ml-6 space-y-2">
-              {s.secenekler.map((sec, j) => (
-                <label
-                  key={j}
-                  className="flex cursor-pointer items-center gap-3 rounded-lg border border-[var(--color-border)] px-4 py-2.5 transition hover:bg-sky-50 dark:hover:bg-sky-900/20"
-                >
-                  <input type="radio" name={`soru-${i}`} className="accent-sky-600" />
-                  <span className="mr-1 font-medium text-[var(--color-text-secondary)]">
-                    {String.fromCharCode(65 + j)})
-                  </span>
-                  {sec}
-                </label>
-              ))}
-            </div>
-          </div>
-        ))}
-      </div>
-    </section>
-  );
-}
 
 export default function Bolum1() {
   return (
@@ -342,7 +311,7 @@ export default function Bolum1() {
         </section>
 
         {/* Quiz */}
-        <QuizBolumu />
+        <InteraktifQuiz sorular={quizSorulari} />
 
         {/* Indirilebilir */}
         <section className="rounded-2xl border border-[var(--color-border)] bg-[var(--color-bg-secondary)] p-6">
