@@ -53,7 +53,7 @@ const bolumler = [
     seviye: "7. Sinif",
     ders: 8,
     renk: "bg-blue-600",
-    hazir: false,
+    hazir: true,
   },
   {
     no: 7,
@@ -62,7 +62,7 @@ const bolumler = [
     seviye: "7-8. Sinif",
     ders: 8,
     renk: "bg-teal-500",
-    hazir: false,
+    hazir: true,
   },
   {
     no: 8,
@@ -71,7 +71,7 @@ const bolumler = [
     seviye: "7-8. Sinif",
     ders: 6,
     renk: "bg-rose-500",
-    hazir: false,
+    hazir: true,
   },
   {
     no: 9,
@@ -80,7 +80,7 @@ const bolumler = [
     seviye: "7-8. Sinif",
     ders: 4,
     renk: "bg-amber-600",
-    hazir: false,
+    hazir: true,
   },
   {
     no: 10,
@@ -89,7 +89,7 @@ const bolumler = [
     seviye: "8. Sinif",
     ders: 8,
     renk: "bg-indigo-600",
-    hazir: false,
+    hazir: true,
   },
 ];
 
