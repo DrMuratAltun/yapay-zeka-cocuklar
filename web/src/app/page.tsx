@@ -107,7 +107,7 @@ export default function AnaSayfa() {
       </section>
 
       {/* Neden Bu Kitap */}
-      <section className="bg-[var(--color-bg-secondary)] py-20">
+      <section id="ozellikler" className="bg-[var(--color-bg-secondary)] py-20">
         <div className="mx-auto max-w-6xl px-6">
           <div className="mb-12 text-center">
             <h2 className="mb-3 text-3xl font-extrabold">Neden Bu Platform?</h2>
@@ -195,7 +195,7 @@ export default function AnaSayfa() {
       </section>
 
       {/* Araclar */}
-      <section className="bg-[var(--color-bg-secondary)] py-20">
+      <section id="araclar" className="bg-[var(--color-bg-secondary)] py-20">
         <div className="mx-auto max-w-6xl px-6">
           <div className="mb-12 text-center">
             <h2 className="mb-3 text-3xl font-extrabold">Kullanılan Araçlar</h2>

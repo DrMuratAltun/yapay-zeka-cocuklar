@@ -1,5 +1,5 @@
-import Link from "next/link";
 import InteraktifQuiz from "@/components/InteraktifQuiz";
+import BolumSlider from "@/components/BolumSlider";
 
 const quizSorulari = [
   {
@@ -154,483 +154,464 @@ const telefonYzOrnekleri = [
   { ozellik: "Pil kullanım optimizasyonu", teknoloji: "Makine öğrenimi", icon: "🔋" },
 ];
 
+const SlaytKazanimlar = (
+  <>
+    <section className="rounded-2xl border-l-4 border-emerald-500 bg-emerald-50 p-6 dark:bg-emerald-900/20">
+      <h2 className="mb-3 text-lg font-bold text-emerald-700 dark:text-emerald-300">
+        Neler Öğreneceğiz?
+      </h2>
+      <ul className="ml-4 list-disc space-y-1 text-[var(--color-text-secondary)]">
+        <li>Yapay zekanın günlük hayatta kullanıldığı alanları keşfedeceğiz.</li>
+        <li>Telefonumuzdaki YZ uygulamalarını tanımlayabileceğiz.</li>
+        <li>Farklı sektörlerde (sağlık, ulaşım, eğitim, tarım) YZ kullanımı örnekleri verebileceğiz.</li>
+        <li>YZ uygulamalarının arkasındaki temel teknolojileri anlayacağız.</li>
+      </ul>
+    </section>
+
+    <div className="flex flex-wrap gap-2">
+      {[
+        "öneri sistemi",
+        "bilgisayar görüsü",
+        "doğal dil işleme",
+        "otonom araç",
+        "akıllı ev",
+        "chatbot",
+      ].map((k) => (
+        <span
+          key={k}
+          className="rounded-full bg-amber-100 px-3 py-1 text-sm font-medium text-amber-800 dark:bg-amber-900/30 dark:text-amber-300"
+        >
+          {k}
+        </span>
+      ))}
+    </div>
+  </>
+);
+
+const SlaytKonuAnlatimi = (
+  <>
+    <section className="space-y-4">
+      <h2 className="text-2xl font-extrabold">1. YZ Her Yerde!</h2>
+      <p>
+        Sabah alarmınız çaldığında, telefonunuz pil durumuna ve
+        alışkanlıklarınıza göre en uygun zamanda sizi uyandırmış olabilir.
+        Kahvaltıda telefonunuzu açtığınızda size özel haberler gösterilir.
+        Okula giderken navigasyon en kısa yolu bulur. Farkında olmasak da
+        yapay zeka günlük hayatımızın her anında bizimle birlikte!
+      </p>
+      <div className="rounded-xl bg-emerald-50 p-4 dark:bg-emerald-900/20">
+        <p className="font-medium text-emerald-800 dark:text-emerald-300">
+          🤔 Düşün: Bugün sabahtan beri kaç farklı YZ uygulaması
+          kullandın? Saymaya çalış!
+        </p>
+      </div>
+    </section>
+
+    <section className="space-y-4">
+      <h2 className="text-2xl font-extrabold">
+        2. Cebindeki Yapay Zeka
+      </h2>
+      <p>
+        Akıllı telefonlar, içlerinde onlarca YZ teknolojisi barındırır.
+        Farkında olmadan her gün bu teknolojileri kullanırız:
+      </p>
+      <div className="grid gap-3 sm:grid-cols-2">
+        {telefonYzOrnekleri.map((ornek) => (
+          <div
+            key={ornek.ozellik}
+            className="flex items-start gap-3 rounded-xl border border-[var(--color-border)] bg-[var(--color-bg-secondary)] p-4"
+          >
+            <span className="text-2xl">{ornek.icon}</span>
+            <div>
+              <h4 className="font-bold text-sm">{ornek.ozellik}</h4>
+              <p className="text-xs text-[var(--color-text-secondary)]">
+                {ornek.teknoloji}
+              </p>
+            </div>
+          </div>
+        ))}
+      </div>
+    </section>
+
+    <div className="rounded-xl border-2 border-amber-300 bg-amber-50 p-5 dark:border-amber-700 dark:bg-amber-900/20">
+      <h3 className="mb-2 font-bold text-amber-700 dark:text-amber-400">
+        💡 Biliyor Muydunuz?
+      </h3>
+      <p className="text-sm text-amber-800 dark:text-amber-300">
+        Ortalama bir akıllı telefon kullanıcısı günde 2.600&apos;den
+        fazla kez telefonuna dokunur. Bu etkileşimlerin büyük bir kısmı
+        yapay zeka tarafından desteklenir: klavye tahmini, uygulama
+        önerileri, bildirim önceliklendirme ve daha fazlası!
+      </p>
+    </div>
+  </>
+);
+
+const SlaytYzAlanlari = (
+  <>
+    <section className="space-y-4">
+      <h2 className="text-2xl font-extrabold">
+        3. YZ Kullanım Alanları
+      </h2>
+      <p>
+        Yapay zeka sadece telefonlarımızda değil, hayatımızın pek çok
+        alanında aktif olarak kullanılıyor:
+      </p>
+      <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+        {yzAlanlari.map((alan) => (
+          <div
+            key={alan.alan}
+            className={`rounded-xl border ${alan.renkBorder} ${alan.renkAcik} p-5`}
+          >
+            <div className="mb-3 flex items-center gap-2">
+              <span className="text-2xl">{alan.icon}</span>
+              <h3 className="font-bold">{alan.alan}</h3>
+            </div>
+            <ul className="ml-1 space-y-1 text-sm text-[var(--color-text-secondary)]">
+              {alan.ornekler.map((ornek) => (
+                <li key={ornek} className="flex items-start gap-2">
+                  <span className="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-current opacity-40" />
+                  {ornek}
+                </li>
+              ))}
+            </ul>
+          </div>
+        ))}
+      </div>
+    </section>
+
+    <section className="space-y-4">
+      <h2 className="text-2xl font-extrabold">
+        4. Öneri Sistemleri Nasıl Çalışır?
+      </h2>
+      <p>
+        Netflix, YouTube, Spotify gibi platformlar &quot;Sana Özel&quot;
+        içerikler sunar. Peki bu nasıl çalışır?
+      </p>
+      <div className="space-y-3">
+        {[
+          {
+            adim: 1,
+            baslik: "Veri Toplama",
+            aciklama:
+              "Neyi izlediğini, ne kadar izlediğini, neyi beğendiğini, neyi geçtiğini kaydeder.",
+          },
+          {
+            adim: 2,
+            baslik: "Örüntü Bulma",
+            aciklama:
+              "Benzer izleme alışkanlıkları olan kullanıcıları bulur. 'Seni sevenlerin sevdiklerini' keşfeder.",
+          },
+          {
+            adim: 3,
+            baslik: "Tahmin Yapma",
+            aciklama:
+              "Senin henüz izlemediğin ama sevebileceğin içerikleri tahmin eder.",
+          },
+          {
+            adim: 4,
+            baslik: "Öneri Sunma",
+            aciklama:
+              "Ana sayfanda 'Senin için seçtiklerimiz' olarak gösterir.",
+          },
+        ].map((a) => (
+          <div key={a.adim} className="flex items-start gap-4">
+            <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-emerald-600 font-bold text-white">
+              {a.adim}
+            </span>
+            <div>
+              <h4 className="font-bold">{a.baslik}</h4>
+              <p className="text-sm text-[var(--color-text-secondary)]">
+                {a.aciklama}
+              </p>
+            </div>
+          </div>
+        ))}
+      </div>
+    </section>
+
+    <section className="space-y-4">
+      <h2 className="text-2xl font-extrabold">
+        5. Sesli Asistanlar ve Chatbotlar
+      </h2>
+      <p>
+        Siri, Google Asistan, Alexa gibi sesli asistanlar birden fazla YZ
+        teknolojisini bir arada kullanır:
+      </p>
+      <div className="overflow-x-auto">
+        <table className="w-full rounded-xl border border-[var(--color-border)] text-sm">
+          <thead className="bg-emerald-600 text-white">
+            <tr>
+              <th className="px-4 py-3 text-left">Aşama</th>
+              <th className="px-4 py-3 text-left">Teknoloji</th>
+              <th className="px-4 py-3 text-left">Ne Yapar?</th>
+            </tr>
+          </thead>
+          <tbody>
+            {[
+              [
+                "1. Dinleme",
+                "Konuşma Tanıma (ASR)",
+                "Sesini metne çevirir",
+              ],
+              [
+                "2. Anlama",
+                "Doğal Dil İşleme (NLP)",
+                "Ne demek istediğini anlar",
+              ],
+              [
+                "3. İşlem",
+                "Akıl Yürütme",
+                "En iyi yanıtı bulur",
+              ],
+              [
+                "4. Yanıtlama",
+                "Konuşma Sentezi (TTS)",
+                "Yanıtı sesli olarak söyler",
+              ],
+            ].map(([asama, teknoloji, neYapar], i) => (
+              <tr
+                key={asama}
+                className={
+                  i % 2 === 0 ? "bg-[var(--color-bg-secondary)]" : ""
+                }
+              >
+                <td className="px-4 py-2.5 font-medium">{asama}</td>
+                <td className="px-4 py-2.5">{teknoloji}</td>
+                <td className="px-4 py-2.5">{neYapar}</td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <div className="grid gap-4 md:grid-cols-2">
+      <div className="rounded-xl border border-emerald-200 bg-emerald-50 p-5 dark:border-emerald-800 dark:bg-emerald-900/20">
+        <h3 className="mb-2 font-bold">🚗 Otonom Araçlar</h3>
+        <p className="text-sm text-[var(--color-text-secondary)]">
+          Tesla, Waymo gibi şirketlerin sürücüsüz araçları kameralar,
+          radarlar ve LIDAR sensörleri ile çevreyi algılar. YZ, diğer
+          araçları, yayaları ve trafik işaretlerini tanımlayarak aracı
+          güvenli bir şekilde sürebilir.
+        </p>
+      </div>
+      <div className="rounded-xl border border-emerald-200 bg-emerald-50 p-5 dark:border-emerald-800 dark:bg-emerald-900/20">
+        <h3 className="mb-2 font-bold">🌾 Akıllı Tarım</h3>
+        <p className="text-sm text-[var(--color-text-secondary)]">
+          Drone&apos;lar tarlaları havadan tarayarak hastalıklı bitkileri
+          tespit eder. YZ destekli sulama sistemleri toprağın nem durumuna
+          göre su tasarrufu sağlar. Türkiye&apos;de de akıllı tarım
+          uygulamaları yaygınlaşmaktadır.
+        </p>
+      </div>
+    </div>
+  </>
+);
+
+const SlaytEtkinlikler = (
+  <>
+    <section className="space-y-6">
+      <h2 className="text-2xl font-extrabold">Etkinlikler</h2>
+
+      {/* Etkinlik 1 - Unplugged */}
+      <div className="rounded-2xl border border-[var(--color-border)] bg-[var(--color-bg-secondary)] p-6">
+        <div className="mb-3 flex items-center gap-3">
+          <span className="rounded-lg bg-emerald-500 px-3 py-1 text-sm font-bold text-white">
+            UNPLUGGED
+          </span>
+          <span className="text-sm text-[var(--color-text-secondary)]">
+            25 dakika &middot; Bireysel + sınıf tartışması
+          </span>
+        </div>
+        <h3 className="mb-2 text-xl font-bold">
+          Etkinlik 1: YZ Haritası
+        </h3>
+        <p className="mb-4 text-[var(--color-text-secondary)]">
+          A3 kağıda büyük bir harita çizin. Ortaya &quot;BEN&quot; yazın.
+          Etrafına gün boyunca karşılaştığınız YZ uygulamalarını
+          yerleştirin (ev, okul, yol, alışveriş). Her uygulamanın yanına
+          hangi YZ teknolojisini kullandığını yazın.
+        </p>
+        <div className="rounded-lg bg-emerald-50 p-3 text-sm dark:bg-emerald-900/20">
+          <p className="font-medium text-emerald-700 dark:text-emerald-300">
+            📋 Malzemeler: A3 kağıt, renkli kalemler, yapıştırıcı notlar
+          </p>
+        </div>
+      </div>
+
+      {/* Etkinlik 2 - Unplugged */}
+      <div className="rounded-2xl border border-[var(--color-border)] bg-[var(--color-bg-secondary)] p-6">
+        <div className="mb-3 flex items-center gap-3">
+          <span className="rounded-lg bg-emerald-500 px-3 py-1 text-sm font-bold text-white">
+            UNPLUGGED
+          </span>
+          <span className="text-sm text-[var(--color-text-secondary)]">
+            20 dakika &middot; Grup çalışması (4 kişi)
+          </span>
+        </div>
+        <h3 className="mb-2 text-xl font-bold">
+          Etkinlik 2: YZ veya Değil?
+        </h3>
+        <p className="mb-4 text-[var(--color-text-secondary)]">
+          Kartlardaki cihaz ve uygulamaları &quot;YZ Kullanan&quot; ve
+          &quot;YZ Kullanmayan&quot; olarak sınıflandırın. Her kartın neden
+          o kategoriye ait olduğunu grubunuzla tartışarak karar verin.
+        </p>
+        <div className="rounded-lg bg-amber-50 p-3 text-sm dark:bg-amber-900/20">
+          <p className="font-medium text-amber-700 dark:text-amber-300">
+            ⚠️ Dikkat: Bazı cihazlar/uygulamalar hem YZ kullanan hem de
+            kullanmayan versiyonlarda olabilir. Bu durumu tartışmak çok
+            değerli!
+          </p>
+        </div>
+      </div>
+
+      {/* Etkinlik 3 - Bilgisayarli */}
+      <div className="rounded-2xl border border-[var(--color-border)] bg-[var(--color-bg-secondary)] p-6">
+        <div className="mb-3 flex items-center gap-3">
+          <span className="rounded-lg bg-blue-500 px-3 py-1 text-sm font-bold text-white">
+            BİLGİSAYARLI
+          </span>
+          <span className="text-sm text-[var(--color-text-secondary)]">
+            30 dakika &middot; Bireysel
+          </span>
+        </div>
+        <h3 className="mb-2 text-xl font-bold">
+          Etkinlik 3: Sesli Asistanla Tanışma
+        </h3>
+        <p className="mb-4 text-[var(--color-text-secondary)]">
+          Telefonunuzdaki sesli asistanı (Google Asistan veya Siri) açın.
+          Aşağıdaki görevleri deneyin ve asistanın hangi görevlerde başarılı,
+          hangilerinde başarısız olduğunu kaydedin:
+        </p>
+        <ul className="mb-4 ml-4 list-disc space-y-1 text-sm text-[var(--color-text-secondary)]">
+          <li>Bir soru sorun (örn: &quot;Türkiye&apos;nin başkenti neresidir?&quot;)</li>
+          <li>Bir alarm kurmasını isteyin</li>
+          <li>Bir fıkra anlatmasını isteyin</li>
+          <li>Duygusal bir soru sorun (örn: &quot;Bugün mutsuzum, ne yapmalıyım?&quot;)</li>
+          <li>Belirsiz bir komut verin (örn: &quot;O şeyi aç&quot;)</li>
+        </ul>
+        <div className="rounded-lg bg-sky-50 p-3 text-sm dark:bg-sky-900/20">
+          <p className="font-medium text-sky-700 dark:text-sky-300">
+            📝 Sonuçları &quot;Gözlem Formu&quot;na kaydedin ve sınıfta
+            karşılaştırın.
+          </p>
+        </div>
+      </div>
+
+      {/* Etkinlik 4 - Bilgisayarli */}
+      <div className="rounded-2xl border border-[var(--color-border)] bg-[var(--color-bg-secondary)] p-6">
+        <div className="mb-3 flex items-center gap-3">
+          <span className="rounded-lg bg-blue-500 px-3 py-1 text-sm font-bold text-white">
+            BİLGİSAYARLI
+          </span>
+          <span className="text-sm text-[var(--color-text-secondary)]">
+            20 dakika &middot; Bireysel
+          </span>
+        </div>
+        <h3 className="mb-2 text-xl font-bold">
+          Etkinlik 4: YZ Röportajı
+        </h3>
+        <p className="mb-4 text-[var(--color-text-secondary)]">
+          Ailenizden birine (anne, baba, büyükanne/büyükbaba) &quot;Yapay
+          zeka hakkında ne düşünüyorsunuz?&quot; diye sorun. Cevapları
+          kısa bir paragrafta özetleyin. Sınıfta farklı nesillerin YZ
+          hakkındaki görüşlerini karşılaştırın.
+        </p>
+      </div>
+    </section>
+  </>
+);
+
+const SlaytQuiz = (
+  <>
+    <InteraktifQuiz sorular={quizSorulari} />
+
+    <section className="rounded-2xl border border-[var(--color-border)] bg-[var(--color-bg-secondary)] p-6">
+      <h2 className="mb-4 text-2xl font-bold">Video Kaynaklar</h2>
+      <div className="space-y-3">
+        {[
+          {
+            baslik: "Yapay Zeka Günlük Hayatımızı Nasıl Etkiliyor?",
+            tur: "Tanıtım",
+            sure: "~5 dk",
+          },
+          {
+            baslik: "Sesli Asistan Nasıl Çalışır? (Adım Adım)",
+            tur: "Uygulama",
+            sure: "~7 dk",
+          },
+          {
+            baslik: "Öneri Sistemleri: Netflix Sana Nasıl Film Önerir?",
+            tur: "Kavram",
+            sure: "~4 dk",
+          },
+        ].map((video) => (
+          <div
+            key={video.baslik}
+            className="flex items-center justify-between rounded-lg border border-[var(--color-border)] px-4 py-3"
+          >
+            <div className="flex items-center gap-3">
+              <span className="text-xl">🎥</span>
+              <div>
+                <span className="text-sm font-medium">{video.baslik}</span>
+                <p className="text-xs text-[var(--color-text-secondary)]">
+                  {video.tur} &middot; {video.sure}
+                </p>
+              </div>
+            </div>
+            <span className="rounded bg-gray-200 px-3 py-1 text-xs text-gray-600 dark:bg-gray-700 dark:text-gray-300">
+              Yakın zamanda
+            </span>
+          </div>
+        ))}
+      </div>
+    </section>
+
+    <section className="rounded-2xl border border-[var(--color-border)] bg-[var(--color-bg-secondary)] p-6">
+      <h2 className="mb-4 text-2xl font-bold">İndirilebilir Materyaller</h2>
+      <div className="space-y-3">
+        {[
+          "YZ Haritası Çalışma Yaprağı (PDF)",
+          "YZ veya Değil? Kart Seti (PDF)",
+          "Sesli Asistan Gözlem Formu (PDF)",
+          "Değerlendirme Testi (PDF)",
+          "Öz Değerlendirme Formu (PDF)",
+        ].map((dosya) => (
+          <div
+            key={dosya}
+            className="flex items-center justify-between rounded-lg border border-[var(--color-border)] px-4 py-3"
+          >
+            <span className="text-sm font-medium">{dosya}</span>
+            <span className="rounded bg-gray-200 px-3 py-1 text-xs text-gray-600 dark:bg-gray-700 dark:text-gray-300">
+              Yakın zamanda
+            </span>
+          </div>
+        ))}
+      </div>
+    </section>
+  </>
+);
+
 export default function Bolum2() {
   return (
-    <div className="min-h-screen">
-      {/* Header */}
-      <header className="bg-gradient-to-r from-emerald-600 to-teal-700 text-white">
-        <div className="mx-auto max-w-4xl px-6 py-6">
-          <Link
-            href="/"
-            className="mb-4 inline-block text-sm text-emerald-200 hover:text-white"
-          >
-            &larr; Ana Sayfa
-          </Link>
-          <div className="flex items-center gap-4">
-            <div className="flex h-16 w-16 items-center justify-center rounded-2xl bg-white/20 text-3xl">
-              🏠
-            </div>
-            <div>
-              <p className="text-sm font-medium text-emerald-200">
-                BÖLÜM 2 &middot; 6. Sınıf &middot; 4 ders saati
-              </p>
-              <h1 className="text-3xl font-extrabold">Günlük Hayatta YZ</h1>
-              <p className="text-emerald-200">Yapay Zeka Etrafımızda</p>
-            </div>
-          </div>
-        </div>
-      </header>
-
-      <main className="mx-auto max-w-4xl px-6 py-10 space-y-10">
-        {/* Kazanimlar */}
-        <section className="rounded-2xl border-l-4 border-emerald-500 bg-emerald-50 p-6 dark:bg-emerald-900/20">
-          <h2 className="mb-3 text-lg font-bold text-emerald-700 dark:text-emerald-300">
-            Neler Öğreneceğiz?
-          </h2>
-          <ul className="ml-4 list-disc space-y-1 text-[var(--color-text-secondary)]">
-            <li>Yapay zekanın günlük hayatta kullanıldığı alanları keşfedeceğiz.</li>
-            <li>Telefonumuzdaki YZ uygulamalarını tanımlayabileceğiz.</li>
-            <li>Farklı sektörlerde (sağlık, ulaşım, eğitim, tarım) YZ kullanımı örnekleri verebileceğiz.</li>
-            <li>YZ uygulamalarının arkasındaki temel teknolojileri anlayacağız.</li>
-          </ul>
-        </section>
-
-        {/* Anahtar Kavramlar */}
-        <div className="flex flex-wrap gap-2">
-          {[
-            "öneri sistemi",
-            "bilgisayar görüsü",
-            "doğal dil işleme",
-            "otonom araç",
-            "akıllı ev",
-            "chatbot",
-          ].map((k) => (
-            <span
-              key={k}
-              className="rounded-full bg-amber-100 px-3 py-1 text-sm font-medium text-amber-800 dark:bg-amber-900/30 dark:text-amber-300"
-            >
-              {k}
-            </span>
-          ))}
-        </div>
-
-        {/* Giris */}
-        <section className="space-y-4">
-          <h2 className="text-2xl font-extrabold">1. YZ Her Yerde!</h2>
-          <p>
-            Sabah alarmınız çaldığında, telefonunuz pil durumuna ve
-            alışkanlıklarınıza göre en uygun zamanda sizi uyandırmış olabilir.
-            Kahvaltıda telefonunuzu açtığınızda size özel haberler gösterilir.
-            Okula giderken navigasyon en kısa yolu bulur. Farkında olmasak da
-            yapay zeka günlük hayatımızın her anında bizimle birlikte!
-          </p>
-          <div className="rounded-xl bg-emerald-50 p-4 dark:bg-emerald-900/20">
-            <p className="font-medium text-emerald-800 dark:text-emerald-300">
-              🤔 Düşün: Bugün sabahtan beri kaç farklı YZ uygulaması
-              kullandın? Saymaya çalış!
-            </p>
-          </div>
-        </section>
-
-        {/* Telefondaki YZ */}
-        <section className="space-y-4">
-          <h2 className="text-2xl font-extrabold">
-            2. Cebindeki Yapay Zeka
-          </h2>
-          <p>
-            Akıllı telefonlar, içlerinde onlarca YZ teknolojisi barındırır.
-            Farkında olmadan her gün bu teknolojileri kullanırız:
-          </p>
-          <div className="grid gap-3 sm:grid-cols-2">
-            {telefonYzOrnekleri.map((ornek) => (
-              <div
-                key={ornek.ozellik}
-                className="flex items-start gap-3 rounded-xl border border-[var(--color-border)] bg-[var(--color-bg-secondary)] p-4"
-              >
-                <span className="text-2xl">{ornek.icon}</span>
-                <div>
-                  <h4 className="font-bold text-sm">{ornek.ozellik}</h4>
-                  <p className="text-xs text-[var(--color-text-secondary)]">
-                    {ornek.teknoloji}
-                  </p>
-                </div>
-              </div>
-            ))}
-          </div>
-        </section>
-
-        {/* Biliyor Muydunuz */}
-        <div className="rounded-xl border-2 border-amber-300 bg-amber-50 p-5 dark:border-amber-700 dark:bg-amber-900/20">
-          <h3 className="mb-2 font-bold text-amber-700 dark:text-amber-400">
-            💡 Biliyor Muydunuz?
-          </h3>
-          <p className="text-sm text-amber-800 dark:text-amber-300">
-            Ortalama bir akıllı telefon kullanıcısı günde 2.600&apos;den
-            fazla kez telefonuna dokunur. Bu etkileşimlerin büyük bir kısmı
-            yapay zeka tarafından desteklenir: klavye tahmini, uygulama
-            önerileri, bildirim önceliklendirme ve daha fazlası!
-          </p>
-        </div>
-
-        {/* YZ Kullanim Alanlari */}
-        <section className="space-y-4">
-          <h2 className="text-2xl font-extrabold">
-            3. YZ Kullanım Alanları
-          </h2>
-          <p>
-            Yapay zeka sadece telefonlarımızda değil, hayatımızın pek çok
-            alanında aktif olarak kullanılıyor:
-          </p>
-          <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-            {yzAlanlari.map((alan) => (
-              <div
-                key={alan.alan}
-                className={`rounded-xl border ${alan.renkBorder} ${alan.renkAcik} p-5`}
-              >
-                <div className="mb-3 flex items-center gap-2">
-                  <span className="text-2xl">{alan.icon}</span>
-                  <h3 className="font-bold">{alan.alan}</h3>
-                </div>
-                <ul className="ml-1 space-y-1 text-sm text-[var(--color-text-secondary)]">
-                  {alan.ornekler.map((ornek) => (
-                    <li key={ornek} className="flex items-start gap-2">
-                      <span className="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-current opacity-40" />
-                      {ornek}
-                    </li>
-                  ))}
-                </ul>
-              </div>
-            ))}
-          </div>
-        </section>
-
-        {/* Oneri Sistemleri */}
-        <section className="space-y-4">
-          <h2 className="text-2xl font-extrabold">
-            4. Öneri Sistemleri Nasıl Çalışır?
-          </h2>
-          <p>
-            Netflix, YouTube, Spotify gibi platformlar &quot;Sana Özel&quot;
-            içerikler sunar. Peki bu nasıl çalışır?
-          </p>
-          <div className="space-y-3">
-            {[
-              {
-                adim: 1,
-                baslik: "Veri Toplama",
-                aciklama:
-                  "Neyi izlediğini, ne kadar izlediğini, neyi beğendiğini, neyi geçtiğini kaydeder.",
-              },
-              {
-                adim: 2,
-                baslik: "Örüntü Bulma",
-                aciklama:
-                  "Benzer izleme alışkanlıkları olan kullanıcıları bulur. 'Seni sevenlerin sevdiklerini' keşfeder.",
-              },
-              {
-                adim: 3,
-                baslik: "Tahmin Yapma",
-                aciklama:
-                  "Senin henüz izlemediğin ama sevebileceğin içerikleri tahmin eder.",
-              },
-              {
-                adim: 4,
-                baslik: "Öneri Sunma",
-                aciklama:
-                  "Ana sayfanda 'Senin için seçtiklerimiz' olarak gösterir.",
-              },
-            ].map((a) => (
-              <div key={a.adim} className="flex items-start gap-4">
-                <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-emerald-600 font-bold text-white">
-                  {a.adim}
-                </span>
-                <div>
-                  <h4 className="font-bold">{a.baslik}</h4>
-                  <p className="text-sm text-[var(--color-text-secondary)]">
-                    {a.aciklama}
-                  </p>
-                </div>
-              </div>
-            ))}
-          </div>
-        </section>
-
-        {/* Sesli Asistanlar */}
-        <section className="space-y-4">
-          <h2 className="text-2xl font-extrabold">
-            5. Sesli Asistanlar ve Chatbotlar
-          </h2>
-          <p>
-            Siri, Google Asistan, Alexa gibi sesli asistanlar birden fazla YZ
-            teknolojisini bir arada kullanır:
-          </p>
-          <div className="overflow-x-auto">
-            <table className="w-full rounded-xl border border-[var(--color-border)] text-sm">
-              <thead className="bg-emerald-600 text-white">
-                <tr>
-                  <th className="px-4 py-3 text-left">Aşama</th>
-                  <th className="px-4 py-3 text-left">Teknoloji</th>
-                  <th className="px-4 py-3 text-left">Ne Yapar?</th>
-                </tr>
-              </thead>
-              <tbody>
-                {[
-                  [
-                    "1. Dinleme",
-                    "Konuşma Tanıma (ASR)",
-                    "Sesini metne çevirir",
-                  ],
-                  [
-                    "2. Anlama",
-                    "Doğal Dil İşleme (NLP)",
-                    "Ne demek istediğini anlar",
-                  ],
-                  [
-                    "3. İşlem",
-                    "Akıl Yürütme",
-                    "En iyi yanıtı bulur",
-                  ],
-                  [
-                    "4. Yanıtlama",
-                    "Konuşma Sentezi (TTS)",
-                    "Yanıtı sesli olarak söyler",
-                  ],
-                ].map(([asama, teknoloji, neYapar], i) => (
-                  <tr
-                    key={asama}
-                    className={
-                      i % 2 === 0 ? "bg-[var(--color-bg-secondary)]" : ""
-                    }
-                  >
-                    <td className="px-4 py-2.5 font-medium">{asama}</td>
-                    <td className="px-4 py-2.5">{teknoloji}</td>
-                    <td className="px-4 py-2.5">{neYapar}</td>
-                  </tr>
-                ))}
-              </tbody>
-            </table>
-          </div>
-        </section>
-
-        {/* Biliyor muydunuz 2 */}
-        <div className="grid gap-4 md:grid-cols-2">
-          <div className="rounded-xl border border-emerald-200 bg-emerald-50 p-5 dark:border-emerald-800 dark:bg-emerald-900/20">
-            <h3 className="mb-2 font-bold">🚗 Otonom Araçlar</h3>
-            <p className="text-sm text-[var(--color-text-secondary)]">
-              Tesla, Waymo gibi şirketlerin sürücüsüz araçları kameralar,
-              radarlar ve LIDAR sensörleri ile çevreyi algılar. YZ, diğer
-              araçları, yayaları ve trafik işaretlerini tanımlayarak aracı
-              güvenli bir şekilde sürebilir.
-            </p>
-          </div>
-          <div className="rounded-xl border border-emerald-200 bg-emerald-50 p-5 dark:border-emerald-800 dark:bg-emerald-900/20">
-            <h3 className="mb-2 font-bold">🌾 Akıllı Tarım</h3>
-            <p className="text-sm text-[var(--color-text-secondary)]">
-              Drone&apos;lar tarlaları havadan tarayarak hastalıklı bitkileri
-              tespit eder. YZ destekli sulama sistemleri toprağın nem durumuna
-              göre su tasarrufu sağlar. Türkiye&apos;de de akıllı tarım
-              uygulamaları yaygınlaşmaktadır.
-            </p>
-          </div>
-        </div>
-
-        {/* Etkinlikler */}
-        <section className="space-y-6">
-          <h2 className="text-2xl font-extrabold">Etkinlikler</h2>
-
-          {/* Etkinlik 1 - Unplugged */}
-          <div className="rounded-2xl border border-[var(--color-border)] bg-[var(--color-bg-secondary)] p-6">
-            <div className="mb-3 flex items-center gap-3">
-              <span className="rounded-lg bg-emerald-500 px-3 py-1 text-sm font-bold text-white">
-                UNPLUGGED
-              </span>
-              <span className="text-sm text-[var(--color-text-secondary)]">
-                25 dakika &middot; Bireysel + sınıf tartışması
-              </span>
-            </div>
-            <h3 className="mb-2 text-xl font-bold">
-              Etkinlik 1: YZ Haritası
-            </h3>
-            <p className="mb-4 text-[var(--color-text-secondary)]">
-              A3 kağıda büyük bir harita çizin. Ortaya &quot;BEN&quot; yazın.
-              Etrafına gün boyunca karşılaştığınız YZ uygulamalarını
-              yerleştirin (ev, okul, yol, alışveriş). Her uygulamanın yanına
-              hangi YZ teknolojisini kullandığını yazın.
-            </p>
-            <div className="rounded-lg bg-emerald-50 p-3 text-sm dark:bg-emerald-900/20">
-              <p className="font-medium text-emerald-700 dark:text-emerald-300">
-                📋 Malzemeler: A3 kağıt, renkli kalemler, yapıştırıcı notlar
-              </p>
-            </div>
-          </div>
-
-          {/* Etkinlik 2 - Unplugged */}
-          <div className="rounded-2xl border border-[var(--color-border)] bg-[var(--color-bg-secondary)] p-6">
-            <div className="mb-3 flex items-center gap-3">
-              <span className="rounded-lg bg-emerald-500 px-3 py-1 text-sm font-bold text-white">
-                UNPLUGGED
-              </span>
-              <span className="text-sm text-[var(--color-text-secondary)]">
-                20 dakika &middot; Grup çalışması (4 kişi)
-              </span>
-            </div>
-            <h3 className="mb-2 text-xl font-bold">
-              Etkinlik 2: YZ veya Değil?
-            </h3>
-            <p className="mb-4 text-[var(--color-text-secondary)]">
-              Kartlardaki cihaz ve uygulamaları &quot;YZ Kullanan&quot; ve
-              &quot;YZ Kullanmayan&quot; olarak sınıflandırın. Her kartın neden
-              o kategoriye ait olduğunu grubunuzla tartışarak karar verin.
-            </p>
-            <div className="rounded-lg bg-amber-50 p-3 text-sm dark:bg-amber-900/20">
-              <p className="font-medium text-amber-700 dark:text-amber-300">
-                ⚠️ Dikkat: Bazı cihazlar/uygulamalar hem YZ kullanan hem de
-                kullanmayan versiyonlarda olabilir. Bu durumu tartışmak çok
-                değerli!
-              </p>
-            </div>
-          </div>
-
-          {/* Etkinlik 3 - Bilgisayarli */}
-          <div className="rounded-2xl border border-[var(--color-border)] bg-[var(--color-bg-secondary)] p-6">
-            <div className="mb-3 flex items-center gap-3">
-              <span className="rounded-lg bg-blue-500 px-3 py-1 text-sm font-bold text-white">
-                BİLGİSAYARLI
-              </span>
-              <span className="text-sm text-[var(--color-text-secondary)]">
-                30 dakika &middot; Bireysel
-              </span>
-            </div>
-            <h3 className="mb-2 text-xl font-bold">
-              Etkinlik 3: Sesli Asistanla Tanışma
-            </h3>
-            <p className="mb-4 text-[var(--color-text-secondary)]">
-              Telefonunuzdaki sesli asistanı (Google Asistan veya Siri) açın.
-              Aşağıdaki görevleri deneyin ve asistanın hangi görevlerde başarılı,
-              hangilerinde başarısız olduğunu kaydedin:
-            </p>
-            <ul className="mb-4 ml-4 list-disc space-y-1 text-sm text-[var(--color-text-secondary)]">
-              <li>Bir soru sorun (örn: &quot;Türkiye&apos;nin başkenti neresidir?&quot;)</li>
-              <li>Bir alarm kurmasını isteyin</li>
-              <li>Bir fıkra anlatmasını isteyin</li>
-              <li>Duygusal bir soru sorun (örn: &quot;Bugün mutsuzum, ne yapmalıyım?&quot;)</li>
-              <li>Belirsiz bir komut verin (örn: &quot;O şeyi aç&quot;)</li>
-            </ul>
-            <div className="rounded-lg bg-sky-50 p-3 text-sm dark:bg-sky-900/20">
-              <p className="font-medium text-sky-700 dark:text-sky-300">
-                📝 Sonuçları &quot;Gözlem Formu&quot;na kaydedin ve sınıfta
-                karşılaştırın.
-              </p>
-            </div>
-          </div>
-
-          {/* Etkinlik 4 - Bilgisayarli */}
-          <div className="rounded-2xl border border-[var(--color-border)] bg-[var(--color-bg-secondary)] p-6">
-            <div className="mb-3 flex items-center gap-3">
-              <span className="rounded-lg bg-blue-500 px-3 py-1 text-sm font-bold text-white">
-                BİLGİSAYARLI
-              </span>
-              <span className="text-sm text-[var(--color-text-secondary)]">
-                20 dakika &middot; Bireysel
-              </span>
-            </div>
-            <h3 className="mb-2 text-xl font-bold">
-              Etkinlik 4: YZ Röportajı
-            </h3>
-            <p className="mb-4 text-[var(--color-text-secondary)]">
-              Ailenizden birine (anne, baba, büyükanne/büyükbaba) &quot;Yapay
-              zeka hakkında ne düşünüyorsunuz?&quot; diye sorun. Cevapları
-              kısa bir paragrafta özetleyin. Sınıfta farklı nesillerin YZ
-              hakkındaki görüşlerini karşılaştırın.
-            </p>
-          </div>
-        </section>
-
-        {/* Video */}
-        <section className="rounded-2xl border border-[var(--color-border)] bg-[var(--color-bg-secondary)] p-6">
-          <h2 className="mb-4 text-2xl font-bold">Video Kaynaklar</h2>
-          <div className="space-y-3">
-            {[
-              {
-                baslik: "Yapay Zeka Günlük Hayatımızı Nasıl Etkiliyor?",
-                tur: "Tanıtım",
-                sure: "~5 dk",
-              },
-              {
-                baslik: "Sesli Asistan Nasıl Çalışır? (Adım Adım)",
-                tur: "Uygulama",
-                sure: "~7 dk",
-              },
-              {
-                baslik: "Öneri Sistemleri: Netflix Sana Nasıl Film Önerir?",
-                tur: "Kavram",
-                sure: "~4 dk",
-              },
-            ].map((video) => (
-              <div
-                key={video.baslik}
-                className="flex items-center justify-between rounded-lg border border-[var(--color-border)] px-4 py-3"
-              >
-                <div className="flex items-center gap-3">
-                  <span className="text-xl">🎥</span>
-                  <div>
-                    <span className="text-sm font-medium">{video.baslik}</span>
-                    <p className="text-xs text-[var(--color-text-secondary)]">
-                      {video.tur} &middot; {video.sure}
-                    </p>
-                  </div>
-                </div>
-                <span className="rounded bg-gray-200 px-3 py-1 text-xs text-gray-600 dark:bg-gray-700 dark:text-gray-300">
-                  Yakın zamanda
-                </span>
-              </div>
-            ))}
-          </div>
-        </section>
-
-        {/* Quiz */}
-        <InteraktifQuiz sorular={quizSorulari} />
-
-        {/* Indirilebilir */}
-        <section className="rounded-2xl border border-[var(--color-border)] bg-[var(--color-bg-secondary)] p-6">
-          <h2 className="mb-4 text-2xl font-bold">İndirilebilir Materyaller</h2>
-          <div className="space-y-3">
-            {[
-              "YZ Haritası Çalışma Yaprağı (PDF)",
-              "YZ veya Değil? Kart Seti (PDF)",
-              "Sesli Asistan Gözlem Formu (PDF)",
-              "Değerlendirme Testi (PDF)",
-              "Öz Değerlendirme Formu (PDF)",
-            ].map((dosya) => (
-              <div
-                key={dosya}
-                className="flex items-center justify-between rounded-lg border border-[var(--color-border)] px-4 py-3"
-              >
-                <span className="text-sm font-medium">{dosya}</span>
-                <span className="rounded bg-gray-200 px-3 py-1 text-xs text-gray-600 dark:bg-gray-700 dark:text-gray-300">
-                  Yakın zamanda
-                </span>
-              </div>
-            ))}
-          </div>
-        </section>
-
-        {/* Navigasyon */}
-        <div className="flex items-center justify-between pt-6">
-          <Link
-            href="/bolumler/1"
-            className="rounded-lg border border-[var(--color-border)] px-6 py-3 font-medium transition hover:bg-[var(--color-bg-secondary)]"
-          >
-            &larr; Bölüm 1
-          </Link>
-          <Link
-            href="/bolumler/3"
-            className="rounded-lg bg-emerald-600 px-6 py-3 font-medium text-white transition hover:bg-emerald-700"
-          >
-            Bölüm 3 &rarr;
-          </Link>
-        </div>
-      </main>
-    </div>
+    <BolumSlider
+      bolumNo={2}
+      bolumBaslik="Günlük Hayatta YZ"
+      bolumAltBaslik="Yapay Zeka Etrafımızda"
+      seviye="6. Sınıf"
+      ders={4}
+      renk="from-emerald-600 to-teal-700"
+      oncekiBolum={1}
+      sonrakiBolum={3}
+      slaytlar={[
+        { baslik: "Kazanımlar", icon: "🎯", icerik: SlaytKazanimlar },
+        { baslik: "Konu Anlatımı", icon: "📖", icerik: SlaytKonuAnlatimi },
+        { baslik: "YZ Alanları ve Teknolojiler", icon: "🌐", icerik: SlaytYzAlanlari },
+        { baslik: "Etkinlikler", icon: "🎮", icerik: SlaytEtkinlikler },
+        { baslik: "Quiz ve Materyaller", icon: "📝", icerik: SlaytQuiz },
+      ]}
+    />
   );
 }
