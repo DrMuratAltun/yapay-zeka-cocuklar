@@ -17,7 +17,7 @@ const bolumler = [
     seviye: "6. Sinif",
     ders: 4,
     renk: "bg-emerald-500",
-    hazir: false,
+    hazir: true,
   },
   {
     no: 3,
