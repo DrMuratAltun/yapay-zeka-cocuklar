@@ -26,7 +26,7 @@ const bolumler = [
     seviye: "6. Sinif",
     ders: 4,
     renk: "bg-violet-500",
-    hazir: false,
+    hazir: true,
   },
   {
     no: 4,
@@ -35,7 +35,7 @@ const bolumler = [
     seviye: "6-7. Sinif",
     ders: 6,
     renk: "bg-orange-500",
-    hazir: false,
+    hazir: true,
   },
   {
     no: 5,
@@ -44,7 +44,7 @@ const bolumler = [
     seviye: "6-7. Sinif",
     ders: 6,
     renk: "bg-pink-500",
-    hazir: false,
+    hazir: true,
   },
   {
     no: 6,
