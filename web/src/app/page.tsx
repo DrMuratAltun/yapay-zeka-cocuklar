@@ -1,347 +1,228 @@
 import Link from "next/link";
 
 const bolumler = [
-  {
-    no: 1,
-    baslik: "Yapay Zeka Nedir?",
-    altBaslik: "Kesif Yolculugu",
-    seviye: "6. Sinif",
-    ders: 4,
-    renk: "bg-sky-500",
-    hazir: true,
-  },
-  {
-    no: 2,
-    baslik: "Gunluk Hayatta YZ",
-    altBaslik: "Yapay Zeka Etrafimizda",
-    seviye: "6. Sinif",
-    ders: 4,
-    renk: "bg-emerald-500",
-    hazir: true,
-  },
-  {
-    no: 3,
-    baslik: "Verinin Gucu",
-    altBaslik: "YZ'nin Yakiti",
-    seviye: "6. Sinif",
-    ders: 4,
-    renk: "bg-violet-500",
-    hazir: true,
-  },
-  {
-    no: 4,
-    baslik: "Makineler Nasil Ogrenir?",
-    altBaslik: "Makine Ogrenimi Temelleri",
-    seviye: "6-7. Sinif",
-    ders: 6,
-    renk: "bg-orange-500",
-    hazir: true,
-  },
-  {
-    no: 5,
-    baslik: "Uretken Yapay Zeka",
-    altBaslik: "YZ Araclariyla Tanisin",
-    seviye: "6-7. Sinif",
-    ders: 6,
-    renk: "bg-pink-500",
-    hazir: true,
-  },
-  {
-    no: 6,
-    baslik: "Blok Tabanli YZ Kodlama",
-    altBaslik: "PictoBlox Projeleri",
-    seviye: "7. Sinif",
-    ders: 8,
-    renk: "bg-blue-600",
-    hazir: true,
-  },
-  {
-    no: 7,
-    baslik: "Gercek Hayat Problemleri",
-    altBaslik: "STEM Tabanli YZ Cozumleri",
-    seviye: "7-8. Sinif",
-    ders: 8,
-    renk: "bg-teal-500",
-    hazir: true,
-  },
-  {
-    no: 8,
-    baslik: "Dijital Icerik Uretimi",
-    altBaslik: "YZ ile Yaraticilik",
-    seviye: "7-8. Sinif",
-    ders: 6,
-    renk: "bg-rose-500",
-    hazir: true,
-  },
-  {
-    no: 9,
-    baslik: "YZ ve Etik",
-    altBaslik: "Dogru Kullanimin Pusulasi",
-    seviye: "7-8. Sinif",
-    ders: 4,
-    renk: "bg-amber-600",
-    hazir: true,
-  },
-  {
-    no: 10,
-    baslik: "Gelecek Seninle Baslar",
-    altBaslik: "Proje ve Portfolyo",
-    seviye: "8. Sinif",
-    ders: 8,
-    renk: "bg-indigo-600",
-    hazir: true,
-  },
-];
-
-const ozellikler = [
-  {
-    icon: "📖",
-    baslik: "10 Bolum",
-    aciklama: "Temel kavramlardan ileri projelere kademeli ilerleme",
-  },
-  {
-    icon: "🎮",
-    baslik: "Uygulamali",
-    aciklama: "Her bolumde bilgisayarli ve bilgisayarsiz etkinlikler",
-  },
-  {
-    icon: "🎥",
-    baslik: "Video Egitimler",
-    aciklama: "Adim adim nasil yapilir videolari",
-  },
-  {
-    icon: "📱",
-    baslik: "QR Kodlar",
-    aciklama: "Kitaptan dogrudan interaktif etkinliklere erisim",
-  },
-  {
-    icon: "🖨️",
-    baslik: "Yazici Dostu",
-    aciklama: "Etkinlik sayfalari ve formlar PDF indirilebilir",
-  },
-  {
-    icon: "🏫",
-    baslik: "MEB Uyumlu",
-    aciklama: "BTY 6. sinif 5. Tema kazanimlariyla uyumlu",
-  },
-];
-
-const araclar = [
-  {
-    ad: "Google Teachable Machine",
-    url: "https://teachablemachine.withgoogle.com/",
-    aciklama: "Kodsuz ML model egitimi",
-    icon: "🧪",
-  },
-  {
-    ad: "PictoBlox",
-    url: "https://thestempedia.com/product/pictoblox/",
-    aciklama: "Blok tabanli YZ kodlama",
-    icon: "🧩",
-  },
-  {
-    ad: "Scratch",
-    url: "https://scratch.mit.edu/",
-    aciklama: "Blok tabanli kodlama",
-    icon: "🐱",
-  },
-  {
-    ad: "ML for Kids",
-    url: "https://machinelearningforkids.co.uk/",
-    aciklama: "Makine ogrenimi projeleri",
-    icon: "🎓",
-  },
-  {
-    ad: "Canva",
-    url: "https://canva.com/",
-    aciklama: "YZ destekli gorsel tasarim",
-    icon: "🎨",
-  },
-  {
-    ad: "ChatGPT / Gemini",
-    url: "https://chatgpt.com/",
-    aciklama: "Uretken YZ deneyimi",
-    icon: "💬",
-  },
+  { no: 1, baslik: "Yapay Zeka Nedir?", altBaslik: "Kesif Yolculugu", seviye: "6. Sinif", ders: 4, renk: "from-sky-400 to-blue-500", hazir: true },
+  { no: 2, baslik: "Gunluk Hayatta YZ", altBaslik: "Yapay Zeka Etrafimizda", seviye: "6. Sinif", ders: 4, renk: "from-emerald-400 to-teal-500", hazir: true },
+  { no: 3, baslik: "Verinin Gucu", altBaslik: "YZ'nin Yakiti", seviye: "6. Sinif", ders: 4, renk: "from-violet-400 to-purple-500", hazir: true },
+  { no: 4, baslik: "Makineler Nasil Ogrenir?", altBaslik: "Makine Ogrenimi Temelleri", seviye: "6-7. Sinif", ders: 6, renk: "from-orange-400 to-amber-500", hazir: true },
+  { no: 5, baslik: "Uretken Yapay Zeka", altBaslik: "YZ Araclariyla Tanisin", seviye: "6-7. Sinif", ders: 6, renk: "from-pink-400 to-rose-500", hazir: true },
+  { no: 6, baslik: "Blok Tabanli YZ Kodlama", altBaslik: "PictoBlox Projeleri", seviye: "7. Sinif", ders: 8, renk: "from-blue-400 to-indigo-500", hazir: true },
+  { no: 7, baslik: "Gercek Hayat Problemleri", altBaslik: "STEM Tabanli YZ Cozumleri", seviye: "7-8. Sinif", ders: 8, renk: "from-teal-400 to-cyan-500", hazir: true },
+  { no: 8, baslik: "Dijital Icerik Uretimi", altBaslik: "YZ ile Yaraticilik", seviye: "7-8. Sinif", ders: 6, renk: "from-rose-400 to-pink-500", hazir: true },
+  { no: 9, baslik: "YZ ve Etik", altBaslik: "Dogru Kullanimin Pusulasi", seviye: "7-8. Sinif", ders: 4, renk: "from-amber-400 to-orange-500", hazir: true },
+  { no: 10, baslik: "Gelecek Seninle Baslar", altBaslik: "Proje ve Portfolyo", seviye: "8. Sinif", ders: 8, renk: "from-indigo-400 to-violet-500", hazir: true },
 ];
 
 export default function AnaSayfa() {
   return (
     <div className="min-h-screen">
-      {/* Hero */}
-      <header className="relative overflow-hidden bg-gradient-to-br from-blue-600 via-indigo-700 to-violet-800 text-white">
-        {/* Animated background blobs */}
-        <div className="absolute inset-0 overflow-hidden">
-          <div className="pulse-bg absolute -top-20 -left-20 h-72 w-72 rounded-full bg-sky-400/20 blur-3xl" />
-          <div className="pulse-bg absolute -bottom-32 -right-20 h-96 w-96 rounded-full bg-violet-400/20 blur-3xl" />
-          <div className="pulse-bg absolute top-1/2 left-1/2 h-64 w-64 -translate-x-1/2 -translate-y-1/2 rounded-full bg-amber-400/10 blur-3xl" />
+      {/* Hero - Day of AI ilhamli */}
+      <header className="relative overflow-hidden bg-[#0f172a] text-white">
+        {/* Animated grid background */}
+        <div className="absolute inset-0">
+          <div className="absolute inset-0 bg-[linear-gradient(rgba(56,189,248,0.03)_1px,transparent_1px),linear-gradient(90deg,rgba(56,189,248,0.03)_1px,transparent_1px)] bg-[size:60px_60px]" />
+          <div className="absolute -top-40 -right-40 h-[500px] w-[500px] rounded-full bg-blue-500/10 blur-[120px]" />
+          <div className="absolute -bottom-40 -left-40 h-[500px] w-[500px] rounded-full bg-violet-500/10 blur-[120px]" />
         </div>
 
-        {/* Floating emojis */}
-        <div className="pointer-events-none absolute inset-0">
-          <div className="float-1 absolute top-12 left-[8%] text-5xl opacity-20 md:text-7xl md:opacity-30">🤖</div>
-          <div className="float-2 absolute top-16 right-[12%] text-4xl opacity-20 md:text-6xl md:opacity-25">🧠</div>
-          <div className="float-3 absolute bottom-16 left-[20%] text-4xl opacity-15 md:text-5xl md:opacity-20">💡</div>
-          <div className="float-4 absolute bottom-24 right-[18%] text-3xl opacity-15 md:text-5xl md:opacity-20">🚀</div>
-          <div className="float-5 absolute top-1/2 left-[5%] text-3xl opacity-10 md:text-4xl md:opacity-15">⚡</div>
-        </div>
-
-        <div className="relative mx-auto max-w-5xl px-6 py-24 text-center md:py-32">
-          <div className="slide-up">
-            <p className="mb-5 inline-block rounded-full border border-white/20 bg-white/10 px-5 py-1.5 text-sm font-medium tracking-wide text-sky-100 backdrop-blur-sm">
-              Ortaokul Ogrencileri Icin &middot; 6-8. Sinif
-            </p>
-          </div>
-          <h1 className="slide-up slide-up-delay-1 mb-6 text-5xl font-extrabold leading-tight md:text-7xl">
-            Yapay Zeka
-            <br />
-            <span className="gradient-text">Macerasi</span>
-          </h1>
-          <p className="slide-up slide-up-delay-2 mx-auto mb-10 max-w-xl text-lg leading-relaxed text-blue-100/90">
-            Kesfet, ogren, uygula! Uygulamali ve eglenceli yapay zeka egitim kitabi ve interaktif platform.
-          </p>
-          <div className="slide-up slide-up-delay-3 flex flex-wrap justify-center gap-4">
-            <a
-              href="#bolumler"
-              className="rounded-full bg-white px-8 py-3.5 font-bold text-indigo-700 shadow-lg shadow-indigo-900/30 transition hover:scale-105 hover:shadow-xl"
-            >
-              Bolumleri Kesfet
-            </a>
-            <a
-              href="https://github.com/DrMuratAltun/yapay-zeka-cocuklar"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="rounded-full border-2 border-white/20 bg-white/5 px-8 py-3.5 font-bold text-white backdrop-blur-sm transition hover:bg-white/15"
-            >
-              GitHub&apos;da Incele
-            </a>
-          </div>
-
-          {/* Stats */}
-          <div className="slide-up slide-up-delay-3 mt-16 flex flex-wrap justify-center gap-8 text-sm md:gap-16">
-            {[
-              { sayi: "10", etiket: "Bolum" },
-              { sayi: "50+", etiket: "Etkinlik" },
-              { sayi: "30+", etiket: "Video" },
-              { sayi: "100%", etiket: "Ucretsiz" },
-            ].map((s) => (
-              <div key={s.etiket}>
-                <div className="text-3xl font-extrabold">{s.sayi}</div>
-                <div className="text-blue-200">{s.etiket}</div>
+        <div className="relative mx-auto max-w-6xl px-6 py-24 md:py-32">
+          <div className="grid items-center gap-12 md:grid-cols-2">
+            {/* Sol: Metin */}
+            <div>
+              <div className="mb-6 inline-flex items-center gap-2 rounded-full border border-sky-500/20 bg-sky-500/10 px-4 py-1.5 text-sm text-sky-300">
+                <span className="h-2 w-2 rounded-full bg-sky-400 animate-pulse" />
+                Acik Kaynak &middot; Ucretsiz &middot; MEB Uyumlu
               </div>
-            ))}
+              <h1 className="mb-6 text-4xl font-extrabold leading-tight md:text-6xl">
+                Yapay Zeka
+                <br />
+                <span className="bg-gradient-to-r from-sky-400 via-blue-400 to-violet-400 bg-clip-text text-transparent">
+                  Okuryazarligi
+                </span>
+                <br />
+                Herkes Icindir
+              </h1>
+              <p className="mb-8 max-w-lg text-lg leading-relaxed text-slate-300">
+                Ortaokul ogrencileri icin uygulamali, eglenceli ve kapsayici
+                yapay zeka egitim platformu. Kesfet, ogren, uygula!
+              </p>
+              <div className="flex flex-wrap gap-4">
+                <a
+                  href="#bolumler"
+                  className="rounded-xl bg-white px-8 py-3.5 font-bold text-slate-900 shadow-lg shadow-white/10 transition hover:scale-105"
+                >
+                  Bolumleri Kesfet
+                </a>
+                <a
+                  href="https://github.com/DrMuratAltun/yapay-zeka-cocuklar"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="rounded-xl border border-white/10 bg-white/5 px-8 py-3.5 font-bold backdrop-blur transition hover:bg-white/10"
+                >
+                  GitHub
+                </a>
+              </div>
+            </div>
+
+            {/* Sag: Istatistikler */}
+            <div className="grid grid-cols-2 gap-4">
+              {[
+                { sayi: "10", etiket: "Bolum", icon: "📖", renk: "from-sky-500/20 to-blue-500/20 border-sky-500/20" },
+                { sayi: "50+", etiket: "Etkinlik", icon: "🎮", renk: "from-emerald-500/20 to-teal-500/20 border-emerald-500/20" },
+                { sayi: "30+", etiket: "Quiz Sorusu", icon: "📝", renk: "from-violet-500/20 to-purple-500/20 border-violet-500/20" },
+                { sayi: "100%", etiket: "Ucretsiz", icon: "🎁", renk: "from-amber-500/20 to-orange-500/20 border-amber-500/20" },
+              ].map((s) => (
+                <div
+                  key={s.etiket}
+                  className={`rounded-2xl border bg-gradient-to-br p-6 ${s.renk}`}
+                >
+                  <span className="text-3xl">{s.icon}</span>
+                  <div className="mt-3 text-3xl font-extrabold">{s.sayi}</div>
+                  <div className="text-sm text-slate-400">{s.etiket}</div>
+                </div>
+              ))}
+            </div>
           </div>
         </div>
       </header>
 
-      {/* Ozellikler */}
-      <section className="mx-auto max-w-5xl px-6 py-20">
-        <h2 className="mb-4 text-center text-3xl font-extrabold">
-          Bu Kitapta Neler Var?
-        </h2>
-        <p className="mx-auto mb-12 max-w-2xl text-center text-[var(--color-text-secondary)]">
-          Her seviyeye uygun, adim adim ilerleyen, uygulamali yapay zeka egitimi
-        </p>
-        <div className="grid gap-6 sm:grid-cols-2 md:grid-cols-3">
-          {ozellikler.map((o) => (
-            <div
-              key={o.baslik}
-              className="card-hover rounded-2xl border border-[var(--color-border)] bg-[var(--color-bg-secondary)] p-6 text-center"
-            >
-              <div className="mb-4 text-5xl">{o.icon}</div>
-              <h3 className="mb-2 text-lg font-bold">{o.baslik}</h3>
-              <p className="text-sm leading-relaxed text-[var(--color-text-secondary)]">
-                {o.aciklama}
-              </p>
+      {/* Hedef Kitle Bantlari */}
+      <section className="border-b border-[var(--color-border)] bg-[var(--color-bg)]">
+        <div className="mx-auto flex max-w-6xl flex-wrap justify-center gap-6 px-6 py-10 md:gap-10">
+          {[
+            { hedef: "Ogrenciler", yas: "6-8. Sinif (11-14 yas)", icon: "🎒", aciklama: "Kesfet, dene, proje gelistir" },
+            { hedef: "Ogretmenler", yas: "BT Ogretmenleri", icon: "👩‍🏫", aciklama: "Hazir ders planları ve materyaller" },
+            { hedef: "Aileler", yas: "Merakli Ebeveynler", icon: "👨‍👩‍👧‍👦", aciklama: "Birlikte ogrenin" },
+          ].map((h) => (
+            <div key={h.hedef} className="flex items-center gap-4 rounded-xl px-2">
+              <span className="text-4xl">{h.icon}</span>
+              <div>
+                <h3 className="font-bold">{h.hedef}</h3>
+                <p className="text-xs text-[var(--color-text-secondary)]">{h.yas}</p>
+                <p className="text-sm text-[var(--color-text-secondary)]">{h.aciklama}</p>
+              </div>
             </div>
           ))}
         </div>
       </section>
 
-      {/* Bolumler */}
-      <section id="bolumler" className="bg-[var(--color-bg-secondary)] py-20">
-        <div className="mx-auto max-w-5xl px-6">
-          <h2 className="mb-4 text-center text-3xl font-extrabold">
-            Kitap Bolumleri
-          </h2>
-          <p className="mx-auto mb-12 max-w-lg text-center text-[var(--color-text-secondary)]">
-            6. siniftan 8. sinifa kademeli ilerleyen 10 bolum
-          </p>
-          <div className="grid gap-5 md:grid-cols-2">
-            {bolumler.map((bolum) => {
-              const cls = `card-hover group flex gap-4 rounded-2xl border border-[var(--color-border)] bg-[var(--color-bg)] p-5 ${
-                bolum.hazir ? "cursor-pointer" : "cursor-default opacity-75"
-              }`;
-              const inner = (
-                <>
-                  <div className={`number-badge ${bolum.renk}`}>
-                    {bolum.no}
-                  </div>
-                  <div className="min-w-0 flex-1">
-                    <div className="mb-1 flex flex-wrap items-center gap-2">
-                      <span className="rounded-full bg-sky-100 px-2.5 py-0.5 text-xs font-semibold text-sky-700 dark:bg-sky-900/50 dark:text-sky-300">
-                        {bolum.seviye}
-                      </span>
-                      <span className="text-xs text-[var(--color-text-secondary)]">
-                        {bolum.ders} ders saati
-                      </span>
-                      {bolum.hazir ? (
-                        <span className="rounded-full bg-emerald-100 px-2 py-0.5 text-xs font-semibold text-emerald-700 dark:bg-emerald-900/50 dark:text-emerald-300">
-                          Hazir
-                        </span>
-                      ) : (
-                        <span className="rounded-full bg-gray-100 px-2 py-0.5 text-xs font-semibold text-gray-500 dark:bg-gray-800 dark:text-gray-400">
-                          Yakin zamanda
-                        </span>
-                      )}
-                    </div>
-                    <h3 className="font-bold group-hover:text-sky-600 transition-colors">
-                      {bolum.baslik}
-                    </h3>
-                    <p className="text-sm text-[var(--color-text-secondary)]">
-                      {bolum.altBaslik}
-                    </p>
-                  </div>
-                </>
-              );
-              return bolum.hazir ? (
-                <Link key={bolum.no} href={`/bolumler/${bolum.no}`} className={cls}>
-                  {inner}
-                </Link>
-              ) : (
-                <div key={bolum.no} className={cls}>
-                  {inner}
-                </div>
-              );
-            })}
+      {/* Neden Bu Kitap */}
+      <section className="bg-[var(--color-bg-secondary)] py-20">
+        <div className="mx-auto max-w-6xl px-6">
+          <div className="mb-12 text-center">
+            <h2 className="mb-3 text-3xl font-extrabold">Neden Bu Platform?</h2>
+            <p className="mx-auto max-w-2xl text-[var(--color-text-secondary)]">
+              MIT ve Stanford arastirmalarindan ilham alan, Turkiye mufredatina uyarlanmis, tamamen uygulamali yaklasilm
+            </p>
+          </div>
+          <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+            {[
+              { icon: "🔌", baslik: "Unplugged Etkinlikler", aciklama: "Bilgisayarsiz, sinifta yapilabilir etkinlikler. Kapsayici — herkes katilir." },
+              { icon: "🧪", baslik: "Uygulamali Ogrenme", aciklama: "Teachable Machine, PictoBlox, Scratch ile gercek YZ projeleri." },
+              { icon: "🖨️", baslik: "Yazici Dostu", aciklama: "Etkinlik kartlari, calisma yapraklari ve formlar PDF indirilebilir." },
+              { icon: "📱", baslik: "QR Kod Entegrasyonu", aciklama: "Kitaptan dogrudan interaktif etkinliklere erisim." },
+              { icon: "🧩", baslik: "Interaktif Quizler", aciklama: "Her bolum sonunda aninda geri bildirimli degerlendirme." },
+              { icon: "⚖️", baslik: "Etik Odakli", aciklama: "YZ etigi, onyargi ve sorumlu kullanim her bolumde islenir." },
+            ].map((o) => (
+              <div
+                key={o.baslik}
+                className="card-hover rounded-2xl border border-[var(--color-border)] bg-[var(--color-bg)] p-6"
+              >
+                <span className="text-4xl">{o.icon}</span>
+                <h3 className="mt-4 text-lg font-bold">{o.baslik}</h3>
+                <p className="mt-2 text-sm leading-relaxed text-[var(--color-text-secondary)]">{o.aciklama}</p>
+              </div>
+            ))}
           </div>
         </div>
       </section>
 
+      {/* Bolumler */}
+      <section id="bolumler" className="py-20">
+        <div className="mx-auto max-w-6xl px-6">
+          <div className="mb-12 text-center">
+            <h2 className="mb-3 text-3xl font-extrabold">10 Bolum, Kademeli Ilerleme</h2>
+            <p className="mx-auto max-w-lg text-[var(--color-text-secondary)]">
+              6. siniftan 8. sinifa, temelden ileriye, adim adim YZ okuryazarligi
+            </p>
+          </div>
+
+          {/* Sinif gruplari */}
+          {[
+            { sinif: "6. Sinif — Temel Kavramlar", bolumNolar: [1, 2, 3] },
+            { sinif: "6-7. Sinif — Uygulama", bolumNolar: [4, 5] },
+            { sinif: "7. Sinif — Kodlama", bolumNolar: [6] },
+            { sinif: "7-8. Sinif — Derinlesme", bolumNolar: [7, 8, 9] },
+            { sinif: "8. Sinif — Proje", bolumNolar: [10] },
+          ].map((grup) => (
+            <div key={grup.sinif} className="mb-8">
+              <h3 className="mb-4 text-sm font-bold uppercase tracking-wider text-[var(--color-text-secondary)]">
+                {grup.sinif}
+              </h3>
+              <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+                {grup.bolumNolar.map((no) => {
+                  const b = bolumler[no - 1];
+                  return (
+                    <Link
+                      key={b.no}
+                      href={`/bolumler/${b.no}`}
+                      className="card-hover group overflow-hidden rounded-2xl border border-[var(--color-border)] bg-[var(--color-bg)]"
+                    >
+                      <div className={`h-2 bg-gradient-to-r ${b.renk}`} />
+                      <div className="p-5">
+                        <div className="mb-2 flex items-center justify-between">
+                          <span className="text-xs font-bold text-[var(--color-text-secondary)]">
+                            BOLUM {b.no}
+                          </span>
+                          <span className="text-xs text-[var(--color-text-secondary)]">
+                            {b.ders} ders saati
+                          </span>
+                        </div>
+                        <h4 className="text-lg font-bold group-hover:text-sky-600 transition-colors">
+                          {b.baslik}
+                        </h4>
+                        <p className="mt-1 text-sm text-[var(--color-text-secondary)]">
+                          {b.altBaslik}
+                        </p>
+                      </div>
+                    </Link>
+                  );
+                })}
+              </div>
+            </div>
+          ))}
+        </div>
+      </section>
+
       {/* Araclar */}
-      <section className="py-20">
-        <div className="mx-auto max-w-5xl px-6">
-          <h2 className="mb-4 text-center text-3xl font-extrabold">
-            Kullanacagimiz Araclar
-          </h2>
-          <p className="mx-auto mb-12 max-w-lg text-center text-[var(--color-text-secondary)]">
-            Tumunu ucretsiz, hepsi web tabanli
-          </p>
-          <div className="grid gap-4 sm:grid-cols-2 md:grid-cols-3">
-            {araclar.map((arac) => (
+      <section className="bg-[var(--color-bg-secondary)] py-20">
+        <div className="mx-auto max-w-6xl px-6">
+          <div className="mb-12 text-center">
+            <h2 className="mb-3 text-3xl font-extrabold">Kullanilan Araclar</h2>
+            <p className="text-[var(--color-text-secondary)]">Hepsi ucretsiz, hepsi web tabanli</p>
+          </div>
+          <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+            {[
+              { ad: "Teachable Machine", aciklama: "Kodsuz ML model egitimi", url: "https://teachablemachine.withgoogle.com/", icon: "🧪" },
+              { ad: "PictoBlox", aciklama: "Blok tabanli YZ kodlama", url: "https://thestempedia.com/product/pictoblox/", icon: "🧩" },
+              { ad: "ML for Kids", aciklama: "Scratch ile ML projeleri", url: "https://machinelearningforkids.co.uk/", icon: "🎓" },
+              { ad: "Scratch", aciklama: "Blok tabanli kodlama", url: "https://scratch.mit.edu/", icon: "🐱" },
+              { ad: "Canva AI", aciklama: "YZ destekli tasarim", url: "https://canva.com/", icon: "🎨" },
+              { ad: "ChatGPT", aciklama: "Uretken YZ deneyimi", url: "https://chatgpt.com/", icon: "💬" },
+              { ad: "Gemini", aciklama: "Google YZ asistani", url: "https://gemini.google.com/", icon: "✨" },
+              { ad: "Bing Image Creator", aciklama: "Ucretsiz goruntu uretme", url: "https://www.bing.com/images/create", icon: "🖼️" },
+            ].map((a) => (
               <a
-                key={arac.ad}
-                href={arac.url}
+                key={a.ad}
+                href={a.url}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="card-hover flex items-start gap-3 rounded-2xl border border-[var(--color-border)] bg-[var(--color-bg-secondary)] p-5"
+                className="card-hover flex items-start gap-3 rounded-xl border border-[var(--color-border)] bg-[var(--color-bg)] p-4"
               >
-                <span className="text-3xl">{arac.icon}</span>
+                <span className="text-2xl">{a.icon}</span>
                 <div>
-                  <h4 className="font-bold">{arac.ad}</h4>
-                  <p className="text-sm text-[var(--color-text-secondary)]">
-                    {arac.aciklama}
-                  </p>
+                  <h4 className="text-sm font-bold">{a.ad}</h4>
+                  <p className="text-xs text-[var(--color-text-secondary)]">{a.aciklama}</p>
                 </div>
               </a>
             ))}
@@ -349,75 +230,99 @@ export default function AnaSayfa() {
         </div>
       </section>
 
-      {/* Hedef Kitle */}
-      <section className="bg-gradient-to-br from-indigo-600 to-violet-700 py-20 text-white">
-        <div className="mx-auto max-w-4xl px-6 text-center">
-          <h2 className="mb-6 text-3xl font-extrabold">Bu Kitap Kimin Icin?</h2>
-          <div className="grid gap-6 text-left sm:grid-cols-3">
+      {/* Ilham Kaynaklari */}
+      <section className="py-20">
+        <div className="mx-auto max-w-6xl px-6">
+          <div className="mb-12 text-center">
+            <h2 className="mb-3 text-3xl font-extrabold">Ilham Kaynaklari</h2>
+            <p className="mx-auto max-w-lg text-[var(--color-text-secondary)]">
+              Dunya capinda YZ okuryazarligi arastirmalarindan ilham alarak tasarlandi
+            </p>
+          </div>
+          <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
             {[
-              {
-                baslik: "Ogrenciler",
-                icon: "🎒",
-                aciklama:
-                  "6-8. sinif ogrencileri. Yapay zekayi ogrenmek, denemek ve proje gelistirmek isteyenler.",
-              },
-              {
-                baslik: "Ogretmenler",
-                icon: "👩‍🏫",
-                aciklama:
-                  "BT ogretmenleri. Hazir ders planlari, etkinlik kartlari ve degerlendirme araclari.",
-              },
-              {
-                baslik: "Aileler",
-                icon: "👨‍👩‍👧‍👦",
-                aciklama:
-                  "Cocuklariyla birlikte yapay zekayi kesfetmek isteyen merakli aileler.",
-              },
+              { ad: "MIT RAISE", aciklama: "Responsible AI for Social Empowerment", url: "https://raise.mit.edu/", logo: "🏛️" },
+              { ad: "Day of AI", aciklama: "AI Literacy is for Everyone", url: "https://dayofai.org/", logo: "📅" },
+              { ad: "AI4K12", aciklama: "Five Big Ideas in AI", url: "https://ai4k12.org/", logo: "🎓" },
+              { ad: "MEB BTY", aciklama: "Bilisim Teknolojileri Mufredati", url: "https://mufredat.meb.gov.tr/", logo: "🇹🇷" },
             ].map((k) => (
-              <div
-                key={k.baslik}
-                className="rounded-2xl bg-white/10 p-6 backdrop-blur-sm"
+              <a
+                key={k.ad}
+                href={k.url}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="card-hover rounded-xl border border-[var(--color-border)] bg-[var(--color-bg-secondary)] p-5 text-center"
               >
-                <div className="mb-3 text-4xl">{k.icon}</div>
-                <h3 className="mb-2 text-lg font-bold">{k.baslik}</h3>
-                <p className="text-sm leading-relaxed text-blue-100">
-                  {k.aciklama}
-                </p>
-              </div>
+                <span className="text-4xl">{k.logo}</span>
+                <h4 className="mt-3 font-bold">{k.ad}</h4>
+                <p className="mt-1 text-xs text-[var(--color-text-secondary)]">{k.aciklama}</p>
+              </a>
             ))}
+          </div>
+        </div>
+      </section>
+
+      {/* CTA */}
+      <section className="bg-gradient-to-br from-blue-600 via-indigo-700 to-violet-800 py-20 text-center text-white">
+        <div className="mx-auto max-w-3xl px-6">
+          <h2 className="mb-4 text-3xl font-extrabold md:text-4xl">
+            YZ Okuryazarligi Yolculuguna Basla
+          </h2>
+          <p className="mb-8 text-lg text-blue-100">
+            10 bolum, 50+ etkinlik, tamamen ucretsiz. Hemen kesfetmeye basla!
+          </p>
+          <div className="flex flex-wrap justify-center gap-4">
+            <a
+              href="#bolumler"
+              className="rounded-xl bg-white px-10 py-4 text-lg font-bold text-indigo-700 shadow-xl shadow-indigo-900/20 transition hover:scale-105"
+            >
+              Hemen Basla
+            </a>
+            <Link
+              href="/hakkinda"
+              className="rounded-xl border-2 border-white/20 px-10 py-4 text-lg font-bold transition hover:bg-white/10"
+            >
+              Daha Fazla Bilgi
+            </Link>
           </div>
         </div>
       </section>
 
       {/* Footer */}
       <footer className="border-t border-[var(--color-border)] bg-[var(--color-bg-secondary)] py-12">
-        <div className="mx-auto max-w-5xl px-6">
-          <div className="flex flex-col items-center gap-6 md:flex-row md:justify-between">
-            <div className="text-center md:text-left">
-              <p className="text-lg font-extrabold">
-                Yapay Zeka Macerasi
-              </p>
-              <p className="text-sm text-[var(--color-text-secondary)]">
+        <div className="mx-auto max-w-6xl px-6">
+          <div className="grid gap-8 md:grid-cols-3">
+            <div>
+              <p className="text-lg font-extrabold">🤖 Yapay Zeka Macerasi</p>
+              <p className="mt-1 text-sm text-[var(--color-text-secondary)]">
                 Dr. Murat ALTUN
               </p>
+              <p className="mt-3 text-xs text-[var(--color-text-secondary)]">
+                Ortaokul ogrencileri icin uygulamali yapay zeka egitim platformu.
+              </p>
             </div>
-            <div className="flex items-center gap-6 text-sm">
-              <a
-                href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.tr"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-[var(--color-text-secondary)] transition hover:text-sky-600"
-              >
-                CC BY-NC-SA 4.0
-              </a>
-              <a
-                href="https://github.com/DrMuratAltun/yapay-zeka-cocuklar"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-[var(--color-text-secondary)] transition hover:text-sky-600"
-              >
-                GitHub
-              </a>
+            <div>
+              <h4 className="mb-3 text-sm font-bold">Hizli Erisim</h4>
+              <div className="space-y-2 text-sm text-[var(--color-text-secondary)]">
+                <Link href="/#bolumler" className="block hover:text-sky-600 transition">Bolumler</Link>
+                <Link href="/hakkinda" className="block hover:text-sky-600 transition">Hakkinda</Link>
+                <a href="https://github.com/DrMuratAltun/yapay-zeka-cocuklar" target="_blank" rel="noopener noreferrer" className="block hover:text-sky-600 transition">GitHub</a>
+              </div>
+            </div>
+            <div>
+              <h4 className="mb-3 text-sm font-bold">Lisans</h4>
+              <p className="text-sm text-[var(--color-text-secondary)]">
+                Bu eser{" "}
+                <a
+                  href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.tr"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="underline hover:text-sky-600"
+                >
+                  CC BY-NC-SA 4.0
+                </a>{" "}
+                lisansi ile lisanslanmistir. Egitim amacli kullanima aciktir.
+              </p>
             </div>
           </div>
         </div>
