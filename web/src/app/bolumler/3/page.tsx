@@ -3,69 +3,69 @@ import InteraktifQuiz from "@/components/InteraktifQuiz";
 
 const quizSorulari = [
   {
-    soru: "Asagidakilerden hangisi 'veri' icin en dogru tanimdir?",
+    soru: "Aşağıdakilerden hangisi 'veri' için en doğru tanımdır?",
     secenekler: [
-      "Sadece rakamlardan olusan bilgiler",
-      "Islenebilir, kaydedilebilir her turlu bilgi parcasi",
+      "Sadece rakamlardan oluşan bilgiler",
+      "İşlenebilir, kaydedilebilir her türlü bilgi parçası",
       "Sadece bilgisayarda saklanan dosyalar",
-      "Internetten indirilen icerikler",
+      "İnternetten indirilen içerikler",
     ],
     dogru: 1,
-    aciklama: "Veri sadece rakamlar degildir. Metin, goruntu, ses, video, konum bilgisi ve daha fazlasi veridir.",
+    aciklama: "Veri sadece rakamlar değildir. Metin, görüntü, ses, video, konum bilgisi ve daha fazlası veridir.",
   },
   {
-    soru: "Bir yapay zeka modelini egitmek icin hangi tur veri KULLANILMAZ?",
+    soru: "Bir yapay zeka modelini eğitmek için hangi tür veri KULLANILMAZ?",
     secenekler: [
-      "Etiketlenmis fotograflar",
-      "Gecmis satis kayitlari",
-      "Rastgele uretilmis anlamsiz sayilar",
-      "Hasta kayitlari (anonim)",
+      "Etiketlenmiş fotoğraflar",
+      "Geçmiş satış kayıtları",
+      "Rastgele üretilmiş anlamsız sayılar",
+      "Hasta kayıtları (anonim)",
     ],
     dogru: 2,
-    aciklama: "YZ modelleri anlamli, gercek dunya verileriyle egitilir. Rastgele anlamsiz veriler modele bir sey ogretmez.",
+    aciklama: "YZ modelleri anlamlı, gerçek dünya verileriyle eğitilir. Rastgele anlamsız veriler modele bir şey öğretmez.",
   },
   {
-    soru: "Asagidakilerden hangisi 'yapisal veri' ornegi DEGILDIR?",
+    soru: "Aşağıdakilerden hangisi 'yapısal veri' örneği DEĞİLDİR?",
     secenekler: [
-      "Bir sinifin not cizelgesi (tablo)",
-      "Ogrenci numarasi listesi",
-      "Bir ogrencinin yazdigi kompozisyon",
-      "Nufus sayim verileri",
+      "Bir sınıfın not çizelgesi (tablo)",
+      "Öğrenci numarası listesi",
+      "Bir öğrencinin yazdığı kompozisyon",
+      "Nüfus sayım verileri",
     ],
     dogru: 2,
-    aciklama: "Kompozisyon serbest metin oldugundan yapisal olmayan (yapisiz) veridir. Tablolar ve listeler yapisal veridir.",
+    aciklama: "Kompozisyon serbest metin olduğundan yapısal olmayan (yapısız) veridir. Tablolar ve listeler yapısal veridir.",
   },
   {
-    soru: "Veri toplama surecinde asagidakilerden hangisi etik bir sorun olusturur?",
+    soru: "Veri toplama sürecinde aşağıdakilerden hangisi etik bir sorun oluşturur?",
     secenekler: [
-      "Anket ile gonullu veri toplamak",
-      "Insanlarin izni olmadan kisisel bilgilerini kaydetmek",
-      "Acik kaynak veri setleri kullanmak",
+      "Anket ile gönüllü veri toplamak",
+      "İnsanların izni olmadan kişisel bilgilerini kaydetmek",
+      "Açık kaynak veri setleri kullanmak",
       "Anonim istatistik verileri analiz etmek",
     ],
     dogru: 1,
-    aciklama: "Izinsiz kisisel veri toplamak hem etik degil hem de yasalara aykiridir. KVKK bu konuda onemli kurallar icerir.",
+    aciklama: "İzinsiz kişisel veri toplamak hem etik değil hem de yasalara aykırıdır. KVKK bu konuda önemli kurallar içerir.",
   },
   {
-    soru: "'Buyuk veri' (big data) kavrami icin hangisi YANLISTIR?",
+    soru: "'Büyük veri' (big data) kavramı için hangisi YANLIŞDIR?",
     secenekler: [
-      "Cok buyuk miktarda veri iceri",
-      "Geleneksel yontemlerle islenemez",
-      "Sadece buyuk sirketler uretir",
-      "Hiz, cesitlilik ve hacim ozellikleri vardir",
+      "Çok büyük miktarda veri içerir",
+      "Geleneksel yöntemlerle işlenemez",
+      "Sadece büyük şirketler üretir",
+      "Hız, çeşitlilik ve hacim özellikleri vardır",
     ],
     dogru: 2,
-    aciklama: "Buyuk veriyi herkes uretir! Her gun sosyal medya paylasimlariniz, mesajlariniz, konum bilgileriniz buyuk verinin parcasidir.",
+    aciklama: "Büyük veriyi herkes üretir! Her gün sosyal medya paylaşımlarınız, mesajlarınız, konum bilgileriniz büyük verinin parçasıdır.",
   },
 ];
 
 const veriTurleri = [
   { tur: "Metin", icon: "📝", ornekler: "Mesajlar, kitaplar, haberler, yorumlar", renk: "bg-blue-100 dark:bg-blue-900/30 border-blue-300 dark:border-blue-700" },
-  { tur: "Sayi", icon: "🔢", ornekler: "Sicaklik, puan, fiyat, nufus", renk: "bg-emerald-100 dark:bg-emerald-900/30 border-emerald-300 dark:border-emerald-700" },
-  { tur: "Goruntu", icon: "🖼️", ornekler: "Fotograflar, rontgenler, uydu goruntuleri", renk: "bg-violet-100 dark:bg-violet-900/30 border-violet-300 dark:border-violet-700" },
-  { tur: "Ses", icon: "🔊", ornekler: "Muzik, konusmalar, dogal sesler", renk: "bg-orange-100 dark:bg-orange-900/30 border-orange-300 dark:border-orange-700" },
-  { tur: "Video", icon: "🎬", ornekler: "Film, guvenlik kamerasi, ders videolari", renk: "bg-pink-100 dark:bg-pink-900/30 border-pink-300 dark:border-pink-700" },
-  { tur: "Konum", icon: "📍", ornekler: "GPS koordinatlari, harita verileri", renk: "bg-teal-100 dark:bg-teal-900/30 border-teal-300 dark:border-teal-700" },
+  { tur: "Sayı", icon: "🔢", ornekler: "Sıcaklık, puan, fiyat, nüfus", renk: "bg-emerald-100 dark:bg-emerald-900/30 border-emerald-300 dark:border-emerald-700" },
+  { tur: "Görüntü", icon: "🖼️", ornekler: "Fotoğraflar, röntgenler, uydu görüntüleri", renk: "bg-violet-100 dark:bg-violet-900/30 border-violet-300 dark:border-violet-700" },
+  { tur: "Ses", icon: "🔊", ornekler: "Müzik, konuşmalar, doğal sesler", renk: "bg-orange-100 dark:bg-orange-900/30 border-orange-300 dark:border-orange-700" },
+  { tur: "Video", icon: "🎬", ornekler: "Film, güvenlik kamerası, ders videoları", renk: "bg-pink-100 dark:bg-pink-900/30 border-pink-300 dark:border-pink-700" },
+  { tur: "Konum", icon: "📍", ornekler: "GPS koordinatları, harita verileri", renk: "bg-teal-100 dark:bg-teal-900/30 border-teal-300 dark:border-teal-700" },
 ];
 
 export default function Bolum3() {
@@ -80,9 +80,9 @@ export default function Bolum3() {
           <div className="flex items-center gap-4">
             <div className="flex h-16 w-16 items-center justify-center rounded-2xl bg-white/20 text-3xl">📊</div>
             <div>
-              <p className="text-sm font-medium text-violet-200">BOLUM 3 &middot; 6. Sinif &middot; 4 ders saati</p>
-              <h1 className="text-3xl font-extrabold">Verinin Gucu</h1>
-              <p className="text-violet-200">YZ&apos;nin Yakiti</p>
+              <p className="text-sm font-medium text-violet-200">BÖLÜM 3 &middot; 6. Sınıf &middot; 4 ders saati</p>
+              <h1 className="text-3xl font-extrabold">Verinin Gücü</h1>
+              <p className="text-violet-200">YZ&apos;nin Yakıtı</p>
             </div>
           </div>
         </div>
@@ -91,19 +91,19 @@ export default function Bolum3() {
       <main className="mx-auto max-w-4xl px-6 py-10 space-y-10">
         {/* Kazanimlar */}
         <section className="rounded-2xl border-l-4 border-violet-500 bg-violet-50 p-6 dark:bg-violet-900/20">
-          <h2 className="mb-3 text-lg font-bold text-violet-700 dark:text-violet-300">Neler Ogrenecegiz?</h2>
+          <h2 className="mb-3 text-lg font-bold text-violet-700 dark:text-violet-300">Neler Öğreneceğiz?</h2>
           <ul className="ml-4 list-disc space-y-1 text-[var(--color-text-secondary)]">
-            <li>Veri kavramini tanimlayabilir, farkli veri turlerini ayirt edebilecegiz.</li>
-            <li>Yapisal ve yapisal olmayan veri arasindaki farki anlayacagiz.</li>
-            <li>Verinin YZ icin neden onemli oldugunu aciklayabilecegiz.</li>
-            <li>Veri toplama, temizleme ve etiketleme sureclerini ogrenecegiz.</li>
-            <li>Veri gizliligi ve KVKK konusunda bilinc kazanacagiz.</li>
+            <li>Veri kavramını tanımlayabilir, farklı veri türlerini ayırt edebileceğiz.</li>
+            <li>Yapısal ve yapısal olmayan veri arasındaki farkı anlayacağız.</li>
+            <li>Verinin YZ için neden önemli olduğunu açıklayabileceğiz.</li>
+            <li>Veri toplama, temizleme ve etiketleme süreçlerini öğreneceğiz.</li>
+            <li>Veri gizliliği ve KVKK konusunda bilinç kazanacağız.</li>
           </ul>
         </section>
 
         {/* Anahtar Kavramlar */}
         <div className="flex flex-wrap gap-2">
-          {["veri", "veri seti", "yapisal veri", "buyuk veri", "veri etiketleme", "KVKK", "veri gizliligi"].map((k) => (
+          {["veri", "veri seti", "yapısal veri", "büyük veri", "veri etiketleme", "KVKK", "veri gizliliği"].map((k) => (
             <span key={k} className="rounded-full bg-amber-100 px-3 py-1 text-sm font-medium text-amber-800 dark:bg-amber-900/30 dark:text-amber-300">{k}</span>
           ))}
         </div>
@@ -112,22 +112,22 @@ export default function Bolum3() {
         <section className="space-y-4">
           <h2 className="text-2xl font-extrabold">1. Veri Nedir?</h2>
           <p>
-            Veri, islenebilir ve kaydedilebilir her turlu bilgi parcasidir. Bir sinifin
-            boy olculeri, hava durumu kayitlari, telefonundaki fotograflar, dinledigin
-            sarkilar... hepsi birer veridir!
+            Veri, işlenebilir ve kaydedilebilir her türlü bilgi parçasıdır. Bir sınıfın
+            boy ölçüleri, hava durumu kayıtları, telefonundaki fotoğraflar, dinlediğin
+            şarkılar... hepsi birer veridir!
           </p>
           <div className="rounded-xl bg-violet-50 p-4 dark:bg-violet-900/20">
             <p className="font-medium text-violet-800 dark:text-violet-300">
-              🤔 Dusun: Bugun okula gelene kadar kac farkli veri urettin? Alarmin calma saati,
-              kahvaltida yediklerin, adim sayisi, gonderdigin mesajlar...
+              🤔 Düşün: Bugün okula gelene kadar kaç farklı veri ürettin? Alarmın çalma saati,
+              kahvaltıda yediklerin, adım sayısı, gönderdiğin mesajlar...
             </p>
           </div>
         </section>
 
         {/* Veri Turleri */}
         <section className="space-y-4">
-          <h2 className="text-2xl font-extrabold">2. Veri Turleri</h2>
-          <p>Veri pek cok farkli formatta olabilir:</p>
+          <h2 className="text-2xl font-extrabold">2. Veri Türleri</h2>
+          <p>Veri pek çok farklı formatta olabilir:</p>
           <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
             {veriTurleri.map((v) => (
               <div key={v.tur} className={`rounded-xl border p-4 ${v.renk}`}>
@@ -143,23 +143,23 @@ export default function Bolum3() {
 
         {/* Yapisal vs Yapisiz */}
         <section className="space-y-4">
-          <h2 className="text-2xl font-extrabold">3. Yapisal ve Yapisal Olmayan Veri</h2>
+          <h2 className="text-2xl font-extrabold">3. Yapısal ve Yapısal Olmayan Veri</h2>
           <div className="overflow-x-auto">
             <table className="w-full rounded-xl border border-[var(--color-border)] text-sm">
               <thead className="bg-violet-600 text-white">
                 <tr>
-                  <th className="px-4 py-3 text-left">Ozellik</th>
-                  <th className="px-4 py-3 text-left">Yapisal Veri</th>
-                  <th className="px-4 py-3 text-left">Yapisal Olmayan Veri</th>
+                  <th className="px-4 py-3 text-left">Özellik</th>
+                  <th className="px-4 py-3 text-left">Yapısal Veri</th>
+                  <th className="px-4 py-3 text-left">Yapısal Olmayan Veri</th>
                 </tr>
               </thead>
               <tbody>
                 {[
-                  ["Biçim", "Tablo, satir, sutun", "Serbest format"],
-                  ["Ornek", "Excel tablosu, veritabani", "E-posta, fotograf, video"],
-                  ["Aranabilirlik", "Kolay aranir", "Zor aranir"],
-                  ["YZ icin", "Dogrudan kullanilabilir", "Once islenmesi gerekir"],
-                  ["Miktar", "~%20 tum veriler", "~%80 tum veriler"],
+                  ["Biçim", "Tablo, satır, sütun", "Serbest format"],
+                  ["Örnek", "Excel tablosu, veritabanı", "E-posta, fotoğraf, video"],
+                  ["Aranabilirlik", "Kolay aranır", "Zor aranır"],
+                  ["YZ için", "Doğrudan kullanılabilir", "Önce işlenmesi gerekir"],
+                  ["Miktar", "~%20 tüm veriler", "~%80 tüm veriler"],
                 ].map(([ozellik, yapisal, yapisiz], i) => (
                   <tr key={ozellik} className={i % 2 === 0 ? "bg-[var(--color-bg-secondary)]" : ""}>
                     <td className="px-4 py-2.5 font-medium">{ozellik}</td>
@@ -173,25 +173,25 @@ export default function Bolum3() {
           <div className="rounded-xl border-2 border-amber-300 bg-amber-50 p-5 dark:border-amber-700 dark:bg-amber-900/20">
             <h3 className="mb-2 font-bold text-amber-700 dark:text-amber-400">💡 Biliyor Muydunuz?</h3>
             <p className="text-sm text-amber-800 dark:text-amber-300">
-              Dunyadaki verilerin %80&apos;den fazlasi yapisal olmayan veridir!
-              Fotograflar, videolar, sesler ve metinler bu kategoriye girer.
-              YZ&apos;nin bu verileri anlamlandirilabilmesi icin ozel teknikler gerekir.
+              Dünyadaki verilerin %80&apos;den fazlası yapısal olmayan veridir!
+              Fotoğraflar, videolar, sesler ve metinler bu kategoriye girer.
+              YZ&apos;nin bu verileri anlamlandırılabilmesi için özel teknikler gerekir.
             </p>
           </div>
         </section>
 
         {/* Veri YZ iliskisi */}
         <section className="space-y-4">
-          <h2 className="text-2xl font-extrabold">4. Veri Neden YZ icin Onemlidir?</h2>
+          <h2 className="text-2xl font-extrabold">4. Veri Neden YZ için Önemlidir?</h2>
           <p>
-            Yapay zeka, veri olmadan ogrenemez. Nasil ki bir ogrenci kitap okumadan
-            sinava hazirlanamiyorsa, YZ de veri olmadan gorevlerini yerine getiremez.
+            Yapay zeka, veri olmadan öğrenemez. Nasıl ki bir öğrenci kitap okumadan
+            sınava hazırlanamıyorsa, YZ de veri olmadan görevlerini yerine getiremez.
           </p>
           <div className="space-y-3">
             {[
-              { baslik: "Daha Cok Veri = Daha Iyi Sonuc", aciklama: "1.000 kedi fotografi ile egitilen model ile 1.000.000 fotograf ile egitilen model arasinda buyuk fark vardir.", icon: "📈" },
-              { baslik: "Kaliteli Veri = Dogru Sonuc", aciklama: "Bulanik, yanlis etiketlenmis veya hatali veriler yanlis sonuclara yol acar. 'Cop girer, cop cikar' (GIGO) prensibi.", icon: "✅" },
-              { baslik: "Cesitli Veri = Adil Sonuc", aciklama: "Sadece belirli bir grubun verisiyle egitilen model, diger gruplar icin yanlis sonuc verebilir (onyargi/bias).", icon: "🌍" },
+              { baslik: "Daha Çok Veri = Daha İyi Sonuç", aciklama: "1.000 kedi fotoğrafı ile eğitilen model ile 1.000.000 fotoğraf ile eğitilen model arasında büyük fark vardır.", icon: "📈" },
+              { baslik: "Kaliteli Veri = Doğru Sonuç", aciklama: "Bulanık, yanlış etiketlenmiş veya hatalı veriler yanlış sonuçlara yol açar. 'Çöp girer, çöp çıkar' (GIGO) prensibi.", icon: "✅" },
+              { baslik: "Çeşitli Veri = Adil Sonuç", aciklama: "Sadece belirli bir grubun verisiyle eğitilen model, diğer gruplar için yanlış sonuç verebilir (önyargı/bias).", icon: "🌍" },
             ].map((madde) => (
               <div key={madde.baslik} className="flex items-start gap-4 rounded-xl border border-[var(--color-border)] bg-[var(--color-bg-secondary)] p-4">
                 <span className="text-3xl">{madde.icon}</span>
@@ -206,15 +206,15 @@ export default function Bolum3() {
 
         {/* Veri Hazirlama */}
         <section className="space-y-4">
-          <h2 className="text-2xl font-extrabold">5. Veri Hazirlama Sureci</h2>
-          <p>YZ icin veri kullanilmadan once bir hazirlama surecinden gecer:</p>
+          <h2 className="text-2xl font-extrabold">5. Veri Hazırlama Süreci</h2>
+          <p>YZ için veri kullanılmadan önce bir hazırlama sürecinden geçer:</p>
           <div className="space-y-3">
             {[
-              { adim: 1, baslik: "Toplama", aciklama: "Veriler farkli kaynaklardan toplanir: anketler, sensorler, internet, veritabanlari.", renk: "bg-blue-600" },
-              { adim: 2, baslik: "Temizleme", aciklama: "Hatali, eksik veya tekrarlayan veriler ayiklanir. En cok zaman alan adimdir!", renk: "bg-orange-600" },
-              { adim: 3, baslik: "Etiketleme", aciklama: "Veriler kategorize edilir. Ornegin: bu fotograf 'kedi', bu 'kopek'.", renk: "bg-emerald-600" },
-              { adim: 4, baslik: "Bolme", aciklama: "Veri seti ikiye ayrilir: egitim seti (%80) ve test seti (%20).", renk: "bg-violet-600" },
-              { adim: 5, baslik: "Kullanma", aciklama: "Hazir veri YZ modeline verilir. Model bu verilerden ogrenir.", renk: "bg-pink-600" },
+              { adim: 1, baslik: "Toplama", aciklama: "Veriler farklı kaynaklardan toplanır: anketler, sensörler, internet, veritabanları.", renk: "bg-blue-600" },
+              { adim: 2, baslik: "Temizleme", aciklama: "Hatalı, eksik veya tekrarlayan veriler ayıklanır. En çok zaman alan adımdır!", renk: "bg-orange-600" },
+              { adim: 3, baslik: "Etiketleme", aciklama: "Veriler kategorize edilir. Örneğin: bu fotoğraf 'kedi', bu 'köpek'.", renk: "bg-emerald-600" },
+              { adim: 4, baslik: "Bölme", aciklama: "Veri seti ikiye ayrılır: eğitim seti (%80) ve test seti (%20).", renk: "bg-violet-600" },
+              { adim: 5, baslik: "Kullanma", aciklama: "Hazır veri YZ modeline verilir. Model bu verilerden öğrenir.", renk: "bg-pink-600" },
             ].map((a) => (
               <div key={a.adim} className="flex items-start gap-4">
                 <span className={`flex h-10 w-10 shrink-0 items-center justify-center rounded-full font-bold text-white ${a.renk}`}>
@@ -231,13 +231,13 @@ export default function Bolum3() {
 
         {/* Buyuk Veri */}
         <section className="space-y-4">
-          <h2 className="text-2xl font-extrabold">6. Buyuk Veri (Big Data)</h2>
-          <p>Her gun uretilen veri miktari inanilmaz boyutlara ulasmistir:</p>
+          <h2 className="text-2xl font-extrabold">6. Büyük Veri (Big Data)</h2>
+          <p>Her gün üretilen veri miktarı inanılmaz boyutlara ulaşmıştır:</p>
           <div className="grid gap-4 sm:grid-cols-3">
             {[
-              { baslik: "Hacim (Volume)", deger: "2.5 Quintilyon bayt", aciklama: "Her gun uretilen veri", icon: "📦" },
-              { baslik: "Hiz (Velocity)", deger: "500 milyon tweet/gun", aciklama: "Verinin uretilme hizi", icon: "⚡" },
-              { baslik: "Cesitlilik (Variety)", deger: "Metin+ses+goruntu+...", aciklama: "Farkli veri tipleri", icon: "🌈" },
+              { baslik: "Hacim (Volume)", deger: "2.5 Quintilyon bayt", aciklama: "Her gün üretilen veri", icon: "📦" },
+              { baslik: "Hız (Velocity)", deger: "500 milyon tweet/gün", aciklama: "Verinin üretilme hızı", icon: "⚡" },
+              { baslik: "Çeşitlilik (Variety)", deger: "Metin+ses+görüntü+...", aciklama: "Farklı veri tipleri", icon: "🌈" },
             ].map((v) => (
               <div key={v.baslik} className="rounded-xl border border-violet-200 bg-violet-50 p-5 text-center dark:border-violet-800 dark:bg-violet-900/20">
                 <span className="text-3xl">{v.icon}</span>
@@ -251,29 +251,29 @@ export default function Bolum3() {
 
         {/* KVKK ve Gizlilik */}
         <section className="space-y-4">
-          <h2 className="text-2xl font-extrabold">7. Veri Gizliligi ve KVKK</h2>
+          <h2 className="text-2xl font-extrabold">7. Veri Gizliliği ve KVKK</h2>
           <p>
-            Veri cok guclu bir aractir ama dikkatli kullanilmalidir.
-            Turkiye&apos;de kisisel verilerin korunmasi icin <strong>KVKK</strong> (Kisisel
-            Verilerin Korunmasi Kanunu) yururluktedir.
+            Veri çok güçlü bir araçtır ama dikkatli kullanılmalıdır.
+            Türkiye&apos;de kişisel verilerin korunması için <strong>KVKK</strong> (Kişisel
+            Verilerin Korunması Kanunu) yürürlüktedir.
           </p>
           <div className="grid gap-4 md:grid-cols-2">
             <div className="rounded-xl border-2 border-emerald-300 bg-emerald-50 p-5 dark:border-emerald-700 dark:bg-emerald-900/20">
-              <h3 className="mb-2 font-bold text-emerald-700 dark:text-emerald-400">✅ Dogru Kullanim</h3>
+              <h3 className="mb-2 font-bold text-emerald-700 dark:text-emerald-400">✅ Doğru Kullanım</h3>
               <ul className="space-y-1 text-sm text-[var(--color-text-secondary)]">
-                <li>&#8226; Izin alarak veri toplamak</li>
-                <li>&#8226; Verileri guvenli saklamak</li>
-                <li>&#8226; Sadece belirtilen amac icin kullanmak</li>
-                <li>&#8226; Istendigi zaman silmek</li>
+                <li>&#8226; İzin alarak veri toplamak</li>
+                <li>&#8226; Verileri güvenli saklamak</li>
+                <li>&#8226; Sadece belirtilen amaç için kullanmak</li>
+                <li>&#8226; İstendiği zaman silmek</li>
               </ul>
             </div>
             <div className="rounded-xl border-2 border-rose-300 bg-rose-50 p-5 dark:border-rose-700 dark:bg-rose-900/20">
-              <h3 className="mb-2 font-bold text-rose-700 dark:text-rose-400">❌ Yanlis Kullanim</h3>
+              <h3 className="mb-2 font-bold text-rose-700 dark:text-rose-400">❌ Yanlış Kullanım</h3>
               <ul className="space-y-1 text-sm text-[var(--color-text-secondary)]">
-                <li>&#8226; Izinsiz kisisel bilgi toplamak</li>
-                <li>&#8226; Verileri ucuncu kisilerle paylastirmak</li>
-                <li>&#8226; Farkli amaclar icin kullanmak</li>
-                <li>&#8226; Guvensiz ortamda saklamak</li>
+                <li>&#8226; İzinsiz kişisel bilgi toplamak</li>
+                <li>&#8226; Verileri üçüncü kişilerle paylaştırmak</li>
+                <li>&#8226; Farklı amaçlar için kullanmak</li>
+                <li>&#8226; Güvensiz ortamda saklamak</li>
               </ul>
             </div>
           </div>
@@ -286,17 +286,17 @@ export default function Bolum3() {
           <div className="rounded-2xl border border-[var(--color-border)] bg-[var(--color-bg-secondary)] p-6">
             <div className="mb-3 flex items-center gap-3">
               <span className="rounded-lg bg-emerald-500 px-3 py-1 text-sm font-bold text-white">UNPLUGGED</span>
-              <span className="text-sm text-[var(--color-text-secondary)]">25 dakika &middot; Grup calismasi</span>
+              <span className="text-sm text-[var(--color-text-secondary)]">25 dakika &middot; Grup çalışması</span>
             </div>
-            <h3 className="mb-2 text-xl font-bold">Etkinlik 1: Girdi Avcilari</h3>
+            <h3 className="mb-2 text-xl font-bold">Etkinlik 1: Girdi Avcıları</h3>
             <p className="mb-4 text-[var(--color-text-secondary)]">
-              Bilgi kartlarindaki ifadeleri &quot;Dogru Veri&quot;, &quot;Yanlis Veri&quot;
-              ve &quot;Oznel Veri&quot; olarak siniflandirin. Her kartin neden o kategoriye
-              ait oldugunu grubunuzla tartisarak karar verin.
+              Bilgi kartlarındaki ifadeleri &quot;Doğru Veri&quot;, &quot;Yanlış Veri&quot;
+              ve &quot;Öznel Veri&quot; olarak sınıflandırın. Her kartın neden o kategoriye
+              ait olduğunu grubunuzla tartışarak karar verin.
             </p>
             <div className="rounded-lg bg-violet-50 p-3 text-sm dark:bg-violet-900/20">
               <p className="font-medium text-violet-700 dark:text-violet-300">
-                📋 Malzemeler: 20 adet bilgi karti (basili), siniflandirma panosu
+                📋 Malzemeler: 20 adet bilgi kartı (basılı), sınıflandırma panosu
               </p>
             </div>
           </div>
@@ -304,26 +304,26 @@ export default function Bolum3() {
           <div className="rounded-2xl border border-[var(--color-border)] bg-[var(--color-bg-secondary)] p-6">
             <div className="mb-3 flex items-center gap-3">
               <span className="rounded-lg bg-emerald-500 px-3 py-1 text-sm font-bold text-white">UNPLUGGED</span>
-              <span className="text-sm text-[var(--color-text-secondary)]">30 dakika &middot; Sinif calismasi</span>
+              <span className="text-sm text-[var(--color-text-secondary)]">30 dakika &middot; Sınıf çalışması</span>
             </div>
-            <h3 className="mb-2 text-xl font-bold">Etkinlik 2: Sinif Anketi</h3>
+            <h3 className="mb-2 text-xl font-bold">Etkinlik 2: Sınıf Anketi</h3>
             <p className="mb-4 text-[var(--color-text-secondary)]">
-              Sinifca bir anket yapin (favori renk, boy, ayak numarasi, sevilen ders).
-              Sonuclari tahtada tabloya yazin. Bu verileri grafige donusturun. Hangi veri
-              yapisal, hangisi yapisal olmayan? Hangi sonuclar surpriz oldu?
+              Sınıfça bir anket yapın (favori renk, boy, ayak numarası, sevilen ders).
+              Sonuçları tahtada tabloya yazın. Bu verileri grafiğe dönüştürün. Hangi veri
+              yapısal, hangisi yapısal olmayan? Hangi sonuçlar sürpriz oldu?
             </p>
           </div>
 
           <div className="rounded-2xl border border-[var(--color-border)] bg-[var(--color-bg-secondary)] p-6">
             <div className="mb-3 flex items-center gap-3">
-              <span className="rounded-lg bg-blue-500 px-3 py-1 text-sm font-bold text-white">BILGISAYARLI</span>
+              <span className="rounded-lg bg-blue-500 px-3 py-1 text-sm font-bold text-white">BİLGİSAYARLI</span>
               <span className="text-sm text-[var(--color-text-secondary)]">25 dakika &middot; Bireysel</span>
             </div>
-            <h3 className="mb-2 text-xl font-bold">Etkinlik 3: Veri Seti Kesfedici</h3>
+            <h3 className="mb-2 text-xl font-bold">Etkinlik 3: Veri Seti Keşfedici</h3>
             <p className="mb-4 text-[var(--color-text-secondary)]">
               Google Dataset Search veya Kaggle&apos;da bir veri seti bulun. Veri setini
-              inceleyin: kac satir var? Hangi sutunlar var? Veri turleri neler? Bulgularinizi
-              sinifla paylasin.
+              inceleyin: kaç satır var? Hangi sütunlar var? Veri türleri neler? Bulgularınızı
+              sınıfla paylaşın.
             </p>
             <div className="rounded-lg bg-sky-50 p-3 text-sm dark:bg-sky-900/20">
               <p className="font-medium text-sky-700 dark:text-sky-300">
@@ -334,14 +334,14 @@ export default function Bolum3() {
 
           <div className="rounded-2xl border border-[var(--color-border)] bg-[var(--color-bg-secondary)] p-6">
             <div className="mb-3 flex items-center gap-3">
-              <span className="rounded-lg bg-blue-500 px-3 py-1 text-sm font-bold text-white">BILGISAYARLI</span>
+              <span className="rounded-lg bg-blue-500 px-3 py-1 text-sm font-bold text-white">BİLGİSAYARLI</span>
               <span className="text-sm text-[var(--color-text-secondary)]">20 dakika &middot; Bireysel</span>
             </div>
-            <h3 className="mb-2 text-xl font-bold">Etkinlik 4: Veri Etiketleme Atolyesi</h3>
+            <h3 className="mb-2 text-xl font-bold">Etkinlik 4: Veri Etiketleme Atölyesi</h3>
             <p className="text-[var(--color-text-secondary)]">
-              20 hayvan fotografini &quot;kedi&quot; ve &quot;kopek&quot; olarak etiketleyin.
-              Zor olan durumlar var mi? Bir fotografta hem kedi hem kopek varsa ne yaparsiniz?
-              Etiketlemenin ne kadar onemli ve zaman alici oldugunu deneyimleyin.
+              20 hayvan fotoğrafını &quot;kedi&quot; ve &quot;köpek&quot; olarak etiketleyin.
+              Zor olan durumlar var mı? Bir fotoğrafta hem kedi hem köpek varsa ne yaparsınız?
+              Etiketlemenin ne kadar önemli ve zaman alıcı olduğunu deneyimleyin.
             </p>
           </div>
         </section>
@@ -351,18 +351,18 @@ export default function Bolum3() {
 
         {/* Indirilebilir */}
         <section className="rounded-2xl border border-[var(--color-border)] bg-[var(--color-bg-secondary)] p-6">
-          <h2 className="mb-4 text-2xl font-bold">Indirilebilir Materyaller</h2>
+          <h2 className="mb-4 text-2xl font-bold">İndirilebilir Materyaller</h2>
           <div className="space-y-3">
             {[
-              "Girdi Avcilari Bilgi Kartlari (PDF)",
-              "Sinif Anketi Formu (PDF)",
-              "Veri Seti Inceleme Formu (PDF)",
-              "Degerlendirme Testi (PDF)",
-              "Oz Degerlendirme Formu (PDF)",
+              "Girdi Avcıları Bilgi Kartları (PDF)",
+              "Sınıf Anketi Formu (PDF)",
+              "Veri Seti İnceleme Formu (PDF)",
+              "Değerlendirme Testi (PDF)",
+              "Öz Değerlendirme Formu (PDF)",
             ].map((dosya) => (
               <div key={dosya} className="flex items-center justify-between rounded-lg border border-[var(--color-border)] px-4 py-3">
                 <span className="text-sm font-medium">{dosya}</span>
-                <span className="rounded bg-gray-200 px-3 py-1 text-xs text-gray-600 dark:bg-gray-700 dark:text-gray-300">Yakin zamanda</span>
+                <span className="rounded bg-gray-200 px-3 py-1 text-xs text-gray-600 dark:bg-gray-700 dark:text-gray-300">Yakın zamanda</span>
               </div>
             ))}
           </div>
@@ -371,10 +371,10 @@ export default function Bolum3() {
         {/* Navigasyon */}
         <div className="flex items-center justify-between pt-6">
           <Link href="/bolumler/2" className="rounded-lg border border-[var(--color-border)] px-6 py-3 font-medium transition hover:bg-[var(--color-bg-secondary)]">
-            &larr; Bolum 2
+            &larr; Bölüm 2
           </Link>
           <Link href="/bolumler/4" className="rounded-lg bg-violet-600 px-6 py-3 font-medium text-white transition hover:bg-violet-700">
-            Bolum 4 &rarr;
+            Bölüm 4 &rarr;
           </Link>
         </div>
       </main>

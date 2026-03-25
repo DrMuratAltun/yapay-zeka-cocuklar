@@ -11,7 +11,7 @@ interface Soru {
 
 export default function InteraktifQuiz({
   sorular,
-  baslik = "Degerlendirme Testi",
+  baslik = "Değerlendirme Testi",
 }: {
   sorular: Soru[];
   baslik?: string;
@@ -53,7 +53,7 @@ export default function InteraktifQuiz({
                 : "bg-rose-100 text-rose-700"
             }`}
           >
-            {dogruSayisi} / {sorular.length} dogru
+            {dogruSayisi} / {sorular.length} doğru
           </div>
         )}
       </div>
@@ -134,7 +134,7 @@ export default function InteraktifQuiz({
               )}
               {gosterSonuc && dogruMu && (
                 <p className="ml-2 mt-2 text-sm font-medium text-emerald-600">
-                  Dogru!
+                  Doğru!
                 </p>
               )}
             </div>
@@ -167,7 +167,7 @@ export default function InteraktifQuiz({
         )}
         {!gosterSonuc && !tumCevaplandi && (
           <p className="flex items-center text-sm text-[var(--color-text-secondary)]">
-            Tum sorulari cevaplayin ({Object.keys(cevaplar).length}/{sorular.length})
+            Tüm soruları cevaplayın ({Object.keys(cevaplar).length}/{sorular.length})
           </p>
         )}
       </div>

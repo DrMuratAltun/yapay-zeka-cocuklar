@@ -3,140 +3,140 @@ import InteraktifQuiz from "@/components/InteraktifQuiz";
 
 const quizSorulari = [
   {
-    soru: "Asagidakilerden hangisi yapay zekanin gunluk hayattaki bir uygulamasi DEGILDIR?",
+    soru: "Aşağıdakilerden hangisi yapay zekanın günlük hayattaki bir uygulaması DEĞİLDİR?",
     secenekler: [
-      "Telefonun yuz tanima ile acilmasi",
-      "Elektrik supurgesinin dugmeyle acilmasi",
-      "Netflix'in film onerisi yapmasi",
-      "Google Haritalar'in trafik tahmini vermesi",
+      "Telefonun yüz tanıma ile açılması",
+      "Elektrik süpürgesinin düğmeyle açılması",
+      "Netflix'in film önerisi yapması",
+      "Google Haritalar'ın trafik tahmini vermesi",
     ],
     dogru: 1,
     aciklama:
-      "Dugmeyle calisan bir elektrik supurgesi basit bir mekanik cihazdir, yapay zeka icermez. Ancak robot supurgeler YZ kullanir!",
+      "Düğmeyle çalışan bir elektrik süpürgesi basit bir mekanik cihazdır, yapay zeka içermez. Ancak robot süpürgeler YZ kullanır!",
   },
   {
-    soru: "Bir sesli asistanin (Siri, Google Asistan) calismasi icin hangi YZ teknolojileri gerekir?",
+    soru: "Bir sesli asistanın (Siri, Google Asistan) çalışması için hangi YZ teknolojileri gerekir?",
     secenekler: [
-      "Sadece ses tanima",
-      "Ses tanima + dogal dil isleme + konusma sentezi",
-      "Sadece internet baglantisi",
+      "Sadece ses tanıma",
+      "Ses tanıma + doğal dil işleme + konuşma sentezi",
+      "Sadece internet bağlantısı",
       "Sadece mikrofon",
     ],
     dogru: 1,
     aciklama:
-      "Sesli asistanlar birden fazla YZ teknolojisini bir arada kullanir: sesinizi tanir, ne dediginizi anlar ve size yanitlar uretir.",
+      "Sesli asistanlar birden fazla YZ teknolojisini bir arada kullanır: sesinizi tanır, ne dediğinizi anlar ve size yanıtlar üretir.",
   },
   {
-    soru: "Spotify veya YouTube'un 'Sana Ozel' oynatma listeleri hangi YZ yontemiyle olusturulur?",
+    soru: "Spotify veya YouTube'un 'Sana Özel' oynatma listeleri hangi YZ yöntemiyle oluşturulur?",
     secenekler: [
-      "Rastgele secim",
-      "Oneri sistemi (tavsiye algoritmalari)",
-      "Alfabetik siralama",
-      "En yeni sarkilari gosterme",
+      "Rastgele seçim",
+      "Öneri sistemi (tavsiye algoritmaları)",
+      "Alfabetik sıralama",
+      "En yeni şarkıları gösterme",
     ],
     dogru: 1,
     aciklama:
-      "Oneri sistemleri, dinleme/izleme aliskanliklarina bakarak sevebilecegin yeni icerikleri tahmin eder.",
+      "Öneri sistemleri, dinleme/izleme alışkanlıklarına bakarak sevebileceğin yeni içerikleri tahmin eder.",
   },
   {
-    soru: "Akilli ev sistemlerinde yapay zeka ne ise yarar?",
+    soru: "Akıllı ev sistemlerinde yapay zeka ne işe yarar?",
     secenekler: [
-      "Sadece isiklari acip kapatir",
-      "Aliskanliklarinizi ogrenerek enerji tasarrufu saglar",
-      "Sadece uzaktan kumanda gorevi gorur",
-      "Internete baglanmayi saglar",
+      "Sadece ışıkları açıp kapatır",
+      "Alışkanlıklarınızı öğrenerek enerji tasarrufu sağlar",
+      "Sadece uzaktan kumanda görevi görür",
+      "İnternete bağlanmayı sağlar",
     ],
     dogru: 1,
     aciklama:
-      "Akilli ev sistemleri YZ sayesinde aliskanliklarinizi ogrenir: ne zaman eve geldiginizi, hangi sicakligi tercih ettiginizi bilir.",
+      "Akıllı ev sistemleri YZ sayesinde alışkanlıklarınızı öğrenir: ne zaman eve geldiğinizi, hangi sıcaklığı tercih ettiğinizi bilir.",
   },
   {
-    soru: "Asagidaki YZ uygulamalarindan hangisi saglik alaninda kullanilir?",
+    soru: "Aşağıdaki YZ uygulamalarından hangisi sağlık alanında kullanılır?",
     secenekler: [
       "Spam mail filtreleme",
-      "Rontgen ve MR goruntulerinde hastalik tespiti",
+      "Röntgen ve MR görüntülerinde hastalık tespiti",
       "Sosyal medya filtreleri",
       "Online oyunlardaki NPC karakterler",
     ],
     dogru: 1,
     aciklama:
-      "YZ, tibbi goruntuleri analiz ederek doktorlara teshis konusunda yardimci olur. Bu alan 'tibbi yapay zeka' olarak adlandirilir.",
+      "YZ, tıbbi görüntüleri analiz ederek doktorlara teşhis konusunda yardımcı olur. Bu alan 'tıbbi yapay zeka' olarak adlandırılır.",
   },
 ];
 
 const yzAlanlari = [
   {
-    alan: "Ulasim",
+    alan: "Ulaşım",
     icon: "🚗",
     ornekler: [
-      "Otonom (surucusuz) araclar",
-      "Trafik yonetim sistemleri",
+      "Otonom (sürücüsüz) araçlar",
+      "Trafik yönetim sistemleri",
       "Navigasyon ve rota optimizasyonu",
-      "Park yeri bulma uygulamalari",
+      "Park yeri bulma uygulamaları",
     ],
     renk: "bg-blue-500",
     renkAcik: "bg-blue-50 dark:bg-blue-900/20",
     renkBorder: "border-blue-200 dark:border-blue-800",
   },
   {
-    alan: "Saglik",
+    alan: "Sağlık",
     icon: "🏥",
     ornekler: [
-      "Tibbi goruntu analizi (rontgen, MR)",
-      "Ilac gelistirme",
-      "Saglik izleme (akilli saatler)",
-      "Hastalik riski tahmini",
+      "Tıbbi görüntü analizi (röntgen, MR)",
+      "İlaç geliştirme",
+      "Sağlık izleme (akıllı saatler)",
+      "Hastalık riski tahmini",
     ],
     renk: "bg-emerald-500",
     renkAcik: "bg-emerald-50 dark:bg-emerald-900/20",
     renkBorder: "border-emerald-200 dark:border-emerald-800",
   },
   {
-    alan: "Egitim",
+    alan: "Eğitim",
     icon: "📚",
     ornekler: [
-      "Kisisellestirilmis ogrenme platformlari",
-      "Otomatik odev degerlendirme",
-      "Dil ogrenme uygulamalari (Duolingo)",
-      "Akilli ogretim asistanlari",
+      "Kişiselleştirilmiş öğrenme platformları",
+      "Otomatik ödev değerlendirme",
+      "Dil öğrenme uygulamaları (Duolingo)",
+      "Akıllı öğretim asistanları",
     ],
     renk: "bg-violet-500",
     renkAcik: "bg-violet-50 dark:bg-violet-900/20",
     renkBorder: "border-violet-200 dark:border-violet-800",
   },
   {
-    alan: "Eglence",
+    alan: "Eğlence",
     icon: "🎮",
     ornekler: [
-      "Video oyunlarindaki NPC karakterler",
-      "Muzik ve film onerileri",
-      "Sosyal medya akisi (feed) siralama",
-      "Yuz filtreleri ve efektleri",
+      "Video oyunlarındaki NPC karakterler",
+      "Müzik ve film önerileri",
+      "Sosyal medya akışı (feed) sıralama",
+      "Yüz filtreleri ve efektleri",
     ],
     renk: "bg-pink-500",
     renkAcik: "bg-pink-50 dark:bg-pink-900/20",
     renkBorder: "border-pink-200 dark:border-pink-800",
   },
   {
-    alan: "Guvenlik",
+    alan: "Güvenlik",
     icon: "🔒",
     ornekler: [
-      "Yuz tanima ile telefon acma",
-      "Spam ve dolandiricilik tespiti",
-      "Guvenlik kamerasi analizi",
-      "Siber saldiri onleme",
+      "Yüz tanıma ile telefon açma",
+      "Spam ve dolandırıcılık tespiti",
+      "Güvenlik kamerası analizi",
+      "Siber saldırı önleme",
     ],
     renk: "bg-orange-500",
     renkAcik: "bg-orange-50 dark:bg-orange-900/20",
     renkBorder: "border-orange-200 dark:border-orange-800",
   },
   {
-    alan: "Tarim",
+    alan: "Tarım",
     icon: "🌾",
     ornekler: [
-      "Bitki hastaligi tespiti",
+      "Bitki hastalığı tespiti",
       "Sulama optimizasyonu",
-      "Hasat zamani tahmini",
+      "Hasat zamanı tahmini",
       "Drone ile tarla izleme",
     ],
     renk: "bg-lime-600",
@@ -146,12 +146,12 @@ const yzAlanlari = [
 ];
 
 const telefonYzOrnekleri = [
-  { ozellik: "Yuz tanima ile kilit acma", teknoloji: "Bilgisayar gorusu", icon: "📱" },
-  { ozellik: "Sesli asistan (Siri, Google)", teknoloji: "Dogal dil isleme + Konusma tanima", icon: "🎙️" },
-  { ozellik: "Otomatik fotoraf iyilestirme", teknoloji: "Goruntu isleme", icon: "📸" },
-  { ozellik: "Klavye kelime tahmini", teknoloji: "Dogal dil isleme", icon: "⌨️" },
-  { ozellik: "Spam arama engelleme", teknoloji: "Makine ogrenimi", icon: "🚫" },
-  { ozellik: "Pil kullanim optimizasyonu", teknoloji: "Makine ogrenimi", icon: "🔋" },
+  { ozellik: "Yüz tanıma ile kilit açma", teknoloji: "Bilgisayar görüsü", icon: "📱" },
+  { ozellik: "Sesli asistan (Siri, Google)", teknoloji: "Doğal dil işleme + Konuşma tanıma", icon: "🎙️" },
+  { ozellik: "Otomatik fotoğraf iyileştirme", teknoloji: "Görüntü işleme", icon: "📸" },
+  { ozellik: "Klavye kelime tahmini", teknoloji: "Doğal dil işleme", icon: "⌨️" },
+  { ozellik: "Spam arama engelleme", teknoloji: "Makine öğrenimi", icon: "🚫" },
+  { ozellik: "Pil kullanım optimizasyonu", teknoloji: "Makine öğrenimi", icon: "🔋" },
 ];
 
 export default function Bolum2() {
@@ -172,10 +172,10 @@ export default function Bolum2() {
             </div>
             <div>
               <p className="text-sm font-medium text-emerald-200">
-                BOLUM 2 &middot; 6. Sinif &middot; 4 ders saati
+                BÖLÜM 2 &middot; 6. Sınıf &middot; 4 ders saati
               </p>
-              <h1 className="text-3xl font-extrabold">Gunluk Hayatta YZ</h1>
-              <p className="text-emerald-200">Yapay Zeka Etrafimizda</p>
+              <h1 className="text-3xl font-extrabold">Günlük Hayatta YZ</h1>
+              <p className="text-emerald-200">Yapay Zeka Etrafımızda</p>
             </div>
           </div>
         </div>
@@ -185,24 +185,24 @@ export default function Bolum2() {
         {/* Kazanimlar */}
         <section className="rounded-2xl border-l-4 border-emerald-500 bg-emerald-50 p-6 dark:bg-emerald-900/20">
           <h2 className="mb-3 text-lg font-bold text-emerald-700 dark:text-emerald-300">
-            Neler Ogrenecegiz?
+            Neler Öğreneceğiz?
           </h2>
           <ul className="ml-4 list-disc space-y-1 text-[var(--color-text-secondary)]">
-            <li>Yapay zekanin gunluk hayatta kullanildigi alanlari kesfedecegiz.</li>
-            <li>Telefonumuzdaki YZ uygulamalarini tanimlayabilecegiz.</li>
-            <li>Farkli sektorlerde (saglik, ulasim, egitim, tarim) YZ kullanimi ornekleri verebilecegiz.</li>
-            <li>YZ uygulamalarinin arkasindaki temel teknolojileri anlayacagiz.</li>
+            <li>Yapay zekanın günlük hayatta kullanıldığı alanları keşfedeceğiz.</li>
+            <li>Telefonumuzdaki YZ uygulamalarını tanımlayabileceğiz.</li>
+            <li>Farklı sektörlerde (sağlık, ulaşım, eğitim, tarım) YZ kullanımı örnekleri verebileceğiz.</li>
+            <li>YZ uygulamalarının arkasındaki temel teknolojileri anlayacağız.</li>
           </ul>
         </section>
 
         {/* Anahtar Kavramlar */}
         <div className="flex flex-wrap gap-2">
           {[
-            "oneri sistemi",
-            "bilgisayar gorusu",
-            "dogal dil isleme",
-            "otonom arac",
-            "akilli ev",
+            "öneri sistemi",
+            "bilgisayar görüsü",
+            "doğal dil işleme",
+            "otonom araç",
+            "akıllı ev",
             "chatbot",
           ].map((k) => (
             <span
@@ -218,16 +218,16 @@ export default function Bolum2() {
         <section className="space-y-4">
           <h2 className="text-2xl font-extrabold">1. YZ Her Yerde!</h2>
           <p>
-            Sabah alarminiz caldiginda, telefonunuz pil durumuna ve
-            aliskanliklariniza gore en uygun zamanda sizi uyandirmis olabilir.
-            Kahvaltida telefonunuzu actiginizda size ozel haberler gosterilir.
-            Okula giderken navigasyon en kisa yolu bulur. Farkinda olmasak da
-            yapay zeka gunluk hayatimizin her aninda bizimle birlikte!
+            Sabah alarmınız çaldığında, telefonunuz pil durumuna ve
+            alışkanlıklarınıza göre en uygun zamanda sizi uyandırmış olabilir.
+            Kahvaltıda telefonunuzu açtığınızda size özel haberler gösterilir.
+            Okula giderken navigasyon en kısa yolu bulur. Farkında olmasak da
+            yapay zeka günlük hayatımızın her anında bizimle birlikte!
           </p>
           <div className="rounded-xl bg-emerald-50 p-4 dark:bg-emerald-900/20">
             <p className="font-medium text-emerald-800 dark:text-emerald-300">
-              🤔 Dusun: Bugun sabahtan beri kac farkli YZ uygulamasi
-              kullandin? Saymaya calis!
+              🤔 Düşün: Bugün sabahtan beri kaç farklı YZ uygulaması
+              kullandın? Saymaya çalış!
             </p>
           </div>
         </section>
@@ -238,8 +238,8 @@ export default function Bolum2() {
             2. Cebindeki Yapay Zeka
           </h2>
           <p>
-            Akilli telefonlar, iclerinde onlarca YZ teknolojisi barindirir.
-            Farkinda olmadan her gun bu teknolojileri kullaniriz:
+            Akıllı telefonlar, içlerinde onlarca YZ teknolojisi barındırır.
+            Farkında olmadan her gün bu teknolojileri kullanırız:
           </p>
           <div className="grid gap-3 sm:grid-cols-2">
             {telefonYzOrnekleri.map((ornek) => (
@@ -265,21 +265,21 @@ export default function Bolum2() {
             💡 Biliyor Muydunuz?
           </h3>
           <p className="text-sm text-amber-800 dark:text-amber-300">
-            Ortalama bir akilli telefon kullanicisi gunde 2.600&apos;den
-            fazla kez telefonuna dokunur. Bu etkilesimlerin buyuk bir kismi
-            yapay zeka tarafindan desteklenir: klavye tahmini, uygulama
-            onerileri, bildirim onceliklendirme ve daha fazlasi!
+            Ortalama bir akıllı telefon kullanıcısı günde 2.600&apos;den
+            fazla kez telefonuna dokunur. Bu etkileşimlerin büyük bir kısmı
+            yapay zeka tarafından desteklenir: klavye tahmini, uygulama
+            önerileri, bildirim önceliklendirme ve daha fazlası!
           </p>
         </div>
 
         {/* YZ Kullanim Alanlari */}
         <section className="space-y-4">
           <h2 className="text-2xl font-extrabold">
-            3. YZ Kullanim Alanlari
+            3. YZ Kullanım Alanları
           </h2>
           <p>
-            Yapay zeka sadece telefonlarimizda degil, hayatimizin pek cok
-            alaninda aktif olarak kullaniliyor:
+            Yapay zeka sadece telefonlarımızda değil, hayatımızın pek çok
+            alanında aktif olarak kullanılıyor:
           </p>
           <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
             {yzAlanlari.map((alan) => (
@@ -307,11 +307,11 @@ export default function Bolum2() {
         {/* Oneri Sistemleri */}
         <section className="space-y-4">
           <h2 className="text-2xl font-extrabold">
-            4. Oneri Sistemleri Nasil Calisir?
+            4. Öneri Sistemleri Nasıl Çalışır?
           </h2>
           <p>
-            Netflix, YouTube, Spotify gibi platformlar &quot;Sana Ozel&quot;
-            icerikler sunar. Peki bu nasil calisir?
+            Netflix, YouTube, Spotify gibi platformlar &quot;Sana Özel&quot;
+            içerikler sunar. Peki bu nasıl çalışır?
           </p>
           <div className="space-y-3">
             {[
@@ -319,25 +319,25 @@ export default function Bolum2() {
                 adim: 1,
                 baslik: "Veri Toplama",
                 aciklama:
-                  "Neyi izledigini, ne kadar izledigini, neyi begendik, neyi gectigini kaydeder.",
+                  "Neyi izlediğini, ne kadar izlediğini, neyi beğendiğini, neyi geçtiğini kaydeder.",
               },
               {
                 adim: 2,
-                baslik: "Oruntu Bulma",
+                baslik: "Örüntü Bulma",
                 aciklama:
-                  "Benzer izleme aliskanliklarini olan kullanicilari bulur. 'Seni sevenlerin sevdiklerini' kesfeder.",
+                  "Benzer izleme alışkanlıkları olan kullanıcıları bulur. 'Seni sevenlerin sevdiklerini' keşfeder.",
               },
               {
                 adim: 3,
                 baslik: "Tahmin Yapma",
                 aciklama:
-                  "Senin henuz izlemedigin ama sevebilecegin icerikleri tahmin eder.",
+                  "Senin henüz izlemediğin ama sevebileceğin içerikleri tahmin eder.",
               },
               {
                 adim: 4,
-                baslik: "Oneri Sunma",
+                baslik: "Öneri Sunma",
                 aciklama:
-                  "Ana sayfanda 'Senin icin sectiklarimiz' olarak gosterir.",
+                  "Ana sayfanda 'Senin için seçtiklerimiz' olarak gösterir.",
               },
             ].map((a) => (
               <div key={a.adim} className="flex items-start gap-4">
@@ -362,13 +362,13 @@ export default function Bolum2() {
           </h2>
           <p>
             Siri, Google Asistan, Alexa gibi sesli asistanlar birden fazla YZ
-            teknolojisini bir arada kullanir:
+            teknolojisini bir arada kullanır:
           </p>
           <div className="overflow-x-auto">
             <table className="w-full rounded-xl border border-[var(--color-border)] text-sm">
               <thead className="bg-emerald-600 text-white">
                 <tr>
-                  <th className="px-4 py-3 text-left">Asama</th>
+                  <th className="px-4 py-3 text-left">Aşama</th>
                   <th className="px-4 py-3 text-left">Teknoloji</th>
                   <th className="px-4 py-3 text-left">Ne Yapar?</th>
                 </tr>
@@ -377,23 +377,23 @@ export default function Bolum2() {
                 {[
                   [
                     "1. Dinleme",
-                    "Konusma Tanima (ASR)",
-                    "Sesini metne cevirir",
+                    "Konuşma Tanıma (ASR)",
+                    "Sesini metne çevirir",
                   ],
                   [
                     "2. Anlama",
-                    "Dogal Dil Isleme (NLP)",
-                    "Ne demek istedigini anlar",
+                    "Doğal Dil İşleme (NLP)",
+                    "Ne demek istediğini anlar",
                   ],
                   [
-                    "3. Islem",
-                    "Akil Yurume",
-                    "En iyi yaniti bulur",
+                    "3. İşlem",
+                    "Akıl Yürütme",
+                    "En iyi yanıtı bulur",
                   ],
                   [
-                    "4. Yanitlama",
-                    "Konusma Sentezi (TTS)",
-                    "Yaniti sesli olarak soyler",
+                    "4. Yanıtlama",
+                    "Konuşma Sentezi (TTS)",
+                    "Yanıtı sesli olarak söyler",
                   ],
                 ].map(([asama, teknoloji, neYapar], i) => (
                   <tr
@@ -415,21 +415,21 @@ export default function Bolum2() {
         {/* Biliyor muydunuz 2 */}
         <div className="grid gap-4 md:grid-cols-2">
           <div className="rounded-xl border border-emerald-200 bg-emerald-50 p-5 dark:border-emerald-800 dark:bg-emerald-900/20">
-            <h3 className="mb-2 font-bold">🚗 Otonom Araclar</h3>
+            <h3 className="mb-2 font-bold">🚗 Otonom Araçlar</h3>
             <p className="text-sm text-[var(--color-text-secondary)]">
-              Tesla, Waymo gibi sirketlerin surucusuz araclari kameralar,
-              radarlar ve LIDAR sensorleri ile cevreyi algilar. YZ, diger
-              araclari, yayalari ve trafik isaretlerini tanimlayarak araci
-              guvenli bir sekilde surebilir.
+              Tesla, Waymo gibi şirketlerin sürücüsüz araçları kameralar,
+              radarlar ve LIDAR sensörleri ile çevreyi algılar. YZ, diğer
+              araçları, yayaları ve trafik işaretlerini tanımlayarak aracı
+              güvenli bir şekilde sürebilir.
             </p>
           </div>
           <div className="rounded-xl border border-emerald-200 bg-emerald-50 p-5 dark:border-emerald-800 dark:bg-emerald-900/20">
-            <h3 className="mb-2 font-bold">🌾 Akilli Tarim</h3>
+            <h3 className="mb-2 font-bold">🌾 Akıllı Tarım</h3>
             <p className="text-sm text-[var(--color-text-secondary)]">
-              Drone&apos;lar tarlalari havadan tararak hastalıklı bitkileri
+              Drone&apos;lar tarlaları havadan tarayarak hastalıklı bitkileri
               tespit eder. YZ destekli sulama sistemleri toprağın nem durumuna
-              gore su tasarrufu saglar. Turkiye&apos;de de akilli tarim
-              uygulamalari yayginlasmaktadir.
+              göre su tasarrufu sağlar. Türkiye&apos;de de akıllı tarım
+              uygulamaları yaygınlaşmaktadır.
             </p>
           </div>
         </div>
@@ -445,21 +445,21 @@ export default function Bolum2() {
                 UNPLUGGED
               </span>
               <span className="text-sm text-[var(--color-text-secondary)]">
-                25 dakika &middot; Bireysel + sinif tartismasi
+                25 dakika &middot; Bireysel + sınıf tartışması
               </span>
             </div>
             <h3 className="mb-2 text-xl font-bold">
-              Etkinlik 1: YZ Haritasi
+              Etkinlik 1: YZ Haritası
             </h3>
             <p className="mb-4 text-[var(--color-text-secondary)]">
-              A3 kagida buyuk bir harita cizin. Ortaya &quot;BEN&quot; yazin.
-              Etrafina gun boyunca karsilastiginiz YZ uygulamalarini
-              yerlestirin (ev, okul, yol, alisveris). Her uygulamanin yanina
-              hangi YZ teknolojisini kullandigini yazin.
+              A3 kağıda büyük bir harita çizin. Ortaya &quot;BEN&quot; yazın.
+              Etrafına gün boyunca karşılaştığınız YZ uygulamalarını
+              yerleştirin (ev, okul, yol, alışveriş). Her uygulamanın yanına
+              hangi YZ teknolojisini kullandığını yazın.
             </p>
             <div className="rounded-lg bg-emerald-50 p-3 text-sm dark:bg-emerald-900/20">
               <p className="font-medium text-emerald-700 dark:text-emerald-300">
-                📋 Malzemeler: A3 kagit, renkli kalemler, yapistirici notlar
+                📋 Malzemeler: A3 kağıt, renkli kalemler, yapıştırıcı notlar
               </p>
             </div>
           </div>
@@ -471,22 +471,22 @@ export default function Bolum2() {
                 UNPLUGGED
               </span>
               <span className="text-sm text-[var(--color-text-secondary)]">
-                20 dakika &middot; Grup calismasi (4 kisi)
+                20 dakika &middot; Grup çalışması (4 kişi)
               </span>
             </div>
             <h3 className="mb-2 text-xl font-bold">
-              Etkinlik 2: YZ veya Degil?
+              Etkinlik 2: YZ veya Değil?
             </h3>
             <p className="mb-4 text-[var(--color-text-secondary)]">
-              Kartlardaki cihaz ve uygulamalari &quot;YZ Kullanan&quot; ve
-              &quot;YZ Kullanmayan&quot; olarak siniflandirin. Her kartin neden
-              o kategoriye ait oldugunu grubunuzla tartisarak karar verin.
+              Kartlardaki cihaz ve uygulamaları &quot;YZ Kullanan&quot; ve
+              &quot;YZ Kullanmayan&quot; olarak sınıflandırın. Her kartın neden
+              o kategoriye ait olduğunu grubunuzla tartışarak karar verin.
             </p>
             <div className="rounded-lg bg-amber-50 p-3 text-sm dark:bg-amber-900/20">
               <p className="font-medium text-amber-700 dark:text-amber-300">
-                ⚠️ Dikkat: Bazi cihazlar/uygulamalar hem YZ kullanan hem de
-                kullanmayan versiyonlarda olabilir. Bu durumu tartismak cok
-                degerli!
+                ⚠️ Dikkat: Bazı cihazlar/uygulamalar hem YZ kullanan hem de
+                kullanmayan versiyonlarda olabilir. Bu durumu tartışmak çok
+                değerli!
               </p>
             </div>
           </div>
@@ -495,31 +495,31 @@ export default function Bolum2() {
           <div className="rounded-2xl border border-[var(--color-border)] bg-[var(--color-bg-secondary)] p-6">
             <div className="mb-3 flex items-center gap-3">
               <span className="rounded-lg bg-blue-500 px-3 py-1 text-sm font-bold text-white">
-                BILGISAYARLI
+                BİLGİSAYARLI
               </span>
               <span className="text-sm text-[var(--color-text-secondary)]">
                 30 dakika &middot; Bireysel
               </span>
             </div>
             <h3 className="mb-2 text-xl font-bold">
-              Etkinlik 3: Sesli Asistanla Tanisma
+              Etkinlik 3: Sesli Asistanla Tanışma
             </h3>
             <p className="mb-4 text-[var(--color-text-secondary)]">
-              Telefonunuzdaki sesli asistani (Google Asistan veya Siri) acin.
-              Asagidaki gorevleri deneyin ve asistanin hangi gorevlerde basarili,
-              hangilerinde basarisiz oldugunu kaydedin:
+              Telefonunuzdaki sesli asistanı (Google Asistan veya Siri) açın.
+              Aşağıdaki görevleri deneyin ve asistanın hangi görevlerde başarılı,
+              hangilerinde başarısız olduğunu kaydedin:
             </p>
             <ul className="mb-4 ml-4 list-disc space-y-1 text-sm text-[var(--color-text-secondary)]">
-              <li>Bir soru sorun (orn: &quot;Turkiye&apos;nin baskenti neresidir?&quot;)</li>
-              <li>Bir alarm kurmesini isteyin</li>
-              <li>Bir fikra anlatmasini isteyin</li>
-              <li>Duygusal bir soru sorun (orn: &quot;Bugun mutsuzum, ne yapmaliyim?&quot;)</li>
-              <li>Belirsiz bir komut verin (orn: &quot;O seyi ac&quot;)</li>
+              <li>Bir soru sorun (örn: &quot;Türkiye&apos;nin başkenti neresidir?&quot;)</li>
+              <li>Bir alarm kurmasını isteyin</li>
+              <li>Bir fıkra anlatmasını isteyin</li>
+              <li>Duygusal bir soru sorun (örn: &quot;Bugün mutsuzum, ne yapmalıyım?&quot;)</li>
+              <li>Belirsiz bir komut verin (örn: &quot;O şeyi aç&quot;)</li>
             </ul>
             <div className="rounded-lg bg-sky-50 p-3 text-sm dark:bg-sky-900/20">
               <p className="font-medium text-sky-700 dark:text-sky-300">
-                📝 Sonuclari &quot;Gozlem Formu&quot;na kaydedin ve sinifta
-                karsilastirin.
+                📝 Sonuçları &quot;Gözlem Formu&quot;na kaydedin ve sınıfta
+                karşılaştırın.
               </p>
             </div>
           </div>
@@ -528,20 +528,20 @@ export default function Bolum2() {
           <div className="rounded-2xl border border-[var(--color-border)] bg-[var(--color-bg-secondary)] p-6">
             <div className="mb-3 flex items-center gap-3">
               <span className="rounded-lg bg-blue-500 px-3 py-1 text-sm font-bold text-white">
-                BILGISAYARLI
+                BİLGİSAYARLI
               </span>
               <span className="text-sm text-[var(--color-text-secondary)]">
                 20 dakika &middot; Bireysel
               </span>
             </div>
             <h3 className="mb-2 text-xl font-bold">
-              Etkinlik 4: YZ Roportaji
+              Etkinlik 4: YZ Röportajı
             </h3>
             <p className="mb-4 text-[var(--color-text-secondary)]">
-              Ailenizden birine (anne, baba, buyukanne/buyukbaba) &quot;Yapay
-              zeka hakkinda ne dusunuyorsunuz?&quot; diye sorun. Cevaplari
-              kisa bir paragrafta ozetleyin. Sinifta farkli nesillerin YZ
-              hakkindaki goruslerini karsilastirin.
+              Ailenizden birine (anne, baba, büyükanne/büyükbaba) &quot;Yapay
+              zeka hakkında ne düşünüyorsunuz?&quot; diye sorun. Cevapları
+              kısa bir paragrafta özetleyin. Sınıfta farklı nesillerin YZ
+              hakkındaki görüşlerini karşılaştırın.
             </p>
           </div>
         </section>
@@ -552,17 +552,17 @@ export default function Bolum2() {
           <div className="space-y-3">
             {[
               {
-                baslik: "Yapay Zeka Gunluk Hayatimizi Nasil Etkiliyor?",
-                tur: "Tanitim",
+                baslik: "Yapay Zeka Günlük Hayatımızı Nasıl Etkiliyor?",
+                tur: "Tanıtım",
                 sure: "~5 dk",
               },
               {
-                baslik: "Sesli Asistan Nasil Calisir? (Adim Adim)",
+                baslik: "Sesli Asistan Nasıl Çalışır? (Adım Adım)",
                 tur: "Uygulama",
                 sure: "~7 dk",
               },
               {
-                baslik: "Oneri Sistemleri: Netflix Sana Nasil Film Oner?",
+                baslik: "Öneri Sistemleri: Netflix Sana Nasıl Film Önerir?",
                 tur: "Kavram",
                 sure: "~4 dk",
               },
@@ -581,7 +581,7 @@ export default function Bolum2() {
                   </div>
                 </div>
                 <span className="rounded bg-gray-200 px-3 py-1 text-xs text-gray-600 dark:bg-gray-700 dark:text-gray-300">
-                  Yakin zamanda
+                  Yakın zamanda
                 </span>
               </div>
             ))}
@@ -593,14 +593,14 @@ export default function Bolum2() {
 
         {/* Indirilebilir */}
         <section className="rounded-2xl border border-[var(--color-border)] bg-[var(--color-bg-secondary)] p-6">
-          <h2 className="mb-4 text-2xl font-bold">Indirilebilir Materyaller</h2>
+          <h2 className="mb-4 text-2xl font-bold">İndirilebilir Materyaller</h2>
           <div className="space-y-3">
             {[
-              "YZ Haritasi Calisma Yapragi (PDF)",
-              "YZ veya Degil? Kart Seti (PDF)",
-              "Sesli Asistan Gozlem Formu (PDF)",
-              "Degerlendirme Testi (PDF)",
-              "Oz Degerlendirme Formu (PDF)",
+              "YZ Haritası Çalışma Yaprağı (PDF)",
+              "YZ veya Değil? Kart Seti (PDF)",
+              "Sesli Asistan Gözlem Formu (PDF)",
+              "Değerlendirme Testi (PDF)",
+              "Öz Değerlendirme Formu (PDF)",
             ].map((dosya) => (
               <div
                 key={dosya}
@@ -608,7 +608,7 @@ export default function Bolum2() {
               >
                 <span className="text-sm font-medium">{dosya}</span>
                 <span className="rounded bg-gray-200 px-3 py-1 text-xs text-gray-600 dark:bg-gray-700 dark:text-gray-300">
-                  Yakin zamanda
+                  Yakın zamanda
                 </span>
               </div>
             ))}
@@ -621,13 +621,13 @@ export default function Bolum2() {
             href="/bolumler/1"
             className="rounded-lg border border-[var(--color-border)] px-6 py-3 font-medium transition hover:bg-[var(--color-bg-secondary)]"
           >
-            &larr; Bolum 1
+            &larr; Bölüm 1
           </Link>
           <Link
             href="/bolumler/3"
             className="rounded-lg bg-emerald-600 px-6 py-3 font-medium text-white transition hover:bg-emerald-700"
           >
-            Bolum 3 &rarr;
+            Bölüm 3 &rarr;
           </Link>
         </div>
       </main>

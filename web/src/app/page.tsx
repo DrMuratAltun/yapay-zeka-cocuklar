@@ -1,16 +1,16 @@
 import Link from "next/link";
 
 const bolumler = [
-  { no: 1, baslik: "Yapay Zeka Nedir?", altBaslik: "Kesif Yolculugu", seviye: "6. Sinif", ders: 4, renk: "from-sky-400 to-blue-500", hazir: true },
-  { no: 2, baslik: "Gunluk Hayatta YZ", altBaslik: "Yapay Zeka Etrafimizda", seviye: "6. Sinif", ders: 4, renk: "from-emerald-400 to-teal-500", hazir: true },
-  { no: 3, baslik: "Verinin Gucu", altBaslik: "YZ'nin Yakiti", seviye: "6. Sinif", ders: 4, renk: "from-violet-400 to-purple-500", hazir: true },
-  { no: 4, baslik: "Makineler Nasil Ogrenir?", altBaslik: "Makine Ogrenimi Temelleri", seviye: "6-7. Sinif", ders: 6, renk: "from-orange-400 to-amber-500", hazir: true },
-  { no: 5, baslik: "Uretken Yapay Zeka", altBaslik: "YZ Araclariyla Tanisin", seviye: "6-7. Sinif", ders: 6, renk: "from-pink-400 to-rose-500", hazir: true },
-  { no: 6, baslik: "Blok Tabanli YZ Kodlama", altBaslik: "PictoBlox Projeleri", seviye: "7. Sinif", ders: 8, renk: "from-blue-400 to-indigo-500", hazir: true },
-  { no: 7, baslik: "Gercek Hayat Problemleri", altBaslik: "STEM Tabanli YZ Cozumleri", seviye: "7-8. Sinif", ders: 8, renk: "from-teal-400 to-cyan-500", hazir: true },
-  { no: 8, baslik: "Dijital Icerik Uretimi", altBaslik: "YZ ile Yaraticilik", seviye: "7-8. Sinif", ders: 6, renk: "from-rose-400 to-pink-500", hazir: true },
-  { no: 9, baslik: "YZ ve Etik", altBaslik: "Dogru Kullanimin Pusulasi", seviye: "7-8. Sinif", ders: 4, renk: "from-amber-400 to-orange-500", hazir: true },
-  { no: 10, baslik: "Gelecek Seninle Baslar", altBaslik: "Proje ve Portfolyo", seviye: "8. Sinif", ders: 8, renk: "from-indigo-400 to-violet-500", hazir: true },
+  { no: 1, baslik: "Yapay Zeka Nedir?", altBaslik: "Keşif Yolculuğu", seviye: "6. Sınıf", ders: 4, renk: "from-sky-400 to-blue-500", hazir: true },
+  { no: 2, baslik: "Günlük Hayatta YZ", altBaslik: "Yapay Zeka Etrafımızda", seviye: "6. Sınıf", ders: 4, renk: "from-emerald-400 to-teal-500", hazir: true },
+  { no: 3, baslik: "Verinin Gücü", altBaslik: "YZ'nin Yakıtı", seviye: "6. Sınıf", ders: 4, renk: "from-violet-400 to-purple-500", hazir: true },
+  { no: 4, baslik: "Makineler Nasıl Öğrenir?", altBaslik: "Makine Öğrenimi Temelleri", seviye: "6-7. Sınıf", ders: 6, renk: "from-orange-400 to-amber-500", hazir: true },
+  { no: 5, baslik: "Üretken Yapay Zeka", altBaslik: "YZ Araçlarıyla Tanışın", seviye: "6-7. Sınıf", ders: 6, renk: "from-pink-400 to-rose-500", hazir: true },
+  { no: 6, baslik: "Blok Tabanlı YZ Kodlama", altBaslik: "PictoBlox Projeleri", seviye: "7. Sınıf", ders: 8, renk: "from-blue-400 to-indigo-500", hazir: true },
+  { no: 7, baslik: "Gerçek Hayat Problemleri", altBaslik: "STEM Tabanlı YZ Çözümleri", seviye: "7-8. Sınıf", ders: 8, renk: "from-teal-400 to-cyan-500", hazir: true },
+  { no: 8, baslik: "Dijital İçerik Üretimi", altBaslik: "YZ ile Yaratıcılık", seviye: "7-8. Sınıf", ders: 6, renk: "from-rose-400 to-pink-500", hazir: true },
+  { no: 9, baslik: "YZ ve Etik", altBaslik: "Doğru Kullanımın Pusulası", seviye: "7-8. Sınıf", ders: 4, renk: "from-amber-400 to-orange-500", hazir: true },
+  { no: 10, baslik: "Gelecek Seninle Başlar", altBaslik: "Proje ve Portfolyo", seviye: "8. Sınıf", ders: 8, renk: "from-indigo-400 to-violet-500", hazir: true },
 ];
 
 export default function AnaSayfa() {
@@ -31,27 +31,27 @@ export default function AnaSayfa() {
             <div>
               <div className="mb-6 inline-flex items-center gap-2 rounded-full border border-sky-500/20 bg-sky-500/10 px-4 py-1.5 text-sm text-sky-300">
                 <span className="h-2 w-2 rounded-full bg-sky-400 animate-pulse" />
-                Acik Kaynak &middot; Ucretsiz &middot; MEB Uyumlu
+                Açık Kaynak &middot; Ücretsiz &middot; MEB Uyumlu
               </div>
               <h1 className="mb-6 text-4xl font-extrabold leading-tight md:text-6xl">
                 Yapay Zeka
                 <br />
                 <span className="bg-gradient-to-r from-sky-400 via-blue-400 to-violet-400 bg-clip-text text-transparent">
-                  Okuryazarligi
+                  Okuryazarlığı
                 </span>
                 <br />
-                Herkes Icindir
+                Herkes İçindir
               </h1>
               <p className="mb-8 max-w-lg text-lg leading-relaxed text-slate-300">
-                Ortaokul ogrencileri icin uygulamali, eglenceli ve kapsayici
-                yapay zeka egitim platformu. Kesfet, ogren, uygula!
+                Ortaokul öğrencileri için uygulamalı, eğlenceli ve kapsayıcı
+                yapay zeka eğitim platformu. Keşfet, öğren, uygula!
               </p>
               <div className="flex flex-wrap gap-4">
                 <a
                   href="#bolumler"
                   className="rounded-xl bg-white px-8 py-3.5 font-bold text-slate-900 shadow-lg shadow-white/10 transition hover:scale-105"
                 >
-                  Bolumleri Kesfet
+                  Bölümleri Keşfet
                 </a>
                 <a
                   href="https://github.com/DrMuratAltun/yapay-zeka-cocuklar"
@@ -67,10 +67,10 @@ export default function AnaSayfa() {
             {/* Sag: Istatistikler */}
             <div className="grid grid-cols-2 gap-4">
               {[
-                { sayi: "10", etiket: "Bolum", icon: "📖", renk: "from-sky-500/20 to-blue-500/20 border-sky-500/20" },
+                { sayi: "10", etiket: "Bölüm", icon: "📖", renk: "from-sky-500/20 to-blue-500/20 border-sky-500/20" },
                 { sayi: "50+", etiket: "Etkinlik", icon: "🎮", renk: "from-emerald-500/20 to-teal-500/20 border-emerald-500/20" },
                 { sayi: "30+", etiket: "Quiz Sorusu", icon: "📝", renk: "from-violet-500/20 to-purple-500/20 border-violet-500/20" },
-                { sayi: "100%", etiket: "Ucretsiz", icon: "🎁", renk: "from-amber-500/20 to-orange-500/20 border-amber-500/20" },
+                { sayi: "100%", etiket: "Ücretsiz", icon: "🎁", renk: "from-amber-500/20 to-orange-500/20 border-amber-500/20" },
               ].map((s) => (
                 <div
                   key={s.etiket}
@@ -90,9 +90,9 @@ export default function AnaSayfa() {
       <section className="border-b border-[var(--color-border)] bg-[var(--color-bg)]">
         <div className="mx-auto flex max-w-6xl flex-wrap justify-center gap-6 px-6 py-10 md:gap-10">
           {[
-            { hedef: "Ogrenciler", yas: "6-8. Sinif (11-14 yas)", icon: "🎒", aciklama: "Kesfet, dene, proje gelistir" },
-            { hedef: "Ogretmenler", yas: "BT Ogretmenleri", icon: "👩‍🏫", aciklama: "Hazir ders planları ve materyaller" },
-            { hedef: "Aileler", yas: "Merakli Ebeveynler", icon: "👨‍👩‍👧‍👦", aciklama: "Birlikte ogrenin" },
+            { hedef: "Öğrenciler", yas: "6-8. Sınıf (11-14 yaş)", icon: "🎒", aciklama: "Keşfet, dene, proje geliştir" },
+            { hedef: "Öğretmenler", yas: "BT Öğretmenleri", icon: "👩‍🏫", aciklama: "Hazır ders planları ve materyaller" },
+            { hedef: "Aileler", yas: "Meraklı Ebeveynler", icon: "👨‍👩‍👧‍👦", aciklama: "Birlikte öğrenin" },
           ].map((h) => (
             <div key={h.hedef} className="flex items-center gap-4 rounded-xl px-2">
               <span className="text-4xl">{h.icon}</span>
@@ -112,17 +112,17 @@ export default function AnaSayfa() {
           <div className="mb-12 text-center">
             <h2 className="mb-3 text-3xl font-extrabold">Neden Bu Platform?</h2>
             <p className="mx-auto max-w-2xl text-[var(--color-text-secondary)]">
-              MIT ve Stanford arastirmalarindan ilham alan, Turkiye mufredatina uyarlanmis, tamamen uygulamali yaklasilm
+              MIT ve Stanford araştırmalarından ilham alan, Türkiye müfredatına uyarlanmış, tamamen uygulamalı yaklaşım
             </p>
           </div>
           <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
             {[
-              { icon: "🔌", baslik: "Unplugged Etkinlikler", aciklama: "Bilgisayarsiz, sinifta yapilabilir etkinlikler. Kapsayici — herkes katilir." },
-              { icon: "🧪", baslik: "Uygulamali Ogrenme", aciklama: "Teachable Machine, PictoBlox, Scratch ile gercek YZ projeleri." },
-              { icon: "🖨️", baslik: "Yazici Dostu", aciklama: "Etkinlik kartlari, calisma yapraklari ve formlar PDF indirilebilir." },
-              { icon: "📱", baslik: "QR Kod Entegrasyonu", aciklama: "Kitaptan dogrudan interaktif etkinliklere erisim." },
-              { icon: "🧩", baslik: "Interaktif Quizler", aciklama: "Her bolum sonunda aninda geri bildirimli degerlendirme." },
-              { icon: "⚖️", baslik: "Etik Odakli", aciklama: "YZ etigi, onyargi ve sorumlu kullanim her bolumde islenir." },
+              { icon: "🔌", baslik: "Unplugged Etkinlikler", aciklama: "Bilgisayarsız, sınıfta yapılabilir etkinlikler. Kapsayıcı — herkes katılır." },
+              { icon: "🧪", baslik: "Uygulamalı Öğrenme", aciklama: "Teachable Machine, PictoBlox, Scratch ile gerçek YZ projeleri." },
+              { icon: "🖨️", baslik: "Yazıcı Dostu", aciklama: "Etkinlik kartları, çalışma yaprakları ve formlar PDF indirilebilir." },
+              { icon: "📱", baslik: "QR Kod Entegrasyonu", aciklama: "Kitaptan doğrudan interaktif etkinliklere erişim." },
+              { icon: "🧩", baslik: "İnteraktif Quizler", aciklama: "Her bölüm sonunda anında geri bildirimli değerlendirme." },
+              { icon: "⚖️", baslik: "Etik Odaklı", aciklama: "YZ etiği, önyargı ve sorumlu kullanım her bölümde işlenir." },
             ].map((o) => (
               <div
                 key={o.baslik}
@@ -141,19 +141,19 @@ export default function AnaSayfa() {
       <section id="bolumler" className="py-20">
         <div className="mx-auto max-w-6xl px-6">
           <div className="mb-12 text-center">
-            <h2 className="mb-3 text-3xl font-extrabold">10 Bolum, Kademeli Ilerleme</h2>
+            <h2 className="mb-3 text-3xl font-extrabold">10 Bölüm, Kademeli İlerleme</h2>
             <p className="mx-auto max-w-lg text-[var(--color-text-secondary)]">
-              6. siniftan 8. sinifa, temelden ileriye, adim adim YZ okuryazarligi
+              6. sınıftan 8. sınıfa, temelden ileriye, adım adım YZ okuryazarlığı
             </p>
           </div>
 
           {/* Sinif gruplari */}
           {[
-            { sinif: "6. Sinif — Temel Kavramlar", bolumNolar: [1, 2, 3] },
-            { sinif: "6-7. Sinif — Uygulama", bolumNolar: [4, 5] },
-            { sinif: "7. Sinif — Kodlama", bolumNolar: [6] },
-            { sinif: "7-8. Sinif — Derinlesme", bolumNolar: [7, 8, 9] },
-            { sinif: "8. Sinif — Proje", bolumNolar: [10] },
+            { sinif: "6. Sınıf — Temel Kavramlar", bolumNolar: [1, 2, 3] },
+            { sinif: "6-7. Sınıf — Uygulama", bolumNolar: [4, 5] },
+            { sinif: "7. Sınıf — Kodlama", bolumNolar: [6] },
+            { sinif: "7-8. Sınıf — Derinleşme", bolumNolar: [7, 8, 9] },
+            { sinif: "8. Sınıf — Proje", bolumNolar: [10] },
           ].map((grup) => (
             <div key={grup.sinif} className="mb-8">
               <h3 className="mb-4 text-sm font-bold uppercase tracking-wider text-[var(--color-text-secondary)]">
@@ -172,7 +172,7 @@ export default function AnaSayfa() {
                       <div className="p-5">
                         <div className="mb-2 flex items-center justify-between">
                           <span className="text-xs font-bold text-[var(--color-text-secondary)]">
-                            BOLUM {b.no}
+                            BÖLÜM {b.no}
                           </span>
                           <span className="text-xs text-[var(--color-text-secondary)]">
                             {b.ders} ders saati
@@ -198,19 +198,19 @@ export default function AnaSayfa() {
       <section className="bg-[var(--color-bg-secondary)] py-20">
         <div className="mx-auto max-w-6xl px-6">
           <div className="mb-12 text-center">
-            <h2 className="mb-3 text-3xl font-extrabold">Kullanilan Araclar</h2>
-            <p className="text-[var(--color-text-secondary)]">Hepsi ucretsiz, hepsi web tabanli</p>
+            <h2 className="mb-3 text-3xl font-extrabold">Kullanılan Araçlar</h2>
+            <p className="text-[var(--color-text-secondary)]">Hepsi ücretsiz, hepsi web tabanlı</p>
           </div>
           <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
             {[
-              { ad: "Teachable Machine", aciklama: "Kodsuz ML model egitimi", url: "https://teachablemachine.withgoogle.com/", icon: "🧪" },
-              { ad: "PictoBlox", aciklama: "Blok tabanli YZ kodlama", url: "https://thestempedia.com/product/pictoblox/", icon: "🧩" },
+              { ad: "Teachable Machine", aciklama: "Kodsuz ML model eğitimi", url: "https://teachablemachine.withgoogle.com/", icon: "🧪" },
+              { ad: "PictoBlox", aciklama: "Blok tabanlı YZ kodlama", url: "https://thestempedia.com/product/pictoblox/", icon: "🧩" },
               { ad: "ML for Kids", aciklama: "Scratch ile ML projeleri", url: "https://machinelearningforkids.co.uk/", icon: "🎓" },
-              { ad: "Scratch", aciklama: "Blok tabanli kodlama", url: "https://scratch.mit.edu/", icon: "🐱" },
-              { ad: "Canva AI", aciklama: "YZ destekli tasarim", url: "https://canva.com/", icon: "🎨" },
-              { ad: "ChatGPT", aciklama: "Uretken YZ deneyimi", url: "https://chatgpt.com/", icon: "💬" },
-              { ad: "Gemini", aciklama: "Google YZ asistani", url: "https://gemini.google.com/", icon: "✨" },
-              { ad: "Bing Image Creator", aciklama: "Ucretsiz goruntu uretme", url: "https://www.bing.com/images/create", icon: "🖼️" },
+              { ad: "Scratch", aciklama: "Blok tabanlı kodlama", url: "https://scratch.mit.edu/", icon: "🐱" },
+              { ad: "Canva AI", aciklama: "YZ destekli tasarım", url: "https://canva.com/", icon: "🎨" },
+              { ad: "ChatGPT", aciklama: "Üretken YZ deneyimi", url: "https://chatgpt.com/", icon: "💬" },
+              { ad: "Gemini", aciklama: "Google YZ asistanı", url: "https://gemini.google.com/", icon: "✨" },
+              { ad: "Bing Image Creator", aciklama: "Ücretsiz görüntü üretme", url: "https://www.bing.com/images/create", icon: "🖼️" },
             ].map((a) => (
               <a
                 key={a.ad}
@@ -234,9 +234,9 @@ export default function AnaSayfa() {
       <section className="py-20">
         <div className="mx-auto max-w-6xl px-6">
           <div className="mb-12 text-center">
-            <h2 className="mb-3 text-3xl font-extrabold">Ilham Kaynaklari</h2>
+            <h2 className="mb-3 text-3xl font-extrabold">İlham Kaynakları</h2>
             <p className="mx-auto max-w-lg text-[var(--color-text-secondary)]">
-              Dunya capinda YZ okuryazarligi arastirmalarindan ilham alarak tasarlandi
+              Dünya çapında YZ okuryazarlığı araştırmalarından ilham alarak tasarlandı
             </p>
           </div>
           <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
@@ -244,7 +244,7 @@ export default function AnaSayfa() {
               { ad: "MIT RAISE", aciklama: "Responsible AI for Social Empowerment", url: "https://raise.mit.edu/", logo: "🏛️" },
               { ad: "Day of AI", aciklama: "AI Literacy is for Everyone", url: "https://dayofai.org/", logo: "📅" },
               { ad: "AI4K12", aciklama: "Five Big Ideas in AI", url: "https://ai4k12.org/", logo: "🎓" },
-              { ad: "MEB BTY", aciklama: "Bilisim Teknolojileri Mufredati", url: "https://mufredat.meb.gov.tr/", logo: "🇹🇷" },
+              { ad: "MEB BTY", aciklama: "Bilişim Teknolojileri Müfredatı", url: "https://mufredat.meb.gov.tr/", logo: "🇹🇷" },
             ].map((k) => (
               <a
                 key={k.ad}
@@ -266,17 +266,17 @@ export default function AnaSayfa() {
       <section className="bg-gradient-to-br from-blue-600 via-indigo-700 to-violet-800 py-20 text-center text-white">
         <div className="mx-auto max-w-3xl px-6">
           <h2 className="mb-4 text-3xl font-extrabold md:text-4xl">
-            YZ Okuryazarligi Yolculuguna Basla
+            YZ Okuryazarlığı Yolculuğuna Başla
           </h2>
           <p className="mb-8 text-lg text-blue-100">
-            10 bolum, 50+ etkinlik, tamamen ucretsiz. Hemen kesfetmeye basla!
+            10 bölüm, 50+ etkinlik, tamamen ücretsiz. Hemen keşfetmeye başla!
           </p>
           <div className="flex flex-wrap justify-center gap-4">
             <a
               href="#bolumler"
               className="rounded-xl bg-white px-10 py-4 text-lg font-bold text-indigo-700 shadow-xl shadow-indigo-900/20 transition hover:scale-105"
             >
-              Hemen Basla
+              Hemen Başla
             </a>
             <Link
               href="/hakkinda"
@@ -293,19 +293,19 @@ export default function AnaSayfa() {
         <div className="mx-auto max-w-6xl px-6">
           <div className="grid gap-8 md:grid-cols-3">
             <div>
-              <p className="text-lg font-extrabold">🤖 Yapay Zeka Macerasi</p>
+              <p className="text-lg font-extrabold">🤖 Yapay Zeka Macerası</p>
               <p className="mt-1 text-sm text-[var(--color-text-secondary)]">
                 Dr. Murat ALTUN
               </p>
               <p className="mt-3 text-xs text-[var(--color-text-secondary)]">
-                Ortaokul ogrencileri icin uygulamali yapay zeka egitim platformu.
+                Ortaokul öğrencileri için uygulamalı yapay zeka eğitim platformu.
               </p>
             </div>
             <div>
-              <h4 className="mb-3 text-sm font-bold">Hizli Erisim</h4>
+              <h4 className="mb-3 text-sm font-bold">Hızlı Erişim</h4>
               <div className="space-y-2 text-sm text-[var(--color-text-secondary)]">
-                <Link href="/#bolumler" className="block hover:text-sky-600 transition">Bolumler</Link>
-                <Link href="/hakkinda" className="block hover:text-sky-600 transition">Hakkinda</Link>
+                <Link href="/#bolumler" className="block hover:text-sky-600 transition">Bölümler</Link>
+                <Link href="/hakkinda" className="block hover:text-sky-600 transition">Hakkında</Link>
                 <a href="https://github.com/DrMuratAltun/yapay-zeka-cocuklar" target="_blank" rel="noopener noreferrer" className="block hover:text-sky-600 transition">GitHub</a>
               </div>
             </div>
@@ -321,7 +321,7 @@ export default function AnaSayfa() {
                 >
                   CC BY-NC-SA 4.0
                 </a>{" "}
-                lisansi ile lisanslanmistir. Egitim amacli kullanima aciktir.
+                lisansı ile lisanslanmıştır. Eğitim amaçlı kullanıma açıktır.
               </p>
             </div>
           </div>

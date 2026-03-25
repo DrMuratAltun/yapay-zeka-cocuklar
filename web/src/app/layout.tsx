@@ -6,13 +6,13 @@ import "./globals.css";
 const geist = Geist({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "Yapay Zeka Macerasi - Cocuklar Icin Yapay Zeka",
+  title: "Yapay Zeka Macerası - Çocuklar İçin Yapay Zeka",
   description:
-    "Ortaokul ogrencileri (6-8. sinif) icin uygulamali, eglenceli ve MEB uyumlu yapay zeka egitim platformu.",
+    "Ortaokul öğrencileri (6-8. sınıf) için uygulamalı, eğlenceli ve MEB uyumlu yapay zeka eğitim platformu.",
   keywords: [
     "yapay zeka",
-    "cocuklar icin yapay zeka",
-    "AI egitimi",
+    "çocuklar için yapay zeka",
+    "AI eğitimi",
     "ortaokul",
     "MEB",
     "kodlama",

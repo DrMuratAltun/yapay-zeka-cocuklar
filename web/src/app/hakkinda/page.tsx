@@ -6,10 +6,10 @@ export default function Hakkinda() {
       {/* Header */}
       <header className="bg-gradient-to-r from-indigo-600 to-violet-700 text-white">
         <div className="mx-auto max-w-4xl px-6 py-16 text-center">
-          <h1 className="mb-4 text-4xl font-extrabold">Proje Hakkinda</h1>
+          <h1 className="mb-4 text-4xl font-extrabold">Proje Hakkında</h1>
           <p className="mx-auto max-w-xl text-lg text-indigo-100">
-            Yapay Zeka Macerasi, ortaokul ogrencileri icin hazirlanan
-            acik kaynakli, uygulamali bir yapay zeka egitim projesidir.
+            Yapay Zeka Macerası, ortaokul öğrencileri için hazırlanan
+            açık kaynaklı, uygulamalı bir yapay zeka eğitim projesidir.
           </p>
         </div>
       </header>
@@ -23,67 +23,67 @@ export default function Hakkinda() {
           <div>
             <h2 className="mb-2 text-2xl font-extrabold">Dr. Murat ALTUN</h2>
             <p className="mb-4 text-[var(--color-text-secondary)]">
-              Bilisim Teknolojileri Ogretmeni &middot; Egitim Teknolojisi Arastirmacisi
+              Bilişim Teknolojileri Öğretmeni &middot; Eğitim Teknolojisi Araştırmacısı
             </p>
             <p className="leading-relaxed text-[var(--color-text-secondary)]">
-              Ortaokul ve lise ogrencilerine bilisim teknolojileri, kodlama ve yapay zeka
-              konularinda egitim vermektedir. Yapay zeka, egitim teknolojileri ve
-              dijital okuryazarlik alanlarinda calismalar yurutmektedir. Ogrencilerin
-              teknolojiyi sadece tuketen degil, ureten bireyler olarak yetismeleri icin
-              uygulamali egitim yaklasimlarini benimsemektedir.
+              Ortaokul ve lise öğrencilerine bilişim teknolojileri, kodlama ve yapay zeka
+              konularında eğitim vermektedir. Yapay zeka, eğitim teknolojileri ve
+              dijital okuryazarlık alanlarında çalışmalar yürütmektedir. Öğrencilerin
+              teknolojiyi sadece tüketen değil, üreten bireyler olarak yetişmeleri için
+              uygulamalı eğitim yaklaşımlarını benimsemektedir.
             </p>
           </div>
         </section>
 
-        {/* Proje Hakkinda */}
+        {/* Proje Hakkında */}
         <section className="space-y-4">
           <h2 className="text-2xl font-extrabold">Proje Nedir?</h2>
           <p className="leading-relaxed text-[var(--color-text-secondary)]">
-            <strong className="text-[var(--color-text)]">Yapay Zeka Macerasi</strong>,
-            6-8. sinif ogrencilerinin yapay zekayi anlamalarini, deneyimlemelerini ve
-            sorumlu bir sekilde kullanmalarini amaclayan kapsamli bir egitim projesidir.
+            <strong className="text-[var(--color-text)]">Yapay Zeka Macerası</strong>,
+            6-8. sınıf öğrencilerinin yapay zekayı anlamalarını, deneyimlemelerini ve
+            sorumlu bir şekilde kullanmalarını amaçlayan kapsamlı bir eğitim projesidir.
           </p>
           <p className="leading-relaxed text-[var(--color-text-secondary)]">
-            Proje, MEB Bilisim Teknolojileri ve Yazilim dersi mufredatiyla uyumlu
-            olarak tasarlanmis olup, hem sinif ici etkinlikler hem de bireysel
-            calisma icin uygundur.
+            Proje, MEB Bilişim Teknolojileri ve Yazılım dersi müfredatıyla uyumlu
+            olarak tasarlanmış olup, hem sınıf içi etkinlikler hem de bireysel
+            çalışma için uygundur.
           </p>
         </section>
 
-        {/* Ozellikler */}
+        {/* Özellikler */}
         <section className="space-y-4">
-          <h2 className="text-2xl font-extrabold">Projenin Ozellikleri</h2>
+          <h2 className="text-2xl font-extrabold">Projenin Özellikleri</h2>
           <div className="grid gap-4 sm:grid-cols-2">
             {[
               {
                 icon: "📖",
-                baslik: "10 Kapsamli Bolum",
-                aciklama: "Temel kavramlardan ileri projelere, kademeli olarak ilerleyen icerik.",
+                baslik: "10 Kapsamlı Bölüm",
+                aciklama: "Temel kavramlardan ileri projelere, kademeli olarak ilerleyen içerik.",
               },
               {
                 icon: "🎮",
-                baslik: "Uygulamali Ogrenme",
-                aciklama: "Her bolumde bilgisayarli ve bilgisayarsiz (unplugged) etkinlikler.",
+                baslik: "Uygulamalı Öğrenme",
+                aciklama: "Her bölümde bilgisayarlı ve bilgisayarsız (unplugged) etkinlikler.",
               },
               {
                 icon: "🖨️",
-                baslik: "Yazici Dostu Materyaller",
-                aciklama: "Etkinlik kartlari, calisma yapraklari ve degerlendirme formlari PDF olarak indirilebilir.",
+                baslik: "Yazıcı Dostu Materyaller",
+                aciklama: "Etkinlik kartları, çalışma yaprakları ve değerlendirme formları PDF olarak indirilebilir.",
               },
               {
                 icon: "📱",
-                baslik: "Interaktif Web Platformu",
-                aciklama: "Quizler, etkinlikler ve QR kodlarla kitaptan platforma gecis.",
+                baslik: "İnteraktif Web Platformu",
+                aciklama: "Quizler, etkinlikler ve QR kodlarla kitaptan platforma geçiş.",
               },
               {
                 icon: "🎥",
-                baslik: "Video Egitimler",
-                aciklama: "Her bolum icin adim adim nasil yapilir videolari.",
+                baslik: "Video Eğitimler",
+                aciklama: "Her bölüm için adım adım nasıl yapılır videoları.",
               },
               {
                 icon: "🏫",
                 baslik: "MEB Uyumlu",
-                aciklama: "BTY dersi kazanimlariyla uyumlu icerik ve etkinlikler.",
+                aciklama: "BTY dersi kazanımlarıyla uyumlu içerik ve etkinlikler.",
               },
             ].map((o) => (
               <div
@@ -100,14 +100,14 @@ export default function Hakkinda() {
           </div>
         </section>
 
-        {/* Acik Kaynak */}
+        {/* Açık Kaynak */}
         <section className="rounded-2xl bg-gradient-to-br from-indigo-600 to-violet-700 p-8 text-white">
-          <h2 className="mb-4 text-2xl font-extrabold">Acik Kaynak Proje</h2>
+          <h2 className="mb-4 text-2xl font-extrabold">Açık Kaynak Proje</h2>
           <p className="mb-6 text-indigo-100">
-            Bu proje <strong>CC BY-NC-SA 4.0</strong> lisansi ile lisanslanmistir.
-            Egitim amacli, ticari olmayan kullanimlarda serbestce
-            kullanilabilir, paylasilabilir ve uyarlanabilir. Kaynak gosterme
-            ve ayni lisansla paylasma kosullari gecerlidir.
+            Bu proje <strong>CC BY-NC-SA 4.0</strong> lisansı ile lisanslanmıştır.
+            Eğitim amaçlı, ticari olmayan kullanımlarda serbestçe
+            kullanılabilir, paylaşılabilir ve uyarlanabilir. Kaynak gösterme
+            ve aynı lisansla paylaşma koşulları geçerlidir.
           </p>
           <div className="flex flex-wrap gap-3">
             <a
@@ -116,7 +116,7 @@ export default function Hakkinda() {
               rel="noopener noreferrer"
               className="rounded-lg bg-white px-6 py-2.5 font-bold text-indigo-700 transition hover:bg-indigo-50"
             >
-              GitHub&apos;da Incele
+              GitHub&apos;da İncele
             </a>
             <a
               href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.tr"
@@ -124,7 +124,7 @@ export default function Hakkinda() {
               rel="noopener noreferrer"
               className="rounded-lg border-2 border-white/30 px-6 py-2.5 font-bold transition hover:bg-white/10"
             >
-              Lisans Detaylari
+              Lisans Detayları
             </a>
           </div>
         </section>
@@ -136,31 +136,31 @@ export default function Hakkinda() {
             <div className="rounded-xl border-2 border-emerald-300 bg-emerald-50 p-5 dark:border-emerald-700 dark:bg-emerald-900/20">
               <h3 className="mb-2 font-bold text-emerald-700 dark:text-emerald-400">✅ Yapabilirsiniz</h3>
               <ul className="space-y-1 text-sm text-[var(--color-text-secondary)]">
-                <li>&#8226; Siniflarinizda serbestce kullanmak</li>
-                <li>&#8226; Icerige ekleme yaparak uyarlamak</li>
-                <li>&#8226; Baska ogretmenlerle paylastirmak</li>
-                <li>&#8226; Farkli dillere cevirmek</li>
+                <li>&#8226; Sınıflarınızda serbestçe kullanmak</li>
+                <li>&#8226; İçeriğe ekleme yaparak uyarlamak</li>
+                <li>&#8226; Başka öğretmenlerle paylaştırmak</li>
+                <li>&#8226; Farklı dillere çevirmek</li>
               </ul>
             </div>
             <div className="rounded-xl border-2 border-rose-300 bg-rose-50 p-5 dark:border-rose-700 dark:bg-rose-900/20">
-              <h3 className="mb-2 font-bold text-rose-700 dark:text-rose-400">❌ Yapamazsiniz</h3>
+              <h3 className="mb-2 font-bold text-rose-700 dark:text-rose-400">❌ Yapamazsınız</h3>
               <ul className="space-y-1 text-sm text-[var(--color-text-secondary)]">
-                <li>&#8226; Ticari amacla satmak</li>
-                <li>&#8226; Kaynak gostermeden kullanmak</li>
-                <li>&#8226; Farkli bir lisansla dagitmak</li>
+                <li>&#8226; Ticari amaçla satmak</li>
+                <li>&#8226; Kaynak göstermeden kullanmak</li>
+                <li>&#8226; Farklı bir lisansla dağıtmak</li>
               </ul>
             </div>
           </div>
         </section>
 
-        {/* Katki */}
+        {/* Katkı */}
         <section className="space-y-4">
-          <h2 className="text-2xl font-extrabold">Katkida Bulunun</h2>
+          <h2 className="text-2xl font-extrabold">Katkıda Bulunun</h2>
           <p className="text-[var(--color-text-secondary)]">
-            Bu projeye katkida bulunmak isterseniz GitHub uzerinden
-            pull request gonderebilir, hata bildirimi yapabilir veya
-            yeni icerik onerileri sunabilirsiniz. Her turlu katki
-            degerlidir!
+            Bu projeye katkıda bulunmak isterseniz GitHub üzerinden
+            pull request gönderebilir, hata bildirimi yapabilir veya
+            yeni içerik önerileri sunabilirsiniz. Her türlü katkı
+            değerlidir!
           </p>
           <div className="flex flex-wrap gap-3">
             <a
@@ -169,18 +169,18 @@ export default function Hakkinda() {
               rel="noopener noreferrer"
               className="rounded-lg border border-[var(--color-border)] px-5 py-2 text-sm font-medium transition hover:bg-[var(--color-bg-secondary)]"
             >
-              Hata Bildir / Oneri Ver
+              Hata Bildir / Öneri Ver
             </a>
           </div>
         </section>
 
-        {/* Geri Don */}
+        {/* Geri Dön */}
         <div className="pt-6">
           <Link
             href="/"
             className="rounded-lg bg-indigo-600 px-6 py-3 font-medium text-white transition hover:bg-indigo-700"
           >
-            &larr; Ana Sayfaya Don
+            &larr; Ana Sayfaya Dön
           </Link>
         </div>
       </main>
