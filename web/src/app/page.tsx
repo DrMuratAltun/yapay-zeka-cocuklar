@@ -1,4 +1,5 @@
 import Link from "next/link";
+import NeuralBackground from "@/components/NeuralBackground";
 
 const bolumler = [
   { no: 1, baslik: "Yapay Zeka Nedir?", altBaslik: "Keşif Yolculuğu", seviye: "6. Sınıf", ders: 4, renk: "from-sky-400 to-blue-500", hazir: true },
@@ -18,7 +19,8 @@ export default function AnaSayfa() {
     <div className="min-h-screen">
       {/* Hero - Day of AI ilhamli */}
       <header className="relative overflow-hidden bg-[#0f172a] text-white">
-        {/* Animated grid background */}
+        {/* Neural network animated background */}
+        <NeuralBackground />
         <div className="absolute inset-0">
           <div className="absolute inset-0 bg-[linear-gradient(rgba(56,189,248,0.03)_1px,transparent_1px),linear-gradient(90deg,rgba(56,189,248,0.03)_1px,transparent_1px)] bg-[size:60px_60px]" />
           <div className="absolute -top-40 -right-40 h-[500px] w-[500px] rounded-full bg-blue-500/10 blur-[120px]" />
@@ -74,7 +76,7 @@ export default function AnaSayfa() {
               ].map((s) => (
                 <div
                   key={s.etiket}
-                  className={`rounded-2xl border bg-gradient-to-br p-6 ${s.renk}`}
+                  className={`glow-hover rounded-2xl border bg-gradient-to-br p-6 transition-transform hover:scale-105 ${s.renk}`}
                 >
                   <span className="text-3xl">{s.icon}</span>
                   <div className="mt-3 text-3xl font-extrabold">{s.sayi}</div>
@@ -117,20 +119,30 @@ export default function AnaSayfa() {
           </div>
           <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
             {[
-              { icon: "🔌", baslik: "Unplugged Etkinlikler", aciklama: "Bilgisayarsız, sınıfta yapılabilir etkinlikler. Kapsayıcı — herkes katılır." },
-              { icon: "🧪", baslik: "Uygulamalı Öğrenme", aciklama: "Teachable Machine, PictoBlox, Scratch ile gerçek YZ projeleri." },
-              { icon: "🖨️", baslik: "Yazıcı Dostu", aciklama: "Etkinlik kartları, çalışma yaprakları ve formlar PDF indirilebilir." },
-              { icon: "📱", baslik: "QR Kod Entegrasyonu", aciklama: "Kitaptan doğrudan interaktif etkinliklere erişim." },
-              { icon: "🧩", baslik: "İnteraktif Quizler", aciklama: "Her bölüm sonunda anında geri bildirimli değerlendirme." },
-              { icon: "⚖️", baslik: "Etik Odaklı", aciklama: "YZ etiği, önyargı ve sorumlu kullanım her bölümde işlenir." },
+              { icon: "🔌", baslik: "Unplugged Etkinlikler", aciklama: "Bilgisayarsız, sınıfta yapılabilir etkinlikler. Kapsayıcı — herkes katılır.", arka: "Kağıt, makas ve hayal gücüyle yapay zeka keşfet! Her bölümde en az 1 unplugged etkinlik var.", renk: "from-emerald-500 to-teal-500" },
+              { icon: "🧪", baslik: "Uygulamalı Öğrenme", aciklama: "Teachable Machine, PictoBlox, Scratch ile gerçek YZ projeleri.", arka: "Kendi modelini eğit, kendi oyununu yap! Adım adım rehberlerle pratik YZ deneyimi.", renk: "from-sky-500 to-blue-500" },
+              { icon: "🖨️", baslik: "Yazıcı Dostu", aciklama: "Etkinlik kartları, çalışma yaprakları ve formlar PDF indirilebilir.", arka: "32 indirilebilir materyal: kart setleri, formlar, rehberler ve sertifika — hepsi yazdırılabilir.", renk: "from-violet-500 to-purple-500" },
+              { icon: "📱", baslik: "QR Kod Entegrasyonu", aciklama: "Kitaptan doğrudan interaktif etkinliklere erişim.", arka: "Basılı kitaptaki QR kodlar seni doğrudan web etkinliklerine, quizlere ve videolara götürür.", renk: "from-orange-500 to-amber-500" },
+              { icon: "🧩", baslik: "İnteraktif Quizler", aciklama: "Her bölüm sonunda anında geri bildirimli değerlendirme.", arka: "50+ quiz sorusu, anında geri bildirim, puan takibi. Öğrendiğini test et!", renk: "from-pink-500 to-rose-500" },
+              { icon: "⚖️", baslik: "Etik Odaklı", aciklama: "YZ etiği, önyargı ve sorumlu kullanım her bölümde işlenir.", arka: "Deepfake tespiti, YZ Mahkemesi, Etik Pusula — sorumlu YZ kullanımı öğren.", renk: "from-amber-500 to-orange-500" },
             ].map((o) => (
               <div
                 key={o.baslik}
-                className="card-hover rounded-2xl border border-[var(--color-border)] bg-[var(--color-bg)] p-6"
+                className="flip-card h-52"
               >
-                <span className="text-4xl">{o.icon}</span>
-                <h3 className="mt-4 text-lg font-bold">{o.baslik}</h3>
-                <p className="mt-2 text-sm leading-relaxed text-[var(--color-text-secondary)]">{o.aciklama}</p>
+                <div className="flip-card-inner">
+                  {/* Ön yüz */}
+                  <div className="flip-card-front flex flex-col items-center justify-center rounded-2xl border border-[var(--color-border)] bg-[var(--color-bg)] p-6 text-center">
+                    <span className="text-5xl">{o.icon}</span>
+                    <h3 className="mt-4 text-lg font-bold">{o.baslik}</h3>
+                    <p className="mt-2 text-xs text-[var(--color-text-secondary)]">{o.aciklama}</p>
+                  </div>
+                  {/* Arka yüz */}
+                  <div className={`flip-card-back flex flex-col items-center justify-center rounded-2xl bg-gradient-to-br ${o.renk} p-6 text-center text-white`}>
+                    <span className="text-3xl">{o.icon}</span>
+                    <p className="mt-3 text-sm font-medium leading-relaxed">{o.arka}</p>
+                  </div>
+                </div>
               </div>
             ))}
           </div>
@@ -166,7 +178,7 @@ export default function AnaSayfa() {
                     <Link
                       key={b.no}
                       href={`/bolumler/${b.no}`}
-                      className="card-hover group overflow-hidden rounded-2xl border border-[var(--color-border)] bg-[var(--color-bg)]"
+                      className="card-hover glow-hover group overflow-hidden rounded-2xl border border-[var(--color-border)] bg-[var(--color-bg)]"
                     >
                       <div className={`h-2 bg-gradient-to-r ${b.renk}`} />
                       <div className="p-5">
