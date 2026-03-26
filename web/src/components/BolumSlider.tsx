@@ -117,19 +117,15 @@ export default function BolumSlider({
     <div className="min-h-screen flex flex-col">
       {/* Header */}
       <header className={`bg-gradient-to-r ${renk} text-white`}>
-        <div className="mx-auto max-w-6xl px-4 py-4 sm:px-6">
-          <Link href="/" className="mb-2 inline-block text-sm text-white/70 hover:text-white transition">
+        <div className="mx-auto max-w-6xl px-4 py-6 sm:px-6 sm:py-8">
+          <Link href="/" className="mb-3 inline-block text-sm text-white/70 hover:text-white transition">
             &larr; Ana Sayfa
           </Link>
-          <div className="flex items-center gap-3">
-            <div>
-              <p className="text-xs text-white/70">
-                BÖLÜM {bolumNo} &middot; {seviye} &middot; {ders} ders saati
-              </p>
-              <h1 className="text-xl font-extrabold sm:text-2xl">{bolumBaslik}</h1>
-              <p className="text-sm text-white/70">{bolumAltBaslik}</p>
-            </div>
-          </div>
+          <p className="text-xs font-medium tracking-wider text-white/70 sm:text-sm">
+            BÖLÜM {bolumNo} &middot; {seviye} &middot; {ders} ders saati
+          </p>
+          <h1 className="mt-1 text-2xl font-extrabold sm:text-3xl md:text-4xl">{bolumBaslik}</h1>
+          <p className="mt-1 text-sm text-white/80 sm:text-base">{bolumAltBaslik}</p>
         </div>
       </header>
 

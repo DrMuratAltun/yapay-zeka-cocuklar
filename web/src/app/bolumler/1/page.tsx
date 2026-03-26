@@ -10,6 +10,7 @@ import BolumSlider from "@/components/BolumSlider";
 import YzMiDegilMi from "@/components/oyunlar/YzMiDegilMi";
 import KimDahaZeki from "@/components/etkinlikler/KimDahaZeki";
 import YzDedektifi from "@/components/etkinlikler/YzDedektifi";
+import ZamanCizelgesi from "@/components/etkinlikler/ZamanCizelgesi";
 
 const quizSorulari = [
   {
@@ -366,6 +367,8 @@ const SlaytEtkinlik3 = (
         gelecek tahminlerinizi ekleyin. Posterinizi sınıfta sergileyin.
       </p>
     </div>
+
+    <ZamanCizelgesi />
   </>
 );
 

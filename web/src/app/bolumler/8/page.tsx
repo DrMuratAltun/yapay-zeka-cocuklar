@@ -9,6 +9,8 @@ import InteraktifQuiz from "@/components/InteraktifQuiz";
 import BolumSlider from "@/components/BolumSlider";
 import YapayMiGercekMi from "@/components/oyunlar/YapayMiGercekMi";
 import HikayeOlusturucu from "@/components/etkinlikler/HikayeOlusturucu";
+import PosterTasarimi from "@/components/etkinlikler/PosterTasarimi";
+import DijitalHikayeFormu from "@/components/etkinlikler/DijitalHikayeFormu";
 
 const quizSorulari = [
   {
@@ -264,6 +266,8 @@ const SlaytEtkinlik2 = (
         paylaşın.
       </p>
     </div>
+
+    <PosterTasarimi />
   </>
 );
 
@@ -282,6 +286,8 @@ const SlaytEtkinlik3 = (
         birleştirin. Sınıfta canlı sunun.
       </p>
     </div>
+
+    <DijitalHikayeFormu />
   </>
 );
 

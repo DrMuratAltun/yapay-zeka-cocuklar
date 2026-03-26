@@ -11,6 +11,8 @@ import VeriTuruAvcisi from "@/components/oyunlar/VeriTuruAvcisi";
 import VeriTopla from "@/components/etkinlikler/VeriTopla";
 import GirdiAvcilari from "@/components/etkinlikler/GirdiAvcilari";
 import SinifAnketi from "@/components/etkinlikler/SinifAnketi";
+import VeriEtiketleme from "@/components/etkinlikler/VeriEtiketleme";
+import VeriSetiKesif from "@/components/etkinlikler/VeriSetiKesif";
 
 const quizSorulari = [
   {
@@ -366,6 +368,8 @@ const SlaytEtkinlik4 = (
         </p>
       </div>
     </div>
+
+    <VeriSetiKesif />
   </>
 );
 
@@ -383,6 +387,8 @@ const SlaytEtkinlik5 = (
         Etiketlemenin ne kadar önemli ve zaman alıcı olduğunu deneyimleyin.
       </p>
     </div>
+
+    <VeriEtiketleme />
   </>
 );
 

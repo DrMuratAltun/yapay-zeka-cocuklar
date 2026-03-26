@@ -10,6 +10,8 @@ import BolumSlider from "@/components/BolumSlider";
 import KararAgaci from "@/components/oyunlar/KararAgaci";
 import MeyveSiniflandirici from "@/components/etkinlikler/MeyveSiniflandirici";
 import ModelBasariRaporu from "@/components/etkinlikler/ModelBasariRaporu";
+import TeachableMachineRehber from "@/components/etkinlikler/TeachableMachineRehber";
+import MLForKidsRehber from "@/components/etkinlikler/MLForKidsRehber";
 
 const quizSorulari = [
   {
@@ -397,6 +399,8 @@ const SlaytEtkinlik2 = (
         En az 50 örnek toplayın. Modelinizi test edin ve başarı oranını kaydedin.
       </p>
     </div>
+
+    <TeachableMachineRehber />
   </>
 );
 
@@ -415,6 +419,8 @@ const SlaytEtkinlik3 = (
         Modelinizi Scratch&apos;te kullanan küçük bir program yapın.
       </p>
     </div>
+
+    <MLForKidsRehber />
   </>
 );
 

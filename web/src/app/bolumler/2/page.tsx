@@ -10,6 +10,8 @@ import BolumSlider from "@/components/BolumSlider";
 import YzEslestirme from "@/components/oyunlar/YzEslestirme";
 import YzHaritasi from "@/components/etkinlikler/YzHaritasi";
 import YzVeyaDegil from "@/components/etkinlikler/YzVeyaDegil";
+import SesliAsistanTesti from "@/components/etkinlikler/SesliAsistanTesti";
+import YzRoportaj from "@/components/etkinlikler/YzRoportaj";
 
 const quizSorulari = [
   {
@@ -538,6 +540,8 @@ const SlaytEtkinlik3 = (
         </p>
       </div>
     </div>
+
+    <SesliAsistanTesti />
   </>
 );
 
@@ -562,6 +566,8 @@ const SlaytEtkinlik4 = (
         hakkındaki görüşlerini karşılaştırın.
       </p>
     </div>
+
+    <YzRoportaj />
   </>
 );
 
