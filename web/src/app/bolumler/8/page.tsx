@@ -11,6 +11,8 @@ import YapayMiGercekMi from "@/components/oyunlar/YapayMiGercekMi";
 import HikayeOlusturucu from "@/components/etkinlikler/HikayeOlusturucu";
 import PosterTasarimi from "@/components/etkinlikler/PosterTasarimi";
 import DijitalHikayeFormu from "@/components/etkinlikler/DijitalHikayeFormu";
+import PromptGalerisi from "@/components/etkinlikler/PromptGalerisi";
+import TelifKontrol from "@/components/etkinlikler/TelifKontrol";
 
 const quizSorulari = [
   {
@@ -248,6 +250,8 @@ const SlaytEtkinlik1 = (
     </div>
 
     <HikayeOlusturucu />
+
+    <PromptGalerisi />
   </>
 );
 
@@ -268,6 +272,8 @@ const SlaytEtkinlik2 = (
     </div>
 
     <PosterTasarimi />
+
+    <TelifKontrol />
   </>
 );
 

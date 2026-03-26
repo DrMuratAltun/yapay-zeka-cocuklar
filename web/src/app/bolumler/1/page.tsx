@@ -11,6 +11,8 @@ import YzMiDegilMi from "@/components/oyunlar/YzMiDegilMi";
 import KimDahaZeki from "@/components/etkinlikler/KimDahaZeki";
 import YzDedektifi from "@/components/etkinlikler/YzDedektifi";
 import ZamanCizelgesi from "@/components/etkinlikler/ZamanCizelgesi";
+import TuringTesti from "@/components/etkinlikler/TuringTesti";
+import YzZekaKarsilastir from "@/components/etkinlikler/YzZekaKarsilastir";
 
 const quizSorulari = [
   {
@@ -323,6 +325,8 @@ const SlaytEtkinlik1 = (
     </div>
 
     <KimDahaZeki />
+
+    <TuringTesti />
   </>
 );
 
@@ -350,6 +354,8 @@ const SlaytEtkinlik2 = (
     </div>
 
     <YzDedektifi />
+
+    <YzZekaKarsilastir />
   </>
 );
 

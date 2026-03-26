@@ -11,6 +11,8 @@ import ProblemCozumEslestir from "@/components/oyunlar/ProblemCozumEslestir";
 import TasarimDusuncesi from "@/components/etkinlikler/TasarimDusuncesi";
 import ProjePlanlama from "@/components/etkinlikler/ProjePlanlama";
 import GeriBildirimFormu from "@/components/etkinlikler/GeriBildirimFormu";
+import ProblemAnalizi from "@/components/etkinlikler/ProblemAnalizi";
+import SDGveYZ from "@/components/etkinlikler/SDGveYZ";
 
 const quizSorulari = [
   {
@@ -217,6 +219,8 @@ const SlaytEtkinlik1 = (
     <TasarimDusuncesi />
 
     <ProjePlanlama />
+
+    <ProblemAnalizi />
   </>
 );
 
@@ -235,6 +239,8 @@ const SlaytEtkinlik2 = (
         sınıfa sunun: problem, çözüm, kullanılan teknoloji ve sonuçlar.
       </p>
     </div>
+
+    <SDGveYZ />
   </>
 );
 

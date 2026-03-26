@@ -12,6 +12,8 @@ import MeyveSiniflandirici from "@/components/etkinlikler/MeyveSiniflandirici";
 import ModelBasariRaporu from "@/components/etkinlikler/ModelBasariRaporu";
 import TeachableMachineRehber from "@/components/etkinlikler/TeachableMachineRehber";
 import MLForKidsRehber from "@/components/etkinlikler/MLForKidsRehber";
+import SiniflandirmaPratigi from "@/components/etkinlikler/SiniflandirmaPratigi";
+import OgrenimTurleriQuiz from "@/components/etkinlikler/OgrenimTurleriQuiz";
 
 const quizSorulari = [
   {
@@ -381,6 +383,8 @@ const SlaytEtkinlik1 = (
     </div>
 
     <MeyveSiniflandirici />
+
+    <SiniflandirmaPratigi />
   </>
 );
 
@@ -401,6 +405,8 @@ const SlaytEtkinlik2 = (
     </div>
 
     <TeachableMachineRehber />
+
+    <OgrenimTurleriQuiz />
   </>
 );
 

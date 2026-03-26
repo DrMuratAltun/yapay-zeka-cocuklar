@@ -12,6 +12,8 @@ import YzHaritasi from "@/components/etkinlikler/YzHaritasi";
 import YzVeyaDegil from "@/components/etkinlikler/YzVeyaDegil";
 import SesliAsistanTesti from "@/components/etkinlikler/SesliAsistanTesti";
 import YzRoportaj from "@/components/etkinlikler/YzRoportaj";
+import AkilliEvSimulator from "@/components/etkinlikler/AkilliEvSimulator";
+import OneriSistemiSim from "@/components/etkinlikler/OneriSistemiSim";
 
 const quizSorulari = [
   {
@@ -472,6 +474,8 @@ const SlaytEtkinlik1 = (
     </div>
 
     <YzHaritasi />
+
+    <AkilliEvSimulator />
   </>
 );
 
@@ -542,6 +546,8 @@ const SlaytEtkinlik3 = (
     </div>
 
     <SesliAsistanTesti />
+
+    <OneriSistemiSim />
   </>
 );
 

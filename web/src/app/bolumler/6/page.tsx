@@ -9,6 +9,8 @@ import InteraktifQuiz from "@/components/InteraktifQuiz";
 import BolumSlider from "@/components/BolumSlider";
 import AlgoritmaBulmacasi from "@/components/oyunlar/AlgoritmaBulmacasi";
 import AlgoritmaSirala from "@/components/etkinlikler/AlgoritmaSirala";
+import BlokKodlama from "@/components/etkinlikler/BlokKodlama";
+import PictoBloxProjeler from "@/components/etkinlikler/PictoBloxProjeler";
 
 const quizSorulari = [
   {
@@ -249,6 +251,8 @@ const SlaytEtkinlik1 = (
     </div>
 
     <AlgoritmaSirala />
+
+    <BlokKodlama />
   </>
 );
 
@@ -267,6 +271,8 @@ const SlaytEtkinlik2 = (
         ve oyunu kodlayın.
       </p>
     </div>
+
+    <PictoBloxProjeler />
   </>
 );
 

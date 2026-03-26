@@ -10,6 +10,8 @@ import InteraktifQuiz from "@/components/InteraktifQuiz";
 import EtikPusula from "@/components/oyunlar/EtikPusula";
 import EtikMahkeme from "@/components/etkinlikler/EtikMahkeme";
 import DeepfakeTespit from "@/components/etkinlikler/DeepfakeTespit";
+import OnyargiSimulator from "@/components/etkinlikler/OnyargiSimulator";
+import GizlilikDenetcisi from "@/components/etkinlikler/GizlilikDenetcisi";
 
 const quizSorulari = [
   {
@@ -230,6 +232,8 @@ const SlaytEtkinlik1 = (
     </div>
 
     <EtikMahkeme />
+
+    <OnyargiSimulator />
   </>
 );
 
@@ -248,6 +252,8 @@ const SlaytEtkinlik2 = (
         Sınıfça en iyi ilkeleri seçerek ortak bir sınıf bildirisi oluşturun.
       </p>
     </div>
+
+    <GizlilikDenetcisi />
   </>
 );
 

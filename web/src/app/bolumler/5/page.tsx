@@ -10,6 +10,8 @@ import BolumSlider from "@/components/BolumSlider";
 import PromptUstasi from "@/components/oyunlar/PromptUstasi";
 import PromptDeneme from "@/components/etkinlikler/PromptDeneme";
 import EtikSenaryolar from "@/components/etkinlikler/EtikSenaryolar";
+import PromptGelistirici from "@/components/etkinlikler/PromptGelistirici";
+import HalusinasyonDedektifi from "@/components/etkinlikler/HalusinasyonDedektifi";
 
 const quizSorulari = [
   {
@@ -297,6 +299,8 @@ const SlaytEtkinlik1 = (
     </div>
 
     <PromptDeneme />
+
+    <PromptGelistirici />
   </>
 );
 
@@ -316,6 +320,8 @@ const SlaytEtkinlik2 = (
         halüsinasyonu tespit edin.
       </p>
     </div>
+
+    <HalusinasyonDedektifi />
   </>
 );
 

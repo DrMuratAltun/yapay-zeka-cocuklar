@@ -13,6 +13,8 @@ import GirdiAvcilari from "@/components/etkinlikler/GirdiAvcilari";
 import SinifAnketi from "@/components/etkinlikler/SinifAnketi";
 import VeriEtiketleme from "@/components/etkinlikler/VeriEtiketleme";
 import VeriSetiKesif from "@/components/etkinlikler/VeriSetiKesif";
+import VeriGorsellestirme from "@/components/etkinlikler/VeriGorsellestirme";
+import VeriTemizleme from "@/components/etkinlikler/VeriTemizleme";
 
 const quizSorulari = [
   {
@@ -327,6 +329,8 @@ const SlaytEtkinlik1 = (
 const SlaytEtkinlik2 = (
   <>
     <VeriTopla />
+
+    <VeriGorsellestirme />
   </>
 );
 
@@ -370,6 +374,8 @@ const SlaytEtkinlik4 = (
     </div>
 
     <VeriSetiKesif />
+
+    <VeriTemizleme />
   </>
 );
 

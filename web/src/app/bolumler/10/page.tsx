@@ -10,6 +10,8 @@ import InteraktifQuiz from "@/components/InteraktifQuiz";
 import KariyerKeswordi from "@/components/oyunlar/KariyerKeswordi";
 import PortfolyoOlusturucu from "@/components/etkinlikler/PortfolyoOlusturucu";
 import GelecekMektubu from "@/components/etkinlikler/GelecekMektubu";
+import KariyerYolHaritasi from "@/components/etkinlikler/KariyerYolHaritasi";
+import YzZamanCizelgesi2050 from "@/components/etkinlikler/YzZamanCizelgesi2050";
 
 const quizSorulari = [
   {
@@ -276,6 +278,8 @@ const SlaytEtkinlik1 = (
     </div>
 
     <PortfolyoOlusturucu />
+
+    <KariyerYolHaritasi />
   </>
 );
 
@@ -294,6 +298,8 @@ const SlaytEtkinlik2 = (
         Kategoriler: En Yenilikçi, En Faydalı, En İyi Sunum, En İyi Tasarım.
       </p>
     </div>
+
+    <YzZamanCizelgesi2050 />
   </>
 );
 
