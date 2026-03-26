@@ -81,8 +81,8 @@ export default function BolumSlider({
             />
           </div>
 
-          {/* Slayt sekmeleri */}
-          <div className="flex gap-1 overflow-x-auto py-2 scrollbar-hide">
+          {/* Slayt sekmeleri - tümü görünür, eşit genişlik */}
+          <div className="flex w-full py-2">
             {slaytlar.map((s, i) => (
               <button
                 key={i}
@@ -91,15 +91,14 @@ export default function BolumSlider({
                   setAktifSlayt(i);
                   window.scrollTo({ top: 0, behavior: "smooth" });
                 }}
-                className={`flex shrink-0 items-center gap-1.5 rounded-lg px-3 py-1.5 text-xs font-medium transition cursor-pointer ${
+                className={`flex flex-1 min-w-0 items-center justify-center gap-1 rounded-lg px-1 py-1.5 text-xs font-medium transition cursor-pointer ${
                   i === aktifSlayt
                     ? "bg-sky-100 text-sky-700 dark:bg-sky-900/30 dark:text-sky-300"
                     : "text-[var(--color-text-secondary)] hover:bg-[var(--color-bg-secondary)]"
                 }`}
               >
-                <span>{s.icon}</span>
-                <span className="hidden sm:inline">{s.baslik}</span>
-                <span className="sm:hidden">{i + 1}</span>
+                <span className="shrink-0">{s.icon}</span>
+                <span className="truncate hidden md:inline text-[11px]">{s.baslik}</span>
               </button>
             ))}
           </div>
