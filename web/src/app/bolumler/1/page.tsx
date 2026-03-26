@@ -1,3 +1,4 @@
+import Image from "next/image";
 import InteraktifQuiz from "@/components/InteraktifQuiz";
 import BolumSlider from "@/components/BolumSlider";
 import YzMiDegilMi from "@/components/oyunlar/YzMiDegilMi";
@@ -137,19 +138,43 @@ const SlaytYapayZekaNedir = (
 const SlaytOnculer = (
   <section className="grid gap-4 md:grid-cols-2">
     <div className="rounded-xl border border-sky-200 bg-sky-50 p-5 dark:border-sky-800 dark:bg-sky-900/20">
-      <h4 className="mb-2 font-bold">Alan Turing (1912-1954)</h4>
+      <div className="mb-3 flex items-center gap-4">
+        <Image
+          src="/images/bolumler/turing.jpg"
+          alt="Alan Turing"
+          width={80}
+          height={100}
+          className="rounded-lg object-cover shadow-md"
+        />
+        <h4 className="text-lg font-bold">Alan Turing (1912-1954)</h4>
+      </div>
       <p className="text-sm text-[var(--color-text-secondary)]">
         İngiliz matematikçi ve bilgisayar biliminin babası.
         &quot;Makineler düşünebilir mi?&quot; sorusunu ilk kez o sormuştur.
         Turing Testi&apos;ni öne sürmüştür.
       </p>
+      <p className="mt-2 text-xs text-[var(--color-text-secondary)] italic">
+        Fotoğraf: Public Domain, Wikimedia Commons
+      </p>
     </div>
     <div className="rounded-xl border border-sky-200 bg-sky-50 p-5 dark:border-sky-800 dark:bg-sky-900/20">
-      <h4 className="mb-2 font-bold">Cahit Arf (1910-1997)</h4>
+      <div className="mb-3 flex items-center gap-4">
+        <Image
+          src="/images/bolumler/cahit-arf.jpg"
+          alt="Cahit Arf - 10 TL banknot"
+          width={120}
+          height={60}
+          className="rounded-lg object-cover shadow-md"
+        />
+        <h4 className="text-lg font-bold">Cahit Arf (1910-1997)</h4>
+      </div>
       <p className="text-sm text-[var(--color-text-secondary)]">
         Türkiye&apos;nin en büyük matematikçilerinden biri. 10 liralık
         banknotların arkasında resmi bulunan Cahit Arf, &quot;Makineler
         düşünebilir mi ve nasıl düşünebilir?&quot; çalışması yayımlamıştır.
+      </p>
+      <p className="mt-2 text-xs text-[var(--color-text-secondary)] italic">
+        Görsel: Public Domain (TR currency), Wikimedia Commons
       </p>
     </div>
   </section>
@@ -198,6 +223,26 @@ const SlaytTarihce = (
         </div>
       ))}
     </div>
+    <div className="mt-4 rounded-xl border border-[var(--color-border)] bg-[var(--color-bg)] p-4">
+      <div className="flex flex-col items-center gap-3 sm:flex-row">
+        <Image
+          src="/images/bolumler/deep-blue.jpg"
+          alt="IBM Deep Blue"
+          width={200}
+          height={150}
+          className="rounded-lg object-cover shadow-md"
+        />
+        <div>
+          <h4 className="font-bold">1997: Deep Blue vs Kasparov</h4>
+          <p className="text-sm text-[var(--color-text-secondary)]">
+            IBM&apos;in Deep Blue bilgisayarı, dünya satranç şampiyonu Garry Kasparov&apos;u yenerek tarihe geçti.
+          </p>
+          <p className="mt-1 text-xs text-[var(--color-text-secondary)] italic">
+            Fotoğraf: James the photographer, CC BY 2.0, Wikimedia Commons
+          </p>
+        </div>
+      </div>
+    </div>
   </section>
 );
 
@@ -224,6 +269,22 @@ const SlaytYzTurleri = (
         <p className="text-xs text-rose-600 dark:text-rose-400">Tamamen teorik</p>
         <p className="mt-2 rounded bg-rose-200 px-2 py-1 text-center text-xs font-bold dark:bg-rose-800">BİLİM KURGU</p>
       </div>
+    </div>
+    {/* AI-ML-DL ilişki diyagramı */}
+    <div className="mt-4 flex flex-col items-center rounded-xl border border-[var(--color-border)] bg-[var(--color-bg)] p-4">
+      <Image
+        src="/images/bolumler/ml-diagram.svg"
+        alt="Yapay Zeka, Makine Öğrenimi ve Derin Öğrenme ilişkisi"
+        width={400}
+        height={300}
+        className="rounded-lg"
+      />
+      <p className="mt-2 text-center text-sm text-[var(--color-text-secondary)]">
+        Yapay Zeka, Makine Öğrenimi ve Derin Öğrenme arasındaki ilişki
+      </p>
+      <p className="text-xs text-[var(--color-text-secondary)] italic">
+        Görsel: CC BY-SA 4.0, Wikimedia Commons
+      </p>
     </div>
   </section>
 );
@@ -291,11 +352,16 @@ const SlaytOyun = (
   </section>
 );
 
-/* ---- Slayt 10: Quiz + İndirilebilir ---- */
-const SlaytQuiz = (
+/* ---- Slayt 10: Değerlendirme ---- */
+const SlaytDegerlendirme = (
   <>
     <InteraktifQuiz sorular={quizSorulari} />
+  </>
+);
 
+/* ---- Slayt 11: İndirilebilir Materyaller ---- */
+const SlaytMateryaller = (
+  <>
     <section className="rounded-2xl border border-[var(--color-border)] bg-[var(--color-bg-secondary)] p-6">
       <h3 className="mb-4 text-xl font-bold">İndirilebilir Materyaller</h3>
       <div className="space-y-3">
@@ -344,7 +410,8 @@ export default function Bolum1() {
         { baslik: "YZ Türleri", icon: "🔬", icerik: SlaytYzTurleri },
         { baslik: "Etkinlikler", icon: "🎮", icerik: SlaytEtkinlikler },
         { baslik: "İnteraktif Oyun", icon: "🕹️", icerik: SlaytOyun },
-        { baslik: "Quiz ve Materyaller", icon: "📝", icerik: SlaytQuiz },
+        { baslik: "Değerlendirme", icon: "📝", icerik: SlaytDegerlendirme },
+        { baslik: "Materyaller", icon: "📥", icerik: SlaytMateryaller },
       ]}
     />
   );
