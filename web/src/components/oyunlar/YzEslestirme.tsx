@@ -10,12 +10,12 @@ interface Kart {
 }
 
 const ciftler: { uygulama: string; uygulamaEmoji: string; alan: string; alanEmoji: string }[] = [
-  { uygulama: "Siri", uygulamaEmoji: "\uD83D\uDDE3\uFE0F", alan: "Sesli Asistan", alanEmoji: "\uD83C\uDF99\uFE0F" },
-  { uygulama: "Netflix", uygulamaEmoji: "\uD83C\uDFAC", alan: "\u00D6neri Sistemi", alanEmoji: "\u2B50" },
-  { uygulama: "Google Maps", uygulamaEmoji: "\uD83D\uDDFA\uFE0F", alan: "Navigasyon", alanEmoji: "\uD83E\uDDED" },
-  { uygulama: "Alexa", uygulamaEmoji: "\uD83D\uDD0A", alan: "Ak\u0131ll\u0131 Ev", alanEmoji: "\uD83C\uDFE0" },
-  { uygulama: "YouTube", uygulamaEmoji: "\u25B6\uFE0F", alan: "Video \u00D6nerisi", alanEmoji: "\uD83D\uDCFA" },
-  { uygulama: "Google Lens", uygulamaEmoji: "\uD83D\uDD0D", alan: "G\u00F6r\u00FCnt\u00FC Tan\u0131ma", alanEmoji: "\uD83D\uDCF7" },
+  { uygulama: "Siri", uygulamaEmoji: "🗣️", alan: "Sesli Asistan", alanEmoji: "🎙️" },
+  { uygulama: "Netflix", uygulamaEmoji: "🎬", alan: "Öneri Sistemi", alanEmoji: "⭐" },
+  { uygulama: "Google Maps", uygulamaEmoji: "🗺️", alan: "Navigasyon", alanEmoji: "🧭" },
+  { uygulama: "Alexa", uygulamaEmoji: "🔊", alan: "Akıllı Ev", alanEmoji: "🏠" },
+  { uygulama: "YouTube", uygulamaEmoji: "▶️", alan: "Video Önerisi", alanEmoji: "📺" },
+  { uygulama: "Google Lens", uygulamaEmoji: "🔍", alan: "Görüntü Tanıma", alanEmoji: "📷" },
 ];
 
 function kartlariOlustur(): Kart[] {
@@ -53,7 +53,7 @@ export default function YzEslestirme() {
   const [kontrol, setKontrol] = useState(false);
   const zamanlayiciRef = useRef<ReturnType<typeof setInterval> | null>(null);
 
-  // Zamanlay\u0131c\u0131
+  // Zamanlayıcı
   useEffect(() => {
     if (oyunBasladi && !oyunBitti) {
       zamanlayiciRef.current = setInterval(() => {
@@ -67,7 +67,7 @@ export default function YzEslestirme() {
     };
   }, [oyunBasladi, oyunBitti]);
 
-  // Oyun bitti\u015F kontrolu
+  // Oyun bittiş kontrolu
   useEffect(() => {
     if (eslesmisler.size === ciftler.length && eslesmisler.size > 0) {
       setOyunBitti(true);
@@ -155,41 +155,41 @@ export default function YzEslestirme() {
 
   const performansMesaji = () => {
     if (hamleSayisi <= 8)
-      return { mesaj: "Haf\u0131za \u015Fampiyonu! M\u00FCkemmel!", emoji: "\uD83C\uDFC6" };
+      return { mesaj: "Hafıza şampiyonu! Mükemmel!", emoji: "🏆" };
     if (hamleSayisi <= 12)
-      return { mesaj: "Harika bir performans!", emoji: "\uD83C\uDF89" };
+      return { mesaj: "Harika bir performans!", emoji: "🎉" };
     if (hamleSayisi <= 18)
-      return { mesaj: "\u0130yi i\u015F \u00E7\u0131kard\u0131n!", emoji: "\uD83D\uDC4F" };
-    return { mesaj: "Bir daha dene, daha iyi olabilirsin!", emoji: "\uD83D\uDCAA" };
+      return { mesaj: "İyi iş çıkardın!", emoji: "👏" };
+    return { mesaj: "Bir daha dene, daha iyi olabilirsin!", emoji: "💪" };
   };
 
   return (
     <section className="rounded-2xl border border-[var(--color-border)] bg-[var(--color-bg-secondary)] p-6">
-      {/* Ba\u015Fl\u0131k */}
+      {/* Başlık */}
       <div className="mb-4 text-center">
         <h2 className="mb-1 text-2xl font-bold">
-          \uD83E\uDDE9 Etraf\u0131ndaki YZ E\u015Fle\u015Ftirme
+          🧩 Etrafındaki YZ Eşleştirme
         </h2>
         <p className="text-sm text-[var(--color-text-secondary)]">
-          YZ uygulamalar\u0131n\u0131 kullan\u0131m alanlar\u0131yla e\u015Fle\u015Ftir!
+          YZ uygulamalarını kullanım alanlarıyla eşleştir!
         </p>
       </div>
 
       {/* Skor paneli */}
       <div className="mb-4 flex items-center justify-center gap-6 text-sm">
         <div className="flex items-center gap-1.5 rounded-lg bg-sky-100 px-3 py-1.5 font-medium text-sky-700 dark:bg-sky-900/40 dark:text-sky-300">
-          <span>\uD83D\uDC46</span> Hamle: {hamleSayisi}
+          <span>👆</span> Hamle: {hamleSayisi}
         </div>
         <div className="flex items-center gap-1.5 rounded-lg bg-amber-100 px-3 py-1.5 font-medium text-amber-700 dark:bg-amber-900/40 dark:text-amber-300">
-          <span>\u23F1\uFE0F</span> S\u00FCre: {sureFormatla(sure)}
+          <span>⏱️</span> Süre: {sureFormatla(sure)}
         </div>
         <div className="flex items-center gap-1.5 rounded-lg bg-emerald-100 px-3 py-1.5 font-medium text-emerald-700 dark:bg-emerald-900/40 dark:text-emerald-300">
-          <span>\u2705</span> E\u015Fle\u015Fen: {eslesmisler.size}/{ciftler.length}
+          <span>✅</span> Eşleşen: {eslesmisler.size}/{ciftler.length}
         </div>
       </div>
 
       {!oyunBitti ? (
-        /* Kart \u0131zgaras\u0131 */
+        /* Kart ızgarası */
         <div className="mx-auto grid max-w-lg grid-cols-3 gap-3 sm:grid-cols-4">
           {kartlar.map((kart) => {
             const acik = kartAcikMi(kart.id);
@@ -222,14 +222,14 @@ export default function YzEslestirme() {
                     </span>
                   </div>
                 ) : (
-                  <span className="text-4xl sm:text-5xl">\u2753</span>
+                  <span className="text-4xl sm:text-5xl">❓</span>
                 )}
               </button>
             );
           })}
         </div>
       ) : (
-        /* Tebrik ekran\u0131 */
+        /* Tebrik ekranı */
         <div className="text-center" style={{ animation: "slide-up 0.5s ease-out" }}>
           <div className="mx-auto mb-6 max-w-md rounded-2xl border-2 border-[var(--color-border)] bg-gradient-to-br from-white to-purple-50 p-8 shadow-lg dark:from-slate-800 dark:to-slate-700">
             <p className="mb-2 text-5xl">{performansMesaji().emoji}</p>
@@ -246,11 +246,11 @@ export default function YzEslestirme() {
                 <p className="text-2xl font-bold text-amber-700 dark:text-amber-300">
                   {sureFormatla(sure)}
                 </p>
-                <p className="text-xs text-[var(--color-text-secondary)]">s\u00FCre</p>
+                <p className="text-xs text-[var(--color-text-secondary)]">süre</p>
               </div>
             </div>
 
-            {/* E\u015Fle\u015Fme \u00F6zeti */}
+            {/* Eşleşme özeti */}
             <div className="space-y-2">
               {ciftler.map((cift) => (
                 <div
@@ -259,7 +259,7 @@ export default function YzEslestirme() {
                 >
                   <span>{cift.uygulamaEmoji}</span>
                   <span className="font-medium">{cift.uygulama}</span>
-                  <span className="text-[var(--color-text-secondary)]">\u2194</span>
+                  <span className="text-[var(--color-text-secondary)]">↔</span>
                   <span>{cift.alanEmoji}</span>
                   <span className="font-medium">{cift.alan}</span>
                 </div>
@@ -272,7 +272,7 @@ export default function YzEslestirme() {
             onClick={tekrarOyna}
             className="rounded-xl bg-gradient-to-r from-purple-500 to-pink-600 px-8 py-3 font-bold text-white shadow-md transition-all hover:scale-105 hover:shadow-lg active:scale-95"
           >
-            \uD83D\uDD04 Tekrar Oyna
+            🔄 Tekrar Oyna
           </button>
         </div>
       )}
