@@ -108,7 +108,6 @@ export default function RootLayout({
                 audienceType: "Ortaokul Öğrencileri (11-14 yaş)",
               },
               isAccessibleForFree: true,
-              license: "https://creativecommons.org/licenses/by-nc-sa/4.0/",
               hasCourse: {
                 "@type": "Course",
                 name: "Yapay Zeka Okuryazarlığı",

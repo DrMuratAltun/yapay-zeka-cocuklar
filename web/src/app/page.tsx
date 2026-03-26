@@ -33,7 +33,7 @@ export default function AnaSayfa() {
             <div>
               <div className="mb-6 inline-flex items-center gap-2 rounded-full border border-sky-500/20 bg-sky-500/10 px-4 py-1.5 text-sm text-sky-300">
                 <span className="h-2 w-2 rounded-full bg-sky-400 animate-pulse" />
-                Açık Kaynak &middot; Ücretsiz &middot; MEB Uyumlu
+                Ücretsiz &middot; MEB Uyumlu
               </div>
               <h1 className="mb-6 text-4xl font-extrabold leading-tight md:text-6xl">
                 Yapay Zeka
@@ -55,14 +55,12 @@ export default function AnaSayfa() {
                 >
                   Bölümleri Keşfet
                 </a>
-                <a
-                  href="https://github.com/DrMuratAltun/yapay-zeka-cocuklar"
-                  target="_blank"
-                  rel="noopener noreferrer"
+                <Link
+                  href="/hakkinda"
                   className="rounded-xl border border-white/10 bg-white/5 px-8 py-3.5 font-bold backdrop-blur transition hover:bg-white/10"
                 >
-                  GitHub
-                </a>
+                  Hakkında
+                </Link>
               </div>
             </div>
 
@@ -317,23 +315,14 @@ export default function AnaSayfa() {
               <h4 className="mb-3 text-sm font-bold">Hızlı Erişim</h4>
               <div className="space-y-2 text-sm text-[var(--color-text-secondary)]">
                 <Link href="/#bolumler" className="block hover:text-sky-600 transition">Bölümler</Link>
+                <Link href="/ogretmen" className="block hover:text-sky-600 transition">Öğretmen</Link>
                 <Link href="/hakkinda" className="block hover:text-sky-600 transition">Hakkında</Link>
-                <a href="https://github.com/DrMuratAltun/yapay-zeka-cocuklar" target="_blank" rel="noopener noreferrer" className="block hover:text-sky-600 transition">GitHub</a>
               </div>
             </div>
             <div>
-              <h4 className="mb-3 text-sm font-bold">Lisans</h4>
+              <h4 className="mb-3 text-sm font-bold">Telif</h4>
               <p className="text-sm text-[var(--color-text-secondary)]">
-                Bu eser{" "}
-                <a
-                  href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.tr"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="underline hover:text-sky-600"
-                >
-                  CC BY-NC-SA 4.0
-                </a>{" "}
-                lisansı ile lisanslanmıştır. Eğitim amaçlı kullanıma açıktır.
+                &copy; 2025 Dr. Murat ALTUN. Tüm hakları saklıdır.
               </p>
             </div>
           </div>

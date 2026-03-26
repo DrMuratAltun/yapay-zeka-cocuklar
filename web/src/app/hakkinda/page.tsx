@@ -71,13 +71,12 @@ export default function Hakkinda() {
                   href={s.url}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="group flex items-center gap-2 rounded-xl border border-[var(--color-border)] px-4 py-2.5 text-sm font-medium transition hover:border-indigo-300 hover:bg-indigo-50 dark:hover:bg-indigo-900/20"
+                  className="group flex h-10 w-10 items-center justify-center rounded-full border border-[var(--color-border)] transition hover:border-indigo-300 hover:bg-indigo-50 dark:hover:bg-indigo-900/20"
                   title={s.ad}
                 >
                   <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" className="text-[var(--color-text-secondary)] transition group-hover:text-indigo-600">
                     <path d={s.svg} />
                   </svg>
-                  <span className="hidden sm:inline">{s.ad}</span>
                 </a>
               ))}
             </div>
@@ -96,23 +95,9 @@ export default function Hakkinda() {
           </p>
         </section>
 
-        {/* Açık Kaynak */}
-        <section className="rounded-2xl bg-gradient-to-br from-indigo-600 to-violet-700 p-8 text-white">
-          <h2 className="mb-4 text-2xl font-extrabold">Açık Kaynak Proje</h2>
-          <p className="mb-6 text-indigo-100">
-            Bu proje <strong>CC BY-NC-SA 4.0</strong> lisansı ile lisanslanmıştır.
-            Eğitim amaçlı, ticari olmayan kullanımlarda serbestçe kullanılabilir.
-          </p>
-          <div className="flex flex-wrap gap-3">
-            <a href="https://github.com/DrMuratAltun/yapay-zeka-cocuklar" target="_blank" rel="noopener noreferrer"
-              className="rounded-lg bg-white px-6 py-2.5 font-bold text-indigo-700 transition hover:bg-indigo-50">
-              GitHub&apos;da İncele
-            </a>
-            <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.tr" target="_blank" rel="noopener noreferrer"
-              className="rounded-lg border-2 border-white/30 px-6 py-2.5 font-bold transition hover:bg-white/10">
-              Lisans Detayları
-            </a>
-          </div>
+        {/* Telif */}
+        <section className="rounded-2xl bg-gradient-to-br from-indigo-600 to-violet-700 p-8 text-white text-center">
+          <p className="text-lg font-bold">&copy; 2025 Dr. Murat ALTUN. Tüm hakları saklıdır.</p>
         </section>
 
         {/* İletişim */}
@@ -127,12 +112,12 @@ export default function Hakkinda() {
                 <p className="text-xs text-[var(--color-text-secondary)]">emurataltun@gmail.com</p>
               </div>
             </a>
-            <a href="https://github.com/DrMuratAltun/yapay-zeka-cocuklar/issues" target="_blank" rel="noopener noreferrer"
+            <a href="https://drmurataltun.github.io/" target="_blank" rel="noopener noreferrer"
               className="card-hover flex items-center gap-3 rounded-xl border border-[var(--color-border)] bg-[var(--color-bg-secondary)] p-4">
-              <span className="text-2xl">🐛</span>
+              <span className="text-2xl">🌐</span>
               <div>
-                <h4 className="text-sm font-bold">Hata Bildir / Öneri Ver</h4>
-                <p className="text-xs text-[var(--color-text-secondary)]">GitHub Issues</p>
+                <h4 className="text-sm font-bold">Web Sitesi</h4>
+                <p className="text-xs text-[var(--color-text-secondary)]">drmurataltun.github.io</p>
               </div>
             </a>
           </div>

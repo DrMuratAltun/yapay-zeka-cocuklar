@@ -136,14 +136,6 @@ export default function Navbar() {
           >
             {dark ? "\u2600\uFE0F" : "\uD83C\uDF19"}
           </button>
-          <a
-            href="https://github.com/DrMuratAltun/yapay-zeka-cocuklar"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="rounded-lg border border-[var(--color-border)] px-4 py-1.5 transition hover:bg-[var(--color-bg-secondary)]"
-          >
-            GitHub
-          </a>
         </div>
 
         {/* Mobil menü butonu */}
@@ -195,9 +187,6 @@ export default function Navbar() {
                 {link.label}
               </Link>
             ))}
-            <a href="https://github.com/DrMuratAltun/yapay-zeka-cocuklar" target="_blank" rel="noopener noreferrer" className="block transition hover:text-sky-600">
-              GitHub
-            </a>
             <button
               type="button"
               onClick={toggle}
