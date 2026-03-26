@@ -1,5 +1,6 @@
 import InteraktifQuiz from "@/components/InteraktifQuiz";
 import BolumSlider from "@/components/BolumSlider";
+import YzEslestirme from "@/components/oyunlar/YzEslestirme";
 
 const quizSorulari = [
   {
@@ -524,6 +525,16 @@ const SlaytEtkinlikler = (
   </>
 );
 
+const SlaytOyun = (
+  <section className="space-y-6">
+    <h2 className="text-2xl font-bold">🎮 YZ Eşleştirme Oyunu</h2>
+    <p className="text-[var(--color-text-secondary)]">
+      Kartları çevir ve yapay zeka uygulamalarını kullanım alanlarıyla eşleştir!
+    </p>
+    <YzEslestirme />
+  </section>
+);
+
 const SlaytQuiz = (
   <>
     <InteraktifQuiz sorular={quizSorulari} />
@@ -611,6 +622,7 @@ export default function Bolum2() {
         { baslik: "Konu Anlatımı", icon: "📖", icerik: SlaytKonuAnlatimi },
         { baslik: "YZ Alanları ve Teknolojiler", icon: "🌐", icerik: SlaytYzAlanlari },
         { baslik: "Etkinlikler", icon: "🎮", icerik: SlaytEtkinlikler },
+        { baslik: "İnteraktif Oyun", icon: "🕹️", icerik: SlaytOyun },
         { baslik: "Quiz ve Materyaller", icon: "📝", icerik: SlaytQuiz },
       ]}
     />

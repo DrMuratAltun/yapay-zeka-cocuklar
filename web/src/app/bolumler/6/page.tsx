@@ -1,5 +1,6 @@
 import InteraktifQuiz from "@/components/InteraktifQuiz";
 import BolumSlider from "@/components/BolumSlider";
+import AlgoritmaBulmacasi from "@/components/oyunlar/AlgoritmaBulmacasi";
 
 const quizSorulari = [
   {
@@ -239,7 +240,18 @@ const SlaytEtkinlikler = (
   </>
 );
 
-/* ---- Slayt 5: Quiz ve Materyaller ---- */
+/* ---- Slayt 5: Oyun ---- */
+const SlaytOyun = (
+  <section className="space-y-6">
+    <h2 className="text-2xl font-bold">🎮 Algoritma Bulmacası</h2>
+    <p className="text-[var(--color-text-secondary)]">
+      Algoritma adımlarını doğru sıraya koy!
+    </p>
+    <AlgoritmaBulmacasi />
+  </section>
+);
+
+/* ---- Slayt 6: Quiz ve Materyaller ---- */
 const SlaytQuiz = (
   <>
     <InteraktifQuiz sorular={quizSorulari} />
@@ -286,6 +298,7 @@ export default function Bolum6() {
         { baslik: "PictoBlox ve Görüntü Sınıflandırma", icon: "📖", icerik: SlaytPictoBlox },
         { baslik: "ML for Kids ve Proje Fikirleri", icon: "🧩", icerik: SlaytMLForKids },
         { baslik: "Etkinlikler", icon: "🎮", icerik: SlaytEtkinlikler },
+        { baslik: "Algoritma Bulmacası", icon: "🧩", icerik: SlaytOyun },
         { baslik: "Quiz ve Materyaller", icon: "📝", icerik: SlaytQuiz },
       ]}
     />

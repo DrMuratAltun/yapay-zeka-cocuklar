@@ -1,5 +1,6 @@
 import BolumSlider from "@/components/BolumSlider";
 import InteraktifQuiz from "@/components/InteraktifQuiz";
+import KariyerKeswordi from "@/components/oyunlar/KariyerKeswordi";
 
 const quizSorulari = [
   {
@@ -273,6 +274,16 @@ const SlaytEtkinlikler = (
   </section>
 );
 
+const SlaytOyun = (
+  <section className="space-y-6">
+    <h2 className="text-2xl font-bold">🎮 YZ Kariyer Keşfi</h2>
+    <p className="text-[var(--color-text-secondary)]">
+      Sorulara cevap ver ve sana en uygun YZ kariyer yolunu keşfet!
+    </p>
+    <KariyerKeswordi />
+  </section>
+);
+
 const SlaytQuizMateryaller = (
   <>
     <InteraktifQuiz sorular={quizSorulari} />
@@ -310,6 +321,7 @@ export default function Bolum10() {
     { baslik: "Final Projesi ve Adımlar", icon: "📖", icerik: SlaytFinalProjesi },
     { baslik: "Portfolyo, Kariyer ve Gelecek", icon: "📖", icerik: SlaytPortfolyoKariyer },
     { baslik: "Etkinlikler", icon: "🎮", icerik: SlaytEtkinlikler },
+    { baslik: "YZ Kariyer Keşfi", icon: "🧩", icerik: SlaytOyun },
     { baslik: "Quiz ve Materyaller", icon: "📝", icerik: SlaytQuizMateryaller },
   ];
 

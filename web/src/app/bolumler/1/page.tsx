@@ -1,5 +1,6 @@
 import InteraktifQuiz from "@/components/InteraktifQuiz";
 import BolumSlider from "@/components/BolumSlider";
+import YzMiDegilMi from "@/components/oyunlar/YzMiDegilMi";
 
 const quizSorulari = [
   {
@@ -255,7 +256,18 @@ const SlaytEtkinlikler = (
   </>
 );
 
-/* ---- Slayt 5: Quiz + İndirilebilir ---- */
+/* ---- Slayt 5: İnteraktif Oyun ---- */
+const SlaytOyun = (
+  <section className="space-y-6">
+    <h2 className="text-2xl font-bold">🎮 YZ mi Değil mi? Oyunu</h2>
+    <p className="text-[var(--color-text-secondary)]">
+      Her bir teknoloji veya uygulamanın yapay zeka olup olmadığını tahmin et!
+    </p>
+    <YzMiDegilMi />
+  </section>
+);
+
+/* ---- Slayt 6: Quiz + İndirilebilir ---- */
 const SlaytQuiz = (
   <>
     <InteraktifQuiz sorular={quizSorulari} />
@@ -303,6 +315,7 @@ export default function Bolum1() {
         { baslik: "Konu Anlatımı", icon: "📖", icerik: SlaytKonuAnlatimi },
         { baslik: "Tarihçe ve Türler", icon: "📅", icerik: SlaytTarihceTurler },
         { baslik: "Etkinlikler", icon: "🎮", icerik: SlaytEtkinlikler },
+        { baslik: "İnteraktif Oyun", icon: "🕹️", icerik: SlaytOyun },
         { baslik: "Quiz ve Materyaller", icon: "📝", icerik: SlaytQuiz },
       ]}
     />

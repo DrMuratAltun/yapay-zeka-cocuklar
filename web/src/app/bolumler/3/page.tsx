@@ -1,5 +1,6 @@
 import InteraktifQuiz from "@/components/InteraktifQuiz";
 import BolumSlider from "@/components/BolumSlider";
+import VeriTuruAvcisi from "@/components/oyunlar/VeriTuruAvcisi";
 
 const quizSorulari = [
   {
@@ -335,6 +336,16 @@ const SlaytEtkinlikler = (
   </>
 );
 
+const SlaytOyun = (
+  <section className="space-y-6">
+    <h2 className="text-2xl font-bold">🎮 Veri Türü Avcısı</h2>
+    <p className="text-[var(--color-text-secondary)]">
+      Süre bitmeden verileri doğru kategorilere ayır!
+    </p>
+    <VeriTuruAvcisi />
+  </section>
+);
+
 const SlaytQuiz = (
   <>
     <InteraktifQuiz sorular={quizSorulari} />
@@ -382,6 +393,7 @@ export default function Bolum3() {
         { baslik: "Veri ve YZ İlişkisi", icon: "🔗", icerik: SlaytVeriYzIliskisi },
         { baslik: "Büyük Veri ve Gizlilik", icon: "🔒", icerik: SlaytBuyukVeriGizlilik },
         { baslik: "Etkinlikler", icon: "🎮", icerik: SlaytEtkinlikler },
+        { baslik: "İnteraktif Oyun", icon: "🕹️", icerik: SlaytOyun },
         { baslik: "Quiz ve Materyaller", icon: "📝", icerik: SlaytQuiz },
       ]}
     />

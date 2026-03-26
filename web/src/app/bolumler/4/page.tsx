@@ -1,5 +1,6 @@
 import InteraktifQuiz from "@/components/InteraktifQuiz";
 import BolumSlider from "@/components/BolumSlider";
+import KararAgaci from "@/components/oyunlar/KararAgaci";
 
 const quizSorulari = [
   {
@@ -382,7 +383,18 @@ const SlaytEtkinlikler = (
   </>
 );
 
-/* ---- Slayt 5: Quiz ve Materyaller ---- */
+/* ---- Slayt 5: İnteraktif Oyun ---- */
+const SlaytOyun = (
+  <section className="space-y-6">
+    <h2 className="text-2xl font-bold">🎮 Karar Ağacı Oluşturucu</h2>
+    <p className="text-[var(--color-text-secondary)]">
+      Meyveleri özelliklerine göre sınıflandırarak kendi karar ağacını oluştur!
+    </p>
+    <KararAgaci />
+  </section>
+);
+
+/* ---- Slayt 6: Quiz ve Materyaller ---- */
 const SlaytQuiz = (
   <>
     <InteraktifQuiz sorular={quizSorulari} />
@@ -429,6 +441,7 @@ export default function Bolum4() {
         { baslik: "Konu Anlatımı", icon: "📖", icerik: SlaytKonuAnlatimi },
         { baslik: "Uygulama ve Araçlar", icon: "📊", icerik: SlaytUygulama },
         { baslik: "Etkinlikler", icon: "🎮", icerik: SlaytEtkinlikler },
+        { baslik: "İnteraktif Oyun", icon: "🕹️", icerik: SlaytOyun },
         { baslik: "Quiz ve Materyaller", icon: "📝", icerik: SlaytQuiz },
       ]}
     />

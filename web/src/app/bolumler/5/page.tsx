@@ -1,5 +1,6 @@
 import InteraktifQuiz from "@/components/InteraktifQuiz";
 import BolumSlider from "@/components/BolumSlider";
+import PromptUstasi from "@/components/oyunlar/PromptUstasi";
 
 const quizSorulari = [
   {
@@ -309,7 +310,18 @@ const SlaytEtkinlikler = (
   </>
 );
 
-/* ---- Slayt 5: Quiz ve Materyaller ---- */
+/* ---- Slayt 5: İnteraktif Oyun ---- */
+const SlaytOyun = (
+  <section className="space-y-6">
+    <h2 className="text-2xl font-bold">🎮 Prompt Ustası</h2>
+    <p className="text-[var(--color-text-secondary)]">
+      Kötü promptları iyileştirerek prompt mühendisliği becerini geliştir!
+    </p>
+    <PromptUstasi />
+  </section>
+);
+
+/* ---- Slayt 6: Quiz ve Materyaller ---- */
 const SlaytQuiz = (
   <>
     <InteraktifQuiz sorular={quizSorulari} />
@@ -356,6 +368,7 @@ export default function Bolum5() {
         { baslik: "Konu Anlatımı", icon: "📖", icerik: SlaytKonuAnlatimi },
         { baslik: "Prompt ve Etik", icon: "📊", icerik: SlaytPromptEtik },
         { baslik: "Etkinlikler", icon: "🎮", icerik: SlaytEtkinlikler },
+        { baslik: "İnteraktif Oyun", icon: "🕹️", icerik: SlaytOyun },
         { baslik: "Quiz ve Materyaller", icon: "📝", icerik: SlaytQuiz },
       ]}
     />

@@ -1,5 +1,6 @@
 import BolumSlider from "@/components/BolumSlider";
 import InteraktifQuiz from "@/components/InteraktifQuiz";
+import EtikPusula from "@/components/oyunlar/EtikPusula";
 
 const quizSorulari = [
   {
@@ -231,6 +232,16 @@ const SlaytEtkinlikler = (
   </section>
 );
 
+const SlaytOyun = (
+  <section className="space-y-6">
+    <h2 className="text-2xl font-bold">🎮 Etik Pusula</h2>
+    <p className="text-[var(--color-text-secondary)]">
+      YZ kullanım senaryolarını değerlendir ve etik farkındalığını test et!
+    </p>
+    <EtikPusula />
+  </section>
+);
+
 const SlaytQuizMateryaller = (
   <>
     <InteraktifQuiz sorular={quizSorulari} />
@@ -267,6 +278,7 @@ export default function Bolum9() {
     { baslik: "YZ Etiği ve Önyargı", icon: "📖", icerik: SlaytEtikIlkeleri },
     { baslik: "Deepfake ve Toplumsal Etkiler", icon: "📖", icerik: SlaytDeepfakeVeEtki },
     { baslik: "Etkinlikler", icon: "🎮", icerik: SlaytEtkinlikler },
+    { baslik: "Etik Pusula", icon: "🧩", icerik: SlaytOyun },
     { baslik: "Quiz ve Materyaller", icon: "📝", icerik: SlaytQuizMateryaller },
   ];
 

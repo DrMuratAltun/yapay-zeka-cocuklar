@@ -1,5 +1,6 @@
 import InteraktifQuiz from "@/components/InteraktifQuiz";
 import BolumSlider from "@/components/BolumSlider";
+import ProblemCozumEslestir from "@/components/oyunlar/ProblemCozumEslestir";
 
 const quizSorulari = [
   {
@@ -210,7 +211,18 @@ const SlaytEtkinlikler = (
   </>
 );
 
-/* ---- Slayt 5: Quiz ve Materyaller ---- */
+/* ---- Slayt 5: Oyun ---- */
+const SlaytOyun = (
+  <section className="space-y-6">
+    <h2 className="text-2xl font-bold">🎮 Problem-Çözüm Eşleştir</h2>
+    <p className="text-[var(--color-text-secondary)]">
+      Gerçek dünya problemlerini doğru YZ çözümleriyle eşleştir!
+    </p>
+    <ProblemCozumEslestir />
+  </section>
+);
+
+/* ---- Slayt 6: Quiz ve Materyaller ---- */
 const SlaytQuiz = (
   <>
     <InteraktifQuiz sorular={quizSorulari} />
@@ -257,6 +269,7 @@ export default function Bolum7() {
         { baslik: "Tasarım Düşüncesi", icon: "📖", icerik: SlaytTasarimDusuncesi },
         { baslik: "Problemler ve Planlama", icon: "🌍", icerik: SlaytProblemler },
         { baslik: "Etkinlikler", icon: "🎮", icerik: SlaytEtkinlikler },
+        { baslik: "Problem-Çözüm Eşleştir", icon: "🧩", icerik: SlaytOyun },
         { baslik: "Quiz ve Materyaller", icon: "📝", icerik: SlaytQuiz },
       ]}
     />

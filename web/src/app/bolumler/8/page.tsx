@@ -1,5 +1,6 @@
 import InteraktifQuiz from "@/components/InteraktifQuiz";
 import BolumSlider from "@/components/BolumSlider";
+import YapayMiGercekMi from "@/components/oyunlar/YapayMiGercekMi";
 
 const quizSorulari = [
   {
@@ -237,7 +238,18 @@ const SlaytEtkinlikler = (
   </>
 );
 
-/* ---- Slayt 5: Quiz ve Materyaller ---- */
+/* ---- Slayt 5: Oyun ---- */
+const SlaytOyun = (
+  <section className="space-y-6">
+    <h2 className="text-2xl font-bold">🎮 Yapay mı Gerçek mi?</h2>
+    <p className="text-[var(--color-text-secondary)]">
+      İçeriklerin yapay zeka tarafından mı yoksa insan tarafından mı üretildiğini tahmin et!
+    </p>
+    <YapayMiGercekMi />
+  </section>
+);
+
+/* ---- Slayt 6: Quiz ve Materyaller ---- */
 const SlaytQuiz = (
   <>
     <InteraktifQuiz sorular={quizSorulari} />
@@ -284,6 +296,7 @@ export default function Bolum8() {
         { baslik: "Görüntü Üretme ve Prompt", icon: "📖", icerik: SlaytGoruntuUretme },
         { baslik: "Canva AI ve Dijital Hikaye", icon: "🎨", icerik: SlaytCanvaHikaye },
         { baslik: "Etkinlikler", icon: "🎮", icerik: SlaytEtkinlikler },
+        { baslik: "Yapay mı Gerçek mi?", icon: "🧩", icerik: SlaytOyun },
         { baslik: "Quiz ve Materyaller", icon: "📝", icerik: SlaytQuiz },
       ]}
     />
