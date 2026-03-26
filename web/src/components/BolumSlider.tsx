@@ -260,7 +260,7 @@ export default function BolumSlider({
                   onClick={onceki}
                   className="flex items-center gap-2 rounded-lg border border-[var(--color-border)] px-4 py-2.5 text-sm font-medium transition hover:bg-[var(--color-bg-secondary)] cursor-pointer"
                 >
-                  &larr; Önceki
+                  &larr; Önceki Konu
                 </button>
               )}
 
@@ -293,7 +293,7 @@ export default function BolumSlider({
                   onClick={sonraki}
                   className={`flex items-center gap-2 rounded-lg bg-gradient-to-r ${renk} px-5 py-2.5 text-sm font-bold text-white transition hover:opacity-90 cursor-pointer`}
                 >
-                  Sonraki &rarr;
+                  Sonraki Konu &rarr;
                 </button>
               )}
             </div>
