@@ -8,6 +8,7 @@ import Image from "next/image";
 import InteraktifQuiz from "@/components/InteraktifQuiz";
 import BolumSlider from "@/components/BolumSlider";
 import ProblemCozumEslestir from "@/components/oyunlar/ProblemCozumEslestir";
+import TasarimDusuncesi from "@/components/etkinlikler/TasarimDusuncesi";
 
 const quizSorulari = [
   {
@@ -199,6 +200,8 @@ const SlaytEtkinlikler = (
         seçin ve Tasarım Düşüncesi şablonuyla çalışmaya başlayın.
       </p>
     </div>
+
+    <TasarimDusuncesi />
 
     <div className="rounded-2xl border border-[var(--color-border)] bg-[var(--color-bg-secondary)] p-6">
       <div className="mb-3 flex items-center gap-3">

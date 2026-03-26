@@ -8,6 +8,7 @@ import Image from "next/image";
 import InteraktifQuiz from "@/components/InteraktifQuiz";
 import BolumSlider from "@/components/BolumSlider";
 import KararAgaci from "@/components/oyunlar/KararAgaci";
+import MeyveSiniflandirici from "@/components/etkinlikler/MeyveSiniflandirici";
 
 const quizSorulari = [
   {
@@ -367,6 +368,8 @@ const SlaytEtkinlikler = (
           </p>
         </div>
       </div>
+
+      <MeyveSiniflandirici />
 
       <div className="rounded-2xl border border-[var(--color-border)] bg-[var(--color-bg-secondary)] p-6">
         <div className="mb-3 flex items-center gap-3">

@@ -8,6 +8,7 @@ import Image from "next/image";
 import BolumSlider from "@/components/BolumSlider";
 import InteraktifQuiz from "@/components/InteraktifQuiz";
 import EtikPusula from "@/components/oyunlar/EtikPusula";
+import EtikMahkeme from "@/components/etkinlikler/EtikMahkeme";
 
 const quizSorulari = [
   {
@@ -215,6 +216,8 @@ const SlaytEtkinlikler = (
         &quot;Bir hastanede YZ yanlış teşhis koydu ve hasta zarar gördü. Kim sorumlu?&quot;
       </p>
     </div>
+
+    <EtikMahkeme />
 
     <div className="rounded-2xl border border-[var(--color-border)] bg-[var(--color-bg-secondary)] p-6">
       <div className="mb-3 flex items-center gap-3">

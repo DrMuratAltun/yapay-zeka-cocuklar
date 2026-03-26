@@ -8,6 +8,7 @@ import Image from "next/image";
 import InteraktifQuiz from "@/components/InteraktifQuiz";
 import BolumSlider from "@/components/BolumSlider";
 import AlgoritmaBulmacasi from "@/components/oyunlar/AlgoritmaBulmacasi";
+import AlgoritmaSirala from "@/components/etkinlikler/AlgoritmaSirala";
 
 const quizSorulari = [
   {
@@ -234,6 +235,8 @@ const SlaytEtkinlikler = (
         tost yap.&quot; Bu akış diyagramını Scratch/PictoBlox bloklarına çevirmeyi deneyin.
       </p>
     </div>
+
+    <AlgoritmaSirala />
 
     <div className="rounded-2xl border border-[var(--color-border)] bg-[var(--color-bg-secondary)] p-6">
       <div className="mb-3 flex items-center gap-3">

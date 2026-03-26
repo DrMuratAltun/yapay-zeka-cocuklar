@@ -8,6 +8,7 @@ import Image from "next/image";
 import BolumSlider from "@/components/BolumSlider";
 import InteraktifQuiz from "@/components/InteraktifQuiz";
 import KariyerKeswordi from "@/components/oyunlar/KariyerKeswordi";
+import PortfolyoOlusturucu from "@/components/etkinlikler/PortfolyoOlusturucu";
 
 const quizSorulari = [
   {
@@ -261,6 +262,8 @@ const SlaytEtkinlikler = (
         belgesini hazırlayın. Sınıfta canlı demo ile sunun.
       </p>
     </div>
+
+    <PortfolyoOlusturucu />
 
     <div className="rounded-2xl border border-[var(--color-border)] bg-[var(--color-bg-secondary)] p-6">
       <div className="mb-3 flex items-center gap-3">

@@ -8,6 +8,8 @@ import Image from "next/image";
 import InteraktifQuiz from "@/components/InteraktifQuiz";
 import BolumSlider from "@/components/BolumSlider";
 import YzMiDegilMi from "@/components/oyunlar/YzMiDegilMi";
+import KimDahaZeki from "@/components/etkinlikler/KimDahaZeki";
+import YzDedektifi from "@/components/etkinlikler/YzDedektifi";
 
 const quizSorulari = [
   {
@@ -308,13 +310,18 @@ const SlaytEtkinlikler = (
         Görev kartlarını kesin ve grubunuzla her görev için &quot;İnsan mı yoksa
         Makine mi daha iyi yapar?&quot; tartışmasını yapın.
       </p>
-      <a
-        href="/indirilebilir/bolum-01-kim-daha-zeki-kartlari.html"
-        className="inline-block rounded-lg bg-sky-600 px-5 py-2 text-sm font-semibold text-white transition hover:bg-sky-700"
-      >
-        Kartları İndir (PDF)
-      </a>
+      <div className="flex gap-3">
+        <a
+          href="/indirilebilir/bolum-01-kim-daha-zeki-kartlari.html"
+          target="_blank"
+          className="inline-block rounded-lg bg-sky-600 px-5 py-2 text-sm font-semibold text-white transition hover:bg-sky-700"
+        >
+          Kartları İndir
+        </a>
+      </div>
     </div>
+
+    <KimDahaZeki />
 
     <div className="rounded-2xl border border-[var(--color-border)] bg-[var(--color-bg-secondary)] p-6">
       <div className="mb-3 flex items-center gap-3">
@@ -325,13 +332,18 @@ const SlaytEtkinlikler = (
       <p className="mb-4 text-[var(--color-text-secondary)]">
         Bir gün boyunca karşılaştığınız yapay zeka uygulamalarını gözlem formuna kaydedin.
       </p>
-      <a
-        href="/indirilebilir/bolum-01-yz-dedektifi-formu.html"
-        className="inline-block rounded-lg bg-sky-600 px-5 py-2 text-sm font-semibold text-white transition hover:bg-sky-700"
-      >
-        Gözlem Formunu İndir (PDF)
-      </a>
+      <div className="flex gap-3">
+        <a
+          href="/indirilebilir/bolum-01-yz-dedektifi-formu.html"
+          target="_blank"
+          className="inline-block rounded-lg bg-sky-600 px-5 py-2 text-sm font-semibold text-white transition hover:bg-sky-700"
+        >
+          Gözlem Formunu İndir
+        </a>
+      </div>
     </div>
+
+    <YzDedektifi />
 
     <div className="rounded-2xl border border-[var(--color-border)] bg-[var(--color-bg-secondary)] p-6">
       <div className="mb-3 flex items-center gap-3">
