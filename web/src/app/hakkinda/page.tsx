@@ -1,24 +1,6 @@
 import Link from "next/link";
 import Image from "next/image";
 
-const kitaplar = [
-  { yil: "2023", baslik: "Yapay Zeka Öğretmen El Kitabı" },
-  { yil: "2022", baslik: "Yapay Zeka ve Makine Öğrenmesi" },
-  { yil: "2021", baslik: "Arduino ile Robotik Kodlama" },
-  { yil: "2020", baslik: "Herkes İçin Python" },
-  { yil: "2020", baslik: "Blok Tabanlı Kodlama" },
-  { yil: "2019", baslik: "Bilişim Teknolojileri ve Yazılım" },
-];
-
-const uzmanliklar = [
-  { alan: "Yapay Zeka ve LLM", icon: "🤖" },
-  { alan: "Python ve Veri Bilimi", icon: "🐍" },
-  { alan: "Makine Öğrenimi", icon: "🧠" },
-  { alan: "Bilgisayar Görüsü", icon: "👁️" },
-  { alan: "Eğitim Teknolojileri", icon: "🎓" },
-  { alan: "Robotik Kodlama", icon: "🔧" },
-];
-
 const sosyalMedya = [
   { ad: "GitHub", url: "https://github.com/DrMuratAltun", svg: "M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z" },
   { ad: "LinkedIn", url: "https://linkedin.com/in/drmurataltun", svg: "M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z" },
@@ -73,10 +55,12 @@ export default function Hakkinda() {
             </div>
 
             <p className="mt-6 leading-relaxed text-[var(--color-text-secondary)]">
-              25+ yıllık yazılım mühendisliği deneyimine sahip, yapay zeka, makine öğrenimi,
-              veri bilimi ve bilgisayar görüsü alanlarında uzmanlaşmış eğitimci ve araştırmacı.
-              6 kitap yazarı, TÜBİTAK proje yürütücüsü ve danışmanı. Binlerce öğrenci ve
-              eğitimciye Python, makine öğrenimi ve büyük dil modelleri (LLM) eğitimi vermiştir.
+              Bilişim Teknolojileri öğretmeni, yapay zeka eğitmeni ve 6 kitap yazarı.
+              Eğitim Yönetimi alanında doktora derecesine sahip olup, veri madenciliği ile
+              öğrenci performans tahmini üzerine çalışmıştır. Yapay zeka, makine öğrenimi ve
+              veri bilimi alanlarında BTK Akademi, Deneyap ve çeşitli platformlarda
+              binlerce öğrenci ve eğitimciye eğitim vermiştir. TÜBİTAK proje yürütücüsü
+              ve danışmanıdır.
             </p>
 
             {/* Sosyal Medya İkonları */}
@@ -97,72 +81,6 @@ export default function Hakkinda() {
                 </a>
               ))}
             </div>
-          </div>
-        </section>
-
-        {/* Eğitim ve Kariyer */}
-        <section className="space-y-4">
-          <h2 className="text-2xl font-extrabold">Eğitim ve Kariyer</h2>
-          <div className="space-y-3">
-            {[
-              { donem: "2015-2019", kurum: "Akdeniz Üniversitesi", derece: "Doktora", detay: "Eğitim Yönetimi — Veri madenciliği ile öğrenci performans tahmini" },
-              { donem: "2009-2013", kurum: "Dokuz Eylül Üniversitesi", derece: "Yüksek Lisans", detay: "Eğitim Bilimleri" },
-              { donem: "2000-2004", kurum: "Eskişehir Osmangazi Üniversitesi", derece: "Lisans", detay: "Bilgisayar ve Öğretim Teknolojileri Eğitimi" },
-            ].map((e) => (
-              <div key={e.donem} className="flex items-start gap-4 rounded-xl border border-[var(--color-border)] bg-[var(--color-bg-secondary)] p-4">
-                <span className="shrink-0 rounded-lg bg-indigo-600 px-3 py-1 text-xs font-bold text-white">{e.donem}</span>
-                <div>
-                  <h4 className="font-bold">{e.kurum}</h4>
-                  <p className="text-sm font-medium text-indigo-600 dark:text-indigo-400">{e.derece}</p>
-                  <p className="text-sm text-[var(--color-text-secondary)]">{e.detay}</p>
-                </div>
-              </div>
-            ))}
-          </div>
-
-          <div className="mt-4 grid gap-3 sm:grid-cols-2">
-            {[
-              { gorev: "MEB / YEĞİTEK", detay: "Bilişim Teknolojileri Öğretmeni", icon: "🏫" },
-              { gorev: "BTK Akademi", detay: "Yapay Zeka ve Python Eğitmeni (600+ saat)", icon: "🎓" },
-              { gorev: "Antalya Belek Üniversitesi", detay: "Misafir Öğretim Görevlisi", icon: "🏛️" },
-              { gorev: "TÜBİTAK", detay: "Proje Yürütücüsü ve Danışmanı", icon: "🔬" },
-              { gorev: "Yapay Zeka Okulum", detay: "Kurucu (YZ Eğitim Platformu)", icon: "🤖" },
-              { gorev: "Deneyap / Tech Istanbul", detay: "Atölye Eğitmeni", icon: "⚡" },
-            ].map((g) => (
-              <div key={g.gorev} className="card-hover flex items-start gap-3 rounded-xl border border-[var(--color-border)] bg-[var(--color-bg-secondary)] p-4">
-                <span className="text-2xl">{g.icon}</span>
-                <div>
-                  <h4 className="text-sm font-bold">{g.gorev}</h4>
-                  <p className="text-xs text-[var(--color-text-secondary)]">{g.detay}</p>
-                </div>
-              </div>
-            ))}
-          </div>
-        </section>
-
-        {/* Uzmanlık */}
-        <section className="space-y-4">
-          <h2 className="text-2xl font-extrabold">Uzmanlık Alanları</h2>
-          <div className="grid gap-3 sm:grid-cols-2 md:grid-cols-3">
-            {uzmanliklar.map((u) => (
-              <div key={u.alan} className="card-hover flex items-center gap-3 rounded-xl border border-[var(--color-border)] bg-[var(--color-bg-secondary)] p-4">
-                <span className="text-2xl">{u.icon}</span>
-                <span className="font-medium">{u.alan}</span>
-              </div>
-            ))}
-          </div>
-        </section>
-
-        {/* Yayınlar */}
-        <section className="space-y-4">
-          <h2 className="text-2xl font-extrabold">Yayınlar (Kitaplar)</h2>
-          <div className="space-y-2">
-            {kitaplar.map((k) => (
-              <div key={k.baslik} className="card-hover flex items-center gap-4 rounded-lg border border-[var(--color-border)] px-4 py-3">
-                <span className="shrink-0 rounded bg-amber-100 px-2.5 py-0.5 text-xs font-bold text-amber-700 dark:bg-amber-900/30 dark:text-amber-400">{k.yil}</span>
-                <span className="text-sm font-medium">{k.baslik}</span>
-              </div>
-            ))}
           </div>
         </section>
 
