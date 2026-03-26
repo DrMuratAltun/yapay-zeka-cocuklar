@@ -140,6 +140,10 @@ const SlaytGelenekselVsML = (
         yoksa çok sayıda kedi fotoğrafı mı gösterirsin?
       </p>
     </div>
+
+    <div className="rounded-xl bg-gradient-to-r from-amber-50 to-orange-50 p-4 dark:from-amber-900/20 dark:to-orange-900/20">
+      <p className="font-medium">🤔 <strong>Biliyor Muydunuz?</strong> Google&apos;ın YZ&apos;si bir günde 10 milyon kedili fotoğrafı analiz edebilir!</p>
+    </div>
   </section>
 );
 
@@ -233,6 +237,9 @@ const SlaytSiniflandirma = (
         </tbody>
       </table>
     </div>
+    <div className="rounded-xl border-l-4 border-sky-500 bg-sky-50 p-4 dark:bg-sky-900/20">
+      <p className="font-medium">💡 <strong>İpucu:</strong> Sınıflandırma &quot;hangi kutuya?&quot; sorusunu, tahmin ise &quot;ne kadar?&quot; sorusunu cevaplar. Bunu hatırla!</p>
+    </div>
   </section>
 );
 
@@ -283,6 +290,10 @@ const SlaytKararAgaci = (
           </div>
         </div>
       </div>
+    </div>
+
+    <div className="rounded-xl border-l-4 border-amber-500 bg-amber-50 p-4 dark:bg-amber-900/20">
+      <p className="font-medium">⚠️ <strong>Dikkat:</strong> Karar ağacı çok derinleşirse &quot;aşırı uyum&quot; (overfitting) problemi oluşabilir. Ağacın basit ama etkili olması önemlidir!</p>
     </div>
   </section>
 );

@@ -10,7 +10,7 @@ const geist = Geist({ subsets: ["latin"] });
 export const metadata: Metadata = {
   title: "Yapay Zeka Macerası - Çocuklar İçin Yapay Zeka",
   description:
-    "Ortaokul öğrencileri (6-8. sınıf) için uygulamalı, eğlenceli ve MEB uyumlu yapay zeka eğitim platformu.",
+    "Ortaokul öğrencileri (6-8. sınıf) için uygulamalı, eğlenceli yapay zeka eğitim platformu. 10 bölüm, 50+ etkinlik, tamamen ücretsiz!",
   keywords: [
     "yapay zeka",
     "çocuklar için yapay zeka",
@@ -21,6 +21,22 @@ export const metadata: Metadata = {
     "PictoBlox",
     "Teachable Machine",
   ],
+  metadataBase: new URL("https://gencyz.com"),
+  openGraph: {
+    title: "Yapay Zeka Macerası - Çocuklar İçin Yapay Zeka",
+    description:
+      "Ortaokul öğrencileri (6-8. sınıf) için uygulamalı, eğlenceli yapay zeka eğitim platformu. 10 bölüm, 50+ etkinlik, tamamen ücretsiz!",
+    url: "https://gencyz.com",
+    siteName: "Yapay Zeka Macerası",
+    locale: "tr_TR",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Yapay Zeka Macerası - Çocuklar İçin Yapay Zeka",
+    description:
+      "Ortaokul öğrencileri (6-8. sınıf) için uygulamalı, eğlenceli yapay zeka eğitim platformu. 10 bölüm, 50+ etkinlik, tamamen ücretsiz!",
+  },
 };
 
 export default function RootLayout({

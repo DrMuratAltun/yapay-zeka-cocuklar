@@ -113,6 +113,10 @@ const SlaytPictoBlox = (
           </div>
         ))}
       </div>
+
+      <div className="rounded-xl bg-gradient-to-r from-amber-50 to-orange-50 p-4 dark:from-amber-900/20 dark:to-orange-900/20">
+        <p className="font-medium">🤔 <strong>Biliyor Muydunuz?</strong> Scratch&apos;i dünya genelinde 100 milyondan fazla çocuk kullanıyor!</p>
+      </div>
     </section>
   </>
 );
@@ -141,6 +145,10 @@ const SlaytGoruntuSiniflandirma = (
             </div>
           </div>
         ))}
+      </div>
+
+      <div className="rounded-xl border-l-4 border-sky-500 bg-sky-50 p-4 dark:bg-sky-900/20">
+        <p className="font-medium">💡 <strong>İpucu:</strong> Model eğitirken farklı açılardan, farklı ışık koşullarında fotoğraf çekin. Ne kadar çeşitli veri, o kadar başarılı model!</p>
       </div>
     </section>
   </>
@@ -185,6 +193,10 @@ const SlaytMLForKids = (
             ))}
           </tbody>
         </table>
+      </div>
+
+      <div className="rounded-xl border-l-4 border-amber-500 bg-amber-50 p-4 dark:bg-amber-900/20">
+        <p className="font-medium">⚠️ <strong>Dikkat:</strong> ML for Kids&apos;te model eğitmeden önce her sınıfa en az 10 örnek eklemeyi unutmayın. Yetersiz veri = düşük doğruluk!</p>
       </div>
     </section>
   </>

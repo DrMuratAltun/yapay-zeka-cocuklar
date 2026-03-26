@@ -121,6 +121,10 @@ const SlaytEtikIlkeleri = (
         </div>
       ))}
     </div>
+
+    <div className="rounded-xl bg-gradient-to-r from-amber-50 to-orange-50 p-4 dark:from-amber-900/20 dark:to-orange-900/20">
+      <p className="font-medium">🤔 <strong>Biliyor Muydunuz?</strong> Deepfake videoların %96&apos;sı kadınları hedef alıyor — bu ciddi bir etik sorun!</p>
+    </div>
   </section>
 );
 
@@ -143,6 +147,10 @@ const SlaytOnyargi = (
           <p className="mt-1 text-xs font-medium text-rose-600 dark:text-rose-400">Etki: {o.etki}</p>
         </div>
       ))}
+    </div>
+
+    <div className="rounded-xl border-l-4 border-sky-500 bg-sky-50 p-4 dark:bg-sky-900/20">
+      <p className="font-medium">💡 <strong>İpucu:</strong> Bir YZ sistemi adaletsiz sonuç veriyorsa, genellikle sorun YZ&apos;nin kendisinde değil, eğitim verisindeki dengesizliktedir!</p>
     </div>
   </section>
 );
@@ -173,6 +181,10 @@ const SlaytDeepfake = (
           <li>&#8226; Deepfake tespit araçlarını kullan</li>
         </ul>
       </div>
+    </div>
+
+    <div className="rounded-xl border-l-4 border-amber-500 bg-amber-50 p-4 dark:bg-amber-900/20">
+      <p className="font-medium">⚠️ <strong>Dikkat:</strong> Sosyal medyada gördüğünüz her videoya inanmayın! &quot;Bu gerçek mi?&quot; diye sormayı alışkanlık haline getirin.</p>
     </div>
   </section>
 );

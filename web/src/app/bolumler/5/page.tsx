@@ -121,6 +121,10 @@ const SlaytUretkenYZ = (
         </div>
       ))}
     </div>
+
+    <div className="rounded-xl bg-gradient-to-r from-amber-50 to-orange-50 p-4 dark:from-amber-900/20 dark:to-orange-900/20">
+      <p className="font-medium">🤔 <strong>Biliyor Muydunuz?</strong> ChatGPT, eğitimi sırasında internetteki milyarlarca kelimeyi okudu!</p>
+    </div>
   </section>
 );
 
@@ -147,6 +151,10 @@ const SlaytLLM = (
           </div>
         </div>
       ))}
+    </div>
+
+    <div className="rounded-xl border-l-4 border-sky-500 bg-sky-50 p-4 dark:bg-sky-900/20">
+      <p className="font-medium">💡 <strong>İpucu:</strong> LLM&apos;ler &quot;anlama&quot; değil &quot;örüntü eşleştirme&quot; yapar. Bu yüzden bazen çok ikna edici ama yanlış cevaplar verebilirler!</p>
     </div>
   </section>
 );
@@ -202,6 +210,10 @@ const SlaytPrompt = (
           </div>
         ))}
       </div>
+    </div>
+
+    <div className="rounded-xl border-l-4 border-amber-500 bg-amber-50 p-4 dark:bg-amber-900/20">
+      <p className="font-medium">⚠️ <strong>Dikkat:</strong> &quot;Harika bir prompt yaz&quot; demek yerine, ne istediğinizi adım adım tarif edin. YZ zihin okuyamaz!</p>
     </div>
   </section>
 );

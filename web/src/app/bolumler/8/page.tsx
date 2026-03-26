@@ -122,6 +122,10 @@ const SlaytGoruntuUretme = (
           </div>
         ))}
       </div>
+
+      <div className="rounded-xl bg-gradient-to-r from-amber-50 to-orange-50 p-4 dark:from-amber-900/20 dark:to-orange-900/20">
+        <p className="font-medium">🤔 <strong>Biliyor Muydunuz?</strong> YZ ile üretilen ilk sanat eseri, 2018&apos;de 432.500 dolara satıldı!</p>
+      </div>
     </section>
   </>
 );
@@ -146,6 +150,10 @@ const SlaytPromptTeknikleri = (
             </div>
           </div>
         ))}
+      </div>
+
+      <div className="rounded-xl border-l-4 border-sky-500 bg-sky-50 p-4 dark:bg-sky-900/20">
+        <p className="font-medium">💡 <strong>İpucu:</strong> Prompt&apos;a &quot;stil&quot; eklemek sonucu tamamen değiştirir. &quot;Sulu boya&quot;, &quot;pixel art&quot;, &quot;3D render&quot; gibi anahtar kelimeler deneyin!</p>
       </div>
     </section>
   </>
@@ -174,6 +182,10 @@ const SlaytCanvaAI = (
             </div>
           </div>
         ))}
+      </div>
+
+      <div className="rounded-xl border-l-4 border-amber-500 bg-amber-50 p-4 dark:bg-amber-900/20">
+        <p className="font-medium">⚠️ <strong>Dikkat:</strong> Canva AI&apos;ın ücretsiz sürümünde günlük kullanım limiti vardır. Eğitim hesabı ile daha fazla erişim sağlayabilirsiniz!</p>
       </div>
     </section>
   </>

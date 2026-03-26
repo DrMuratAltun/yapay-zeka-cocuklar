@@ -116,6 +116,10 @@ const SlaytFinalProjesi = (
         ))}
       </div>
     </div>
+
+    <div className="rounded-xl bg-gradient-to-r from-amber-50 to-orange-50 p-4 dark:from-amber-900/20 dark:to-orange-900/20">
+      <p className="font-medium">🤔 <strong>Biliyor Muydunuz?</strong> 2030&apos;da iş dünyasındaki görevlerin %30&apos;u YZ ile değişecek!</p>
+    </div>
   </section>
 );
 
@@ -143,6 +147,10 @@ const SlaytProjeAdimlari = (
           </div>
         </div>
       ))}
+    </div>
+
+    <div className="rounded-xl border-l-4 border-sky-500 bg-sky-50 p-4 dark:bg-sky-900/20">
+      <p className="font-medium">💡 <strong>İpucu:</strong> Projenizi küçük parçalara bölün ve her adımı tamamladığınızda kutlayın. Büyük projeler küçük başarılarla tamamlanır!</p>
     </div>
   </section>
 );
@@ -176,6 +184,10 @@ const SlaytPortfolyo = (
           ))}
         </tbody>
       </table>
+    </div>
+
+    <div className="rounded-xl border-l-4 border-amber-500 bg-amber-50 p-4 dark:bg-amber-900/20">
+      <p className="font-medium">⚠️ <strong>Dikkat:</strong> Portfolyonuza sadece sonucu değil, süreci de ekleyin. Hatalar ve öğrendiğiniz dersler en değerli kısımlardır!</p>
     </div>
   </section>
 );

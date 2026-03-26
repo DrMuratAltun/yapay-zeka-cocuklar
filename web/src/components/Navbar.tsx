@@ -55,6 +55,7 @@ const bolumler = [
 const navLinks = [
   { href: "/#ozellikler", label: "Özellikler" },
   { href: "/#araclar", label: "Araçlar" },
+  { href: "/ogretmen", label: "Öğretmen" },
   { href: "/hakkinda", label: "Hakkında" },
 ];
 

@@ -115,6 +115,9 @@ const SlaytTasarimDusuncesi = (
           </div>
         ))}
       </div>
+      <div className="rounded-xl bg-gradient-to-r from-amber-50 to-orange-50 p-4 dark:from-amber-900/20 dark:to-orange-900/20">
+        <p className="font-medium">🤔 <strong>Biliyor Muydunuz?</strong> Yapay zeka, doktorlardan %20 daha doğru kanser teşhisi koyabiliyor!</p>
+      </div>
     </section>
   </>
 );
@@ -147,6 +150,10 @@ const SlaytProblemler = (
             <p className="text-xs font-medium text-teal-600 dark:text-teal-400">Araçlar: {p.araclar}</p>
           </div>
         ))}
+      </div>
+
+      <div className="rounded-xl border-l-4 border-sky-500 bg-sky-50 p-4 dark:bg-sky-900/20">
+        <p className="font-medium">💡 <strong>İpucu:</strong> Problemi seçerken &quot;Bu problem beni veya çevremdeki insanları etkiliyor mu?&quot; diye sorun. Kişisel bağlantı motivasyonu artırır!</p>
       </div>
     </section>
   </>
@@ -182,6 +189,10 @@ const SlaytProjePlanlama = (
             ))}
           </tbody>
         </table>
+      </div>
+
+      <div className="rounded-xl border-l-4 border-amber-500 bg-amber-50 p-4 dark:bg-amber-900/20">
+        <p className="font-medium">⚠️ <strong>Dikkat:</strong> MVP&apos;yi mükemmel yapmaya çalışmayın! Önce &quot;çalışıyor mu?&quot; sorusuna cevap verin, sonra güzelleştirin.</p>
       </div>
     </section>
   </>
