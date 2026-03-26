@@ -154,6 +154,23 @@ const SlaytKonuAnlatimi = (
 /* ---- Slayt 3: Tarihçe + Türler ---- */
 const SlaytTarihceTurler = (
   <>
+    {/* Video */}
+    <section className="rounded-2xl border border-[var(--color-border)] bg-[var(--color-bg-secondary)] p-4 sm:p-6">
+      <h3 className="mb-3 text-lg font-bold flex items-center gap-2">🎬 Yapay Zekanın Tarihçesi</h3>
+      <div className="relative w-full overflow-hidden rounded-xl" style={{ paddingBottom: "56.25%" }}>
+        <iframe
+          className="absolute inset-0 h-full w-full"
+          src="https://www.youtube.com/embed/ca_OjAqGpYs"
+          title="Yapay Zekanın Tarihçesi"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+          allowFullScreen
+        />
+      </div>
+      <p className="mt-3 text-sm text-[var(--color-text-secondary)]">
+        📖 Yapay zekanın 1950&apos;lerden günümüze uzanan yolculuğunu keşfet!
+      </p>
+    </section>
+
     <section className="space-y-4">
       <h3 className="text-xl font-extrabold">YZ Tarihçesi</h3>
       <div className="space-y-3">
