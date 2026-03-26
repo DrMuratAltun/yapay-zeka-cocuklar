@@ -82,109 +82,109 @@ const SlaytKazanimlar = (
 );
 
 const SlaytEtikIlkeleri = (
-  <>
-    <section className="space-y-4">
-      <h2 className="text-2xl font-extrabold">1. YZ Etiği Nedir?</h2>
-      <p>
-        YZ etiği, yapay zeka sistemlerinin tasarımında, geliştirilmesinde ve
-        kullanımında doğru, adil ve sorumlu davranma ilkelerinin bütünüdür.
-        YZ çok güçlü bir araç olduğu için bu gücü nasıl kullandığımız büyük önem taşır.
-      </p>
-      <div className="grid gap-4 sm:grid-cols-2">
-        {[
-          { ilke: "Şeffaflık", aciklama: "YZ sistemlerinin nasıl karar verdiği anlaşılabilir olmalı", icon: "🔍" },
-          { ilke: "Adalet", aciklama: "Tüm insanlara ve gruplara eşit ve adil davranmalı", icon: "⚖️" },
-          { ilke: "Gizlilik", aciklama: "Kişisel verileri korumalı ve izinsiz kullanmamalı", icon: "🔒" },
-          { ilke: "Hesap Verebilirlik", aciklama: "YZ'nin yaptığı hatalardan biri sorumlu olmalı", icon: "📋" },
-          { ilke: "Güvenlik", aciklama: "YZ sistemleri güvenli çalışmalı ve zarar vermemeli", icon: "🛡️" },
-          { ilke: "İnsan Denetimi", aciklama: "Kritik kararlarda her zaman insan kontrolü olmalı", icon: "👤" },
-        ].map((i) => (
-          <div key={i.ilke} className="flex items-start gap-3 rounded-xl border border-[var(--color-border)] bg-[var(--color-bg-secondary)] p-4">
-            <span className="text-2xl">{i.icon}</span>
-            <div>
-              <h4 className="font-bold">{i.ilke}</h4>
-              <p className="text-sm text-[var(--color-text-secondary)]">{i.aciklama}</p>
-            </div>
+  <section className="space-y-4">
+    <h2 className="text-2xl font-extrabold">1. YZ Etiği Nedir?</h2>
+    <p>
+      YZ etiği, yapay zeka sistemlerinin tasarımında, geliştirilmesinde ve
+      kullanımında doğru, adil ve sorumlu davranma ilkelerinin bütünüdür.
+      YZ çok güçlü bir araç olduğu için bu gücü nasıl kullandığımız büyük önem taşır.
+    </p>
+    <div className="grid gap-4 sm:grid-cols-2">
+      {[
+        { ilke: "Şeffaflık", aciklama: "YZ sistemlerinin nasıl karar verdiği anlaşılabilir olmalı", icon: "🔍" },
+        { ilke: "Adalet", aciklama: "Tüm insanlara ve gruplara eşit ve adil davranmalı", icon: "⚖️" },
+        { ilke: "Gizlilik", aciklama: "Kişisel verileri korumalı ve izinsiz kullanmamalı", icon: "🔒" },
+        { ilke: "Hesap Verebilirlik", aciklama: "YZ'nin yaptığı hatalardan biri sorumlu olmalı", icon: "📋" },
+        { ilke: "Güvenlik", aciklama: "YZ sistemleri güvenli çalışmalı ve zarar vermemeli", icon: "🛡️" },
+        { ilke: "İnsan Denetimi", aciklama: "Kritik kararlarda her zaman insan kontrolü olmalı", icon: "👤" },
+      ].map((i) => (
+        <div key={i.ilke} className="flex items-start gap-3 rounded-xl border border-[var(--color-border)] bg-[var(--color-bg-secondary)] p-4">
+          <span className="text-2xl">{i.icon}</span>
+          <div>
+            <h4 className="font-bold">{i.ilke}</h4>
+            <p className="text-sm text-[var(--color-text-secondary)]">{i.aciklama}</p>
           </div>
-        ))}
-      </div>
-    </section>
-
-    <section className="space-y-4">
-      <h2 className="text-2xl font-extrabold">2. Önyargı (Bias) Problemi</h2>
-      <p>
-        YZ sistemleri eğitildikleri verilerdeki önyargıları öğrenir ve bu önyargıları
-        kararlarında yansıtır. Bu durum adaletsiz sonuçlara yol açabilir.
-      </p>
-      <div className="space-y-3">
-        {[
-          { ornek: "İşe Alım YZ'si", sorun: "Geçmiş veriler erkek adayları tercih ediyorsa, YZ de erkekleri tercih eder", etki: "Cinsiyet ayrımcılığı" },
-          { ornek: "Yüz Tanıma", sorun: "Eğitim verisinde belirli etnik gruplar az temsil edilmişse, bu gruplar için hata oranı yüksek olur", etki: "Irk ayrımcılığı" },
-          { ornek: "Kredi Skoru", sorun: "Belirli semtlerde yaşayanlara otomatik düşük skor verilmesi", etki: "Sosyoekonomik ayrımcılık" },
-        ].map((o) => (
-          <div key={o.ornek} className="rounded-xl border border-rose-200 bg-rose-50 p-4 dark:border-rose-800 dark:bg-rose-900/20">
-            <h4 className="mb-1 font-bold text-rose-700 dark:text-rose-400">{o.ornek}</h4>
-            <p className="text-sm text-[var(--color-text-secondary)]">{o.sorun}</p>
-            <p className="mt-1 text-xs font-medium text-rose-600 dark:text-rose-400">Etki: {o.etki}</p>
-          </div>
-        ))}
-      </div>
-    </section>
-  </>
+        </div>
+      ))}
+    </div>
+  </section>
 );
 
-const SlaytDeepfakeVeEtki = (
-  <>
-    <section className="space-y-4">
-      <h2 className="text-2xl font-extrabold">3. Deepfake ve Dezenformasyon</h2>
-      <p>
-        Deepfake, YZ kullanılarak oluşturulan gerçekçi görünen sahte video ve ses
-        içerikleridir. Eğlence için kullanılabileceği gibi yanıltma amaçlı da kullanılabilir.
-      </p>
-      <div className="grid gap-4 md:grid-cols-2">
-        <div className="rounded-xl border-2 border-rose-300 bg-rose-50 p-5 dark:border-rose-700 dark:bg-rose-900/20">
-          <h3 className="mb-2 font-bold text-rose-700 dark:text-rose-400">⚠️ Tehlikeler</h3>
-          <ul className="space-y-1 text-sm text-[var(--color-text-secondary)]">
-            <li>&#8226; Sahte haberler ve propaganda</li>
-            <li>&#8226; Kişilik hakları ihlali</li>
-            <li>&#8226; Dolandırıcılık (sahte ses ile banka işlemi)</li>
-            <li>&#8226; Seçim manipülasyonu</li>
-          </ul>
+const SlaytOnyargi = (
+  <section className="space-y-4">
+    <h2 className="text-2xl font-extrabold">2. Önyargı (Bias) Problemi</h2>
+    <p>
+      YZ sistemleri eğitildikleri verilerdeki önyargıları öğrenir ve bu önyargıları
+      kararlarında yansıtır. Bu durum adaletsiz sonuçlara yol açabilir.
+    </p>
+    <div className="space-y-3">
+      {[
+        { ornek: "İşe Alım YZ'si", sorun: "Geçmiş veriler erkek adayları tercih ediyorsa, YZ de erkekleri tercih eder", etki: "Cinsiyet ayrımcılığı" },
+        { ornek: "Yüz Tanıma", sorun: "Eğitim verisinde belirli etnik gruplar az temsil edilmişse, bu gruplar için hata oranı yüksek olur", etki: "Irk ayrımcılığı" },
+        { ornek: "Kredi Skoru", sorun: "Belirli semtlerde yaşayanlara otomatik düşük skor verilmesi", etki: "Sosyoekonomik ayrımcılık" },
+      ].map((o) => (
+        <div key={o.ornek} className="rounded-xl border border-rose-200 bg-rose-50 p-4 dark:border-rose-800 dark:bg-rose-900/20">
+          <h4 className="mb-1 font-bold text-rose-700 dark:text-rose-400">{o.ornek}</h4>
+          <p className="text-sm text-[var(--color-text-secondary)]">{o.sorun}</p>
+          <p className="mt-1 text-xs font-medium text-rose-600 dark:text-rose-400">Etki: {o.etki}</p>
         </div>
-        <div className="rounded-xl border-2 border-emerald-300 bg-emerald-50 p-5 dark:border-emerald-700 dark:bg-emerald-900/20">
-          <h3 className="mb-2 font-bold text-emerald-700 dark:text-emerald-400">🛡️ Nasıl Korunuruz?</h3>
-          <ul className="space-y-1 text-sm text-[var(--color-text-secondary)]">
-            <li>&#8226; Kaynağın güvenilirliğini kontrol et</li>
-            <li>&#8226; Görüntüdeki anormallikleri ara (dudak senkronu, göz kırpma)</li>
-            <li>&#8226; Birden fazla kaynaktan doğrula</li>
-            <li>&#8226; Deepfake tespit araçlarını kullan</li>
-          </ul>
-        </div>
-      </div>
-    </section>
+      ))}
+    </div>
+  </section>
+);
 
-    <section className="space-y-4">
-      <h2 className="text-2xl font-extrabold">4. YZ&apos;nin Toplumsal Etkileri</h2>
-      <div className="grid gap-4 sm:grid-cols-3">
-        {[
-          { alan: "İş Gücü", icon: "💼", olumlu: "Yeni meslekler (YZ mühendisi, veri bilimci)", olumsuz: "Bazı rutin işlerin otomasyonu" },
-          { alan: "Çevre", icon: "🌿", olumlu: "Enerji optimizasyonu, iklim modellemesi", olumsuz: "Büyük modellerin yüksek enerji tüketimi" },
-          { alan: "Gizlilik", icon: "👁️", olumlu: "Güvenlik ve dolandırıcılık önleme", olumsuz: "Kitlesel gözetim ve veri toplama" },
-        ].map((a) => (
-          <div key={a.alan} className="rounded-xl border border-[var(--color-border)] bg-[var(--color-bg-secondary)] p-5">
-            <div className="mb-3 flex items-center gap-2">
-              <span className="text-2xl">{a.icon}</span>
-              <h4 className="font-bold">{a.alan}</h4>
-            </div>
-            <div className="space-y-2 text-xs">
-              <p className="text-emerald-600 dark:text-emerald-400">✅ {a.olumlu}</p>
-              <p className="text-rose-600 dark:text-rose-400">⚠️ {a.olumsuz}</p>
-            </div>
-          </div>
-        ))}
+const SlaytDeepfake = (
+  <section className="space-y-4">
+    <h2 className="text-2xl font-extrabold">3. Deepfake ve Dezenformasyon</h2>
+    <p>
+      Deepfake, YZ kullanılarak oluşturulan gerçekçi görünen sahte video ve ses
+      içerikleridir. Eğlence için kullanılabileceği gibi yanıltma amaçlı da kullanılabilir.
+    </p>
+    <div className="grid gap-4 md:grid-cols-2">
+      <div className="rounded-xl border-2 border-rose-300 bg-rose-50 p-5 dark:border-rose-700 dark:bg-rose-900/20">
+        <h3 className="mb-2 font-bold text-rose-700 dark:text-rose-400">⚠️ Tehlikeler</h3>
+        <ul className="space-y-1 text-sm text-[var(--color-text-secondary)]">
+          <li>&#8226; Sahte haberler ve propaganda</li>
+          <li>&#8226; Kişilik hakları ihlali</li>
+          <li>&#8226; Dolandırıcılık (sahte ses ile banka işlemi)</li>
+          <li>&#8226; Seçim manipülasyonu</li>
+        </ul>
       </div>
-    </section>
-  </>
+      <div className="rounded-xl border-2 border-emerald-300 bg-emerald-50 p-5 dark:border-emerald-700 dark:bg-emerald-900/20">
+        <h3 className="mb-2 font-bold text-emerald-700 dark:text-emerald-400">🛡️ Nasıl Korunuruz?</h3>
+        <ul className="space-y-1 text-sm text-[var(--color-text-secondary)]">
+          <li>&#8226; Kaynağın güvenilirliğini kontrol et</li>
+          <li>&#8226; Görüntüdeki anormallikleri ara (dudak senkronu, göz kırpma)</li>
+          <li>&#8226; Birden fazla kaynaktan doğrula</li>
+          <li>&#8226; Deepfake tespit araçlarını kullan</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+);
+
+const SlaytToplumsalEtki = (
+  <section className="space-y-4">
+    <h2 className="text-2xl font-extrabold">4. YZ&apos;nin Toplumsal Etkileri</h2>
+    <div className="grid gap-4 sm:grid-cols-3">
+      {[
+        { alan: "İş Gücü", icon: "💼", olumlu: "Yeni meslekler (YZ mühendisi, veri bilimci)", olumsuz: "Bazı rutin işlerin otomasyonu" },
+        { alan: "Çevre", icon: "🌿", olumlu: "Enerji optimizasyonu, iklim modellemesi", olumsuz: "Büyük modellerin yüksek enerji tüketimi" },
+        { alan: "Gizlilik", icon: "👁️", olumlu: "Güvenlik ve dolandırıcılık önleme", olumsuz: "Kitlesel gözetim ve veri toplama" },
+      ].map((a) => (
+        <div key={a.alan} className="rounded-xl border border-[var(--color-border)] bg-[var(--color-bg-secondary)] p-5">
+          <div className="mb-3 flex items-center gap-2">
+            <span className="text-2xl">{a.icon}</span>
+            <h4 className="font-bold">{a.alan}</h4>
+          </div>
+          <div className="space-y-2 text-xs">
+            <p className="text-emerald-600 dark:text-emerald-400">✅ {a.olumlu}</p>
+            <p className="text-rose-600 dark:text-rose-400">⚠️ {a.olumsuz}</p>
+          </div>
+        </div>
+      ))}
+    </div>
+  </section>
 );
 
 const SlaytEtkinlikler = (
@@ -275,8 +275,10 @@ const SlaytQuizMateryaller = (
 export default function Bolum9() {
   const slaytlar = [
     { baslik: "Kazanımlar", icon: "🎯", icerik: SlaytKazanimlar },
-    { baslik: "YZ Etiği ve Önyargı", icon: "📖", icerik: SlaytEtikIlkeleri },
-    { baslik: "Deepfake ve Toplumsal Etkiler", icon: "📖", icerik: SlaytDeepfakeVeEtki },
+    { baslik: "YZ Etiği Nedir?", icon: "⚖️", icerik: SlaytEtikIlkeleri },
+    { baslik: "Önyargı Problemi", icon: "🔍", icerik: SlaytOnyargi },
+    { baslik: "Deepfake ve Dezenformasyon", icon: "🎭", icerik: SlaytDeepfake },
+    { baslik: "Toplumsal Etkiler", icon: "🌍", icerik: SlaytToplumsalEtki },
     { baslik: "Etkinlikler", icon: "🎮", icerik: SlaytEtkinlikler },
     { baslik: "Etik Pusula", icon: "🧩", icerik: SlaytOyun },
     { baslik: "Quiz ve Materyaller", icon: "📝", icerik: SlaytQuizMateryaller },

@@ -90,7 +90,7 @@ const SlaytKazanimlar = (
   </>
 );
 
-const SlaytKonuAnlatimi = (
+const SlaytVeriNedir = (
   <>
     <section className="space-y-4">
       <h2 className="text-2xl font-extrabold">1. Veri Nedir?</h2>
@@ -106,7 +106,11 @@ const SlaytKonuAnlatimi = (
         </p>
       </div>
     </section>
+  </>
+);
 
+const SlaytVeriTurleri = (
+  <>
     <section className="space-y-4">
       <h2 className="text-2xl font-extrabold">2. Veri Türleri</h2>
       <p>Veri pek çok farklı formatta olabilir:</p>
@@ -122,7 +126,11 @@ const SlaytKonuAnlatimi = (
         ))}
       </div>
     </section>
+  </>
+);
 
+const SlaytYapisalVeri = (
+  <>
     <section className="space-y-4">
       <h2 className="text-2xl font-extrabold">3. Yapısal ve Yapısal Olmayan Veri</h2>
       <div className="overflow-x-auto">
@@ -163,7 +171,7 @@ const SlaytKonuAnlatimi = (
   </>
 );
 
-const SlaytVeriYzIliskisi = (
+const SlaytVeriNicinOnemli = (
   <>
     <section className="space-y-4">
       <h2 className="text-2xl font-extrabold">4. Veri Neden YZ için Önemlidir?</h2>
@@ -187,7 +195,11 @@ const SlaytVeriYzIliskisi = (
         ))}
       </div>
     </section>
+  </>
+);
 
+const SlaytVeriHazirlama = (
+  <>
     <section className="space-y-4">
       <h2 className="text-2xl font-extrabold">5. Veri Hazırlama Süreci</h2>
       <p>YZ için veri kullanılmadan önce bir hazırlama sürecinden geçer:</p>
@@ -214,7 +226,7 @@ const SlaytVeriYzIliskisi = (
   </>
 );
 
-const SlaytBuyukVeriGizlilik = (
+const SlaytBuyukVeri = (
   <>
     <section className="space-y-4">
       <h2 className="text-2xl font-extrabold">6. Büyük Veri (Big Data)</h2>
@@ -234,7 +246,11 @@ const SlaytBuyukVeriGizlilik = (
         ))}
       </div>
     </section>
+  </>
+);
 
+const SlaytVeriGizliligi = (
+  <>
     <section className="space-y-4">
       <h2 className="text-2xl font-extrabold">7. Veri Gizliliği ve KVKK</h2>
       <p>
@@ -389,9 +405,13 @@ export default function Bolum3() {
       sonrakiBolum={4}
       slaytlar={[
         { baslik: "Kazanımlar", icon: "🎯", icerik: SlaytKazanimlar },
-        { baslik: "Konu Anlatımı", icon: "📖", icerik: SlaytKonuAnlatimi },
-        { baslik: "Veri ve YZ İlişkisi", icon: "🔗", icerik: SlaytVeriYzIliskisi },
-        { baslik: "Büyük Veri ve Gizlilik", icon: "🔒", icerik: SlaytBuyukVeriGizlilik },
+        { baslik: "Veri Nedir?", icon: "📊", icerik: SlaytVeriNedir },
+        { baslik: "Veri Türleri", icon: "📝", icerik: SlaytVeriTurleri },
+        { baslik: "Yapısal ve Yapısız Veri", icon: "📋", icerik: SlaytYapisalVeri },
+        { baslik: "Veri Neden Önemli?", icon: "🔗", icerik: SlaytVeriNicinOnemli },
+        { baslik: "Veri Hazırlama Süreci", icon: "🔧", icerik: SlaytVeriHazirlama },
+        { baslik: "Büyük Veri", icon: "📦", icerik: SlaytBuyukVeri },
+        { baslik: "Veri Gizliliği ve KVKK", icon: "🔒", icerik: SlaytVeriGizliligi },
         { baslik: "Etkinlikler", icon: "🎮", icerik: SlaytEtkinlikler },
         { baslik: "İnteraktif Oyun", icon: "🕹️", icerik: SlaytOyun },
         { baslik: "Quiz ve Materyaller", icon: "📝", icerik: SlaytQuiz },

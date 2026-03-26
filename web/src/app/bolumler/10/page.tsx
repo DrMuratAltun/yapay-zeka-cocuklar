@@ -82,115 +82,119 @@ const SlaytKazanimlar = (
 );
 
 const SlaytFinalProjesi = (
-  <>
-    <section className="space-y-4">
-      <h2 className="text-2xl font-extrabold">1. Final Projesi: Büyük Resim</h2>
-      <p>
-        Bu bölümdeki final projesi, kitap boyunca öğrendiğiniz tüm bilgi ve becerileri
-        bir araya getirmenizi sağlar. Gerçek bir problemi YZ ile çözen kapsamlı bir
-        proje geliştireceksiniz.
-      </p>
-      <div className="rounded-xl border-2 border-indigo-300 bg-indigo-50 p-5 dark:border-indigo-700 dark:bg-indigo-900/20">
-        <h3 className="mb-3 font-bold text-indigo-700 dark:text-indigo-400">🎯 Final Projesi Gereksinimleri</h3>
-        <div className="grid gap-2 text-sm sm:grid-cols-2">
-          {[
-            { gereksinim: "Gerçek bir problem çözmeli", icon: "🌍" },
-            { gereksinim: "YZ/ML modeli içermeli", icon: "🧠" },
-            { gereksinim: "Veri toplama ve hazırlama yapmalı", icon: "📊" },
-            { gereksinim: "Etik değerlendirme içermeli", icon: "⚖️" },
-            { gereksinim: "Çalışan bir prototip olmalı", icon: "💻" },
-            { gereksinim: "Sunum ve belgelendirme yapmalı", icon: "📋" },
-          ].map((g) => (
-            <div key={g.gereksinim} className="flex items-center gap-2 rounded-lg bg-white/60 p-2 dark:bg-white/5">
-              <span>{g.icon}</span>
-              <span>{g.gereksinim}</span>
-            </div>
-          ))}
-        </div>
-      </div>
-    </section>
-
-    <section className="space-y-4">
-      <h2 className="text-2xl font-extrabold">2. Proje Adımları</h2>
-      <div className="space-y-3">
+  <section className="space-y-4">
+    <h2 className="text-2xl font-extrabold">1. Final Projesi: Büyük Resim</h2>
+    <p>
+      Bu bölümdeki final projesi, kitap boyunca öğrendiğiniz tüm bilgi ve becerileri
+      bir araya getirmenizi sağlar. Gerçek bir problemi YZ ile çözen kapsamlı bir
+      proje geliştireceksiniz.
+    </p>
+    <div className="rounded-xl border-2 border-indigo-300 bg-indigo-50 p-5 dark:border-indigo-700 dark:bg-indigo-900/20">
+      <h3 className="mb-3 font-bold text-indigo-700 dark:text-indigo-400">🎯 Final Projesi Gereksinimleri</h3>
+      <div className="grid gap-2 text-sm sm:grid-cols-2">
         {[
-          { adim: 1, baslik: "Konu Seçimi", aciklama: "İlginizi çeken bir gerçek dünya problemi seçin. Çevre, sağlık, eğitim, ulaşım...", sure: "1 ders" },
-          { adim: 2, baslik: "Araştırma", aciklama: "Problemi araştırın, benzer çözümleri inceleyin, hangi YZ yaklaşımını kullanacağınıza karar verin.", sure: "1 ders" },
-          { adim: 3, baslik: "Veri Toplama", aciklama: "Projeniz için gerekli verileri toplayın, temizleyin ve etiketleyin.", sure: "1 ders" },
-          { adim: 4, baslik: "Model Geliştirme", aciklama: "Teachable Machine, PictoBlox veya ML for Kids ile modelinizi eğitin ve test edin.", sure: "2 ders" },
-          { adim: 5, baslik: "Entegrasyon", aciklama: "Modeli bir uygulama/oyun/sunum ile birleştirin. Kullanıcı arayüzü tasarlayın.", sure: "1 ders" },
-          { adim: 6, baslik: "Sunum Hazırlığı", aciklama: "Poster, sunum ve canlı demo hazırlayın. Portfolyo belgesini tamamlayın.", sure: "1 ders" },
-          { adim: 7, baslik: "Proje Fuarı", aciklama: "Projenizi sınıfa/okula sunun. Geri bildirim alın ve değerlendirin.", sure: "1 ders" },
-        ].map((a) => (
-          <div key={a.adim} className="flex items-start gap-4">
-            <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-indigo-600 font-bold text-white">{a.adim}</span>
-            <div className="flex-1">
-              <div className="flex items-center justify-between">
-                <h4 className="font-bold">{a.baslik}</h4>
-                <span className="text-xs text-[var(--color-text-secondary)]">{a.sure}</span>
-              </div>
-              <p className="text-sm text-[var(--color-text-secondary)]">{a.aciklama}</p>
-            </div>
+          { gereksinim: "Gerçek bir problem çözmeli", icon: "🌍" },
+          { gereksinim: "YZ/ML modeli içermeli", icon: "🧠" },
+          { gereksinim: "Veri toplama ve hazırlama yapmalı", icon: "📊" },
+          { gereksinim: "Etik değerlendirme içermeli", icon: "⚖️" },
+          { gereksinim: "Çalışan bir prototip olmalı", icon: "💻" },
+          { gereksinim: "Sunum ve belgelendirme yapmalı", icon: "📋" },
+        ].map((g) => (
+          <div key={g.gereksinim} className="flex items-center gap-2 rounded-lg bg-white/60 p-2 dark:bg-white/5">
+            <span>{g.icon}</span>
+            <span>{g.gereksinim}</span>
           </div>
         ))}
       </div>
-    </section>
-  </>
+    </div>
+  </section>
 );
 
-const SlaytPortfolyoKariyer = (
-  <>
-    <section className="space-y-4">
-      <h2 className="text-2xl font-extrabold">3. Portfolyo Nasıl Hazırlanır?</h2>
-      <p>Portfolyonuz, YZ yolculuğunuzun tüm hikâyesini anlatan bir belge/sunumdur:</p>
-      <div className="overflow-x-auto">
-        <table className="w-full rounded-xl border border-[var(--color-border)] text-sm">
-          <thead className="bg-indigo-600 text-white">
-            <tr>
-              <th className="px-4 py-3 text-left">Bölüm</th>
-              <th className="px-4 py-3 text-left">İçerik</th>
-            </tr>
-          </thead>
-          <tbody>
-            {[
-              ["Kapak", "Proje adı, isminiz, tarih, okul"],
-              ["Problem", "Hangi sorunu çözüyorsunuz? Neden önemli?"],
-              ["Araştırma", "Benzer çözümler, kullanılan teknolojiler"],
-              ["Süreç", "Veri toplama, model eğitimi, kodlama adımları"],
-              ["Sonuçlar", "Model başarısı, ekran görüntüleri, demo"],
-              ["Dersler", "Ne öğrendiniz? Zorluklar? Farklı ne yapardınız?"],
-              ["Kaynaklar", "Kullanılan araçlar, veri kaynakları, referanslar"],
-            ].map(([bolum, icerik], i) => (
-              <tr key={bolum} className={i % 2 === 0 ? "bg-[var(--color-bg-secondary)]" : ""}>
-                <td className="px-4 py-2.5 font-medium">{bolum}</td>
-                <td className="px-4 py-2.5 text-[var(--color-text-secondary)]">{icerik}</td>
-              </tr>
-            ))}
-          </tbody>
-        </table>
-      </div>
-    </section>
-
-    <section className="space-y-4">
-      <h2 className="text-2xl font-extrabold">4. YZ Çağında Kariyer Fırsatları</h2>
-      <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-        {[
-          { meslek: "YZ Mühendisi", aciklama: "YZ modelleri tasarlar ve geliştirir", icon: "👩‍💻" },
-          { meslek: "Veri Bilimci", aciklama: "Büyük verileri analiz eder, içgörüler çıkarır", icon: "📊" },
-          { meslek: "Prompt Mühendisi", aciklama: "YZ araçlarından en iyi sonucu alacak talimatlar tasarlar", icon: "✍️" },
-          { meslek: "YZ Etik Danışmanı", aciklama: "YZ sistemlerinin etik ve adil olmasını sağlar", icon: "⚖️" },
-          { meslek: "Robotik Mühendisi", aciklama: "YZ destekli robotlar tasarlar", icon: "🤖" },
-          { meslek: "YZ Ürün Yöneticisi", aciklama: "YZ ürünlerinin geliştirme sürecini yönetir", icon: "📋" },
-        ].map((m) => (
-          <div key={m.meslek} className="rounded-xl border border-[var(--color-border)] bg-[var(--color-bg-secondary)] p-4 text-center">
-            <span className="text-3xl">{m.icon}</span>
-            <h4 className="mt-2 font-bold">{m.meslek}</h4>
-            <p className="mt-1 text-xs text-[var(--color-text-secondary)]">{m.aciklama}</p>
+const SlaytProjeAdimlari = (
+  <section className="space-y-4">
+    <h2 className="text-2xl font-extrabold">2. Proje Adımları</h2>
+    <div className="space-y-3">
+      {[
+        { adim: 1, baslik: "Konu Seçimi", aciklama: "İlginizi çeken bir gerçek dünya problemi seçin. Çevre, sağlık, eğitim, ulaşım...", sure: "1 ders" },
+        { adim: 2, baslik: "Araştırma", aciklama: "Problemi araştırın, benzer çözümleri inceleyin, hangi YZ yaklaşımını kullanacağınıza karar verin.", sure: "1 ders" },
+        { adim: 3, baslik: "Veri Toplama", aciklama: "Projeniz için gerekli verileri toplayın, temizleyin ve etiketleyin.", sure: "1 ders" },
+        { adim: 4, baslik: "Model Geliştirme", aciklama: "Teachable Machine, PictoBlox veya ML for Kids ile modelinizi eğitin ve test edin.", sure: "2 ders" },
+        { adim: 5, baslik: "Entegrasyon", aciklama: "Modeli bir uygulama/oyun/sunum ile birleştirin. Kullanıcı arayüzü tasarlayın.", sure: "1 ders" },
+        { adim: 6, baslik: "Sunum Hazırlığı", aciklama: "Poster, sunum ve canlı demo hazırlayın. Portfolyo belgesini tamamlayın.", sure: "1 ders" },
+        { adim: 7, baslik: "Proje Fuarı", aciklama: "Projenizi sınıfa/okula sunun. Geri bildirim alın ve değerlendirin.", sure: "1 ders" },
+      ].map((a) => (
+        <div key={a.adim} className="flex items-start gap-4">
+          <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-indigo-600 font-bold text-white">{a.adim}</span>
+          <div className="flex-1">
+            <div className="flex items-center justify-between">
+              <h4 className="font-bold">{a.baslik}</h4>
+              <span className="text-xs text-[var(--color-text-secondary)]">{a.sure}</span>
+            </div>
+            <p className="text-sm text-[var(--color-text-secondary)]">{a.aciklama}</p>
           </div>
-        ))}
-      </div>
-    </section>
+        </div>
+      ))}
+    </div>
+  </section>
+);
 
+const SlaytPortfolyo = (
+  <section className="space-y-4">
+    <h2 className="text-2xl font-extrabold">3. Portfolyo Nasıl Hazırlanır?</h2>
+    <p>Portfolyonuz, YZ yolculuğunuzun tüm hikâyesini anlatan bir belge/sunumdur:</p>
+    <div className="overflow-x-auto">
+      <table className="w-full rounded-xl border border-[var(--color-border)] text-sm">
+        <thead className="bg-indigo-600 text-white">
+          <tr>
+            <th className="px-4 py-3 text-left">Bölüm</th>
+            <th className="px-4 py-3 text-left">İçerik</th>
+          </tr>
+        </thead>
+        <tbody>
+          {[
+            ["Kapak", "Proje adı, isminiz, tarih, okul"],
+            ["Problem", "Hangi sorunu çözüyorsunuz? Neden önemli?"],
+            ["Araştırma", "Benzer çözümler, kullanılan teknolojiler"],
+            ["Süreç", "Veri toplama, model eğitimi, kodlama adımları"],
+            ["Sonuçlar", "Model başarısı, ekran görüntüleri, demo"],
+            ["Dersler", "Ne öğrendiniz? Zorluklar? Farklı ne yapardınız?"],
+            ["Kaynaklar", "Kullanılan araçlar, veri kaynakları, referanslar"],
+          ].map(([bolum, icerik], i) => (
+            <tr key={bolum} className={i % 2 === 0 ? "bg-[var(--color-bg-secondary)]" : ""}>
+              <td className="px-4 py-2.5 font-medium">{bolum}</td>
+              <td className="px-4 py-2.5 text-[var(--color-text-secondary)]">{icerik}</td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
+    </div>
+  </section>
+);
+
+const SlaytKariyer = (
+  <section className="space-y-4">
+    <h2 className="text-2xl font-extrabold">4. YZ Çağında Kariyer Fırsatları</h2>
+    <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+      {[
+        { meslek: "YZ Mühendisi", aciklama: "YZ modelleri tasarlar ve geliştirir", icon: "👩‍💻" },
+        { meslek: "Veri Bilimci", aciklama: "Büyük verileri analiz eder, içgörüler çıkarır", icon: "📊" },
+        { meslek: "Prompt Mühendisi", aciklama: "YZ araçlarından en iyi sonucu alacak talimatlar tasarlar", icon: "✍️" },
+        { meslek: "YZ Etik Danışmanı", aciklama: "YZ sistemlerinin etik ve adil olmasını sağlar", icon: "⚖️" },
+        { meslek: "Robotik Mühendisi", aciklama: "YZ destekli robotlar tasarlar", icon: "🤖" },
+        { meslek: "YZ Ürün Yöneticisi", aciklama: "YZ ürünlerinin geliştirme sürecini yönetir", icon: "📋" },
+      ].map((m) => (
+        <div key={m.meslek} className="rounded-xl border border-[var(--color-border)] bg-[var(--color-bg-secondary)] p-4 text-center">
+          <span className="text-3xl">{m.icon}</span>
+          <h4 className="mt-2 font-bold">{m.meslek}</h4>
+          <p className="mt-1 text-xs text-[var(--color-text-secondary)]">{m.aciklama}</p>
+        </div>
+      ))}
+    </div>
+  </section>
+);
+
+const SlaytOgrenmeDevam = (
+  <>
     <section className="space-y-4">
       <h2 className="text-2xl font-extrabold">5. Öğrenmeye Devam Et!</h2>
       <p>Bu kitap sadece başlangıç! YZ öğrenme yolculuğunuza devam etmek için:</p>
@@ -318,8 +322,11 @@ const SlaytQuizMateryaller = (
 export default function Bolum10() {
   const slaytlar = [
     { baslik: "Kazanımlar", icon: "🎯", icerik: SlaytKazanimlar },
-    { baslik: "Final Projesi ve Adımlar", icon: "📖", icerik: SlaytFinalProjesi },
-    { baslik: "Portfolyo, Kariyer ve Gelecek", icon: "📖", icerik: SlaytPortfolyoKariyer },
+    { baslik: "Final Projesi", icon: "🌟", icerik: SlaytFinalProjesi },
+    { baslik: "Proje Adımları", icon: "📋", icerik: SlaytProjeAdimlari },
+    { baslik: "Portfolyo Hazırlama", icon: "📂", icerik: SlaytPortfolyo },
+    { baslik: "Kariyer Fırsatları", icon: "💼", icerik: SlaytKariyer },
+    { baslik: "Öğrenmeye Devam Et", icon: "🚀", icerik: SlaytOgrenmeDevam },
     { baslik: "Etkinlikler", icon: "🎮", icerik: SlaytEtkinlikler },
     { baslik: "YZ Kariyer Keşfi", icon: "🧩", icerik: SlaytOyun },
     { baslik: "Quiz ve Materyaller", icon: "📝", icerik: SlaytQuizMateryaller },

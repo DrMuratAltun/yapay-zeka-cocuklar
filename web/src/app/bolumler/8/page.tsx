@@ -82,7 +82,7 @@ const SlaytKazanimlar = (
   </>
 );
 
-/* ---- Slayt 2: Görüntü Üretme + Prompt Teknikleri ---- */
+/* ---- Slayt 2: YZ ile Görüntü Üretme ---- */
 const SlaytGoruntuUretme = (
   <>
     <section className="space-y-4">
@@ -110,7 +110,12 @@ const SlaytGoruntuUretme = (
         ))}
       </div>
     </section>
+  </>
+);
 
+/* ---- Slayt 3: Prompt Teknikleri ---- */
+const SlaytPromptTeknikleri = (
+  <>
     <section className="space-y-4">
       <h3 className="text-2xl font-extrabold">2. Görüntü Prompt Teknikleri</h3>
       <div className="space-y-3">
@@ -133,8 +138,8 @@ const SlaytGoruntuUretme = (
   </>
 );
 
-/* ---- Slayt 3: Canva AI + Dijital Hikaye ---- */
-const SlaytCanvaHikaye = (
+/* ---- Slayt 4: Canva AI ile Tasarım ---- */
+const SlaytCanvaAI = (
   <>
     <section className="space-y-4">
       <h3 className="text-2xl font-extrabold">3. Canva AI ile Tasarım</h3>
@@ -158,7 +163,12 @@ const SlaytCanvaHikaye = (
         ))}
       </div>
     </section>
+  </>
+);
 
+/* ---- Slayt 5: Dijital Hikaye Anlatımı ---- */
+const SlaytDijitalHikaye = (
+  <>
     <section className="space-y-4">
       <h3 className="text-2xl font-extrabold">4. Dijital Hikaye Anlatımı</h3>
       <p>YZ araçlarıyla multimedya bir dijital hikaye oluşturma adımları:</p>
@@ -293,8 +303,10 @@ export default function Bolum8() {
       sonrakiBolum={9}
       slaytlar={[
         { baslik: "Kazanımlar", icon: "🎯", icerik: SlaytKazanimlar },
-        { baslik: "Görüntü Üretme ve Prompt", icon: "📖", icerik: SlaytGoruntuUretme },
-        { baslik: "Canva AI ve Dijital Hikaye", icon: "🎨", icerik: SlaytCanvaHikaye },
+        { baslik: "YZ ile Görüntü Üretme", icon: "🖼️", icerik: SlaytGoruntuUretme },
+        { baslik: "Prompt Teknikleri", icon: "✍️", icerik: SlaytPromptTeknikleri },
+        { baslik: "Canva AI ile Tasarım", icon: "🎨", icerik: SlaytCanvaAI },
+        { baslik: "Dijital Hikaye Anlatımı", icon: "📖", icerik: SlaytDijitalHikaye },
         { baslik: "Etkinlikler", icon: "🎮", icerik: SlaytEtkinlikler },
         { baslik: "Yapay mı Gerçek mi?", icon: "🧩", icerik: SlaytOyun },
         { baslik: "Quiz ve Materyaller", icon: "📝", icerik: SlaytQuiz },

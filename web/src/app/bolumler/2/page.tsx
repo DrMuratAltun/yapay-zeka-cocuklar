@@ -189,7 +189,7 @@ const SlaytKazanimlar = (
   </>
 );
 
-const SlaytKonuAnlatimi = (
+const SlaytYzHerYerde = (
   <>
     <section className="space-y-4">
       <h2 className="text-2xl font-extrabold">1. YZ Her Yerde!</h2>
@@ -207,7 +207,11 @@ const SlaytKonuAnlatimi = (
         </p>
       </div>
     </section>
+  </>
+);
 
+const SlaytCebindekiYz = (
+  <>
     <section className="space-y-4">
       <h2 className="text-2xl font-extrabold">
         2. Cebindeki Yapay Zeka
@@ -248,7 +252,7 @@ const SlaytKonuAnlatimi = (
   </>
 );
 
-const SlaytYzAlanlari = (
+const SlaytYzKullanimAlanlari = (
   <>
     <section className="space-y-4">
       <h2 className="text-2xl font-extrabold">
@@ -280,7 +284,11 @@ const SlaytYzAlanlari = (
         ))}
       </div>
     </section>
+  </>
+);
 
+const SlaytOneriSistemleri = (
+  <>
     <section className="space-y-4">
       <h2 className="text-2xl font-extrabold">
         4. Öneri Sistemleri Nasıl Çalışır?
@@ -330,7 +338,11 @@ const SlaytYzAlanlari = (
         ))}
       </div>
     </section>
+  </>
+);
 
+const SlaytSesliAsistanlar = (
+  <>
     <section className="space-y-4">
       <h2 className="text-2xl font-extrabold">
         5. Sesli Asistanlar ve Chatbotlar
@@ -619,8 +631,11 @@ export default function Bolum2() {
       sonrakiBolum={3}
       slaytlar={[
         { baslik: "Kazanımlar", icon: "🎯", icerik: SlaytKazanimlar },
-        { baslik: "Konu Anlatımı", icon: "📖", icerik: SlaytKonuAnlatimi },
-        { baslik: "YZ Alanları ve Teknolojiler", icon: "🌐", icerik: SlaytYzAlanlari },
+        { baslik: "YZ Her Yerde!", icon: "🌍", icerik: SlaytYzHerYerde },
+        { baslik: "Cebindeki Yapay Zeka", icon: "📱", icerik: SlaytCebindekiYz },
+        { baslik: "YZ Kullanım Alanları", icon: "🌐", icerik: SlaytYzKullanimAlanlari },
+        { baslik: "Öneri Sistemleri", icon: "🎬", icerik: SlaytOneriSistemleri },
+        { baslik: "Sesli Asistanlar", icon: "🎙️", icerik: SlaytSesliAsistanlar },
         { baslik: "Etkinlikler", icon: "🎮", icerik: SlaytEtkinlikler },
         { baslik: "İnteraktif Oyun", icon: "🕹️", icerik: SlaytOyun },
         { baslik: "Quiz ve Materyaller", icon: "📝", icerik: SlaytQuiz },

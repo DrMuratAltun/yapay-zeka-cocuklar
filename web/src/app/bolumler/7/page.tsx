@@ -109,7 +109,7 @@ const SlaytTasarimDusuncesi = (
   </>
 );
 
-/* ---- Slayt 3: Örnek Problemler + Planlama ---- */
+/* ---- Slayt 3: Örnek Problemler ---- */
 const SlaytProblemler = (
   <>
     <section className="space-y-4">
@@ -134,7 +134,12 @@ const SlaytProblemler = (
         ))}
       </div>
     </section>
+  </>
+);
 
+/* ---- Slayt 4: Proje Planlama Şablonu ---- */
+const SlaytProjePlanlama = (
+  <>
     <section className="space-y-4">
       <h3 className="text-2xl font-extrabold">3. Proje Planlama Şablonu</h3>
       <div className="overflow-x-auto">
@@ -267,7 +272,8 @@ export default function Bolum7() {
       slaytlar={[
         { baslik: "Kazanımlar", icon: "🎯", icerik: SlaytKazanimlar },
         { baslik: "Tasarım Düşüncesi", icon: "📖", icerik: SlaytTasarimDusuncesi },
-        { baslik: "Problemler ve Planlama", icon: "🌍", icerik: SlaytProblemler },
+        { baslik: "Örnek Problemler", icon: "🌍", icerik: SlaytProblemler },
+        { baslik: "Proje Planlama", icon: "📋", icerik: SlaytProjePlanlama },
         { baslik: "Etkinlikler", icon: "🎮", icerik: SlaytEtkinlikler },
         { baslik: "Problem-Çözüm Eşleştir", icon: "🧩", icerik: SlaytOyun },
         { baslik: "Quiz ve Materyaller", icon: "📝", icerik: SlaytQuiz },

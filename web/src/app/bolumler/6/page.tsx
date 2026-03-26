@@ -106,7 +106,12 @@ const SlaytPictoBlox = (
         ))}
       </div>
     </section>
+  </>
+);
 
+/* ---- Slayt 3: Görüntü Sınıflandırma ---- */
+const SlaytGoruntuSiniflandirma = (
+  <>
     <section className="space-y-4">
       <h3 className="text-2xl font-extrabold">2. PictoBlox ile Görüntü Sınıflandırma</h3>
       <p>Adım adım bir görüntü sınıflandırma projesi yapalım:</p>
@@ -133,7 +138,7 @@ const SlaytPictoBlox = (
   </>
 );
 
-/* ---- Slayt 3: ML for Kids + Proje Fikirleri ---- */
+/* ---- Slayt 4: ML for Kids + Scratch ---- */
 const SlaytMLForKids = (
   <>
     <section className="space-y-4">
@@ -168,7 +173,12 @@ const SlaytMLForKids = (
         </table>
       </div>
     </section>
+  </>
+);
 
+/* ---- Slayt 5: Proje Fikirleri ---- */
+const SlaytProjeFikirleri = (
+  <>
     <section className="space-y-4">
       <h3 className="text-2xl font-extrabold">4. Proje Fikirleri</h3>
       <div className="grid gap-4 sm:grid-cols-2">
@@ -295,8 +305,10 @@ export default function Bolum6() {
       sonrakiBolum={7}
       slaytlar={[
         { baslik: "Kazanımlar", icon: "🎯", icerik: SlaytKazanimlar },
-        { baslik: "PictoBlox ve Görüntü Sınıflandırma", icon: "📖", icerik: SlaytPictoBlox },
-        { baslik: "ML for Kids ve Proje Fikirleri", icon: "🧩", icerik: SlaytMLForKids },
+        { baslik: "PictoBlox Nedir?", icon: "🧩", icerik: SlaytPictoBlox },
+        { baslik: "Görüntü Sınıflandırma", icon: "📷", icerik: SlaytGoruntuSiniflandirma },
+        { baslik: "ML for Kids + Scratch", icon: "🤖", icerik: SlaytMLForKids },
+        { baslik: "Proje Fikirleri", icon: "💡", icerik: SlaytProjeFikirleri },
         { baslik: "Etkinlikler", icon: "🎮", icerik: SlaytEtkinlikler },
         { baslik: "Algoritma Bulmacası", icon: "🧩", icerik: SlaytOyun },
         { baslik: "Quiz ve Materyaller", icon: "📝", icerik: SlaytQuiz },
