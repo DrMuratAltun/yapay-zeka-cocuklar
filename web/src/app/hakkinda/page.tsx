@@ -38,7 +38,7 @@ export default function Hakkinda() {
             <div className="flex flex-col items-center gap-6 md:flex-row md:items-end">
               <div className="-mt-16 shrink-0 overflow-hidden rounded-2xl border-4 border-[var(--color-bg-secondary)] shadow-lg">
                 <Image
-                  src="/images/dr-murat-altun.jpg"
+                  src="/images/dr-murat-altun-avatar.jpg"
                   alt="Dr. Murat ALTUN"
                   width={140}
                   height={140}
