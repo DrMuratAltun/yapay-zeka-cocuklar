@@ -82,8 +82,8 @@ export default function Navbar() {
         {/* Logo */}
         <Link href="/" className="flex items-center gap-2 font-extrabold">
           <span className="text-xl">🤖</span>
-          <span className="hidden sm:inline">Yapay Zeka Macerası</span>
-          <span className="sm:hidden">YZ Macerası</span>
+          <span className="hidden sm:inline">GençYZ</span>
+          <span className="sm:hidden">GençYZ</span>
         </Link>
 
         {/* Desktop */}

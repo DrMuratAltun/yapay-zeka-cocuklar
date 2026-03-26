@@ -305,7 +305,7 @@ export default function AnaSayfa() {
         <div className="mx-auto max-w-6xl px-6">
           <div className="grid gap-8 md:grid-cols-3">
             <div>
-              <p className="text-lg font-extrabold">🤖 Yapay Zeka Macerası</p>
+              <p className="text-lg font-extrabold">🤖 GençYZ</p>
               <p className="mt-1 text-sm text-[var(--color-text-secondary)]">
                 Dr. Murat ALTUN
               </p>
