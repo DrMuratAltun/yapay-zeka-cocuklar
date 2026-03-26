@@ -9,6 +9,7 @@ import InteraktifQuiz from "@/components/InteraktifQuiz";
 import BolumSlider from "@/components/BolumSlider";
 import PromptUstasi from "@/components/oyunlar/PromptUstasi";
 import PromptDeneme from "@/components/etkinlikler/PromptDeneme";
+import EtikSenaryolar from "@/components/etkinlikler/EtikSenaryolar";
 
 const quizSorulari = [
   {
@@ -327,6 +328,8 @@ const SlaytEtkinlikler = (
           ChatGPT&apos;ye yaptırdı ve kendi yazdım dedi. Doğru mu?&quot;
         </p>
       </div>
+
+      <EtikSenaryolar />
     </section>
   </>
 );

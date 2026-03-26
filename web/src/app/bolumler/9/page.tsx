@@ -9,6 +9,7 @@ import BolumSlider from "@/components/BolumSlider";
 import InteraktifQuiz from "@/components/InteraktifQuiz";
 import EtikPusula from "@/components/oyunlar/EtikPusula";
 import EtikMahkeme from "@/components/etkinlikler/EtikMahkeme";
+import DeepfakeTespit from "@/components/etkinlikler/DeepfakeTespit";
 
 const quizSorulari = [
   {
@@ -244,6 +245,8 @@ const SlaytEtkinlikler = (
         &quot;deepfake ile karşılaşırsak ne yapmalıyız?&quot; tartışması yapın.
       </p>
     </div>
+
+    <DeepfakeTespit />
   </section>
 );
 

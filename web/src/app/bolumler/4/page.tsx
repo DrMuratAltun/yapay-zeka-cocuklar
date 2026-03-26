@@ -9,6 +9,7 @@ import InteraktifQuiz from "@/components/InteraktifQuiz";
 import BolumSlider from "@/components/BolumSlider";
 import KararAgaci from "@/components/oyunlar/KararAgaci";
 import MeyveSiniflandirici from "@/components/etkinlikler/MeyveSiniflandirici";
+import ModelBasariRaporu from "@/components/etkinlikler/ModelBasariRaporu";
 
 const quizSorulari = [
   {
@@ -409,6 +410,8 @@ const SlaytEtkinlikler = (
           &quot;iyi bir model&quot; için nelerin gerektiğini listeleyin.
         </p>
       </div>
+
+      <ModelBasariRaporu />
     </section>
   </>
 );

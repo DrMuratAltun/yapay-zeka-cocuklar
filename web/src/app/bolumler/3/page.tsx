@@ -9,6 +9,8 @@ import InteraktifQuiz from "@/components/InteraktifQuiz";
 import BolumSlider from "@/components/BolumSlider";
 import VeriTuruAvcisi from "@/components/oyunlar/VeriTuruAvcisi";
 import VeriTopla from "@/components/etkinlikler/VeriTopla";
+import GirdiAvcilari from "@/components/etkinlikler/GirdiAvcilari";
+import SinifAnketi from "@/components/etkinlikler/SinifAnketi";
 
 const quizSorulari = [
   {
@@ -319,6 +321,8 @@ const SlaytEtkinlikler = (
         </div>
       </div>
 
+      <GirdiAvcilari />
+
       <VeriTopla />
 
       <div className="rounded-2xl border border-[var(--color-border)] bg-[var(--color-bg-secondary)] p-6">
@@ -333,6 +337,8 @@ const SlaytEtkinlikler = (
           yapısal, hangisi yapısal olmayan? Hangi sonuçlar sürpriz oldu?
         </p>
       </div>
+
+      <SinifAnketi />
 
       <div className="rounded-2xl border border-[var(--color-border)] bg-[var(--color-bg-secondary)] p-6">
         <div className="mb-3 flex items-center gap-3">

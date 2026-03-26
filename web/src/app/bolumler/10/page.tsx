@@ -9,6 +9,7 @@ import BolumSlider from "@/components/BolumSlider";
 import InteraktifQuiz from "@/components/InteraktifQuiz";
 import KariyerKeswordi from "@/components/oyunlar/KariyerKeswordi";
 import PortfolyoOlusturucu from "@/components/etkinlikler/PortfolyoOlusturucu";
+import GelecekMektubu from "@/components/etkinlikler/GelecekMektubu";
 
 const quizSorulari = [
   {
@@ -290,6 +291,8 @@ const SlaytEtkinlikler = (
         &quot;1 yıl sonra aç&quot; yazın.
       </p>
     </div>
+
+    <GelecekMektubu />
   </section>
 );
 

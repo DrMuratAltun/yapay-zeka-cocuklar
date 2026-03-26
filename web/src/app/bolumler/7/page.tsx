@@ -9,6 +9,8 @@ import InteraktifQuiz from "@/components/InteraktifQuiz";
 import BolumSlider from "@/components/BolumSlider";
 import ProblemCozumEslestir from "@/components/oyunlar/ProblemCozumEslestir";
 import TasarimDusuncesi from "@/components/etkinlikler/TasarimDusuncesi";
+import ProjePlanlama from "@/components/etkinlikler/ProjePlanlama";
+import GeriBildirimFormu from "@/components/etkinlikler/GeriBildirimFormu";
 
 const quizSorulari = [
   {
@@ -203,6 +205,8 @@ const SlaytEtkinlikler = (
 
     <TasarimDusuncesi />
 
+    <ProjePlanlama />
+
     <div className="rounded-2xl border border-[var(--color-border)] bg-[var(--color-bg-secondary)] p-6">
       <div className="mb-3 flex items-center gap-3">
         <span className="rounded-lg bg-blue-500 px-3 py-1 text-sm font-bold text-white">PROJE</span>
@@ -228,6 +232,8 @@ const SlaytEtkinlikler = (
         proje sınıfça oylanır.
       </p>
     </div>
+
+    <GeriBildirimFormu />
   </>
 );
 

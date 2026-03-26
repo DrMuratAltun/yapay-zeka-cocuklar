@@ -8,6 +8,8 @@ import Image from "next/image";
 import InteraktifQuiz from "@/components/InteraktifQuiz";
 import BolumSlider from "@/components/BolumSlider";
 import YzEslestirme from "@/components/oyunlar/YzEslestirme";
+import YzHaritasi from "@/components/etkinlikler/YzHaritasi";
+import YzVeyaDegil from "@/components/etkinlikler/YzVeyaDegil";
 
 const quizSorulari = [
   {
@@ -471,6 +473,8 @@ const SlaytEtkinlikler = (
         </div>
       </div>
 
+      <YzHaritasi />
+
       {/* Etkinlik 2 - Unplugged */}
       <div className="rounded-2xl border border-[var(--color-border)] bg-[var(--color-bg-secondary)] p-6">
         <div className="mb-3 flex items-center gap-3">
@@ -497,6 +501,8 @@ const SlaytEtkinlikler = (
           </p>
         </div>
       </div>
+
+      <YzVeyaDegil />
 
       {/* Etkinlik 3 - Bilgisayarli */}
       <div className="rounded-2xl border border-[var(--color-border)] bg-[var(--color-bg-secondary)] p-6">
