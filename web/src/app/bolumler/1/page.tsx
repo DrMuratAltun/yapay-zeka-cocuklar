@@ -297,8 +297,8 @@ const SlaytYzTurleri = (
   </section>
 );
 
-/* ---- Slayt 8: Etkinlikler ---- */
-const SlaytEtkinlikler = (
+/* ---- Slayt 8: Etkinlik 1 - Kim Daha Zeki? ---- */
+const SlaytEtkinlik1 = (
   <>
     <div className="rounded-2xl border border-[var(--color-border)] bg-[var(--color-bg-secondary)] p-6">
       <div className="mb-3 flex items-center gap-3">
@@ -322,7 +322,12 @@ const SlaytEtkinlikler = (
     </div>
 
     <KimDahaZeki />
+  </>
+);
 
+/* ---- Slayt 9: Etkinlik 2 - YZ Dedektifi ---- */
+const SlaytEtkinlik2 = (
+  <>
     <div className="rounded-2xl border border-[var(--color-border)] bg-[var(--color-bg-secondary)] p-6">
       <div className="mb-3 flex items-center gap-3">
         <span className="rounded-lg bg-blue-500 px-3 py-1 text-sm font-bold text-white">GÖZLEM</span>
@@ -344,7 +349,12 @@ const SlaytEtkinlikler = (
     </div>
 
     <YzDedektifi />
+  </>
+);
 
+/* ---- Slayt 10: Etkinlik 3 - YZ Zaman Çizelgesi ---- */
+const SlaytEtkinlik3 = (
+  <>
     <div className="rounded-2xl border border-[var(--color-border)] bg-[var(--color-bg-secondary)] p-6">
       <div className="mb-3 flex items-center gap-3">
         <span className="rounded-lg bg-emerald-500 px-3 py-1 text-sm font-bold text-white">UNPLUGGED</span>
@@ -426,7 +436,9 @@ export default function Bolum1() {
         { baslik: "Video", icon: "🎬", icerik: SlaytVideo },
         { baslik: "YZ Tarihçesi", icon: "📅", icerik: SlaytTarihce },
         { baslik: "YZ Türleri", icon: "🔬", icerik: SlaytYzTurleri },
-        { baslik: "Etkinlikler", icon: "🎮", icerik: SlaytEtkinlikler },
+        { baslik: "Etkinlik: Kim Daha Zeki?", icon: "🎮", icerik: SlaytEtkinlik1 },
+        { baslik: "Etkinlik: YZ Dedektifi", icon: "🎮", icerik: SlaytEtkinlik2 },
+        { baslik: "Etkinlik: YZ Zaman Çizelgesi", icon: "🎮", icerik: SlaytEtkinlik3 },
         { baslik: "İnteraktif Oyun", icon: "🕹️", icerik: SlaytOyun },
         { baslik: "Değerlendirme", icon: "📝", icerik: SlaytDegerlendirme },
         { baslik: "Materyaller", icon: "📥", icerik: SlaytMateryaller },

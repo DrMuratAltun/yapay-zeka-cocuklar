@@ -357,73 +357,84 @@ const SlaytTeachableMachine = (
   </>
 );
 
-/* ---- Slayt 4: Etkinlikler ---- */
-const SlaytEtkinlikler = (
+/* ---- Etkinlik 1: Meyve Sınıflandırıcı ---- */
+const SlaytEtkinlik1 = (
   <>
-    <section className="space-y-6">
-      <h3 className="text-2xl font-extrabold">Etkinlikler</h3>
-
-      <div className="rounded-2xl border border-[var(--color-border)] bg-[var(--color-bg-secondary)] p-6">
-        <div className="mb-3 flex items-center gap-3">
-          <span className="rounded-lg bg-emerald-500 px-3 py-1 text-sm font-bold text-white">UNPLUGGED</span>
-          <span className="text-sm text-[var(--color-text-secondary)]">25 dakika &middot; Grup çalışması</span>
-        </div>
-        <h4 className="mb-2 text-xl font-bold">Etkinlik 1: Meyve Sınıflandırıcı</h4>
-        <p className="mb-4 text-[var(--color-text-secondary)]">
-          Meyve resimlerini kesin. Özellik kartlarını (renk, şekil, boyut) kullanarak
-          kendi karar ağacınızı oluşturun. Arkadaşlarınızın karar ağacıyla sizinkini
-          karşılaştırın. Farklı ağaçlar aynı sonucu verebilir mi?
-        </p>
-        <div className="rounded-lg bg-emerald-50 p-3 text-sm dark:bg-emerald-900/20">
-          <p className="font-medium text-emerald-700 dark:text-emerald-300">
-            📋 Malzemeler: Meyve resimleri, özellik kartları, sınıflandırma panosu, makas
-          </p>
-        </div>
+    <div className="rounded-2xl border border-[var(--color-border)] bg-[var(--color-bg-secondary)] p-6">
+      <div className="mb-3 flex items-center gap-3">
+        <span className="rounded-lg bg-emerald-500 px-3 py-1 text-sm font-bold text-white">UNPLUGGED</span>
+        <span className="text-sm text-[var(--color-text-secondary)]">25 dakika &middot; Grup çalışması</span>
       </div>
-
-      <MeyveSiniflandirici />
-
-      <div className="rounded-2xl border border-[var(--color-border)] bg-[var(--color-bg-secondary)] p-6">
-        <div className="mb-3 flex items-center gap-3">
-          <span className="rounded-lg bg-blue-500 px-3 py-1 text-sm font-bold text-white">BİLGİSAYARLI</span>
-          <span className="text-sm text-[var(--color-text-secondary)]">40 dakika &middot; Bireysel</span>
-        </div>
-        <h4 className="mb-2 text-xl font-bold">Etkinlik 2: Teachable Machine - Görüntü Modeli</h4>
-        <p className="mb-4 text-[var(--color-text-secondary)]">
-          teachablemachine.withgoogle.com adresine gidin. İki sınıflı bir görüntü
-          sınıflandırma modeli eğitin (örnek: kalem/silgi, el/yumruk, gülme/ciddi yüz).
-          En az 50 örnek toplayın. Modelinizi test edin ve başarı oranını kaydedin.
+      <h4 className="mb-2 text-xl font-bold">Etkinlik 1: Meyve Sınıflandırıcı</h4>
+      <p className="mb-4 text-[var(--color-text-secondary)]">
+        Meyve resimlerini kesin. Özellik kartlarını (renk, şekil, boyut) kullanarak
+        kendi karar ağacınızı oluşturun. Arkadaşlarınızın karar ağacıyla sizinkini
+        karşılaştırın. Farklı ağaçlar aynı sonucu verebilir mi?
+      </p>
+      <div className="rounded-lg bg-emerald-50 p-3 text-sm dark:bg-emerald-900/20">
+        <p className="font-medium text-emerald-700 dark:text-emerald-300">
+          📋 Malzemeler: Meyve resimleri, özellik kartları, sınıflandırma panosu, makas
         </p>
       </div>
+    </div>
 
-      <div className="rounded-2xl border border-[var(--color-border)] bg-[var(--color-bg-secondary)] p-6">
-        <div className="mb-3 flex items-center gap-3">
-          <span className="rounded-lg bg-blue-500 px-3 py-1 text-sm font-bold text-white">BİLGİSAYARLI</span>
-          <span className="text-sm text-[var(--color-text-secondary)]">30 dakika &middot; Bireysel</span>
-        </div>
-        <h4 className="mb-2 text-xl font-bold">Etkinlik 3: ML for Kids - Sınıflandırma</h4>
-        <p className="mb-4 text-[var(--color-text-secondary)]">
-          machinelearningforkids.co.uk adresinde bir proje oluşturun. Metin sınıflandırma
-          projesi yapın: &quot;mutlu&quot; ve &quot;üzgün&quot; cümleleri ayıran bir model eğitin.
-          Modelinizi Scratch&apos;te kullanan küçük bir program yapın.
-        </p>
+    <MeyveSiniflandirici />
+  </>
+);
+
+/* ---- Etkinlik 2: Teachable Machine ---- */
+const SlaytEtkinlik2 = (
+  <>
+    <div className="rounded-2xl border border-[var(--color-border)] bg-[var(--color-bg-secondary)] p-6">
+      <div className="mb-3 flex items-center gap-3">
+        <span className="rounded-lg bg-blue-500 px-3 py-1 text-sm font-bold text-white">BİLGİSAYARLI</span>
+        <span className="text-sm text-[var(--color-text-secondary)]">40 dakika &middot; Bireysel</span>
       </div>
+      <h4 className="mb-2 text-xl font-bold">Etkinlik 2: Teachable Machine - Görüntü Modeli</h4>
+      <p className="mb-4 text-[var(--color-text-secondary)]">
+        teachablemachine.withgoogle.com adresine gidin. İki sınıflı bir görüntü
+        sınıflandırma modeli eğitin (örnek: kalem/silgi, el/yumruk, gülme/ciddi yüz).
+        En az 50 örnek toplayın. Modelinizi test edin ve başarı oranını kaydedin.
+      </p>
+    </div>
+  </>
+);
 
-      <div className="rounded-2xl border border-[var(--color-border)] bg-[var(--color-bg-secondary)] p-6">
-        <div className="mb-3 flex items-center gap-3">
-          <span className="rounded-lg bg-emerald-500 px-3 py-1 text-sm font-bold text-white">UNPLUGGED</span>
-          <span className="text-sm text-[var(--color-text-secondary)]">20 dakika &middot; Grup tartışması</span>
-        </div>
-        <h4 className="mb-2 text-xl font-bold">Etkinlik 4: Model Başarı Raporu</h4>
-        <p className="text-[var(--color-text-secondary)]">
-          Eğittiğiniz modelin başarı oranını sınıfla paylaşın. Hangi modeller daha
-          başarılı? Neden? Daha fazla örnek mi, daha iyi örüntüler mi? Tartışarak
-          &quot;iyi bir model&quot; için nelerin gerektiğini listeleyin.
-        </p>
+/* ---- Etkinlik 3: ML for Kids ---- */
+const SlaytEtkinlik3 = (
+  <>
+    <div className="rounded-2xl border border-[var(--color-border)] bg-[var(--color-bg-secondary)] p-6">
+      <div className="mb-3 flex items-center gap-3">
+        <span className="rounded-lg bg-blue-500 px-3 py-1 text-sm font-bold text-white">BİLGİSAYARLI</span>
+        <span className="text-sm text-[var(--color-text-secondary)]">30 dakika &middot; Bireysel</span>
       </div>
+      <h4 className="mb-2 text-xl font-bold">Etkinlik 3: ML for Kids - Sınıflandırma</h4>
+      <p className="mb-4 text-[var(--color-text-secondary)]">
+        machinelearningforkids.co.uk adresinde bir proje oluşturun. Metin sınıflandırma
+        projesi yapın: &quot;mutlu&quot; ve &quot;üzgün&quot; cümleleri ayıran bir model eğitin.
+        Modelinizi Scratch&apos;te kullanan küçük bir program yapın.
+      </p>
+    </div>
+  </>
+);
 
-      <ModelBasariRaporu />
-    </section>
+/* ---- Etkinlik 4: Model Başarı Raporu ---- */
+const SlaytEtkinlik4 = (
+  <>
+    <div className="rounded-2xl border border-[var(--color-border)] bg-[var(--color-bg-secondary)] p-6">
+      <div className="mb-3 flex items-center gap-3">
+        <span className="rounded-lg bg-emerald-500 px-3 py-1 text-sm font-bold text-white">UNPLUGGED</span>
+        <span className="text-sm text-[var(--color-text-secondary)]">20 dakika &middot; Grup tartışması</span>
+      </div>
+      <h4 className="mb-2 text-xl font-bold">Etkinlik 4: Model Başarı Raporu</h4>
+      <p className="text-[var(--color-text-secondary)]">
+        Eğittiğiniz modelin başarı oranını sınıfla paylaşın. Hangi modeller daha
+        başarılı? Neden? Daha fazla örnek mi, daha iyi örüntüler mi? Tartışarak
+        &quot;iyi bir model&quot; için nelerin gerektiğini listeleyin.
+      </p>
+    </div>
+
+    <ModelBasariRaporu />
   </>
 );
 
@@ -492,7 +503,10 @@ export default function Bolum4() {
         { baslik: "Sınıflandırma ve Tahmin", icon: "📊", icerik: SlaytSiniflandirma },
         { baslik: "Karar Ağacı", icon: "🌳", icerik: SlaytKararAgaci },
         { baslik: "Teachable Machine", icon: "🤖", icerik: SlaytTeachableMachine },
-        { baslik: "Etkinlikler", icon: "🎮", icerik: SlaytEtkinlikler },
+        { baslik: "Etkinlik: Meyve Sınıflandırıcı", icon: "🎮", icerik: SlaytEtkinlik1 },
+        { baslik: "Etkinlik: Teachable Machine", icon: "🎮", icerik: SlaytEtkinlik2 },
+        { baslik: "Etkinlik: ML for Kids", icon: "🎮", icerik: SlaytEtkinlik3 },
+        { baslik: "Etkinlik: Model Başarı Raporu", icon: "🎮", icerik: SlaytEtkinlik4 },
         { baslik: "İnteraktif Oyun", icon: "🕹️", icerik: SlaytOyun },
         { baslik: "Değerlendirme", icon: "📝", icerik: SlaytDegerlendirme },
         { baslik: "Materyaller", icon: "📥", icerik: SlaytMateryaller },

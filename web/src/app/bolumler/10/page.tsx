@@ -259,10 +259,9 @@ const SlaytOgrenmeDevam = (
   </>
 );
 
-const SlaytEtkinlikler = (
-  <section className="space-y-6">
-    <h2 className="text-2xl font-extrabold">Etkinlikler</h2>
-
+/* ---- Etkinlik 1: Final Projesi ---- */
+const SlaytEtkinlik1 = (
+  <>
     <div className="rounded-2xl border border-[var(--color-border)] bg-[var(--color-bg-secondary)] p-6">
       <div className="mb-3 flex items-center gap-3">
         <span className="rounded-lg bg-indigo-500 px-3 py-1 text-sm font-bold text-white">PROJE</span>
@@ -277,7 +276,12 @@ const SlaytEtkinlikler = (
     </div>
 
     <PortfolyoOlusturucu />
+  </>
+);
 
+/* ---- Etkinlik 2: Gelecek Fuarı ---- */
+const SlaytEtkinlik2 = (
+  <>
     <div className="rounded-2xl border border-[var(--color-border)] bg-[var(--color-bg-secondary)] p-6">
       <div className="mb-3 flex items-center gap-3">
         <span className="rounded-lg bg-emerald-500 px-3 py-1 text-sm font-bold text-white">UNPLUGGED</span>
@@ -290,7 +294,12 @@ const SlaytEtkinlikler = (
         Kategoriler: En Yenilikçi, En Faydalı, En İyi Sunum, En İyi Tasarım.
       </p>
     </div>
+  </>
+);
 
+/* ---- Etkinlik 3: Gelecek Mektubu ---- */
+const SlaytEtkinlik3 = (
+  <>
     <div className="rounded-2xl border border-[var(--color-border)] bg-[var(--color-bg-secondary)] p-6">
       <div className="mb-3 flex items-center gap-3">
         <span className="rounded-lg bg-emerald-500 px-3 py-1 text-sm font-bold text-white">UNPLUGGED</span>
@@ -305,7 +314,7 @@ const SlaytEtkinlikler = (
     </div>
 
     <GelecekMektubu />
-  </section>
+  </>
 );
 
 const SlaytOyun = (
@@ -361,7 +370,9 @@ export default function Bolum10() {
     { baslik: "Portfolyo Hazırlama", icon: "📂", icerik: SlaytPortfolyo },
     { baslik: "Kariyer Fırsatları", icon: "💼", icerik: SlaytKariyer },
     { baslik: "Öğrenmeye Devam Et", icon: "🚀", icerik: SlaytOgrenmeDevam },
-    { baslik: "Etkinlikler", icon: "🎮", icerik: SlaytEtkinlikler },
+    { baslik: "Etkinlik: Final Projesi", icon: "🎮", icerik: SlaytEtkinlik1 },
+    { baslik: "Etkinlik: Gelecek Fuarı", icon: "🎮", icerik: SlaytEtkinlik2 },
+    { baslik: "Etkinlik: Gelecek Mektubu", icon: "🎮", icerik: SlaytEtkinlik3 },
     { baslik: "YZ Kariyer Keşfi", icon: "🧩", icerik: SlaytOyun },
     { baslik: "Değerlendirme", icon: "📝", icerik: SlaytDegerlendirme },
     { baslik: "Materyaller", icon: "📥", icerik: SlaytMateryaller },

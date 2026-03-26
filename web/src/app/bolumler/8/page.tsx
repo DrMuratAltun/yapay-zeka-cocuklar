@@ -229,8 +229,8 @@ const SlaytDijitalHikaye = (
   </>
 );
 
-/* ---- Slayt 4: Etkinlikler ---- */
-const SlaytEtkinlikler = (
+/* ---- Etkinlik 1: Yapay mı Gerçek mi? ---- */
+const SlaytEtkinlik1 = (
   <>
     <div className="rounded-2xl border border-[var(--color-border)] bg-[var(--color-bg-secondary)] p-6">
       <div className="mb-3 flex items-center gap-3">
@@ -246,7 +246,12 @@ const SlaytEtkinlikler = (
     </div>
 
     <HikayeOlusturucu />
+  </>
+);
 
+/* ---- Etkinlik 2: YZ Poster Tasarımı ---- */
+const SlaytEtkinlik2 = (
+  <>
     <div className="rounded-2xl border border-[var(--color-border)] bg-[var(--color-bg-secondary)] p-6">
       <div className="mb-3 flex items-center gap-3">
         <span className="rounded-lg bg-blue-500 px-3 py-1 text-sm font-bold text-white">BİLGİSAYARLI</span>
@@ -259,7 +264,12 @@ const SlaytEtkinlikler = (
         paylaşın.
       </p>
     </div>
+  </>
+);
 
+/* ---- Etkinlik 3: Dijital Hikaye Projesi ---- */
+const SlaytEtkinlik3 = (
+  <>
     <div className="rounded-2xl border border-[var(--color-border)] bg-[var(--color-bg-secondary)] p-6">
       <div className="mb-3 flex items-center gap-3">
         <span className="rounded-lg bg-blue-500 px-3 py-1 text-sm font-bold text-white">PROJE</span>
@@ -339,7 +349,9 @@ export default function Bolum8() {
         { baslik: "Prompt Teknikleri", icon: "✍️", icerik: SlaytPromptTeknikleri },
         { baslik: "Canva AI ile Tasarım", icon: "🎨", icerik: SlaytCanvaAI },
         { baslik: "Dijital Hikaye Anlatımı", icon: "📖", icerik: SlaytDijitalHikaye },
-        { baslik: "Etkinlikler", icon: "🎮", icerik: SlaytEtkinlikler },
+        { baslik: "Etkinlik: Yapay mı Gerçek mi?", icon: "🎮", icerik: SlaytEtkinlik1 },
+        { baslik: "Etkinlik: Poster Tasarımı", icon: "🎮", icerik: SlaytEtkinlik2 },
+        { baslik: "Etkinlik: Dijital Hikaye", icon: "🎮", icerik: SlaytEtkinlik3 },
         { baslik: "Yapay mı Gerçek mi?", icon: "🧩", icerik: SlaytOyun },
         { baslik: "Değerlendirme", icon: "📝", icerik: SlaytDegerlendirme },
         { baslik: "Materyaller", icon: "📥", icerik: SlaytMateryaller },

@@ -213,10 +213,9 @@ const SlaytToplumsalEtki = (
   </section>
 );
 
-const SlaytEtkinlikler = (
-  <section className="space-y-6">
-    <h2 className="text-2xl font-extrabold">Etkinlikler</h2>
-
+/* ---- Etkinlik 1: YZ Mahkemesi ---- */
+const SlaytEtkinlik1 = (
+  <>
     <div className="rounded-2xl border border-[var(--color-border)] bg-[var(--color-bg-secondary)] p-6">
       <div className="mb-3 flex items-center gap-3">
         <span className="rounded-lg bg-emerald-500 px-3 py-1 text-sm font-bold text-white">UNPLUGGED</span>
@@ -231,7 +230,12 @@ const SlaytEtkinlikler = (
     </div>
 
     <EtikMahkeme />
+  </>
+);
 
+/* ---- Etkinlik 2: Etik Pusula Oluşturma ---- */
+const SlaytEtkinlik2 = (
+  <>
     <div className="rounded-2xl border border-[var(--color-border)] bg-[var(--color-bg-secondary)] p-6">
       <div className="mb-3 flex items-center gap-3">
         <span className="rounded-lg bg-emerald-500 px-3 py-1 text-sm font-bold text-white">UNPLUGGED</span>
@@ -244,7 +248,12 @@ const SlaytEtkinlikler = (
         Sınıfça en iyi ilkeleri seçerek ortak bir sınıf bildirisi oluşturun.
       </p>
     </div>
+  </>
+);
 
+/* ---- Etkinlik 3: Deepfake Dedektifi ---- */
+const SlaytEtkinlik3 = (
+  <>
     <div className="rounded-2xl border border-[var(--color-border)] bg-[var(--color-bg-secondary)] p-6">
       <div className="mb-3 flex items-center gap-3">
         <span className="rounded-lg bg-blue-500 px-3 py-1 text-sm font-bold text-white">BİLGİSAYARLI</span>
@@ -259,7 +268,7 @@ const SlaytEtkinlikler = (
     </div>
 
     <DeepfakeTespit />
-  </section>
+  </>
 );
 
 const SlaytOyun = (
@@ -313,7 +322,9 @@ export default function Bolum9() {
     { baslik: "Önyargı Problemi", icon: "🔍", icerik: SlaytOnyargi },
     { baslik: "Deepfake ve Dezenformasyon", icon: "🎭", icerik: SlaytDeepfake },
     { baslik: "Toplumsal Etkiler", icon: "🌍", icerik: SlaytToplumsalEtki },
-    { baslik: "Etkinlikler", icon: "🎮", icerik: SlaytEtkinlikler },
+    { baslik: "Etkinlik: YZ Mahkemesi", icon: "🎮", icerik: SlaytEtkinlik1 },
+    { baslik: "Etkinlik: Etik Pusula", icon: "🎮", icerik: SlaytEtkinlik2 },
+    { baslik: "Etkinlik: Deepfake Dedektifi", icon: "🎮", icerik: SlaytEtkinlik3 },
     { baslik: "Etik Pusula", icon: "🧩", icerik: SlaytOyun },
     { baslik: "Değerlendirme", icon: "📝", icerik: SlaytDegerlendirme },
     { baslik: "Materyaller", icon: "📥", icerik: SlaytMateryaller },

@@ -298,79 +298,91 @@ const SlaytVeriGizliligi = (
   </>
 );
 
-const SlaytEtkinlikler = (
+const SlaytEtkinlik1 = (
   <>
-    <section className="space-y-6">
-      <h2 className="text-2xl font-extrabold">Etkinlikler</h2>
-
-      <div className="rounded-2xl border border-[var(--color-border)] bg-[var(--color-bg-secondary)] p-6">
-        <div className="mb-3 flex items-center gap-3">
-          <span className="rounded-lg bg-emerald-500 px-3 py-1 text-sm font-bold text-white">UNPLUGGED</span>
-          <span className="text-sm text-[var(--color-text-secondary)]">25 dakika &middot; Grup çalışması</span>
-        </div>
-        <h3 className="mb-2 text-xl font-bold">Etkinlik 1: Girdi Avcıları</h3>
-        <p className="mb-4 text-[var(--color-text-secondary)]">
-          Bilgi kartlarındaki ifadeleri &quot;Doğru Veri&quot;, &quot;Yanlış Veri&quot;
-          ve &quot;Öznel Veri&quot; olarak sınıflandırın. Her kartın neden o kategoriye
-          ait olduğunu grubunuzla tartışarak karar verin.
-        </p>
-        <div className="rounded-lg bg-violet-50 p-3 text-sm dark:bg-violet-900/20">
-          <p className="font-medium text-violet-700 dark:text-violet-300">
-            📋 Malzemeler: 20 adet bilgi kartı (basılı), sınıflandırma panosu
-          </p>
-        </div>
+    <div className="rounded-2xl border border-[var(--color-border)] bg-[var(--color-bg-secondary)] p-6">
+      <div className="mb-3 flex items-center gap-3">
+        <span className="rounded-lg bg-emerald-500 px-3 py-1 text-sm font-bold text-white">UNPLUGGED</span>
+        <span className="text-sm text-[var(--color-text-secondary)]">25 dakika &middot; Grup çalışması</span>
       </div>
-
-      <GirdiAvcilari />
-
-      <VeriTopla />
-
-      <div className="rounded-2xl border border-[var(--color-border)] bg-[var(--color-bg-secondary)] p-6">
-        <div className="mb-3 flex items-center gap-3">
-          <span className="rounded-lg bg-emerald-500 px-3 py-1 text-sm font-bold text-white">UNPLUGGED</span>
-          <span className="text-sm text-[var(--color-text-secondary)]">30 dakika &middot; Sınıf çalışması</span>
-        </div>
-        <h3 className="mb-2 text-xl font-bold">Etkinlik 2: Sınıf Anketi</h3>
-        <p className="mb-4 text-[var(--color-text-secondary)]">
-          Sınıfça bir anket yapın (favori renk, boy, ayak numarası, sevilen ders).
-          Sonuçları tahtada tabloya yazın. Bu verileri grafiğe dönüştürün. Hangi veri
-          yapısal, hangisi yapısal olmayan? Hangi sonuçlar sürpriz oldu?
+      <h3 className="mb-2 text-xl font-bold">Etkinlik 1: Girdi Avcıları</h3>
+      <p className="mb-4 text-[var(--color-text-secondary)]">
+        Bilgi kartlarındaki ifadeleri &quot;Doğru Veri&quot;, &quot;Yanlış Veri&quot;
+        ve &quot;Öznel Veri&quot; olarak sınıflandırın. Her kartın neden o kategoriye
+        ait olduğunu grubunuzla tartışarak karar verin.
+      </p>
+      <div className="rounded-lg bg-violet-50 p-3 text-sm dark:bg-violet-900/20">
+        <p className="font-medium text-violet-700 dark:text-violet-300">
+          📋 Malzemeler: 20 adet bilgi kartı (basılı), sınıflandırma panosu
         </p>
       </div>
+    </div>
 
-      <SinifAnketi />
+    <GirdiAvcilari />
+  </>
+);
 
-      <div className="rounded-2xl border border-[var(--color-border)] bg-[var(--color-bg-secondary)] p-6">
-        <div className="mb-3 flex items-center gap-3">
-          <span className="rounded-lg bg-blue-500 px-3 py-1 text-sm font-bold text-white">BİLGİSAYARLI</span>
-          <span className="text-sm text-[var(--color-text-secondary)]">25 dakika &middot; Bireysel</span>
-        </div>
-        <h3 className="mb-2 text-xl font-bold">Etkinlik 3: Veri Seti Keşfedici</h3>
-        <p className="mb-4 text-[var(--color-text-secondary)]">
-          Google Dataset Search veya Kaggle&apos;da bir veri seti bulun. Veri setini
-          inceleyin: kaç satır var? Hangi sütunlar var? Veri türleri neler? Bulgularınızı
-          sınıfla paylaşın.
-        </p>
-        <div className="rounded-lg bg-sky-50 p-3 text-sm dark:bg-sky-900/20">
-          <p className="font-medium text-sky-700 dark:text-sky-300">
-            🔗 datasetsearch.research.google.com veya kaggle.com/datasets
-          </p>
-        </div>
+const SlaytEtkinlik2 = (
+  <>
+    <VeriTopla />
+  </>
+);
+
+const SlaytEtkinlik3 = (
+  <>
+    <div className="rounded-2xl border border-[var(--color-border)] bg-[var(--color-bg-secondary)] p-6">
+      <div className="mb-3 flex items-center gap-3">
+        <span className="rounded-lg bg-emerald-500 px-3 py-1 text-sm font-bold text-white">UNPLUGGED</span>
+        <span className="text-sm text-[var(--color-text-secondary)]">30 dakika &middot; Sınıf çalışması</span>
       </div>
+      <h3 className="mb-2 text-xl font-bold">Etkinlik 2: Sınıf Anketi</h3>
+      <p className="mb-4 text-[var(--color-text-secondary)]">
+        Sınıfça bir anket yapın (favori renk, boy, ayak numarası, sevilen ders).
+        Sonuçları tahtada tabloya yazın. Bu verileri grafiğe dönüştürün. Hangi veri
+        yapısal, hangisi yapısal olmayan? Hangi sonuçlar sürpriz oldu?
+      </p>
+    </div>
 
-      <div className="rounded-2xl border border-[var(--color-border)] bg-[var(--color-bg-secondary)] p-6">
-        <div className="mb-3 flex items-center gap-3">
-          <span className="rounded-lg bg-blue-500 px-3 py-1 text-sm font-bold text-white">BİLGİSAYARLI</span>
-          <span className="text-sm text-[var(--color-text-secondary)]">20 dakika &middot; Bireysel</span>
-        </div>
-        <h3 className="mb-2 text-xl font-bold">Etkinlik 4: Veri Etiketleme Atölyesi</h3>
-        <p className="text-[var(--color-text-secondary)]">
-          20 hayvan fotoğrafını &quot;kedi&quot; ve &quot;köpek&quot; olarak etiketleyin.
-          Zor olan durumlar var mı? Bir fotoğrafta hem kedi hem köpek varsa ne yaparsınız?
-          Etiketlemenin ne kadar önemli ve zaman alıcı olduğunu deneyimleyin.
+    <SinifAnketi />
+  </>
+);
+
+const SlaytEtkinlik4 = (
+  <>
+    <div className="rounded-2xl border border-[var(--color-border)] bg-[var(--color-bg-secondary)] p-6">
+      <div className="mb-3 flex items-center gap-3">
+        <span className="rounded-lg bg-blue-500 px-3 py-1 text-sm font-bold text-white">BİLGİSAYARLI</span>
+        <span className="text-sm text-[var(--color-text-secondary)]">25 dakika &middot; Bireysel</span>
+      </div>
+      <h3 className="mb-2 text-xl font-bold">Etkinlik 3: Veri Seti Keşfedici</h3>
+      <p className="mb-4 text-[var(--color-text-secondary)]">
+        Google Dataset Search veya Kaggle&apos;da bir veri seti bulun. Veri setini
+        inceleyin: kaç satır var? Hangi sütunlar var? Veri türleri neler? Bulgularınızı
+        sınıfla paylaşın.
+      </p>
+      <div className="rounded-lg bg-sky-50 p-3 text-sm dark:bg-sky-900/20">
+        <p className="font-medium text-sky-700 dark:text-sky-300">
+          🔗 datasetsearch.research.google.com veya kaggle.com/datasets
         </p>
       </div>
-    </section>
+    </div>
+  </>
+);
+
+const SlaytEtkinlik5 = (
+  <>
+    <div className="rounded-2xl border border-[var(--color-border)] bg-[var(--color-bg-secondary)] p-6">
+      <div className="mb-3 flex items-center gap-3">
+        <span className="rounded-lg bg-blue-500 px-3 py-1 text-sm font-bold text-white">BİLGİSAYARLI</span>
+        <span className="text-sm text-[var(--color-text-secondary)]">20 dakika &middot; Bireysel</span>
+      </div>
+      <h3 className="mb-2 text-xl font-bold">Etkinlik 4: Veri Etiketleme Atölyesi</h3>
+      <p className="text-[var(--color-text-secondary)]">
+        20 hayvan fotoğrafını &quot;kedi&quot; ve &quot;köpek&quot; olarak etiketleyin.
+        Zor olan durumlar var mı? Bir fotoğrafta hem kedi hem köpek varsa ne yaparsınız?
+        Etiketlemenin ne kadar önemli ve zaman alıcı olduğunu deneyimleyin.
+      </p>
+    </div>
   </>
 );
 
@@ -438,7 +450,11 @@ export default function Bolum3() {
         { baslik: "Veri Hazırlama Süreci", icon: "🔧", icerik: SlaytVeriHazirlama },
         { baslik: "Büyük Veri", icon: "📦", icerik: SlaytBuyukVeri },
         { baslik: "Veri Gizliliği ve KVKK", icon: "🔒", icerik: SlaytVeriGizliligi },
-        { baslik: "Etkinlikler", icon: "🎮", icerik: SlaytEtkinlikler },
+        { baslik: "Etkinlik: Girdi Avcıları", icon: "🎮", icerik: SlaytEtkinlik1 },
+        { baslik: "Etkinlik: Veri Topla", icon: "🎮", icerik: SlaytEtkinlik2 },
+        { baslik: "Etkinlik: Sınıf Anketi", icon: "🎮", icerik: SlaytEtkinlik3 },
+        { baslik: "Etkinlik: Veri Seti Keşfedici", icon: "🎮", icerik: SlaytEtkinlik4 },
+        { baslik: "Etkinlik: Veri Etiketleme", icon: "🎮", icerik: SlaytEtkinlik5 },
         { baslik: "İnteraktif Oyun", icon: "🕹️", icerik: SlaytOyun },
         { baslik: "Değerlendirme", icon: "📝", icerik: SlaytDegerlendirme },
         { baslik: "Materyaller", icon: "📥", icerik: SlaytMateryaller },

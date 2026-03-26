@@ -198,8 +198,8 @@ const SlaytProjePlanlama = (
   </>
 );
 
-/* ---- Slayt 4: Etkinlikler ---- */
-const SlaytEtkinlikler = (
+/* ---- Etkinlik 1: Problem Avcıları ---- */
+const SlaytEtkinlik1 = (
   <>
     <div className="rounded-2xl border border-[var(--color-border)] bg-[var(--color-bg-secondary)] p-6">
       <div className="mb-3 flex items-center gap-3">
@@ -217,7 +217,12 @@ const SlaytEtkinlikler = (
     <TasarimDusuncesi />
 
     <ProjePlanlama />
+  </>
+);
 
+/* ---- Etkinlik 2: Mini YZ Projesi ---- */
+const SlaytEtkinlik2 = (
+  <>
     <div className="rounded-2xl border border-[var(--color-border)] bg-[var(--color-bg-secondary)] p-6">
       <div className="mb-3 flex items-center gap-3">
         <span className="rounded-lg bg-blue-500 px-3 py-1 text-sm font-bold text-white">PROJE</span>
@@ -230,7 +235,12 @@ const SlaytEtkinlikler = (
         sınıfa sunun: problem, çözüm, kullanılan teknoloji ve sonuçlar.
       </p>
     </div>
+  </>
+);
 
+/* ---- Etkinlik 3: Proje Fuarı ---- */
+const SlaytEtkinlik3 = (
+  <>
     <div className="rounded-2xl border border-[var(--color-border)] bg-[var(--color-bg-secondary)] p-6">
       <div className="mb-3 flex items-center gap-3">
         <span className="rounded-lg bg-emerald-500 px-3 py-1 text-sm font-bold text-white">UNPLUGGED</span>
@@ -311,7 +321,9 @@ export default function Bolum7() {
         { baslik: "Tasarım Düşüncesi", icon: "📖", icerik: SlaytTasarimDusuncesi },
         { baslik: "Örnek Problemler", icon: "🌍", icerik: SlaytProblemler },
         { baslik: "Proje Planlama", icon: "📋", icerik: SlaytProjePlanlama },
-        { baslik: "Etkinlikler", icon: "🎮", icerik: SlaytEtkinlikler },
+        { baslik: "Etkinlik: Problem Avcıları", icon: "🎮", icerik: SlaytEtkinlik1 },
+        { baslik: "Etkinlik: Mini YZ Projesi", icon: "🎮", icerik: SlaytEtkinlik2 },
+        { baslik: "Etkinlik: Proje Fuarı", icon: "🎮", icerik: SlaytEtkinlik3 },
         { baslik: "Problem-Çözüm Eşleştir", icon: "🧩", icerik: SlaytOyun },
         { baslik: "Değerlendirme", icon: "📝", icerik: SlaytDegerlendirme },
         { baslik: "Materyaller", icon: "📥", icerik: SlaytMateryaller },

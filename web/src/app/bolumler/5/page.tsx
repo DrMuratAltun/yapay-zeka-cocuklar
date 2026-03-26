@@ -275,74 +275,85 @@ const SlaytEtik = (
   </section>
 );
 
-/* ---- Slayt 4: Etkinlikler ---- */
-const SlaytEtkinlikler = (
+/* ---- Etkinlik 1: Prompt Düellosu ---- */
+const SlaytEtkinlik1 = (
   <>
-    <section className="space-y-6">
-      <h3 className="text-2xl font-extrabold">Etkinlikler</h3>
-
-      <div className="rounded-2xl border border-[var(--color-border)] bg-[var(--color-bg-secondary)] p-6">
-        <div className="mb-3 flex items-center gap-3">
-          <span className="rounded-lg bg-emerald-500 px-3 py-1 text-sm font-bold text-white">UNPLUGGED</span>
-          <span className="text-sm text-[var(--color-text-secondary)]">25 dakika &middot; İkili çalışma</span>
-        </div>
-        <h4 className="mb-2 text-xl font-bold">Etkinlik 1: Prompt Düellosu</h4>
-        <p className="mb-4 text-[var(--color-text-secondary)]">
-          Prompt kartlarını çekin. Her kartta bir görev yazılıdır. İkili takımlar
-          halinde aynı görev için farklı promptlar yazın. Hangi prompt daha iyi
-          sonuç verir? Sınıfça oylayarak en iyi promptları seçin.
-        </p>
-        <div className="rounded-lg bg-pink-50 p-3 text-sm dark:bg-pink-900/20">
-          <p className="font-medium text-pink-700 dark:text-pink-300">
-            📋 Malzemeler: Prompt kartları, puanlama tablosu, kalem
-          </p>
-        </div>
+    <div className="rounded-2xl border border-[var(--color-border)] bg-[var(--color-bg-secondary)] p-6">
+      <div className="mb-3 flex items-center gap-3">
+        <span className="rounded-lg bg-emerald-500 px-3 py-1 text-sm font-bold text-white">UNPLUGGED</span>
+        <span className="text-sm text-[var(--color-text-secondary)]">25 dakika &middot; İkili çalışma</span>
       </div>
-
-      <PromptDeneme />
-
-      <div className="rounded-2xl border border-[var(--color-border)] bg-[var(--color-bg-secondary)] p-6">
-        <div className="mb-3 flex items-center gap-3">
-          <span className="rounded-lg bg-blue-500 px-3 py-1 text-sm font-bold text-white">BİLGİSAYARLI</span>
-          <span className="text-sm text-[var(--color-text-secondary)]">30 dakika &middot; Bireysel</span>
-        </div>
-        <h4 className="mb-2 text-xl font-bold">Etkinlik 2: ChatGPT / Gemini ile Tanışma</h4>
-        <p className="mb-4 text-[var(--color-text-secondary)]">
-          Bir üretken YZ aracını açın. Aşağıdaki görevleri prompt formülünü kullanarak
-          deneyin: (1) Kendinizi tanıtan bir paragraf yazdırın, (2) Bir şiir yazdırın,
-          (3) Bir matematik problemi çözdürün, (4) Yanlış bilgi üretmesini sağlayıp
-          halüsinasyonu tespit edin.
+      <h4 className="mb-2 text-xl font-bold">Etkinlik 1: Prompt Düellosu</h4>
+      <p className="mb-4 text-[var(--color-text-secondary)]">
+        Prompt kartlarını çekin. Her kartta bir görev yazılıdır. İkili takımlar
+        halinde aynı görev için farklı promptlar yazın. Hangi prompt daha iyi
+        sonuç verir? Sınıfça oylayarak en iyi promptları seçin.
+      </p>
+      <div className="rounded-lg bg-pink-50 p-3 text-sm dark:bg-pink-900/20">
+        <p className="font-medium text-pink-700 dark:text-pink-300">
+          📋 Malzemeler: Prompt kartları, puanlama tablosu, kalem
         </p>
       </div>
+    </div>
 
-      <div className="rounded-2xl border border-[var(--color-border)] bg-[var(--color-bg-secondary)] p-6">
-        <div className="mb-3 flex items-center gap-3">
-          <span className="rounded-lg bg-blue-500 px-3 py-1 text-sm font-bold text-white">BİLGİSAYARLI</span>
-          <span className="text-sm text-[var(--color-text-secondary)]">25 dakika &middot; Bireysel</span>
-        </div>
-        <h4 className="mb-2 text-xl font-bold">Etkinlik 3: YZ ile Görüntü Üretme</h4>
-        <p className="mb-4 text-[var(--color-text-secondary)]">
-          Bir görüntü üretme aracını kullanın (Bing Image Creator, Canva AI vb.).
-          Farklı prompt teknikleriyle aynı konuda 3 farklı görüntü üretin.
-          Hangi prompt en iyi sonucu verdi? Neden?
-        </p>
+    <PromptDeneme />
+  </>
+);
+
+/* ---- Etkinlik 2: ChatGPT / Gemini ile Tanışma ---- */
+const SlaytEtkinlik2 = (
+  <>
+    <div className="rounded-2xl border border-[var(--color-border)] bg-[var(--color-bg-secondary)] p-6">
+      <div className="mb-3 flex items-center gap-3">
+        <span className="rounded-lg bg-blue-500 px-3 py-1 text-sm font-bold text-white">BİLGİSAYARLI</span>
+        <span className="text-sm text-[var(--color-text-secondary)]">30 dakika &middot; Bireysel</span>
       </div>
+      <h4 className="mb-2 text-xl font-bold">Etkinlik 2: ChatGPT / Gemini ile Tanışma</h4>
+      <p className="mb-4 text-[var(--color-text-secondary)]">
+        Bir üretken YZ aracını açın. Aşağıdaki görevleri prompt formülünü kullanarak
+        deneyin: (1) Kendinizi tanıtan bir paragraf yazdırın, (2) Bir şiir yazdırın,
+        (3) Bir matematik problemi çözdürün, (4) Yanlış bilgi üretmesini sağlayıp
+        halüsinasyonu tespit edin.
+      </p>
+    </div>
+  </>
+);
 
-      <div className="rounded-2xl border border-[var(--color-border)] bg-[var(--color-bg-secondary)] p-6">
-        <div className="mb-3 flex items-center gap-3">
-          <span className="rounded-lg bg-emerald-500 px-3 py-1 text-sm font-bold text-white">UNPLUGGED</span>
-          <span className="text-sm text-[var(--color-text-secondary)]">20 dakika &middot; Sınıf tartışması</span>
-        </div>
-        <h4 className="mb-2 text-xl font-bold">Etkinlik 4: YZ Etik Mahkemesi</h4>
-        <p className="text-[var(--color-text-secondary)]">
-          Senaryo kartlarındaki durumları okuyun. Her senaryo için &quot;Etik mi?&quot;
-          sorusunu tartışarak sınıfça karar verin. Örnek: &quot;Bir öğrenci tüm ödevini
-          ChatGPT&apos;ye yaptırdı ve kendi yazdım dedi. Doğru mu?&quot;
-        </p>
+/* ---- Etkinlik 3: YZ ile Görüntü Üretme ---- */
+const SlaytEtkinlik3 = (
+  <>
+    <div className="rounded-2xl border border-[var(--color-border)] bg-[var(--color-bg-secondary)] p-6">
+      <div className="mb-3 flex items-center gap-3">
+        <span className="rounded-lg bg-blue-500 px-3 py-1 text-sm font-bold text-white">BİLGİSAYARLI</span>
+        <span className="text-sm text-[var(--color-text-secondary)]">25 dakika &middot; Bireysel</span>
       </div>
+      <h4 className="mb-2 text-xl font-bold">Etkinlik 3: YZ ile Görüntü Üretme</h4>
+      <p className="mb-4 text-[var(--color-text-secondary)]">
+        Bir görüntü üretme aracını kullanın (Bing Image Creator, Canva AI vb.).
+        Farklı prompt teknikleriyle aynı konuda 3 farklı görüntü üretin.
+        Hangi prompt en iyi sonucu verdi? Neden?
+      </p>
+    </div>
+  </>
+);
 
-      <EtikSenaryolar />
-    </section>
+/* ---- Etkinlik 4: YZ Etik Mahkemesi ---- */
+const SlaytEtkinlik4 = (
+  <>
+    <div className="rounded-2xl border border-[var(--color-border)] bg-[var(--color-bg-secondary)] p-6">
+      <div className="mb-3 flex items-center gap-3">
+        <span className="rounded-lg bg-emerald-500 px-3 py-1 text-sm font-bold text-white">UNPLUGGED</span>
+        <span className="text-sm text-[var(--color-text-secondary)]">20 dakika &middot; Sınıf tartışması</span>
+      </div>
+      <h4 className="mb-2 text-xl font-bold">Etkinlik 4: YZ Etik Mahkemesi</h4>
+      <p className="text-[var(--color-text-secondary)]">
+        Senaryo kartlarındaki durumları okuyun. Her senaryo için &quot;Etik mi?&quot;
+        sorusunu tartışarak sınıfça karar verin. Örnek: &quot;Bir öğrenci tüm ödevini
+        ChatGPT&apos;ye yaptırdı ve kendi yazdım dedi. Doğru mu?&quot;
+      </p>
+    </div>
+
+    <EtikSenaryolar />
   </>
 );
 
@@ -411,7 +422,10 @@ export default function Bolum5() {
         { baslik: "Prompt Mühendisliği", icon: "📝", icerik: SlaytPrompt },
         { baslik: "YZ Halüsinasyonu", icon: "⚠️", icerik: SlaytHalusinasyon },
         { baslik: "Etik Kullanım", icon: "⚖️", icerik: SlaytEtik },
-        { baslik: "Etkinlikler", icon: "🎮", icerik: SlaytEtkinlikler },
+        { baslik: "Etkinlik: Prompt Düellosu", icon: "🎮", icerik: SlaytEtkinlik1 },
+        { baslik: "Etkinlik: ChatGPT/Gemini", icon: "🎮", icerik: SlaytEtkinlik2 },
+        { baslik: "Etkinlik: Görüntü Üretme", icon: "🎮", icerik: SlaytEtkinlik3 },
+        { baslik: "Etkinlik: YZ Etik Mahkemesi", icon: "🎮", icerik: SlaytEtkinlik4 },
         { baslik: "İnteraktif Oyun", icon: "🕹️", icerik: SlaytOyun },
         { baslik: "Değerlendirme", icon: "📝", icerik: SlaytDegerlendirme },
         { baslik: "Materyaller", icon: "📥", icerik: SlaytMateryaller },

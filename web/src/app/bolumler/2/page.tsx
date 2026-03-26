@@ -442,122 +442,126 @@ const SlaytSesliAsistanlar = (
   </>
 );
 
-const SlaytEtkinlikler = (
+const SlaytEtkinlik1 = (
   <>
-    <section className="space-y-6">
-      <h2 className="text-2xl font-extrabold">Etkinlikler</h2>
-
-      {/* Etkinlik 1 - Unplugged */}
-      <div className="rounded-2xl border border-[var(--color-border)] bg-[var(--color-bg-secondary)] p-6">
-        <div className="mb-3 flex items-center gap-3">
-          <span className="rounded-lg bg-emerald-500 px-3 py-1 text-sm font-bold text-white">
-            UNPLUGGED
-          </span>
-          <span className="text-sm text-[var(--color-text-secondary)]">
-            25 dakika &middot; Bireysel + sınıf tartışması
-          </span>
-        </div>
-        <h3 className="mb-2 text-xl font-bold">
-          Etkinlik 1: YZ Haritası
-        </h3>
-        <p className="mb-4 text-[var(--color-text-secondary)]">
-          A3 kağıda büyük bir harita çizin. Ortaya &quot;BEN&quot; yazın.
-          Etrafına gün boyunca karşılaştığınız YZ uygulamalarını
-          yerleştirin (ev, okul, yol, alışveriş). Her uygulamanın yanına
-          hangi YZ teknolojisini kullandığını yazın.
-        </p>
-        <div className="rounded-lg bg-emerald-50 p-3 text-sm dark:bg-emerald-900/20">
-          <p className="font-medium text-emerald-700 dark:text-emerald-300">
-            📋 Malzemeler: A3 kağıt, renkli kalemler, yapıştırıcı notlar
-          </p>
-        </div>
+    <div className="rounded-2xl border border-[var(--color-border)] bg-[var(--color-bg-secondary)] p-6">
+      <div className="mb-3 flex items-center gap-3">
+        <span className="rounded-lg bg-emerald-500 px-3 py-1 text-sm font-bold text-white">
+          UNPLUGGED
+        </span>
+        <span className="text-sm text-[var(--color-text-secondary)]">
+          25 dakika &middot; Bireysel + sınıf tartışması
+        </span>
       </div>
-
-      <YzHaritasi />
-
-      {/* Etkinlik 2 - Unplugged */}
-      <div className="rounded-2xl border border-[var(--color-border)] bg-[var(--color-bg-secondary)] p-6">
-        <div className="mb-3 flex items-center gap-3">
-          <span className="rounded-lg bg-emerald-500 px-3 py-1 text-sm font-bold text-white">
-            UNPLUGGED
-          </span>
-          <span className="text-sm text-[var(--color-text-secondary)]">
-            20 dakika &middot; Grup çalışması (4 kişi)
-          </span>
-        </div>
-        <h3 className="mb-2 text-xl font-bold">
-          Etkinlik 2: YZ veya Değil?
-        </h3>
-        <p className="mb-4 text-[var(--color-text-secondary)]">
-          Kartlardaki cihaz ve uygulamaları &quot;YZ Kullanan&quot; ve
-          &quot;YZ Kullanmayan&quot; olarak sınıflandırın. Her kartın neden
-          o kategoriye ait olduğunu grubunuzla tartışarak karar verin.
-        </p>
-        <div className="rounded-lg bg-amber-50 p-3 text-sm dark:bg-amber-900/20">
-          <p className="font-medium text-amber-700 dark:text-amber-300">
-            ⚠️ Dikkat: Bazı cihazlar/uygulamalar hem YZ kullanan hem de
-            kullanmayan versiyonlarda olabilir. Bu durumu tartışmak çok
-            değerli!
-          </p>
-        </div>
-      </div>
-
-      <YzVeyaDegil />
-
-      {/* Etkinlik 3 - Bilgisayarli */}
-      <div className="rounded-2xl border border-[var(--color-border)] bg-[var(--color-bg-secondary)] p-6">
-        <div className="mb-3 flex items-center gap-3">
-          <span className="rounded-lg bg-blue-500 px-3 py-1 text-sm font-bold text-white">
-            BİLGİSAYARLI
-          </span>
-          <span className="text-sm text-[var(--color-text-secondary)]">
-            30 dakika &middot; Bireysel
-          </span>
-        </div>
-        <h3 className="mb-2 text-xl font-bold">
-          Etkinlik 3: Sesli Asistanla Tanışma
-        </h3>
-        <p className="mb-4 text-[var(--color-text-secondary)]">
-          Telefonunuzdaki sesli asistanı (Google Asistan veya Siri) açın.
-          Aşağıdaki görevleri deneyin ve asistanın hangi görevlerde başarılı,
-          hangilerinde başarısız olduğunu kaydedin:
-        </p>
-        <ul className="mb-4 ml-4 list-disc space-y-1 text-sm text-[var(--color-text-secondary)]">
-          <li>Bir soru sorun (örn: &quot;Türkiye&apos;nin başkenti neresidir?&quot;)</li>
-          <li>Bir alarm kurmasını isteyin</li>
-          <li>Bir fıkra anlatmasını isteyin</li>
-          <li>Duygusal bir soru sorun (örn: &quot;Bugün mutsuzum, ne yapmalıyım?&quot;)</li>
-          <li>Belirsiz bir komut verin (örn: &quot;O şeyi aç&quot;)</li>
-        </ul>
-        <div className="rounded-lg bg-sky-50 p-3 text-sm dark:bg-sky-900/20">
-          <p className="font-medium text-sky-700 dark:text-sky-300">
-            📝 Sonuçları &quot;Gözlem Formu&quot;na kaydedin ve sınıfta
-            karşılaştırın.
-          </p>
-        </div>
-      </div>
-
-      {/* Etkinlik 4 - Bilgisayarli */}
-      <div className="rounded-2xl border border-[var(--color-border)] bg-[var(--color-bg-secondary)] p-6">
-        <div className="mb-3 flex items-center gap-3">
-          <span className="rounded-lg bg-blue-500 px-3 py-1 text-sm font-bold text-white">
-            BİLGİSAYARLI
-          </span>
-          <span className="text-sm text-[var(--color-text-secondary)]">
-            20 dakika &middot; Bireysel
-          </span>
-        </div>
-        <h3 className="mb-2 text-xl font-bold">
-          Etkinlik 4: YZ Röportajı
-        </h3>
-        <p className="mb-4 text-[var(--color-text-secondary)]">
-          Ailenizden birine (anne, baba, büyükanne/büyükbaba) &quot;Yapay
-          zeka hakkında ne düşünüyorsunuz?&quot; diye sorun. Cevapları
-          kısa bir paragrafta özetleyin. Sınıfta farklı nesillerin YZ
-          hakkındaki görüşlerini karşılaştırın.
+      <h3 className="mb-2 text-xl font-bold">
+        Etkinlik 1: YZ Haritası
+      </h3>
+      <p className="mb-4 text-[var(--color-text-secondary)]">
+        A3 kağıda büyük bir harita çizin. Ortaya &quot;BEN&quot; yazın.
+        Etrafına gün boyunca karşılaştığınız YZ uygulamalarını
+        yerleştirin (ev, okul, yol, alışveriş). Her uygulamanın yanına
+        hangi YZ teknolojisini kullandığını yazın.
+      </p>
+      <div className="rounded-lg bg-emerald-50 p-3 text-sm dark:bg-emerald-900/20">
+        <p className="font-medium text-emerald-700 dark:text-emerald-300">
+          📋 Malzemeler: A3 kağıt, renkli kalemler, yapıştırıcı notlar
         </p>
       </div>
-    </section>
+    </div>
+
+    <YzHaritasi />
+  </>
+);
+
+const SlaytEtkinlik2 = (
+  <>
+    <div className="rounded-2xl border border-[var(--color-border)] bg-[var(--color-bg-secondary)] p-6">
+      <div className="mb-3 flex items-center gap-3">
+        <span className="rounded-lg bg-emerald-500 px-3 py-1 text-sm font-bold text-white">
+          UNPLUGGED
+        </span>
+        <span className="text-sm text-[var(--color-text-secondary)]">
+          20 dakika &middot; Grup çalışması (4 kişi)
+        </span>
+      </div>
+      <h3 className="mb-2 text-xl font-bold">
+        Etkinlik 2: YZ veya Değil?
+      </h3>
+      <p className="mb-4 text-[var(--color-text-secondary)]">
+        Kartlardaki cihaz ve uygulamaları &quot;YZ Kullanan&quot; ve
+        &quot;YZ Kullanmayan&quot; olarak sınıflandırın. Her kartın neden
+        o kategoriye ait olduğunu grubunuzla tartışarak karar verin.
+      </p>
+      <div className="rounded-lg bg-amber-50 p-3 text-sm dark:bg-amber-900/20">
+        <p className="font-medium text-amber-700 dark:text-amber-300">
+          ⚠️ Dikkat: Bazı cihazlar/uygulamalar hem YZ kullanan hem de
+          kullanmayan versiyonlarda olabilir. Bu durumu tartışmak çok
+          değerli!
+        </p>
+      </div>
+    </div>
+
+    <YzVeyaDegil />
+  </>
+);
+
+const SlaytEtkinlik3 = (
+  <>
+    <div className="rounded-2xl border border-[var(--color-border)] bg-[var(--color-bg-secondary)] p-6">
+      <div className="mb-3 flex items-center gap-3">
+        <span className="rounded-lg bg-blue-500 px-3 py-1 text-sm font-bold text-white">
+          BİLGİSAYARLI
+        </span>
+        <span className="text-sm text-[var(--color-text-secondary)]">
+          30 dakika &middot; Bireysel
+        </span>
+      </div>
+      <h3 className="mb-2 text-xl font-bold">
+        Etkinlik 3: Sesli Asistanla Tanışma
+      </h3>
+      <p className="mb-4 text-[var(--color-text-secondary)]">
+        Telefonunuzdaki sesli asistanı (Google Asistan veya Siri) açın.
+        Aşağıdaki görevleri deneyin ve asistanın hangi görevlerde başarılı,
+        hangilerinde başarısız olduğunu kaydedin:
+      </p>
+      <ul className="mb-4 ml-4 list-disc space-y-1 text-sm text-[var(--color-text-secondary)]">
+        <li>Bir soru sorun (örn: &quot;Türkiye&apos;nin başkenti neresidir?&quot;)</li>
+        <li>Bir alarm kurmasını isteyin</li>
+        <li>Bir fıkra anlatmasını isteyin</li>
+        <li>Duygusal bir soru sorun (örn: &quot;Bugün mutsuzum, ne yapmalıyım?&quot;)</li>
+        <li>Belirsiz bir komut verin (örn: &quot;O şeyi aç&quot;)</li>
+      </ul>
+      <div className="rounded-lg bg-sky-50 p-3 text-sm dark:bg-sky-900/20">
+        <p className="font-medium text-sky-700 dark:text-sky-300">
+          📝 Sonuçları &quot;Gözlem Formu&quot;na kaydedin ve sınıfta
+          karşılaştırın.
+        </p>
+      </div>
+    </div>
+  </>
+);
+
+const SlaytEtkinlik4 = (
+  <>
+    <div className="rounded-2xl border border-[var(--color-border)] bg-[var(--color-bg-secondary)] p-6">
+      <div className="mb-3 flex items-center gap-3">
+        <span className="rounded-lg bg-blue-500 px-3 py-1 text-sm font-bold text-white">
+          BİLGİSAYARLI
+        </span>
+        <span className="text-sm text-[var(--color-text-secondary)]">
+          20 dakika &middot; Bireysel
+        </span>
+      </div>
+      <h3 className="mb-2 text-xl font-bold">
+        Etkinlik 4: YZ Röportajı
+      </h3>
+      <p className="mb-4 text-[var(--color-text-secondary)]">
+        Ailenizden birine (anne, baba, büyükanne/büyükbaba) &quot;Yapay
+        zeka hakkında ne düşünüyorsunuz?&quot; diye sorun. Cevapları
+        kısa bir paragrafta özetleyin. Sınıfta farklı nesillerin YZ
+        hakkındaki görüşlerini karşılaştırın.
+      </p>
+    </div>
   </>
 );
 
@@ -664,7 +668,10 @@ export default function Bolum2() {
         { baslik: "YZ Kullanım Alanları", icon: "🌐", icerik: SlaytYzKullanimAlanlari },
         { baslik: "Öneri Sistemleri", icon: "🎬", icerik: SlaytOneriSistemleri },
         { baslik: "Sesli Asistanlar", icon: "🎙️", icerik: SlaytSesliAsistanlar },
-        { baslik: "Etkinlikler", icon: "🎮", icerik: SlaytEtkinlikler },
+        { baslik: "Etkinlik: YZ Haritası", icon: "🎮", icerik: SlaytEtkinlik1 },
+        { baslik: "Etkinlik: YZ veya Değil?", icon: "🎮", icerik: SlaytEtkinlik2 },
+        { baslik: "Etkinlik: Sesli Asistan", icon: "🎮", icerik: SlaytEtkinlik3 },
+        { baslik: "Etkinlik: YZ Röportajı", icon: "🎮", icerik: SlaytEtkinlik4 },
         { baslik: "İnteraktif Oyun", icon: "🕹️", icerik: SlaytOyun },
         { baslik: "Değerlendirme", icon: "📝", icerik: SlaytDegerlendirme },
         { baslik: "Materyaller", icon: "📥", icerik: SlaytMateryaller },

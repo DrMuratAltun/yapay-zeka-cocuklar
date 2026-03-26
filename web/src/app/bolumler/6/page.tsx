@@ -232,8 +232,8 @@ const SlaytProjeFikirleri = (
   </>
 );
 
-/* ---- Slayt 4: Etkinlikler ---- */
-const SlaytEtkinlikler = (
+/* ---- Etkinlik 1: Algoritma Şefi ---- */
+const SlaytEtkinlik1 = (
   <>
     <div className="rounded-2xl border border-[var(--color-border)] bg-[var(--color-bg-secondary)] p-6">
       <div className="mb-3 flex items-center gap-3">
@@ -249,7 +249,12 @@ const SlaytEtkinlikler = (
     </div>
 
     <AlgoritmaSirala />
+  </>
+);
 
+/* ---- Etkinlik 2: PictoBlox TKM ---- */
+const SlaytEtkinlik2 = (
+  <>
     <div className="rounded-2xl border border-[var(--color-border)] bg-[var(--color-bg-secondary)] p-6">
       <div className="mb-3 flex items-center gap-3">
         <span className="rounded-lg bg-blue-500 px-3 py-1 text-sm font-bold text-white">BİLGİSAYARLI</span>
@@ -262,7 +267,12 @@ const SlaytEtkinlikler = (
         ve oyunu kodlayın.
       </p>
     </div>
+  </>
+);
 
+/* ---- Etkinlik 3: ML for Kids Duygu Analizi ---- */
+const SlaytEtkinlik3 = (
+  <>
     <div className="rounded-2xl border border-[var(--color-border)] bg-[var(--color-bg-secondary)] p-6">
       <div className="mb-3 flex items-center gap-3">
         <span className="rounded-lg bg-blue-500 px-3 py-1 text-sm font-bold text-white">BİLGİSAYARLI</span>
@@ -342,7 +352,9 @@ export default function Bolum6() {
         { baslik: "Görüntü Sınıflandırma", icon: "📷", icerik: SlaytGoruntuSiniflandirma },
         { baslik: "ML for Kids + Scratch", icon: "🤖", icerik: SlaytMLForKids },
         { baslik: "Proje Fikirleri", icon: "💡", icerik: SlaytProjeFikirleri },
-        { baslik: "Etkinlikler", icon: "🎮", icerik: SlaytEtkinlikler },
+        { baslik: "Etkinlik: Algoritma Şefi", icon: "🎮", icerik: SlaytEtkinlik1 },
+        { baslik: "Etkinlik: Taş Kağıt Makas", icon: "🎮", icerik: SlaytEtkinlik2 },
+        { baslik: "Etkinlik: Duygu Analizi", icon: "🎮", icerik: SlaytEtkinlik3 },
         { baslik: "Algoritma Bulmacası", icon: "🧩", icerik: SlaytOyun },
         { baslik: "Değerlendirme", icon: "📝", icerik: SlaytDegerlendirme },
         { baslik: "Materyaller", icon: "📥", icerik: SlaytMateryaller },
