@@ -1,3 +1,4 @@
+import Image from "next/image";
 import InteraktifQuiz from "@/components/InteraktifQuiz";
 import BolumSlider from "@/components/BolumSlider";
 import VeriTuruAvcisi from "@/components/oyunlar/VeriTuruAvcisi";
@@ -244,6 +245,12 @@ const SlaytBuyukVeri = (
             <p className="text-xs text-[var(--color-text-secondary)]">{v.aciklama}</p>
           </div>
         ))}
+      </div>
+
+      <div className="mt-4 flex flex-col items-center rounded-xl border border-[var(--color-border)] bg-[var(--color-bg)] p-4">
+        <Image src="/images/bolumler/ml-diagram.svg" alt="Yapay Zeka, Makine Öğrenimi ve Derin Öğrenme ilişkisi" width={420} height={300} className="rounded-lg object-cover shadow-md" />
+        <p className="mt-2 text-center text-sm text-[var(--color-text-secondary)]">Buyuk veri; yapay zeka, makine ogrenimi ve derin ogrenmenin temel yakitidir</p>
+        <p className="text-xs text-[var(--color-text-secondary)] italic">CC BY-SA 4.0</p>
       </div>
     </section>
   </>

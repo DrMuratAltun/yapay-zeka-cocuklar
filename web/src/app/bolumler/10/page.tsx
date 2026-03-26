@@ -1,3 +1,4 @@
+import Image from "next/image";
 import BolumSlider from "@/components/BolumSlider";
 import InteraktifQuiz from "@/components/InteraktifQuiz";
 import KariyerKeswordi from "@/components/oyunlar/KariyerKeswordi";
@@ -174,6 +175,11 @@ const SlaytPortfolyo = (
 const SlaytKariyer = (
   <section className="space-y-4">
     <h2 className="text-2xl font-extrabold">4. YZ Çağında Kariyer Fırsatları</h2>
+    <div className="mt-4 flex flex-col items-center rounded-xl border border-[var(--color-border)] bg-[var(--color-bg)] p-4">
+      <Image src="/images/bolumler/ai-future.jpg" alt="Yapay zeka ve gelecek konsepti - YZ çağında kariyer fırsatları" width={600} height={400} className="rounded-lg object-cover shadow-md" />
+      <p className="mt-2 text-center text-sm text-[var(--color-text-secondary)]">YZ teknolojileri geleceğin mesleklerini şekillendiriyor</p>
+      <p className="text-xs text-[var(--color-text-secondary)] italic">Fotoğraf: Elekes Andor, CC BY-SA 4.0</p>
+    </div>
     <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
       {[
         { meslek: "YZ Mühendisi", aciklama: "YZ modelleri tasarlar ve geliştirir", icon: "👩‍💻" },

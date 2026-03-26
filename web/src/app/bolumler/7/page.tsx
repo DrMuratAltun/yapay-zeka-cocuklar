@@ -1,3 +1,4 @@
+import Image from "next/image";
 import InteraktifQuiz from "@/components/InteraktifQuiz";
 import BolumSlider from "@/components/BolumSlider";
 import ProblemCozumEslestir from "@/components/oyunlar/ProblemCozumEslestir";
@@ -114,6 +115,11 @@ const SlaytProblemler = (
   <>
     <section className="space-y-4">
       <h3 className="text-2xl font-extrabold">2. Örnek Problemler ve YZ Çözümleri</h3>
+      <div className="mt-4 flex flex-col items-center rounded-xl border border-[var(--color-border)] bg-[var(--color-bg)] p-4">
+        <Image src="/images/bolumler/waymo.jpg" alt="Waymo otonom sürüş aracı - YZ ile gerçek hayat problemlerini çözme örneği" width={600} height={400} className="rounded-lg object-cover shadow-md" />
+        <p className="mt-2 text-center text-sm text-[var(--color-text-secondary)]">YZ destekli otonom araçlar, trafik ve ulaşım problemlerine çözüm üretiyor</p>
+        <p className="text-xs text-[var(--color-text-secondary)] italic">Fotoğraf: Dllu, CC BY-SA 4.0</p>
+      </div>
       <div className="grid gap-4 sm:grid-cols-2">
         {[
           { problem: "Okul kantininde israf", cozum: "Kameralarla yemek israfını tespit eden YZ sistemi", araclar: "Teachable Machine + PictoBlox", icon: "🍽️" },

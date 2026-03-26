@@ -1,3 +1,4 @@
+import Image from "next/image";
 import InteraktifQuiz from "@/components/InteraktifQuiz";
 import BolumSlider from "@/components/BolumSlider";
 import YapayMiGercekMi from "@/components/oyunlar/YapayMiGercekMi";
@@ -92,6 +93,11 @@ const SlaytGoruntuUretme = (
         kalitede görüntüler oluşturabilir. Sanat, tasarım, eğitim ve eğlence
         alanlarında kullanılır.
       </p>
+      <div className="mt-4 flex flex-col items-center rounded-xl border border-[var(--color-border)] bg-[var(--color-bg)] p-4">
+        <Image src="/images/bolumler/robot.svg" alt="Sevimli robot - YZ ile yaratıcı içerik üretimi" width={200} height={200} className="rounded-lg object-cover shadow-md" />
+        <p className="mt-2 text-center text-sm text-[var(--color-text-secondary)]">YZ, yaratıcılığınızı destekleyen güçlü bir araçtır</p>
+        <p className="text-xs text-[var(--color-text-secondary)] italic">Giacomo Alessandroni, CC BY-SA 4.0</p>
+      </div>
       <div className="grid gap-4 sm:grid-cols-2">
         {[
           { arac: "Bing Image Creator", ozellik: "Ücretsiz, DALL-E tabanlı", uygunluk: "Öğrenciler için uygun", icon: "🖼️" },

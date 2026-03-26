@@ -1,3 +1,4 @@
+import Image from "next/image";
 import InteraktifQuiz from "@/components/InteraktifQuiz";
 import BolumSlider from "@/components/BolumSlider";
 import YzEslestirme from "@/components/oyunlar/YzEslestirme";
@@ -206,6 +207,12 @@ const SlaytYzHerYerde = (
           kullandın? Saymaya çalış!
         </p>
       </div>
+
+      <div className="mt-4 flex flex-col items-center rounded-xl border border-[var(--color-border)] bg-[var(--color-bg)] p-4">
+        <Image src="/images/bolumler/robot.svg" alt="Sevimli bir yapay zeka robotu" width={280} height={280} className="rounded-lg object-cover shadow-md" />
+        <p className="mt-2 text-center text-sm text-[var(--color-text-secondary)]">Yapay zeka denince aklimiza robotlar gelse de, YZ aslinda hayatimizin her kosesinde!</p>
+        <p className="text-xs text-[var(--color-text-secondary)] italic">CC BY-SA 4.0, Giacomo Alessandroni</p>
+      </div>
     </section>
   </>
 );
@@ -408,6 +415,11 @@ const SlaytSesliAsistanlar = (
           araçları, yayaları ve trafik işaretlerini tanımlayarak aracı
           güvenli bir şekilde sürebilir.
         </p>
+        <div className="mt-4 flex flex-col items-center rounded-xl border border-[var(--color-border)] bg-[var(--color-bg)] p-4">
+          <Image src="/images/bolumler/waymo.jpg" alt="Waymo sürücüsüz araç" width={480} height={320} className="rounded-lg object-cover shadow-md" />
+          <p className="mt-2 text-center text-sm text-[var(--color-text-secondary)]">Waymo otonom (surucusuz) araci - yapay zeka ile trafikteki nesneleri algilayarak guvenli suruyor</p>
+          <p className="text-xs text-[var(--color-text-secondary)] italic">CC BY-SA 4.0, Dllu</p>
+        </div>
       </div>
       <div className="rounded-xl border border-emerald-200 bg-emerald-50 p-5 dark:border-emerald-800 dark:bg-emerald-900/20">
         <h3 className="mb-2 font-bold">🌾 Akıllı Tarım</h3>

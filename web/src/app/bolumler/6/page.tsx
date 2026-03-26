@@ -1,3 +1,4 @@
+import Image from "next/image";
 import InteraktifQuiz from "@/components/InteraktifQuiz";
 import BolumSlider from "@/components/BolumSlider";
 import AlgoritmaBulmacasi from "@/components/oyunlar/AlgoritmaBulmacasi";
@@ -147,6 +148,12 @@ const SlaytMLForKids = (
         ML for Kids, makine öğrenimi modellerini eğitip Scratch&apos;te
         kullanmanızı sağlayan ücretsiz bir platformdur.
       </p>
+      <div className="mt-4 flex flex-col items-center rounded-xl border border-[var(--color-border)] bg-[var(--color-bg)] p-4">
+        <Image src="/images/bolumler/scratch.png" alt="Scratch 3.0 blok tabanli kodlama arayuzu" width={550} height={400} className="rounded-lg object-cover shadow-md" />
+        <p className="mt-2 text-center text-sm text-[var(--color-text-secondary)]">Scratch 3.0: Blok tabanli kodlama ortami</p>
+        <p className="text-xs text-[var(--color-text-secondary)] italic">Gorsel: Blink456, CC BY-SA 4.0</p>
+      </div>
+
       <div className="overflow-x-auto">
         <table className="w-full rounded-xl border border-[var(--color-border)] text-sm">
           <thead className="bg-blue-600 text-white">

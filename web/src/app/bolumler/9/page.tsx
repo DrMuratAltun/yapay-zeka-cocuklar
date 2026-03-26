@@ -1,3 +1,4 @@
+import Image from "next/image";
 import BolumSlider from "@/components/BolumSlider";
 import InteraktifQuiz from "@/components/InteraktifQuiz";
 import EtikPusula from "@/components/oyunlar/EtikPusula";
@@ -89,6 +90,11 @@ const SlaytEtikIlkeleri = (
       kullanımında doğru, adil ve sorumlu davranma ilkelerinin bütünüdür.
       YZ çok güçlü bir araç olduğu için bu gücü nasıl kullandığımız büyük önem taşır.
     </p>
+    <div className="mt-4 flex flex-col items-center rounded-xl border border-[var(--color-border)] bg-[var(--color-bg)] p-4">
+      <Image src="/images/bolumler/scales.svg" alt="Adalet terazisi - YZ etiği ve adalet ilkesi" width={180} height={180} className="rounded-lg object-cover shadow-md" />
+      <p className="mt-2 text-center text-sm text-[var(--color-text-secondary)]">YZ etiğinin temel taşı: Adalet ve denge</p>
+      <p className="text-xs text-[var(--color-text-secondary)] italic">Public Domain</p>
+    </div>
     <div className="grid gap-4 sm:grid-cols-2">
       {[
         { ilke: "Şeffaflık", aciklama: "YZ sistemlerinin nasıl karar verdiği anlaşılabilir olmalı", icon: "🔍" },

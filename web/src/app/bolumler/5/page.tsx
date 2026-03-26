@@ -1,3 +1,4 @@
+import Image from "next/image";
 import InteraktifQuiz from "@/components/InteraktifQuiz";
 import BolumSlider from "@/components/BolumSlider";
 import PromptUstasi from "@/components/oyunlar/PromptUstasi";
@@ -91,6 +92,12 @@ const SlaytUretkenYZ = (
       Metin yazabilir, resim çizebilir, müzik besteleyebilir, kod yazabilir ve
       daha fazlasını yapabilir!
     </p>
+    <div className="mt-4 flex flex-col items-center rounded-xl border border-[var(--color-border)] bg-[var(--color-bg)] p-4">
+      <Image src="/images/bolumler/robot.svg" alt="Dost canlisi yapay zeka robotu" width={280} height={280} className="rounded-lg object-cover shadow-md" />
+      <p className="mt-2 text-center text-sm text-[var(--color-text-secondary)]">Uretken yapay zeka: Yeni icerikler ureten akilli sistemler</p>
+      <p className="text-xs text-[var(--color-text-secondary)] italic">Gorsel: CC BY-SA 4.0</p>
+    </div>
+
     <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
       {[
         { tur: "Metin", icon: "📝", ornek: "ChatGPT, Gemini, Claude", aciklama: "Makale, şiir, kod, hikaye yazma" },

@@ -1,3 +1,4 @@
+import Image from "next/image";
 import InteraktifQuiz from "@/components/InteraktifQuiz";
 import BolumSlider from "@/components/BolumSlider";
 import KararAgaci from "@/components/oyunlar/KararAgaci";
@@ -179,6 +180,12 @@ const SlaytOgrenimTurleri = (
         </div>
       </div>
     </div>
+
+    <div className="mt-4 flex flex-col items-center rounded-xl border border-[var(--color-border)] bg-[var(--color-bg)] p-4">
+      <Image src="/images/bolumler/neural-network.svg" alt="Yapay sinir agi diyagrami" width={500} height={400} className="rounded-lg object-cover shadow-md" />
+      <p className="mt-2 text-center text-sm text-[var(--color-text-secondary)]">Yapay sinir agi: Noronlarin katmanlar halinde baglantisi</p>
+      <p className="text-xs text-[var(--color-text-secondary)] italic">Gorsel: Cburnett, CC BY-SA 3.0</p>
+    </div>
   </section>
 );
 
@@ -186,6 +193,13 @@ const SlaytOgrenimTurleri = (
 const SlaytSiniflandirma = (
   <section className="space-y-4">
     <h3 className="text-2xl font-extrabold">3. Sınıflandırma ve Tahmin</h3>
+
+    <div className="mt-4 flex flex-col items-center rounded-xl border border-[var(--color-border)] bg-[var(--color-bg)] p-4">
+      <Image src="/images/bolumler/ml-nutshell.svg" alt="Gozetimli makine ogrenimi sureci" width={600} height={350} className="rounded-lg object-cover shadow-md" />
+      <p className="mt-2 text-center text-sm text-[var(--color-text-secondary)]">Gozetimli makine ogrenimi sureci: Veri, egitim ve tahmin adimlari</p>
+      <p className="text-xs text-[var(--color-text-secondary)] italic">Gorsel: EpochFail, CC BY-SA 4.0</p>
+    </div>
+
     <div className="overflow-x-auto">
       <table className="w-full rounded-xl border border-[var(--color-border)] text-sm">
         <thead className="bg-orange-600 text-white">
