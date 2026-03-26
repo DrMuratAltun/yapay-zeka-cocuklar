@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8">
+<title>Etik Pusula Çalışma Yaprağı - Bölüm 9</title>
+<style>
+  @media print { body { margin: 0; } .no-print { display: none !important; } .page-break { page-break-after: always; } }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: 'Segoe UI', system-ui, -apple-system, sans-serif; color: #1e293b; background: #fff; }
+  .print-btn { position: fixed; top: 20px; right: 20px; background: #3b82f6; color: #fff; border: none; padding: 12px 24px; border-radius: 10px; font-size: 16px; font-weight: 700; cursor: pointer; z-index: 100; box-shadow: 0 4px 12px rgba(0,0,0,0.15); }
+  .print-btn:hover { background: #2563eb; }
+  .header { text-align: center; padding: 30px 20px 20px; border-bottom: 3px solid #f59e0b; margin-bottom: 30px; }
+  .header h1 { font-size: 28px; color: #d97706; }
+  .header p { color: #64748b; margin-top: 8px; font-size: 14px; }
+  .student-info { max-width: 750px; margin: 0 auto 24px; display: flex; gap: 16px; padding: 0 20px; flex-wrap: wrap; }
+  .student-info div { flex: 1; min-width: 180px; }
+  .student-info label { font-size: 12px; color: #64748b; display: block; margin-bottom: 4px; font-weight: 600; }
+  .student-info .field { border-bottom: 2px solid #fcd34d; padding: 6px 2px; min-height: 24px; }
+  .content { max-width: 750px; margin: 0 auto; padding: 0 20px 40px; }
+  .intro { background: #fffbeb; border-radius: 12px; padding: 20px; margin-bottom: 30px; border-left: 4px solid #f59e0b; }
+  .intro p { font-size: 14px; line-height: 1.7; color: #475569; }
+  .group-info { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-bottom: 30px; }
+  .group-box { border: 2px solid #fcd34d; border-radius: 12px; padding: 16px; }
+  .group-box.full { grid-column: 1 / -1; }
+  .group-box label { font-size: 13px; color: #d97706; font-weight: 700; display: block; margin-bottom: 8px; }
+  .write-line { border-bottom: 1.5px dotted #fcd34d; min-height: 28px; margin-bottom: 6px; }
+  .principle-card { border: 2px solid #fcd34d; border-radius: 16px; margin-bottom: 24px; overflow: hidden; page-break-inside: avoid; }
+  .principle-header { background: linear-gradient(135deg, #fffbeb, #fef3c7); padding: 14px 20px; display: flex; align-items: center; gap: 12px; }
+  .principle-num { background: #f59e0b; color: #fff; width: 36px; height: 36px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: 18px; flex-shrink: 0; }
+  .principle-header h3 { font-size: 18px; color: #b45309; }
+  .principle-body { padding: 20px; display: grid; gap: 14px; }
+  .principle-field label { font-size: 13px; color: #92400e; font-weight: 700; display: block; margin-bottom: 6px; }
+  .principle-field label span { font-weight: 400; color: #64748b; font-size: 12px; }
+  .write-area { border: 1.5px dotted #fcd34d; border-radius: 8px; min-height: 50px; padding: 8px; }
+  .write-area-sm { border-bottom: 1.5px dotted #fcd34d; min-height: 28px; }
+  .hint { font-size: 12px; color: #a16207; margin-top: 4px; font-style: italic; }
+  .poster-section { border: 3px dashed #fbbf24; border-radius: 20px; padding: 30px; margin-top: 30px; text-align: center; min-height: 400px; display: flex; flex-direction: column; align-items: center; justify-content: center; }
+  .poster-section h2 { font-size: 22px; color: #d97706; margin-bottom: 10px; }
+  .poster-section p { font-size: 14px; color: #92400e; margin-bottom: 20px; }
+  .poster-guidelines { text-align: left; background: #fffbeb; border-radius: 12px; padding: 16px; font-size: 13px; color: #78350f; line-height: 1.8; max-width: 400px; }
+  .poster-guidelines ul { padding-left: 18px; }
+  .footer { text-align: center; padding: 20px; color: #94a3b8; font-size: 11px; border-top: 1px solid #e2e8f0; margin-top: 20px; }
+</style>
+</head>
+<body>
+<button class="print-btn no-print" onclick="window.print()">🖨️ Yazdır / PDF</button>
+
+<div class="header">
+  <h1>🧭 Etik Pusula Oluşturma</h1>
+  <p>Bölüm 9: YZ ve Etik — Grup Çalışma Yaprağı</p>
+</div>
+
+<div class="student-info">
+  <div><label>Adı Soyadı</label><div class="field"></div></div>
+  <div><label>Sınıf / No</label><div class="field"></div></div>
+  <div><label>Tarih</label><div class="field"></div></div>
+</div>
+
+<div class="content">
+  <div class="intro">
+    <p>Grubunuzla birlikte yapay zeka kullanımı için bir "Etik Pusula" oluşturacaksınız. Bu pusula, YZ'nin nasıl geliştirilmesi ve kullanılması gerektiğine dair ilkelerinizi içerecek. Her ilke için bir ad, açıklama ve örnek durum yazın.</p>
+  </div>
+
+  <div class="group-info">
+    <div class="group-box">
+      <label>Grup Adı</label>
+      <div class="write-line"></div>
+    </div>
+    <div class="group-box">
+      <label>Grup Üyeleri</label>
+      <div class="write-line"></div>
+      <div class="write-line"></div>
+    </div>
+  </div>
+
+  <!-- İlke 1 -->
+  <div class="principle-card">
+    <div class="principle-header">
+      <div class="principle-num">1</div>
+      <h3>Birinci İlke</h3>
+    </div>
+    <div class="principle-body">
+      <div class="principle-field">
+        <label>İlke Adı <span>(kısa ve akılda kalıcı)</span></label>
+        <div class="write-area-sm"></div>
+        <div class="hint">Örnek: "Şeffaflık", "Adalet", "İnsan Önceliği"</div>
+      </div>
+      <div class="principle-field">
+        <label>Açıklama <span>(bu ilke ne anlama geliyor?)</span></label>
+        <div class="write-area"></div>
+      </div>
+      <div class="principle-field">
+        <label>Örnek Durum <span>(bu ilkenin geçerli olduğu gerçek bir senaryo yazın)</span></label>
+        <div class="write-area"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- İlke 2 -->
+  <div class="principle-card">
+    <div class="principle-header">
+      <div class="principle-num">2</div>
+      <h3>İkinci İlke</h3>
+    </div>
+    <div class="principle-body">
+      <div class="principle-field">
+        <label>İlke Adı</label>
+        <div class="write-area-sm"></div>
+      </div>
+      <div class="principle-field">
+        <label>Açıklama</label>
+        <div class="write-area"></div>
+      </div>
+      <div class="principle-field">
+        <label>Örnek Durum</label>
+        <div class="write-area"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- İlke 3 -->
+  <div class="principle-card">
+    <div class="principle-header">
+      <div class="principle-num">3</div>
+      <h3>Üçüncü İlke</h3>
+    </div>
+    <div class="principle-body">
+      <div class="principle-field">
+        <label>İlke Adı</label>
+        <div class="write-area-sm"></div>
+      </div>
+      <div class="principle-field">
+        <label>Açıklama</label>
+        <div class="write-area"></div>
+      </div>
+      <div class="principle-field">
+        <label>Örnek Durum</label>
+        <div class="write-area"></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="page-break"></div>
+
+  <!-- İlke 4 -->
+  <div class="principle-card">
+    <div class="principle-header">
+      <div class="principle-num">4</div>
+      <h3>Dördüncü İlke</h3>
+    </div>
+    <div class="principle-body">
+      <div class="principle-field">
+        <label>İlke Adı</label>
+        <div class="write-area-sm"></div>
+      </div>
+      <div class="principle-field">
+        <label>Açıklama</label>
+        <div class="write-area"></div>
+      </div>
+      <div class="principle-field">
+        <label>Örnek Durum</label>
+        <div class="write-area"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- İlke 5 -->
+  <div class="principle-card">
+    <div class="principle-header">
+      <div class="principle-num">5</div>
+      <h3>Beşinci İlke</h3>
+    </div>
+    <div class="principle-body">
+      <div class="principle-field">
+        <label>İlke Adı</label>
+        <div class="write-area-sm"></div>
+      </div>
+      <div class="principle-field">
+        <label>Açıklama</label>
+        <div class="write-area"></div>
+      </div>
+      <div class="principle-field">
+        <label>Örnek Durum</label>
+        <div class="write-area"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Poster Tasarım Alanı -->
+  <div class="poster-section">
+    <h2>🎨 Poster Tasarım Alanı</h2>
+    <p>Etik pusulmanızı görsel bir poster olarak tasarlayın!</p>
+    <div class="poster-guidelines">
+      <strong>Posterinizde olması gerekenler:</strong>
+      <ul>
+        <li>Grup adınız ve etik pusula başlığı</li>
+        <li>5 ilkenizi simgeleyen semboller veya çizimler</li>
+        <li>Her ilke için kısa bir slogan</li>
+        <li>Renkli ve dikkat çekici tasarım</li>
+        <li>Pusula veya yön gösteren bir görsel motif</li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<div class="footer">Yapay Zeka Macerası — Dr. Murat ALTUN — CC BY-NC-SA 4.0 — yapay-zeka-cocuklar.vercel.app</div>
+</body>
+</html>

@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8">
+<title>Prompt Formülü Çalışma Yaprağı - Bölüm 5</title>
+<style>
+  @media print { body { margin: 0; } .no-print { display: none !important; } .page-break { page-break-after: always; } }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: 'Segoe UI', system-ui, -apple-system, sans-serif; color: #1e293b; background: #fff; }
+  .print-btn { position: fixed; top: 20px; right: 20px; background: #2563eb; color: #fff; border: none; padding: 12px 24px; border-radius: 10px; font-size: 16px; font-weight: 700; cursor: pointer; z-index: 100; box-shadow: 0 4px 12px rgba(0,0,0,0.15); }
+  .print-btn:hover { background: #1d4ed8; }
+  .page { max-width: 700px; margin: 0 auto; padding: 30px 20px; }
+  .header { text-align: center; padding-bottom: 20px; border-bottom: 3px solid #ec4899; margin-bottom: 20px; }
+  .header h1 { font-size: 26px; color: #be185d; }
+  .header p { color: #64748b; margin-top: 6px; font-size: 13px; }
+  .info-row { display: flex; gap: 16px; margin-bottom: 24px; flex-wrap: wrap; }
+  .info-field { flex: 1; min-width: 180px; }
+  .info-field label { display: block; font-size: 11px; font-weight: 700; color: #64748b; margin-bottom: 4px; }
+  .info-field .line { border-bottom: 1.5px solid #cbd5e1; height: 26px; }
+  .formula-box { background: #fdf2f8; border: 2px solid #ec4899; border-radius: 16px; padding: 24px; margin-bottom: 30px; text-align: center; }
+  .formula-box h2 { font-size: 18px; color: #be185d; margin-bottom: 16px; }
+  .formula { display: flex; align-items: center; justify-content: center; gap: 8px; flex-wrap: wrap; font-size: 15px; font-weight: 700; }
+  .formula-part { background: #fff; border: 2px solid #f9a8d4; border-radius: 10px; padding: 10px 16px; }
+  .formula-plus { color: #ec4899; font-size: 20px; }
+  .formula-desc { margin-top: 16px; display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px; }
+  .formula-desc div { text-align: center; font-size: 11px; color: #64748b; line-height: 1.4; }
+  .formula-desc strong { display: block; color: #be185d; font-size: 12px; margin-bottom: 2px; }
+  .section-title { font-size: 16px; font-weight: 700; color: #be185d; margin: 30px 0 16px; padding-bottom: 8px; border-bottom: 2px solid #fce7f3; }
+  .exercise { margin-bottom: 30px; padding: 20px; background: #fefce8; border-radius: 12px; border: 1px solid #fde68a; }
+  .exercise h3 { font-size: 14px; color: #92400e; margin-bottom: 12px; }
+  .bad-prompt { background: #fee2e2; border: 1px solid #fca5a5; border-radius: 8px; padding: 12px; margin-bottom: 12px; font-size: 13px; }
+  .bad-prompt .label { font-size: 10px; font-weight: 700; color: #dc2626; text-transform: uppercase; margin-bottom: 4px; }
+  .good-prompt { border: 2px solid #86efac; border-radius: 8px; padding: 12px; margin-bottom: 12px; min-height: 60px; }
+  .good-prompt .label { font-size: 10px; font-weight: 700; color: #16a34a; text-transform: uppercase; margin-bottom: 4px; }
+  .write-area { border-bottom: 1.5px solid #cbd5e1; height: 28px; margin-bottom: 4px; }
+  .compare-table { width: 100%; border-collapse: collapse; margin-top: 20px; font-size: 12px; }
+  .compare-table th { background: #fdf2f8; color: #be185d; padding: 10px; text-align: left; border: 1px solid #f9a8d4; font-size: 11px; }
+  .compare-table td { padding: 10px; border: 1px solid #e2e8f0; min-height: 40px; vertical-align: top; }
+  .compare-table td.empty { height: 50px; }
+  .footer { text-align: center; padding: 20px; color: #94a3b8; font-size: 11px; border-top: 1px solid #e2e8f0; margin-top: 30px; }
+</style>
+</head>
+<body>
+<button class="print-btn no-print" onclick="window.print()">🖨️ Yazdır / PDF</button>
+<div class="page">
+  <div class="header">
+    <h1>🧪 Prompt Formülü Çalışma Yaprağı</h1>
+    <p>Bölüm 5: Üretken Yapay Zeka — Etkili Prompt Yazma</p>
+  </div>
+  <div class="info-row">
+    <div class="info-field"><label>Adı Soyadı:</label><div class="line"></div></div>
+    <div class="info-field"><label>Sınıf / No:</label><div class="line"></div></div>
+    <div class="info-field"><label>Tarih:</label><div class="line"></div></div>
+  </div>
+
+  <div class="formula-box">
+    <h2>✨ Prompt Formülü</h2>
+    <div class="formula">
+      <div class="formula-part">🎭 Rol</div>
+      <div class="formula-plus">+</div>
+      <div class="formula-part">📋 Görev</div>
+      <div class="formula-plus">+</div>
+      <div class="formula-part">🌍 Bağlam</div>
+      <div class="formula-plus">+</div>
+      <div class="formula-part">📐 Format</div>
+    </div>
+    <div class="formula-desc">
+      <div><strong>Rol</strong>Kim olarak davranmalı?<br>(ör: öğretmen, bilim insanı)</div>
+      <div><strong>Görev</strong>Ne yapmalı?<br>(ör: açıkla, yaz, listele)</div>
+      <div><strong>Bağlam</strong>Kime / ne için?<br>(ör: 6. sınıf, proje ödevi)</div>
+      <div><strong>Format</strong>Nasıl sunmalı?<br>(ör: 3 madde, tablo, paragraf)</div>
+    </div>
+  </div>
+
+  <div class="section-title">📝 Alıştırmalar: Kötü Promptu İyi Prompta Dönüştür</div>
+
+  <div class="exercise">
+    <h3>Alıştırma 1: Metin Yazma</h3>
+    <div class="bad-prompt">
+      <div class="label">❌ Kötü Prompt</div>
+      "Yapay zeka hakkında bir şeyler yaz."
+    </div>
+    <div class="good-prompt">
+      <div class="label">✅ Senin İyi Promptun (Formülü kullan!)</div>
+      <div class="write-area"></div>
+      <div class="write-area"></div>
+      <div class="write-area"></div>
+    </div>
+  </div>
+
+  <div class="exercise">
+    <h3>Alıştırma 2: Görsel Üretme</h3>
+    <div class="bad-prompt">
+      <div class="label">❌ Kötü Prompt</div>
+      "Bir köpek çiz."
+    </div>
+    <div class="good-prompt">
+      <div class="label">✅ Senin İyi Promptun (Formülü kullan!)</div>
+      <div class="write-area"></div>
+      <div class="write-area"></div>
+      <div class="write-area"></div>
+    </div>
+  </div>
+
+  <div class="exercise">
+    <h3>Alıştırma 3: Problem Çözme</h3>
+    <div class="bad-prompt">
+      <div class="label">❌ Kötü Prompt</div>
+      "Matematik sorusu çöz."
+    </div>
+    <div class="good-prompt">
+      <div class="label">✅ Senin İyi Promptun (Formülü kullan!)</div>
+      <div class="write-area"></div>
+      <div class="write-area"></div>
+      <div class="write-area"></div>
+    </div>
+  </div>
+
+  <div class="exercise">
+    <h3>Alıştırma 4: Araştırma</h3>
+    <div class="bad-prompt">
+      <div class="label">❌ Kötü Prompt</div>
+      "İklim değişikliği nedir?"
+    </div>
+    <div class="good-prompt">
+      <div class="label">✅ Senin İyi Promptun (Formülü kullan!)</div>
+      <div class="write-area"></div>
+      <div class="write-area"></div>
+      <div class="write-area"></div>
+    </div>
+  </div>
+
+  <div class="section-title">📊 Karşılaştırma Tablosu</div>
+  <table class="compare-table">
+    <tr>
+      <th style="width:5%">#</th>
+      <th style="width:30%">Kötü Prompt</th>
+      <th style="width:30%">İyi Prompt</th>
+      <th style="width:35%">Sonuç Farkı (ne değişti?)</th>
+    </tr>
+    <tr><td>1</td><td class="empty"></td><td class="empty"></td><td class="empty"></td></tr>
+    <tr><td>2</td><td class="empty"></td><td class="empty"></td><td class="empty"></td></tr>
+    <tr><td>3</td><td class="empty"></td><td class="empty"></td><td class="empty"></td></tr>
+    <tr><td>4</td><td class="empty"></td><td class="empty"></td><td class="empty"></td></tr>
+  </table>
+</div>
+<div class="footer">Yapay Zeka Macerası — Dr. Murat ALTUN — CC BY-NC-SA 4.0 — yapay-zeka-cocuklar.vercel.app</div>
+</body>
+</html>

@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8">
+<title>Yapay mı Gerçek mi? Kartları - Bölüm 8</title>
+<style>
+  @media print { body { margin: 0; } .no-print { display: none !important; } .page-break { page-break-after: always; } }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: 'Segoe UI', system-ui, -apple-system, sans-serif; color: #1e293b; background: #fff; }
+  .print-btn { position: fixed; top: 20px; right: 20px; background: #3b82f6; color: #fff; border: none; padding: 12px 24px; border-radius: 10px; font-size: 16px; font-weight: 700; cursor: pointer; z-index: 100; box-shadow: 0 4px 12px rgba(0,0,0,0.15); }
+  .print-btn:hover { background: #2563eb; }
+  .header { text-align: center; padding: 30px 20px 20px; border-bottom: 3px solid #f43f5e; margin-bottom: 30px; }
+  .header h1 { font-size: 28px; color: #e11d48; }
+  .header p { color: #64748b; margin-top: 8px; font-size: 14px; }
+  .student-info { max-width: 700px; margin: 0 auto 24px; display: flex; gap: 16px; padding: 0 20px; flex-wrap: wrap; }
+  .student-info div { flex: 1; min-width: 180px; }
+  .student-info label { font-size: 12px; color: #64748b; display: block; margin-bottom: 4px; font-weight: 600; }
+  .student-info .field { border: none; border-bottom: 2px solid #fda4af; padding: 6px 2px; font-size: 14px; width: 100%; }
+  .instructions { max-width: 700px; margin: 0 auto 30px; padding: 20px; background: #fff1f2; border-radius: 12px; border-left: 4px solid #f43f5e; }
+  .instructions h2 { font-size: 18px; color: #e11d48; margin-bottom: 10px; }
+  .instructions ol { padding-left: 20px; line-height: 1.8; color: #475569; }
+  .cards-grid { display: grid; grid-template-columns: 1fr; gap: 24px; max-width: 700px; margin: 0 auto; padding: 0 20px 40px; }
+  .card { border: 2px solid #fda4af; border-radius: 16px; padding: 24px; position: relative; }
+  .card-number { position: absolute; top: -12px; left: 20px; background: #f43f5e; color: #fff; width: 28px; height: 28px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: 14px; }
+  .card-desc { font-size: 15px; line-height: 1.7; margin-bottom: 16px; padding-left: 8px; border-left: 3px solid #fecdd3; color: #334155; }
+  .card-desc strong { color: #e11d48; }
+  .choice-row { display: flex; gap: 16px; align-items: center; justify-content: center; }
+  .choice-box { border: 2px solid #e2e8f0; border-radius: 12px; padding: 12px 28px; font-weight: 700; font-size: 15px; cursor: pointer; text-align: center; min-width: 140px; }
+  .choice-box.yapay { border-color: #f43f5e; color: #e11d48; background: #fff1f2; }
+  .choice-box.gercek { border-color: #22c55e; color: #16a34a; background: #f0fdf4; }
+  .choice-box .check { display: inline-block; width: 18px; height: 18px; border: 2px solid currentColor; border-radius: 4px; margin-right: 8px; vertical-align: middle; }
+  .answer-section { max-width: 700px; margin: 40px auto; padding: 24px; border: 2px dashed #fda4af; border-radius: 16px; }
+  .answer-section h2 { font-size: 20px; color: #e11d48; margin-bottom: 16px; text-align: center; }
+  .answer-section p { font-size: 13px; color: #64748b; text-align: center; margin-bottom: 16px; }
+  .answers-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 10px; }
+  .answer-item { font-size: 14px; padding: 8px 12px; background: #fff1f2; border-radius: 8px; direction: rtl; unicode-bidi: bidi-override; color: #64748b; }
+  .footer { text-align: center; padding: 20px; color: #94a3b8; font-size: 11px; border-top: 1px solid #e2e8f0; margin-top: 20px; }
+</style>
+</head>
+<body>
+<button class="print-btn no-print" onclick="window.print()">🖨️ Yazdır / PDF</button>
+
+<div class="header">
+  <h1>🔍 Yapay mı? Gerçek mi?</h1>
+  <p>Bölüm 8: Dijital İçerik Üretimi — Görsel Tespit Kartları</p>
+</div>
+
+<div class="student-info">
+  <div><label>Adı Soyadı</label><div class="field">&nbsp;</div></div>
+  <div><label>Sınıf / No</label><div class="field">&nbsp;</div></div>
+  <div><label>Tarih</label><div class="field">&nbsp;</div></div>
+</div>
+
+<div class="instructions no-print">
+  <h2>📋 Nasıl Kullanılır?</h2>
+  <ol>
+    <li>Her kartta bir görsel açıklaması var. Görseli hayal edin.</li>
+    <li>Görselin <strong>YZ tarafından üretilmiş</strong> mi yoksa <strong>gerçek bir fotoğraf</strong> mı olduğuna karar verin.</li>
+    <li>Seçiminizi işaretleyin ve nedenini düşünün.</li>
+    <li>Tüm kartları tamamladıktan sonra sayfanın sonundaki cevap anahtarını kontrol edin.</li>
+  </ol>
+</div>
+
+<div class="cards-grid">
+  <div class="card">
+    <div class="card-number">1</div>
+    <div class="card-desc">Bir kedinin uzay giysisi giyerek Mars'ın yüzeyinde yürüdüğü, arka planda kızıl kayalıkların ve iki ayın göründüğü renkli bir görsel. Kedinin kaskında yıldızlar yansıyor.</div>
+    <div class="choice-row">
+      <div class="choice-box yapay"><span class="check"></span>Yapay (YZ)</div>
+      <div class="choice-box gercek"><span class="check"></span>Gerçek Fotoğraf</div>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-number">2</div>
+    <div class="card-desc">İstanbul Boğazı'nda gün batımı. Denizde tekneler var, gökyüzü turuncu ve pembe tonlarında. Uzakta camiler ve minareler silüet olarak görünüyor. Suda güneşin yansıması var.</div>
+    <div class="choice-row">
+      <div class="choice-box yapay"><span class="check"></span>Yapay (YZ)</div>
+      <div class="choice-box gercek"><span class="check"></span>Gerçek Fotoğraf</div>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-number">3</div>
+    <div class="card-desc">Bir köpeğin insanlar gibi masa başında oturup gazete okuduğu bir sahne. Köpek gözlük takmış, elinde kahve fincanı tutuyor. Fotoğrafçılık kalitesinde son derece gerçekçi görünüyor.</div>
+    <div class="choice-row">
+      <div class="choice-box yapay"><span class="check"></span>Yapay (YZ)</div>
+      <div class="choice-box gercek"><span class="check"></span>Gerçek Fotoğraf</div>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-number">4</div>
+    <div class="card-desc">Okul bahçesinde öğrencilerin koşarak oyun oynadığı bir an. Bazı çocuklar ip atlıyor, bazıları top oynuyor. Doğal ışık, hafif hareket bulanıklığı var. Arka planda okul binası görünüyor.</div>
+    <div class="choice-row">
+      <div class="choice-box yapay"><span class="check"></span>Yapay (YZ)</div>
+      <div class="choice-box gercek"><span class="check"></span>Gerçek Fotoğraf</div>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-number">5</div>
+    <div class="card-desc">Yarı insan yarı robot bir yüz portresi. Yüzün sol tarafı normal insan, sağ tarafı metalik robot parçalarından oluşuyor. Göz renkleri farklı, çok detaylı ve gerçekçi.</div>
+    <div class="choice-row">
+      <div class="choice-box yapay"><span class="check"></span>Yapay (YZ)</div>
+      <div class="choice-box gercek"><span class="check"></span>Gerçek Fotoğraf</div>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-number">6</div>
+    <div class="card-desc">Kapadokya'da sıcak hava balonlarının uçtuğu sabah manzarası. Peri bacaları arasında onlarca renkli balon yükseliyor. Gökyüzü açık mavi ve turuncu tonlarında.</div>
+    <div class="choice-row">
+      <div class="choice-box yapay"><span class="check"></span>Yapay (YZ)</div>
+      <div class="choice-box gercek"><span class="check"></span>Gerçek Fotoğraf</div>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-number">7</div>
+    <div class="card-desc">Su altında yüzen bir şehir manzarası. Binalar mercan ve deniz kabuklarından yapılmış, sokakları balıklar dolduruyor. İnsanlar baloncuk şeklinde arabalarda gidiyor. Ultra gerçekçi stilde.</div>
+    <div class="choice-row">
+      <div class="choice-box yapay"><span class="check"></span>Yapay (YZ)</div>
+      <div class="choice-box gercek"><span class="check"></span>Gerçek Fotoğraf</div>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-number">8</div>
+    <div class="card-desc">Bir marketin meyve ve sebze reyonu. Tezgahta düzenli dizilmiş elmalar, portakallar, muzlar var. Doğal süpermarket aydınlatması, fiyat etiketleri görünüyor. Sıradan bir alışveriş anı.</div>
+    <div class="choice-row">
+      <div class="choice-box yapay"><span class="check"></span>Yapay (YZ)</div>
+      <div class="choice-box gercek"><span class="check"></span>Gerçek Fotoğraf</div>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-number">9</div>
+    <div class="card-desc">Ünlü bir tablonun modern versiyonu: Mona Lisa'nın astronot kıyafeti giymiş hali. Uzay arka planı, yıldızlar ve gezegenler ile çevrelenmiş. Yağlı boya ve dijital sanat karışımı.</div>
+    <div class="choice-row">
+      <div class="choice-box yapay"><span class="check"></span>Yapay (YZ)</div>
+      <div class="choice-box gercek"><span class="check"></span>Gerçek Fotoğraf</div>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-number">10</div>
+    <div class="card-desc">Bir sokak kedisinin pencere pervazında oturarak dışarıyı izlediği siyah-beyaz fotoğraf. Doğal ışık pencerenin camından süzülüyor. Kedinin tüyleri detaylı, gölgeler doğal.</div>
+    <div class="choice-row">
+      <div class="choice-box yapay"><span class="check"></span>Yapay (YZ)</div>
+      <div class="choice-box gercek"><span class="check"></span>Gerçek Fotoğraf</div>
+    </div>
+  </div>
+</div>
+
+<div class="page-break"></div>
+
+<div class="answer-section">
+  <h2>🔑 Cevap Anahtarı</h2>
+  <p>(Cevaplar ters yazılmıştır — ayna ile okuyabilirsiniz!)</p>
+  <div class="answers-grid">
+    <div class="answer-item">ZY - ıyapay :1 traK</div>
+    <div class="answer-item">kecreG - fargotof keçreG :2 traK</div>
+    <div class="answer-item">ZY - ıyapay :3 traK</div>
+    <div class="answer-item">kecreG - fargotof keçreG :4 traK</div>
+    <div class="answer-item">ZY - ıyapay :5 traK</div>
+    <div class="answer-item">kecreG - fargotof keçreG :6 traK</div>
+    <div class="answer-item">ZY - ıyapay :7 traK</div>
+    <div class="answer-item">kecreG - fargotof keçreG :8 traK</div>
+    <div class="answer-item">ZY - ıyapay :9 traK</div>
+    <div class="answer-item">kecreG - fargotof keçreG :01 traK</div>
+  </div>
+</div>
+
+<div class="footer">Yapay Zeka Macerası — Dr. Murat ALTUN — CC BY-NC-SA 4.0 — yapay-zeka-cocuklar.vercel.app</div>
+</body>
+</html>

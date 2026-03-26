@@ -264,20 +264,23 @@ const SlaytQuiz = (
       <h3 className="mb-4 text-xl font-bold">İndirilebilir Materyaller</h3>
       <div className="space-y-3">
         {[
-          "Kim Daha Zeki? Kart Seti (PDF)",
-          "YZ Dedektifi Gözlem Formu (PDF)",
-          "Değerlendirme Testi (PDF)",
-          "Öz Değerlendirme Formu (PDF)",
+          { ad: "Kim Daha Zeki? Kart Seti", url: "/indirilebilir/bolum-01-kim-daha-zeki-kartlari.html" },
+          { ad: "YZ Dedektifi Gözlem Formu", url: "/indirilebilir/bolum-01-yz-dedektifi-formu.html" },
+          { ad: "Değerlendirme Testi", url: "/indirilebilir/bolum-01-degerlendirme-testi.html" },
+          { ad: "Öz Değerlendirme Formu", url: "/indirilebilir/bolum-01-oz-degerlendirme.html" },
         ].map((dosya) => (
-          <div
-            key={dosya}
-            className="flex items-center justify-between rounded-lg border border-[var(--color-border)] px-4 py-3"
+          <a
+            key={dosya.ad}
+            href={dosya.url}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="flex items-center justify-between rounded-lg border border-[var(--color-border)] px-4 py-3 transition hover:border-sky-300 hover:bg-sky-50 dark:hover:bg-sky-900/10"
           >
-            <span className="text-sm font-medium">{dosya}</span>
-            <span className="rounded bg-gray-200 px-3 py-1 text-xs text-gray-600 dark:bg-gray-700 dark:text-gray-300">
-              Yakın zamanda
+            <span className="text-sm font-medium">{dosya.ad}</span>
+            <span className="rounded bg-sky-100 px-3 py-1 text-xs font-semibold text-sky-700 dark:bg-sky-900/30 dark:text-sky-300">
+              Yazdır / İndir
             </span>
-          </div>
+          </a>
         ))}
       </div>
     </section>

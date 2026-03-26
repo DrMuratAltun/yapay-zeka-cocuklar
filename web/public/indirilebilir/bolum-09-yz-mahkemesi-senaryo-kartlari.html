@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8">
+<title>YZ Mahkemesi Senaryo Kartları - Bölüm 9</title>
+<style>
+  @media print { body { margin: 0; } .no-print { display: none !important; } .page-break { page-break-after: always; } }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: 'Segoe UI', system-ui, -apple-system, sans-serif; color: #1e293b; background: #fff; }
+  .print-btn { position: fixed; top: 20px; right: 20px; background: #3b82f6; color: #fff; border: none; padding: 12px 24px; border-radius: 10px; font-size: 16px; font-weight: 700; cursor: pointer; z-index: 100; box-shadow: 0 4px 12px rgba(0,0,0,0.15); }
+  .print-btn:hover { background: #2563eb; }
+  .header { text-align: center; padding: 30px 20px 20px; border-bottom: 3px solid #f59e0b; margin-bottom: 30px; }
+  .header h1 { font-size: 28px; color: #d97706; }
+  .header p { color: #64748b; margin-top: 8px; font-size: 14px; }
+  .student-info { max-width: 750px; margin: 0 auto 24px; display: flex; gap: 16px; padding: 0 20px; flex-wrap: wrap; }
+  .student-info div { flex: 1; min-width: 180px; }
+  .student-info label { font-size: 12px; color: #64748b; display: block; margin-bottom: 4px; font-weight: 600; }
+  .student-info .field { border-bottom: 2px solid #fcd34d; padding: 6px 2px; min-height: 24px; }
+  .instructions { max-width: 750px; margin: 0 auto 30px; padding: 20px; background: #fffbeb; border-radius: 12px; border-left: 4px solid #f59e0b; }
+  .instructions h2 { font-size: 18px; color: #d97706; margin-bottom: 10px; }
+  .instructions ol { padding-left: 20px; line-height: 1.8; color: #475569; }
+  .content { max-width: 750px; margin: 0 auto; padding: 0 20px 40px; }
+  .scenario-card { border: 2px solid #fcd34d; border-radius: 16px; margin-bottom: 28px; overflow: hidden; page-break-inside: avoid; }
+  .scenario-header { background: linear-gradient(135deg, #fffbeb, #fef3c7); padding: 16px 20px; display: flex; align-items: center; gap: 12px; }
+  .scenario-num { background: #f59e0b; color: #fff; width: 36px; height: 36px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: 18px; flex-shrink: 0; }
+  .scenario-header-text h2 { font-size: 18px; color: #b45309; }
+  .scenario-header-text .tag { display: inline-block; background: #f59e0b; color: #fff; font-size: 11px; font-weight: 700; padding: 2px 10px; border-radius: 20px; margin-top: 4px; }
+  .scenario-body { padding: 20px; }
+  .scenario-text { font-size: 14px; line-height: 1.8; color: #334155; background: #fffbeb; border-radius: 10px; padding: 16px; margin-bottom: 16px; border-left: 4px solid #fbbf24; }
+  .roles-section { margin-bottom: 12px; }
+  .roles-section h3 { font-size: 15px; color: #b45309; margin-bottom: 10px; }
+  .role { display: flex; gap: 10px; margin-bottom: 10px; align-items: flex-start; }
+  .role-icon { font-size: 20px; flex-shrink: 0; margin-top: 2px; }
+  .role-content { flex: 1; }
+  .role-content strong { color: #92400e; font-size: 14px; }
+  .role-content p { font-size: 13px; color: #64748b; margin-top: 2px; }
+  .jury-questions { background: #fef9c3; border-radius: 10px; padding: 14px 16px; }
+  .jury-questions h4 { font-size: 14px; color: #a16207; margin-bottom: 8px; }
+  .jury-questions ul { padding-left: 18px; font-size: 13px; color: #713f12; line-height: 1.8; }
+  .notes-area { border: 1.5px dotted #fcd34d; border-radius: 8px; min-height: 50px; padding: 8px; margin-top: 12px; }
+  .notes-label { font-size: 12px; color: #a16207; font-weight: 600; margin-top: 12px; margin-bottom: 4px; }
+  .footer { text-align: center; padding: 20px; color: #94a3b8; font-size: 11px; border-top: 1px solid #e2e8f0; margin-top: 20px; }
+</style>
+</head>
+<body>
+<button class="print-btn no-print" onclick="window.print()">🖨️ Yazdır / PDF</button>
+
+<div class="header">
+  <h1>⚖️ YZ Mahkemesi Senaryo Kartları</h1>
+  <p>Bölüm 9: YZ ve Etik — Etik İkilem Tartışma Kartları</p>
+</div>
+
+<div class="student-info">
+  <div><label>Adı Soyadı</label><div class="field"></div></div>
+  <div><label>Sınıf / No</label><div class="field"></div></div>
+  <div><label>Tarih</label><div class="field"></div></div>
+</div>
+
+<div class="instructions no-print">
+  <h2>📋 Nasıl Kullanılır?</h2>
+  <ol>
+    <li>Sınıf 3 gruba ayrılır: <strong>Savcı</strong> (YZ'yi suçlayan), <strong>Savunma</strong> (YZ'yi savunan), <strong>Jüri</strong> (karar veren).</li>
+    <li>Her senaryo kartını okuyun ve rollerinize göre argümanlarınızı hazırlayın.</li>
+    <li>Savcı ve savunma sırayla 2'şer dakika konuşur.</li>
+    <li>Jüri sorularını sorar, ardından kararını verir.</li>
+    <li>Karar ve gerekçeyi not alanına yazın.</li>
+  </ol>
+</div>
+
+<div class="content">
+
+  <!-- Senaryo 1 -->
+  <div class="scenario-card">
+    <div class="scenario-header">
+      <div class="scenario-num">1</div>
+      <div class="scenario-header-text">
+        <h2>YZ Tıbbi Yanlış Teşhis</h2>
+        <div class="tag">Sağlık / Güvenlik</div>
+      </div>
+    </div>
+    <div class="scenario-body">
+      <div class="scenario-text">
+        Bir hastanede kullanılan YZ sistemi, bir hastanın röntgen görüntüsünü analiz ederek "sağlıklı" raporu verir. Ancak aslında hastanın ciddi bir rahatsızlığı vardır ve bu durum geç fark edilir. Tedavi gecikmiştir. YZ sistemi %95 doğruluk oranına sahiptir, ancak bu kez hata yapmıştır. Doktor, YZ'nin raporuna güvenmiş ve ek kontrol yapmamıştır.
+      </div>
+      <div class="roles-section">
+        <h3>Roller ve Görevler</h3>
+        <div class="role">
+          <div class="role-icon">🔴</div>
+          <div class="role-content">
+            <strong>Savcı (YZ'yi Suçlayan)</strong>
+            <p>YZ sistemi insan hayatını tehlikeye attı. Tıbbi kararlarda YZ'ye güvenilmemeli. YZ şirketinin sorumluluğu nedir?</p>
+          </div>
+        </div>
+        <div class="role">
+          <div class="role-icon">🟢</div>
+          <div class="role-content">
+            <strong>Savunma (YZ'yi Savunan)</strong>
+            <p>YZ %95 doğruluk oranıyla binlerce hastaya doğru teşhis koydu. Asıl sorumluluk ek kontrol yapmayan doktorda. Hiçbir sistem %100 mükemmel olamaz.</p>
+          </div>
+        </div>
+      </div>
+      <div class="jury-questions">
+        <h4>🟡 Jüri Soruları</h4>
+        <ul>
+          <li>YZ yanlış teşhis koyduğunda kim sorumlu olmalı: YZ şirketi mi, doktor mu, hastane mi?</li>
+          <li>YZ tıpta tamamen yasaklanmalı mı yoksa denetimli mi kullanılmalı?</li>
+          <li>%95 doğruluk oranı yeterli midir?</li>
+        </ul>
+      </div>
+      <div class="notes-label">📝 Jüri Kararı ve Gerekçe:</div>
+      <div class="notes-area"></div>
+    </div>
+  </div>
+
+  <!-- Senaryo 2 -->
+  <div class="scenario-card">
+    <div class="scenario-header">
+      <div class="scenario-num">2</div>
+      <div class="scenario-header-text">
+        <h2>Otonom Araç Kaza Kararı</h2>
+        <div class="tag">Ulaşım / Karar Verme</div>
+      </div>
+    </div>
+    <div class="scenario-body">
+      <div class="scenario-text">
+        Sürücüsüz bir araç, aniden karşısına çıkan bir yayayı fark eder. Frene basarsa araç duramayacak ve yayaya çarpacak. Direksiyonu kırarsa araç kaldırıma çıkacak ve yolcular zarar görecek. YZ sistemi saniyenin onda birinde bir karar vermek zorundadır. Her iki seçenekte de birileri zarar görecektir.
+      </div>
+      <div class="roles-section">
+        <h3>Roller ve Görevler</h3>
+        <div class="role">
+          <div class="role-icon">🔴</div>
+          <div class="role-content">
+            <strong>Savcı</strong>
+            <p>YZ'nin hayat-ölüm kararı verme yetkisi olmamalı. Bu tür kararlar yalnızca insanlara ait olmalı. Otonom araçlar yasaklanmalı.</p>
+          </div>
+        </div>
+        <div class="role">
+          <div class="role-icon">🟢</div>
+          <div class="role-content">
+            <strong>Savunma</strong>
+            <p>İnsan sürücüler de aynı durumda hata yapar. YZ daha hızlı tepki verir ve genel olarak kazaları azaltır. İstatistiksel olarak yollar daha güvenli olur.</p>
+          </div>
+        </div>
+      </div>
+      <div class="jury-questions">
+        <h4>🟡 Jüri Soruları</h4>
+        <ul>
+          <li>YZ, yolcuyu mu yoksa yayayı mı korumalı?</li>
+          <li>Bu kararı kim programlamalı? Mühendis mi, hükümet mi, toplum mu?</li>
+          <li>Otonom araçlar yasal olmalı mı?</li>
+        </ul>
+      </div>
+      <div class="notes-label">📝 Jüri Kararı ve Gerekçe:</div>
+      <div class="notes-area"></div>
+    </div>
+  </div>
+
+  <div class="page-break"></div>
+
+  <!-- Senaryo 3 -->
+  <div class="scenario-card">
+    <div class="scenario-header">
+      <div class="scenario-num">3</div>
+      <div class="scenario-header-text">
+        <h2>YZ ile İşten Çıkarma</h2>
+        <div class="tag">İstihdam / Adalet</div>
+      </div>
+    </div>
+    <div class="scenario-body">
+      <div class="scenario-text">
+        Büyük bir fabrika, üretim hattındaki 200 işçinin yerine YZ kontrollü robotlar kullanmaya karar verir. Robotlar 7/24 çalışabilir, hata yapmaz ve maaş istemez. Fabrika maliyetlerini %40 düşürür, ancak 200 aile gelirini kaybeder. İşçilerin çoğu başka iş bulmakta zorlanır çünkü yeni işler farklı beceriler gerektirir.
+      </div>
+      <div class="roles-section">
+        <h3>Roller ve Görevler</h3>
+        <div class="role">
+          <div class="role-icon">🔴</div>
+          <div class="role-content">
+            <strong>Savcı</strong>
+            <p>200 ailenin hayatı mahvoldu. Şirketler sadece kâr düşünmemeli. YZ'nin işleri alması sınırlandırılmalı.</p>
+          </div>
+        </div>
+        <div class="role">
+          <div class="role-icon">🟢</div>
+          <div class="role-content">
+            <strong>Savunma</strong>
+            <p>Teknolojik ilerleme engellenemez. Ürünler ucuzlar, herkes fayda görür. Devlet yeni meslekler için eğitim programları açmalı.</p>
+          </div>
+        </div>
+      </div>
+      <div class="jury-questions">
+        <h4>🟡 Jüri Soruları</h4>
+        <ul>
+          <li>Şirketlerin işçilere karşı sorumluluğu nedir?</li>
+          <li>YZ nedeniyle işini kaybedenlere kim yardım etmeli?</li>
+          <li>Hangi meslekler YZ'ye bırakılmalı, hangileri insanlarda kalmalı?</li>
+        </ul>
+      </div>
+      <div class="notes-label">📝 Jüri Kararı ve Gerekçe:</div>
+      <div class="notes-area"></div>
+    </div>
+  </div>
+
+  <!-- Senaryo 4 -->
+  <div class="scenario-card">
+    <div class="scenario-header">
+      <div class="scenario-num">4</div>
+      <div class="scenario-header-text">
+        <h2>Deepfake ile Sahte Haber</h2>
+        <div class="tag">Medya / Dezenformasyon</div>
+      </div>
+    </div>
+    <div class="scenario-body">
+      <div class="scenario-text">
+        Bir kişi, YZ kullanarak ünlü bir politikacının hiç söylemediği şeyleri söylüyormuş gibi görünen sahte bir video (deepfake) oluşturur ve sosyal medyada paylaşır. Video milyonlarca kez izlenir ve büyük bir tartışma başlar. Seçim öncesi paylaşılan video, seçim sonuçlarını etkileyebilecek güçtedir. Video sonunda sahte olduğu ortaya çıkar, ancak zaten büyük zarar verilmiştir.
+      </div>
+      <div class="roles-section">
+        <h3>Roller ve Görevler</h3>
+        <div class="role">
+          <div class="role-icon">🔴</div>
+          <div class="role-content">
+            <strong>Savcı</strong>
+            <p>Deepfake teknolojisi demokrasiyi tehdit eder. YZ ile sahte içerik üretmek suç olmalı. Sosyal medya şirketleri bu içerikleri hemen kaldırmalı.</p>
+          </div>
+        </div>
+        <div class="role">
+          <div class="role-icon">🟢</div>
+          <div class="role-content">
+            <strong>Savunma</strong>
+            <p>Teknolojinin kendisi değil, kötüye kullanan kişi suçlu. Deepfake'in sanat, sinema gibi iyi kullanım alanları da var. Çözüm yasaklamak değil, eğitim ve tespit araçları geliştirmek.</p>
+          </div>
+        </div>
+      </div>
+      <div class="jury-questions">
+        <h4>🟡 Jüri Soruları</h4>
+        <ul>
+          <li>Deepfake tamamen yasaklanmalı mı yoksa sadece kötüye kullanımı mı?</li>
+          <li>Sahte videoyu yayan sosyal medya platformu sorumlu mu?</li>
+          <li>Deepfake'i tespit etmek kimin görevi?</li>
+        </ul>
+      </div>
+      <div class="notes-label">📝 Jüri Kararı ve Gerekçe:</div>
+      <div class="notes-area"></div>
+    </div>
+  </div>
+
+  <div class="page-break"></div>
+
+  <!-- Senaryo 5 -->
+  <div class="scenario-card">
+    <div class="scenario-header">
+      <div class="scenario-num">5</div>
+      <div class="scenario-header-text">
+        <h2>YZ Gözetim Kamerası</h2>
+        <div class="tag">Gizlilik / Güvenlik</div>
+      </div>
+    </div>
+    <div class="scenario-body">
+      <div class="scenario-text">
+        Bir şehir, suç oranını düşürmek için tüm sokaklara yüz tanıma özellikli YZ kameraları yerleştirir. Sistem, aranan kişileri anında tespit edebilir. Suç oranı %30 düşer, ancak tüm vatandaşların hareketleri 7/24 takip edilmektedir. Bazı vatandaşlar kameraların kendilerini yanlış tanıdığını ve haksız yere sorgulandığını bildirmektedir.
+      </div>
+      <div class="roles-section">
+        <h3>Roller ve Görevler</h3>
+        <div class="role">
+          <div class="role-icon">🔴</div>
+          <div class="role-content">
+            <strong>Savcı</strong>
+            <p>Bu bir kitlesel gözetim sistemi. İnsanların mahremiyet hakkı ihlal ediliyor. Yanlış tanımalar masum insanları mağdur ediyor.</p>
+          </div>
+        </div>
+        <div class="role">
+          <div class="role-icon">🟢</div>
+          <div class="role-content">
+            <strong>Savunma</strong>
+            <p>Suç oranı %30 düştü, sokaklar daha güvenli. Suçlular yakalanıyor. Güvenlik için mahremiyet bir miktar kısıtlanabilir.</p>
+          </div>
+        </div>
+      </div>
+      <div class="jury-questions">
+        <h4>🟡 Jüri Soruları</h4>
+        <ul>
+          <li>Güvenlik mi yoksa mahremiyet mi daha önemli?</li>
+          <li>Yüz tanıma verileri kimde saklanmalı ve ne kadar süre tutulmalı?</li>
+          <li>Yanlış tanıma sonucu mağdur olan kişilere ne olmalı?</li>
+        </ul>
+      </div>
+      <div class="notes-label">📝 Jüri Kararı ve Gerekçe:</div>
+      <div class="notes-area"></div>
+    </div>
+  </div>
+
+  <!-- Senaryo 6 -->
+  <div class="scenario-card">
+    <div class="scenario-header">
+      <div class="scenario-num">6</div>
+      <div class="scenario-header-text">
+        <h2>YZ Önyargılı Kredi Kararı</h2>
+        <div class="tag">Finans / Önyargı</div>
+      </div>
+    </div>
+    <div class="scenario-body">
+      <div class="scenario-text">
+        Bir banka, kredi başvurularını değerlendirmek için YZ sistemi kullanır. Sistem, geçmiş verilere dayanarak karar verir. Ancak geçmiş verilerde belirli mahallelerde yaşayan insanlara daha az kredi verilmiş olduğu için YZ de bu örüntüyü öğrenmiştir. Sonuç: Aynı gelire ve kredi geçmişine sahip iki kişiden biri sadece yaşadığı mahalle yüzünden kredi alamaz.
+      </div>
+      <div class="roles-section">
+        <h3>Roller ve Görevler</h3>
+        <div class="role">
+          <div class="role-icon">🔴</div>
+          <div class="role-content">
+            <strong>Savcı</strong>
+            <p>YZ mevcut ayrımcılığı sürdürüyor ve güçlendiriyor. Bu dijital ayrımcılıktır. YZ'nin adil olmadığı kanıtlanmıştır.</p>
+          </div>
+        </div>
+        <div class="role">
+          <div class="role-icon">🟢</div>
+          <div class="role-content">
+            <strong>Savunma</strong>
+            <p>YZ veriden öğrenir, asıl sorun veri setindedir. YZ düzeltilebilir ve insan önyargılarından daha objektif olabilir. İnsanlar da aynı önyargıyı yapardı.</p>
+          </div>
+        </div>
+      </div>
+      <div class="jury-questions">
+        <h4>🟡 Jüri Soruları</h4>
+        <ul>
+          <li>Önyargılı veriyle eğitilen YZ sorumlu mu yoksa veriyi toplayan mı?</li>
+          <li>YZ kararlarının gerekçesi şeffaf olmalı mı?</li>
+          <li>Finansal kararlarda YZ kullanımı sınırlandırılmalı mı?</li>
+        </ul>
+      </div>
+      <div class="notes-label">📝 Jüri Kararı ve Gerekçe:</div>
+      <div class="notes-area"></div>
+    </div>
+  </div>
+
+</div>
+
+<div class="footer">Yapay Zeka Macerası — Dr. Murat ALTUN — CC BY-NC-SA 4.0 — yapay-zeka-cocuklar.vercel.app</div>
+</body>
+</html>

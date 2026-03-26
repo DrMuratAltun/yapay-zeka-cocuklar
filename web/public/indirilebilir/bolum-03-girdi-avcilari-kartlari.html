@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8">
+<title>Girdi Avcıları Kartları - Bölüm 3</title>
+<style>
+  @media print { body { margin: 0; } .no-print { display: none !important; } .cards-grid { gap: 10px !important; } }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: 'Segoe UI', system-ui, sans-serif; color: #1e293b; background: #fff; }
+  .print-btn { position: fixed; top: 20px; right: 20px; background: #0891b2; color: #fff; border: none; padding: 12px 24px; border-radius: 10px; font-size: 16px; font-weight: 700; cursor: pointer; z-index: 100; box-shadow: 0 4px 12px rgba(0,0,0,0.15); }
+  .print-btn:hover { background: #0e7490; }
+  .page { max-width: 750px; margin: 0 auto; padding: 30px 20px; }
+  .header { text-align: center; padding-bottom: 20px; border-bottom: 3px solid #0891b2; margin-bottom: 24px; }
+  .header h1 { font-size: 26px; color: #155e75; }
+  .header p { color: #64748b; margin-top: 6px; font-size: 13px; }
+  .instructions { background: #ecfeff; border-radius: 12px; border-left: 4px solid #0891b2; padding: 16px; margin-bottom: 24px; }
+  .instructions p { font-size: 13px; color: #475569; line-height: 1.6; }
+  .section-title { font-size: 16px; font-weight: 700; margin-bottom: 12px; padding: 8px 16px; border-radius: 8px; }
+  .section-dogru { color: #065f46; background: #ecfdf5; border-left: 4px solid #10b981; }
+  .section-yanlis { color: #991b1b; background: #fef2f2; border-left: 4px solid #ef4444; }
+  .section-oznel { color: #92400e; background: #fffbeb; border-left: 4px solid #f59e0b; }
+  .cards-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px; margin-bottom: 28px; }
+  .card { border: 2px dashed #cbd5e1; border-radius: 14px; padding: 14px 10px; text-align: center; min-height: 120px; display: flex; flex-direction: column; align-items: center; justify-content: center; position: relative; }
+  .card .cut-mark { position: absolute; top: -2px; right: -2px; font-size: 10px; color: #94a3b8; }
+  .card .card-icon { font-size: 28px; margin-bottom: 6px; }
+  .card .card-text { font-size: 12px; font-weight: 600; line-height: 1.4; }
+  .card .card-type { font-size: 10px; margin-top: 8px; padding: 2px 10px; border-radius: 20px; font-weight: 700; }
+  .card-dogru { border-color: #10b981; background: #f0fdf4; }
+  .card-dogru .card-type { background: #d1fae5; color: #065f46; }
+  .card-yanlis { border-color: #ef4444; background: #fff5f5; }
+  .card-yanlis .card-type { background: #fee2e2; color: #991b1b; }
+  .card-oznel { border-color: #f59e0b; background: #fffef5; }
+  .card-oznel .card-type { background: #fef3c7; color: #92400e; }
+  .activity { background: #f8fafc; border-radius: 12px; border: 1px solid #e2e8f0; padding: 16px; margin-top: 8px; }
+  .activity h3 { font-size: 14px; color: #0891b2; margin-bottom: 10px; }
+  .activity p { font-size: 12px; color: #64748b; line-height: 1.6; }
+  .footer { text-align: center; padding: 20px; color: #94a3b8; font-size: 11px; border-top: 1px solid #e2e8f0; margin-top: 30px; }
+</style>
+</head>
+<body>
+<button class="print-btn no-print" onclick="window.print()">🖨️ Yazdır / PDF</button>
+
+<div class="page">
+  <div class="header">
+    <h1>🎯 Girdi Avcıları Bilgi Kartları</h1>
+    <p>Bölüm 3: Verinin Gücü — Veri Sınıflandırma Etkinliği</p>
+  </div>
+
+  <div class="instructions">
+    <p><strong>Görev:</strong> Kartları kes ve üç gruba ayır: <strong style="color:#065f46;">Doğru Veri</strong>, <strong style="color:#991b1b;">Yanlış Veri</strong> ve <strong style="color:#92400e;">Öznel Veri</strong>. Bir YZ modeli bu verilerle eğitilse ne olurdu? Tartış!</p>
+  </div>
+
+  <div class="section-title section-dogru">✅ Doğru Veri (Nesnel Gerçekler)</div>
+  <div class="cards-grid">
+    <div class="card card-dogru">
+      <span class="cut-mark">✂️</span>
+      <div class="card-icon">🏙️</div>
+      <div class="card-text">İstanbul'un nüfusu yaklaşık 16 milyondur</div>
+      <div class="card-type">DOĞRU</div>
+    </div>
+    <div class="card card-dogru">
+      <span class="cut-mark">✂️</span>
+      <div class="card-icon">🌡️</div>
+      <div class="card-text">Su 100°C'de kaynar</div>
+      <div class="card-type">DOĞRU</div>
+    </div>
+    <div class="card card-dogru">
+      <span class="cut-mark">✂️</span>
+      <div class="card-icon">🌍</div>
+      <div class="card-text">Dünya Güneş'in etrafında döner</div>
+      <div class="card-type">DOĞRU</div>
+    </div>
+    <div class="card card-dogru">
+      <span class="cut-mark">✂️</span>
+      <div class="card-icon">🦴</div>
+      <div class="card-text">İnsan vücudunda 206 kemik vardır</div>
+      <div class="card-type">DOĞRU</div>
+    </div>
+    <div class="card card-dogru">
+      <span class="cut-mark">✂️</span>
+      <div class="card-icon">🇹🇷</div>
+      <div class="card-text">Türkiye'nin başkenti Ankara'dır</div>
+      <div class="card-type">DOĞRU</div>
+    </div>
+    <div class="card card-dogru">
+      <span class="cut-mark">✂️</span>
+      <div class="card-icon">🔢</div>
+      <div class="card-text">Pi sayısı 3,14159... ile başlar</div>
+      <div class="card-type">DOĞRU</div>
+    </div>
+    <div class="card card-dogru">
+      <span class="cut-mark">✂️</span>
+      <div class="card-icon">☀️</div>
+      <div class="card-text">Güneş bir yıldızdır</div>
+      <div class="card-type">DOĞRU</div>
+    </div>
+  </div>
+
+  <div class="section-title section-yanlis">❌ Yanlış Veri (Hatalı Bilgiler)</div>
+  <div class="cards-grid">
+    <div class="card card-yanlis">
+      <span class="cut-mark">✂️</span>
+      <div class="card-icon">🌏</div>
+      <div class="card-text">Dünya düzdür</div>
+      <div class="card-type">YANLIŞ</div>
+    </div>
+    <div class="card card-yanlis">
+      <span class="cut-mark">✂️</span>
+      <div class="card-icon">👴</div>
+      <div class="card-text">İnsanlar 300 yıl yaşar</div>
+      <div class="card-type">YANLIŞ</div>
+    </div>
+    <div class="card card-yanlis">
+      <span class="cut-mark">✂️</span>
+      <div class="card-icon">🐟</div>
+      <div class="card-text">Balıklar ağaçlarda yaşar</div>
+      <div class="card-type">YANLIŞ</div>
+    </div>
+    <div class="card card-yanlis">
+      <span class="cut-mark">✂️</span>
+      <div class="card-icon">🌙</div>
+      <div class="card-text">Ay Dünya'dan büyüktür</div>
+      <div class="card-type">YANLIŞ</div>
+    </div>
+    <div class="card card-yanlis">
+      <span class="cut-mark">✂️</span>
+      <div class="card-icon">💧</div>
+      <div class="card-text">Su ateşten yapılır</div>
+      <div class="card-type">YANLIŞ</div>
+    </div>
+    <div class="card card-yanlis">
+      <span class="cut-mark">✂️</span>
+      <div class="card-icon">🦁</div>
+      <div class="card-text">Aslanlar ot yer</div>
+      <div class="card-type">YANLIŞ</div>
+    </div>
+  </div>
+
+  <div class="section-title section-oznel">🤔 Öznel Veri (Kişisel Görüşler)</div>
+  <div class="cards-grid">
+    <div class="card card-oznel">
+      <span class="cut-mark">✂️</span>
+      <div class="card-icon">🍫</div>
+      <div class="card-text">Çikolata en güzel tatlıdır</div>
+      <div class="card-type">ÖZNEL</div>
+    </div>
+    <div class="card card-oznel">
+      <span class="cut-mark">✂️</span>
+      <div class="card-icon">🔵</div>
+      <div class="card-text">Mavi en güzel renktir</div>
+      <div class="card-type">ÖZNEL</div>
+    </div>
+    <div class="card card-oznel">
+      <span class="cut-mark">✂️</span>
+      <div class="card-icon">⚽</div>
+      <div class="card-text">Futbol en eğlenceli spordur</div>
+      <div class="card-type">ÖZNEL</div>
+    </div>
+    <div class="card card-oznel">
+      <span class="cut-mark">✂️</span>
+      <div class="card-icon">🌞</div>
+      <div class="card-text">Yaz en güzel mevsimdir</div>
+      <div class="card-type">ÖZNEL</div>
+    </div>
+    <div class="card card-oznel">
+      <span class="cut-mark">✂️</span>
+      <div class="card-icon">📐</div>
+      <div class="card-text">Matematik en zor derstir</div>
+      <div class="card-type">ÖZNEL</div>
+    </div>
+    <div class="card card-oznel">
+      <span class="cut-mark">✂️</span>
+      <div class="card-icon">🐱</div>
+      <div class="card-text">Kediler köpeklerden daha iyidir</div>
+      <div class="card-type">ÖZNEL</div>
+    </div>
+    <div class="card card-oznel">
+      <span class="cut-mark">✂️</span>
+      <div class="card-icon">🎵</div>
+      <div class="card-text">Pop müzik en iyi müziktir</div>
+      <div class="card-type">ÖZNEL</div>
+    </div>
+  </div>
+
+  <div class="activity">
+    <h3>🎮 Nasıl Oynanır?</h3>
+    <p>1. Kartları kesin ve karıştırın. 2. Her öğrenci sırayla bir kart çeksin. 3. Kartın "Doğru", "Yanlış" veya "Öznel" olduğuna karar versin. 4. Sınıf oy birliğiyle onaylasın. 5. Doğru bilene puan! Tartışma sorusu: "Bir YZ bu yanlış verilerle eğitilse ne olurdu?"</p>
+  </div>
+
+  <div class="footer">Yapay Zeka Macerası — Dr. Murat ALTUN — CC BY-NC-SA 4.0 — yapay-zeka-cocuklar.vercel.app</div>
+</div>
+</body>
+</html>

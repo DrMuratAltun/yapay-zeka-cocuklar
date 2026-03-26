@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8">
+<title>Etik Senaryo Kartları - Bölüm 5</title>
+<style>
+  @media print { body { margin: 0; } .no-print { display: none !important; } .page-break { page-break-after: always; } .card { break-inside: avoid; } }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: 'Segoe UI', system-ui, -apple-system, sans-serif; color: #1e293b; background: #fff; }
+  .print-btn { position: fixed; top: 20px; right: 20px; background: #2563eb; color: #fff; border: none; padding: 12px 24px; border-radius: 10px; font-size: 16px; font-weight: 700; cursor: pointer; z-index: 100; box-shadow: 0 4px 12px rgba(0,0,0,0.15); }
+  .print-btn:hover { background: #1d4ed8; }
+  .page { max-width: 700px; margin: 0 auto; padding: 30px 20px; }
+  .header { text-align: center; padding-bottom: 20px; border-bottom: 3px solid #ec4899; margin-bottom: 20px; }
+  .header h1 { font-size: 26px; color: #be185d; }
+  .header p { color: #64748b; margin-top: 6px; font-size: 13px; }
+  .info-row { display: flex; gap: 16px; margin-bottom: 24px; flex-wrap: wrap; }
+  .info-field { flex: 1; min-width: 180px; }
+  .info-field label { display: block; font-size: 11px; font-weight: 700; color: #64748b; margin-bottom: 4px; }
+  .info-field .line { border-bottom: 1.5px solid #cbd5e1; height: 26px; }
+  .instructions { margin-bottom: 30px; padding: 20px; background: #fdf2f8; border-radius: 12px; border-left: 4px solid #ec4899; }
+  .instructions h2 { font-size: 16px; color: #be185d; margin-bottom: 10px; }
+  .instructions ol { padding-left: 20px; line-height: 1.8; color: #475569; font-size: 13px; }
+  .cards-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px; margin-bottom: 30px; }
+  .card { border: 2px dashed #f9a8d4; border-radius: 16px; padding: 18px; position: relative; min-height: 280px; display: flex; flex-direction: column; }
+  .card-number { position: absolute; top: 10px; left: 14px; width: 28px; height: 28px; border-radius: 50%; background: #ec4899; color: #fff; font-size: 13px; font-weight: 700; display: flex; align-items: center; justify-content: center; }
+  .card-emoji { font-size: 32px; text-align: center; margin: 8px 0; }
+  .card-title { font-size: 13px; font-weight: 700; color: #be185d; text-align: center; margin-bottom: 8px; }
+  .card-scenario { font-size: 12px; color: #334155; line-height: 1.5; margin-bottom: 12px; background: #fff; padding: 10px; border-radius: 8px; border: 1px solid #fce7f3; }
+  .card-question { text-align: center; margin-bottom: 10px; }
+  .card-question span { display: inline-block; padding: 4px 16px; border-radius: 20px; font-size: 12px; font-weight: 700; }
+  .ethical { background: #dcfce7; color: #16a34a; border: 2px solid #86efac; }
+  .unethical { background: #fee2e2; color: #dc2626; border: 2px solid #fca5a5; }
+  .maybe { background: #fef3c7; color: #d97706; border: 2px solid #fde68a; }
+  .card-discuss { font-size: 11px; color: #64748b; margin-top: auto; }
+  .card-discuss strong { color: #be185d; }
+  .footer { text-align: center; padding: 20px; color: #94a3b8; font-size: 11px; border-top: 1px solid #e2e8f0; margin-top: 30px; }
+</style>
+</head>
+<body>
+<button class="print-btn no-print" onclick="window.print()">🖨️ Yazdır / PDF</button>
+<div class="page">
+  <div class="header">
+    <h1>⚖️ Etik Senaryo Kartları</h1>
+    <p>Bölüm 5: Üretken Yapay Zeka — Etik ve Sorumluluk</p>
+  </div>
+  <div class="info-row">
+    <div class="info-field"><label>Adı Soyadı:</label><div class="line"></div></div>
+    <div class="info-field"><label>Sınıf / No:</label><div class="line"></div></div>
+    <div class="info-field"><label>Tarih:</label><div class="line"></div></div>
+  </div>
+
+  <div class="instructions no-print">
+    <h2>📋 Nasıl Kullanılır?</h2>
+    <ol>
+      <li>Her kartı dikkatlice okuyun ve senaryoyu anlayın.</li>
+      <li>"Etik mi?" sorusunu tartışın: Etik ✅, Etik Değil ❌, Tartışılır ⚠️</li>
+      <li>Tartışma sorularını grupça cevaplayın.</li>
+      <li>Sınıfça farklı görüşleri paylaşın.</li>
+    </ol>
+  </div>
+
+  <div class="cards-grid">
+    <div class="card">
+      <div class="card-number">1</div>
+      <div class="card-emoji">📚</div>
+      <div class="card-title">YZ ile Ödev Yapma</div>
+      <div class="card-scenario">Elif, kompozisyon ödevini tamamen yapay zekaya yazdırdı ve kendi adıyla teslim etti. Hiçbir değişiklik yapmadı.</div>
+      <div class="card-question"><span class="ethical">Etik ✅</span> <span class="unethical">Etik Değil ❌</span> <span class="maybe">Tartışılır ⚠️</span></div>
+      <div class="card-discuss"><strong>Tartışma:</strong> Elif YZ'yi bir yardımcı olarak kullansaydı ne farklı yapardı?</div>
+    </div>
+
+    <div class="card">
+      <div class="card-number">2</div>
+      <div class="card-emoji">🤥</div>
+      <div class="card-title">YZ'nin Yanlış Bilgi Vermesi</div>
+      <div class="card-scenario">Can, YZ'den aldığı bilgiyi kontrol etmeden sunum yaptı. Bilgiler yanlış çıktı ve sınıf yanlış öğrendi.</div>
+      <div class="card-question"><span class="ethical">Etik ✅</span> <span class="unethical">Etik Değil ❌</span> <span class="maybe">Tartışılır ⚠️</span></div>
+      <div class="card-discuss"><strong>Tartışma:</strong> YZ'den gelen bilgileri nasıl doğrulayabiliriz?</div>
+    </div>
+
+    <div class="card">
+      <div class="card-number">3</div>
+      <div class="card-emoji">🎭</div>
+      <div class="card-title">Deepfake Kullanımı</div>
+      <div class="card-scenario">Ahmet, arkadaşının yüzünü komik bir videoya yapay zeka ile yerleştirdi ve sınıf grubunda paylaştı. Arkadaşı çok üzüldü.</div>
+      <div class="card-question"><span class="ethical">Etik ✅</span> <span class="unethical">Etik Değil ❌</span> <span class="maybe">Tartışılır ⚠️</span></div>
+      <div class="card-discuss"><strong>Tartışma:</strong> İzin almadan birinin görüntüsünü kullanmak neden sakıncalı?</div>
+    </div>
+
+    <div class="card">
+      <div class="card-number">4</div>
+      <div class="card-emoji">🎨</div>
+      <div class="card-title">YZ ile Sanat Üretimi</div>
+      <div class="card-scenario">Zeynep, YZ ile oluşturduğu bir resmi sanat yarışmasına gönderdi ve birinci oldu. Resmi YZ'nin yaptığını söylemedi.</div>
+      <div class="card-question"><span class="ethical">Etik ✅</span> <span class="unethical">Etik Değil ❌</span> <span class="maybe">Tartışılır ⚠️</span></div>
+      <div class="card-discuss"><strong>Tartışma:</strong> YZ ile üretilen sanat kimin eseri sayılmalı?</div>
+    </div>
+
+    <div class="card">
+      <div class="card-number">5</div>
+      <div class="card-emoji">🔍</div>
+      <div class="card-title">YZ ile Araştırma Yardımı</div>
+      <div class="card-scenario">Mert, proje ödevinde YZ'den konuyu araştırmasını istedi, sonuçları kendi cümleleriyle yeniden yazdı ve kaynakça ekledi.</div>
+      <div class="card-question"><span class="ethical">Etik ✅</span> <span class="unethical">Etik Değil ❌</span> <span class="maybe">Tartışılır ⚠️</span></div>
+      <div class="card-discuss"><strong>Tartışma:</strong> YZ'yi araştırma aracı olarak kullanmak ile kopya çekmek arasındaki fark nedir?</div>
+    </div>
+
+    <div class="card">
+      <div class="card-number">6</div>
+      <div class="card-emoji">💬</div>
+      <div class="card-title">YZ Sohbet Robotu</div>
+      <div class="card-scenario">Bir şirket, müşteri hizmetlerinde YZ kullanıyor ama müşterilere gerçek bir insanla konuştuklarını söylüyor.</div>
+      <div class="card-question"><span class="ethical">Etik ✅</span> <span class="unethical">Etik Değil ❌</span> <span class="maybe">Tartışılır ⚠️</span></div>
+      <div class="card-discuss"><strong>Tartışma:</strong> İnsanların YZ ile konuştuğunu bilme hakkı var mı?</div>
+    </div>
+
+    <div class="card">
+      <div class="card-number">7</div>
+      <div class="card-emoji">📰</div>
+      <div class="card-title">YZ ile Sahte Haber</div>
+      <div class="card-scenario">Bir web sitesi, YZ ile tamamen uydurma haber makaleleri üretiyor ve gerçekmiş gibi yayınlıyor.</div>
+      <div class="card-question"><span class="ethical">Etik ✅</span> <span class="unethical">Etik Değil ❌</span> <span class="maybe">Tartışılır ⚠️</span></div>
+      <div class="card-discuss"><strong>Tartışma:</strong> YZ ile üretilen içeriklerin etiketlenmesi gerekli mi?</div>
+    </div>
+
+    <div class="card">
+      <div class="card-number">8</div>
+      <div class="card-emoji">🏥</div>
+      <div class="card-title">YZ ve Sağlık Tavsiyesi</div>
+      <div class="card-scenario">Ayşe, kendini hasta hissedince doktora gitmek yerine YZ sohbet robotuna belirtilerini yazıp ilaç tavsiyesi aldı.</div>
+      <div class="card-question"><span class="ethical">Etik ✅</span> <span class="unethical">Etik Değil ❌</span> <span class="maybe">Tartışılır ⚠️</span></div>
+      <div class="card-discuss"><strong>Tartışma:</strong> YZ'nin sağlık konusunda tavsiyeleri ne kadar güvenilir? Hangi konularda uzman yardımı şart?</div>
+    </div>
+  </div>
+</div>
+<div class="footer">Yapay Zeka Macerası — Dr. Murat ALTUN — CC BY-NC-SA 4.0 — yapay-zeka-cocuklar.vercel.app</div>
+</body>
+</html>

@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8">
+<title>ML for Kids Adım Adım Rehber - Bölüm 6</title>
+<style>
+  @media print { body { margin: 0; } .no-print { display: none !important; } .page-break { page-break-after: always; } }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: 'Segoe UI', system-ui, -apple-system, sans-serif; color: #1e293b; background: #fff; }
+  .print-btn { position: fixed; top: 20px; right: 20px; background: #2563eb; color: #fff; border: none; padding: 12px 24px; border-radius: 10px; font-size: 16px; font-weight: 700; cursor: pointer; z-index: 100; box-shadow: 0 4px 12px rgba(0,0,0,0.15); }
+  .print-btn:hover { background: #1d4ed8; }
+  .page { max-width: 700px; margin: 0 auto; padding: 30px 20px; }
+  .header { text-align: center; padding-bottom: 20px; border-bottom: 3px solid #3b82f6; margin-bottom: 20px; }
+  .header h1 { font-size: 26px; color: #1d4ed8; }
+  .header p { color: #64748b; margin-top: 6px; font-size: 13px; }
+  .info-row { display: flex; gap: 16px; margin-bottom: 24px; flex-wrap: wrap; }
+  .info-field { flex: 1; min-width: 180px; }
+  .info-field label { display: block; font-size: 11px; font-weight: 700; color: #64748b; margin-bottom: 4px; }
+  .info-field .line { border-bottom: 1.5px solid #cbd5e1; height: 26px; }
+  .section-title { font-size: 16px; font-weight: 700; color: #1d4ed8; margin: 30px 0 16px; padding-bottom: 8px; border-bottom: 2px solid #dbeafe; }
+  .intro-box { background: #eff6ff; border-radius: 12px; padding: 20px; margin-bottom: 24px; border-left: 4px solid #3b82f6; }
+  .intro-box h2 { font-size: 16px; color: #1d4ed8; margin-bottom: 8px; }
+  .intro-box p { font-size: 13px; color: #475569; line-height: 1.6; }
+  .url-box { background: #dbeafe; border-radius: 8px; padding: 10px 16px; margin-top: 10px; font-family: monospace; font-size: 13px; color: #1d4ed8; text-align: center; font-weight: 700; }
+  .step { display: flex; gap: 16px; margin-bottom: 20px; padding: 16px; background: #f8fafc; border-radius: 12px; border: 1px solid #e2e8f0; }
+  .step-num { width: 40px; height: 40px; border-radius: 50%; background: #3b82f6; color: #fff; font-size: 18px; font-weight: 700; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+  .step-content { flex: 1; }
+  .step-content h3 { font-size: 14px; color: #1d4ed8; margin-bottom: 6px; }
+  .step-content p { font-size: 12px; color: #475569; line-height: 1.6; }
+  .step-content ul { font-size: 12px; color: #475569; line-height: 1.8; padding-left: 16px; margin-top: 6px; }
+  .step-content .tip { background: #fef3c7; border-radius: 6px; padding: 8px 12px; font-size: 11px; color: #92400e; margin-top: 8px; }
+  .step-content .warning { background: #fee2e2; border-radius: 6px; padding: 8px 12px; font-size: 11px; color: #dc2626; margin-top: 8px; }
+  .project-types { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; margin-bottom: 24px; }
+  .project-type { text-align: center; padding: 16px 10px; background: #eff6ff; border-radius: 12px; border: 2px solid #bfdbfe; }
+  .project-type .icon { font-size: 28px; margin-bottom: 6px; }
+  .project-type .name { font-size: 12px; font-weight: 700; color: #1d4ed8; }
+  .project-type .desc { font-size: 10px; color: #64748b; margin-top: 4px; }
+  .notes-area { margin-top: 20px; padding: 16px; border: 2px dashed #93c5fd; border-radius: 12px; min-height: 120px; }
+  .notes-area h3 { font-size: 13px; color: #1d4ed8; margin-bottom: 8px; }
+  .note-line { border-bottom: 1.5px solid #e2e8f0; height: 28px; }
+  .footer { text-align: center; padding: 20px; color: #94a3b8; font-size: 11px; border-top: 1px solid #e2e8f0; margin-top: 30px; }
+</style>
+</head>
+<body>
+<button class="print-btn no-print" onclick="window.print()">🖨️ Yazdır / PDF</button>
+<div class="page">
+  <div class="header">
+    <h1>🤖 ML for Kids — Adım Adım Rehber</h1>
+    <p>Bölüm 6: Blok Tabanlı YZ Kodlama — Makine Öğrenmesi</p>
+  </div>
+  <div class="info-row">
+    <div class="info-field"><label>Adı Soyadı:</label><div class="line"></div></div>
+    <div class="info-field"><label>Sınıf / No:</label><div class="line"></div></div>
+    <div class="info-field"><label>Tarih:</label><div class="line"></div></div>
+  </div>
+
+  <div class="intro-box">
+    <h2>ML for Kids Nedir?</h2>
+    <p>ML for Kids (Machine Learning for Kids), çocuklara makine öğrenmesi kavramlarını öğreten ücretsiz bir web platformudur. Metin, görüntü veya sayı verilerini kullanarak kendi modelinizi eğitebilir ve Scratch'te kullanabilirsiniz.</p>
+    <div class="url-box">machinelearningforkids.co.uk</div>
+  </div>
+
+  <div class="section-title">📁 Proje Türleri</div>
+  <div class="project-types">
+    <div class="project-type">
+      <div class="icon">📝</div>
+      <div class="name">Metin Tanıma</div>
+      <div class="desc">Cümleleri sınıflandır</div>
+    </div>
+    <div class="project-type">
+      <div class="icon">🖼️</div>
+      <div class="name">Görüntü Tanıma</div>
+      <div class="desc">Resimleri tanı</div>
+    </div>
+    <div class="project-type">
+      <div class="icon">🔢</div>
+      <div class="name">Sayı Tanıma</div>
+      <div class="desc">Sayısal verilerle çalış</div>
+    </div>
+  </div>
+
+  <div class="section-title">📋 Adım Adım Kılavuz</div>
+
+  <div class="step">
+    <div class="step-num">1</div>
+    <div class="step-content">
+      <h3>Hesap Oluştur / Giriş Yap</h3>
+      <ul>
+        <li><strong>machinelearningforkids.co.uk</strong> adresine git</li>
+        <li><strong>"Get Started"</strong> butonuna tıkla</li>
+        <li><strong>"Try it now"</strong> ile hesapsız dene veya öğretmeninden sınıf hesabı al</li>
+      </ul>
+      <div class="tip">💡 İpucu: Öğretmenin sınıf hesabı oluşturursa projelerini kaydedebilirsin!</div>
+    </div>
+  </div>
+
+  <div class="step">
+    <div class="step-num">2</div>
+    <div class="step-content">
+      <h3>Yeni Proje Oluştur</h3>
+      <ul>
+        <li><strong>"+ Add a new project"</strong> butonuna tıkla</li>
+        <li>Projeye bir isim ver (ör: "Duygu Tanıma")</li>
+        <li>Veri türünü seç: <strong>Metin, Görüntü</strong> veya <strong>Sayı</strong></li>
+        <li><strong>"Create"</strong> butonuna tıkla</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="step">
+    <div class="step-num">3</div>
+    <div class="step-content">
+      <h3>Eğitim Verisi Ekle (Train)</h3>
+      <ul>
+        <li>Projenin <strong>"Train"</strong> sekmesine git</li>
+        <li><strong>"+ Add new label"</strong> ile sınıflar (etiketler) oluştur</li>
+        <li>Her sınıfa <strong>en az 5 örnek</strong> ekle</li>
+        <li>Metin projesi: Cümle yaz | Görüntü projesi: Resim yükle</li>
+      </ul>
+      <div class="warning">⚠️ Örnekler çeşitli olmalı — hep aynı cümleyi yazma!</div>
+    </div>
+  </div>
+
+  <div class="step">
+    <div class="step-num">4</div>
+    <div class="step-content">
+      <h3>Modeli Eğit (Learn & Test)</h3>
+      <ul>
+        <li><strong>"Learn & Test"</strong> sekmesine git</li>
+        <li><strong>"Train new machine learning model"</strong> butonuna tıkla</li>
+        <li>Eğitimin tamamlanmasını bekle (birkaç dakika sürebilir)</li>
+        <li>Test alanına yeni örnekler girerek modeli dene</li>
+      </ul>
+      <div class="tip">💡 Model iyi çalışmıyorsa daha fazla örnek ekleyip tekrar eğit!</div>
+    </div>
+  </div>
+
+  <div class="step">
+    <div class="step-num">5</div>
+    <div class="step-content">
+      <h3>Scratch'te Kullan (Make)</h3>
+      <ul>
+        <li><strong>"Make"</strong> sekmesine git</li>
+        <li><strong>"Scratch 3"</strong> butonuna tıkla</li>
+        <li>Scratch editörü açılacak — projeye özel YZ blokları hazır!</li>
+        <li><strong>"recognise ... (label)"</strong> bloğunu kullanarak sınıflandırma yap</li>
+        <li>Sonuca göre karakter hareketleri, sesler veya görüntüler ekle</li>
+        <li>Yeşil bayrak ile projeyi çalıştır!</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="page-break"></div>
+
+  <div class="notes-area">
+    <h3>📝 Proje Notlarım</h3>
+    <p style="font-size:11px;color:#64748b;margin-bottom:10px;">Projende ne sınıflandırdın? Kaç sınıf oluşturdun? Model ne kadar doğru çalıştı?</p>
+    <div class="note-line"></div>
+    <div class="note-line"></div>
+    <div class="note-line"></div>
+    <div class="note-line"></div>
+    <div class="note-line"></div>
+    <div class="note-line"></div>
+    <div class="note-line"></div>
+    <div class="note-line"></div>
+  </div>
+</div>
+<div class="footer">Yapay Zeka Macerası — Dr. Murat ALTUN — CC BY-NC-SA 4.0 — yapay-zeka-cocuklar.vercel.app</div>
+</body>
+</html>

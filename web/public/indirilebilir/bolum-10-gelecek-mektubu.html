@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8">
+<title>Gelecekteki Bana Mektup - Bölüm 10</title>
+<style>
+  @media print { body { margin: 0; } .no-print { display: none !important; } .page-break { page-break-after: always; } }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: 'Segoe UI', system-ui, -apple-system, sans-serif; color: #1e293b; background: #fff; }
+  .print-btn { position: fixed; top: 20px; right: 20px; background: #3b82f6; color: #fff; border: none; padding: 12px 24px; border-radius: 10px; font-size: 16px; font-weight: 700; cursor: pointer; z-index: 100; box-shadow: 0 4px 12px rgba(0,0,0,0.15); }
+  .print-btn:hover { background: #2563eb; }
+  .header { text-align: center; padding: 30px 20px 20px; border-bottom: 3px solid #6366f1; margin-bottom: 30px; }
+  .header h1 { font-size: 28px; color: #4f46e5; }
+  .header p { color: #64748b; margin-top: 8px; font-size: 14px; }
+  .student-info { max-width: 700px; margin: 0 auto 24px; display: flex; gap: 16px; padding: 0 20px; flex-wrap: wrap; }
+  .student-info div { flex: 1; min-width: 180px; }
+  .student-info label { font-size: 12px; color: #64748b; display: block; margin-bottom: 4px; font-weight: 600; }
+  .student-info .field { border-bottom: 2px solid #a5b4fc; padding: 6px 2px; min-height: 24px; }
+
+  .letter-container { max-width: 700px; margin: 0 auto; padding: 0 20px 40px; }
+
+  .letter-frame { border: 3px solid #6366f1; border-radius: 20px; padding: 40px; position: relative; background: linear-gradient(180deg, #fafafe 0%, #fff 100%); min-height: 800px; }
+  .letter-frame::before { content: ''; position: absolute; top: 8px; left: 8px; right: 8px; bottom: 8px; border: 1.5px solid #c7d2fe; border-radius: 14px; pointer-events: none; }
+
+  .corner { position: absolute; font-size: 24px; opacity: 0.3; }
+  .corner.tl { top: 16px; left: 16px; }
+  .corner.tr { top: 16px; right: 16px; }
+  .corner.bl { bottom: 16px; left: 16px; }
+  .corner.br { bottom: 16px; right: 16px; }
+
+  .letter-date { text-align: right; margin-bottom: 24px; padding-right: 10px; }
+  .letter-date-field { border-bottom: 2px solid #a5b4fc; min-width: 180px; display: inline-block; min-height: 24px; }
+  .letter-date label { font-size: 13px; color: #6366f1; margin-right: 8px; }
+
+  .letter-greeting { font-size: 20px; color: #4338ca; font-weight: 700; margin-bottom: 24px; font-style: italic; }
+
+  .letter-intro { font-size: 14px; color: #64748b; line-height: 1.7; margin-bottom: 24px; background: #eef2ff; border-radius: 10px; padding: 16px; border-left: 4px solid #6366f1; }
+
+  .letter-section { margin-bottom: 24px; }
+  .letter-question { font-size: 15px; color: #4338ca; font-weight: 700; margin-bottom: 10px; display: flex; align-items: center; gap: 8px; }
+  .letter-question .icon { font-size: 20px; }
+  .letter-lines { padding-left: 4px; }
+  .letter-line { border-bottom: 1.5px dotted #c7d2fe; min-height: 30px; margin-bottom: 2px; }
+
+  .seal-area { text-align: center; margin-top: 40px; padding-top: 20px; border-top: 2px dashed #c7d2fe; }
+  .seal-circle { width: 100px; height: 100px; border: 3px solid #6366f1; border-radius: 50%; margin: 0 auto 12px; display: flex; align-items: center; justify-content: center; flex-direction: column; }
+  .seal-circle .seal-icon { font-size: 28px; }
+  .seal-circle .seal-text { font-size: 8px; color: #6366f1; font-weight: 700; margin-top: 2px; }
+  .seal-label { font-size: 12px; color: #64748b; margin-bottom: 16px; }
+
+  .signature-area { display: flex; justify-content: space-between; align-items: flex-end; margin-top: 30px; }
+  .sig-box { text-align: center; }
+  .sig-box label { font-size: 12px; color: #64748b; display: block; margin-bottom: 4px; }
+  .sig-line { border-bottom: 2px solid #a5b4fc; min-width: 180px; min-height: 30px; }
+
+  .footer { text-align: center; padding: 20px; color: #94a3b8; font-size: 11px; border-top: 1px solid #e2e8f0; margin-top: 20px; }
+</style>
+</head>
+<body>
+<button class="print-btn no-print" onclick="window.print()">🖨️ Yazdır / PDF</button>
+
+<div class="header">
+  <h1>💌 Gelecekteki Bana Mektup</h1>
+  <p>Bölüm 10: Gelecek Seninle Başlar — Zaman Kapsülü</p>
+</div>
+
+<div class="student-info">
+  <div><label>Adı Soyadı</label><div class="field"></div></div>
+  <div><label>Sınıf / No</label><div class="field"></div></div>
+  <div><label>Tarih</label><div class="field"></div></div>
+</div>
+
+<div class="letter-container">
+  <div class="letter-frame">
+    <div class="corner tl">✦</div>
+    <div class="corner tr">✦</div>
+    <div class="corner bl">✦</div>
+    <div class="corner br">✦</div>
+
+    <div class="letter-date">
+      <label>Tarih:</label>
+      <div class="letter-date-field"></div>
+    </div>
+
+    <div class="letter-greeting">Sevgili Gelecekteki Ben,</div>
+
+    <div class="letter-intro">
+      Bu mektubu sana, yapay zeka macerası eğitimini tamamladığım gün yazıyorum. Bir yıl sonra bu mektubu açtığında, bugünkü düşüncelerimi okuyacak ve ne kadar değiştiğini göreceksin!
+    </div>
+
+    <div class="letter-section">
+      <div class="letter-question"><span class="icon">🧠</span> YZ hakkında ne öğrendim?</div>
+      <div class="letter-lines">
+        <div class="letter-line"></div>
+        <div class="letter-line"></div>
+        <div class="letter-line"></div>
+        <div class="letter-line"></div>
+      </div>
+    </div>
+
+    <div class="letter-section">
+      <div class="letter-question"><span class="icon">🌟</span> Beni en çok etkileyen şey ne oldu?</div>
+      <div class="letter-lines">
+        <div class="letter-line"></div>
+        <div class="letter-line"></div>
+        <div class="letter-line"></div>
+      </div>
+    </div>
+
+    <div class="letter-section">
+      <div class="letter-question"><span class="icon">🚀</span> Gelecekte YZ ile ne yapmak istiyorum?</div>
+      <div class="letter-lines">
+        <div class="letter-line"></div>
+        <div class="letter-line"></div>
+        <div class="letter-line"></div>
+        <div class="letter-line"></div>
+      </div>
+    </div>
+
+    <div class="letter-section">
+      <div class="letter-question"><span class="icon">🤖</span> YZ'yi hayatımda nasıl kullanacağım?</div>
+      <div class="letter-lines">
+        <div class="letter-line"></div>
+        <div class="letter-line"></div>
+        <div class="letter-line"></div>
+      </div>
+    </div>
+
+    <div class="letter-section">
+      <div class="letter-question"><span class="icon">🎯</span> Bir yıl sonra hedeflerim neler?</div>
+      <div class="letter-lines">
+        <div class="letter-line"></div>
+        <div class="letter-line"></div>
+        <div class="letter-line"></div>
+        <div class="letter-line"></div>
+      </div>
+    </div>
+
+    <div class="seal-area">
+      <div class="seal-circle">
+        <div class="seal-icon">🕰️</div>
+        <div class="seal-text">ZAMAN KAPSULU</div>
+      </div>
+      <div class="seal-label">Bu mektubu kapatın ve 1 yıl sonra açın!</div>
+    </div>
+
+    <div class="signature-area">
+      <div class="sig-box">
+        <label>İmza</label>
+        <div class="sig-line"></div>
+      </div>
+      <div class="sig-box">
+        <label>Açılma Tarihi</label>
+        <div class="sig-line"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="footer">Yapay Zeka Macerası — Dr. Murat ALTUN — CC BY-NC-SA 4.0 — yapay-zeka-cocuklar.vercel.app</div>
+</body>
+</html>

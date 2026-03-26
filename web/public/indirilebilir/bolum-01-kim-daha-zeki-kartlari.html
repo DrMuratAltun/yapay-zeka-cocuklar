@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8">
+<title>Kim Daha Zeki? Kart Seti - Bölüm 1</title>
+<style>
+  @media print { body { margin: 0; } .no-print { display: none !important; } .page-break { page-break-after: always; } }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: 'Segoe UI', system-ui, -apple-system, sans-serif; color: #1e293b; background: #fff; }
+  .print-btn { position: fixed; top: 20px; right: 20px; background: #0ea5e9; color: #fff; border: none; padding: 12px 24px; border-radius: 10px; font-size: 16px; font-weight: 700; cursor: pointer; z-index: 100; box-shadow: 0 4px 12px rgba(0,0,0,0.15); }
+  .print-btn:hover { background: #0284c7; }
+  .header { text-align: center; padding: 30px 20px 20px; border-bottom: 3px solid #0ea5e9; margin-bottom: 30px; }
+  .header h1 { font-size: 28px; color: #0369a1; }
+  .header p { color: #64748b; margin-top: 8px; font-size: 14px; }
+  .instructions { max-width: 700px; margin: 0 auto 30px; padding: 20px; background: #f0f9ff; border-radius: 12px; border-left: 4px solid #0ea5e9; }
+  .instructions h2 { font-size: 18px; color: #0369a1; margin-bottom: 10px; }
+  .instructions ol { padding-left: 20px; line-height: 1.8; color: #475569; }
+  .cards-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px; max-width: 700px; margin: 0 auto; padding: 0 20px 40px; }
+  .card { border: 2px dashed #cbd5e1; border-radius: 16px; padding: 24px; text-align: center; min-height: 180px; display: flex; flex-direction: column; justify-content: center; align-items: center; }
+  .card-emoji { font-size: 40px; margin-bottom: 12px; }
+  .card-task { font-size: 16px; font-weight: 700; margin-bottom: 8px; }
+  .card-hint { font-size: 12px; color: #64748b; }
+  .card-choice { display: flex; gap: 10px; margin-top: 12px; }
+  .card-choice span { padding: 4px 14px; border-radius: 20px; font-size: 11px; font-weight: 600; border: 2px solid; }
+  .human { border-color: #22c55e; color: #16a34a; }
+  .machine { border-color: #3b82f6; color: #2563eb; }
+  .footer { text-align: center; padding: 20px; color: #94a3b8; font-size: 11px; border-top: 1px solid #e2e8f0; margin-top: 20px; }
+</style>
+</head>
+<body>
+<button class="print-btn no-print" onclick="window.print()">🖨️ Yazdır / PDF</button>
+
+<div class="header">
+  <h1>🤖 Kim Daha Zeki?</h1>
+  <p>Bölüm 1: Yapay Zeka Nedir? — Etkinlik Kartları</p>
+</div>
+
+<div class="instructions no-print">
+  <h2>📋 Nasıl Kullanılır?</h2>
+  <ol>
+    <li>Kartları kesim çizgisinden kesin.</li>
+    <li>Gruplarınızla (3-4 kişi) her kartı tartışın.</li>
+    <li>Her görev için <strong>"İnsan mı yoksa Makine mi daha iyi yapar?"</strong> kararı verin.</li>
+    <li>Cevabınızı ve nedenini kartın arkasına yazın.</li>
+    <li>Sınıfça sonuçları karşılaştırın.</li>
+  </ol>
+</div>
+
+<div class="cards-grid">
+  <div class="card">
+    <div class="card-emoji">🧮</div>
+    <div class="card-task">1.000.000 sayıyı toplamak</div>
+    <div class="card-hint">Hız ve doğruluk önemli</div>
+    <div class="card-choice"><span class="human">İnsan</span><span class="machine">Makine</span></div>
+  </div>
+  <div class="card">
+    <div class="card-emoji">🎨</div>
+    <div class="card-task">Özgün bir tablo çizmek</div>
+    <div class="card-hint">Yaratıcılık ve duygular</div>
+    <div class="card-choice"><span class="human">İnsan</span><span class="machine">Makine</span></div>
+  </div>
+  <div class="card">
+    <div class="card-emoji">♟️</div>
+    <div class="card-task">Satranç oynamak</div>
+    <div class="card-hint">Strateji ve hesaplama</div>
+    <div class="card-choice"><span class="human">İnsan</span><span class="machine">Makine</span></div>
+  </div>
+  <div class="card">
+    <div class="card-emoji">🤗</div>
+    <div class="card-task">Üzgün bir arkadaşı teselli etmek</div>
+    <div class="card-hint">Empati ve duygusal zeka</div>
+    <div class="card-choice"><span class="human">İnsan</span><span class="machine">Makine</span></div>
+  </div>
+  <div class="card">
+    <div class="card-emoji">🌍</div>
+    <div class="card-task">100 dile çeviri yapmak</div>
+    <div class="card-hint">Dil bilgisi ve hız</div>
+    <div class="card-choice"><span class="human">İnsan</span><span class="machine">Makine</span></div>
+  </div>
+  <div class="card">
+    <div class="card-emoji">📸</div>
+    <div class="card-task">1 milyon yüzü tanımak</div>
+    <div class="card-hint">Hafıza ve doğruluk</div>
+    <div class="card-choice"><span class="human">İnsan</span><span class="machine">Makine</span></div>
+  </div>
+  <div class="card">
+    <div class="card-emoji">📖</div>
+    <div class="card-task">Bir hikaye yazmak</div>
+    <div class="card-hint">Hayal gücü ve anlam</div>
+    <div class="card-choice"><span class="human">İnsan</span><span class="machine">Makine</span></div>
+  </div>
+  <div class="card">
+    <div class="card-emoji">🚗</div>
+    <div class="card-task">Trafikte araba sürmek</div>
+    <div class="card-hint">Karar verme ve refleks</div>
+    <div class="card-choice"><span class="human">İnsan</span><span class="machine">Makine</span></div>
+  </div>
+  <div class="card">
+    <div class="card-emoji">🎵</div>
+    <div class="card-task">Bir şarkı bestelemek</div>
+    <div class="card-hint">Müzikal duyarlılık</div>
+    <div class="card-choice"><span class="human">İnsan</span><span class="machine">Makine</span></div>
+  </div>
+  <div class="card">
+    <div class="card-emoji">🏥</div>
+    <div class="card-task">Röntgen filmini incelemek</div>
+    <div class="card-hint">Detay tespiti ve deneyim</div>
+    <div class="card-choice"><span class="human">İnsan</span><span class="machine">Makine</span></div>
+  </div>
+</div>
+
+<div class="footer">
+  Yapay Zeka Macerası — Dr. Murat ALTUN — CC BY-NC-SA 4.0 — yapay-zeka-cocuklar.vercel.app
+</div>
+</body>
+</html>

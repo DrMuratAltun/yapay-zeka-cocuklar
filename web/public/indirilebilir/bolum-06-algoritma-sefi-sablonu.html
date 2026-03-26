@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8">
+<title>Algoritma Şefi - Akış Diyagramı Şablonu - Bölüm 6</title>
+<style>
+  @media print { body { margin: 0; } .no-print { display: none !important; } .page-break { page-break-after: always; } }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: 'Segoe UI', system-ui, -apple-system, sans-serif; color: #1e293b; background: #fff; }
+  .print-btn { position: fixed; top: 20px; right: 20px; background: #2563eb; color: #fff; border: none; padding: 12px 24px; border-radius: 10px; font-size: 16px; font-weight: 700; cursor: pointer; z-index: 100; box-shadow: 0 4px 12px rgba(0,0,0,0.15); }
+  .print-btn:hover { background: #1d4ed8; }
+  .page { max-width: 700px; margin: 0 auto; padding: 30px 20px; }
+  .header { text-align: center; padding-bottom: 20px; border-bottom: 3px solid #3b82f6; margin-bottom: 20px; }
+  .header h1 { font-size: 26px; color: #1d4ed8; }
+  .header p { color: #64748b; margin-top: 6px; font-size: 13px; }
+  .info-row { display: flex; gap: 16px; margin-bottom: 24px; flex-wrap: wrap; }
+  .info-field { flex: 1; min-width: 180px; }
+  .info-field label { display: block; font-size: 11px; font-weight: 700; color: #64748b; margin-bottom: 4px; }
+  .info-field .line { border-bottom: 1.5px solid #cbd5e1; height: 26px; }
+  .section-title { font-size: 16px; font-weight: 700; color: #1d4ed8; margin: 30px 0 16px; padding-bottom: 8px; border-bottom: 2px solid #dbeafe; }
+  .legend { display: flex; flex-wrap: wrap; gap: 16px; margin-bottom: 30px; padding: 20px; background: #eff6ff; border-radius: 12px; border-left: 4px solid #3b82f6; }
+  .legend-item { display: flex; align-items: center; gap: 10px; font-size: 12px; }
+  .shape { display: flex; align-items: center; justify-content: center; font-size: 10px; font-weight: 700; color: #1d4ed8; }
+  .shape-oval { width: 80px; height: 36px; border: 2px solid #3b82f6; border-radius: 50%; }
+  .shape-rect { width: 80px; height: 36px; border: 2px solid #3b82f6; border-radius: 6px; }
+  .shape-diamond { width: 50px; height: 50px; border: 2px solid #3b82f6; transform: rotate(45deg); }
+  .shape-diamond span { transform: rotate(-45deg); display: block; font-size: 9px; }
+  .shape-para { width: 80px; height: 36px; border: 2px solid #3b82f6; border-radius: 4px; transform: skewX(-10deg); }
+  .shape-para span { transform: skewX(10deg); display: block; }
+  .example-flow { background: #f8fafc; border: 2px solid #e2e8f0; border-radius: 16px; padding: 24px; margin-bottom: 30px; }
+  .example-flow h3 { font-size: 14px; color: #1d4ed8; margin-bottom: 16px; text-align: center; }
+  .flow-chart { display: flex; flex-direction: column; align-items: center; gap: 4px; }
+  .flow-node { text-align: center; font-size: 12px; font-weight: 600; padding: 10px 20px; min-width: 160px; }
+  .flow-start { background: #dbeafe; border: 2px solid #3b82f6; border-radius: 50px; color: #1d4ed8; }
+  .flow-process { background: #fff; border: 2px solid #3b82f6; border-radius: 8px; color: #1e293b; }
+  .flow-decision { background: #fef3c7; border: 2px solid #f59e0b; padding: 14px 10px; transform: rotate(45deg); min-width: auto; width: 120px; height: 120px; display: flex; align-items: center; justify-content: center; margin: 10px 0; }
+  .flow-decision span { transform: rotate(-45deg); font-size: 11px; }
+  .flow-end { background: #fee2e2; border: 2px solid #ef4444; border-radius: 50px; color: #dc2626; }
+  .flow-arrow { font-size: 20px; color: #3b82f6; }
+  .flow-branch { display: flex; gap: 60px; align-items: flex-start; margin: 4px 0; }
+  .flow-label { font-size: 10px; color: #64748b; font-weight: 700; }
+  .blank-flow { margin-top: 10px; }
+  .blank-flow h3 { font-size: 14px; color: #1d4ed8; margin-bottom: 8px; }
+  .blank-flow p { font-size: 12px; color: #64748b; margin-bottom: 16px; }
+  .blank-area { width: 100%; min-height: 400px; border: 2px dashed #93c5fd; border-radius: 16px; background: #fafbff; position: relative; }
+  .blank-area .hint { position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); color: #93c5fd; font-size: 14px; text-align: center; }
+  .tarif-field { margin-bottom: 16px; }
+  .tarif-field label { display: block; font-size: 12px; font-weight: 700; color: #1d4ed8; margin-bottom: 4px; }
+  .tarif-line { border-bottom: 1.5px solid #cbd5e1; height: 26px; }
+  .footer { text-align: center; padding: 20px; color: #94a3b8; font-size: 11px; border-top: 1px solid #e2e8f0; margin-top: 30px; }
+</style>
+</head>
+<body>
+<button class="print-btn no-print" onclick="window.print()">🖨️ Yazdır / PDF</button>
+<div class="page">
+  <div class="header">
+    <h1>👨‍🍳 Algoritma Şefi — Akış Diyagramı Şablonu</h1>
+    <p>Bölüm 6: Blok Tabanlı YZ Kodlama — Algoritmik Düşünme</p>
+  </div>
+  <div class="info-row">
+    <div class="info-field"><label>Adı Soyadı:</label><div class="line"></div></div>
+    <div class="info-field"><label>Sınıf / No:</label><div class="line"></div></div>
+    <div class="info-field"><label>Tarih:</label><div class="line"></div></div>
+  </div>
+
+  <div class="section-title">📐 Akış Diyagramı Şekilleri</div>
+  <div class="legend">
+    <div class="legend-item">
+      <div class="shape shape-oval">Başla/Bitir</div>
+      <span>Başlangıç ve bitiş</span>
+    </div>
+    <div class="legend-item">
+      <div class="shape shape-rect">İşlem</div>
+      <span>Yapılacak adım</span>
+    </div>
+    <div class="legend-item">
+      <div class="shape shape-diamond"><span>Karar?</span></div>
+      <span>Evet/Hayır sorusu</span>
+    </div>
+    <div class="legend-item">
+      <div class="shape shape-para"><span>Girdi/Çıktı</span></div>
+      <span>Veri alma/gösterme</span>
+    </div>
+  </div>
+
+  <div class="section-title">🍳 Örnek: Yumurta Pişirme Akış Diyagramı</div>
+  <div class="example-flow">
+    <div class="flow-chart">
+      <div class="flow-node flow-start">BAŞLA</div>
+      <div class="flow-arrow">↓</div>
+      <div class="flow-node flow-process">Tavayı ocağa koy</div>
+      <div class="flow-arrow">↓</div>
+      <div class="flow-node flow-process">Yağ ekle ve ısıt</div>
+      <div class="flow-arrow">↓</div>
+      <div class="flow-node flow-decision"><span>Yağ kızardı mı?</span></div>
+      <div class="flow-branch">
+        <div style="text-align:center"><div class="flow-label">HAYIR</div><div class="flow-arrow">↑</div><div style="font-size:11px;color:#64748b;">Bekle</div></div>
+        <div style="text-align:center"><div class="flow-label">EVET ↓</div></div>
+      </div>
+      <div class="flow-node flow-process">Yumurtayı kır ve tavaya dök</div>
+      <div class="flow-arrow">↓</div>
+      <div class="flow-node flow-process">2-3 dakika pişir</div>
+      <div class="flow-arrow">↓</div>
+      <div class="flow-node flow-decision"><span>Pişti mi?</span></div>
+      <div class="flow-branch">
+        <div style="text-align:center"><div class="flow-label">HAYIR → Biraz daha bekle</div></div>
+        <div style="text-align:center"><div class="flow-label">EVET ↓</div></div>
+      </div>
+      <div class="flow-node flow-process">Tabağa al</div>
+      <div class="flow-arrow">↓</div>
+      <div class="flow-node flow-end">BİTİR — Afiyet olsun! 🍽️</div>
+    </div>
+  </div>
+
+  <div class="page-break"></div>
+
+  <div class="section-title">✏️ Senin Yemek Tarifin</div>
+  <div class="tarif-field">
+    <label>Yemek Adı:</label>
+    <div class="tarif-line"></div>
+  </div>
+  <div class="tarif-field">
+    <label>Malzemeler:</label>
+    <div class="tarif-line"></div>
+    <div class="tarif-line"></div>
+  </div>
+
+  <div class="blank-flow">
+    <h3>📊 Senin Akış Diyagramın</h3>
+    <p>Yukarıdaki şekilleri kullanarak kendi yemek tarifinin akış diyagramını çiz.</p>
+    <div class="blank-area">
+      <div class="hint">Akış diyagramını buraya çiz<br>Şekilleri ve okları kullan<br>En az 1 karar kutusu ekle!</div>
+    </div>
+  </div>
+</div>
+<div class="footer">Yapay Zeka Macerası — Dr. Murat ALTUN — CC BY-NC-SA 4.0 — yapay-zeka-cocuklar.vercel.app</div>
+</body>
+</html>

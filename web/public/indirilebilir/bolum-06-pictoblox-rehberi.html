@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8">
+<title>PictoBlox Başlangıç Rehberi - Bölüm 6</title>
+<style>
+  @media print { body { margin: 0; } .no-print { display: none !important; } .page-break { page-break-after: always; } }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: 'Segoe UI', system-ui, -apple-system, sans-serif; color: #1e293b; background: #fff; }
+  .print-btn { position: fixed; top: 20px; right: 20px; background: #2563eb; color: #fff; border: none; padding: 12px 24px; border-radius: 10px; font-size: 16px; font-weight: 700; cursor: pointer; z-index: 100; box-shadow: 0 4px 12px rgba(0,0,0,0.15); }
+  .print-btn:hover { background: #1d4ed8; }
+  .page { max-width: 700px; margin: 0 auto; padding: 30px 20px; }
+  .header { text-align: center; padding-bottom: 20px; border-bottom: 3px solid #3b82f6; margin-bottom: 20px; }
+  .header h1 { font-size: 26px; color: #1d4ed8; }
+  .header p { color: #64748b; margin-top: 6px; font-size: 13px; }
+  .info-row { display: flex; gap: 16px; margin-bottom: 24px; flex-wrap: wrap; }
+  .info-field { flex: 1; min-width: 180px; }
+  .info-field label { display: block; font-size: 11px; font-weight: 700; color: #64748b; margin-bottom: 4px; }
+  .info-field .line { border-bottom: 1.5px solid #cbd5e1; height: 26px; }
+  .section-title { font-size: 16px; font-weight: 700; color: #1d4ed8; margin: 30px 0 16px; padding-bottom: 8px; border-bottom: 2px solid #dbeafe; }
+  .intro-box { background: #eff6ff; border-radius: 12px; padding: 20px; margin-bottom: 24px; border-left: 4px solid #3b82f6; }
+  .intro-box h2 { font-size: 16px; color: #1d4ed8; margin-bottom: 8px; }
+  .intro-box p { font-size: 13px; color: #475569; line-height: 1.6; }
+  .step { display: flex; gap: 16px; margin-bottom: 20px; padding: 16px; background: #f8fafc; border-radius: 12px; border: 1px solid #e2e8f0; }
+  .step-num { width: 40px; height: 40px; border-radius: 50%; background: #3b82f6; color: #fff; font-size: 18px; font-weight: 700; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+  .step-content { flex: 1; }
+  .step-content h3 { font-size: 14px; color: #1d4ed8; margin-bottom: 6px; }
+  .step-content p { font-size: 12px; color: #475569; line-height: 1.6; }
+  .step-content ul { font-size: 12px; color: #475569; line-height: 1.8; padding-left: 16px; margin-top: 6px; }
+  .step-content .tip { background: #fef3c7; border-radius: 6px; padding: 8px 12px; font-size: 11px; color: #92400e; margin-top: 8px; }
+  .interface-box { background: #fff; border: 2px solid #3b82f6; border-radius: 12px; padding: 20px; margin-bottom: 24px; }
+  .interface-box h3 { font-size: 14px; color: #1d4ed8; margin-bottom: 12px; text-align: center; }
+  .interface-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 12px; }
+  .interface-item { text-align: center; padding: 12px; background: #eff6ff; border-radius: 8px; }
+  .interface-item .icon { font-size: 24px; margin-bottom: 4px; }
+  .interface-item .name { font-size: 12px; font-weight: 700; color: #1d4ed8; }
+  .interface-item .desc { font-size: 10px; color: #64748b; margin-top: 2px; }
+  .checklist { margin-top: 20px; padding: 16px; background: #f0fdf4; border-radius: 12px; border: 1px solid #86efac; }
+  .checklist h3 { font-size: 14px; color: #16a34a; margin-bottom: 10px; }
+  .checklist-item { display: flex; align-items: flex-start; gap: 8px; margin-bottom: 8px; font-size: 12px; }
+  .checkbox { width: 18px; height: 18px; border: 2px solid #86efac; border-radius: 4px; flex-shrink: 0; }
+  .footer { text-align: center; padding: 20px; color: #94a3b8; font-size: 11px; border-top: 1px solid #e2e8f0; margin-top: 30px; }
+</style>
+</head>
+<body>
+<button class="print-btn no-print" onclick="window.print()">🖨️ Yazdır / PDF</button>
+<div class="page">
+  <div class="header">
+    <h1>🧩 PictoBlox Başlangıç Rehberi</h1>
+    <p>Bölüm 6: Blok Tabanlı YZ Kodlama — Adım Adım Kılavuz</p>
+  </div>
+  <div class="info-row">
+    <div class="info-field"><label>Adı Soyadı:</label><div class="line"></div></div>
+    <div class="info-field"><label>Sınıf / No:</label><div class="line"></div></div>
+    <div class="info-field"><label>Tarih:</label><div class="line"></div></div>
+  </div>
+
+  <div class="intro-box">
+    <h2>PictoBlox Nedir?</h2>
+    <p>PictoBlox, Scratch tabanlı bir kodlama platformudur. Yapay zeka ve makine öğrenmesi uzantıları sayesinde blok kodlama ile YZ projeleri oluşturabilirsiniz. Görüntü tanıma, ses tanıma ve metin sınıflandırma gibi modeller eğitebilirsiniz.</p>
+  </div>
+
+  <div class="section-title">🖥️ PictoBlox Arayüzü</div>
+  <div class="interface-box">
+    <h3>Temel Arayüz Bileşenleri</h3>
+    <div class="interface-grid">
+      <div class="interface-item">
+        <div class="icon">🎭</div>
+        <div class="name">Sahne</div>
+        <div class="desc">Projenin çalıştığı alan</div>
+      </div>
+      <div class="interface-item">
+        <div class="icon">🧱</div>
+        <div class="name">Blok Paleti</div>
+        <div class="desc">Sürükle-bırak kod blokları</div>
+      </div>
+      <div class="interface-item">
+        <div class="icon">📝</div>
+        <div class="name">Kodlama Alanı</div>
+        <div class="desc">Blokları birleştirdiğin alan</div>
+      </div>
+      <div class="interface-item">
+        <div class="icon">🤖</div>
+        <div class="name">Karakter Listesi</div>
+        <div class="desc">Sprite ve karakter yönetimi</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="section-title">📋 Adım Adım: İlk YZ Projen</div>
+
+  <div class="step">
+    <div class="step-num">1</div>
+    <div class="step-content">
+      <h3>PictoBlox'u Aç</h3>
+      <p>PictoBlox uygulamasını aç veya <strong>pictoblox.ai</strong> web sitesinden online versiyonu kullan.</p>
+      <div class="tip">💡 İpucu: Web versiyonu kurulum gerektirmez!</div>
+    </div>
+  </div>
+
+  <div class="step">
+    <div class="step-num">2</div>
+    <div class="step-content">
+      <h3>ML Uzantısını Ekle</h3>
+      <ul>
+        <li>Sol alt köşedeki <strong>"Uzantı Ekle"</strong> butonuna tıkla</li>
+        <li><strong>"Machine Learning"</strong> uzantısını bul</li>
+        <li><strong>"Ekle"</strong> butonuna tıkla</li>
+        <li>Blok paletinde yeni ML blokları görünecek</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="step">
+    <div class="step-num">3</div>
+    <div class="step-content">
+      <h3>Sınıflar Oluştur</h3>
+      <ul>
+        <li>ML uzantısında <strong>"Sınıf Ekle"</strong> butonuna tıkla</li>
+        <li>Sınıf adını yaz (ör: "Mutlu", "Üzgün")</li>
+        <li>En az <strong>2 sınıf</strong> oluştur</li>
+        <li>Her sınıf bir kategoriyi temsil eder</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="step">
+    <div class="step-num">4</div>
+    <div class="step-content">
+      <h3>Eğitim Verileri Topla</h3>
+      <ul>
+        <li>Her sınıf için en az <strong>20 örnek</strong> topla</li>
+        <li>Kameranı kullanarak fotoğraf çek veya resim yükle</li>
+        <li>Örneklerin çeşitli ve kaliteli olmasına dikkat et</li>
+        <li>Her sınıfta eşit sayıda örnek olmalı</li>
+      </ul>
+      <div class="tip">💡 İpucu: Ne kadar çok ve çeşitli örnek, o kadar iyi model!</div>
+    </div>
+  </div>
+
+  <div class="step">
+    <div class="step-num">5</div>
+    <div class="step-content">
+      <h3>Modeli Eğit</h3>
+      <ul>
+        <li><strong>"Modeli Eğit"</strong> butonuna tıkla</li>
+        <li>Eğitim sürecinin tamamlanmasını bekle</li>
+        <li>Modeli test et: kameranı aç ve sınıflandırma sonuçlarını gör</li>
+        <li>Doğruluk oranını kontrol et</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="step">
+    <div class="step-num">6</div>
+    <div class="step-content">
+      <h3>Blok Kodlama ile Kullan</h3>
+      <ul>
+        <li>Kodlama alanına git</li>
+        <li><strong>"Sınıflandırma sonucu ... ise"</strong> bloğunu kullan</li>
+        <li>Her sınıf için farklı eylemler ekle (ses çal, görüntü değiştir vb.)</li>
+        <li>Yeşil bayrak ile projeyi çalıştır ve test et!</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="checklist">
+    <h3>✅ Kontrol Listesi — Tamamladın mı?</h3>
+    <div class="checklist-item"><div class="checkbox"></div> PictoBlox'u açtım</div>
+    <div class="checklist-item"><div class="checkbox"></div> ML uzantısını ekledim</div>
+    <div class="checklist-item"><div class="checkbox"></div> En az 2 sınıf oluşturdum</div>
+    <div class="checklist-item"><div class="checkbox"></div> Her sınıf için 20+ örnek topladım</div>
+    <div class="checklist-item"><div class="checkbox"></div> Modeli eğittim ve test ettim</div>
+    <div class="checklist-item"><div class="checkbox"></div> Blok kodlama ile projeyi tamamladım</div>
+    <div class="checklist-item"><div class="checkbox"></div> Projemi kaydettim</div>
+  </div>
+</div>
+<div class="footer">Yapay Zeka Macerası — Dr. Murat ALTUN — CC BY-NC-SA 4.0 — yapay-zeka-cocuklar.vercel.app</div>
+</body>
+</html>

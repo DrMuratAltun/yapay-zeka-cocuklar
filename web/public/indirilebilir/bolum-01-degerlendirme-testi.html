@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8">
+<title>Değerlendirme Testi - Bölüm 1</title>
+<style>
+  @media print { body { margin: 0; } .no-print { display: none !important; } }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: 'Segoe UI', system-ui, sans-serif; color: #1e293b; background: #fff; }
+  .print-btn { position: fixed; top: 20px; right: 20px; background: #0ea5e9; color: #fff; border: none; padding: 12px 24px; border-radius: 10px; font-size: 16px; font-weight: 700; cursor: pointer; z-index: 100; box-shadow: 0 4px 12px rgba(0,0,0,0.15); }
+  .page { max-width: 700px; margin: 0 auto; padding: 30px 20px; }
+  .header { text-align: center; padding-bottom: 20px; border-bottom: 3px solid #0ea5e9; margin-bottom: 20px; }
+  .header h1 { font-size: 24px; color: #0369a1; }
+  .header p { color: #64748b; margin-top: 6px; font-size: 13px; }
+  .info-row { display: flex; gap: 16px; margin-bottom: 24px; flex-wrap: wrap; }
+  .info-field { flex: 1; min-width: 180px; }
+  .info-field label { display: block; font-size: 11px; font-weight: 700; color: #64748b; margin-bottom: 4px; }
+  .info-field .line { border-bottom: 1.5px solid #cbd5e1; height: 26px; }
+  .question { margin-bottom: 24px; }
+  .question .q-num { display: inline-flex; align-items: center; justify-content: center; width: 28px; height: 28px; border-radius: 50%; background: #0ea5e9; color: #fff; font-size: 13px; font-weight: 700; margin-right: 8px; vertical-align: middle; }
+  .question .q-text { font-size: 14px; font-weight: 600; display: inline; }
+  .options { margin-top: 10px; margin-left: 36px; }
+  .option { display: flex; align-items: flex-start; gap: 8px; margin-bottom: 8px; font-size: 13px; }
+  .option-letter { width: 22px; height: 22px; border: 2px solid #cbd5e1; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 11px; font-weight: 700; color: #64748b; flex-shrink: 0; }
+  .open-q { margin-top: 8px; margin-left: 36px; }
+  .open-line { border-bottom: 1.5px solid #cbd5e1; height: 30px; margin-bottom: 4px; }
+  .section-title { font-size: 16px; font-weight: 700; color: #0369a1; margin: 30px 0 16px; padding-bottom: 8px; border-bottom: 2px solid #e2e8f0; }
+  .score-box { margin-top: 30px; padding: 16px; background: #f0f9ff; border-radius: 12px; border: 2px solid #0ea5e9; text-align: center; }
+  .score-box h3 { font-size: 16px; color: #0369a1; margin-bottom: 8px; }
+  .score-grid { display: flex; justify-content: center; gap: 20px; font-size: 14px; }
+  .footer { text-align: center; padding: 20px; color: #94a3b8; font-size: 11px; border-top: 1px solid #e2e8f0; margin-top: 30px; }
+</style>
+</head>
+<body>
+<button class="print-btn no-print" onclick="window.print()">🖨️ Yazdır / PDF</button>
+<div class="page">
+  <div class="header">
+    <h1>📝 Değerlendirme Testi</h1>
+    <p>Bölüm 1: Yapay Zeka Nedir? — Keşif Yolculuğu</p>
+  </div>
+  <div class="info-row">
+    <div class="info-field"><label>Adı Soyadı:</label><div class="line"></div></div>
+    <div class="info-field"><label>Sınıf / No:</label><div class="line"></div></div>
+    <div class="info-field"><label>Tarih:</label><div class="line"></div></div>
+  </div>
+
+  <div class="section-title">A. Çoktan Seçmeli Sorular (her biri 10 puan)</div>
+
+  <div class="question">
+    <span class="q-num">1</span><span class="q-text">Aşağıdakilerden hangisi yapay zekanın tanımı için en uygun ifadedir?</span>
+    <div class="options">
+      <div class="option"><span class="option-letter">A</span> Bilgisayarların internete bağlanması</div>
+      <div class="option"><span class="option-letter">B</span> Makinelerin insanlara benzer zeki davranışlar göstermesi</div>
+      <div class="option"><span class="option-letter">C</span> Robotların insan şeklinde üretilmesi</div>
+      <div class="option"><span class="option-letter">D</span> Bilgisayarların çok hızlı çalışması</div>
+    </div>
+  </div>
+
+  <div class="question">
+    <span class="q-num">2</span><span class="q-text">"Yapay zeka" terimi ilk kez hangi yıl kullanılmıştır?</span>
+    <div class="options">
+      <div class="option"><span class="option-letter">A</span> 1943</div>
+      <div class="option"><span class="option-letter">B</span> 1950</div>
+      <div class="option"><span class="option-letter">C</span> 1956</div>
+      <div class="option"><span class="option-letter">D</span> 1997</div>
+    </div>
+  </div>
+
+  <div class="question">
+    <span class="q-num">3</span><span class="q-text">Aşağıdakilerden hangisi dar yapay zeka (Narrow AI) örneği DEĞİLDİR?</span>
+    <div class="options">
+      <div class="option"><span class="option-letter">A</span> Sesli asistan (Siri)</div>
+      <div class="option"><span class="option-letter">B</span> Satranç oynayan bilgisayar</div>
+      <div class="option"><span class="option-letter">C</span> İnsanlar gibi her konuda düşünebilen robot</div>
+      <div class="option"><span class="option-letter">D</span> Yüz tanıma sistemi</div>
+    </div>
+  </div>
+
+  <div class="question">
+    <span class="q-num">4</span><span class="q-text">Turing Testini kim öne sürmüştür?</span>
+    <div class="options">
+      <div class="option"><span class="option-letter">A</span> John McCarthy</div>
+      <div class="option"><span class="option-letter">B</span> Alan Turing</div>
+      <div class="option"><span class="option-letter">C</span> Cahit Arf</div>
+      <div class="option"><span class="option-letter">D</span> Steve Jobs</div>
+    </div>
+  </div>
+
+  <div class="question">
+    <span class="q-num">5</span><span class="q-text">Aşağıdaki görevlerden hangisinde yapay zeka insanlardan daha başarılıdır?</span>
+    <div class="options">
+      <div class="option"><span class="option-letter">A</span> Bir şiir yazmak</div>
+      <div class="option"><span class="option-letter">B</span> Duyguları anlamak</div>
+      <div class="option"><span class="option-letter">C</span> Milyonlarca veriyi saniyeler içinde analiz etmek</div>
+      <div class="option"><span class="option-letter">D</span> Yeni bir buluşun fikrini ortaya atmak</div>
+    </div>
+  </div>
+
+  <div class="section-title">B. Açık Uçlu Sorular (her biri 10 puan)</div>
+
+  <div class="question">
+    <span class="q-num">6</span><span class="q-text">İnsan zekası ile yapay zeka arasındaki en önemli 2 farkı yazınız.</span>
+    <div class="open-q">
+      <div class="open-line"></div><div class="open-line"></div><div class="open-line"></div>
+    </div>
+  </div>
+
+  <div class="question">
+    <span class="q-num">7</span><span class="q-text">Dar yapay zeka (Narrow AI) ile genel yapay zeka (AGI) arasındaki farkı bir örnekle açıklayınız.</span>
+    <div class="open-q">
+      <div class="open-line"></div><div class="open-line"></div><div class="open-line"></div>
+    </div>
+  </div>
+
+  <div class="question">
+    <span class="q-num">8</span><span class="q-text">Günlük hayatından bir yapay zeka örneği ver ve nasıl çalıştığını kısaca açıkla.</span>
+    <div class="open-q">
+      <div class="open-line"></div><div class="open-line"></div><div class="open-line"></div>
+    </div>
+  </div>
+
+  <div class="score-box">
+    <h3>Puanlama</h3>
+    <div class="score-grid">
+      <span>A Bölümü: ___ / 50</span>
+      <span>B Bölümü: ___ / 30</span>
+      <span><strong>Toplam: ___ / 80</strong></span>
+    </div>
+  </div>
+
+  <div class="footer">
+    Yapay Zeka Macerası — Dr. Murat ALTUN — CC BY-NC-SA 4.0 — yapay-zeka-cocuklar.vercel.app
+  </div>
+</div>
+</body>
+</html>

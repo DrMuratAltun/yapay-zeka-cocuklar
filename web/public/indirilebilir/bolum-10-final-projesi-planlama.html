@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8">
+<title>Final Projesi Planlama Formu - Bölüm 10</title>
+<style>
+  @media print { body { margin: 0; } .no-print { display: none !important; } .page-break { page-break-after: always; } }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: 'Segoe UI', system-ui, -apple-system, sans-serif; color: #1e293b; background: #fff; }
+  .print-btn { position: fixed; top: 20px; right: 20px; background: #3b82f6; color: #fff; border: none; padding: 12px 24px; border-radius: 10px; font-size: 16px; font-weight: 700; cursor: pointer; z-index: 100; box-shadow: 0 4px 12px rgba(0,0,0,0.15); }
+  .print-btn:hover { background: #2563eb; }
+  .header { text-align: center; padding: 30px 20px 20px; border-bottom: 3px solid #6366f1; margin-bottom: 30px; }
+  .header h1 { font-size: 28px; color: #4f46e5; }
+  .header p { color: #64748b; margin-top: 8px; font-size: 14px; }
+  .student-info { max-width: 780px; margin: 0 auto 24px; display: flex; gap: 16px; padding: 0 20px; flex-wrap: wrap; }
+  .student-info div { flex: 1; min-width: 180px; }
+  .student-info label { font-size: 12px; color: #64748b; display: block; margin-bottom: 4px; font-weight: 600; }
+  .student-info .field { border-bottom: 2px solid #a5b4fc; padding: 6px 2px; min-height: 24px; }
+  .content { max-width: 780px; margin: 0 auto; padding: 0 20px 40px; }
+  .section { margin-bottom: 28px; }
+  .section-title { font-size: 20px; color: #4338ca; margin-bottom: 16px; padding-bottom: 8px; border-bottom: 2px solid #c7d2fe; display: flex; align-items: center; gap: 10px; }
+  .form-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+  .form-box { border: 2px solid #c7d2fe; border-radius: 12px; padding: 16px; }
+  .form-box.full { grid-column: 1 / -1; }
+  .form-box label { font-size: 13px; color: #4338ca; font-weight: 700; display: block; margin-bottom: 8px; }
+  .form-box label span { font-weight: 400; color: #64748b; font-size: 12px; }
+  .write-line { border-bottom: 1.5px dotted #c7d2fe; min-height: 26px; margin-bottom: 6px; }
+  .write-area { border: 1.5px dotted #c7d2fe; border-radius: 8px; min-height: 60px; padding: 8px; }
+  .write-area-lg { border: 1.5px dotted #c7d2fe; border-radius: 8px; min-height: 80px; padding: 8px; }
+  .hint { font-size: 12px; color: #6366f1; margin-top: 4px; font-style: italic; }
+  .timeline-card { border: 2px solid #c7d2fe; border-radius: 16px; overflow: hidden; margin-bottom: 20px; }
+  .timeline-header { background: linear-gradient(135deg, #eef2ff, #e0e7ff); padding: 14px 20px; font-size: 18px; font-weight: 700; color: #4338ca; }
+  .timeline-body { padding: 16px 20px; }
+  .timeline-step { display: flex; gap: 14px; margin-bottom: 14px; align-items: flex-start; padding-bottom: 14px; border-bottom: 1px solid #e0e7ff; }
+  .timeline-step:last-child { border-bottom: none; margin-bottom: 0; padding-bottom: 0; }
+  .step-num { background: #6366f1; color: #fff; width: 28px; height: 28px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: 13px; flex-shrink: 0; margin-top: 2px; }
+  .step-content { flex: 1; }
+  .step-content strong { color: #4338ca; font-size: 14px; }
+  .step-write { border-bottom: 1.5px dotted #c7d2fe; min-height: 24px; margin-top: 4px; }
+  .ethics-box { background: #eef2ff; border: 2px solid #a5b4fc; border-radius: 14px; padding: 20px; margin-bottom: 20px; }
+  .ethics-box h3 { color: #4338ca; font-size: 16px; margin-bottom: 12px; }
+  .ethics-item { display: flex; gap: 10px; margin-bottom: 10px; align-items: flex-start; }
+  .ethics-check { width: 18px; height: 18px; border: 2px solid #6366f1; border-radius: 4px; flex-shrink: 0; margin-top: 3px; }
+  .ethics-text { font-size: 14px; color: #334155; line-height: 1.5; }
+  .footer { text-align: center; padding: 20px; color: #94a3b8; font-size: 11px; border-top: 1px solid #e2e8f0; margin-top: 20px; }
+</style>
+</head>
+<body>
+<button class="print-btn no-print" onclick="window.print()">🖨️ Yazdır / PDF</button>
+
+<div class="header">
+  <h1>🚀 Final Projesi Planlama Formu</h1>
+  <p>Bölüm 10: Gelecek Seninle Başlar — Kapsamlı Proje Planı</p>
+</div>
+
+<div class="student-info">
+  <div><label>Adı Soyadı</label><div class="field"></div></div>
+  <div><label>Sınıf / No</label><div class="field"></div></div>
+  <div><label>Tarih</label><div class="field"></div></div>
+</div>
+
+<div class="content">
+
+  <!-- Proje Bilgileri -->
+  <div class="section">
+    <div class="section-title">📋 Proje Temel Bilgileri</div>
+    <div class="form-grid">
+      <div class="form-box full">
+        <label>Proje Adı</label>
+        <div class="write-line"></div>
+      </div>
+      <div class="form-box full">
+        <label>Ekip Üyeleri ve Görevleri</label>
+        <div class="write-line"></div>
+        <div class="write-line"></div>
+        <div class="write-line"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Problem Tanımı -->
+  <div class="section">
+    <div class="section-title">🎯 Problem Tanımı</div>
+    <div class="form-grid">
+      <div class="form-box full">
+        <label>Hangi problemi çözmeye çalışıyorsunuz? <span>(Problemi net bir şekilde tanımlayın)</span></label>
+        <div class="write-area"></div>
+      </div>
+      <div class="form-box full">
+        <label>Bu problem neden önemli? <span>(Kimler bu problemden etkileniyor?)</span></label>
+        <div class="write-area"></div>
+      </div>
+      <div class="form-box">
+        <label>Hedef Kitle <span>(çözümünüz kimlere yönelik?)</span></label>
+        <div class="write-area"></div>
+      </div>
+      <div class="form-box">
+        <label>Mevcut Çözümler <span>(bu problem şu an nasıl çözülüyor?)</span></label>
+        <div class="write-area"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- YZ Yaklaşımı -->
+  <div class="section">
+    <div class="section-title">🤖 Yapay Zeka Yaklaşımı</div>
+    <div class="form-grid">
+      <div class="form-box full">
+        <label>YZ bu problemi nasıl çözecek? <span>(YZ'yi nasıl kullanmayı planlıyorsunuz?)</span></label>
+        <div class="write-area-lg"></div>
+      </div>
+      <div class="form-box">
+        <label>Veri Kaynağı <span>(hangi verilere ihtiyacınız var?)</span></label>
+        <div class="write-area"></div>
+        <div class="hint">Anket, internet, gözlem, ölçüm vb.</div>
+      </div>
+      <div class="form-box">
+        <label>Kullanılacak YZ Araçları</label>
+        <div class="write-area"></div>
+        <div class="hint">ChatGPT, Gemini, Canva AI, Teachable Machine vb.</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="page-break"></div>
+
+  <!-- Zaman Planı -->
+  <div class="section">
+    <div class="section-title">📅 Zaman Planı</div>
+    <div class="timeline-card">
+      <div class="timeline-header">7 Adımlık Proje Takvimi</div>
+      <div class="timeline-body">
+        <div class="timeline-step">
+          <div class="step-num">1</div>
+          <div class="step-content">
+            <strong>Araştırma ve Problem Analizi</strong>
+            <div class="step-write"></div>
+          </div>
+        </div>
+        <div class="timeline-step">
+          <div class="step-num">2</div>
+          <div class="step-content">
+            <strong>Veri Toplama</strong>
+            <div class="step-write"></div>
+          </div>
+        </div>
+        <div class="timeline-step">
+          <div class="step-num">3</div>
+          <div class="step-content">
+            <strong>YZ Modeli / Prototip Oluşturma</strong>
+            <div class="step-write"></div>
+          </div>
+        </div>
+        <div class="timeline-step">
+          <div class="step-num">4</div>
+          <div class="step-content">
+            <strong>Test Etme ve İyileştirme</strong>
+            <div class="step-write"></div>
+          </div>
+        </div>
+        <div class="timeline-step">
+          <div class="step-num">5</div>
+          <div class="step-content">
+            <strong>Sonuçları Analiz Etme</strong>
+            <div class="step-write"></div>
+          </div>
+        </div>
+        <div class="timeline-step">
+          <div class="step-num">6</div>
+          <div class="step-content">
+            <strong>Sunum ve Poster Hazırlama</strong>
+            <div class="step-write"></div>
+          </div>
+        </div>
+        <div class="timeline-step">
+          <div class="step-num">7</div>
+          <div class="step-content">
+            <strong>Final Sunumu ve Değerlendirme</strong>
+            <div class="step-write"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Beklenen Çıktılar -->
+  <div class="section">
+    <div class="section-title">📦 Beklenen Çıktılar</div>
+    <div class="form-grid">
+      <div class="form-box full">
+        <label>Projenizin sonunda ne üretmiş olacaksınız? <span>(uygulama, rapor, poster, video vb.)</span></label>
+        <div class="write-area"></div>
+      </div>
+      <div class="form-box full">
+        <label>Başarı Kriterleri <span>(projenizin başarılı olduğunu nasıl anlayacaksınız?)</span></label>
+        <div class="write-area"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Etik Değerlendirme -->
+  <div class="section">
+    <div class="section-title">⚖️ Etik Değerlendirme</div>
+    <div class="ethics-box">
+      <h3>Projenizi etik açıdan değerlendirin:</h3>
+      <div class="ethics-item">
+        <div class="ethics-check"></div>
+        <div class="ethics-text">Projem insanların gizliliğine saygı gösteriyor mu?</div>
+      </div>
+      <div class="ethics-item">
+        <div class="ethics-check"></div>
+        <div class="ethics-text">Kullandığım veriler adil ve önyargısız mı?</div>
+      </div>
+      <div class="ethics-item">
+        <div class="ethics-check"></div>
+        <div class="ethics-text">Projem herhangi bir gruba zarar verebilir mi?</div>
+      </div>
+      <div class="ethics-item">
+        <div class="ethics-check"></div>
+        <div class="ethics-text">YZ'nin kararları şeffaf ve açıklanabilir mi?</div>
+      </div>
+      <div class="ethics-item">
+        <div class="ethics-check"></div>
+        <div class="ethics-text">İnsan denetimi ve kontrolü sağlanmış mı?</div>
+      </div>
+    </div>
+    <div class="form-box full" style="border: 2px solid #c7d2fe; border-radius: 12px; padding: 16px;">
+      <label>Etik Değerlendirme Notları <span>(yukarıdaki sorulara verdiğiniz cevapları açıklayın)</span></label>
+      <div class="write-area"></div>
+    </div>
+  </div>
+
+  <!-- Sunum Planı -->
+  <div class="section">
+    <div class="section-title">🎤 Sunum Planı</div>
+    <div class="form-grid">
+      <div class="form-box">
+        <label>Sunum Formatı <span>(poster, slayt, demo, video)</span></label>
+        <div class="write-line"></div>
+      </div>
+      <div class="form-box">
+        <label>Sunum Süresi</label>
+        <div class="write-line"></div>
+      </div>
+      <div class="form-box full">
+        <label>Sunumda gösterilecek ana noktalar</label>
+        <div class="write-line"></div>
+        <div class="write-line"></div>
+        <div class="write-line"></div>
+      </div>
+      <div class="form-box full">
+        <label>Kim hangi bölümü sunacak?</label>
+        <div class="write-line"></div>
+        <div class="write-line"></div>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<div class="footer">Yapay Zeka Macerası — Dr. Murat ALTUN — CC BY-NC-SA 4.0 — yapay-zeka-cocuklar.vercel.app</div>
+</body>
+</html>

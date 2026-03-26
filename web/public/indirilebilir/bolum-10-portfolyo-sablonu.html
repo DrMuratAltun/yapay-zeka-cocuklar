@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8">
+<title>Portfolyo Şablonu - Bölüm 10</title>
+<style>
+  @media print { body { margin: 0; } .no-print { display: none !important; } .page-break { page-break-after: always; } }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: 'Segoe UI', system-ui, -apple-system, sans-serif; color: #1e293b; background: #fff; }
+  .print-btn { position: fixed; top: 20px; right: 20px; background: #3b82f6; color: #fff; border: none; padding: 12px 24px; border-radius: 10px; font-size: 16px; font-weight: 700; cursor: pointer; z-index: 100; box-shadow: 0 4px 12px rgba(0,0,0,0.15); }
+  .print-btn:hover { background: #2563eb; }
+  .content { max-width: 780px; margin: 0 auto; padding: 0 20px 40px; }
+
+  /* Kapak Sayfası */
+  .cover { text-align: center; padding: 80px 40px; border: 4px solid #6366f1; border-radius: 20px; margin: 30px auto 40px; max-width: 780px; min-height: 500px; display: flex; flex-direction: column; align-items: center; justify-content: center; background: linear-gradient(180deg, #eef2ff 0%, #fff 100%); }
+  .cover-icon { font-size: 60px; margin-bottom: 20px; }
+  .cover h1 { font-size: 36px; color: #4338ca; margin-bottom: 12px; }
+  .cover h2 { font-size: 22px; color: #6366f1; font-weight: 400; margin-bottom: 40px; }
+  .cover-field { border-bottom: 3px solid #a5b4fc; min-width: 300px; min-height: 36px; margin-bottom: 20px; font-size: 20px; }
+  .cover-label { font-size: 14px; color: #64748b; margin-bottom: 6px; }
+  .cover-date { font-size: 16px; color: #64748b; margin-top: 30px; }
+  .cover-date-field { border-bottom: 2px solid #c7d2fe; min-width: 200px; min-height: 28px; display: inline-block; }
+
+  .student-info { max-width: 780px; margin: 0 auto 24px; display: flex; gap: 16px; padding: 0 20px; flex-wrap: wrap; }
+  .student-info div { flex: 1; min-width: 180px; }
+  .student-info label { font-size: 12px; color: #64748b; display: block; margin-bottom: 4px; font-weight: 600; }
+  .student-info .field { border-bottom: 2px solid #a5b4fc; padding: 6px 2px; min-height: 24px; }
+
+  .portfolio-section { border: 2px solid #c7d2fe; border-radius: 16px; margin-bottom: 28px; overflow: hidden; page-break-inside: avoid; }
+  .section-header { background: linear-gradient(135deg, #eef2ff, #e0e7ff); padding: 16px 20px; display: flex; align-items: center; gap: 12px; }
+  .section-num { background: #6366f1; color: #fff; width: 34px; height: 34px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: 16px; flex-shrink: 0; }
+  .section-header h2 { font-size: 18px; color: #4338ca; }
+  .section-body { padding: 20px; }
+  .guide-question { font-size: 13px; color: #6366f1; font-style: italic; margin-bottom: 8px; padding-left: 12px; border-left: 3px solid #c7d2fe; }
+  .write-area { border: 1.5px dotted #c7d2fe; border-radius: 8px; min-height: 80px; padding: 8px; margin-bottom: 14px; }
+  .write-area-sm { border: 1.5px dotted #c7d2fe; border-radius: 8px; min-height: 50px; padding: 8px; margin-bottom: 14px; }
+  .write-line { border-bottom: 1.5px dotted #c7d2fe; min-height: 26px; margin-bottom: 6px; }
+  .footer { text-align: center; padding: 20px; color: #94a3b8; font-size: 11px; border-top: 1px solid #e2e8f0; margin-top: 20px; }
+</style>
+</head>
+<body>
+<button class="print-btn no-print" onclick="window.print()">🖨️ Yazdır / PDF</button>
+
+<!-- KAPAK SAYFASI -->
+<div class="cover">
+  <div class="cover-icon">📁</div>
+  <h1>Proje Portfolyosu</h1>
+  <h2>Yapay Zeka Macerası — Final Projesi</h2>
+  <div class="cover-label">Proje Adı</div>
+  <div class="cover-field"></div>
+  <div class="cover-label">Hazırlayan</div>
+  <div class="cover-field"></div>
+  <div class="cover-date">Tarih: <div class="cover-date-field"></div></div>
+</div>
+
+<div class="page-break"></div>
+
+<div class="student-info">
+  <div><label>Adı Soyadı</label><div class="field"></div></div>
+  <div><label>Sınıf / No</label><div class="field"></div></div>
+  <div><label>Tarih</label><div class="field"></div></div>
+</div>
+
+<div class="content">
+
+  <!-- 1. Proje Özeti -->
+  <div class="portfolio-section">
+    <div class="section-header">
+      <div class="section-num">1</div>
+      <h2>Proje Özeti</h2>
+    </div>
+    <div class="section-body">
+      <div class="guide-question">Projenizi 3-4 cümle ile anlatın. Ne yaptınız ve neden?</div>
+      <div class="write-area"></div>
+    </div>
+  </div>
+
+  <!-- 2. Problem Tanımı -->
+  <div class="portfolio-section">
+    <div class="section-header">
+      <div class="section-num">2</div>
+      <h2>Problem Tanımı</h2>
+    </div>
+    <div class="section-body">
+      <div class="guide-question">Hangi problemi çözmeye çalıştınız? Bu problem neden önemli?</div>
+      <div class="write-area"></div>
+      <div class="guide-question">Bu problemi çözmek için neden yapay zekayı seçtiniz?</div>
+      <div class="write-area-sm"></div>
+    </div>
+  </div>
+
+  <!-- 3. Araştırma -->
+  <div class="portfolio-section">
+    <div class="section-header">
+      <div class="section-num">3</div>
+      <h2>Araştırma</h2>
+    </div>
+    <div class="section-body">
+      <div class="guide-question">Bu konuda ne tür araştırmalar yaptınız? Hangi kaynakları kullandınız?</div>
+      <div class="write-area"></div>
+      <div class="guide-question">Araştırmanızdan öğrendiğiniz en önemli 3 bilgi nedir?</div>
+      <div class="write-line"></div>
+      <div class="write-line"></div>
+      <div class="write-line"></div>
+    </div>
+  </div>
+
+  <div class="page-break"></div>
+
+  <!-- 4. Süreç -->
+  <div class="portfolio-section">
+    <div class="section-header">
+      <div class="section-num">4</div>
+      <h2>Süreç (Adım Adım)</h2>
+    </div>
+    <div class="section-body">
+      <div class="guide-question">Projenizi adım adım nasıl geliştirdiniz? Her aşamada ne yaptınız?</div>
+      <div class="write-area" style="min-height: 120px;"></div>
+      <div class="guide-question">Hangi YZ araçlarını ve teknolojileri kullandınız?</div>
+      <div class="write-area-sm"></div>
+      <div class="guide-question">Süreçte karşılaştığınız zorluklar ve bunları nasıl aştığınız?</div>
+      <div class="write-area"></div>
+    </div>
+  </div>
+
+  <!-- 5. Sonuçlar -->
+  <div class="portfolio-section">
+    <div class="section-header">
+      <div class="section-num">5</div>
+      <h2>Sonuçlar</h2>
+    </div>
+    <div class="section-body">
+      <div class="guide-question">Projenizin sonuçları neler oldu? Hedefinize ulaştınız mı?</div>
+      <div class="write-area"></div>
+      <div class="guide-question">Projeniz hedef kitlenize nasıl bir fayda sağladı veya sağlayabilir?</div>
+      <div class="write-area-sm"></div>
+    </div>
+  </div>
+
+  <!-- 6. Öğrenilen Dersler -->
+  <div class="portfolio-section">
+    <div class="section-header">
+      <div class="section-num">6</div>
+      <h2>Öğrenilen Dersler</h2>
+    </div>
+    <div class="section-body">
+      <div class="guide-question">Bu projeden ne öğrendiniz? Tekrar yapsanız neyi farklı yapardınız?</div>
+      <div class="write-area"></div>
+      <div class="guide-question">YZ hakkında en şaşırtıcı bulduğunuz şey neydi?</div>
+      <div class="write-area-sm"></div>
+    </div>
+  </div>
+
+  <!-- 7. Kaynaklar -->
+  <div class="portfolio-section">
+    <div class="section-header">
+      <div class="section-num">7</div>
+      <h2>Kaynaklar</h2>
+    </div>
+    <div class="section-body">
+      <div class="guide-question">Projede kullandığınız tüm kaynakları listeleyin (web siteleri, kitaplar, araçlar, kişiler).</div>
+      <div class="write-line"></div>
+      <div class="write-line"></div>
+      <div class="write-line"></div>
+      <div class="write-line"></div>
+      <div class="write-line"></div>
+      <div class="write-line"></div>
+    </div>
+  </div>
+
+</div>
+
+<div class="footer">Yapay Zeka Macerası — Dr. Murat ALTUN — CC BY-NC-SA 4.0 — yapay-zeka-cocuklar.vercel.app</div>
+</body>
+</html>

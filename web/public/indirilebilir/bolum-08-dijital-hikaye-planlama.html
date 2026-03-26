@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8">
+<title>Dijital Hikaye Planlama Şablonu - Bölüm 8</title>
+<style>
+  @media print { body { margin: 0; } .no-print { display: none !important; } .page-break { page-break-after: always; } }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: 'Segoe UI', system-ui, -apple-system, sans-serif; color: #1e293b; background: #fff; }
+  .print-btn { position: fixed; top: 20px; right: 20px; background: #3b82f6; color: #fff; border: none; padding: 12px 24px; border-radius: 10px; font-size: 16px; font-weight: 700; cursor: pointer; z-index: 100; box-shadow: 0 4px 12px rgba(0,0,0,0.15); }
+  .print-btn:hover { background: #2563eb; }
+  .header { text-align: center; padding: 30px 20px 20px; border-bottom: 3px solid #f43f5e; margin-bottom: 30px; }
+  .header h1 { font-size: 28px; color: #e11d48; }
+  .header p { color: #64748b; margin-top: 8px; font-size: 14px; }
+  .student-info { max-width: 750px; margin: 0 auto 24px; display: flex; gap: 16px; padding: 0 20px; flex-wrap: wrap; }
+  .student-info div { flex: 1; min-width: 180px; }
+  .student-info label { font-size: 12px; color: #64748b; display: block; margin-bottom: 4px; font-weight: 600; }
+  .student-info .field { border-bottom: 2px solid #fda4af; padding: 6px 2px; min-height: 24px; }
+  .section { max-width: 750px; margin: 0 auto 30px; padding: 0 20px; }
+  .section-title { font-size: 20px; color: #e11d48; margin-bottom: 16px; padding-bottom: 8px; border-bottom: 2px solid #fecdd3; }
+  .overview-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-bottom: 24px; }
+  .overview-box { border: 2px solid #fda4af; border-radius: 12px; padding: 16px; }
+  .overview-box.full { grid-column: 1 / -1; }
+  .overview-box label { font-size: 13px; color: #e11d48; font-weight: 700; display: block; margin-bottom: 8px; }
+  .write-area { border-bottom: 1.5px dotted #fda4af; min-height: 28px; margin-bottom: 6px; }
+  .write-area-lg { border: 1.5px dotted #fda4af; border-radius: 8px; min-height: 60px; padding: 8px; }
+  .scene-card { border: 2px solid #fda4af; border-radius: 16px; margin-bottom: 24px; overflow: hidden; }
+  .scene-header { background: #fff1f2; padding: 14px 20px; font-size: 18px; font-weight: 700; color: #e11d48; display: flex; align-items: center; gap: 10px; }
+  .scene-number { background: #f43f5e; color: #fff; width: 32px; height: 32px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 16px; flex-shrink: 0; }
+  .scene-body { padding: 20px; display: grid; gap: 16px; }
+  .scene-field label { font-size: 13px; color: #be123c; font-weight: 700; display: block; margin-bottom: 6px; }
+  .scene-field label span { font-weight: 400; color: #64748b; font-size: 12px; }
+  .prompt-hint { background: #fff1f2; border-radius: 8px; padding: 10px 14px; font-size: 12px; color: #9f1239; margin-top: 6px; border-left: 3px solid #f43f5e; }
+  .footer { text-align: center; padding: 20px; color: #94a3b8; font-size: 11px; border-top: 1px solid #e2e8f0; margin-top: 20px; }
+</style>
+</head>
+<body>
+<button class="print-btn no-print" onclick="window.print()">🖨️ Yazdır / PDF</button>
+
+<div class="header">
+  <h1>🎬 Dijital Hikaye Planlama Şablonu</h1>
+  <p>Bölüm 8: Dijital İçerik Üretimi — 5 Sahnelik Hikaye Planı</p>
+</div>
+
+<div class="student-info">
+  <div><label>Adı Soyadı</label><div class="field"></div></div>
+  <div><label>Sınıf / No</label><div class="field"></div></div>
+  <div><label>Tarih</label><div class="field"></div></div>
+</div>
+
+<div class="section">
+  <div class="section-title">📝 Hikaye Özeti</div>
+  <div class="overview-grid">
+    <div class="overview-box">
+      <label>Hikaye Başlığı</label>
+      <div class="write-area"></div>
+    </div>
+    <div class="overview-box">
+      <label>Hedef Kitle (kimler izleyecek?)</label>
+      <div class="write-area"></div>
+    </div>
+    <div class="overview-box">
+      <label>Ana Mesaj / Tema</label>
+      <div class="write-area"></div>
+    </div>
+    <div class="overview-box">
+      <label>Tür (komedi, macera, bilim kurgu...)</label>
+      <div class="write-area"></div>
+    </div>
+    <div class="overview-box full">
+      <label>Kısa Özet (2-3 cümle ile hikayenizi anlatın)</label>
+      <div class="write-area-lg"></div>
+    </div>
+  </div>
+</div>
+
+<div class="section">
+  <div class="section-title">🎞️ Sahneler</div>
+
+  <div class="scene-card">
+    <div class="scene-header"><div class="scene-number">1</div> Giriş — Tanıtım</div>
+    <div class="scene-body">
+      <div class="scene-field">
+        <label>Konu / Ne anlatılacak?</label>
+        <div class="write-area"></div>
+      </div>
+      <div class="scene-field">
+        <label>Metin <span>(YZ ile yazılacak — ChatGPT, Gemini vb.)</span></label>
+        <div class="write-area-lg"></div>
+        <div class="prompt-hint">💡 Prompt örneği: "Çocuklar için kısa bir hikaye girişi yaz. Konu: [konunuz]. Ton: eğlenceli ve merak uyandırıcı."</div>
+      </div>
+      <div class="scene-field">
+        <label>Görsel Açıklaması <span>(YZ ile üretilecek prompt)</span></label>
+        <div class="write-area-lg"></div>
+        <div class="prompt-hint">💡 Prompt örneği: "Cartoon style illustration of [sahne açıklaması], bright colors, friendly atmosphere"</div>
+      </div>
+      <div class="scene-field">
+        <label>Ses / Müzik Notu</label>
+        <div class="write-area"></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="scene-card">
+    <div class="scene-header"><div class="scene-number">2</div> Gelişme — Problem/Olay</div>
+    <div class="scene-body">
+      <div class="scene-field">
+        <label>Konu / Ne anlatılacak?</label>
+        <div class="write-area"></div>
+      </div>
+      <div class="scene-field">
+        <label>Metin <span>(YZ ile yazılacak)</span></label>
+        <div class="write-area-lg"></div>
+      </div>
+      <div class="scene-field">
+        <label>Görsel Açıklaması <span>(YZ ile üretilecek prompt)</span></label>
+        <div class="write-area-lg"></div>
+      </div>
+      <div class="scene-field">
+        <label>Ses / Müzik Notu</label>
+        <div class="write-area"></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="page-break"></div>
+
+  <div class="scene-card">
+    <div class="scene-header"><div class="scene-number">3</div> Doruk Nokta — Gerilim/Heyecan</div>
+    <div class="scene-body">
+      <div class="scene-field">
+        <label>Konu / Ne anlatılacak?</label>
+        <div class="write-area"></div>
+      </div>
+      <div class="scene-field">
+        <label>Metin <span>(YZ ile yazılacak)</span></label>
+        <div class="write-area-lg"></div>
+      </div>
+      <div class="scene-field">
+        <label>Görsel Açıklaması <span>(YZ ile üretilecek prompt)</span></label>
+        <div class="write-area-lg"></div>
+      </div>
+      <div class="scene-field">
+        <label>Ses / Müzik Notu</label>
+        <div class="write-area"></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="scene-card">
+    <div class="scene-header"><div class="scene-number">4</div> Çözüm — Problem Çözülüyor</div>
+    <div class="scene-body">
+      <div class="scene-field">
+        <label>Konu / Ne anlatılacak?</label>
+        <div class="write-area"></div>
+      </div>
+      <div class="scene-field">
+        <label>Metin <span>(YZ ile yazılacak)</span></label>
+        <div class="write-area-lg"></div>
+      </div>
+      <div class="scene-field">
+        <label>Görsel Açıklaması <span>(YZ ile üretilecek prompt)</span></label>
+        <div class="write-area-lg"></div>
+      </div>
+      <div class="scene-field">
+        <label>Ses / Müzik Notu</label>
+        <div class="write-area"></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="scene-card">
+    <div class="scene-header"><div class="scene-number">5</div> Final — Kapanış ve Mesaj</div>
+    <div class="scene-body">
+      <div class="scene-field">
+        <label>Konu / Ne anlatılacak?</label>
+        <div class="write-area"></div>
+      </div>
+      <div class="scene-field">
+        <label>Metin <span>(YZ ile yazılacak)</span></label>
+        <div class="write-area-lg"></div>
+      </div>
+      <div class="scene-field">
+        <label>Görsel Açıklaması <span>(YZ ile üretilecek prompt)</span></label>
+        <div class="write-area-lg"></div>
+      </div>
+      <div class="scene-field">
+        <label>Ses / Müzik Notu</label>
+        <div class="write-area"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="footer">Yapay Zeka Macerası — Dr. Murat ALTUN — CC BY-NC-SA 4.0 — yapay-zeka-cocuklar.vercel.app</div>
+</body>
+</html>

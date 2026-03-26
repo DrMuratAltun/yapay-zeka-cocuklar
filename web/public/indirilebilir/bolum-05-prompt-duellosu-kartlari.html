@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8">
+<title>Prompt Düellosu Kartları - Bölüm 5</title>
+<style>
+  @media print { body { margin: 0; } .no-print { display: none !important; } .page-break { page-break-after: always; } .card { break-inside: avoid; } }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: 'Segoe UI', system-ui, -apple-system, sans-serif; color: #1e293b; background: #fff; }
+  .print-btn { position: fixed; top: 20px; right: 20px; background: #2563eb; color: #fff; border: none; padding: 12px 24px; border-radius: 10px; font-size: 16px; font-weight: 700; cursor: pointer; z-index: 100; box-shadow: 0 4px 12px rgba(0,0,0,0.15); }
+  .print-btn:hover { background: #1d4ed8; }
+  .page { max-width: 700px; margin: 0 auto; padding: 30px 20px; }
+  .header { text-align: center; padding-bottom: 20px; border-bottom: 3px solid #ec4899; margin-bottom: 20px; }
+  .header h1 { font-size: 26px; color: #be185d; }
+  .header p { color: #64748b; margin-top: 6px; font-size: 13px; }
+  .info-row { display: flex; gap: 16px; margin-bottom: 24px; flex-wrap: wrap; }
+  .info-field { flex: 1; min-width: 180px; }
+  .info-field label { display: block; font-size: 11px; font-weight: 700; color: #64748b; margin-bottom: 4px; }
+  .info-field .line { border-bottom: 1.5px solid #cbd5e1; height: 26px; }
+  .instructions { margin-bottom: 30px; padding: 20px; background: #fdf2f8; border-radius: 12px; border-left: 4px solid #ec4899; }
+  .instructions h2 { font-size: 16px; color: #be185d; margin-bottom: 10px; }
+  .instructions ol { padding-left: 20px; line-height: 1.8; color: #475569; font-size: 13px; }
+  .cards-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px; margin-bottom: 30px; }
+  .card { border: 2px dashed #f9a8d4; border-radius: 16px; padding: 20px; text-align: center; min-height: 200px; display: flex; flex-direction: column; justify-content: space-between; position: relative; }
+  .card-number { position: absolute; top: 10px; left: 14px; width: 28px; height: 28px; border-radius: 50%; background: #ec4899; color: #fff; font-size: 13px; font-weight: 700; display: flex; align-items: center; justify-content: center; }
+  .card-emoji { font-size: 36px; margin: 10px 0 8px; }
+  .card-category { font-size: 10px; font-weight: 700; text-transform: uppercase; color: #ec4899; letter-spacing: 1px; margin-bottom: 6px; }
+  .card-task { font-size: 14px; font-weight: 700; color: #1e293b; margin-bottom: 8px; line-height: 1.4; }
+  .card-hint { font-size: 11px; color: #64748b; margin-bottom: 10px; }
+  .card-score { display: flex; justify-content: center; gap: 6px; margin-top: auto; }
+  .card-score span { width: 24px; height: 24px; border: 2px solid #f9a8d4; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 10px; font-weight: 700; color: #be185d; }
+  .footer { text-align: center; padding: 20px; color: #94a3b8; font-size: 11px; border-top: 1px solid #e2e8f0; margin-top: 30px; }
+</style>
+</head>
+<body>
+<button class="print-btn no-print" onclick="window.print()">🖨️ Yazdır / PDF</button>
+<div class="page">
+  <div class="header">
+    <h1>⚔️ Prompt Düellosu Kartları</h1>
+    <p>Bölüm 5: Üretken Yapay Zeka — Prompt Yazma Yarışması</p>
+  </div>
+  <div class="info-row">
+    <div class="info-field"><label>Adı Soyadı:</label><div class="line"></div></div>
+    <div class="info-field"><label>Sınıf / No:</label><div class="line"></div></div>
+    <div class="info-field"><label>Tarih:</label><div class="line"></div></div>
+  </div>
+
+  <div class="instructions no-print">
+    <h2>📋 Nasıl Oynanır?</h2>
+    <ol>
+      <li>Her takım bir kart çeker ve görev kartındaki konuyu okur.</li>
+      <li>Takımlar <strong>3 dakika</strong> içinde en iyi promptu yazar.</li>
+      <li>Promptlar YZ aracında test edilir ve sonuçlar karşılaştırılır.</li>
+      <li>Jüri (öğretmen + diğer takımlar) 1-5 arası puan verir.</li>
+      <li>En yüksek puanı toplayan takım düelloyu kazanır!</li>
+    </ol>
+  </div>
+
+  <div class="cards-grid">
+    <div class="card">
+      <div class="card-number">1</div>
+      <div class="card-emoji">📝</div>
+      <div class="card-category">Metin Üretme</div>
+      <div class="card-task">6. sınıf öğrencileri için yapay zeka hakkında kısa bir paragraf yaz</div>
+      <div class="card-hint">Hedef kitleyi ve dil seviyesini belirt</div>
+      <div class="card-score"><span>1</span><span>2</span><span>3</span><span>4</span><span>5</span></div>
+    </div>
+    <div class="card">
+      <div class="card-number">2</div>
+      <div class="card-emoji">🎨</div>
+      <div class="card-category">Görsel Üretme</div>
+      <div class="card-task">Uzayda yüzen bir kedi resmi oluştur</div>
+      <div class="card-hint">Stil, renk, ortam detaylarını ekle</div>
+      <div class="card-score"><span>1</span><span>2</span><span>3</span><span>4</span><span>5</span></div>
+    </div>
+    <div class="card">
+      <div class="card-number">3</div>
+      <div class="card-emoji">🔢</div>
+      <div class="card-category">Problem Çözme</div>
+      <div class="card-task">Bir matematik problemini adım adım çöz</div>
+      <div class="card-hint">Çözüm formatını ve adım sayısını belirt</div>
+      <div class="card-score"><span>1</span><span>2</span><span>3</span><span>4</span><span>5</span></div>
+    </div>
+    <div class="card">
+      <div class="card-number">4</div>
+      <div class="card-emoji">📖</div>
+      <div class="card-category">Hikaye Yazma</div>
+      <div class="card-task">Bir robotun okula gittiği kısa bir hikaye yaz</div>
+      <div class="card-hint">Karakterler, mekan ve olay örgüsü belirt</div>
+      <div class="card-score"><span>1</span><span>2</span><span>3</span><span>4</span><span>5</span></div>
+    </div>
+    <div class="card">
+      <div class="card-number">5</div>
+      <div class="card-emoji">🌐</div>
+      <div class="card-category">Çeviri</div>
+      <div class="card-task">Bir Türkçe şiiri İngilizce'ye çevir</div>
+      <div class="card-hint">Anlamı koruyarak ve ritmi belirterek</div>
+      <div class="card-score"><span>1</span><span>2</span><span>3</span><span>4</span><span>5</span></div>
+    </div>
+    <div class="card">
+      <div class="card-number">6</div>
+      <div class="card-emoji">🎵</div>
+      <div class="card-category">Müzik</div>
+      <div class="card-task">Doğa temalı bir şarkı sözü oluştur</div>
+      <div class="card-hint">Tarz, ruh hali ve kıta sayısını belirt</div>
+      <div class="card-score"><span>1</span><span>2</span><span>3</span><span>4</span><span>5</span></div>
+    </div>
+    <div class="card">
+      <div class="card-number">7</div>
+      <div class="card-emoji">💡</div>
+      <div class="card-category">Fikir Üretme</div>
+      <div class="card-task">Okul bahçesini güzelleştirmek için 5 yaratıcı fikir üret</div>
+      <div class="card-hint">Bütçe ve uygulama koşullarını belirt</div>
+      <div class="card-score"><span>1</span><span>2</span><span>3</span><span>4</span><span>5</span></div>
+    </div>
+    <div class="card">
+      <div class="card-number">8</div>
+      <div class="card-emoji">📧</div>
+      <div class="card-category">Resmi Yazı</div>
+      <div class="card-task">Okul müdürüne bir etkinlik izin mektubu yaz</div>
+      <div class="card-hint">Ton, format ve detay seviyesini belirt</div>
+      <div class="card-score"><span>1</span><span>2</span><span>3</span><span>4</span><span>5</span></div>
+    </div>
+    <div class="card">
+      <div class="card-number">9</div>
+      <div class="card-emoji">🔬</div>
+      <div class="card-category">Araştırma</div>
+      <div class="card-task">Güneş sistemi hakkında bir bilgi kartı hazırla</div>
+      <div class="card-hint">İçerik kapsamı ve görsel düzeni belirt</div>
+      <div class="card-score"><span>1</span><span>2</span><span>3</span><span>4</span><span>5</span></div>
+    </div>
+    <div class="card">
+      <div class="card-number">10</div>
+      <div class="card-emoji">🎭</div>
+      <div class="card-category">Yaratıcı Yazarlık</div>
+      <div class="card-task">İki yapay zekanın sohbet ettiği bir diyalog yaz</div>
+      <div class="card-hint">Karakterleri, konuyu ve uzunluğu belirt</div>
+      <div class="card-score"><span>1</span><span>2</span><span>3</span><span>4</span><span>5</span></div>
+    </div>
+  </div>
+</div>
+<div class="footer">Yapay Zeka Macerası — Dr. Murat ALTUN — CC BY-NC-SA 4.0 — yapay-zeka-cocuklar.vercel.app</div>
+</body>
+</html>

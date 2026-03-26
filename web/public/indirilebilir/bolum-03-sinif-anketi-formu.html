@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8">
+<title>Sınıf Anketi Formu - Bölüm 3</title>
+<style>
+  @media print { body { margin: 0; } .no-print { display: none !important; } }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: 'Segoe UI', system-ui, sans-serif; color: #1e293b; background: #fff; }
+  .print-btn { position: fixed; top: 20px; right: 20px; background: #0891b2; color: #fff; border: none; padding: 12px 24px; border-radius: 10px; font-size: 16px; font-weight: 700; cursor: pointer; z-index: 100; box-shadow: 0 4px 12px rgba(0,0,0,0.15); }
+  .print-btn:hover { background: #0e7490; }
+  .page { max-width: 750px; margin: 0 auto; padding: 30px 20px; }
+  .header { text-align: center; padding-bottom: 20px; border-bottom: 3px solid #0891b2; margin-bottom: 24px; }
+  .header h1 { font-size: 26px; color: #155e75; }
+  .header p { color: #64748b; margin-top: 6px; font-size: 13px; }
+  .info-row { display: flex; gap: 16px; margin-bottom: 20px; flex-wrap: wrap; }
+  .info-field { flex: 1; min-width: 200px; }
+  .info-field label { display: block; font-size: 12px; font-weight: 700; color: #64748b; margin-bottom: 4px; }
+  .info-field .line { border-bottom: 1.5px solid #cbd5e1; height: 28px; }
+  .instructions { background: #ecfeff; border-radius: 12px; border-left: 4px solid #0891b2; padding: 16px; margin-bottom: 24px; }
+  .instructions p { font-size: 13px; color: #475569; line-height: 1.6; }
+  .section-title { font-size: 16px; font-weight: 700; color: #155e75; margin: 20px 0 12px; }
+  table { width: 100%; border-collapse: collapse; margin-bottom: 20px; }
+  th { background: #0891b2; color: #fff; padding: 10px 8px; text-align: left; font-size: 12px; font-weight: 700; }
+  td { padding: 12px 8px; border-bottom: 1px solid #e2e8f0; font-size: 13px; vertical-align: top; }
+  td:first-child { font-weight: 600; color: #475569; white-space: nowrap; width: 160px; }
+  .write-area { min-height: 32px; border-bottom: 1px dotted #cbd5e1; }
+  .question-block { background: #f8fafc; border-radius: 10px; border: 1px solid #e2e8f0; padding: 14px 16px; margin-bottom: 12px; }
+  .question-block label { font-size: 13px; font-weight: 700; color: #0891b2; display: block; margin-bottom: 6px; }
+  .question-block .answer-line { border-bottom: 1.5px solid #cbd5e1; height: 28px; margin-bottom: 4px; }
+  .graph-area { border: 2px solid #e2e8f0; border-radius: 12px; padding: 16px; margin-bottom: 20px; min-height: 200px; position: relative; }
+  .graph-area .graph-title { font-size: 13px; font-weight: 700; color: #64748b; text-align: center; margin-bottom: 12px; }
+  .graph-grid { display: grid; grid-template-columns: 30px 1fr; gap: 4px; height: 160px; }
+  .graph-y { display: flex; flex-direction: column; justify-content: space-between; align-items: flex-end; font-size: 10px; color: #94a3b8; padding-right: 4px; }
+  .graph-body { border-left: 1.5px solid #cbd5e1; border-bottom: 1.5px solid #cbd5e1; position: relative; }
+  .graph-x-labels { display: grid; grid-template-columns: repeat(6, 1fr); margin-left: 34px; margin-top: 4px; }
+  .graph-x-labels span { text-align: center; font-size: 10px; color: #94a3b8; }
+  .summary-box { background: #ecfeff; border-radius: 12px; border-left: 4px solid #0891b2; padding: 16px; margin-top: 20px; }
+  .summary-box h3 { font-size: 15px; color: #155e75; margin-bottom: 10px; }
+  .summary-line { border-bottom: 1.5px solid #a5f3fc; height: 32px; margin-bottom: 4px; }
+  .footer { text-align: center; padding: 20px; color: #94a3b8; font-size: 11px; border-top: 1px solid #e2e8f0; margin-top: 30px; }
+</style>
+</head>
+<body>
+<button class="print-btn no-print" onclick="window.print()">🖨️ Yazdır / PDF</button>
+
+<div class="page">
+  <div class="header">
+    <h1>📊 Sınıf Anketi Formu</h1>
+    <p>Bölüm 3: Verinin Gücü — Veri Toplama ve Analiz Etkinliği</p>
+  </div>
+
+  <div class="info-row">
+    <div class="info-field"><label>Adı Soyadı:</label><div class="line"></div></div>
+    <div class="info-field"><label>Sınıf / No:</label><div class="line"></div></div>
+    <div class="info-field"><label>Tarih:</label><div class="line"></div></div>
+  </div>
+
+  <div class="instructions">
+    <p><strong>Görev:</strong> Sınıf arkadaşlarından aşağıdaki bilgileri topla. Her satıra bir kişinin cevaplarını yaz. Sonra verileri analiz edip grafik çiz!</p>
+  </div>
+
+  <div class="section-title">📋 Veri Toplama Tablosu</div>
+  <table>
+    <thead>
+      <tr>
+        <th>#</th>
+        <th>Boy (cm)</th>
+        <th>Ayak No</th>
+        <th>Favori Renk</th>
+        <th>Favori Ders</th>
+        <th>Ekran Süresi (saat/gün)</th>
+        <th>Kardeş Sayısı</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr><td>1</td><td><div class="write-area"></div></td><td><div class="write-area"></div></td><td><div class="write-area"></div></td><td><div class="write-area"></div></td><td><div class="write-area"></div></td><td><div class="write-area"></div></td></tr>
+      <tr><td>2</td><td><div class="write-area"></div></td><td><div class="write-area"></div></td><td><div class="write-area"></div></td><td><div class="write-area"></div></td><td><div class="write-area"></div></td><td><div class="write-area"></div></td></tr>
+      <tr><td>3</td><td><div class="write-area"></div></td><td><div class="write-area"></div></td><td><div class="write-area"></div></td><td><div class="write-area"></div></td><td><div class="write-area"></div></td><td><div class="write-area"></div></td></tr>
+      <tr><td>4</td><td><div class="write-area"></div></td><td><div class="write-area"></div></td><td><div class="write-area"></div></td><td><div class="write-area"></div></td><td><div class="write-area"></div></td><td><div class="write-area"></div></td></tr>
+      <tr><td>5</td><td><div class="write-area"></div></td><td><div class="write-area"></div></td><td><div class="write-area"></div></td><td><div class="write-area"></div></td><td><div class="write-area"></div></td><td><div class="write-area"></div></td></tr>
+      <tr><td>6</td><td><div class="write-area"></div></td><td><div class="write-area"></div></td><td><div class="write-area"></div></td><td><div class="write-area"></div></td><td><div class="write-area"></div></td><td><div class="write-area"></div></td></tr>
+      <tr><td>7</td><td><div class="write-area"></div></td><td><div class="write-area"></div></td><td><div class="write-area"></div></td><td><div class="write-area"></div></td><td><div class="write-area"></div></td><td><div class="write-area"></div></td></tr>
+      <tr><td>8</td><td><div class="write-area"></div></td><td><div class="write-area"></div></td><td><div class="write-area"></div></td><td><div class="write-area"></div></td><td><div class="write-area"></div></td><td><div class="write-area"></div></td></tr>
+      <tr><td>9</td><td><div class="write-area"></div></td><td><div class="write-area"></div></td><td><div class="write-area"></div></td><td><div class="write-area"></div></td><td><div class="write-area"></div></td><td><div class="write-area"></div></td></tr>
+      <tr><td>10</td><td><div class="write-area"></div></td><td><div class="write-area"></div></td><td><div class="write-area"></div></td><td><div class="write-area"></div></td><td><div class="write-area"></div></td><td><div class="write-area"></div></td></tr>
+    </tbody>
+  </table>
+
+  <div class="section-title">📈 Grafik Alanı — Favori Renkler</div>
+  <div class="graph-area">
+    <div class="graph-title">Favori Renk Dağılımı (Sütun Grafiği)</div>
+    <div class="graph-grid">
+      <div class="graph-y"><span>10</span><span>8</span><span>6</span><span>4</span><span>2</span><span>0</span></div>
+      <div class="graph-body"></div>
+    </div>
+    <div class="graph-x-labels">
+      <span>Kırmızı</span><span>Mavi</span><span>Yeşil</span><span>Sarı</span><span>Mor</span><span>Diğer</span>
+    </div>
+  </div>
+
+  <div class="section-title">🔢 Analiz Soruları</div>
+  <div class="question-block"><label>1. Sınıfın ortalama boyu kaç cm?</label><div class="answer-line"></div></div>
+  <div class="question-block"><label>2. En popüler favori renk hangisi? Kaç kişi seçti?</label><div class="answer-line"></div></div>
+  <div class="question-block"><label>3. En popüler favori ders hangisi?</label><div class="answer-line"></div></div>
+  <div class="question-block"><label>4. Günlük ortalama ekran süresi kaç saat?</label><div class="answer-line"></div></div>
+  <div class="question-block"><label>5. Boy ile ayak numarası arasında bir ilişki var mı?</label><div class="answer-line"></div></div>
+
+  <div class="summary-box">
+    <h3>💡 Veri Bilimcisi Gibi Düşün</h3>
+    <p style="font-size:13px; color:#475569; margin-bottom:10px;">Bu verileri bir YZ'ye verseydin, hangi tahminleri yapabilirdi? (Örnek: Boydan ayak numarası tahmin edebilir mi?)</p>
+    <div class="summary-line"></div>
+    <div class="summary-line"></div>
+    <div class="summary-line"></div>
+  </div>
+
+  <div class="footer">Yapay Zeka Macerası — Dr. Murat ALTUN — CC BY-NC-SA 4.0 — yapay-zeka-cocuklar.vercel.app</div>
+</div>
+</body>
+</html>

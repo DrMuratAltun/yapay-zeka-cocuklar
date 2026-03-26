@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8">
+<title>Tamamlama Sertifikası - Yapay Zeka Macerası</title>
+<style>
+  @media print { body { margin: 0; } .no-print { display: none !important; } }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: 'Segoe UI', system-ui, -apple-system, sans-serif; color: #1e293b; background: #fff; display: flex; flex-direction: column; align-items: center; min-height: 100vh; }
+  .print-btn { position: fixed; top: 20px; right: 20px; background: #3b82f6; color: #fff; border: none; padding: 12px 24px; border-radius: 10px; font-size: 16px; font-weight: 700; cursor: pointer; z-index: 100; box-shadow: 0 4px 12px rgba(0,0,0,0.15); }
+  .print-btn:hover { background: #2563eb; }
+
+  .certificate { width: 800px; max-width: 95vw; margin: 30px auto; padding: 12px; background: #fff; }
+
+  .cert-border { border: 4px solid #4f46e5; border-radius: 16px; padding: 8px; }
+  .cert-border-inner { border: 2px solid #a5b4fc; border-radius: 12px; padding: 8px; }
+  .cert-border-innermost { border: 1px solid #c7d2fe; border-radius: 8px; padding: 40px 50px; text-align: center; position: relative; overflow: hidden; }
+
+  /* Dekoratif koseler */
+  .cert-border-innermost::before,
+  .cert-border-innermost::after { content: ''; position: absolute; width: 60px; height: 60px; border: 3px solid #c7d2fe; }
+  .cert-border-innermost::before { top: 12px; left: 12px; border-right: none; border-bottom: none; border-radius: 8px 0 0 0; }
+  .cert-border-innermost::after { top: 12px; right: 12px; border-left: none; border-bottom: none; border-radius: 0 8px 0 0; }
+
+  .cert-corner-bl, .cert-corner-br { position: absolute; width: 60px; height: 60px; border: 3px solid #c7d2fe; bottom: 12px; }
+  .cert-corner-bl { left: 12px; border-right: none; border-top: none; border-radius: 0 0 0 8px; }
+  .cert-corner-br { right: 12px; border-left: none; border-top: none; border-radius: 0 0 8px 0; }
+
+  .cert-badge { margin-bottom: 16px; }
+  .cert-badge-circle { width: 80px; height: 80px; background: linear-gradient(135deg, #6366f1, #4f46e5); border-radius: 50%; display: inline-flex; align-items: center; justify-content: center; box-shadow: 0 4px 20px rgba(99, 102, 241, 0.35); }
+  .cert-badge-icon { font-size: 40px; }
+
+  .cert-subtitle { font-size: 14px; color: #6366f1; text-transform: uppercase; letter-spacing: 4px; font-weight: 700; margin-bottom: 8px; }
+  .cert-title { font-size: 32px; color: #312e81; font-weight: 800; margin-bottom: 6px; line-height: 1.3; }
+  .cert-subtitle2 { font-size: 16px; color: #4338ca; margin-bottom: 30px; font-weight: 600; }
+
+  .cert-desc { font-size: 15px; color: #64748b; margin-bottom: 10px; }
+
+  .cert-name-area { margin: 20px auto; max-width: 450px; }
+  .cert-name-line { border-bottom: 3px solid #6366f1; min-height: 44px; margin-bottom: 6px; }
+  .cert-name-label { font-size: 12px; color: #94a3b8; text-transform: uppercase; letter-spacing: 2px; }
+
+  .cert-achievement { font-size: 16px; color: #334155; margin: 24px 0; line-height: 1.8; }
+  .cert-achievement strong { color: #4338ca; }
+
+  .cert-chapters { display: flex; flex-wrap: wrap; justify-content: center; gap: 8px; margin: 20px auto; max-width: 500px; }
+  .cert-chapter { background: #eef2ff; color: #4338ca; font-size: 11px; font-weight: 700; padding: 4px 12px; border-radius: 20px; border: 1px solid #c7d2fe; }
+
+  .cert-bottom { display: flex; justify-content: space-between; align-items: flex-end; margin-top: 40px; padding-top: 20px; }
+  .cert-sign-box { text-align: center; width: 200px; }
+  .cert-sign-line { border-bottom: 2px solid #6366f1; min-height: 40px; margin-bottom: 6px; }
+  .cert-sign-name { font-size: 14px; color: #4338ca; font-weight: 700; }
+  .cert-sign-title { font-size: 11px; color: #94a3b8; }
+
+  .cert-seal-box { text-align: center; }
+  .cert-seal { width: 80px; height: 80px; border: 3px solid #6366f1; border-radius: 50%; display: inline-flex; align-items: center; justify-content: center; flex-direction: column; background: linear-gradient(135deg, #eef2ff, #fff); }
+  .cert-seal-star { font-size: 24px; }
+  .cert-seal-text { font-size: 7px; color: #4338ca; font-weight: 700; letter-spacing: 1px; }
+
+  .cert-date-box { text-align: center; width: 200px; }
+  .cert-date-line { border-bottom: 2px solid #6366f1; min-height: 40px; margin-bottom: 6px; }
+  .cert-date-label { font-size: 12px; color: #94a3b8; }
+
+  .cert-footer { font-size: 10px; color: #94a3b8; margin-top: 24px; padding-top: 12px; border-top: 1px solid #e2e8f0; }
+
+  .footer { text-align: center; padding: 20px; color: #94a3b8; font-size: 11px; border-top: 1px solid #e2e8f0; margin-top: 20px; width: 100%; }
+</style>
+</head>
+<body>
+<button class="print-btn no-print" onclick="window.print()">🖨️ Yazdır / PDF</button>
+
+<div class="certificate">
+  <div class="cert-border">
+    <div class="cert-border-inner">
+      <div class="cert-border-innermost">
+        <div class="cert-corner-bl"></div>
+        <div class="cert-corner-br"></div>
+
+        <div class="cert-badge">
+          <div class="cert-badge-circle">
+            <div class="cert-badge-icon">🏆</div>
+          </div>
+        </div>
+
+        <div class="cert-subtitle">Tamamlama Belgesi</div>
+        <div class="cert-title">Yapay Zeka Macerası<br>Tamamlama Sertifikası</div>
+        <div class="cert-subtitle2">AI Adventure Completion Certificate</div>
+
+        <div class="cert-desc">Bu belge, aşağıda adı geçen öğrencinin</div>
+
+        <div class="cert-name-area">
+          <div class="cert-name-line"></div>
+          <div class="cert-name-label">Öğrenci Adı Soyadı</div>
+        </div>
+
+        <div class="cert-achievement">
+          <strong>"Yapay Zeka Macerası"</strong> eğitim programının<br>
+          <strong>10 bölümünü başarıyla tamamladığını</strong> belgeler.
+        </div>
+
+        <div class="cert-chapters">
+          <div class="cert-chapter">1. YZ Nedir?</div>
+          <div class="cert-chapter">2. Makine Nasıl Öğrenir?</div>
+          <div class="cert-chapter">3. Verinin Gücü</div>
+          <div class="cert-chapter">4. Doğal Dil İşleme</div>
+          <div class="cert-chapter">5. Bilgisayarlı Görü</div>
+          <div class="cert-chapter">6. Prompt Mühendisliği</div>
+          <div class="cert-chapter">7. İlk YZ Projem</div>
+          <div class="cert-chapter">8. Dijital İçerik Üretimi</div>
+          <div class="cert-chapter">9. YZ ve Etik</div>
+          <div class="cert-chapter">10. Gelecek Seninle Başlar</div>
+        </div>
+
+        <div class="cert-bottom">
+          <div class="cert-sign-box">
+            <div class="cert-sign-line"></div>
+            <div class="cert-sign-name">Dr. Murat ALTUN</div>
+            <div class="cert-sign-title">Eğitim Yazarı</div>
+          </div>
+
+          <div class="cert-seal-box">
+            <div class="cert-seal">
+              <div class="cert-seal-star">⭐</div>
+              <div class="cert-seal-text">ONAY MUHRU</div>
+            </div>
+          </div>
+
+          <div class="cert-date-box">
+            <div class="cert-date-line"></div>
+            <div class="cert-date-label">Tarih</div>
+          </div>
+        </div>
+
+        <div class="cert-footer">
+          Yapay Zeka Macerası — Dr. Murat ALTUN — CC BY-NC-SA 4.0 — yapay-zeka-cocuklar.vercel.app
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="footer">Yapay Zeka Macerası — Dr. Murat ALTUN — CC BY-NC-SA 4.0 — yapay-zeka-cocuklar.vercel.app</div>
+</body>
+</html>

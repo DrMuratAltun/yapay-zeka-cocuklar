@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8">
+<title>Proje Planlama Formu - Bölüm 7</title>
+<style>
+  @media print { body { margin: 0; } .no-print { display: none !important; } .page-break { page-break-after: always; } }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: 'Segoe UI', system-ui, -apple-system, sans-serif; color: #1e293b; background: #fff; }
+  .print-btn { position: fixed; top: 20px; right: 20px; background: #2563eb; color: #fff; border: none; padding: 12px 24px; border-radius: 10px; font-size: 16px; font-weight: 700; cursor: pointer; z-index: 100; box-shadow: 0 4px 12px rgba(0,0,0,0.15); }
+  .print-btn:hover { background: #1d4ed8; }
+  .page { max-width: 700px; margin: 0 auto; padding: 30px 20px; }
+  .header { text-align: center; padding-bottom: 20px; border-bottom: 3px solid #14b8a6; margin-bottom: 20px; }
+  .header h1 { font-size: 26px; color: #0f766e; }
+  .header p { color: #64748b; margin-top: 6px; font-size: 13px; }
+  .info-row { display: flex; gap: 16px; margin-bottom: 24px; flex-wrap: wrap; }
+  .info-field { flex: 1; min-width: 180px; }
+  .info-field label { display: block; font-size: 11px; font-weight: 700; color: #64748b; margin-bottom: 4px; }
+  .info-field .line { border-bottom: 1.5px solid #cbd5e1; height: 26px; }
+  .section { margin-bottom: 24px; }
+  .section-title { font-size: 14px; font-weight: 700; color: #0f766e; margin-bottom: 10px; padding: 8px 12px; background: #f0fdfa; border-radius: 8px; border-left: 4px solid #14b8a6; }
+  .form-field { margin-bottom: 14px; }
+  .form-field label { display: block; font-size: 12px; font-weight: 700; color: #475569; margin-bottom: 4px; }
+  .form-field .hint { font-size: 10px; color: #94a3b8; margin-bottom: 4px; }
+  .form-line { border-bottom: 1.5px solid #cbd5e1; height: 28px; }
+  .form-area { border: 1.5px solid #e2e8f0; border-radius: 8px; min-height: 70px; padding: 8px; }
+  .team-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 10px; }
+  .team-member { display: flex; align-items: center; gap: 8px; }
+  .team-num { width: 22px; height: 22px; border-radius: 50%; background: #14b8a6; color: #fff; font-size: 11px; font-weight: 700; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+  .team-line { flex: 1; border-bottom: 1.5px solid #cbd5e1; height: 24px; }
+  .timeline-table { width: 100%; border-collapse: collapse; font-size: 12px; }
+  .timeline-table th { background: #f0fdfa; color: #0f766e; padding: 8px 10px; text-align: left; border: 1px solid #99f6e4; font-size: 11px; }
+  .timeline-table td { padding: 8px 10px; border: 1px solid #e2e8f0; height: 36px; vertical-align: top; }
+  .materials-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 8px; }
+  .material-item { display: flex; align-items: center; gap: 8px; font-size: 12px; }
+  .material-check { width: 16px; height: 16px; border: 2px solid #99f6e4; border-radius: 3px; flex-shrink: 0; }
+  .material-line { flex: 1; border-bottom: 1.5px solid #e2e8f0; height: 22px; }
+  .footer { text-align: center; padding: 20px; color: #94a3b8; font-size: 11px; border-top: 1px solid #e2e8f0; margin-top: 30px; }
+</style>
+</head>
+<body>
+<button class="print-btn no-print" onclick="window.print()">🖨️ Yazdır / PDF</button>
+<div class="page">
+  <div class="header">
+    <h1>📋 Proje Planlama Formu</h1>
+    <p>Bölüm 7: Gerçek Hayat Problemleri — YZ Proje Planı</p>
+  </div>
+  <div class="info-row">
+    <div class="info-field"><label>Adı Soyadı:</label><div class="line"></div></div>
+    <div class="info-field"><label>Sınıf / No:</label><div class="line"></div></div>
+    <div class="info-field"><label>Tarih:</label><div class="line"></div></div>
+  </div>
+
+  <!-- Proje Adı -->
+  <div class="section">
+    <div class="section-title">🏷️ Proje Bilgileri</div>
+    <div class="form-field">
+      <label>Proje Adı:</label>
+      <div class="form-line"></div>
+    </div>
+  </div>
+
+  <!-- Ekip Üyeleri -->
+  <div class="section">
+    <div class="section-title">👥 Ekip Üyeleri</div>
+    <div class="team-grid">
+      <div class="team-member"><div class="team-num">1</div><div class="team-line"></div></div>
+      <div class="team-member"><div class="team-num">2</div><div class="team-line"></div></div>
+      <div class="team-member"><div class="team-num">3</div><div class="team-line"></div></div>
+      <div class="team-member"><div class="team-num">4</div><div class="team-line"></div></div>
+    </div>
+  </div>
+
+  <!-- Problem Tanımı -->
+  <div class="section">
+    <div class="section-title">🔍 Problem Tanımı</div>
+    <div class="form-field">
+      <label>Çözmek istediğimiz problem nedir?</label>
+      <div class="hint">Problemi açık ve net bir şekilde tanımlayın</div>
+      <div class="form-area"></div>
+    </div>
+  </div>
+
+  <!-- Hedef Kitle -->
+  <div class="section">
+    <div class="section-title">🎯 Hedef Kitle</div>
+    <div class="form-field">
+      <label>Bu çözüm kimin için? Kimler faydalanacak?</label>
+      <div class="form-line"></div>
+      <div class="form-line"></div>
+    </div>
+  </div>
+
+  <!-- YZ Aracı -->
+  <div class="section">
+    <div class="section-title">🤖 Kullanılacak YZ Aracı</div>
+    <div class="form-field">
+      <label>Hangi YZ aracını veya platformunu kullanacaksınız?</label>
+      <div class="hint">Ör: PictoBlox, ML for Kids, Teachable Machine, ChatGPT vb.</div>
+      <div class="form-line"></div>
+    </div>
+    <div class="form-field">
+      <label>Bu aracı neden seçtiniz?</label>
+      <div class="form-line"></div>
+    </div>
+  </div>
+
+  <!-- Veri Kaynağı -->
+  <div class="section">
+    <div class="section-title">📊 Veri Kaynağı</div>
+    <div class="form-field">
+      <label>Modeli eğitmek için hangi verileri kullanacaksınız?</label>
+      <div class="hint">Ör: Fotoğraflar, metin verileri, anket sonuçları vb.</div>
+      <div class="form-line"></div>
+      <div class="form-line"></div>
+    </div>
+    <div class="form-field">
+      <label>Verileri nereden / nasıl toplayacaksınız?</label>
+      <div class="form-line"></div>
+    </div>
+  </div>
+
+  <div class="page-break"></div>
+
+  <!-- Zaman Planı -->
+  <div class="section">
+    <div class="section-title">📅 Zaman Planı (Haftalık)</div>
+    <table class="timeline-table">
+      <tr>
+        <th style="width:20%">Hafta</th>
+        <th style="width:50%">Yapılacaklar</th>
+        <th style="width:30%">Sorumlu</th>
+      </tr>
+      <tr><td><strong>1. Hafta</strong></td><td></td><td></td></tr>
+      <tr><td><strong>2. Hafta</strong></td><td></td><td></td></tr>
+      <tr><td><strong>3. Hafta</strong></td><td></td><td></td></tr>
+      <tr><td><strong>4. Hafta</strong></td><td></td><td></td></tr>
+    </table>
+  </div>
+
+  <!-- Beklenen Sonuç -->
+  <div class="section">
+    <div class="section-title">🏆 Beklenen Sonuç</div>
+    <div class="form-field">
+      <label>Proje tamamlandığında ne olmasını bekliyorsunuz?</label>
+      <div class="form-area"></div>
+    </div>
+  </div>
+
+  <!-- Gerekli Malzemeler -->
+  <div class="section">
+    <div class="section-title">🧰 Gerekli Malzemeler</div>
+    <div class="materials-grid">
+      <div class="material-item"><div class="material-check"></div><div class="material-line"></div></div>
+      <div class="material-item"><div class="material-check"></div><div class="material-line"></div></div>
+      <div class="material-item"><div class="material-check"></div><div class="material-line"></div></div>
+      <div class="material-item"><div class="material-check"></div><div class="material-line"></div></div>
+      <div class="material-item"><div class="material-check"></div><div class="material-line"></div></div>
+      <div class="material-item"><div class="material-check"></div><div class="material-line"></div></div>
+      <div class="material-item"><div class="material-check"></div><div class="material-line"></div></div>
+      <div class="material-item"><div class="material-check"></div><div class="material-line"></div></div>
+    </div>
+  </div>
+</div>
+<div class="footer">Yapay Zeka Macerası — Dr. Murat ALTUN — CC BY-NC-SA 4.0 — yapay-zeka-cocuklar.vercel.app</div>
+</body>
+</html>

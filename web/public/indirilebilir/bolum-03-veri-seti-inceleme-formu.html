@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8">
+<title>Veri Seti İnceleme Formu - Bölüm 3</title>
+<style>
+  @media print { body { margin: 0; } .no-print { display: none !important; } }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: 'Segoe UI', system-ui, sans-serif; color: #1e293b; background: #fff; }
+  .print-btn { position: fixed; top: 20px; right: 20px; background: #0891b2; color: #fff; border: none; padding: 12px 24px; border-radius: 10px; font-size: 16px; font-weight: 700; cursor: pointer; z-index: 100; box-shadow: 0 4px 12px rgba(0,0,0,0.15); }
+  .print-btn:hover { background: #0e7490; }
+  .page { max-width: 750px; margin: 0 auto; padding: 30px 20px; }
+  .header { text-align: center; padding-bottom: 20px; border-bottom: 3px solid #0891b2; margin-bottom: 24px; }
+  .header h1 { font-size: 26px; color: #155e75; }
+  .header p { color: #64748b; margin-top: 6px; font-size: 13px; }
+  .info-row { display: flex; gap: 16px; margin-bottom: 20px; flex-wrap: wrap; }
+  .info-field { flex: 1; min-width: 200px; }
+  .info-field label { display: block; font-size: 12px; font-weight: 700; color: #64748b; margin-bottom: 4px; }
+  .info-field .line { border-bottom: 1.5px solid #cbd5e1; height: 28px; }
+  .instructions { background: #ecfeff; border-radius: 12px; border-left: 4px solid #0891b2; padding: 16px; margin-bottom: 24px; }
+  .instructions p { font-size: 13px; color: #475569; line-height: 1.6; }
+  .form-section { margin-bottom: 20px; }
+  .form-section-title { font-size: 15px; font-weight: 700; color: #155e75; margin-bottom: 12px; padding-bottom: 6px; border-bottom: 2px solid #a5f3fc; }
+  .field-row { display: flex; gap: 16px; margin-bottom: 14px; flex-wrap: wrap; }
+  .field { flex: 1; min-width: 200px; }
+  .field label { display: block; font-size: 12px; font-weight: 700; color: #64748b; margin-bottom: 4px; }
+  .field .line { border-bottom: 1.5px solid #cbd5e1; height: 28px; }
+  .field-full { width: 100%; margin-bottom: 14px; }
+  .field-full label { display: block; font-size: 12px; font-weight: 700; color: #64748b; margin-bottom: 4px; }
+  .field-full .line { border-bottom: 1.5px solid #cbd5e1; height: 28px; }
+  .write-area { min-height: 50px; border: 1px dotted #cbd5e1; border-radius: 8px; padding: 8px; margin-top: 4px; }
+  .checkbox-row { display: flex; gap: 20px; flex-wrap: wrap; margin-top: 6px; }
+  .checkbox-item { display: flex; align-items: center; gap: 6px; font-size: 13px; color: #475569; }
+  .check-box { width: 18px; height: 18px; border: 2px solid #cbd5e1; border-radius: 4px; flex-shrink: 0; }
+  table { width: 100%; border-collapse: collapse; margin: 12px 0; }
+  th { background: #0891b2; color: #fff; padding: 10px 8px; text-align: left; font-size: 12px; font-weight: 700; }
+  td { padding: 12px 8px; border-bottom: 1px solid #e2e8f0; font-size: 13px; vertical-align: top; }
+  .write-cell { min-height: 30px; border-bottom: 1px dotted #cbd5e1; }
+  .quality-section { background: #f0fdfa; border-radius: 12px; border: 1px solid #99f6e4; padding: 16px; margin-top: 20px; }
+  .quality-section h3 { font-size: 14px; color: #0f766e; margin-bottom: 12px; }
+  .quality-item { display: flex; align-items: flex-start; gap: 10px; margin-bottom: 10px; }
+  .quality-item .q-label { font-size: 12px; font-weight: 700; color: #475569; min-width: 140px; }
+  .quality-item .q-options { display: flex; gap: 12px; flex-wrap: wrap; }
+  .quality-item .q-option { display: flex; align-items: center; gap: 4px; font-size: 12px; color: #64748b; }
+  .reflection { background: #ecfeff; border-radius: 12px; border-left: 4px solid #0891b2; padding: 16px; margin-top: 24px; }
+  .reflection h3 { font-size: 15px; color: #155e75; margin-bottom: 10px; }
+  .reflection-line { border-bottom: 1.5px solid #a5f3fc; height: 32px; margin-bottom: 4px; }
+  .footer { text-align: center; padding: 20px; color: #94a3b8; font-size: 11px; border-top: 1px solid #e2e8f0; margin-top: 30px; }
+</style>
+</head>
+<body>
+<button class="print-btn no-print" onclick="window.print()">🖨️ Yazdır / PDF</button>
+
+<div class="page">
+  <div class="header">
+    <h1>🔬 Veri Seti İnceleme Formu</h1>
+    <p>Bölüm 3: Verinin Gücü — Veri Analizi Etkinliği</p>
+  </div>
+
+  <div class="info-row">
+    <div class="info-field"><label>Adı Soyadı:</label><div class="line"></div></div>
+    <div class="info-field"><label>Sınıf / No:</label><div class="line"></div></div>
+    <div class="info-field"><label>Tarih:</label><div class="line"></div></div>
+  </div>
+
+  <div class="instructions">
+    <p><strong>Görev:</strong> Bir veri setini incele (öğretmenin vereceği veri seti, internet kaynağı veya kendi topladığın veriler) ve aşağıdaki formu doldur. Veri bilimcisi gibi düşün!</p>
+  </div>
+
+  <div class="form-section">
+    <div class="form-section-title">📌 Temel Bilgiler</div>
+    <div class="field-full"><label>Veri Seti Adı:</label><div class="line"></div></div>
+    <div class="field-row">
+      <div class="field"><label>Kaynak (nereden geldi?):</label><div class="line"></div></div>
+      <div class="field"><label>Oluşturulma Tarihi:</label><div class="line"></div></div>
+    </div>
+    <div class="field-row">
+      <div class="field"><label>Satır Sayısı (kayıt):</label><div class="line"></div></div>
+      <div class="field"><label>Sütun Sayısı (özellik):</label><div class="line"></div></div>
+    </div>
+  </div>
+
+  <div class="form-section">
+    <div class="form-section-title">📊 Sütun (Özellik) Detayları</div>
+    <table>
+      <thead>
+        <tr><th>#</th><th>Sütun Adı</th><th>Veri Türü</th><th>Örnek Değer</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>1</td><td><div class="write-cell"></div></td><td><div class="write-cell"></div></td><td><div class="write-cell"></div></td></tr>
+        <tr><td>2</td><td><div class="write-cell"></div></td><td><div class="write-cell"></div></td><td><div class="write-cell"></div></td></tr>
+        <tr><td>3</td><td><div class="write-cell"></div></td><td><div class="write-cell"></div></td><td><div class="write-cell"></div></td></tr>
+        <tr><td>4</td><td><div class="write-cell"></div></td><td><div class="write-cell"></div></td><td><div class="write-cell"></div></td></tr>
+        <tr><td>5</td><td><div class="write-cell"></div></td><td><div class="write-cell"></div></td><td><div class="write-cell"></div></td></tr>
+        <tr><td>6</td><td><div class="write-cell"></div></td><td><div class="write-cell"></div></td><td><div class="write-cell"></div></td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="form-section">
+    <div class="form-section-title">🏗️ Veri Yapısı</div>
+    <div class="field-full">
+      <label>Veri yapısal mı, yapısal değil mi?</label>
+      <div class="checkbox-row">
+        <div class="checkbox-item"><span class="check-box"></span> Yapısal (tablo, satır-sütun düzeni)</div>
+        <div class="checkbox-item"><span class="check-box"></span> Yarı Yapısal (JSON, XML)</div>
+        <div class="checkbox-item"><span class="check-box"></span> Yapısal Değil (metin, resim, ses)</div>
+      </div>
+    </div>
+    <div class="field-full">
+      <label>Veri türleri neler?</label>
+      <div class="checkbox-row">
+        <div class="checkbox-item"><span class="check-box"></span> Sayısal</div>
+        <div class="checkbox-item"><span class="check-box"></span> Metin</div>
+        <div class="checkbox-item"><span class="check-box"></span> Tarih/Saat</div>
+        <div class="checkbox-item"><span class="check-box"></span> Kategorik</div>
+        <div class="checkbox-item"><span class="check-box"></span> Evet/Hayır</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="quality-section">
+    <h3>✅ Veri Kalitesi Kontrolü</h3>
+    <div class="quality-item">
+      <div class="q-label">Eksik veri var mı?</div>
+      <div class="q-options">
+        <div class="q-option"><span class="check-box"></span> Yok</div>
+        <div class="q-option"><span class="check-box"></span> Az (<%10)</div>
+        <div class="q-option"><span class="check-box"></span> Çok (>%10)</div>
+      </div>
+    </div>
+    <div class="quality-item">
+      <div class="q-label">Tekrar eden veri var mı?</div>
+      <div class="q-options">
+        <div class="q-option"><span class="check-box"></span> Yok</div>
+        <div class="q-option"><span class="check-box"></span> Var</div>
+        <div class="q-option"><span class="check-box"></span> Emin değilim</div>
+      </div>
+    </div>
+    <div class="quality-item">
+      <div class="q-label">Hatalı veri var mı?</div>
+      <div class="q-options">
+        <div class="q-option"><span class="check-box"></span> Yok</div>
+        <div class="q-option"><span class="check-box"></span> Var</div>
+        <div class="q-option"><span class="check-box"></span> Emin değilim</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="form-section" style="margin-top:20px;">
+    <div class="form-section-title">❓ Bu Veri Seti Hangi Sorulara Cevap Verebilir?</div>
+    <div class="field-full"><label>Soru 1:</label><div class="line"></div></div>
+    <div class="field-full"><label>Soru 2:</label><div class="line"></div></div>
+    <div class="field-full"><label>Soru 3:</label><div class="line"></div></div>
+  </div>
+
+  <div class="reflection">
+    <h3>💡 Değerlendirme</h3>
+    <p style="font-size:13px; color:#475569; margin-bottom:10px;">Bu veri seti bir YZ modelini eğitmek için yeterli mi? Neden? Eksik olan ne olabilir?</p>
+    <div class="reflection-line"></div>
+    <div class="reflection-line"></div>
+    <div class="reflection-line"></div>
+  </div>
+
+  <div class="footer">Yapay Zeka Macerası — Dr. Murat ALTUN — CC BY-NC-SA 4.0 — yapay-zeka-cocuklar.vercel.app</div>
+</div>
+</body>
+</html>

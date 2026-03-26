@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8">
+<title>Meyve Sınıflandırıcı Kartları - Bölüm 4</title>
+<style>
+  @media print { body { margin: 0; } .no-print { display: none !important; } .cards-grid { gap: 10px !important; } }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: 'Segoe UI', system-ui, sans-serif; color: #1e293b; background: #fff; }
+  .print-btn { position: fixed; top: 20px; right: 20px; background: #059669; color: #fff; border: none; padding: 12px 24px; border-radius: 10px; font-size: 16px; font-weight: 700; cursor: pointer; z-index: 100; box-shadow: 0 4px 12px rgba(0,0,0,0.15); }
+  .print-btn:hover { background: #047857; }
+  .page { max-width: 750px; margin: 0 auto; padding: 30px 20px; }
+  .header { text-align: center; padding-bottom: 20px; border-bottom: 3px solid #059669; margin-bottom: 24px; }
+  .header h1 { font-size: 26px; color: #065f46; }
+  .header p { color: #64748b; margin-top: 6px; font-size: 13px; }
+  .instructions { background: #ecfdf5; border-radius: 12px; border-left: 4px solid #059669; padding: 16px; margin-bottom: 24px; }
+  .instructions p { font-size: 13px; color: #475569; line-height: 1.6; }
+  .section-title { font-size: 16px; font-weight: 700; margin-bottom: 14px; padding: 8px 16px; border-radius: 8px; }
+  .section-meyve { color: #065f46; background: #ecfdf5; border-left: 4px solid #10b981; }
+  .section-ozellik { color: #92400e; background: #fffbeb; border-left: 4px solid #f59e0b; }
+  .cards-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px; margin-bottom: 28px; }
+  .card { border: 2px dashed #cbd5e1; border-radius: 14px; padding: 14px 10px; text-align: center; min-height: 130px; display: flex; flex-direction: column; align-items: center; justify-content: center; position: relative; }
+  .card .cut-mark { position: absolute; top: -2px; right: -2px; font-size: 10px; color: #94a3b8; }
+  .card .emoji { font-size: 40px; margin-bottom: 6px; }
+  .card .card-name { font-weight: 700; font-size: 14px; margin-bottom: 4px; }
+  .card .card-detail { font-size: 10px; color: #64748b; line-height: 1.4; }
+  .card-meyve { border-color: #10b981; background: #f0fdf4; }
+  .card-ozellik { border-color: #f59e0b; background: #fffef5; }
+  .card-ozellik .emoji { font-size: 32px; }
+  .card-ozellik .card-name { color: #92400e; }
+  .card-ozellik .card-values { margin-top: 6px; font-size: 10px; color: #64748b; text-align: left; line-height: 1.5; }
+  .activity-box { background: #f8fafc; border-radius: 12px; border: 1px solid #e2e8f0; padding: 16px; margin-top: 8px; }
+  .activity-box h3 { font-size: 14px; color: #059669; margin-bottom: 10px; }
+  .activity-box ol { font-size: 12px; color: #475569; line-height: 1.8; padding-left: 20px; }
+  .classify-table { width: 100%; border-collapse: collapse; margin: 16px 0; }
+  .classify-table th { background: #059669; color: #fff; padding: 10px 8px; text-align: center; font-size: 11px; font-weight: 700; }
+  .classify-table td { padding: 10px 6px; border-bottom: 1px solid #e2e8f0; font-size: 12px; text-align: center; vertical-align: middle; }
+  .classify-table td:first-child { text-align: left; font-weight: 600; }
+  .write-cell { min-height: 24px; border-bottom: 1px dotted #cbd5e1; }
+  .footer { text-align: center; padding: 20px; color: #94a3b8; font-size: 11px; border-top: 1px solid #e2e8f0; margin-top: 30px; }
+</style>
+</head>
+<body>
+<button class="print-btn no-print" onclick="window.print()">🖨️ Yazdır / PDF</button>
+
+<div class="page">
+  <div class="header">
+    <h1>🍎 Meyve Sınıflandırıcı Kartları</h1>
+    <p>Bölüm 4: Makineler Nasıl Öğrenir? — Sınıflandırma Etkinliği</p>
+  </div>
+
+  <div class="instructions">
+    <p><strong>Görev:</strong> Meyve kartlarını kes. Özellik kartlarını kullanarak meyveleri gruplara ayır. Bir makine gibi düşün: hangi özellikler meyveleri ayırt etmene yardımcı oluyor?</p>
+  </div>
+
+  <div class="section-title section-meyve">🍇 Meyve Kartları (12 Adet)</div>
+  <div class="cards-grid">
+    <div class="card card-meyve">
+      <span class="cut-mark">✂️</span>
+      <div class="emoji">🍎</div>
+      <div class="card-name">Elma</div>
+      <div class="card-detail">Kırmızı/Yeşil, Yuvarlak, Orta</div>
+    </div>
+    <div class="card card-meyve">
+      <span class="cut-mark">✂️</span>
+      <div class="emoji">🍌</div>
+      <div class="card-name">Muz</div>
+      <div class="card-detail">Sarı, Uzun, Orta</div>
+    </div>
+    <div class="card card-meyve">
+      <span class="cut-mark">✂️</span>
+      <div class="emoji">🍊</div>
+      <div class="card-name">Portakal</div>
+      <div class="card-detail">Turuncu, Yuvarlak, Orta</div>
+    </div>
+    <div class="card card-meyve">
+      <span class="cut-mark">✂️</span>
+      <div class="emoji">🍓</div>
+      <div class="card-name">Çilek</div>
+      <div class="card-detail">Kırmızı, Koni, Küçük</div>
+    </div>
+    <div class="card card-meyve">
+      <span class="cut-mark">✂️</span>
+      <div class="emoji">🍇</div>
+      <div class="card-name">Üzüm</div>
+      <div class="card-detail">Mor/Yeşil, Yuvarlak, Küçük</div>
+    </div>
+    <div class="card card-meyve">
+      <span class="cut-mark">✂️</span>
+      <div class="emoji">🍉</div>
+      <div class="card-name">Karpuz</div>
+      <div class="card-detail">Yeşil/Kırmızı, Oval, Büyük</div>
+    </div>
+    <div class="card card-meyve">
+      <span class="cut-mark">✂️</span>
+      <div class="emoji">🍒</div>
+      <div class="card-name">Kiraz</div>
+      <div class="card-detail">Kırmızı, Yuvarlak, Küçük</div>
+    </div>
+    <div class="card card-meyve">
+      <span class="cut-mark">✂️</span>
+      <div class="emoji">🍐</div>
+      <div class="card-name">Armut</div>
+      <div class="card-detail">Yeşil/Sarı, Armut şekli, Orta</div>
+    </div>
+    <div class="card card-meyve">
+      <span class="cut-mark">✂️</span>
+      <div class="emoji">🥝</div>
+      <div class="card-name">Kivi</div>
+      <div class="card-detail">Kahverengi/Yeşil, Oval, Küçük</div>
+    </div>
+    <div class="card card-meyve">
+      <span class="cut-mark">✂️</span>
+      <div class="emoji">🍋</div>
+      <div class="card-name">Limon</div>
+      <div class="card-detail">Sarı, Oval, Orta</div>
+    </div>
+    <div class="card card-meyve">
+      <span class="cut-mark">✂️</span>
+      <div class="emoji">🟣</div>
+      <div class="card-name">Erik</div>
+      <div class="card-detail">Mor, Yuvarlak, Küçük</div>
+    </div>
+    <div class="card card-meyve">
+      <span class="cut-mark">✂️</span>
+      <div class="emoji">🍑</div>
+      <div class="card-name">Şeftali</div>
+      <div class="card-detail">Turuncu/Pembe, Yuvarlak, Orta</div>
+    </div>
+  </div>
+
+  <div class="section-title section-ozellik">🏷️ Özellik Kartları (4 Adet)</div>
+  <div class="cards-grid">
+    <div class="card card-ozellik">
+      <span class="cut-mark">✂️</span>
+      <div class="emoji">🎨</div>
+      <div class="card-name">Renk</div>
+      <div class="card-values">Kırmızı, Sarı, Yeşil, Turuncu, Mor, Kahverengi</div>
+    </div>
+    <div class="card card-ozellik">
+      <span class="cut-mark">✂️</span>
+      <div class="emoji">🔵</div>
+      <div class="card-name">Şekil</div>
+      <div class="card-values">Yuvarlak, Oval, Uzun, Koni, Armut şekli</div>
+    </div>
+    <div class="card card-ozellik">
+      <span class="cut-mark">✂️</span>
+      <div class="emoji">📏</div>
+      <div class="card-name">Boyut</div>
+      <div class="card-values">Küçük, Orta, Büyük</div>
+    </div>
+    <div class="card card-ozellik">
+      <span class="cut-mark">✂️</span>
+      <div class="emoji">🧴</div>
+      <div class="card-name">Kabuk</div>
+      <div class="card-values">İnce, Kalın, Tüylü, Pürüzlü, Pürüzsüz</div>
+    </div>
+  </div>
+
+  <h3 style="font-size:16px; color:#065f46; margin-bottom:12px;">📝 Sınıflandırma Tablosu</h3>
+  <p style="font-size:12px; color:#64748b; margin-bottom:10px;">Her meyve için özellikleri yaz. Sonra meyveleri gruplara ayır.</p>
+  <table class="classify-table">
+    <thead>
+      <tr><th>Meyve</th><th>🎨 Renk</th><th>🔵 Şekil</th><th>📏 Boyut</th><th>🧴 Kabuk</th></tr>
+    </thead>
+    <tbody>
+      <tr><td>🍎 Elma</td><td><div class="write-cell"></div></td><td><div class="write-cell"></div></td><td><div class="write-cell"></div></td><td><div class="write-cell"></div></td></tr>
+      <tr><td>🍌 Muz</td><td><div class="write-cell"></div></td><td><div class="write-cell"></div></td><td><div class="write-cell"></div></td><td><div class="write-cell"></div></td></tr>
+      <tr><td>🍊 Portakal</td><td><div class="write-cell"></div></td><td><div class="write-cell"></div></td><td><div class="write-cell"></div></td><td><div class="write-cell"></div></td></tr>
+      <tr><td>🍓 Çilek</td><td><div class="write-cell"></div></td><td><div class="write-cell"></div></td><td><div class="write-cell"></div></td><td><div class="write-cell"></div></td></tr>
+      <tr><td>🍇 Üzüm</td><td><div class="write-cell"></div></td><td><div class="write-cell"></div></td><td><div class="write-cell"></div></td><td><div class="write-cell"></div></td></tr>
+      <tr><td>🍉 Karpuz</td><td><div class="write-cell"></div></td><td><div class="write-cell"></div></td><td><div class="write-cell"></div></td><td><div class="write-cell"></div></td></tr>
+    </tbody>
+  </table>
+
+  <div class="activity-box">
+    <h3>🎮 Nasıl Oynanır?</h3>
+    <ol>
+      <li>Meyve kartlarını masaya yayın.</li>
+      <li>Bir özellik kartı seçin (ör: Renk).</li>
+      <li>Meyveleri o özelliğe göre gruplara ayırın.</li>
+      <li>Farklı bir özellik kartı seçip tekrar gruplayın.</li>
+      <li>Soru: Hangi özellik meyveleri en iyi ayırıyor? Bu bir makine öğrenmesi algoritmasının yaptığıyla aynı şey!</li>
+    </ol>
+  </div>
+
+  <div class="footer">Yapay Zeka Macerası — Dr. Murat ALTUN — CC BY-NC-SA 4.0 — yapay-zeka-cocuklar.vercel.app</div>
+</div>
+</body>
+</html>

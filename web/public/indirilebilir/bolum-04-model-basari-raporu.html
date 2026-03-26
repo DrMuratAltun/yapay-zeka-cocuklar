@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8">
+<title>Model Başarı Raporu - Bölüm 4</title>
+<style>
+  @media print { body { margin: 0; } .no-print { display: none !important; } }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: 'Segoe UI', system-ui, sans-serif; color: #1e293b; background: #fff; }
+  .print-btn { position: fixed; top: 20px; right: 20px; background: #059669; color: #fff; border: none; padding: 12px 24px; border-radius: 10px; font-size: 16px; font-weight: 700; cursor: pointer; z-index: 100; box-shadow: 0 4px 12px rgba(0,0,0,0.15); }
+  .print-btn:hover { background: #047857; }
+  .page { max-width: 750px; margin: 0 auto; padding: 30px 20px; }
+  .header { text-align: center; padding-bottom: 20px; border-bottom: 3px solid #059669; margin-bottom: 24px; }
+  .header h1 { font-size: 26px; color: #065f46; }
+  .header p { color: #64748b; margin-top: 6px; font-size: 13px; }
+  .info-row { display: flex; gap: 16px; margin-bottom: 20px; flex-wrap: wrap; }
+  .info-field { flex: 1; min-width: 200px; }
+  .info-field label { display: block; font-size: 12px; font-weight: 700; color: #64748b; margin-bottom: 4px; }
+  .info-field .line { border-bottom: 1.5px solid #cbd5e1; height: 28px; }
+  .instructions { background: #ecfdf5; border-radius: 12px; border-left: 4px solid #059669; padding: 16px; margin-bottom: 24px; }
+  .instructions p { font-size: 13px; color: #475569; line-height: 1.6; }
+  .section-title { font-size: 16px; font-weight: 700; color: #065f46; margin: 24px 0 12px; padding-bottom: 6px; border-bottom: 2px solid #a7f3d0; }
+  .field-row { display: flex; gap: 16px; margin-bottom: 14px; flex-wrap: wrap; }
+  .field { flex: 1; min-width: 180px; }
+  .field label { display: block; font-size: 12px; font-weight: 700; color: #64748b; margin-bottom: 4px; }
+  .field .line { border-bottom: 1.5px solid #cbd5e1; height: 28px; }
+  .field-full { width: 100%; margin-bottom: 14px; }
+  .field-full label { display: block; font-size: 12px; font-weight: 700; color: #64748b; margin-bottom: 4px; }
+  .field-full .line { border-bottom: 1.5px solid #cbd5e1; height: 28px; }
+  .checkbox-row { display: flex; gap: 16px; flex-wrap: wrap; margin-top: 6px; }
+  .checkbox-item { display: flex; align-items: center; gap: 6px; font-size: 13px; color: #475569; }
+  .check-box { width: 18px; height: 18px; border: 2px solid #cbd5e1; border-radius: 4px; flex-shrink: 0; }
+  table { width: 100%; border-collapse: collapse; margin-bottom: 16px; }
+  th { background: #059669; color: #fff; padding: 10px 8px; text-align: center; font-size: 12px; font-weight: 700; }
+  th:first-child { text-align: left; }
+  td { padding: 12px 8px; border-bottom: 1px solid #e2e8f0; font-size: 13px; text-align: center; vertical-align: middle; }
+  td:first-child { text-align: left; font-weight: 600; color: #475569; }
+  .write-cell { min-height: 28px; border-bottom: 1px dotted #cbd5e1; }
+  .total-row td { background: #ecfdf5; font-weight: 700; border-top: 2px solid #059669; }
+  .score-box { display: flex; gap: 16px; margin: 20px 0; flex-wrap: wrap; }
+  .score-card { flex: 1; min-width: 140px; background: #f8fafc; border: 2px solid #e2e8f0; border-radius: 12px; padding: 16px; text-align: center; }
+  .score-card .score-label { font-size: 11px; font-weight: 700; color: #64748b; margin-bottom: 6px; }
+  .score-card .score-value { font-size: 32px; font-weight: 800; height: 50px; display: flex; align-items: center; justify-content: center; }
+  .score-card .score-unit { font-size: 12px; color: #94a3b8; margin-top: 4px; }
+  .score-green { border-color: #10b981; } .score-green .score-label { color: #065f46; }
+  .score-blue { border-color: #3b82f6; } .score-blue .score-label { color: #1e40af; }
+  .score-amber { border-color: #f59e0b; } .score-amber .score-label { color: #92400e; }
+  .score-purple { border-color: #8b5cf6; } .score-purple .score-label { color: #6d28d9; }
+  .rating-section { background: #fffbeb; border-radius: 12px; border-left: 4px solid #f59e0b; padding: 16px; margin: 20px 0; }
+  .rating-section h3 { font-size: 14px; color: #92400e; margin-bottom: 10px; }
+  .rating-bar { display: flex; align-items: center; gap: 8px; margin-bottom: 8px; }
+  .rating-bar .rating-label { font-size: 12px; color: #475569; min-width: 100px; }
+  .rating-stars { display: flex; gap: 4px; }
+  .star { width: 22px; height: 22px; border: 2px solid #f59e0b; border-radius: 4px; display: flex; align-items: center; justify-content: center; font-size: 12px; color: #f59e0b; }
+  .improvement { background: #ecfdf5; border-radius: 12px; border-left: 4px solid #059669; padding: 16px; margin-top: 20px; }
+  .improvement h3 { font-size: 15px; color: #065f46; margin-bottom: 10px; }
+  .improvement-line { border-bottom: 1.5px solid #a7f3d0; height: 32px; margin-bottom: 4px; }
+  .footer { text-align: center; padding: 20px; color: #94a3b8; font-size: 11px; border-top: 1px solid #e2e8f0; margin-top: 30px; }
+</style>
+</head>
+<body>
+<button class="print-btn no-print" onclick="window.print()">🖨️ Yazdır / PDF</button>
+
+<div class="page">
+  <div class="header">
+    <h1>📊 Model Başarı Raporu</h1>
+    <p>Bölüm 4: Makineler Nasıl Öğrenir? — Değerlendirme Formu</p>
+  </div>
+
+  <div class="info-row">
+    <div class="info-field"><label>Adı Soyadı:</label><div class="line"></div></div>
+    <div class="info-field"><label>Sınıf / No:</label><div class="line"></div></div>
+    <div class="info-field"><label>Tarih:</label><div class="line"></div></div>
+  </div>
+
+  <div class="instructions">
+    <p><strong>Görev:</strong> Eğittiğin YZ modelinin performansını bu rapor ile değerlendir. Teachable Machine veya başka bir araçla eğittiğin modelin sonuçlarını kaydet.</p>
+  </div>
+
+  <div class="section-title">📌 Proje Bilgileri</div>
+  <div class="field-full"><label>Proje Adı:</label><div class="line"></div></div>
+  <div class="field-row">
+    <div class="field">
+      <label>Model Türü:</label>
+      <div class="checkbox-row">
+        <div class="checkbox-item"><span class="check-box"></span> Görüntü</div>
+        <div class="checkbox-item"><span class="check-box"></span> Ses</div>
+        <div class="checkbox-item"><span class="check-box"></span> Poz</div>
+      </div>
+    </div>
+    <div class="field"><label>Kullanılan Araç:</label><div class="line"></div></div>
+  </div>
+  <div class="field-row">
+    <div class="field"><label>Sınıf Sayısı:</label><div class="line"></div></div>
+    <div class="field"><label>Toplam Örnek Sayısı:</label><div class="line"></div></div>
+    <div class="field"><label>Eğitim Süresi:</label><div class="line"></div></div>
+  </div>
+
+  <div class="section-title">🏷️ Sınıf Detayları</div>
+  <table>
+    <thead>
+      <tr><th>Sınıf Adı</th><th>Örnek Sayısı</th><th>Açıklama</th></tr>
+    </thead>
+    <tbody>
+      <tr><td><div class="write-cell"></div></td><td><div class="write-cell"></div></td><td><div class="write-cell"></div></td></tr>
+      <tr><td><div class="write-cell"></div></td><td><div class="write-cell"></div></td><td><div class="write-cell"></div></td></tr>
+      <tr><td><div class="write-cell"></div></td><td><div class="write-cell"></div></td><td><div class="write-cell"></div></td></tr>
+      <tr><td><div class="write-cell"></div></td><td><div class="write-cell"></div></td><td><div class="write-cell"></div></td></tr>
+    </tbody>
+  </table>
+
+  <div class="section-title">🧪 Test Sonuçları</div>
+  <p style="font-size:12px; color:#64748b; margin-bottom:10px;">Her sınıf için 10 test yap. Kaç tanesini doğru, kaçını yanlış tahmin ettiğini yaz.</p>
+  <table>
+    <thead>
+      <tr><th>Sınıf Adı</th><th>Test Sayısı</th><th>✅ Doğru</th><th>❌ Yanlış</th><th>Başarı %</th></tr>
+    </thead>
+    <tbody>
+      <tr><td><div class="write-cell"></div></td><td><div class="write-cell"></div></td><td><div class="write-cell"></div></td><td><div class="write-cell"></div></td><td><div class="write-cell"></div></td></tr>
+      <tr><td><div class="write-cell"></div></td><td><div class="write-cell"></div></td><td><div class="write-cell"></div></td><td><div class="write-cell"></div></td><td><div class="write-cell"></div></td></tr>
+      <tr><td><div class="write-cell"></div></td><td><div class="write-cell"></div></td><td><div class="write-cell"></div></td><td><div class="write-cell"></div></td><td><div class="write-cell"></div></td></tr>
+      <tr><td><div class="write-cell"></div></td><td><div class="write-cell"></div></td><td><div class="write-cell"></div></td><td><div class="write-cell"></div></td><td><div class="write-cell"></div></td></tr>
+      <tr class="total-row"><td>TOPLAM</td><td><div class="write-cell"></div></td><td><div class="write-cell"></div></td><td><div class="write-cell"></div></td><td><div class="write-cell"></div></td></tr>
+    </tbody>
+  </table>
+
+  <div class="score-box">
+    <div class="score-card score-green">
+      <div class="score-label">GENEL BAŞARI ORANI</div>
+      <div class="score-value" style="border-bottom: 2px dotted #10b981;"></div>
+      <div class="score-unit">% (yüzde)</div>
+    </div>
+    <div class="score-card score-blue">
+      <div class="score-label">TOPLAM TEST</div>
+      <div class="score-value" style="border-bottom: 2px dotted #3b82f6;"></div>
+      <div class="score-unit">adet</div>
+    </div>
+    <div class="score-card score-amber">
+      <div class="score-label">TOPLAM DOĞRU</div>
+      <div class="score-value" style="border-bottom: 2px dotted #f59e0b;"></div>
+      <div class="score-unit">adet</div>
+    </div>
+    <div class="score-card score-purple">
+      <div class="score-label">TOPLAM YANLIŞ</div>
+      <div class="score-value" style="border-bottom: 2px dotted #8b5cf6;"></div>
+      <div class="score-unit">adet</div>
+    </div>
+  </div>
+
+  <div class="rating-section">
+    <h3>⭐ Modeli Değerlendir (1-5 yıldız)</h3>
+    <div class="rating-bar">
+      <div class="rating-label">Doğruluk</div>
+      <div class="rating-stars"><span class="star">1</span><span class="star">2</span><span class="star">3</span><span class="star">4</span><span class="star">5</span></div>
+    </div>
+    <div class="rating-bar">
+      <div class="rating-label">Hız</div>
+      <div class="rating-stars"><span class="star">1</span><span class="star">2</span><span class="star">3</span><span class="star">4</span><span class="star">5</span></div>
+    </div>
+    <div class="rating-bar">
+      <div class="rating-label">Tutarlılık</div>
+      <div class="rating-stars"><span class="star">1</span><span class="star">2</span><span class="star">3</span><span class="star">4</span><span class="star">5</span></div>
+    </div>
+    <div class="rating-bar">
+      <div class="rating-label">Kullanım Kolaylığı</div>
+      <div class="rating-stars"><span class="star">1</span><span class="star">2</span><span class="star">3</span><span class="star">4</span><span class="star">5</span></div>
+    </div>
+  </div>
+
+  <div class="improvement">
+    <h3>🚀 İyileştirme Önerileri</h3>
+    <p style="font-size:13px; color:#475569; margin-bottom:10px;">Modelin başarısını artırmak için neler yapılabilir? En az 3 öneri yaz.</p>
+    <p style="font-size:12px; color:#64748b; margin-bottom:6px;">1.</p>
+    <div class="improvement-line"></div>
+    <p style="font-size:12px; color:#64748b; margin-bottom:6px;">2.</p>
+    <div class="improvement-line"></div>
+    <p style="font-size:12px; color:#64748b; margin-bottom:6px;">3.</p>
+    <div class="improvement-line"></div>
+    <p style="font-size:13px; color:#475569; margin-top:14px; margin-bottom:10px;">Bu projede öğrendiğim en önemli şey:</p>
+    <div class="improvement-line"></div>
+    <div class="improvement-line"></div>
+  </div>
+
+  <div class="footer">Yapay Zeka Macerası — Dr. Murat ALTUN — CC BY-NC-SA 4.0 — yapay-zeka-cocuklar.vercel.app</div>
+</div>
+</body>
+</html>

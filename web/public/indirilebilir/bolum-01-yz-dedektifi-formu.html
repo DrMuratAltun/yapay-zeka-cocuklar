@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8">
+<title>YZ Dedektifi Gözlem Formu - Bölüm 1</title>
+<style>
+  @media print { body { margin: 0; } .no-print { display: none !important; } }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: 'Segoe UI', system-ui, sans-serif; color: #1e293b; background: #fff; }
+  .print-btn { position: fixed; top: 20px; right: 20px; background: #0ea5e9; color: #fff; border: none; padding: 12px 24px; border-radius: 10px; font-size: 16px; font-weight: 700; cursor: pointer; z-index: 100; box-shadow: 0 4px 12px rgba(0,0,0,0.15); }
+  .print-btn:hover { background: #0284c7; }
+  .page { max-width: 700px; margin: 0 auto; padding: 30px 20px; }
+  .header { text-align: center; padding-bottom: 20px; border-bottom: 3px solid #0ea5e9; margin-bottom: 24px; }
+  .header h1 { font-size: 26px; color: #0369a1; }
+  .header p { color: #64748b; margin-top: 6px; font-size: 13px; }
+  .info-row { display: flex; gap: 16px; margin-bottom: 20px; flex-wrap: wrap; }
+  .info-field { flex: 1; min-width: 200px; }
+  .info-field label { display: block; font-size: 12px; font-weight: 700; color: #64748b; margin-bottom: 4px; }
+  .info-field .line { border-bottom: 1.5px solid #cbd5e1; height: 28px; }
+  .instructions { background: #f0f9ff; border-radius: 12px; border-left: 4px solid #0ea5e9; padding: 16px; margin-bottom: 24px; }
+  .instructions p { font-size: 13px; color: #475569; line-height: 1.6; }
+  table { width: 100%; border-collapse: collapse; margin-bottom: 20px; }
+  th { background: #0ea5e9; color: #fff; padding: 10px 8px; text-align: left; font-size: 12px; font-weight: 700; }
+  td { padding: 14px 8px; border-bottom: 1px solid #e2e8f0; font-size: 13px; vertical-align: top; }
+  td:first-child { width: 30px; text-align: center; font-weight: 700; color: #64748b; }
+  .write-area { min-height: 40px; border-bottom: 1px dotted #cbd5e1; }
+  .reflection { background: #fffbeb; border-radius: 12px; border-left: 4px solid #f59e0b; padding: 16px; margin-top: 24px; }
+  .reflection h3 { font-size: 15px; color: #92400e; margin-bottom: 10px; }
+  .reflection-line { border-bottom: 1.5px solid #fcd34d; height: 32px; margin-bottom: 4px; }
+  .footer { text-align: center; padding: 20px; color: #94a3b8; font-size: 11px; border-top: 1px solid #e2e8f0; margin-top: 30px; }
+</style>
+</head>
+<body>
+<button class="print-btn no-print" onclick="window.print()">🖨️ Yazdır / PDF</button>
+
+<div class="page">
+  <div class="header">
+    <h1>🔍 YZ Dedektifi Gözlem Formu</h1>
+    <p>Bölüm 1: Yapay Zeka Nedir? — Gözlem Etkinliği</p>
+  </div>
+
+  <div class="info-row">
+    <div class="info-field">
+      <label>Adı Soyadı:</label>
+      <div class="line"></div>
+    </div>
+    <div class="info-field">
+      <label>Sınıf / No:</label>
+      <div class="line"></div>
+    </div>
+    <div class="info-field">
+      <label>Tarih:</label>
+      <div class="line"></div>
+    </div>
+  </div>
+
+  <div class="instructions">
+    <p><strong>Görev:</strong> Bir gün boyunca karşılaştığın yapay zeka uygulamalarını aşağıdaki tabloya kaydet. Sabahtan akşama kadar dikkatli ol — yapay zeka her yerde!</p>
+  </div>
+
+  <table>
+    <thead>
+      <tr>
+        <th>#</th>
+        <th>YZ Uygulaması</th>
+        <th>Nerede / Ne Zaman?</th>
+        <th>Ne İşe Yarıyor?</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr><td>1</td><td><div class="write-area"></div></td><td><div class="write-area"></div></td><td><div class="write-area"></div></td></tr>
+      <tr><td>2</td><td><div class="write-area"></div></td><td><div class="write-area"></div></td><td><div class="write-area"></div></td></tr>
+      <tr><td>3</td><td><div class="write-area"></div></td><td><div class="write-area"></div></td><td><div class="write-area"></div></td></tr>
+      <tr><td>4</td><td><div class="write-area"></div></td><td><div class="write-area"></div></td><td><div class="write-area"></div></td></tr>
+      <tr><td>5</td><td><div class="write-area"></div></td><td><div class="write-area"></div></td><td><div class="write-area"></div></td></tr>
+      <tr><td>6</td><td><div class="write-area"></div></td><td><div class="write-area"></div></td><td><div class="write-area"></div></td></tr>
+      <tr><td>7</td><td><div class="write-area"></div></td><td><div class="write-area"></div></td><td><div class="write-area"></div></td></tr>
+      <tr><td>8</td><td><div class="write-area"></div></td><td><div class="write-area"></div></td><td><div class="write-area"></div></td></tr>
+    </tbody>
+  </table>
+
+  <div class="reflection">
+    <h3>🤔 Düşünme Soruları</h3>
+    <p style="font-size:13px; color:#92400e; margin-bottom:12px;">Topladığın verilere bakarak aşağıdaki soruları cevapla:</p>
+
+    <p style="font-size:12px; font-weight:700; color:#78350f; margin-bottom:4px;">1. Toplam kaç farklı YZ uygulaması buldun?</p>
+    <div class="reflection-line"></div>
+
+    <p style="font-size:12px; font-weight:700; color:#78350f; margin-bottom:4px; margin-top:12px;">2. En çok hangi alanda (ev, okul, yol, alışveriş) YZ ile karşılaştın?</p>
+    <div class="reflection-line"></div>
+
+    <p style="font-size:12px; font-weight:700; color:#78350f; margin-bottom:4px; margin-top:12px;">3. Seni en çok şaşırtan YZ uygulaması hangisiydi? Neden?</p>
+    <div class="reflection-line"></div>
+    <div class="reflection-line"></div>
+
+    <p style="font-size:12px; font-weight:700; color:#78350f; margin-bottom:4px; margin-top:12px;">4. YZ olmadan bir gün geçirmek kolay olur mu? Neden?</p>
+    <div class="reflection-line"></div>
+    <div class="reflection-line"></div>
+  </div>
+
+  <div class="footer">
+    Yapay Zeka Macerası — Dr. Murat ALTUN — CC BY-NC-SA 4.0 — yapay-zeka-cocuklar.vercel.app
+  </div>
+</div>
+</body>
+</html>

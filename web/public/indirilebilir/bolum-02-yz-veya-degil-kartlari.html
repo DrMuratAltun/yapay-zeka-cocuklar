@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8">
+<title>YZ mi, Değil mi? Kartları - Bölüm 2</title>
+<style>
+  @media print { body { margin: 0; } .no-print { display: none !important; } .page { padding: 10px !important; } }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: 'Segoe UI', system-ui, sans-serif; color: #1e293b; background: #fff; }
+  .print-btn { position: fixed; top: 20px; right: 20px; background: #8b5cf6; color: #fff; border: none; padding: 12px 24px; border-radius: 10px; font-size: 16px; font-weight: 700; cursor: pointer; z-index: 100; box-shadow: 0 4px 12px rgba(0,0,0,0.15); }
+  .print-btn:hover { background: #7c3aed; }
+  .page { max-width: 750px; margin: 0 auto; padding: 30px 20px; }
+  .header { text-align: center; padding-bottom: 20px; border-bottom: 3px solid #8b5cf6; margin-bottom: 24px; }
+  .header h1 { font-size: 26px; color: #6d28d9; }
+  .header p { color: #64748b; margin-top: 6px; font-size: 13px; }
+  .instructions { background: #f5f3ff; border-radius: 12px; border-left: 4px solid #8b5cf6; padding: 16px; margin-bottom: 24px; }
+  .instructions p { font-size: 13px; color: #475569; line-height: 1.6; }
+  .section-title { font-size: 18px; font-weight: 700; margin-bottom: 16px; padding: 8px 16px; border-radius: 8px; }
+  .section-yz { color: #065f46; background: #ecfdf5; border-left: 4px solid #10b981; }
+  .section-normal { color: #991b1b; background: #fef2f2; border-left: 4px solid #ef4444; }
+  .cards-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin-bottom: 32px; }
+  .card { border: 2px dashed #cbd5e1; border-radius: 16px; padding: 16px; text-align: center; min-height: 160px; display: flex; flex-direction: column; align-items: center; justify-content: center; position: relative; }
+  .card-yz { border-color: #10b981; background: #f0fdf4; }
+  .card-normal { border-color: #ef4444; background: #fff5f5; }
+  .card .emoji { font-size: 40px; margin-bottom: 8px; }
+  .card .card-name { font-weight: 700; font-size: 14px; margin-bottom: 10px; }
+  .card .card-question { font-size: 12px; color: #64748b; background: #fff; padding: 4px 12px; border-radius: 20px; border: 1px solid #e2e8f0; }
+  .card .cut-mark { position: absolute; top: -2px; right: -2px; font-size: 10px; color: #94a3b8; }
+  .answer-key { background: #f8fafc; border-radius: 12px; border: 1px solid #e2e8f0; padding: 16px; margin-top: 8px; }
+  .answer-key h3 { font-size: 14px; color: #475569; margin-bottom: 8px; }
+  .answer-key p { font-size: 12px; color: #64748b; line-height: 1.6; }
+  .footer { text-align: center; padding: 20px; color: #94a3b8; font-size: 11px; border-top: 1px solid #e2e8f0; margin-top: 30px; }
+</style>
+</head>
+<body>
+<button class="print-btn no-print" onclick="window.print()">🖨️ Yazdır / PDF</button>
+
+<div class="page">
+  <div class="header">
+    <h1>🤖 YZ mi, Değil mi? Kartları</h1>
+    <p>Bölüm 2: Günlük Hayatta Yapay Zeka — Sınıflandırma Etkinliği</p>
+  </div>
+
+  <div class="instructions">
+    <p><strong>Görev:</strong> Kartları kesim çizgilerinden kes. Her kartı incele ve "YZ Kullanan" ile "YZ Kullanmayan" olarak iki gruba ayır. Sınıf arkadaşlarınla tartış!</p>
+  </div>
+
+  <div class="section-title section-yz">✅ YZ Kullanan Cihazlar</div>
+  <div class="cards-grid">
+    <div class="card card-yz">
+      <span class="cut-mark">✂️</span>
+      <div class="emoji">🤖</div>
+      <div class="card-name">Robot Süpürge</div>
+      <div class="card-question">YZ mi? 🤔</div>
+    </div>
+    <div class="card card-yz">
+      <span class="cut-mark">✂️</span>
+      <div class="emoji">🗣️</div>
+      <div class="card-name">Sesli Asistan</div>
+      <div class="card-question">YZ mi? 🤔</div>
+    </div>
+    <div class="card card-yz">
+      <span class="cut-mark">✂️</span>
+      <div class="emoji">🎬</div>
+      <div class="card-name">Netflix Öneri Sistemi</div>
+      <div class="card-question">YZ mi? 🤔</div>
+    </div>
+    <div class="card card-yz">
+      <span class="cut-mark">✂️</span>
+      <div class="emoji">📱</div>
+      <div class="card-name">Yüz Tanıma</div>
+      <div class="card-question">YZ mi? 🤔</div>
+    </div>
+    <div class="card card-yz">
+      <span class="cut-mark">✂️</span>
+      <div class="emoji">📧</div>
+      <div class="card-name">Spam Filtre</div>
+      <div class="card-question">YZ mi? 🤔</div>
+    </div>
+    <div class="card card-yz">
+      <span class="cut-mark">✂️</span>
+      <div class="emoji">🗺️</div>
+      <div class="card-name">Navigasyon</div>
+      <div class="card-question">YZ mi? 🤔</div>
+    </div>
+  </div>
+
+  <div class="section-title section-normal">❌ YZ Kullanmayan Cihazlar</div>
+  <div class="cards-grid">
+    <div class="card card-normal">
+      <span class="cut-mark">✂️</span>
+      <div class="emoji">🧹</div>
+      <div class="card-name">Normal Süpürge</div>
+      <div class="card-question">YZ mi? 🤔</div>
+    </div>
+    <div class="card card-normal">
+      <span class="cut-mark">✂️</span>
+      <div class="emoji">📻</div>
+      <div class="card-name">Radyo</div>
+      <div class="card-question">YZ mi? 🤔</div>
+    </div>
+    <div class="card card-normal">
+      <span class="cut-mark">✂️</span>
+      <div class="emoji">⏰</div>
+      <div class="card-name">Saat</div>
+      <div class="card-question">YZ mi? 🤔</div>
+    </div>
+    <div class="card card-normal">
+      <span class="cut-mark">✂️</span>
+      <div class="emoji">☕</div>
+      <div class="card-name">Düdüklü Çaydanlık</div>
+      <div class="card-question">YZ mi? 🤔</div>
+    </div>
+    <div class="card card-normal">
+      <span class="cut-mark">✂️</span>
+      <div class="emoji">📏</div>
+      <div class="card-name">Cetvel</div>
+      <div class="card-question">YZ mi? 🤔</div>
+    </div>
+    <div class="card card-normal">
+      <span class="cut-mark">✂️</span>
+      <div class="emoji">🕯️</div>
+      <div class="card-name">Mum</div>
+      <div class="card-question">YZ mi? 🤔</div>
+    </div>
+  </div>
+
+  <div class="answer-key">
+    <h3>🔑 Cevap Anahtarı (Öğretmen İçin)</h3>
+    <p><strong>YZ Kullanan:</strong> Robot Süpürge (haritalama + engel algılama), Sesli Asistan (doğal dil işleme), Netflix Öneri (makine öğrenmesi), Yüz Tanıma (görüntü işleme), Spam Filtre (metin sınıflandırma), Navigasyon (rota optimizasyonu).</p>
+    <p style="margin-top:6px;"><strong>YZ Kullanmayan:</strong> Normal Süpürge, Radyo, Saat, Düdüklü Çaydanlık, Cetvel, Mum — bunlar mekanik veya basit elektrikli cihazlardır, öğrenme veya karar verme yetenekleri yoktur.</p>
+  </div>
+
+  <div class="footer">Yapay Zeka Macerası — Dr. Murat ALTUN — CC BY-NC-SA 4.0 — yapay-zeka-cocuklar.vercel.app</div>
+</div>
+</body>
+</html>

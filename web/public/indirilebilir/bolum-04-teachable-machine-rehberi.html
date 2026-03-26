@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8">
+<title>Teachable Machine Rehberi - Bölüm 4</title>
+<style>
+  @media print { body { margin: 0; } .no-print { display: none !important; } }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: 'Segoe UI', system-ui, sans-serif; color: #1e293b; background: #fff; }
+  .print-btn { position: fixed; top: 20px; right: 20px; background: #059669; color: #fff; border: none; padding: 12px 24px; border-radius: 10px; font-size: 16px; font-weight: 700; cursor: pointer; z-index: 100; box-shadow: 0 4px 12px rgba(0,0,0,0.15); }
+  .print-btn:hover { background: #047857; }
+  .page { max-width: 750px; margin: 0 auto; padding: 30px 20px; }
+  .header { text-align: center; padding-bottom: 20px; border-bottom: 3px solid #059669; margin-bottom: 24px; }
+  .header h1 { font-size: 26px; color: #065f46; }
+  .header p { color: #64748b; margin-top: 6px; font-size: 13px; }
+  .info-row { display: flex; gap: 16px; margin-bottom: 20px; flex-wrap: wrap; }
+  .info-field { flex: 1; min-width: 200px; }
+  .info-field label { display: block; font-size: 12px; font-weight: 700; color: #64748b; margin-bottom: 4px; }
+  .info-field .line { border-bottom: 1.5px solid #cbd5e1; height: 28px; }
+  .instructions { background: #ecfdf5; border-radius: 12px; border-left: 4px solid #059669; padding: 16px; margin-bottom: 24px; }
+  .instructions p { font-size: 13px; color: #475569; line-height: 1.6; }
+  .url-box { background: #f0fdf4; border: 2px solid #10b981; border-radius: 10px; padding: 12px 16px; text-align: center; margin-bottom: 24px; }
+  .url-box .url-label { font-size: 11px; font-weight: 700; color: #065f46; margin-bottom: 4px; }
+  .url-box .url-text { font-size: 16px; font-weight: 700; color: #059669; font-family: monospace; }
+  .step { display: flex; gap: 16px; margin-bottom: 20px; align-items: flex-start; }
+  .step-num { width: 48px; height: 48px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 20px; font-weight: 800; color: #fff; flex-shrink: 0; }
+  .step-content { flex: 1; }
+  .step-content h3 { font-size: 16px; margin-bottom: 6px; }
+  .step-content p { font-size: 13px; color: #475569; line-height: 1.6; }
+  .step-content .screen-desc { background: #f8fafc; border: 1px dashed #cbd5e1; border-radius: 10px; padding: 12px; margin-top: 8px; font-size: 12px; color: #64748b; }
+  .step-content .screen-desc strong { color: #1e293b; }
+  .step-content .tip { background: #fffbeb; border-left: 3px solid #f59e0b; padding: 8px 12px; margin-top: 8px; font-size: 12px; color: #92400e; border-radius: 0 8px 8px 0; }
+  .s1 .step-num { background: #3b82f6; } .s1 h3 { color: #1e40af; }
+  .s2 .step-num { background: #8b5cf6; } .s2 h3 { color: #6d28d9; }
+  .s3 .step-num { background: #ec4899; } .s3 h3 { color: #be185d; }
+  .s4 .step-num { background: #f59e0b; } .s4 h3 { color: #92400e; }
+  .s5 .step-num { background: #10b981; } .s5 h3 { color: #065f46; }
+  .s6 .step-num { background: #ef4444; } .s6 h3 { color: #991b1b; }
+  .s7 .step-num { background: #0891b2; } .s7 h3 { color: #155e75; }
+  .divider { height: 1px; background: #e2e8f0; margin: 4px 0 4px 64px; }
+  .checklist { background: #ecfdf5; border-radius: 12px; border: 1px solid #a7f3d0; padding: 16px; margin-top: 24px; }
+  .checklist h3 { font-size: 15px; color: #065f46; margin-bottom: 12px; }
+  .checklist-item { display: flex; align-items: center; gap: 8px; margin-bottom: 8px; font-size: 13px; color: #475569; }
+  .check-box { width: 18px; height: 18px; border: 2px solid #10b981; border-radius: 4px; flex-shrink: 0; }
+  .notes { background: #f8fafc; border-radius: 12px; border-left: 4px solid #059669; padding: 16px; margin-top: 20px; }
+  .notes h3 { font-size: 15px; color: #065f46; margin-bottom: 10px; }
+  .notes-line { border-bottom: 1.5px solid #a7f3d0; height: 32px; margin-bottom: 4px; }
+  .footer { text-align: center; padding: 20px; color: #94a3b8; font-size: 11px; border-top: 1px solid #e2e8f0; margin-top: 30px; }
+</style>
+</head>
+<body>
+<button class="print-btn no-print" onclick="window.print()">🖨️ Yazdır / PDF</button>
+
+<div class="page">
+  <div class="header">
+    <h1>🧠 Teachable Machine Rehberi</h1>
+    <p>Bölüm 4: Makineler Nasıl Öğrenir? — Adım Adım Uygulama</p>
+  </div>
+
+  <div class="info-row">
+    <div class="info-field"><label>Adı Soyadı:</label><div class="line"></div></div>
+    <div class="info-field"><label>Sınıf / No:</label><div class="line"></div></div>
+    <div class="info-field"><label>Tarih:</label><div class="line"></div></div>
+  </div>
+
+  <div class="instructions">
+    <p><strong>Görev:</strong> Google Teachable Machine kullanarak kendi YZ modelini eğit! Bu rehberdeki 7 adımı takip et ve her adımda ne yaptığını not al.</p>
+  </div>
+
+  <div class="url-box">
+    <div class="url-label">WEB ADRESİ</div>
+    <div class="url-text">teachablemachine.withgoogle.com</div>
+  </div>
+
+  <!-- Adım 1 -->
+  <div class="step s1">
+    <div class="step-num">1</div>
+    <div class="step-content">
+      <h3>Teachable Machine'i Aç</h3>
+      <p>Tarayıcıda yukarıdaki adresi aç. Ana sayfada "Get Started" (Başla) butonuna tıkla.</p>
+      <div class="screen-desc">
+        <strong>Ekranda göreceklerin:</strong> 3 seçenek — Image Project (Görüntü), Audio Project (Ses), Pose Project (Poz). <strong>"Image Project"</strong> seç, ardından <strong>"Standard image model"</strong> seç.
+      </div>
+    </div>
+  </div>
+  <div class="divider"></div>
+
+  <!-- Adım 2 -->
+  <div class="step s2">
+    <div class="step-num">2</div>
+    <div class="step-content">
+      <h3>Sınıfları Oluştur</h3>
+      <p>Sol tarafta "Class 1" ve "Class 2" göreceksin. Her birinin adını değiştir (kalem ikonuna tıkla).</p>
+      <div class="screen-desc">
+        <strong>Örnek sınıf isimleri:</strong> "Kalem" ve "Silgi", "Mutlu Yüz" ve "Üzgün Yüz", "Açık El" ve "Yumruk"
+      </div>
+      <div class="tip">💡 İpucu: "Add a class" ile 3. veya 4. sınıf da ekleyebilirsin!</div>
+    </div>
+  </div>
+  <div class="divider"></div>
+
+  <!-- Adım 3 -->
+  <div class="step s3">
+    <div class="step-num">3</div>
+    <div class="step-content">
+      <h3>Örnekleri Topla</h3>
+      <p>Her sınıf için "Webcam" butonuna tıkla ve kameranı kullanarak örnekler çek. Basılı tut ve farklı açılardan görüntü yakala.</p>
+      <div class="screen-desc">
+        <strong>Her sınıf için en az 30 örnek çek!</strong> Farklı açılar, farklı uzaklıklar ve farklı aydınlatma koşullarında çek.
+      </div>
+      <div class="tip">💡 İpucu: Ne kadar çok ve çeşitli örnek = o kadar iyi model. 50+ örnek ideal!</div>
+    </div>
+  </div>
+  <div class="divider"></div>
+
+  <!-- Adım 4 -->
+  <div class="step s4">
+    <div class="step-num">4</div>
+    <div class="step-content">
+      <h3>Modeli Eğit</h3>
+      <p>Ortadaki <strong>"Train Model"</strong> (Modeli Eğit) butonuna tıkla. Eğitim birkaç saniye sürecek.</p>
+      <div class="screen-desc">
+        <strong>Ekranda göreceklerin:</strong> İlerleme çubuğu dolacak. "Training complete" (Eğitim tamamlandı) mesajını bekle. Bu sırada sekmeyi kapatma!
+      </div>
+    </div>
+  </div>
+  <div class="divider"></div>
+
+  <!-- Adım 5 -->
+  <div class="step s5">
+    <div class="step-num">5</div>
+    <div class="step-content">
+      <h3>Modeli Test Et</h3>
+      <p>Sağ taraftaki "Preview" (Önizleme) alanında modelini test et. Kameranı aç ve farklı nesneleri göster.</p>
+      <div class="screen-desc">
+        <strong>Ekranda göreceklerin:</strong> Her sınıf için yüzdelik tahmin çubuğu. Doğru sınıfın çubuğu yüksek olmalı (örn: "Kalem: %95").
+      </div>
+      <div class="tip">💡 İpucu: Farklı açılardan, farklı ışıkta test et. Başarısız olduğu durumları not al!</div>
+    </div>
+  </div>
+  <div class="divider"></div>
+
+  <!-- Adım 6 -->
+  <div class="step s6">
+    <div class="step-num">6</div>
+    <div class="step-content">
+      <h3>Modeli Dışa Aktar</h3>
+      <p><strong>"Export Model"</strong> butonuna tıkla. Modelini paylaşmak veya kullanmak için bir link oluşturabilirsin.</p>
+      <div class="screen-desc">
+        <strong>Seçenekler:</strong> "Tensorflow.js" sekmesinde "Upload my model" tıkla. Oluşan linki kopyala ve aşağıya yaz.
+      </div>
+    </div>
+  </div>
+  <div class="divider"></div>
+
+  <!-- Adım 7 -->
+  <div class="step s7">
+    <div class="step-num">7</div>
+    <div class="step-content">
+      <h3>Sonuçları Değerlendir</h3>
+      <p>Modelini başkalarına dene. Arkadaşlarına test ettir ve sonuçları karşılaştır.</p>
+      <div class="screen-desc">
+        <strong>Düşün:</strong> Model hangi durumlarda yanıldı? Nasıl daha iyi olabilirdi? Daha fazla veri yardımcı olur muydu?
+      </div>
+    </div>
+  </div>
+
+  <div class="checklist">
+    <h3>✅ Kontrol Listesi</h3>
+    <div class="checklist-item"><span class="check-box"></span> Teachable Machine'i açtım</div>
+    <div class="checklist-item"><span class="check-box"></span> En az 2 sınıf oluşturdum</div>
+    <div class="checklist-item"><span class="check-box"></span> Her sınıf için en az 30 örnek topladım</div>
+    <div class="checklist-item"><span class="check-box"></span> Modeli eğittim</div>
+    <div class="checklist-item"><span class="check-box"></span> Modeli test ettim</div>
+    <div class="checklist-item"><span class="check-box"></span> Modeli dışa aktardım</div>
+    <div class="checklist-item"><span class="check-box"></span> Sonuçları değerlendirdim</div>
+  </div>
+
+  <div class="notes">
+    <h3>📝 Model Linkim ve Notlarım</h3>
+    <p style="font-size:12px; color:#64748b; margin-bottom:8px;">Model linkini ve gözlemlerini buraya yaz:</p>
+    <div class="notes-line"></div>
+    <div class="notes-line"></div>
+    <div class="notes-line"></div>
+    <div class="notes-line"></div>
+  </div>
+
+  <div class="footer">Yapay Zeka Macerası — Dr. Murat ALTUN — CC BY-NC-SA 4.0 — yapay-zeka-cocuklar.vercel.app</div>
+</div>
+</body>
+</html>

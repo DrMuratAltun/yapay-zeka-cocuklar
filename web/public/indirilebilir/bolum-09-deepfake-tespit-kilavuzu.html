@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8">
+<title>Deepfake Tespit Kılavuzu - Bölüm 9</title>
+<style>
+  @media print { body { margin: 0; } .no-print { display: none !important; } .page-break { page-break-after: always; } }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: 'Segoe UI', system-ui, -apple-system, sans-serif; color: #1e293b; background: #fff; }
+  .print-btn { position: fixed; top: 20px; right: 20px; background: #3b82f6; color: #fff; border: none; padding: 12px 24px; border-radius: 10px; font-size: 16px; font-weight: 700; cursor: pointer; z-index: 100; box-shadow: 0 4px 12px rgba(0,0,0,0.15); }
+  .print-btn:hover { background: #2563eb; }
+  .header { text-align: center; padding: 30px 20px 20px; border-bottom: 3px solid #f59e0b; margin-bottom: 30px; }
+  .header h1 { font-size: 28px; color: #d97706; }
+  .header p { color: #64748b; margin-top: 8px; font-size: 14px; }
+  .student-info { max-width: 780px; margin: 0 auto 24px; display: flex; gap: 16px; padding: 0 20px; flex-wrap: wrap; }
+  .student-info div { flex: 1; min-width: 180px; }
+  .student-info label { font-size: 12px; color: #64748b; display: block; margin-bottom: 4px; font-weight: 600; }
+  .student-info .field { border-bottom: 2px solid #fcd34d; padding: 6px 2px; min-height: 24px; }
+  .content { max-width: 780px; margin: 0 auto; padding: 0 20px 40px; }
+  .intro { background: #fffbeb; border-radius: 12px; padding: 20px; margin-bottom: 30px; border-left: 4px solid #f59e0b; }
+  .intro p { font-size: 14px; line-height: 1.7; color: #475569; }
+  .section { margin-bottom: 30px; }
+  .section-title { font-size: 22px; color: #b45309; margin-bottom: 16px; padding-bottom: 8px; border-bottom: 2px solid #fcd34d; display: flex; align-items: center; gap: 10px; }
+  .checklist-card { border: 2px solid #fcd34d; border-radius: 14px; margin-bottom: 16px; overflow: hidden; }
+  .checklist-header { background: linear-gradient(135deg, #fffbeb, #fef3c7); padding: 12px 18px; font-size: 16px; font-weight: 700; color: #92400e; }
+  .checklist-body { padding: 16px 18px; }
+  .check-item { display: flex; gap: 10px; align-items: flex-start; margin-bottom: 12px; padding-bottom: 12px; border-bottom: 1px solid #fef3c7; }
+  .check-item:last-child { border-bottom: none; margin-bottom: 0; padding-bottom: 0; }
+  .checkbox { width: 20px; height: 20px; border: 2px solid #f59e0b; border-radius: 4px; flex-shrink: 0; margin-top: 2px; }
+  .check-text { flex: 1; }
+  .check-text strong { color: #92400e; font-size: 14px; }
+  .check-text p { font-size: 13px; color: #64748b; margin-top: 2px; line-height: 1.5; }
+  .warning-box { background: #fef2f2; border: 2px solid #fca5a5; border-radius: 12px; padding: 16px; margin-bottom: 20px; }
+  .warning-box h3 { color: #dc2626; font-size: 16px; margin-bottom: 8px; }
+  .warning-box p { font-size: 13px; color: #7f1d1d; line-height: 1.6; }
+  .steps-card { border: 2px solid #fcd34d; border-radius: 14px; padding: 20px; margin-bottom: 16px; }
+  .step-item { display: flex; gap: 14px; margin-bottom: 16px; align-items: flex-start; }
+  .step-item:last-child { margin-bottom: 0; }
+  .step-num { background: #f59e0b; color: #fff; width: 30px; height: 30px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: 14px; flex-shrink: 0; }
+  .step-content strong { color: #92400e; font-size: 14px; }
+  .step-content p { font-size: 13px; color: #64748b; margin-top: 2px; line-height: 1.5; }
+  .practice-area { border: 2px dashed #fbbf24; border-radius: 16px; padding: 24px; margin-top: 24px; }
+  .practice-area h3 { color: #d97706; font-size: 18px; margin-bottom: 12px; text-align: center; }
+  .practice-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+  .practice-box { border: 1.5px solid #fcd34d; border-radius: 10px; padding: 14px; }
+  .practice-box label { font-size: 13px; color: #92400e; font-weight: 700; display: block; margin-bottom: 8px; }
+  .practice-write { border-bottom: 1.5px dotted #fcd34d; min-height: 24px; margin-bottom: 6px; }
+  .practice-write-lg { border: 1.5px dotted #fcd34d; border-radius: 8px; min-height: 50px; padding: 8px; }
+  .footer { text-align: center; padding: 20px; color: #94a3b8; font-size: 11px; border-top: 1px solid #e2e8f0; margin-top: 20px; }
+</style>
+</head>
+<body>
+<button class="print-btn no-print" onclick="window.print()">🖨️ Yazdır / PDF</button>
+
+<div class="header">
+  <h1>🔎 Deepfake Tespit Kılavuzu</h1>
+  <p>Bölüm 9: YZ ve Etik — Sahte İçerik Tespit Rehberi</p>
+</div>
+
+<div class="student-info">
+  <div><label>Adı Soyadı</label><div class="field"></div></div>
+  <div><label>Sınıf / No</label><div class="field"></div></div>
+  <div><label>Tarih</label><div class="field"></div></div>
+</div>
+
+<div class="content">
+  <div class="intro">
+    <p>Deepfake, yapay zeka kullanılarak oluşturulan sahte görsel, video veya ses içeriklerdir. Bu kılavuz, deepfake içerikleri tespit etmenize yardımcı olacak kontrol listeleri ve doğrulama adımları içerir.</p>
+  </div>
+
+  <div class="warning-box">
+    <h3>Dikkat!</h3>
+    <p>YZ teknolojisi hızla gelişiyor. Bugün geçerli olan tespit yöntemleri gelecekte yetersiz kalabilir. Her zaman birden fazla kontrol yöntemi kullanın ve şüpheli içeriklerde resmi kaynaklara başvurun.</p>
+  </div>
+
+  <!-- Görsel/Video Kontrol Listesi -->
+  <div class="section">
+    <div class="section-title">📸 Görsel ve Video Kontrol Listesi</div>
+
+    <div class="checklist-card">
+      <div class="checklist-header">Yüz ve Vücut Kontrolleri</div>
+      <div class="checklist-body">
+        <div class="check-item">
+          <div class="checkbox"></div>
+          <div class="check-text">
+            <strong>Göz Kırpma</strong>
+            <p>Deepfake videolarda kişiler normalden daha az göz kırpar veya hiç kırpmaz. Doğal göz kırpma sıklığını kontrol edin.</p>
+          </div>
+        </div>
+        <div class="check-item">
+          <div class="checkbox"></div>
+          <div class="check-text">
+            <strong>Dudak Senkronizasyonu</strong>
+            <p>Konuşma ile dudak hareketleri uyumlu mu? Ses ve görüntü arasında gecikme veya uyumsuzluk var mı?</p>
+          </div>
+        </div>
+        <div class="check-item">
+          <div class="checkbox"></div>
+          <div class="check-text">
+            <strong>Saç Detayları</strong>
+            <p>Saç telleri doğal görünüyor mu? Saç sınırları bulanık veya yapay mı? Saçın hareketiyle baş hareketi uyumlu mu?</p>
+          </div>
+        </div>
+        <div class="check-item">
+          <div class="checkbox"></div>
+          <div class="check-text">
+            <strong>Cilt ve Doku</strong>
+            <p>Cilt dokusu çok pürüzsüz veya yapay mı? Yüzde doğal kırışıklıklar, gözenekler ve lekeler var mı?</p>
+          </div>
+        </div>
+        <div class="check-item">
+          <div class="checkbox"></div>
+          <div class="check-text">
+            <strong>Kulak ve Takı Detayları</strong>
+            <p>Kulaklar simetrik ve doğal mı? Küpe, gözlük gibi aksesuarlar tutarlı mı?</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="checklist-card">
+      <div class="checklist-header">Ortam ve Teknik Kontroller</div>
+      <div class="checklist-body">
+        <div class="check-item">
+          <div class="checkbox"></div>
+          <div class="check-text">
+            <strong>Arka Plan Tutarlılığı</strong>
+            <p>Arka plan sabit mi yoksa titriyor mu? Kişi hareket ettiğinde arka planda garip bozulmalar oluyor mu?</p>
+          </div>
+        </div>
+        <div class="check-item">
+          <div class="checkbox"></div>
+          <div class="check-text">
+            <strong>Işık Yönü</strong>
+            <p>Yüzdeki ışık ve gölgeler arka plandaki ışık yönüyle uyumlu mu? Gölgeler doğru açıda mı?</p>
+          </div>
+        </div>
+        <div class="check-item">
+          <div class="checkbox"></div>
+          <div class="check-text">
+            <strong>Kenar Bulanıklığı</strong>
+            <p>Yüz ile arka plan arasındaki sınırda yapay bulanıklık veya titreme var mı?</p>
+          </div>
+        </div>
+        <div class="check-item">
+          <div class="checkbox"></div>
+          <div class="check-text">
+            <strong>Çözünürlük Farkları</strong>
+            <p>Yüz ile vücudun geri kalanı arasında çözünürlük farkı var mı? Bir bölge daha keskin diğeri daha bulanık mı?</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="page-break"></div>
+
+  <!-- Metin Kontrol Listesi -->
+  <div class="section">
+    <div class="section-title">📝 YZ Üretimi Metin Kontrol Listesi</div>
+
+    <div class="checklist-card">
+      <div class="checklist-header">YZ ile Yazılmış Metni Tanıma İpuçları</div>
+      <div class="checklist-body">
+        <div class="check-item">
+          <div class="checkbox"></div>
+          <div class="check-text">
+            <strong>Aşırı Mükemmel Dil</strong>
+            <p>Metin çok düzgün, hatasız ve "robot gibi" mükemmel mi? İnsanlar genellikle küçük hatalar yapar.</p>
+          </div>
+        </div>
+        <div class="check-item">
+          <div class="checkbox"></div>
+          <div class="check-text">
+            <strong>Tekrarlayan Kalıplar</strong>
+            <p>Aynı cümle yapıları veya kelimeler sık tekrarlanıyor mu? YZ benzer kalıpları yeniden kullanma eğilimindedir.</p>
+          </div>
+        </div>
+        <div class="check-item">
+          <div class="checkbox"></div>
+          <div class="check-text">
+            <strong>Belirsiz veya Genel İfadeler</strong>
+            <p>Metin çok genel mi? Spesifik detaylar, kişisel deneyimler veya duygular eksik mi?</p>
+          </div>
+        </div>
+        <div class="check-item">
+          <div class="checkbox"></div>
+          <div class="check-text">
+            <strong>Tutarsız Bilgiler</strong>
+            <p>Metin içinde çelişen bilgiler var mı? Tarih, isim veya olaylar tutarsız mı?</p>
+          </div>
+        </div>
+        <div class="check-item">
+          <div class="checkbox"></div>
+          <div class="check-text">
+            <strong>Kaynak Eksikliği</strong>
+            <p>İddialar için kaynak veya kanıt sunuluyor mu? Doğrulanabilir referanslar var mı?</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Kaynak Doğrulama -->
+  <div class="section">
+    <div class="section-title">🔗 Kaynak Doğrulama Adımları</div>
+
+    <div class="steps-card">
+      <div class="step-item">
+        <div class="step-num">1</div>
+        <div class="step-content">
+          <strong>Kaynağı Kontrol Et</strong>
+          <p>İçerik ilk nerede paylaşıldı? Güvenilir bir haber kaynağından mı geliyor? Web sitesi adresini dikkatlice kontrol edin.</p>
+        </div>
+      </div>
+      <div class="step-item">
+        <div class="step-num">2</div>
+        <div class="step-content">
+          <strong>Ters Görsel Arama Yap</strong>
+          <p>Google Görseller'de "ters görsel arama" yapın. Aynı görsel başka yerlerde farklı bağlamda kullanılmış mı?</p>
+        </div>
+      </div>
+      <div class="step-item">
+        <div class="step-num">3</div>
+        <div class="step-content">
+          <strong>Tarihi Doğrula</strong>
+          <p>İçerik ne zaman oluşturulmuş? İddia edilen tarih ile gerçek yayın tarihi uyuşuyor mu?</p>
+        </div>
+      </div>
+      <div class="step-item">
+        <div class="step-num">4</div>
+        <div class="step-content">
+          <strong>Diğer Kaynaklara Bak</strong>
+          <p>Aynı haberi en az 2-3 farklı güvenilir kaynaktan doğrulayın. Sadece tek bir kaynağa güvenmeyin.</p>
+        </div>
+      </div>
+      <div class="step-item">
+        <div class="step-num">5</div>
+        <div class="step-content">
+          <strong>Doğrulama Sitelerini Kullan</strong>
+          <p>Teyit.org, Dogrulukpayi.com gibi doğrulama platformlarında arayın. Bu siteler şüpheli içerikleri araştırır.</p>
+        </div>
+      </div>
+      <div class="step-item">
+        <div class="step-num">6</div>
+        <div class="step-content">
+          <strong>Uzman Görüşü Al</strong>
+          <p>Emin olamıyorsanız, öğretmeninize veya güvendiğiniz bir yetişkine danışın. Acele paylaşmayın!</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Uygulama Alanı -->
+  <div class="practice-area">
+    <h3>Uygulama: Bir İçeriği Analiz Et</h3>
+    <div class="practice-grid">
+      <div class="practice-box">
+        <label>Analiz Edilen İçerik (ne inceliyorsunuz?)</label>
+        <div class="practice-write"></div>
+        <div class="practice-write"></div>
+      </div>
+      <div class="practice-box">
+        <label>İçerik Türü (video / görsel / metin)</label>
+        <div class="practice-write"></div>
+      </div>
+      <div class="practice-box" style="grid-column: 1 / -1;">
+        <label>Şüpheli Bulduğunuz Noktalar (kontrol listesinden hangileri uyuyor?)</label>
+        <div class="practice-write-lg"></div>
+      </div>
+      <div class="practice-box">
+        <label>Kaynak Doğrulama Sonucu</label>
+        <div class="practice-write-lg"></div>
+      </div>
+      <div class="practice-box">
+        <label>Sonuç: Gerçek mi Sahte mi? Neden?</label>
+        <div class="practice-write-lg"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="footer">Yapay Zeka Macerası — Dr. Murat ALTUN — CC BY-NC-SA 4.0 — yapay-zeka-cocuklar.vercel.app</div>
+</body>
+</html>
