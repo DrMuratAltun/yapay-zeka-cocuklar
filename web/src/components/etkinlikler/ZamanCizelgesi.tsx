@@ -19,7 +19,7 @@ const varsayilanOlaylar: Olay[] = [
   { id: "5", yil: 1965, baslik: "ELIZA Sohbet Robotu", aciklama: "İlk sohbet robotu ELIZA geliştirildi.", emoji: "💬", kullanicininMi: false },
   { id: "6", yil: 1997, baslik: "Deep Blue Zaferi", aciklama: "IBM Deep Blue, satranç şampiyonu Kasparov'u yendi.", emoji: "♟️", kullanicininMi: false },
   { id: "7", yil: 2011, baslik: "Siri ve Sesli Asistanlar", aciklama: "Apple Siri ile sesli asistan çağı başladı.", emoji: "🎙️", kullanicininMi: false },
-  { id: "8", yil: 2014, baslik: "Alexa ve Akıllı Ev", aciklama: "Amazon Alexa ile akıllı ev sistemleri yaygınlaştı.", emoji: "🏠", kullanicininMi: false },
+  { id: "8", yil: 2014, baslik: "Sesli Asistanlar ve Akıllı Ev", aciklama: "Sesli asistanlar ile akıllı ev sistemleri yaygınlaştı.", emoji: "🏠", kullanicininMi: false },
   { id: "9", yil: 2016, baslik: "AlphaGo Zaferi", aciklama: "Google AlphaGo, Go oyununda dünya şampiyonunu yendi.", emoji: "🎯", kullanicininMi: false },
   { id: "10", yil: 2022, baslik: "ChatGPT Çağı", aciklama: "OpenAI ChatGPT ile üretken YZ çağı başladı.", emoji: "🤖", kullanicininMi: false },
   { id: "11", yil: 2024, baslik: "Çok Modlu YZ", aciklama: "Metin, görüntü, ses ve video birlikte işleyen YZ modelleri.", emoji: "🌐", kullanicininMi: false },

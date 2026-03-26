@@ -19,7 +19,7 @@ const quizSorulari = [
     secenekler: [
       "Telefonun yüz tanıma ile açılması",
       "Elektrik süpürgesinin düğmeyle açılması",
-      "Netflix'in film önerisi yapması",
+      "Film platformlarının film önerisi yapması",
       "Google Haritalar'ın trafik tahmini vermesi",
     ],
     dogru: 1,
@@ -39,7 +39,7 @@ const quizSorulari = [
       "Sesli asistanlar birden fazla YZ teknolojisini bir arada kullanır: sesinizi tanır, ne dediğinizi anlar ve size yanıtlar üretir.",
   },
   {
-    soru: "Spotify veya YouTube'un 'Sana Özel' oynatma listeleri hangi YZ yöntemiyle oluşturulur?",
+    soru: "Müzik ve video platformlarının 'Sana Özel' oynatma listeleri hangi YZ yöntemiyle oluşturulur?",
     secenekler: [
       "Rastgele seçim",
       "Öneri sistemi (tavsiye algoritmaları)",
@@ -311,7 +311,7 @@ const SlaytOneriSistemleri = (
         4. Öneri Sistemleri Nasıl Çalışır?
       </h2>
       <p>
-        Netflix, YouTube, Spotify gibi platformlar &quot;Sana Özel&quot;
+        Film, video ve müzik platformları &quot;Sana Özel&quot;
         içerikler sunar. Peki bu nasıl çalışır?
       </p>
       <div className="space-y-3">
@@ -604,7 +604,7 @@ const SlaytMateryaller = (
             sure: "~7 dk",
           },
           {
-            baslik: "Öneri Sistemleri: Netflix Sana Nasıl Film Önerir?",
+            baslik: "Öneri Sistemleri: Platformlar Sana Nasıl Film Önerir?",
             tur: "Kavram",
             sure: "~4 dk",
           },

@@ -27,7 +27,7 @@ export const metadata: Metadata = {
     "MEB bilişim teknolojileri",
     "Teachable Machine",
     "PictoBlox",
-    "Scratch yapay zeka",
+    "blok kodlama yapay zeka",
     "yapay zeka etik",
     "deepfake nedir",
     "blok tabanlı kodlama",

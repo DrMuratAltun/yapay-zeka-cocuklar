@@ -25,11 +25,11 @@ const ogeler: OyunOgesi[] = [
       "Hesap makinesi sadece tanımlı matematik işlemleri yapar. Öğrenmez veya karar vermez.",
   },
   {
-    ad: "Netflix Öneri Sistemi",
+    ad: "Film Platformu Öneri Sistemi",
     emoji: "🎬",
     yzMi: true,
     aciklama:
-      "Netflix, izleme alışkanlıklarını analiz ederek sana özel film önerir. Bu bir YZ sistemidir!",
+      "Film platformları, izleme alışkanlıklarını analiz ederek sana özel film önerir. Bu bir YZ sistemidir!",
   },
   {
     ad: "Elektrik Süpürgesi",
@@ -81,11 +81,11 @@ const ogeler: OyunOgesi[] = [
       "Alarm saati sadece ayarlanan zamanda çalar. Hiçbir zekâ içermez.",
   },
   {
-    ad: "Spotify Müzik Önerisi",
+    ad: "Müzik Platformu Önerisi",
     emoji: "🎵",
     yzMi: true,
     aciklama:
-      "Spotify, dinleme alışkanlıklarından öğrenerek sana özel çalma listeleri oluşturur!",
+      "Müzik platformları, dinleme alışkanlıklarından öğrenerek sana özel çalma listeleri oluşturur!",
   },
   {
     ad: "Termometre",

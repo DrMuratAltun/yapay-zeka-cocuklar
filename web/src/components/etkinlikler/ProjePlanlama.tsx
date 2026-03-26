@@ -7,7 +7,7 @@ const yzAraclari = [
   "ML for Kids",
   "PictoBlox",
   "ChatGPT / Gemini (Metin)",
-  "Scratch + ML uzantısı",
+  "ML for Kids + Blok Kodlama",
   "RunwayML (Görsel)",
   "Hugging Face (Model)",
   "DALL-E / Midjourney (Görsel üretim)",

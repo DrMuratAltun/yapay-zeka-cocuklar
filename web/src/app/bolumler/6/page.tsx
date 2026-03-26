@@ -83,7 +83,7 @@ const SlaytKazanimlar = (
     </section>
 
     <div className="flex flex-wrap gap-2">
-      {["PictoBlox", "Scratch", "ML for Kids", "blok kodlama", "görüntü sınıflandırma", "ses tanıma", "uzantı"].map((k) => (
+      {["PictoBlox", "ML for Kids", "blok kodlama", "görüntü sınıflandırma", "ses tanıma", "uzantı"].map((k) => (
         <span key={k} className="rounded-full bg-amber-100 px-3 py-1 text-sm font-medium text-amber-800 dark:bg-amber-900/30 dark:text-amber-300">{k}</span>
       ))}
     </div>

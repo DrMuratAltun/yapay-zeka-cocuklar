@@ -23,9 +23,9 @@ const kategoriler: Kategori[] = [
     renkDark: "dark:bg-blue-900/30 dark:border-blue-600",
     ornekler: [
       { metin: "Sesli asistan kullandim (Siri, Alexa, Google)", emoji: "🗣️" },
-      { metin: "Netflix/YouTube onerilerini takip ettim", emoji: "🎬" },
+      { metin: "Film/video platformu onerilerini takip ettim", emoji: "🎬" },
       { metin: "Akilli ev cihazi kullandim (robot supurge, akilli lamba)", emoji: "💡" },
-      { metin: "Spotify/muzik onerisi dinledim", emoji: "🎵" },
+      { metin: "Muzik platformu onerisi dinledim", emoji: "🎵" },
       { metin: "Yuz tanima ile telefon actim", emoji: "📱" },
       { metin: "Akilli termostat veya klima kullandim", emoji: "🌡️" },
     ],
@@ -75,8 +75,8 @@ const kategoriler: Kategori[] = [
     renkDark: "dark:bg-purple-900/30 dark:border-purple-600",
     ornekler: [
       { metin: "Video oyununda YZ rakibe karsi oynadim", emoji: "🕹️" },
-      { metin: "Fotograf filtresi/efekt kullandim (Snapchat, Instagram)", emoji: "📸" },
-      { metin: "TikTok/Instagram'da 'senin icin' akisini izledim", emoji: "📱" },
+      { metin: "Fotograf filtresi/efekt kullandim", emoji: "📸" },
+      { metin: "Sosyal medyada 'senin icin' akisini izledim", emoji: "📱" },
       { metin: "Yapay zeka ile resim/gorsel olusturdum", emoji: "🎨" },
       { metin: "Sesli asistana saka/muzik istedim", emoji: "😂" },
     ],

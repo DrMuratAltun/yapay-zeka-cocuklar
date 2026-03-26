@@ -26,7 +26,7 @@ const bolgeler: Bolge[] = [
     ornekler: [
       { ad: "Akıllı hoparlör (Alexa, Google Home)", aciklama: "Sesli komutlarla müzik çalar, soruları yanıtlar, ev cihazlarını kontrol eder." },
       { ad: "Robot süpürge", aciklama: "Evin haritasını çıkarır, engelleri algılar ve en verimli temizlik rotasını planlar." },
-      { ad: "Netflix / YouTube önerileri", aciklama: "İzleme alışkanlıklarını analiz ederek sevebileceğin içerikleri tahmin eder." },
+      { ad: "Film ve video platformu önerileri", aciklama: "İzleme alışkanlıklarını analiz ederek sevebileceğin içerikleri tahmin eder." },
       { ad: "Akıllı termostat", aciklama: "Sıcaklık tercihlerini öğrenerek evi otomatik olarak ısıtır veya soğutur." },
     ],
   },
@@ -63,7 +63,7 @@ const bolgeler: Bolge[] = [
     renkAcik: "bg-pink-50 dark:bg-pink-900/20",
     renkBorder: "border-pink-300 dark:border-pink-700",
     ornekler: [
-      { ad: "Ürün önerileri (Amazon, Trendyol)", aciklama: "Geçmiş alışverişlerine bakarak ilgini çekebilecek ürünleri gösterir." },
+      { ad: "E-ticaret sitesi ürün önerileri", aciklama: "Geçmiş alışverişlerine bakarak ilgini çekebilecek ürünleri gösterir." },
       { ad: "Fiyat karşılaştırma", aciklama: "Farklı mağazalardaki fiyatları otomatik olarak karşılaştırır." },
       { ad: "Sanal deneme (AR)", aciklama: "Gözlük veya kıyafeti satın almadan önce üzerinde nasıl duracağını gösterir." },
       { ad: "Kasiyersiz mağazalar", aciklama: "Kameralar ve sensörlerle aldığın ürünleri otomatik tanır, kasaya gerek kalmaz." },

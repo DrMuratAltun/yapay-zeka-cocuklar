@@ -120,7 +120,7 @@ export default function AnaSayfa() {
           <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
             {[
               { icon: "🔌", baslik: "Unplugged Etkinlikler", aciklama: "Bilgisayarsız, sınıfta yapılabilir etkinlikler. Kapsayıcı — herkes katılır.", arka: "Kağıt, makas ve hayal gücüyle yapay zeka keşfet! Her bölümde en az 1 unplugged etkinlik var.", renk: "from-emerald-500 to-teal-500" },
-              { icon: "🧪", baslik: "Uygulamalı Öğrenme", aciklama: "Teachable Machine, PictoBlox, Scratch ile gerçek YZ projeleri.", arka: "Kendi modelini eğit, kendi oyununu yap! Adım adım rehberlerle pratik YZ deneyimi.", renk: "from-sky-500 to-blue-500" },
+              { icon: "🧪", baslik: "Uygulamalı Öğrenme", aciklama: "Teachable Machine, PictoBlox, ML for Kids ile gerçek YZ projeleri.", arka: "Kendi modelini eğit, kendi oyununu yap! Adım adım rehberlerle pratik YZ deneyimi.", renk: "from-sky-500 to-blue-500" },
               { icon: "🖨️", baslik: "Yazıcı Dostu", aciklama: "Etkinlik kartları, çalışma yaprakları ve formlar PDF indirilebilir.", arka: "32 indirilebilir materyal: kart setleri, formlar, rehberler ve sertifika — hepsi yazdırılabilir.", renk: "from-violet-500 to-purple-500" },
               { icon: "📱", baslik: "QR Kod Entegrasyonu", aciklama: "Kitaptan doğrudan interaktif etkinliklere erişim.", arka: "Basılı kitaptaki QR kodlar seni doğrudan web etkinliklerine, quizlere ve videolara götürür.", renk: "from-orange-500 to-amber-500" },
               { icon: "🧩", baslik: "İnteraktif Quizler", aciklama: "Her bölüm sonunda anında geri bildirimli değerlendirme.", arka: "50+ quiz sorusu, anında geri bildirim, puan takibi. Öğrendiğini test et!", renk: "from-pink-500 to-rose-500" },
@@ -218,7 +218,7 @@ export default function AnaSayfa() {
               { ad: "Teachable Machine", aciklama: "Kodsuz ML model eğitimi", url: "https://teachablemachine.withgoogle.com/", icon: "🧪" },
               { ad: "PictoBlox", aciklama: "Blok tabanlı YZ kodlama", url: "https://thestempedia.com/product/pictoblox/", icon: "🧩" },
               { ad: "ML for Kids", aciklama: "Scratch ile ML projeleri", url: "https://machinelearningforkids.co.uk/", icon: "🎓" },
-              { ad: "Scratch", aciklama: "Blok tabanlı kodlama", url: "https://scratch.mit.edu/", icon: "🐱" },
+
               { ad: "Canva AI", aciklama: "YZ destekli tasarım", url: "https://canva.com/", icon: "🎨" },
               { ad: "ChatGPT", aciklama: "Üretken YZ deneyimi", url: "https://chatgpt.com/", icon: "💬" },
               { ad: "Gemini", aciklama: "Google YZ asistanı", url: "https://gemini.google.com/", icon: "✨" },

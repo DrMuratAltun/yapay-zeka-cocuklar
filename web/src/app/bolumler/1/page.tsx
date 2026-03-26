@@ -263,7 +263,7 @@ const SlaytYzTurleri = (
       <div className="rounded-xl border-2 border-emerald-300 bg-emerald-50 p-5 dark:border-emerald-700 dark:bg-emerald-900/20">
         <h4 className="mb-2 font-bold text-emerald-700 dark:text-emerald-400">Dar YZ (Narrow AI)</h4>
         <p className="mb-2 text-sm">Sadece belirli bir görevi yapar.</p>
-        <p className="text-xs text-emerald-600 dark:text-emerald-400">Örnekler: Siri, Google Çevirmen, Netflix</p>
+        <p className="text-xs text-emerald-600 dark:text-emerald-400">Örnekler: Siri, Google Çevirmen, öneri sistemleri</p>
         <p className="mt-2 rounded bg-emerald-200 px-2 py-1 text-center text-xs font-bold dark:bg-emerald-800">BUGÜN KULLANDIĞIMIZ TÜM YZ</p>
       </div>
       <div className="rounded-xl border-2 border-amber-300 bg-amber-50 p-5 dark:border-amber-700 dark:bg-amber-900/20">

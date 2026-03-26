@@ -264,6 +264,13 @@ export default function BolumSlider({
                 </button>
               )}
 
+              <Link
+                href="/#bolumler"
+                className="hidden sm:flex items-center gap-1.5 rounded-lg px-3 py-2 text-xs font-medium text-[var(--color-text-secondary)] transition hover:text-sky-600 hover:bg-sky-50 dark:hover:bg-sky-900/20"
+              >
+                📚 Bölümlere Dön
+              </Link>
+
               {sonSlayt ? (
                 sonrakiBolum ? (
                   <Link

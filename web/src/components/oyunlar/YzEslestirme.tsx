@@ -11,10 +11,10 @@ interface Kart {
 
 const ciftler: { uygulama: string; uygulamaEmoji: string; alan: string; alanEmoji: string }[] = [
   { uygulama: "Siri", uygulamaEmoji: "🗣️", alan: "Sesli Asistan", alanEmoji: "🎙️" },
-  { uygulama: "Netflix", uygulamaEmoji: "🎬", alan: "Öneri Sistemi", alanEmoji: "⭐" },
+  { uygulama: "Film Platformu", uygulamaEmoji: "🎬", alan: "Öneri Sistemi", alanEmoji: "⭐" },
   { uygulama: "Google Maps", uygulamaEmoji: "🗺️", alan: "Navigasyon", alanEmoji: "🧭" },
   { uygulama: "Alexa", uygulamaEmoji: "🔊", alan: "Akıllı Ev", alanEmoji: "🏠" },
-  { uygulama: "YouTube", uygulamaEmoji: "▶️", alan: "Video Önerisi", alanEmoji: "📺" },
+  { uygulama: "Video Platformu", uygulamaEmoji: "▶️", alan: "Video Önerisi", alanEmoji: "📺" },
   { uygulama: "Google Lens", uygulamaEmoji: "🔍", alan: "Görüntü Tanıma", alanEmoji: "📷" },
 ];
 
