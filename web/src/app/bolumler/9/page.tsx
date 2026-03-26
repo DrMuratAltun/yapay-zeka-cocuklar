@@ -1,3 +1,9 @@
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Bölüm 9: YZ ve Etik | Yapay Zeka Macerası",
+};
+
 import Image from "next/image";
 import BolumSlider from "@/components/BolumSlider";
 import InteraktifQuiz from "@/components/InteraktifQuiz";

@@ -1,3 +1,9 @@
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Bölüm 3: Verinin Gücü | Yapay Zeka Macerası",
+};
+
 import Image from "next/image";
 import InteraktifQuiz from "@/components/InteraktifQuiz";
 import BolumSlider from "@/components/BolumSlider";

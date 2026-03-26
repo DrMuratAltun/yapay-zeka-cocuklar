@@ -75,11 +75,11 @@ export default function PromptUstasi() {
   const [tur, setTur] = useState(0);
   const [skor, setSkor] = useState(0);
   const [secim, setSecim] = useState<number | null>(null);
-  const [gpiosterGeriBildirim, setGosterGeriBildirim] = useState(false);
+  const [gosterGeriBildirim, setGosterGeriBildirim] = useState(false);
   const [bitti, setBitti] = useState(false);
 
   function sec(index: number) {
-    if (gpiosterGeriBildirim) return;
+    if (gosterGeriBildirim) return;
     setSecim(index);
     setGosterGeriBildirim(true);
     if (index === turlar[tur].dogru) {
@@ -159,7 +159,7 @@ export default function PromptUstasi() {
           const buSecildi = secim === i;
           const buDogru = i === mevcutTur.dogru;
           let cls = "border-[var(--color-border)]";
-          if (gpiosterGeriBildirim) {
+          if (gosterGeriBildirim) {
             if (buDogru) cls = "border-emerald-400 bg-emerald-50 dark:bg-emerald-900/20";
             else if (buSecildi) cls = "border-rose-400 bg-rose-50 dark:bg-rose-900/20";
           } else if (buSecildi) {
@@ -171,8 +171,8 @@ export default function PromptUstasi() {
               key={i}
               type="button"
               onClick={() => sec(i)}
-              disabled={gpiosterGeriBildirim}
-              className={`w-full text-left rounded-xl border-2 p-3 transition cursor-pointer ${cls} ${!gpiosterGeriBildirim ? "hover:border-pink-300" : ""}`}
+              disabled={gosterGeriBildirim}
+              className={`w-full text-left rounded-xl border-2 p-3 transition cursor-pointer ${cls} ${!gosterGeriBildirim ? "hover:border-pink-300" : ""}`}
             >
               <div className="flex items-center justify-between">
                 <span className="text-sm">{s.metin}</span>
@@ -182,7 +182,7 @@ export default function PromptUstasi() {
                   ))}
                 </div>
               </div>
-              {gpiosterGeriBildirim && buDogru && (
+              {gosterGeriBildirim && buDogru && (
                 <span className="text-xs text-emerald-600 font-medium">✅ En iyi seçim!</span>
               )}
             </button>
@@ -190,7 +190,7 @@ export default function PromptUstasi() {
         })}
       </div>
 
-      {gpiosterGeriBildirim && (
+      {gosterGeriBildirim && (
         <div className="mt-4">
           <div className="rounded-xl bg-amber-50 dark:bg-amber-900/20 p-3 mb-3">
             <p className="text-sm text-amber-800 dark:text-amber-300">💡 {mevcutTur.ipucu}</p>

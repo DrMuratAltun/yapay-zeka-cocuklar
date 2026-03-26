@@ -1,3 +1,9 @@
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Bölüm 1: Yapay Zeka Nedir? | Yapay Zeka Macerası",
+};
+
 import Image from "next/image";
 import InteraktifQuiz from "@/components/InteraktifQuiz";
 import BolumSlider from "@/components/BolumSlider";
@@ -303,7 +309,7 @@ const SlaytEtkinlikler = (
         Makine mi daha iyi yapar?&quot; tartışmasını yapın.
       </p>
       <a
-        href="/indirilebilir/bolum-01-kim-daha-zeki-kartlari.pdf"
+        href="/indirilebilir/bolum-01-kim-daha-zeki-kartlari.html"
         className="inline-block rounded-lg bg-sky-600 px-5 py-2 text-sm font-semibold text-white transition hover:bg-sky-700"
       >
         Kartları İndir (PDF)
@@ -320,7 +326,7 @@ const SlaytEtkinlikler = (
         Bir gün boyunca karşılaştığınız yapay zeka uygulamalarını gözlem formuna kaydedin.
       </p>
       <a
-        href="/indirilebilir/bolum-01-yz-dedektifi-formu.pdf"
+        href="/indirilebilir/bolum-01-yz-dedektifi-formu.html"
         className="inline-block rounded-lg bg-sky-600 px-5 py-2 text-sm font-semibold text-white transition hover:bg-sky-700"
       >
         Gözlem Formunu İndir (PDF)

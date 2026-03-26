@@ -1,3 +1,9 @@
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Bölüm 10: Gelecek Seninle Başlar | Yapay Zeka Macerası",
+};
+
 import Image from "next/image";
 import BolumSlider from "@/components/BolumSlider";
 import InteraktifQuiz from "@/components/InteraktifQuiz";

@@ -259,7 +259,7 @@ export default function YzMiDegilMi() {
             </p>
             <h3 className="mb-2 text-2xl font-bold">
               {skorYuzdesi === 100
-                ? "MüKEMMEL!"
+                ? "MÜKEMMEL!"
                 : skorYuzdesi >= 75
                 ? "Harika!"
                 : skorYuzdesi >= 50

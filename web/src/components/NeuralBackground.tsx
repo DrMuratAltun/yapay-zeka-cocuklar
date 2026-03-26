@@ -81,13 +81,15 @@ export default function NeuralBackground() {
     initNodes();
     draw();
 
-    window.addEventListener("resize", () => {
+    const handleResize = () => {
       resize();
       initNodes();
-    });
+    };
+    window.addEventListener("resize", handleResize);
 
     return () => {
       cancelAnimationFrame(animationId);
+      window.removeEventListener("resize", handleResize);
     };
   }, []);
 

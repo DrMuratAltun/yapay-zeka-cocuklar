@@ -3,6 +3,42 @@
 import Link from "next/link";
 import { useState, useRef, useEffect } from "react";
 
+function useTheme() {
+  const [dark, setDark] = useState(false);
+
+  useEffect(() => {
+    const stored = localStorage.getItem("theme");
+    if (stored === "dark") {
+      setDark(true);
+      document.documentElement.classList.add("dark");
+    } else if (stored === "light") {
+      setDark(false);
+      document.documentElement.classList.remove("dark");
+    } else {
+      // System preference
+      const prefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
+      setDark(prefersDark);
+      if (prefersDark) {
+        document.documentElement.classList.add("dark");
+      }
+    }
+  }, []);
+
+  const toggle = () => {
+    const next = !dark;
+    setDark(next);
+    if (next) {
+      document.documentElement.classList.add("dark");
+      localStorage.setItem("theme", "dark");
+    } else {
+      document.documentElement.classList.remove("dark");
+      localStorage.setItem("theme", "light");
+    }
+  };
+
+  return { dark, toggle };
+}
+
 const bolumler = [
   { no: 1, baslik: "Yapay Zeka Nedir?", renk: "bg-sky-500" },
   { no: 2, baslik: "Günlük Hayatta YZ", renk: "bg-emerald-500" },
@@ -26,6 +62,7 @@ export default function Navbar() {
   const [menuAcik, setMenuAcik] = useState(false);
   const [bolumMenuAcik, setBolumMenuAcik] = useState(false);
   const dropdownRef = useRef<HTMLDivElement>(null);
+  const { dark, toggle } = useTheme();
 
   // Dropdown dışına tıklayınca kapat
   useEffect(() => {
@@ -90,6 +127,14 @@ export default function Navbar() {
               {link.label}
             </Link>
           ))}
+          <button
+            type="button"
+            onClick={toggle}
+            className="flex h-8 w-8 items-center justify-center rounded-full border border-[var(--color-border)] text-sm transition hover:bg-[var(--color-bg-secondary)]"
+            aria-label={dark ? "Açık moda geç" : "Koyu moda geç"}
+          >
+            {dark ? "\u2600\uFE0F" : "\uD83C\uDF19"}
+          </button>
           <a
             href="https://github.com/DrMuratAltun/yapay-zeka-cocuklar"
             target="_blank"
@@ -152,6 +197,13 @@ export default function Navbar() {
             <a href="https://github.com/DrMuratAltun/yapay-zeka-cocuklar" target="_blank" rel="noopener noreferrer" className="block transition hover:text-sky-600">
               GitHub
             </a>
+            <button
+              type="button"
+              onClick={toggle}
+              className="flex items-center gap-2 transition hover:text-sky-600"
+            >
+              {dark ? "\u2600\uFE0F Açık Mod" : "\uD83C\uDF19 Koyu Mod"}
+            </button>
           </div>
         </div>
       )}

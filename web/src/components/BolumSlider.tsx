@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useCallback } from "react";
+import { useState, useCallback, useEffect } from "react";
 import Link from "next/link";
 
 interface Slayt {
@@ -32,8 +32,26 @@ export default function BolumSlider({
   sonrakiBolum,
   slaytlar,
 }: BolumSliderProps) {
-  const [aktifSlayt, setAktifSlayt] = useState(0);
+  const [aktifSlayt, setAktifSlayt] = useState(() => {
+    if (typeof window === "undefined") return 0;
+    try {
+      const saved = localStorage.getItem(`bolum-${bolumNo}-slide`);
+      return saved !== null ? Math.min(Number(saved), slaytlar.length - 1) : 0;
+    } catch {
+      return 0;
+    }
+  });
   const [sidebarAcik, setSidebarAcik] = useState(false);
+  const [visitedSlides, setVisitedSlides] = useState<Set<number>>(() => {
+    if (typeof window === "undefined") return new Set([0]);
+    try {
+      const saved = localStorage.getItem(`bolum-${bolumNo}-visited`);
+      const parsed: number[] = saved ? JSON.parse(saved) : [];
+      return new Set([...parsed, 0]);
+    } catch {
+      return new Set([0]);
+    }
+  });
 
   const git = useCallback((i: number) => {
     setAktifSlayt(i);
@@ -50,6 +68,46 @@ export default function BolumSlider({
     setAktifSlayt((s) => Math.min(slaytlar.length - 1, s + 1));
     window.scrollTo({ top: 0, behavior: "smooth" });
   }, [slaytlar.length]);
+
+  // Save current slide and visited slides to localStorage
+  useEffect(() => {
+    try {
+      localStorage.setItem(`bolum-${bolumNo}-slide`, String(aktifSlayt));
+      setVisitedSlides((prev) => {
+        const next = new Set(prev);
+        next.add(aktifSlayt);
+        localStorage.setItem(
+          `bolum-${bolumNo}-visited`,
+          JSON.stringify([...next])
+        );
+        return next;
+      });
+    } catch {
+      // localStorage unavailable
+    }
+  }, [aktifSlayt, bolumNo]);
+
+  // Keyboard navigation
+  useEffect(() => {
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (
+        e.target instanceof HTMLInputElement ||
+        e.target instanceof HTMLTextAreaElement
+      )
+        return;
+      if (e.key === "ArrowRight" && aktifSlayt < slaytlar.length - 1) {
+        setAktifSlayt((prev) => prev + 1);
+        window.scrollTo({ top: 0, behavior: "smooth" });
+      } else if (e.key === "ArrowLeft" && aktifSlayt > 0) {
+        setAktifSlayt((prev) => prev - 1);
+        window.scrollTo({ top: 0, behavior: "smooth" });
+      }
+    };
+    window.addEventListener("keydown", handleKeyDown);
+    return () => window.removeEventListener("keydown", handleKeyDown);
+  }, [aktifSlayt, slaytlar.length]);
+
+  const tamamlanan = visitedSlides.size;
 
   const ilkSlayt = aktifSlayt === 0;
   const sonSlayt = aktifSlayt === slaytlar.length - 1;
@@ -89,7 +147,7 @@ export default function BolumSlider({
         <button
           type="button"
           onClick={() => setSidebarAcik(!sidebarAcik)}
-          className="lg:hidden fixed bottom-20 left-4 z-50 flex h-12 w-12 items-center justify-center rounded-full bg-slate-800 text-white shadow-lg cursor-pointer"
+          className="lg:hidden fixed bottom-20 left-4 z-40 flex h-12 w-12 items-center justify-center rounded-full bg-slate-800 text-white shadow-lg cursor-pointer"
           aria-label="Menüyü aç/kapat"
         >
           <svg width="20" height="20" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round">
@@ -132,13 +190,15 @@ export default function BolumSlider({
                 onClick={() => git(i)}
                 className={`w-full flex items-start gap-2 rounded-lg px-3 py-2 text-left text-sm transition cursor-pointer ${
                   i === aktifSlayt
-                    ? "bg-sky-50 text-sky-700 font-semibold dark:bg-sky-900/20 dark:text-sky-300 border-l-3 border-sky-500"
+                    ? "bg-sky-50 text-sky-700 font-semibold dark:bg-sky-900/20 dark:text-sky-300 border-l-4 border-sky-500"
                     : i < aktifSlayt
                     ? "text-[var(--color-text-secondary)] hover:bg-[var(--color-bg-secondary)]"
                     : "text-[var(--color-text-secondary)] hover:bg-[var(--color-bg-secondary)]"
                 }`}
               >
-                <span className="shrink-0 mt-0.5">{i < aktifSlayt ? "✓" : s.icon}</span>
+                <span className={`shrink-0 mt-0.5 ${visitedSlides.has(i) && i !== aktifSlayt ? "text-green-500" : ""}`}>
+                  {visitedSlides.has(i) && i !== aktifSlayt ? "✓" : s.icon}
+                </span>
                 <span className="leading-tight">{s.baslik}</span>
               </button>
             ))}
@@ -150,6 +210,7 @@ export default function BolumSlider({
               <span>İlerleme</span>
               <span className="font-bold">{aktifSlayt + 1}/{slaytlar.length}</span>
             </div>
+            <p className="text-[10px] text-green-600 dark:text-green-400 mb-1.5">{tamamlanan}/{slaytlar.length} tamamlandı</p>
             <div className="h-1.5 bg-[var(--color-border)] rounded-full overflow-hidden">
               <div
                 className={`h-full bg-gradient-to-r ${renk} rounded-full transition-all duration-300`}
@@ -166,6 +227,7 @@ export default function BolumSlider({
             <div className="mb-6">
               <p className="text-xs text-[var(--color-text-secondary)] mb-1">
                 {aktifSlayt + 1} / {slaytlar.length}
+                <span className="ml-2 text-green-600 dark:text-green-400">({tamamlanan}/{slaytlar.length} tamamlandı)</span>
               </p>
               <h2 className="text-2xl font-extrabold flex items-center gap-2">
                 <span>{slaytlar[aktifSlayt].icon}</span>

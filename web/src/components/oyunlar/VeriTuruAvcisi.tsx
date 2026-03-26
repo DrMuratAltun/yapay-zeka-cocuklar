@@ -120,7 +120,7 @@ export default function VeriTuruAvcisi() {
 
   return (
     <div className="w-full max-w-2xl mx-auto p-4">
-      <div className="bg-white dark:bg-gray-800 rounded-2xl shadow-xl border border-gray-200 dark:border-gray-700 overflow-hidden">
+      <div className="bg-[var(--color-bg)] rounded-2xl shadow-xl border border-[var(--color-border)] overflow-hidden">
         {/* Baslik */}
         <div className="bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500 p-6 text-white text-center">
           <h2 className="text-2xl font-bold mb-1">🎯 Veri Türü Avcısı</h2>
@@ -135,7 +135,7 @@ export default function VeriTuruAvcisi() {
             <div className="text-center space-y-6">
               <div className="text-6xl animate-bounce">🎯</div>
               <div className="space-y-3">
-                <p className="text-gray-700 dark:text-gray-300 text-lg">
+                <p className="text-[var(--color-text)] text-lg">
                   Veri öğelerini <strong>4 kategoriye</strong> ayır:
                 </p>
                 <div className="grid grid-cols-2 gap-3">
@@ -148,7 +148,7 @@ export default function VeriTuruAvcisi() {
                     </div>
                   ))}
                 </div>
-                <p className="text-gray-500 dark:text-gray-400 text-sm">
+                <p className="text-[var(--color-text-secondary)] text-sm">
                   ⏱️ 30 saniye süren var! Ne kadar hızlı olabilirsin?
                 </p>
                 {enYuksekSkor > 0 && (
@@ -181,14 +181,14 @@ export default function VeriTuruAvcisi() {
                     </span>
                   )}
                 </div>
-                <span className="text-gray-500 dark:text-gray-400 font-medium">
+                <span className="text-[var(--color-text-secondary)] font-medium">
                   {mevcutIndex + 1} / {toplam}
                 </span>
                 <span
                   className={`font-bold text-lg ${
                     kalanSure <= 10
                       ? "text-red-500 animate-pulse"
-                      : "text-gray-700 dark:text-gray-300"
+                      : "text-[var(--color-text)]"
                   }`}
                 >
                   ⏱️ {kalanSure}s
@@ -196,7 +196,7 @@ export default function VeriTuruAvcisi() {
               </div>
 
               {/* Sure cubugu */}
-              <div className="w-full bg-gray-200 dark:bg-gray-700 rounded-full h-2">
+              <div className="w-full bg-[var(--color-bg-secondary)] rounded-full h-2">
                 <div
                   className={`h-2 rounded-full transition-all duration-1000 ${
                     kalanSure <= 10
@@ -210,7 +210,7 @@ export default function VeriTuruAvcisi() {
               </div>
 
               {/* Ilerleme cubugu */}
-              <div className="w-full bg-gray-100 dark:bg-gray-700 rounded-full h-1.5">
+              <div className="w-full bg-[var(--color-bg-secondary)] rounded-full h-1.5">
                 <div
                   className="bg-purple-500 h-1.5 rounded-full transition-all duration-300"
                   style={{ width: `${ilerlemeYuzdesi}%` }}
