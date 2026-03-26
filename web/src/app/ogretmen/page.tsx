@@ -535,10 +535,10 @@ export default function OgretmenPaneli() {
             Sorularınız veya önerileriniz için:
           </p>
           <a
-            href="mailto:drmurataltun@gmail.com"
+            href="mailto:emurataltun@gmail.com"
             className="inline-block rounded-lg bg-white px-6 py-2.5 font-bold text-indigo-700 transition hover:bg-indigo-50"
           >
-            drmurataltun@gmail.com
+            emurataltun@gmail.com
           </a>
         </section>
 
