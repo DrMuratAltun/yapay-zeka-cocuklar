@@ -547,10 +547,14 @@ const SlaytOyun = (
   </section>
 );
 
-const SlaytQuiz = (
+const SlaytDegerlendirme = (
   <>
     <InteraktifQuiz sorular={quizSorulari} />
+  </>
+);
 
+const SlaytMateryaller = (
+  <>
     <section className="rounded-2xl border border-[var(--color-border)] bg-[var(--color-bg-secondary)] p-6">
       <h2 className="mb-4 text-2xl font-bold">Video Kaynaklar</h2>
       <div className="space-y-3">
@@ -638,7 +642,8 @@ export default function Bolum2() {
         { baslik: "Sesli Asistanlar", icon: "🎙️", icerik: SlaytSesliAsistanlar },
         { baslik: "Etkinlikler", icon: "🎮", icerik: SlaytEtkinlikler },
         { baslik: "İnteraktif Oyun", icon: "🕹️", icerik: SlaytOyun },
-        { baslik: "Quiz ve Materyaller", icon: "📝", icerik: SlaytQuiz },
+        { baslik: "Değerlendirme", icon: "📝", icerik: SlaytDegerlendirme },
+        { baslik: "Materyaller", icon: "📥", icerik: SlaytMateryaller },
       ]}
     />
   );

@@ -242,10 +242,14 @@ const SlaytOyun = (
   </section>
 );
 
-const SlaytQuizMateryaller = (
+const SlaytDegerlendirme = (
   <>
     <InteraktifQuiz sorular={quizSorulari} />
+  </>
+);
 
+const SlaytMateryaller = (
+  <>
     <section className="rounded-2xl border border-[var(--color-border)] bg-[var(--color-bg-secondary)] p-6">
       <h2 className="mb-4 text-2xl font-bold">İndirilebilir Materyaller</h2>
       <div className="space-y-3">
@@ -281,7 +285,8 @@ export default function Bolum9() {
     { baslik: "Toplumsal Etkiler", icon: "🌍", icerik: SlaytToplumsalEtki },
     { baslik: "Etkinlikler", icon: "🎮", icerik: SlaytEtkinlikler },
     { baslik: "Etik Pusula", icon: "🧩", icerik: SlaytOyun },
-    { baslik: "Quiz ve Materyaller", icon: "📝", icerik: SlaytQuizMateryaller },
+    { baslik: "Değerlendirme", icon: "📝", icerik: SlaytDegerlendirme },
+    { baslik: "Materyaller", icon: "📥", icerik: SlaytMateryaller },
   ];
 
   return (

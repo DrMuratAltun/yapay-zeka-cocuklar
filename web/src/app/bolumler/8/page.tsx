@@ -259,11 +259,16 @@ const SlaytOyun = (
   </section>
 );
 
-/* ---- Slayt 6: Quiz ve Materyaller ---- */
-const SlaytQuiz = (
+/* ---- Slayt 6: Değerlendirme ---- */
+const SlaytDegerlendirme = (
   <>
     <InteraktifQuiz sorular={quizSorulari} />
+  </>
+);
 
+/* ---- Slayt 7: İndirilebilir Materyaller ---- */
+const SlaytMateryaller = (
+  <>
     <section className="rounded-2xl border border-[var(--color-border)] bg-[var(--color-bg-secondary)] p-6">
       <h3 className="mb-4 text-xl font-bold">İndirilebilir Materyaller</h3>
       <div className="space-y-3">
@@ -309,7 +314,8 @@ export default function Bolum8() {
         { baslik: "Dijital Hikaye Anlatımı", icon: "📖", icerik: SlaytDijitalHikaye },
         { baslik: "Etkinlikler", icon: "🎮", icerik: SlaytEtkinlikler },
         { baslik: "Yapay mı Gerçek mi?", icon: "🧩", icerik: SlaytOyun },
-        { baslik: "Quiz ve Materyaller", icon: "📝", icerik: SlaytQuiz },
+        { baslik: "Değerlendirme", icon: "📝", icerik: SlaytDegerlendirme },
+        { baslik: "Materyaller", icon: "📥", icerik: SlaytMateryaller },
       ]}
     />
   );
