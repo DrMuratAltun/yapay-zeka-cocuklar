@@ -15,7 +15,7 @@ interface BolumSliderProps {
   bolumAltBaslik: string;
   seviye: string;
   ders: number;
-  renk: string; // gradient class: "from-sky-600 to-blue-700"
+  renk: string;
   oncekiBolum: number | null;
   sonrakiBolum: number | null;
   slaytlar: Slayt[];
@@ -33,9 +33,16 @@ export default function BolumSlider({
   slaytlar,
 }: BolumSliderProps) {
   const [aktifSlayt, setAktifSlayt] = useState(0);
+  const [sidebarAcik, setSidebarAcik] = useState(false);
+
+  const git = useCallback((i: number) => {
+    setAktifSlayt(i);
+    setSidebarAcik(false);
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  }, []);
 
   const onceki = useCallback(() => {
-    setAktifSlayt((s) => Math.max(0, s - 1));
+    setAktifSlayt((s) => { const n = Math.max(0, s - 1); return n; });
     window.scrollTo({ top: 0, behavior: "smooth" });
   }, []);
 
@@ -46,158 +53,188 @@ export default function BolumSlider({
 
   const ilkSlayt = aktifSlayt === 0;
   const sonSlayt = aktifSlayt === slaytlar.length - 1;
+  const ilerleme = ((aktifSlayt + 1) / slaytlar.length) * 100;
 
   return (
     <div className="min-h-screen flex flex-col">
       {/* Header */}
       <header className={`bg-gradient-to-r ${renk} text-white`}>
-        <div className="mx-auto max-w-4xl px-6 py-5">
-          <Link href="/" className="mb-3 inline-block text-sm text-white/70 hover:text-white transition">
+        <div className="mx-auto max-w-6xl px-4 py-4 sm:px-6">
+          <Link href="/" className="mb-2 inline-block text-sm text-white/70 hover:text-white transition">
             &larr; Ana Sayfa
           </Link>
-          <div className="flex items-center gap-4">
-            <div className="flex h-14 w-14 items-center justify-center rounded-2xl bg-white/20 text-2xl">
-              {slaytlar[aktifSlayt]?.icon || "📖"}
-            </div>
-            <div className="min-w-0 flex-1">
-              <p className="text-xs font-medium text-white/70">
+          <div className="flex items-center gap-3">
+            <div>
+              <p className="text-xs text-white/70">
                 BÖLÜM {bolumNo} &middot; {seviye} &middot; {ders} ders saati
               </p>
-              <h1 className="text-2xl font-extrabold truncate">{bolumBaslik}</h1>
+              <h1 className="text-xl font-extrabold sm:text-2xl">{bolumBaslik}</h1>
               <p className="text-sm text-white/70">{bolumAltBaslik}</p>
             </div>
           </div>
         </div>
       </header>
 
-      {/* Slayt Navigasyonu - üst bar */}
-      <div className="sticky top-[53px] z-40 border-b border-[var(--color-border)] bg-[var(--color-bg)]/95 backdrop-blur-sm">
-        <div className="mx-auto max-w-4xl px-6">
-          {/* Progress bar */}
-          <div className="h-1 bg-[var(--color-border)] rounded-full overflow-hidden">
-            <div
-              className={`h-full bg-gradient-to-r ${renk} transition-all duration-300`}
-              style={{ width: `${((aktifSlayt + 1) / slaytlar.length) * 100}%` }}
-            />
+      {/* İlerleme çubuğu */}
+      <div className="h-1 bg-[var(--color-border)]">
+        <div
+          className={`h-full bg-gradient-to-r ${renk} transition-all duration-300`}
+          style={{ width: `${ilerleme}%` }}
+        />
+      </div>
+
+      {/* Ana içerik: Sidebar + Content */}
+      <div className="flex flex-1 relative">
+        {/* Mobil sidebar toggle */}
+        <button
+          type="button"
+          onClick={() => setSidebarAcik(!sidebarAcik)}
+          className="lg:hidden fixed bottom-20 left-4 z-50 flex h-12 w-12 items-center justify-center rounded-full bg-slate-800 text-white shadow-lg cursor-pointer"
+          aria-label="Menüyü aç/kapat"
+        >
+          <svg width="20" height="20" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round">
+            <path d="M3 6h14M3 10h14M3 14h14" />
+          </svg>
+        </button>
+
+        {/* Mobil overlay */}
+        {sidebarAcik && (
+          <div
+            className="lg:hidden fixed inset-0 z-40 bg-black/40"
+            onClick={() => setSidebarAcik(false)}
+          />
+        )}
+
+        {/* Sol Sidebar - Slayt Navigasyonu */}
+        <aside
+          className={`
+            fixed top-0 left-0 z-50 h-full w-64 bg-[var(--color-bg)] border-r border-[var(--color-border)] overflow-y-auto pt-4 pb-24 transition-transform duration-200
+            lg:sticky lg:top-[53px] lg:z-auto lg:h-[calc(100vh-53px)] lg:w-56 lg:shrink-0 lg:translate-x-0 lg:pt-4
+            ${sidebarAcik ? "translate-x-0" : "-translate-x-full"}
+          `}
+        >
+          {/* Mobil kapatma butonu */}
+          <div className="lg:hidden flex justify-end px-3 mb-2">
+            <button
+              type="button"
+              onClick={() => setSidebarAcik(false)}
+              className="rounded-lg p-1.5 hover:bg-[var(--color-bg-secondary)] cursor-pointer"
+            >
+              ✕
+            </button>
           </div>
 
-          {/* Slayt sekmeleri - tümü görünür, eşit genişlik */}
-          <div className="flex w-full py-2">
+          <nav className="px-2 space-y-0.5">
             {slaytlar.map((s, i) => (
               <button
                 key={i}
                 type="button"
-                onClick={() => {
-                  setAktifSlayt(i);
-                  window.scrollTo({ top: 0, behavior: "smooth" });
-                }}
-                className={`flex flex-1 min-w-0 items-center justify-center gap-1 rounded-lg px-1 py-1.5 text-xs font-medium transition cursor-pointer ${
+                onClick={() => git(i)}
+                className={`w-full flex items-start gap-2 rounded-lg px-3 py-2 text-left text-sm transition cursor-pointer ${
                   i === aktifSlayt
-                    ? "bg-sky-100 text-sky-700 dark:bg-sky-900/30 dark:text-sky-300"
+                    ? "bg-sky-50 text-sky-700 font-semibold dark:bg-sky-900/20 dark:text-sky-300 border-l-3 border-sky-500"
+                    : i < aktifSlayt
+                    ? "text-[var(--color-text-secondary)] hover:bg-[var(--color-bg-secondary)]"
                     : "text-[var(--color-text-secondary)] hover:bg-[var(--color-bg-secondary)]"
                 }`}
               >
-                <span className="shrink-0">{s.icon}</span>
-                <span className="truncate hidden md:inline text-[11px]">{s.baslik}</span>
+                <span className="shrink-0 mt-0.5">{i < aktifSlayt ? "✓" : s.icon}</span>
+                <span className="leading-tight">{s.baslik}</span>
               </button>
             ))}
-          </div>
-        </div>
-      </div>
+          </nav>
 
-      {/* Slayt İçeriği */}
-      <main className="flex-1 mx-auto w-full max-w-4xl px-6 py-8">
-        <div className="mb-6 flex items-center gap-3">
-          <span className="text-2xl">{slaytlar[aktifSlayt].icon}</span>
-          <div>
-            <p className="text-xs text-[var(--color-text-secondary)]">
-              {aktifSlayt + 1} / {slaytlar.length}
-            </p>
-            <h2 className="text-xl font-extrabold">{slaytlar[aktifSlayt].baslik}</h2>
-          </div>
-        </div>
-
-        <div className="space-y-8">
-          {slaytlar[aktifSlayt].icerik}
-        </div>
-      </main>
-
-      {/* Alt Navigasyon - sabit */}
-      <footer className="sticky bottom-0 z-40 border-t border-[var(--color-border)] bg-[var(--color-bg)]/95 backdrop-blur-sm">
-        <div className="mx-auto flex max-w-4xl items-center justify-between px-6 py-3">
-          {/* Sol: Önceki slayt veya önceki bölüm */}
-          {ilkSlayt ? (
-            oncekiBolum ? (
-              <Link
-                href={`/bolumler/${oncekiBolum}`}
-                className="flex items-center gap-2 rounded-lg border border-[var(--color-border)] px-4 py-2 text-sm font-medium transition hover:bg-[var(--color-bg-secondary)]"
-              >
-                &larr; Bölüm {oncekiBolum}
-              </Link>
-            ) : (
-              <Link
-                href="/"
-                className="flex items-center gap-2 rounded-lg border border-[var(--color-border)] px-4 py-2 text-sm font-medium transition hover:bg-[var(--color-bg-secondary)]"
-              >
-                &larr; Ana Sayfa
-              </Link>
-            )
-          ) : (
-            <button
-              type="button"
-              onClick={onceki}
-              className="flex items-center gap-2 rounded-lg border border-[var(--color-border)] px-4 py-2 text-sm font-medium transition hover:bg-[var(--color-bg-secondary)] cursor-pointer"
-            >
-              &larr; Önceki
-            </button>
-          )}
-
-          {/* Orta: Sayfa göstergesi */}
-          <div className="flex gap-1.5">
-            {slaytlar.map((_, i) => (
-              <button
-                key={i}
-                type="button"
-                onClick={() => {
-                  setAktifSlayt(i);
-                  window.scrollTo({ top: 0, behavior: "smooth" });
-                }}
-                className={`h-2 rounded-full transition-all cursor-pointer ${
-                  i === aktifSlayt ? "w-6 bg-sky-500" : "w-2 bg-gray-300 dark:bg-gray-600"
-                }`}
-                aria-label={`Slayt ${i + 1}`}
+          {/* Sidebar alt: İlerleme */}
+          <div className="mt-6 mx-3 rounded-lg bg-[var(--color-bg-secondary)] p-3">
+            <div className="flex items-center justify-between text-xs text-[var(--color-text-secondary)] mb-1.5">
+              <span>İlerleme</span>
+              <span className="font-bold">{aktifSlayt + 1}/{slaytlar.length}</span>
+            </div>
+            <div className="h-1.5 bg-[var(--color-border)] rounded-full overflow-hidden">
+              <div
+                className={`h-full bg-gradient-to-r ${renk} rounded-full transition-all duration-300`}
+                style={{ width: `${ilerleme}%` }}
               />
-            ))}
+            </div>
           </div>
+        </aside>
 
-          {/* Sağ: Sonraki slayt veya sonraki bölüm */}
-          {sonSlayt ? (
-            sonrakiBolum ? (
-              <Link
-                href={`/bolumler/${sonrakiBolum}`}
-                className={`flex items-center gap-2 rounded-lg bg-gradient-to-r ${renk} px-4 py-2 text-sm font-bold text-white transition hover:opacity-90`}
-              >
-                Bölüm {sonrakiBolum} &rarr;
-              </Link>
-            ) : (
-              <Link
-                href="/"
-                className={`flex items-center gap-2 rounded-lg bg-gradient-to-r ${renk} px-4 py-2 text-sm font-bold text-white transition hover:opacity-90`}
-              >
-                Tamamla &#10003;
-              </Link>
-            )
-          ) : (
-            <button
-              type="button"
-              onClick={sonraki}
-              className={`flex items-center gap-2 rounded-lg bg-gradient-to-r ${renk} px-4 py-2 text-sm font-bold text-white transition hover:opacity-90 cursor-pointer`}
-            >
-              Sonraki &rarr;
-            </button>
-          )}
-        </div>
-      </footer>
+        {/* Ana İçerik */}
+        <main className="flex-1 min-w-0 px-4 py-6 sm:px-8 lg:px-12 lg:py-8">
+          <div className="mx-auto max-w-3xl">
+            {/* Slayt başlık */}
+            <div className="mb-6">
+              <p className="text-xs text-[var(--color-text-secondary)] mb-1">
+                {aktifSlayt + 1} / {slaytlar.length}
+              </p>
+              <h2 className="text-2xl font-extrabold flex items-center gap-2">
+                <span>{slaytlar[aktifSlayt].icon}</span>
+                {slaytlar[aktifSlayt].baslik}
+              </h2>
+            </div>
+
+            {/* Slayt içerik */}
+            <div className="space-y-8">
+              {slaytlar[aktifSlayt].icerik}
+            </div>
+
+            {/* Alt navigasyon */}
+            <div className="mt-12 flex items-center justify-between border-t border-[var(--color-border)] pt-6">
+              {ilkSlayt ? (
+                oncekiBolum ? (
+                  <Link
+                    href={`/bolumler/${oncekiBolum}`}
+                    className="flex items-center gap-2 rounded-lg border border-[var(--color-border)] px-4 py-2.5 text-sm font-medium transition hover:bg-[var(--color-bg-secondary)]"
+                  >
+                    &larr; Bölüm {oncekiBolum}
+                  </Link>
+                ) : (
+                  <Link
+                    href="/"
+                    className="flex items-center gap-2 rounded-lg border border-[var(--color-border)] px-4 py-2.5 text-sm font-medium transition hover:bg-[var(--color-bg-secondary)]"
+                  >
+                    &larr; Ana Sayfa
+                  </Link>
+                )
+              ) : (
+                <button
+                  type="button"
+                  onClick={onceki}
+                  className="flex items-center gap-2 rounded-lg border border-[var(--color-border)] px-4 py-2.5 text-sm font-medium transition hover:bg-[var(--color-bg-secondary)] cursor-pointer"
+                >
+                  &larr; Önceki
+                </button>
+              )}
+
+              {sonSlayt ? (
+                sonrakiBolum ? (
+                  <Link
+                    href={`/bolumler/${sonrakiBolum}`}
+                    className={`flex items-center gap-2 rounded-lg bg-gradient-to-r ${renk} px-5 py-2.5 text-sm font-bold text-white transition hover:opacity-90`}
+                  >
+                    Bölüm {sonrakiBolum} &rarr;
+                  </Link>
+                ) : (
+                  <Link
+                    href="/"
+                    className={`flex items-center gap-2 rounded-lg bg-gradient-to-r ${renk} px-5 py-2.5 text-sm font-bold text-white transition hover:opacity-90`}
+                  >
+                    Tamamla &#10003;
+                  </Link>
+                )
+              ) : (
+                <button
+                  type="button"
+                  onClick={sonraki}
+                  className={`flex items-center gap-2 rounded-lg bg-gradient-to-r ${renk} px-5 py-2.5 text-sm font-bold text-white transition hover:opacity-90 cursor-pointer`}
+                >
+                  Sonraki &rarr;
+                </button>
+              )}
+            </div>
+          </div>
+        </main>
+      </div>
     </div>
   );
 }
