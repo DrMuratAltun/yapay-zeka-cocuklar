@@ -280,11 +280,24 @@ const SlaytQuizMateryaller = (
     <section className="rounded-2xl border border-[var(--color-border)] bg-[var(--color-bg-secondary)] p-6">
       <h2 className="mb-4 text-2xl font-bold">İndirilebilir Materyaller</h2>
       <div className="space-y-3">
-        {["Final Projesi Planlama Formu (PDF)", "Portfolyo Şablonu (PDF)", "Proje Değerlendirme Rubriği (PDF)", "Gelecek Mektubu Şablonu (PDF)", "Sertifika Şablonu (PDF)"].map((d) => (
-          <div key={d} className="flex items-center justify-between rounded-lg border border-[var(--color-border)] px-4 py-3">
-            <span className="text-sm font-medium">{d}</span>
-            <span className="rounded bg-gray-200 px-3 py-1 text-xs text-gray-600 dark:bg-gray-700 dark:text-gray-300">Yakın zamanda</span>
-          </div>
+        {[
+          { ad: "Final Projesi Planlama Formu", url: "/indirilebilir/bolum-10-final-projesi-planlama.html" },
+          { ad: "Portfolyo Şablonu", url: "/indirilebilir/bolum-10-portfolyo-sablonu.html" },
+          { ad: "Gelecek Mektubu Şablonu", url: "/indirilebilir/bolum-10-gelecek-mektubu.html" },
+          { ad: "Sertifika Şablonu", url: "/indirilebilir/bolum-10-sertifika.html" },
+        ].map((dosya) => (
+          <a
+            key={dosya.ad}
+            href={dosya.url}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="flex items-center justify-between rounded-lg border border-[var(--color-border)] px-4 py-3 transition hover:border-sky-300 hover:bg-sky-50 dark:hover:bg-sky-900/10"
+          >
+            <span className="text-sm font-medium">{dosya.ad}</span>
+            <span className="rounded bg-sky-100 px-3 py-1 text-xs font-semibold text-sky-700 dark:bg-sky-900/30 dark:text-sky-300">
+              Yazdır / İndir
+            </span>
+          </a>
         ))}
       </div>
     </section>

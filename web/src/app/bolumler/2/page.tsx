@@ -573,21 +573,22 @@ const SlaytQuiz = (
       <h2 className="mb-4 text-2xl font-bold">İndirilebilir Materyaller</h2>
       <div className="space-y-3">
         {[
-          "YZ Haritası Çalışma Yaprağı (PDF)",
-          "YZ veya Değil? Kart Seti (PDF)",
-          "Sesli Asistan Gözlem Formu (PDF)",
-          "Değerlendirme Testi (PDF)",
-          "Öz Değerlendirme Formu (PDF)",
+          { ad: "YZ Haritası Çalışma Yaprağı", url: "/indirilebilir/bolum-02-yz-haritasi.html" },
+          { ad: "YZ veya Değil? Kart Seti", url: "/indirilebilir/bolum-02-yz-veya-degil-kartlari.html" },
+          { ad: "Sesli Asistan Gözlem Formu", url: "/indirilebilir/bolum-02-sesli-asistan-formu.html" },
         ].map((dosya) => (
-          <div
-            key={dosya}
-            className="flex items-center justify-between rounded-lg border border-[var(--color-border)] px-4 py-3"
+          <a
+            key={dosya.ad}
+            href={dosya.url}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="flex items-center justify-between rounded-lg border border-[var(--color-border)] px-4 py-3 transition hover:border-sky-300 hover:bg-sky-50 dark:hover:bg-sky-900/10"
           >
-            <span className="text-sm font-medium">{dosya}</span>
-            <span className="rounded bg-gray-200 px-3 py-1 text-xs text-gray-600 dark:bg-gray-700 dark:text-gray-300">
-              Yakın zamanda
+            <span className="text-sm font-medium">{dosya.ad}</span>
+            <span className="rounded bg-sky-100 px-3 py-1 text-xs font-semibold text-sky-700 dark:bg-sky-900/30 dark:text-sky-300">
+              Yazdır / İndir
             </span>
-          </div>
+          </a>
         ))}
       </div>
     </section>

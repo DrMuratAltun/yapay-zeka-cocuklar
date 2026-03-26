@@ -218,11 +218,23 @@ const SlaytQuiz = (
     <section className="rounded-2xl border border-[var(--color-border)] bg-[var(--color-bg-secondary)] p-6">
       <h3 className="mb-4 text-xl font-bold">İndirilebilir Materyaller</h3>
       <div className="space-y-3">
-        {["Tasarım Düşüncesi Şablonu (PDF)", "Proje Planlama Formu (PDF)", "Geri Bildirim Formu (PDF)", "Değerlendirme Testi (PDF)", "Öz Değerlendirme Formu (PDF)"].map((d) => (
-          <div key={d} className="flex items-center justify-between rounded-lg border border-[var(--color-border)] px-4 py-3">
-            <span className="text-sm font-medium">{d}</span>
-            <span className="rounded bg-gray-200 px-3 py-1 text-xs text-gray-600 dark:bg-gray-700 dark:text-gray-300">Yakın zamanda</span>
-          </div>
+        {[
+          { ad: "Tasarım Düşüncesi Şablonu", url: "/indirilebilir/bolum-07-tasarim-dusuncesi-sablonu.html" },
+          { ad: "Proje Planlama Formu", url: "/indirilebilir/bolum-07-proje-planlama-formu.html" },
+          { ad: "Geri Bildirim Formu", url: "/indirilebilir/bolum-07-geri-bildirim-formu.html" },
+        ].map((dosya) => (
+          <a
+            key={dosya.ad}
+            href={dosya.url}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="flex items-center justify-between rounded-lg border border-[var(--color-border)] px-4 py-3 transition hover:border-sky-300 hover:bg-sky-50 dark:hover:bg-sky-900/10"
+          >
+            <span className="text-sm font-medium">{dosya.ad}</span>
+            <span className="rounded bg-sky-100 px-3 py-1 text-xs font-semibold text-sky-700 dark:bg-sky-900/30 dark:text-sky-300">
+              Yazdır / İndir
+            </span>
+          </a>
         ))}
       </div>
     </section>
