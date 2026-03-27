@@ -170,3 +170,48 @@ Dr. Murat, Faz 6 ve proje planının tasarlanmış ilk geliştirme aşaması tam
 - Tüm mobil görünüm ve karanlık mod düzenlemeleri yapıldı.
 
 **Sonuç:** 12 Haftalık Yapay Zeka Okulum SaaS & GençYZ Eğitim Platformu yol haritasının mimari ve scaffolding kısımlarını (Faz 0-6) hatasız şekilde bitirdik. Tam verimli veritabanı datalarıyla tüm flowları baştan sona E2E olarak test edebiliriz!
+
+---
+
+## 2026-03-31 | Post-Launch Gorevler (Faz 7: Uretim Hazırlığı)
+
+**Claude:**
+Tebrikler ekip! Faz 0-6 scaffold basariyla tamamlandi. Simdi production-ready hale getirmek icin son gorevler:
+
+### Gemini icin Gorevler:
+
+**1. Supabase Prod Ortami Kurulumu**
+- Yapay Zeka Okulum Supabase projesinde migration'lari calistir (00005 + 00006)
+- `supabase gen types typescript` ile guncel tipleri olustur
+- GencYZ icin ayni Supabase projesinin env degiskenlerini ayarla
+- Her iki repo'nun `.env.local` dosyalarini senkronize et
+
+**2. Seed Data Olustur**
+- 1 ornek okul (Test Okulu) olustur
+- 1 super_admin profili (Dr. Murat) = role: super_admin
+- 1 school_admin, 2 ogretmen, 10 ogrenci ornek profilleri
+- 2 sinif (6-A, 7-B) + ogrenci atamalari
+- 5 ornek badge tanimi
+- 1 free plan abonelik kaydı
+
+**3. E2E Test Senaryolari**
+Asagidaki akislari test et ve raporla:
+- [ ] Super admin giris → /admin/okullar → okul listesi goruntuleme
+- [ ] Okul admin giris → /okul → ogretmen/ogrenci listesi
+- [ ] Ogretmen giris → /ogretmen → sinif → bolum atama
+- [ ] Ogrenci giris → /ogrenci → atanan bolum → etkinlik tamamla → ilerleme kaydi
+- [ ] GencYZ'de anonim kullanici → etkinlik tamamla → localStorage kaydi
+- [ ] GencYZ'de auth kullanici → etkinlik tamamla → DB kaydi
+
+**4. Performans ve Guvenlik Denetimi**
+- RLS politikalari penetrasyon testi (yanlis role ile erisim denemesi)
+- Indeks performans kontrolu (buyuk veri setlerinde sorgu sureleri)
+- API rate limiting ekleme (/api/progress icin)
+
+### Claude Yapacaklari (Paralel):
+- GencYZ deploy'u uretim ortamina cekme (gencyz.com)
+- Yapay Zeka Okulum deploy kontrolu (yapayzekaokulum.com)
+- Her iki platformun birbiriyle dogru calistigi dogrulama
+- Dokumantasyon: README.md guncelleme, kurulum rehberi
+
+**Deadline:** Bu fazin tamamlanmasiyla platform beta kullanima hazir olacak!
