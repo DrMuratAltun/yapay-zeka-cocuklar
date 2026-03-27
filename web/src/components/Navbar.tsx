@@ -2,7 +2,10 @@
 
 import Link from "next/link";
 import { useState, useRef, useEffect } from "react";
+import { useRouter } from "next/navigation";
 import { createClient } from "@/lib/supabase/client";
+
+type UserRole = "super_admin" | "school_admin" | "teacher" | "student" | null;
 
 function useTheme() {
   const [dark, setDark] = useState(false);
@@ -60,31 +63,73 @@ const navLinks = [
   { href: "/hakkinda", label: "Hakkında" },
 ];
 
+const roleLabels: Record<string, string> = {
+  super_admin: "Sistem Yoneticisi",
+  school_admin: "Okul Yoneticisi",
+  teacher: "Ogretmen",
+  student: "Ogrenci",
+};
+
+const rolePanelLinks: Record<string, { href: string; label: string }> = {
+  super_admin: { href: "/admin/okullar", label: "Admin Paneli" },
+  school_admin: { href: "/okul", label: "Okul Paneli" },
+  teacher: { href: "/okul", label: "Ogretmen Paneli" },
+  student: { href: "/ogrenci", label: "Ogrenci Paneli" },
+};
+
 export default function Navbar() {
   const [menuAcik, setMenuAcik] = useState(false);
   const [bolumMenuAcik, setBolumMenuAcik] = useState(false);
   const [isLoggedIn, setIsLoggedIn] = useState(false);
+  const [userRole, setUserRole] = useState<UserRole>(null);
+  const [userMenuAcik, setUserMenuAcik] = useState(false);
   const dropdownRef = useRef<HTMLDivElement>(null);
+  const userMenuRef = useRef<HTMLDivElement>(null);
+  const router = useRouter();
   const { dark, toggle } = useTheme();
 
-  // Session kontrolü
+  // Session ve rol kontrolu
   useEffect(() => {
     const supabase = createClient();
-    supabase.auth.getUser().then(({ data }) => {
-      setIsLoggedIn(!!data.user);
+    supabase.auth.getUser().then(async ({ data }) => {
+      if (data.user) {
+        setIsLoggedIn(true);
+        // Rol bilgisini al
+        const { data: roleData } = await supabase
+          .from("school_users")
+          .select("role")
+          .eq("user_id", data.user.id)
+          .limit(1)
+          .maybeSingle();
+        setUserRole((roleData?.role as UserRole) ?? "student");
+      }
     });
   }, []);
 
-  // Dropdown dışına tıklayınca kapat
+  // Dropdown disina tiklayinca kapat
   useEffect(() => {
     function handleClickOutside(e: MouseEvent) {
       if (dropdownRef.current && !dropdownRef.current.contains(e.target as Node)) {
         setBolumMenuAcik(false);
       }
+      if (userMenuRef.current && !userMenuRef.current.contains(e.target as Node)) {
+        setUserMenuAcik(false);
+      }
     }
     document.addEventListener("mousedown", handleClickOutside);
     return () => document.removeEventListener("mousedown", handleClickOutside);
   }, []);
+
+  const handleLogout = async () => {
+    await fetch("/api/auth/logout", { method: "POST" });
+    setIsLoggedIn(false);
+    setUserRole(null);
+    setUserMenuAcik(false);
+    router.push("/");
+    router.refresh();
+  };
+
+  const panelLink = userRole ? rolePanelLinks[userRole] : null;
 
   return (
     <nav className="sticky top-0 z-50 border-b border-[var(--color-border)] bg-[var(--color-bg)]/90 backdrop-blur-md">
@@ -98,7 +143,7 @@ export default function Navbar() {
 
         {/* Desktop */}
         <div className="hidden items-center gap-5 text-sm font-medium md:flex">
-          {/* Bölümler Dropdown */}
+          {/* Bolumler Dropdown */}
           <div ref={dropdownRef} className="relative">
             <button
               type="button"
@@ -152,6 +197,73 @@ export default function Navbar() {
               {link.label}
             </Link>
           ))}
+
+          {/* Giris yapmamis → Giris Yap butonu */}
+          {!isLoggedIn && (
+            <Link
+              href="/giris"
+              className="rounded-lg bg-sky-600 px-4 py-1.5 text-white transition hover:bg-sky-700"
+            >
+              Giriş Yap
+            </Link>
+          )}
+
+          {/* Giris yapmis → Kullanici menusu */}
+          {isLoggedIn && (
+            <div ref={userMenuRef} className="relative">
+              <button
+                type="button"
+                onClick={() => setUserMenuAcik(!userMenuAcik)}
+                className="flex items-center gap-2 rounded-lg border border-[var(--color-border)] px-3 py-1.5 transition hover:bg-[var(--color-bg-secondary)]"
+              >
+                <span className="flex h-6 w-6 items-center justify-center rounded-full bg-sky-100 text-sky-700 text-xs font-bold">
+                  {userRole === "super_admin" ? "SA" : userRole === "school_admin" ? "OY" : userRole === "teacher" ? "OG" : "OS"}
+                </span>
+                <span className="text-xs">
+                  {userRole ? roleLabels[userRole] : "..."}
+                </span>
+                <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" className={`transition-transform ${userMenuAcik ? "rotate-180" : ""}`}>
+                  <polyline points="6 9 12 15 18 9" />
+                </svg>
+              </button>
+
+              {userMenuAcik && (
+                <div className="absolute right-0 top-full mt-2 w-52 rounded-xl border border-[var(--color-border)] bg-[var(--color-bg)] p-2 shadow-xl">
+                  <div className="px-3 py-2 text-xs text-[var(--color-text-secondary)] border-b border-[var(--color-border)] mb-1">
+                    {userRole ? roleLabels[userRole] : "Kullanici"}
+                  </div>
+                  {panelLink && (
+                    <Link
+                      href={panelLink.href}
+                      onClick={() => setUserMenuAcik(false)}
+                      className="flex items-center gap-2 rounded-lg px-3 py-2 text-sm transition hover:bg-[var(--color-bg-secondary)]"
+                    >
+                      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                        <rect x="3" y="3" width="7" height="7" />
+                        <rect x="14" y="3" width="7" height="7" />
+                        <rect x="3" y="14" width="7" height="7" />
+                        <rect x="14" y="14" width="7" height="7" />
+                      </svg>
+                      {panelLink.label}
+                    </Link>
+                  )}
+                  <button
+                    type="button"
+                    onClick={handleLogout}
+                    className="flex w-full items-center gap-2 rounded-lg px-3 py-2 text-sm text-red-600 transition hover:bg-red-50"
+                  >
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                      <path d="M9 21H5a2 2 0 01-2-2V5a2 2 0 012-2h4" />
+                      <polyline points="16 17 21 12 16 7" />
+                      <line x1="21" y1="12" x2="9" y2="12" />
+                    </svg>
+                    Cikis Yap
+                  </button>
+                </div>
+              )}
+            </div>
+          )}
+
           <button
             type="button"
             onClick={toggle}
@@ -162,7 +274,7 @@ export default function Navbar() {
           </button>
         </div>
 
-        {/* Mobil menü butonu */}
+        {/* Mobil menu butonu */}
         <button
           type="button"
           onClick={() => setMenuAcik(!menuAcik)}
@@ -186,9 +298,32 @@ export default function Navbar() {
         </button>
       </div>
 
-      {/* Mobil menü */}
+      {/* Mobil menu */}
       {menuAcik && (
         <div className="border-t border-[var(--color-border)] px-6 py-4 md:hidden max-h-[70vh] overflow-y-auto">
+          {/* Giris durumu */}
+          {isLoggedIn && (
+            <div className="mb-3 flex items-center justify-between pb-3 border-b border-[var(--color-border)]">
+              <div className="flex items-center gap-2">
+                <span className="flex h-7 w-7 items-center justify-center rounded-full bg-sky-100 text-sky-700 text-xs font-bold">
+                  {userRole === "super_admin" ? "SA" : userRole === "school_admin" ? "OY" : userRole === "teacher" ? "OG" : "OS"}
+                </span>
+                <span className="text-sm font-medium">
+                  {userRole ? roleLabels[userRole] : "..."}
+                </span>
+              </div>
+              {panelLink && (
+                <Link
+                  href={panelLink.href}
+                  onClick={() => setMenuAcik(false)}
+                  className="text-xs font-medium text-sky-600 hover:text-sky-700"
+                >
+                  {panelLink.label} →
+                </Link>
+              )}
+            </div>
+          )}
+
           <div className="mb-3 text-xs font-bold text-[var(--color-text-secondary)]">Bölümler</div>
           <div className="mb-4 grid grid-cols-2 gap-2">
             {bolumler.map((b) => {
@@ -220,6 +355,27 @@ export default function Navbar() {
                 {link.label}
               </Link>
             ))}
+
+            {!isLoggedIn && (
+              <Link
+                href="/giris"
+                onClick={() => setMenuAcik(false)}
+                className="block text-sky-600 font-semibold"
+              >
+                Giriş Yap
+              </Link>
+            )}
+
+            {isLoggedIn && (
+              <button
+                type="button"
+                onClick={handleLogout}
+                className="text-red-500 hover:text-red-700"
+              >
+                Cikis Yap
+              </button>
+            )}
+
             <button
               type="button"
               onClick={toggle}
