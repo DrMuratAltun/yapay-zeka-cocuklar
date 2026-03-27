@@ -299,7 +299,12 @@ const SlaytEtkinlik1 = (
     </div>
 
     <PromptDeneme />
+  </>
+);
 
+/* ---- Etkinlik 1b: Prompt Geliştirici ---- */
+const SlaytEtkinlik1b = (
+  <>
     <PromptGelistirici />
   </>
 );
@@ -429,6 +434,7 @@ export default function Bolum5() {
         { baslik: "YZ Halüsinasyonu", icon: "⚠️", icerik: SlaytHalusinasyon },
         { baslik: "Etik Kullanım", icon: "⚖️", icerik: SlaytEtik },
         { baslik: "Etkinlik: Prompt Düellosu", icon: "🎮", icerik: SlaytEtkinlik1 },
+        { baslik: "Etkinlik: Prompt Geliştirici", icon: "✨", icerik: SlaytEtkinlik1b },
         { baslik: "Etkinlik: ChatGPT/Gemini", icon: "🎮", icerik: SlaytEtkinlik2 },
         { baslik: "Etkinlik: Görüntü Üretme", icon: "🎮", icerik: SlaytEtkinlik3 },
         { baslik: "Etkinlik: YZ Etik Mahkemesi", icon: "🎮", icerik: SlaytEtkinlik4 },

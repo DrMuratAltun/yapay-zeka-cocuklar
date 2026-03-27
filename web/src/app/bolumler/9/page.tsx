@@ -232,7 +232,12 @@ const SlaytEtkinlik1 = (
     </div>
 
     <EtikMahkeme />
+  </>
+);
 
+/* ---- Etkinlik 1b: Önyargı Simülatörü ---- */
+const SlaytEtkinlik1b = (
+  <>
     <OnyargiSimulator />
   </>
 );
@@ -329,6 +334,7 @@ export default function Bolum9() {
     { baslik: "Deepfake ve Dezenformasyon", icon: "🎭", icerik: SlaytDeepfake },
     { baslik: "Toplumsal Etkiler", icon: "🌍", icerik: SlaytToplumsalEtki },
     { baslik: "Etkinlik: YZ Mahkemesi", icon: "🎮", icerik: SlaytEtkinlik1 },
+    { baslik: "Etkinlik: Önyargı Simülatörü", icon: "🔍", icerik: SlaytEtkinlik1b },
     { baslik: "Etkinlik: Etik Pusula", icon: "🎮", icerik: SlaytEtkinlik2 },
     { baslik: "Etkinlik: Deepfake Dedektifi", icon: "🎮", icerik: SlaytEtkinlik3 },
     { baslik: "Etik Pusula", icon: "🧩", icerik: SlaytOyun },

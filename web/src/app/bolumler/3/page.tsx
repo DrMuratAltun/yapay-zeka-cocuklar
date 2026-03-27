@@ -329,7 +329,11 @@ const SlaytEtkinlik1 = (
 const SlaytEtkinlik2 = (
   <>
     <VeriTopla />
+  </>
+);
 
+const SlaytEtkinlik2b = (
+  <>
     <VeriGorsellestirme />
   </>
 );
@@ -374,7 +378,11 @@ const SlaytEtkinlik4 = (
     </div>
 
     <VeriSetiKesif />
+  </>
+);
 
+const SlaytEtkinlik4b = (
+  <>
     <VeriTemizleme />
   </>
 );
@@ -464,8 +472,10 @@ export default function Bolum3() {
         { baslik: "Veri Gizliliği ve KVKK", icon: "🔒", icerik: SlaytVeriGizliligi },
         { baslik: "Etkinlik: Girdi Avcıları", icon: "🎮", icerik: SlaytEtkinlik1 },
         { baslik: "Etkinlik: Veri Topla", icon: "🎮", icerik: SlaytEtkinlik2 },
+        { baslik: "Etkinlik: Veri Görselleştirme", icon: "📊", icerik: SlaytEtkinlik2b },
         { baslik: "Etkinlik: Sınıf Anketi", icon: "🎮", icerik: SlaytEtkinlik3 },
         { baslik: "Etkinlik: Veri Seti Keşfedici", icon: "🎮", icerik: SlaytEtkinlik4 },
+        { baslik: "Etkinlik: Veri Temizleme", icon: "🧹", icerik: SlaytEtkinlik4b },
         { baslik: "Etkinlik: Veri Etiketleme", icon: "🎮", icerik: SlaytEtkinlik5 },
         { baslik: "İnteraktif Oyun", icon: "🕹️", icerik: SlaytOyun },
         { baslik: "Değerlendirme", icon: "📝", icerik: SlaytDegerlendirme },

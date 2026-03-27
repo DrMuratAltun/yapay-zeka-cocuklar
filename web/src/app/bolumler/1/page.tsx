@@ -325,7 +325,12 @@ const SlaytEtkinlik1 = (
     </div>
 
     <KimDahaZeki />
+  </>
+);
 
+/* ---- Slayt 8b: Etkinlik 1b - Turing Testi ---- */
+const SlaytEtkinlik1b = (
+  <>
     <TuringTesti />
   </>
 );
@@ -354,7 +359,12 @@ const SlaytEtkinlik2 = (
     </div>
 
     <YzDedektifi />
+  </>
+);
 
+/* ---- Slayt 9b: Etkinlik 2b - YZ Zeka Karşılaştır ---- */
+const SlaytEtkinlik2b = (
+  <>
     <YzZekaKarsilastir />
   </>
 );
@@ -446,7 +456,9 @@ export default function Bolum1() {
         { baslik: "YZ Tarihçesi", icon: "📅", icerik: SlaytTarihce },
         { baslik: "YZ Türleri", icon: "🔬", icerik: SlaytYzTurleri },
         { baslik: "Etkinlik: Kim Daha Zeki?", icon: "🎮", icerik: SlaytEtkinlik1 },
+        { baslik: "Etkinlik: Turing Testi", icon: "🧪", icerik: SlaytEtkinlik1b },
         { baslik: "Etkinlik: YZ Dedektifi", icon: "🎮", icerik: SlaytEtkinlik2 },
+        { baslik: "Etkinlik: Zeka Karşılaştır", icon: "⚖️", icerik: SlaytEtkinlik2b },
         { baslik: "Etkinlik: YZ Zaman Çizelgesi", icon: "🎮", icerik: SlaytEtkinlik3 },
         { baslik: "İnteraktif Oyun", icon: "🕹️", icerik: SlaytOyun },
         { baslik: "Değerlendirme", icon: "📝", icerik: SlaytDegerlendirme },

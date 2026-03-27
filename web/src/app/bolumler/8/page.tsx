@@ -250,7 +250,12 @@ const SlaytEtkinlik1 = (
     </div>
 
     <HikayeOlusturucu />
+  </>
+);
 
+/* ---- Etkinlik 1b: Prompt Galerisi ---- */
+const SlaytEtkinlik1b = (
+  <>
     <PromptGalerisi />
   </>
 );
@@ -272,7 +277,12 @@ const SlaytEtkinlik2 = (
     </div>
 
     <PosterTasarimi />
+  </>
+);
 
+/* ---- Etkinlik 2b: Telif Kontrol ---- */
+const SlaytEtkinlik2b = (
+  <>
     <TelifKontrol />
   </>
 );
@@ -362,7 +372,9 @@ export default function Bolum8() {
         { baslik: "Canva AI ile Tasarım", icon: "🎨", icerik: SlaytCanvaAI },
         { baslik: "Dijital Hikaye Anlatımı", icon: "📖", icerik: SlaytDijitalHikaye },
         { baslik: "Etkinlik: Yapay mı Gerçek mi?", icon: "🎮", icerik: SlaytEtkinlik1 },
+        { baslik: "Etkinlik: Prompt Galerisi", icon: "🖼️", icerik: SlaytEtkinlik1b },
         { baslik: "Etkinlik: Poster Tasarımı", icon: "🎮", icerik: SlaytEtkinlik2 },
+        { baslik: "Etkinlik: Telif Kontrol", icon: "⚖️", icerik: SlaytEtkinlik2b },
         { baslik: "Etkinlik: Dijital Hikaye", icon: "🎮", icerik: SlaytEtkinlik3 },
         { baslik: "Yapay mı Gerçek mi?", icon: "🧩", icerik: SlaytOyun },
         { baslik: "Değerlendirme", icon: "📝", icerik: SlaytDegerlendirme },

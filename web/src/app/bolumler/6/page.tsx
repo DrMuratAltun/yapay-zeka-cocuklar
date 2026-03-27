@@ -251,7 +251,12 @@ const SlaytEtkinlik1 = (
     </div>
 
     <AlgoritmaSirala />
+  </>
+);
 
+/* ---- Etkinlik 1b: Blok Kodlama ---- */
+const SlaytEtkinlik1b = (
+  <>
     <BlokKodlama />
   </>
 );
@@ -359,6 +364,7 @@ export default function Bolum6() {
         { baslik: "ML for Kids + Scratch", icon: "🤖", icerik: SlaytMLForKids },
         { baslik: "Proje Fikirleri", icon: "💡", icerik: SlaytProjeFikirleri },
         { baslik: "Etkinlik: Algoritma Şefi", icon: "🎮", icerik: SlaytEtkinlik1 },
+        { baslik: "Etkinlik: Blok Kodlama", icon: "🧩", icerik: SlaytEtkinlik1b },
         { baslik: "Etkinlik: Taş Kağıt Makas", icon: "🎮", icerik: SlaytEtkinlik2 },
         { baslik: "Etkinlik: Duygu Analizi", icon: "🎮", icerik: SlaytEtkinlik3 },
         { baslik: "Algoritma Bulmacası", icon: "🧩", icerik: SlaytOyun },

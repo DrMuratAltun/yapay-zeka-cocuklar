@@ -217,9 +217,19 @@ const SlaytEtkinlik1 = (
     </div>
 
     <TasarimDusuncesi />
+  </>
+);
 
+/* ---- Etkinlik 1b: Proje Planlama ---- */
+const SlaytEtkinlik1b = (
+  <>
     <ProjePlanlama />
+  </>
+);
 
+/* ---- Etkinlik 1c: Problem Analizi ---- */
+const SlaytEtkinlik1c = (
+  <>
     <ProblemAnalizi />
   </>
 );
@@ -328,6 +338,8 @@ export default function Bolum7() {
         { baslik: "Örnek Problemler", icon: "🌍", icerik: SlaytProblemler },
         { baslik: "Proje Planlama", icon: "📋", icerik: SlaytProjePlanlama },
         { baslik: "Etkinlik: Problem Avcıları", icon: "🎮", icerik: SlaytEtkinlik1 },
+        { baslik: "Etkinlik: Proje Planlama", icon: "📋", icerik: SlaytEtkinlik1b },
+        { baslik: "Etkinlik: Problem Analizi", icon: "🔍", icerik: SlaytEtkinlik1c },
         { baslik: "Etkinlik: Mini YZ Projesi", icon: "🎮", icerik: SlaytEtkinlik2 },
         { baslik: "Etkinlik: Proje Fuarı", icon: "🎮", icerik: SlaytEtkinlik3 },
         { baslik: "Problem-Çözüm Eşleştir", icon: "🧩", icerik: SlaytOyun },

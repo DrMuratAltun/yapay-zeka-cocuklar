@@ -278,7 +278,12 @@ const SlaytEtkinlik1 = (
     </div>
 
     <PortfolyoOlusturucu />
+  </>
+);
 
+/* ---- Etkinlik 1b: Kariyer Yol Haritası ---- */
+const SlaytEtkinlik1b = (
+  <>
     <KariyerYolHaritasi />
   </>
 );
@@ -377,6 +382,7 @@ export default function Bolum10() {
     { baslik: "Kariyer Fırsatları", icon: "💼", icerik: SlaytKariyer },
     { baslik: "Öğrenmeye Devam Et", icon: "🚀", icerik: SlaytOgrenmeDevam },
     { baslik: "Etkinlik: Final Projesi", icon: "🎮", icerik: SlaytEtkinlik1 },
+    { baslik: "Etkinlik: Kariyer Yol Haritası", icon: "🗺️", icerik: SlaytEtkinlik1b },
     { baslik: "Etkinlik: Gelecek Fuarı", icon: "🎮", icerik: SlaytEtkinlik2 },
     { baslik: "Etkinlik: Gelecek Mektubu", icon: "🎮", icerik: SlaytEtkinlik3 },
     { baslik: "YZ Kariyer Keşfi", icon: "🧩", icerik: SlaytOyun },
