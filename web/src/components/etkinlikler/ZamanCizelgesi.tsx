@@ -170,7 +170,7 @@ export default function ZamanCizelgesi() {
                 <div key={olay.id}>
                   <div className="flex items-center gap-3 rounded-lg border border-emerald-200 bg-emerald-50 px-3 py-2 dark:border-emerald-800 dark:bg-emerald-900/20">
                     <span className="shrink-0 rounded bg-emerald-600 px-2 py-0.5 text-xs font-bold text-white">
-                      {olay.yil}
+                      {i + 1}.
                     </span>
                     <span className="text-sm">{olay.emoji}</span>
                     <span className="text-sm font-medium">{olay.baslik}</span>

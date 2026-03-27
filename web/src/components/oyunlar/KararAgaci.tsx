@@ -119,17 +119,6 @@ export default function KararAgaci() {
         <p className="text-sm text-[var(--color-text-secondary)]">
           Bu meyveyi tanımak için soruları cevapla
         </p>
-        <div className="mt-2 flex justify-center gap-2">
-          <span className="rounded-full bg-red-100 px-2 py-0.5 text-xs text-red-700 dark:bg-red-900/30 dark:text-red-400">
-            {meyve.renk}
-          </span>
-          <span className="rounded-full bg-blue-100 px-2 py-0.5 text-xs text-blue-700 dark:bg-blue-900/30 dark:text-blue-400">
-            {meyve.boyut}
-          </span>
-          <span className="rounded-full bg-green-100 px-2 py-0.5 text-xs text-green-700 dark:bg-green-900/30 dark:text-green-400">
-            {meyve.sekil}
-          </span>
-        </div>
       </div>
 
       {/* Decision path */}

@@ -176,11 +176,13 @@ export default function PromptUstasi() {
             >
               <div className="flex items-center justify-between">
                 <span className="text-sm">{s.metin}</span>
-                <div className="flex shrink-0 ml-2">
-                  {Array.from({ length: 4 }, (_, j) => (
-                    <span key={j} className={`text-sm ${j < s.puan ? "text-amber-400" : "text-gray-300"}`}>★</span>
-                  ))}
-                </div>
+                {gosterGeriBildirim && (
+                  <div className="flex shrink-0 ml-2">
+                    {Array.from({ length: 4 }, (_, j) => (
+                      <span key={j} className={`text-sm ${j < s.puan ? "text-amber-400" : "text-gray-300"}`}>★</span>
+                    ))}
+                  </div>
+                )}
               </div>
               {gosterGeriBildirim && buDogru && (
                 <span className="text-xs text-emerald-600 font-medium">✅ En iyi seçim!</span>
