@@ -100,7 +100,7 @@ const SlaytPictoBlox = (
       <p>
         PictoBlox, blok tabanlı bir kodlama ortamıdır ve özel YZ uzantıları
         içerir. Sürükle-bırak bloklarla yapay zeka projeleri geliştirmenizi sağlar.
-        Ücretsiz indirilebilir ve web tarayıcısında da çalışır.
+        İndirilebilir ve web tarayıcısında da çalışır.
       </p>
       <div className="grid gap-4 sm:grid-cols-3">
         {[
@@ -163,7 +163,7 @@ const SlaytMLForKids = (
       <h3 className="text-2xl font-extrabold">3. PictoBlox ile Metin Sınıflandırma</h3>
       <p>
         PictoBlox, makine öğrenimi modellerini eğitip blok kodlama ile
-        kullanmanızı sağlayan ücretsiz bir platformdur.
+        kullanmanızı sağlayan bir platformdur.
       </p>
       <div className="mt-4 flex flex-col items-center rounded-xl border border-[var(--color-border)] bg-[var(--color-bg)] p-4">
         <Image src="/images/bolumler/scratch.png" alt="PictoBlox blok tabanli kodlama arayuzu" width={550} height={400} className="rounded-lg object-cover shadow-md" />

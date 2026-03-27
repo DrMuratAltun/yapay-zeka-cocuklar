@@ -33,7 +33,7 @@ export default function AnaSayfa() {
             <div>
               <div className="mb-6 inline-flex items-center gap-2 rounded-full border border-sky-500/20 bg-sky-500/10 px-4 py-1.5 text-sm text-sky-300">
                 <span className="h-2 w-2 rounded-full bg-sky-400 animate-pulse" />
-                Ücretsiz &middot; MEB Uyumlu
+                MEB Uyumlu
               </div>
               <h1 className="mb-6 text-4xl font-extrabold leading-tight md:text-6xl">
                 Yapay Zeka
@@ -70,7 +70,7 @@ export default function AnaSayfa() {
                 { sayi: "10", etiket: "Bölüm", icon: "📖", renk: "from-sky-500/20 to-blue-500/20 border-sky-500/20" },
                 { sayi: "50+", etiket: "Etkinlik", icon: "🎮", renk: "from-emerald-500/20 to-teal-500/20 border-emerald-500/20" },
                 { sayi: "30+", etiket: "Quiz Sorusu", icon: "📝", renk: "from-violet-500/20 to-purple-500/20 border-violet-500/20" },
-                { sayi: "100%", etiket: "Ücretsiz", icon: "🎁", renk: "from-amber-500/20 to-orange-500/20 border-amber-500/20" },
+                { sayi: "✓", etiket: "MEB Uyumlu", icon: "📋", renk: "from-amber-500/20 to-orange-500/20 border-amber-500/20" },
               ].map((s) => (
                 <div
                   key={s.etiket}
@@ -209,7 +209,7 @@ export default function AnaSayfa() {
         <div className="mx-auto max-w-6xl px-6">
           <div className="mb-12 text-center">
             <h2 className="mb-3 text-3xl font-extrabold">Kullanılan Araçlar</h2>
-            <p className="text-[var(--color-text-secondary)]">Hepsi ücretsiz, hepsi web tabanlı</p>
+            <p className="text-[var(--color-text-secondary)]">Hepsi web tabanlı</p>
           </div>
           <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
             {[
@@ -220,7 +220,7 @@ export default function AnaSayfa() {
               { ad: "Canva AI", aciklama: "YZ destekli tasarım", url: "https://canva.com/", icon: "🎨" },
               { ad: "ChatGPT", aciklama: "Üretken YZ deneyimi", url: "https://chatgpt.com/", icon: "💬" },
               { ad: "Gemini", aciklama: "Google YZ asistanı", url: "https://gemini.google.com/", icon: "✨" },
-              { ad: "Bing Image Creator", aciklama: "Ücretsiz görüntü üretme", url: "https://www.bing.com/images/create", icon: "🖼️" },
+              { ad: "Bing Image Creator", aciklama: "YZ ile görüntü üretme", url: "https://www.bing.com/images/create", icon: "🖼️" },
             ].map((a) => (
               <a
                 key={a.ad}
@@ -247,7 +247,7 @@ export default function AnaSayfa() {
             YZ Okuryazarlığı Yolculuğuna Başla
           </h2>
           <p className="mb-8 text-lg text-blue-100">
-            10 bölüm, 50+ etkinlik, tamamen ücretsiz. Hemen keşfetmeye başla!
+            10 bölüm, 50+ etkinlik. Hemen keşfetmeye başla!
           </p>
           <div className="flex flex-wrap justify-center gap-4">
             <a

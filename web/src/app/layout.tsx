@@ -13,7 +13,7 @@ export const metadata: Metadata = {
     template: "%s | GençYZ",
   },
   description:
-    "Ortaokul öğrencileri (6-8. sınıf) için ücretsiz yapay zeka eğitimi. 10 bölüm, 50+ interaktif etkinlik, oyunlar, quizler ve uygulamalı projeler. Yapay zeka nedir, makine öğrenimi, üretken YZ, etik ve kodlama — hepsini öğren!",
+    "Ortaokul öğrencileri (6-8. sınıf) için uygulamalı yapay zeka eğitimi. 10 bölüm, 50+ interaktif etkinlik, oyunlar, quizler ve projeler. Yapay zeka nedir, makine öğrenimi, üretken YZ, etik ve kodlama — hepsini öğren!",
   keywords: [
     "yapay zeka eğitimi",
     "çocuklar için yapay zeka",
@@ -41,7 +41,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "GençYZ - Çocuklar İçin Yapay Zeka Eğitim Platformu",
     description:
-      "Ortaokul öğrencileri için ücretsiz, uygulamalı yapay zeka eğitimi. 10 bölüm, 50+ etkinlik, interaktif oyunlar ve quizler.",
+      "Ortaokul öğrencileri için uygulamalı yapay zeka eğitimi. 10 bölüm, 50+ etkinlik, interaktif oyunlar ve quizler.",
     url: "https://gencyz.com",
     siteName: "GençYZ",
     locale: "tr_TR",
@@ -51,7 +51,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "GençYZ - Çocuklar İçin Yapay Zeka Eğitim Platformu",
     description:
-      "Ortaokul öğrencileri için ücretsiz yapay zeka eğitimi. 10 bölüm, 50+ etkinlik, oyunlar ve projeler.",
+      "Ortaokul öğrencileri için uygulamalı yapay zeka eğitimi. 10 bölüm, 50+ etkinlik, oyunlar ve projeler.",
     creator: "@drmurataltun",
   },
   robots: {
@@ -88,7 +88,7 @@ export default function RootLayout({
               alternateName: "Yapay Zeka Macerası",
               url: "https://gencyz.com",
               description:
-                "Ortaokul öğrencileri (6-8. sınıf) için ücretsiz yapay zeka eğitim platformu",
+                "Ortaokul öğrencileri (6-8. sınıf) için uygulamalı yapay zeka eğitim platformu",
               inLanguage: "tr",
               author: {
                 "@type": "Person",
@@ -107,7 +107,6 @@ export default function RootLayout({
                 educationalRole: "student",
                 audienceType: "Ortaokul Öğrencileri (11-14 yaş)",
               },
-              isAccessibleForFree: true,
               hasCourse: {
                 "@type": "Course",
                 name: "Yapay Zeka Okuryazarlığı",

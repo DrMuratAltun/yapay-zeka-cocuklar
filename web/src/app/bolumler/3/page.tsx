@@ -55,7 +55,7 @@ const quizSorulari = [
     secenekler: [
       "Anket ile gönüllü veri toplamak",
       "İnsanların izni olmadan kişisel bilgilerini kaydetmek",
-      "Açık kaynak veri setleri kullanmak",
+      "Kamuya açık veri setleri kullanmak",
       "Anonim istatistik verileri analiz etmek",
     ],
     dogru: 1,

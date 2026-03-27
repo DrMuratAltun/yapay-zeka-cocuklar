@@ -111,10 +111,10 @@ const SlaytGoruntuUretme = (
       </div>
       <div className="grid gap-4 sm:grid-cols-2">
         {[
-          { arac: "Bing Image Creator", ozellik: "Ücretsiz, DALL-E tabanlı", uygunluk: "Öğrenciler için uygun", icon: "🖼️" },
-          { arac: "Canva AI (Magic Media)", ozellik: "Tasarım içinde görüntü üretme", uygunluk: "Eğitim hesabı ile ücretsiz", icon: "🎨" },
-          { arac: "Leonardo AI", ozellik: "Detaylı görüntü kontrolleri", uygunluk: "Ücretsiz sınırlı kullanım", icon: "🎭" },
-          { arac: "Stable Diffusion", ozellik: "Açık kaynak, yerel çalışabilir", uygunluk: "İleri seviye", icon: "⚡" },
+          { arac: "Bing Image Creator", ozellik: "DALL-E tabanlı görüntü üretme", uygunluk: "Öğrenciler için uygun", icon: "🖼️" },
+          { arac: "Canva AI (Magic Media)", ozellik: "Tasarım içinde görüntü üretme", uygunluk: "Eğitim hesabı ile erişilebilir", icon: "🎨" },
+          { arac: "Leonardo AI", ozellik: "Detaylı görüntü kontrolleri", uygunluk: "Sınırlı kullanım", icon: "🎭" },
+          { arac: "Stable Diffusion", ozellik: "Topluluk destekli, yerel çalışabilir", uygunluk: "İleri seviye", icon: "⚡" },
         ].map((a) => (
           <div key={a.arac} className="rounded-xl border border-[var(--color-border)] bg-[var(--color-bg-secondary)] p-4">
             <div className="mb-2 flex items-center gap-2">
@@ -189,7 +189,7 @@ const SlaytCanvaAI = (
       </div>
 
       <div className="rounded-xl border-l-4 border-amber-500 bg-amber-50 p-4 dark:bg-amber-900/20">
-        <p className="font-medium">⚠️ <strong>Dikkat:</strong> Canva AI&apos;ın ücretsiz sürümünde günlük kullanım limiti vardır. Eğitim hesabı ile daha fazla erişim sağlayabilirsiniz!</p>
+        <p className="font-medium">⚠️ <strong>Dikkat:</strong> Canva AI&apos;da günlük kullanım limiti vardır. Eğitim hesabı ile daha fazla erişim sağlayabilirsiniz!</p>
       </div>
     </section>
   </>

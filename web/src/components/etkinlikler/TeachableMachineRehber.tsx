@@ -152,7 +152,7 @@ export default function TeachableMachineRehber() {
             </h4>
             <p className="mb-3 text-sm text-[var(--color-text-secondary)]">
               Google&apos;ın geliştirdiği, tarayıcıda makine öğrenimi modeli
-              eğitmenize olanak tanıyan ücretsiz bir araçtır. Kod yazmadan
+              eğitmenize olanak tanıyan bir araçtır. Kod yazmadan
               görüntü, ses veya poz tanıma modeli oluşturabilirsiniz.
             </p>
             <a

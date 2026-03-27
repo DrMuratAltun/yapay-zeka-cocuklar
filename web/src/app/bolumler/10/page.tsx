@@ -230,7 +230,7 @@ const SlaytOgrenmeDevam = (
         {[
           { kaynak: "PictoBlox", aciklama: "Blok tabanlı YZ kodlama ile daha karmaşık projeler", seviye: "Şimdi" },
           { kaynak: "Python Temelleri", aciklama: "Gerçek programlama dili öğrenmeye başla", seviye: "Sonraki Adım" },
-          { kaynak: "Khan Academy / Code.org", aciklama: "Ücretsiz online kodlama kursları", seviye: "Sonraki Adım" },
+          { kaynak: "Khan Academy / Code.org", aciklama: "Online kodlama kursları", seviye: "Sonraki Adım" },
           { kaynak: "TensorFlow / PyTorch", aciklama: "Profesyonel ML frameworkleri", seviye: "İleri" },
           { kaynak: "Kaggle Yarışmaları", aciklama: "Gerçek veri bilimi yarışmaları ve eğitimler", seviye: "İleri" },
           { kaynak: "Üniversite (Bilgisayar Mühendisliği)", aciklama: "YZ alanında akademik kariyer", seviye: "Gelecek" },

@@ -115,7 +115,7 @@ export default function MLForKidsRehber() {
           <span>📖</span> PictoBlox Platformu Nedir?
         </h4>
         <p className="text-sm leading-relaxed text-sky-800 dark:text-sky-200">
-          PictoBlox, çocukların ve gençlerin makine öğrenimi projelerini kolayca oluşturmasını sağlayan ücretsiz bir platformdur. Blok tabanlı kodlama ile kendi yapay zeka modelini eğitip oyunlara ve projelere ekleyebilirsin. Kod yazmayı ve YZ&apos;yi aynı anda öğrenmenin harika bir yoludur!
+          PictoBlox, çocukların ve gençlerin makine öğrenimi projelerini kolayca oluşturmasını sağlayan bir platformdur. Blok tabanlı kodlama ile kendi yapay zeka modelini eğitip oyunlara ve projelere ekleyebilirsin. Kod yazmayı ve YZ&apos;yi aynı anda öğrenmenin harika bir yoludur!
         </p>
       </div>
 
@@ -171,7 +171,7 @@ export default function MLForKidsRehber() {
               🔑 PictoBlox&apos;a Kayıt
             </h4>
             <p className="mb-3 text-sm text-[var(--color-text-secondary)]">
-              PictoBlox, çocuklar için makine öğrenimi deneyimi sunan ücretsiz
+              PictoBlox, çocuklar için makine öğrenimi deneyimi sunan
               bir platformdur. Metin, görüntü veya sayı sınıflandırma projeleri
               oluşturabilir ve bunları blok kodlama ile birleştirebilirsiniz.
             </p>

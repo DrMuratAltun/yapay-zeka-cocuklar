@@ -23,7 +23,7 @@ export default function Hakkinda() {
           <h1 className="mb-4 text-4xl font-extrabold">Proje Hakkında</h1>
           <p className="mx-auto max-w-xl text-lg text-indigo-100">
             Yapay Zeka Macerası, ortaokul öğrencileri için hazırlanan
-            açık kaynaklı, uygulamalı bir yapay zeka eğitim projesidir.
+            uygulamalı bir yapay zeka eğitim projesidir.
           </p>
         </div>
       </header>
