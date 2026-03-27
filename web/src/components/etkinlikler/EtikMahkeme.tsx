@@ -108,6 +108,15 @@ export default function EtikMahkeme() {
 
   return (
     <div className="rounded-2xl border border-[var(--color-border)] bg-[var(--color-bg)] p-6">
+      <div className="mb-6 rounded-2xl border border-sky-200 bg-sky-50 p-5 dark:border-sky-800 dark:bg-sky-900/20">
+        <h4 className="mb-2 flex items-center gap-2 font-bold text-sky-700 dark:text-sky-300">
+          <span>📖</span> Yapay Zekada Etik İkilemler Nedir?
+        </h4>
+        <p className="text-sm leading-relaxed text-sky-800 dark:text-sky-200">
+          Yapay zeka kullanımında bazen kolay bir doğru-yanlış cevabı olmayan durumlarla karşılaşırız. Örneğin: otonom bir araç kaçınılmaz bir kazada kimi korumalı? İş yerinde YZ, çalışanları izlemeli mi? Bu tür etik ikilemler, toplum olarak birlikte düşünmemiz ve tartışmamız gereken önemli konulardır.
+        </p>
+      </div>
+
       <div className="mb-4 flex items-center gap-3">
         <span className="rounded-lg bg-amber-500 px-3 py-1 text-sm font-bold text-white">
           ETKİLEŞİMLİ

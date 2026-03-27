@@ -79,6 +79,15 @@ export default function SDGveYZ() {
 
   return (
     <div className="space-y-6">
+      <div className="mb-6 rounded-2xl border border-sky-200 bg-sky-50 p-5 dark:border-sky-800 dark:bg-sky-900/20">
+        <h4 className="mb-2 flex items-center gap-2 font-bold text-sky-700 dark:text-sky-300">
+          <span>📖</span> BM Sürdürülebilir Kalkınma Hedefleri ve YZ Nedir?
+        </h4>
+        <p className="text-sm leading-relaxed text-sky-800 dark:text-sky-200">
+          Birleşmiş Milletler, 2030 yılına kadar dünyayı daha iyi bir yer yapmak için 17 Sürdürülebilir Kalkınma Hedefi (SKH) belirlemiştir: yoksullukla mücadele, temiz enerji, kaliteli eğitim gibi. Yapay zeka, bu hedeflere ulaşmada güçlü bir araç olabilir; hastalık teşhisinden iklim değişikliği takibine kadar birçok alanda katkı sağlar.
+        </p>
+      </div>
+
       <div className="text-center">
         <h3 className="text-xl font-extrabold">Sürdürülebilir Kalkınma ve YZ</h3>
         <p className="mt-1 text-sm text-[var(--color-text-secondary)]">

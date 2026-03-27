@@ -92,6 +92,15 @@ export default function YzHaritasi() {
 
   return (
     <div className="rounded-2xl border border-[var(--color-border)] bg-[var(--color-bg-secondary)] p-5 sm:p-6">
+      <div className="mb-6 rounded-2xl border border-sky-200 bg-sky-50 p-5 dark:border-sky-800 dark:bg-sky-900/20">
+        <h4 className="mb-2 flex items-center gap-2 font-bold text-sky-700 dark:text-sky-300">
+          <span>📖</span> Hayatımızdaki Yapay Zeka Uygulamaları Nedir?
+        </h4>
+        <p className="text-sm leading-relaxed text-sky-800 dark:text-sky-200">
+          Yapay zeka sadece bilim kurgu filmlerinde değil, hayatımızın her alanında kullanılıyor: evde, okulda, sağlıkta, ulaşımda ve eğlencede. Bu haritada farklı yaşam alanlarındaki YZ uygulamalarını keşfederek, teknolojinin hayatımızı nasıl şekillendirdiğini göreceksin.
+        </p>
+      </div>
+
       <h3 className="mb-1 text-xl font-bold">🗺️ İnteraktif YZ Haritası</h3>
       <p className="mb-4 text-sm text-[var(--color-text-secondary)]">
         Her bölgeye tıklayarak orada kullanılan yapay zeka uygulamalarını keşfet.

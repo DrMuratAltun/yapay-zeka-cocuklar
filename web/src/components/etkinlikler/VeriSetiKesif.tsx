@@ -131,6 +131,15 @@ export default function VeriSetiKesif() {
 
   return (
     <div className="space-y-6 rounded-2xl border border-[var(--color-border)] bg-[var(--color-bg)] p-4 sm:p-6">
+      <div className="rounded-2xl border border-sky-200 bg-sky-50 p-5 dark:border-sky-800 dark:bg-sky-900/20">
+        <h4 className="mb-2 flex items-center gap-2 font-bold text-sky-700 dark:text-sky-300">
+          <span>📖</span> Veri Setleri ve Veri Analizi Nedir?
+        </h4>
+        <p className="text-sm leading-relaxed text-sky-800 dark:text-sky-200">
+          Veri seti, belirli bir konuda toplanmış bilgilerin düzenli bir koleksiyonudur. Veri analizi ise bu bilgiler içindeki kalıpları, eğilimleri ve ilişkileri bulmaktır. Yapay zeka, büyük veri setlerini analiz ederek insanların fark edemeyeceği örüntüleri keşfedebilir.
+        </p>
+      </div>
+
       <h3 className="text-lg font-bold">📊 Veri Seti Keşfedici</h3>
 
       {/* Filtre ve kontroller */}

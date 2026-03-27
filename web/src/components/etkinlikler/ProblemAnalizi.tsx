@@ -150,6 +150,15 @@ export default function ProblemAnalizi() {
 
   return (
     <div className="space-y-6">
+      <div className="mb-6 rounded-2xl border border-sky-200 bg-sky-50 p-5 dark:border-sky-800 dark:bg-sky-900/20">
+        <h4 className="mb-2 flex items-center gap-2 font-bold text-sky-700 dark:text-sky-300">
+          <span>📖</span> Tasarım Odaklı Düşünme Nedir?
+        </h4>
+        <p className="text-sm leading-relaxed text-sky-800 dark:text-sky-200">
+          Tasarım odaklı düşünme (Design Thinking), problemleri çözmek için kullanılan yaratıcı bir yöntemdir. Empati kur, problemi tanımla, fikir üret, prototip yap ve test et adımlarından oluşur. Yapay zeka projeleri geliştirirken de bu yöntemi kullanarak kullanıcıların gerçek ihtiyaçlarına çözümler üretebilirsin.
+        </p>
+      </div>
+
       <div className="text-center">
         <h3 className="text-xl font-extrabold">Problem Analizi Atölyesi</h3>
         <p className="mt-1 text-sm text-[var(--color-text-secondary)]">

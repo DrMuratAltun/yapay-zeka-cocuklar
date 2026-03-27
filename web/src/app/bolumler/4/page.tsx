@@ -410,7 +410,7 @@ const SlaytEtkinlik2 = (
   </>
 );
 
-/* ---- Etkinlik 3: ML for Kids ---- */
+/* ---- Etkinlik 3: PictoBlox Sınıflandırma ---- */
 const SlaytEtkinlik3 = (
   <>
     <div className="rounded-2xl border border-[var(--color-border)] bg-[var(--color-bg-secondary)] p-6">
@@ -418,11 +418,10 @@ const SlaytEtkinlik3 = (
         <span className="rounded-lg bg-blue-500 px-3 py-1 text-sm font-bold text-white">BİLGİSAYARLI</span>
         <span className="text-sm text-[var(--color-text-secondary)]">30 dakika &middot; Bireysel</span>
       </div>
-      <h4 className="mb-2 text-xl font-bold">Etkinlik 3: ML for Kids - Sınıflandırma</h4>
+      <h4 className="mb-2 text-xl font-bold">Etkinlik 3: PictoBlox - Sınıflandırma</h4>
       <p className="mb-4 text-[var(--color-text-secondary)]">
-        machinelearningforkids.co.uk adresinde bir proje oluşturun. Metin sınıflandırma
-        projesi yapın: &quot;mutlu&quot; ve &quot;üzgün&quot; cümleleri ayıran bir model eğitin.
-        Modelinizi Scratch&apos;te kullanan küçük bir program yapın.
+        PictoBlox&apos;ta bir metin sınıflandırma projesi oluşturun. &quot;Mutlu&quot; ve &quot;üzgün&quot; cümleleri ayıran bir model eğitin.
+        Modelinizi blok kodlama ile kullanan küçük bir program yapın.
       </p>
     </div>
 
@@ -517,7 +516,7 @@ export default function Bolum4() {
         { baslik: "Teachable Machine", icon: "🤖", icerik: SlaytTeachableMachine },
         { baslik: "Etkinlik: Meyve Sınıflandırıcı", icon: "🎮", icerik: SlaytEtkinlik1 },
         { baslik: "Etkinlik: Teachable Machine", icon: "🎮", icerik: SlaytEtkinlik2 },
-        { baslik: "Etkinlik: ML for Kids", icon: "🎮", icerik: SlaytEtkinlik3 },
+        { baslik: "Etkinlik: PictoBlox", icon: "🎮", icerik: SlaytEtkinlik3 },
         { baslik: "Etkinlik: Model Başarı Raporu", icon: "🎮", icerik: SlaytEtkinlik4 },
         { baslik: "İnteraktif Oyun", icon: "🕹️", icerik: SlaytOyun },
         { baslik: "Değerlendirme", icon: "📝", icerik: SlaytDegerlendirme },

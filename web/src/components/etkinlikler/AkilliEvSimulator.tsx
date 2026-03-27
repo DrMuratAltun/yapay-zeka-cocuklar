@@ -191,6 +191,15 @@ export default function AkilliEvSimulator() {
 
   return (
     <section className="rounded-2xl border border-[var(--color-border)] bg-[var(--color-bg-secondary)] p-6">
+      <div className="mb-6 rounded-2xl border border-sky-200 bg-sky-50 p-5 dark:border-sky-800 dark:bg-sky-900/20">
+        <h4 className="mb-2 flex items-center gap-2 font-bold text-sky-700 dark:text-sky-300">
+          <span>📖</span> Nesnelerin İnterneti (IoT) ve Akıllı Ev Nedir?
+        </h4>
+        <p className="text-sm leading-relaxed text-sky-800 dark:text-sky-200">
+          Akıllı ev teknolojileri, evdeki cihazların internete bağlanıp birbirleriyle iletişim kurmasını sağlar. Buna &quot;Nesnelerin İnterneti&quot; (IoT) denir. Yapay zeka sayesinde bu cihazlar alışkanlıklarını öğrenir, seni tanır ve hayatını kolaylaştırmak için kararlar alır.
+        </p>
+      </div>
+
       <div className="mb-6 text-center">
         <h2 className="mb-1 text-2xl font-bold">🏠 Akıllı Ev Simülatörü</h2>
         <p className="text-sm text-[var(--color-text-secondary)]">

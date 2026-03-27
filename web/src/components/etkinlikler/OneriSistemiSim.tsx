@@ -78,6 +78,15 @@ export default function OneriSistemiSim() {
 
   return (
     <section className="rounded-2xl border border-[var(--color-border)] bg-[var(--color-bg-secondary)] p-6">
+      <div className="mb-6 rounded-2xl border border-sky-200 bg-sky-50 p-5 dark:border-sky-800 dark:bg-sky-900/20">
+        <h4 className="mb-2 flex items-center gap-2 font-bold text-sky-700 dark:text-sky-300">
+          <span>📖</span> Öneri Algoritmaları Nedir?
+        </h4>
+        <p className="text-sm leading-relaxed text-sky-800 dark:text-sky-200">
+          YouTube, Netflix ve Spotify gibi platformlar, senin beğenilerini analiz ederek hoşuna gidebilecek içerikleri tahmin eder. Buna &quot;öneri sistemi&quot; denir. Bu sistemler yapay zeka ve makine öğrenimi kullanarak tercihlerindeki kalıpları bulur ve sana özel öneriler sunar.
+        </p>
+      </div>
+
       <div className="mb-6 text-center">
         <h2 className="mb-1 text-2xl font-bold">🎬 Öneri Sistemi Simülatörü</h2>
         <p className="text-sm text-[var(--color-text-secondary)]">

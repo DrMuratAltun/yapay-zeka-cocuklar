@@ -100,6 +100,15 @@ export default function SiniflandirmaPratigi() {
 
   return (
     <div className="space-y-6 rounded-2xl border border-[var(--color-border)] bg-[var(--color-bg)] p-6">
+      <div className="mb-6 rounded-2xl border border-sky-200 bg-sky-50 p-5 dark:border-sky-800 dark:bg-sky-900/20">
+        <h4 className="mb-2 flex items-center gap-2 font-bold text-sky-700 dark:text-sky-300">
+          <span>📖</span> Makine Öğrenmesinde Sınıflandırma Nedir?
+        </h4>
+        <p className="text-sm leading-relaxed text-sky-800 dark:text-sky-200">
+          Sınıflandırma, yapay zekanın en temel görevlerinden biridir. Nesneleri özelliklerine göre gruplara ayırmak demektir. Örneğin e-postaları &quot;spam&quot; ve &quot;spam değil&quot; diye ayırmak bir sınıflandırma işlemidir. YZ, verdiğin örneklerden kurallar öğrenerek yeni verileri doğru sınıfa yerleştirir.
+        </p>
+      </div>
+
       <div className="text-center">
         <h3 className="text-2xl font-bold">🔬 Sınıflandırma Pratiği</h3>
         <p className="mt-1 text-sm text-[var(--color-text-secondary)]">

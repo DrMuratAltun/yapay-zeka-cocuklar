@@ -102,6 +102,15 @@ export default function YzVeyaDegil() {
 
   return (
     <div className="rounded-2xl border border-[var(--color-border)] bg-[var(--color-bg-secondary)] p-5 sm:p-6">
+      <div className="mb-6 rounded-2xl border border-sky-200 bg-sky-50 p-5 dark:border-sky-800 dark:bg-sky-900/20">
+        <h4 className="mb-2 flex items-center gap-2 font-bold text-sky-700 dark:text-sky-300">
+          <span>📖</span> Yapay Zeka ile Normal Yazılım Arasındaki Fark Nedir?
+        </h4>
+        <p className="text-sm leading-relaxed text-sky-800 dark:text-sky-200">
+          Her teknolojik cihaz yapay zeka kullanmaz! Normal yazılımlar önceden programlanmış kurallara göre çalışırken, yapay zeka verilerden öğrenebilir, kalıpları tanıyabilir ve kendi kararlarını verebilir. Bu farkı anlamak, teknolojiyi daha bilinçli kullanmamızı sağlar.
+        </p>
+      </div>
+
       <div className="mb-4 flex items-center justify-between">
         <h3 className="text-xl font-bold">🤖 YZ veya Değil?</h3>
         <span className="rounded-full bg-[var(--color-bg)] px-3 py-1 text-sm font-medium">

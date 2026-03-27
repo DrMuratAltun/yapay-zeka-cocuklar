@@ -312,6 +312,15 @@ export default function VeriGorsellestirme() {
 
   return (
     <section className="rounded-2xl border border-[var(--color-border)] bg-[var(--color-bg-secondary)] p-6">
+      <div className="mb-6 rounded-2xl border border-sky-200 bg-sky-50 p-5 dark:border-sky-800 dark:bg-sky-900/20">
+        <h4 className="mb-2 flex items-center gap-2 font-bold text-sky-700 dark:text-sky-300">
+          <span>📖</span> Veri Görselleştirme Nedir?
+        </h4>
+        <p className="text-sm leading-relaxed text-sky-800 dark:text-sky-200">
+          Veri görselleştirme, sayıları ve bilgileri grafik, çizelge ve harita gibi görsel şekillere dönüştürmektir. İnsan beyni görselleri sayılardan çok daha hızlı anlar. Bu yüzden veri bilimciler ve yapay zeka uzmanları, verilerdeki kalıpları ve eğilimleri bulmak için görselleştirme kullanır.
+        </p>
+      </div>
+
       <div className="mb-6 text-center">
         <h2 className="mb-1 text-2xl font-bold">📊 Veri Görselleştirme Stüdyosu</h2>
         <p className="text-sm text-[var(--color-text-secondary)]">

@@ -133,7 +133,7 @@ const SlaytProjeAdimlari = (
         { adim: 1, baslik: "Konu Seçimi", aciklama: "İlginizi çeken bir gerçek dünya problemi seçin. Çevre, sağlık, eğitim, ulaşım...", sure: "1 ders" },
         { adim: 2, baslik: "Araştırma", aciklama: "Problemi araştırın, benzer çözümleri inceleyin, hangi YZ yaklaşımını kullanacağınıza karar verin.", sure: "1 ders" },
         { adim: 3, baslik: "Veri Toplama", aciklama: "Projeniz için gerekli verileri toplayın, temizleyin ve etiketleyin.", sure: "1 ders" },
-        { adim: 4, baslik: "Model Geliştirme", aciklama: "Teachable Machine, PictoBlox veya ML for Kids ile modelinizi eğitin ve test edin.", sure: "2 ders" },
+        { adim: 4, baslik: "Model Geliştirme", aciklama: "Teachable Machine veya PictoBlox ile modelinizi eğitin ve test edin.", sure: "2 ders" },
         { adim: 5, baslik: "Entegrasyon", aciklama: "Modeli bir uygulama/oyun/sunum ile birleştirin. Kullanıcı arayüzü tasarlayın.", sure: "1 ders" },
         { adim: 6, baslik: "Sunum Hazırlığı", aciklama: "Poster, sunum ve canlı demo hazırlayın. Portfolyo belgesini tamamlayın.", sure: "1 ders" },
         { adim: 7, baslik: "Proje Fuarı", aciklama: "Projenizi sınıfa/okula sunun. Geri bildirim alın ve değerlendirin.", sure: "1 ders" },
@@ -228,7 +228,7 @@ const SlaytOgrenmeDevam = (
       <p>Bu kitap sadece başlangıç! YZ öğrenme yolculuğunuza devam etmek için:</p>
       <div className="space-y-3">
         {[
-          { kaynak: "Scratch + ML for Kids", aciklama: "Blok kodlama ile daha karmaşık YZ projeleri", seviye: "Şimdi" },
+          { kaynak: "PictoBlox", aciklama: "Blok tabanlı YZ kodlama ile daha karmaşık projeler", seviye: "Şimdi" },
           { kaynak: "Python Temelleri", aciklama: "Gerçek programlama dili öğrenmeye başla", seviye: "Sonraki Adım" },
           { kaynak: "Khan Academy / Code.org", aciklama: "Ücretsiz online kodlama kursları", seviye: "Sonraki Adım" },
           { kaynak: "TensorFlow / PyTorch", aciklama: "Profesyonel ML frameworkleri", seviye: "İleri" },

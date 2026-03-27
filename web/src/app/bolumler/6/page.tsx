@@ -22,7 +22,7 @@ const quizSorulari = [
       "Sadece Python",
     ],
     dogru: 1,
-    aciklama: "PictoBlox, Scratch benzeri blok tabanlı bir arayüz sunar. Blokları sürükleyerek YZ projeleri oluşturabilirsiniz.",
+    aciklama: "PictoBlox, blok tabanlı bir arayüz sunar. Blokları sürükleyerek YZ projeleri oluşturabilirsiniz.",
   },
   {
     soru: "PictoBlox'ta bir görüntü sınıflandırma projesi için ilk yapılması gereken nedir?",
@@ -47,7 +47,7 @@ const quizSorulari = [
     aciklama: "PictoBlox'ta ML, yüz tanıma, metin sınıflandırma, ses tanıma gibi YZ uzantıları vardır ama 3D modelleme YZ uzantısı değildir.",
   },
   {
-    soru: "Scratch'te bir YZ projesinde 'eğer ... ise' bloğu ne işe yarar?",
+    soru: "PictoBlox'ta bir YZ projesinde 'eğer ... ise' bloğu ne işe yarar?",
     secenekler: [
       "Programı durdurur",
       "Modelin tahmin sonucuna göre farklı işlemler yapar",
@@ -58,15 +58,15 @@ const quizSorulari = [
     aciklama: "Koşul blokları, modelin tahmin sonucuna göre programın farklı davranışlar göstermesini sağlar.",
   },
   {
-    soru: "ML for Kids platformunda Scratch ile YZ projesi yapmak için hangi adımlar izlenir?",
+    soru: "PictoBlox platformunda YZ projesi yapmak için hangi adımlar izlenir?",
     secenekler: [
-      "Proje oluştur > Eğitim verisi ekle > Model eğit > Scratch'te kullan",
-      "Sadece Scratch'i aç ve kod yaz",
+      "Uzantı ekle > Sınıflar oluştur > Örnekler topla > Model eğit > Kodla",
+      "Sadece PictoBlox'u aç ve kod yaz",
       "Sadece veri topla",
       "Sadece model eğit",
     ],
     dogru: 0,
-    aciklama: "ML for Kids'te 4 adımlı bir süreç izlenir: proje oluşturma, veri ekleme, model eğitme ve Scratch'te kullanma.",
+    aciklama: "PictoBlox'ta adım adım bir süreç izlenir: ML uzantısı ekleme, sınıf oluşturma, örnek toplama, model eğitme ve kodlama.",
   },
 ];
 
@@ -78,14 +78,14 @@ const SlaytKazanimlar = (
       <ul className="ml-4 list-disc space-y-1 text-[var(--color-text-secondary)]">
         <li>PictoBlox ortamını tanıyacak ve YZ uzantılarını kullanacağız.</li>
         <li>Blok tabanlı kodlama ile görüntü sınıflandırma projesi yapacağız.</li>
-        <li>ML for Kids ile Scratch&apos;te YZ projesi geliştireceğiz.</li>
+        <li>PictoBlox ile blok tabanlı YZ kodlama projesi geliştireceğiz.</li>
         <li>Ses tanıma ve metin sınıflandırma projeleri deneyimleyeceğiz.</li>
         <li>Kendi YZ destekli oyunumuzu/uygulamamızı tasarlayacağız.</li>
       </ul>
     </section>
 
     <div className="flex flex-wrap gap-2">
-      {["PictoBlox", "ML for Kids", "blok kodlama", "görüntü sınıflandırma", "ses tanıma", "uzantı"].map((k) => (
+      {["PictoBlox", "blok kodlama", "görüntü sınıflandırma", "ses tanıma", "uzantı", "YZ modeli"].map((k) => (
         <span key={k} className="rounded-full bg-amber-100 px-3 py-1 text-sm font-medium text-amber-800 dark:bg-amber-900/30 dark:text-amber-300">{k}</span>
       ))}
     </div>
@@ -98,13 +98,13 @@ const SlaytPictoBlox = (
     <section className="space-y-4">
       <h3 className="text-2xl font-extrabold">1. PictoBlox Nedir?</h3>
       <p>
-        PictoBlox, Scratch tabanlı bir kodlama ortamıdır ve özel YZ uzantıları
+        PictoBlox, blok tabanlı bir kodlama ortamıdır ve özel YZ uzantıları
         içerir. Sürükle-bırak bloklarla yapay zeka projeleri geliştirmenizi sağlar.
         Ücretsiz indirilebilir ve web tarayıcısında da çalışır.
       </p>
       <div className="grid gap-4 sm:grid-cols-3">
         {[
-          { ozellik: "Blok Kodlama", icon: "🧩", aciklama: "Scratch benzeri sürükle-bırak arayüz" },
+          { ozellik: "Blok Kodlama", icon: "🧩", aciklama: "Sürükle-bırak blok tabanlı arayüz" },
           { ozellik: "YZ Uzantıları", icon: "🤖", aciklama: "ML, yüz tanıma, ses tanıma, NLP" },
           { ozellik: "Donanım Desteği", icon: "🔌", aciklama: "Arduino, Raspberry Pi bağlantısı" },
         ].map((o) => (
@@ -117,7 +117,7 @@ const SlaytPictoBlox = (
       </div>
 
       <div className="rounded-xl bg-gradient-to-r from-amber-50 to-orange-50 p-4 dark:from-amber-900/20 dark:to-orange-900/20">
-        <p className="font-medium">🤔 <strong>Biliyor Muydunuz?</strong> Scratch&apos;i dünya genelinde 100 milyondan fazla çocuk kullanıyor!</p>
+        <p className="font-medium">🤔 <strong>Biliyor Muydunuz?</strong> PictoBlox dünya genelinde milyonlarca çocuk tarafından YZ projeleri için kullanılıyor!</p>
       </div>
     </section>
   </>
@@ -156,18 +156,18 @@ const SlaytGoruntuSiniflandirma = (
   </>
 );
 
-/* ---- Slayt 4: ML for Kids + Scratch ---- */
+/* ---- Slayt 4: PictoBlox Metin Sınıflandırma ---- */
 const SlaytMLForKids = (
   <>
     <section className="space-y-4">
-      <h3 className="text-2xl font-extrabold">3. ML for Kids + Scratch</h3>
+      <h3 className="text-2xl font-extrabold">3. PictoBlox ile Metin Sınıflandırma</h3>
       <p>
-        ML for Kids, makine öğrenimi modellerini eğitip Scratch&apos;te
+        PictoBlox, makine öğrenimi modellerini eğitip blok kodlama ile
         kullanmanızı sağlayan ücretsiz bir platformdur.
       </p>
       <div className="mt-4 flex flex-col items-center rounded-xl border border-[var(--color-border)] bg-[var(--color-bg)] p-4">
-        <Image src="/images/bolumler/scratch.png" alt="Scratch 3.0 blok tabanli kodlama arayuzu" width={550} height={400} className="rounded-lg object-cover shadow-md" />
-        <p className="mt-2 text-center text-sm text-[var(--color-text-secondary)]">Scratch 3.0: Blok tabanli kodlama ortami</p>
+        <Image src="/images/bolumler/scratch.png" alt="PictoBlox blok tabanli kodlama arayuzu" width={550} height={400} className="rounded-lg object-cover shadow-md" />
+        <p className="mt-2 text-center text-sm text-[var(--color-text-secondary)]">PictoBlox: Blok tabanli YZ kodlama ortami</p>
         <p className="text-xs text-[var(--color-text-secondary)] italic">Gorsel: Blink456, CC BY-SA 4.0</p>
       </div>
 
@@ -182,10 +182,10 @@ const SlaytMLForKids = (
           </thead>
           <tbody>
             {[
-              ["1. Proje Oluştur", "Yeni proje > Tanımlama seçeneği", "Metin, görüntü veya sayı seçin"],
+              ["1. ML Uzantısı Ekle", "Uzantılar > Machine Learning", "Metin veya görüntü sınıflandırma seçin"],
               ["2. Eğitim Verisi", "Her sınıf için en az 10 örnek ekle", "Ne kadar çok örnek, o kadar iyi"],
-              ["3. Model Eğit", "Öğren ve test et butonuna bas", "Model örneklerden öğrenir"],
-              ["4. Scratch'te Kullan", "Scratch 3 ile aç", "ML blokları otomatik eklenir"],
+              ["3. Model Eğit", "Train Model butonuna bas", "Model örneklerden öğrenir"],
+              ["4. Blokları Kullan", "ML blokları ile kodla", "Koşullu bloklar ekleyerek projeyi tamamla"],
             ].map(([adim, yapilacak, detay], i) => (
               <tr key={adim} className={i % 2 === 0 ? "bg-[var(--color-bg-secondary)]" : ""}>
                 <td className="px-4 py-2.5 font-medium">{adim}</td>
@@ -198,7 +198,7 @@ const SlaytMLForKids = (
       </div>
 
       <div className="rounded-xl border-l-4 border-amber-500 bg-amber-50 p-4 dark:bg-amber-900/20">
-        <p className="font-medium">⚠️ <strong>Dikkat:</strong> ML for Kids&apos;te model eğitmeden önce her sınıfa en az 10 örnek eklemeyi unutmayın. Yetersiz veri = düşük doğruluk!</p>
+        <p className="font-medium">⚠️ <strong>Dikkat:</strong> PictoBlox&apos;ta model eğitmeden önce her sınıfa en az 10 örnek eklemeyi unutmayın. Yetersiz veri = düşük doğruluk!</p>
       </div>
     </section>
   </>
@@ -246,7 +246,7 @@ const SlaytEtkinlik1 = (
       <p className="text-[var(--color-text-secondary)]">
         Bir yemek tarifini akış diyagramı olarak çizip, &quot;eğer ... ise&quot;
         koşullarını belirleyin. Örneğin: &quot;Eğer yumurta varsa omlet yap, yoksa
-        tost yap.&quot; Bu akış diyagramını Scratch/PictoBlox bloklarına çevirmeyi deneyin.
+        tost yap.&quot; Bu akış diyagramını PictoBlox bloklarına çevirmeyi deneyin.
       </p>
     </div>
 
@@ -281,7 +281,7 @@ const SlaytEtkinlik2 = (
   </>
 );
 
-/* ---- Etkinlik 3: ML for Kids Duygu Analizi ---- */
+/* ---- Etkinlik 3: PictoBlox Duygu Analizi ---- */
 const SlaytEtkinlik3 = (
   <>
     <div className="rounded-2xl border border-[var(--color-border)] bg-[var(--color-bg-secondary)] p-6">
@@ -289,10 +289,10 @@ const SlaytEtkinlik3 = (
         <span className="rounded-lg bg-blue-500 px-3 py-1 text-sm font-bold text-white">BİLGİSAYARLI</span>
         <span className="text-sm text-[var(--color-text-secondary)]">40 dakika &middot; Bireysel</span>
       </div>
-      <h3 className="mb-2 text-xl font-bold">Etkinlik 3: ML for Kids - Duygu Analizi</h3>
+      <h3 className="mb-2 text-xl font-bold">Etkinlik 3: PictoBlox - Duygu Analizi</h3>
       <p className="text-[var(--color-text-secondary)]">
-        ML for Kids&apos;te metin sınıflandırma projesi oluşturun. &quot;Mutlu&quot; ve
-        &quot;Üzgün&quot; cümleleri ayıran bir model eğitin. Scratch&apos;te kullanıcının
+        PictoBlox&apos;ta metin sınıflandırma projesi oluşturun. &quot;Mutlu&quot; ve
+        &quot;Üzgün&quot; cümleleri ayıran bir model eğitin. Kullanıcının
         yazdığı cümleye göre karakterin yüz ifadesini değiştiren bir program yapın.
       </p>
     </div>
@@ -326,7 +326,7 @@ const SlaytMateryaller = (
         {[
           { ad: "Algoritma Şefi Akış Şablonu", url: "/indirilebilir/bolum-06-algoritma-sefi-sablonu.html" },
           { ad: "PictoBlox Başlangıç Rehberi", url: "/indirilebilir/bolum-06-pictoblox-rehberi.html" },
-          { ad: "ML for Kids Adım Adım Rehber", url: "/indirilebilir/bolum-06-ml-for-kids-rehberi.html" },
+          { ad: "PictoBlox Adım Adım Rehber", url: "/indirilebilir/bolum-06-ml-for-kids-rehberi.html" },
         ].map((dosya) => (
           <a
             key={dosya.ad}
@@ -361,7 +361,7 @@ export default function Bolum6() {
         { baslik: "Kazanımlar", icon: "🎯", icerik: SlaytKazanimlar },
         { baslik: "PictoBlox Nedir?", icon: "🧩", icerik: SlaytPictoBlox },
         { baslik: "Görüntü Sınıflandırma", icon: "📷", icerik: SlaytGoruntuSiniflandirma },
-        { baslik: "ML for Kids + Scratch", icon: "🤖", icerik: SlaytMLForKids },
+        { baslik: "PictoBlox Metin Sınıflandırma", icon: "🤖", icerik: SlaytMLForKids },
         { baslik: "Proje Fikirleri", icon: "💡", icerik: SlaytProjeFikirleri },
         { baslik: "Etkinlik: Algoritma Şefi", icon: "🎮", icerik: SlaytEtkinlik1 },
         { baslik: "Etkinlik: Blok Kodlama", icon: "🧩", icerik: SlaytEtkinlik1b },

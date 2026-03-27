@@ -147,6 +147,15 @@ export default function AlgoritmaSirala() {
 
   return (
     <div className="rounded-2xl border border-[var(--color-border)] bg-[var(--color-bg)] p-6">
+      <div className="mb-6 rounded-2xl border border-sky-200 bg-sky-50 p-5 dark:border-sky-800 dark:bg-sky-900/20">
+        <h4 className="mb-2 flex items-center gap-2 font-bold text-sky-700 dark:text-sky-300">
+          <span>📖</span> Algoritma Nedir?
+        </h4>
+        <p className="text-sm leading-relaxed text-sky-800 dark:text-sky-200">
+          Algoritma, bir problemi çözmek veya bir görevi tamamlamak için izlenen adım adım talimatlardır. Tıpkı bir yemek tarifi gibi! Bilgisayarlar ve yapay zeka, her şeyi algoritmalar sayesinde yapar. Doğru sırayla doğru adımları takip etmek, sonuca ulaşmanın anahtarıdır.
+        </p>
+      </div>
+
       <div className="mb-4 flex items-center gap-3">
         <span className="rounded-lg bg-blue-500 px-3 py-1 text-sm font-bold text-white">İNTERAKTİF</span>
         <span className="text-sm text-[var(--color-text-secondary)]">Algoritma Sıralama Bulmacası</span>

@@ -201,6 +201,15 @@ export default function HalusinasyonDedektifi() {
 
   return (
     <div className="space-y-6 rounded-2xl border border-[var(--color-border)] bg-[var(--color-bg)] p-6">
+      <div className="mb-6 rounded-2xl border border-sky-200 bg-sky-50 p-5 dark:border-sky-800 dark:bg-sky-900/20">
+        <h4 className="mb-2 flex items-center gap-2 font-bold text-sky-700 dark:text-sky-300">
+          <span>📖</span> YZ Halüsinasyonu Nedir?
+        </h4>
+        <p className="text-sm leading-relaxed text-sky-800 dark:text-sky-200">
+          Yapay zeka bazen gerçek olmayan bilgileri çok inandırıcı bir şekilde üretebilir. Buna &quot;halüsinasyon&quot; denir. YZ, bilmediği bir konuda bile kendinden emin cevaplar verebilir. Bu yüzden YZ&apos;nin ürettiği bilgileri her zaman güvenilir kaynaklardan kontrol etmek çok önemlidir!
+        </p>
+      </div>
+
       <div className="text-center">
         <h3 className="text-2xl font-bold">🕵️ Halüsinasyon Dedektifi</h3>
         <p className="mt-1 text-sm text-[var(--color-text-secondary)]">

@@ -58,7 +58,7 @@ const dersPlanlari = [
     konu: "Blok Tabanlı YZ Kodlama",
     sinif: "7. Sınıf",
     saat: 8,
-    kazanimlar: "PictoBlox, ML for Kids",
+    kazanimlar: "PictoBlox, blok tabanlı YZ kodlama",
     materyaller: "Algoritma Şefi, PictoBlox Rehberi",
     renk: "from-blue-400 to-indigo-500",
   },
@@ -211,12 +211,6 @@ const faydaliLinkler = [
     aciklama: "Blok tabanlı yapay zeka kodlama platformu",
     url: "https://thestempedia.com/product/pictoblox/",
     icon: "🧩",
-  },
-  {
-    ad: "ML for Kids",
-    aciklama: "Scratch ile makine öğrenimi projeleri geliştirme aracı",
-    url: "https://machinelearningforkids.co.uk/",
-    icon: "🐱",
   },
 ];
 

@@ -4,10 +4,10 @@ import { useState } from "react";
 
 const yzAraclari = [
   "Google Teachable Machine",
-  "ML for Kids",
+  "PictoBlox",
   "PictoBlox",
   "ChatGPT / Gemini (Metin)",
-  "ML for Kids + Blok Kodlama",
+  "PictoBlox + Blok Kodlama",
   "RunwayML (Görsel)",
   "Hugging Face (Model)",
   "DALL-E / Midjourney (Görsel üretim)",
@@ -169,6 +169,15 @@ export default function ProjePlanlama() {
 
   return (
     <div className="rounded-2xl border border-[var(--color-border)] bg-[var(--color-bg-secondary)] p-6">
+      <div className="mb-6 rounded-2xl border border-sky-200 bg-sky-50 p-5 dark:border-sky-800 dark:bg-sky-900/20">
+        <h4 className="mb-2 flex items-center gap-2 font-bold text-sky-700 dark:text-sky-300">
+          <span>📖</span> STEM Proje Planlama Nedir?
+        </h4>
+        <p className="text-sm leading-relaxed text-sky-800 dark:text-sky-200">
+          Başarılı bir yapay zeka projesi geliştirmek için planlama çok önemlidir. Problem tanımlama, araştırma, tasarım, geliştirme, test ve sunum aşamalarından oluşan proje planlama süreci, fikirlerini gerçeğe dönüştürmenin yol haritasıdır.
+        </p>
+      </div>
+
       {/* Üst bar */}
       <div className="mb-4 flex items-center justify-between">
         <h3 className="text-lg font-bold">Proje Planlama</h3>

@@ -89,6 +89,15 @@ export default function DijitalHikayeFormu() {
 
   return (
     <div className="rounded-2xl border border-[var(--color-border)] bg-[var(--color-bg)] p-6">
+      <div className="mb-6 rounded-2xl border border-sky-200 bg-sky-50 p-5 dark:border-sky-800 dark:bg-sky-900/20">
+        <h4 className="mb-2 flex items-center gap-2 font-bold text-sky-700 dark:text-sky-300">
+          <span>📖</span> Multimedya Hikaye Anlatımı Nedir?
+        </h4>
+        <p className="text-sm leading-relaxed text-sky-800 dark:text-sky-200">
+          Multimedya hikaye anlatımı, bir hikayeyi metin, görsel, ses, müzik ve video gibi farklı medya türlerini birleştirerek anlatmaktır. Her sahne bir storyboard üzerinde planlanır. Bu yöntem, mesajını daha etkili ve akılda kalıcı bir şekilde iletmeni sağlar.
+        </p>
+      </div>
+
       <div className="mb-4 flex items-center gap-3">
         <span className="rounded-lg bg-rose-500 px-3 py-1 text-sm font-bold text-white">
           ETKİLEŞİMLİ

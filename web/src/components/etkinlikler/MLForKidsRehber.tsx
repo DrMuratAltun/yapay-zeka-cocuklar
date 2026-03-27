@@ -7,12 +7,12 @@ const adimlar = [
   { no: 2, baslik: "Proje Oluştur", icon: "📁" },
   { no: 3, baslik: "Eğitim Verisi Gir", icon: "📝" },
   { no: 4, baslik: "Eğit ve Test Et", icon: "🧪" },
-  { no: 5, baslik: "Scratch Entegrasyonu", icon: "🧩" },
+  { no: 5, baslik: "PictoBlox Entegrasyonu", icon: "🧩" },
 ];
 
 const scratchKontrolListesi = [
-  "machinelearningforkids.co.uk adresinden Scratch 3 uzantısını ekledim",
-  "Scratch projesinde 'recognize text' bloğunu buldum",
+  "machinelearningforkids.co.uk adresinden PictoBlox uzantısını ekledim",
+  "PictoBlox projesinde 'recognize text' bloğunu buldum",
   "Kullanıcıdan metin girişi alıyorum",
   "Modelin tahminini ekranda gösteriyorum",
   "Farklı sınıflar için farklı tepkiler programladım",
@@ -110,16 +110,25 @@ export default function MLForKidsRehber() {
 
   return (
     <div className="rounded-2xl border border-[var(--color-border)] bg-[var(--color-bg)] p-6">
+      <div className="mb-6 rounded-2xl border border-sky-200 bg-sky-50 p-5 dark:border-sky-800 dark:bg-sky-900/20">
+        <h4 className="mb-2 flex items-center gap-2 font-bold text-sky-700 dark:text-sky-300">
+          <span>📖</span> PictoBlox Platformu Nedir?
+        </h4>
+        <p className="text-sm leading-relaxed text-sky-800 dark:text-sky-200">
+          PictoBlox, çocukların ve gençlerin makine öğrenimi projelerini kolayca oluşturmasını sağlayan ücretsiz bir platformdur. Blok tabanlı kodlama ile kendi yapay zeka modelini eğitip oyunlara ve projelere ekleyebilirsin. Kod yazmayı ve YZ&apos;yi aynı anda öğrenmenin harika bir yoludur!
+        </p>
+      </div>
+
       <div className="mb-4 flex items-center gap-3">
         <span className="rounded-lg bg-purple-500 px-3 py-1 text-sm font-bold text-white">
           ETKİLEŞİMLİ
         </span>
         <span className="text-sm text-[var(--color-text-secondary)]">
-          ML for Kids Rehberi
+          PictoBlox Rehberi
         </span>
       </div>
       <h3 className="mb-4 text-xl font-bold text-[var(--color-text)]">
-        ML for Kids - Adım Adım Rehber
+        PictoBlox - Adım Adım Rehber
       </h3>
 
       {/* Progress bar */}
@@ -159,12 +168,12 @@ export default function MLForKidsRehber() {
         <div className="space-y-4">
           <div className="rounded-xl bg-purple-50 p-4 dark:bg-purple-900/20">
             <h4 className="mb-2 font-bold text-purple-700 dark:text-purple-300">
-              🔑 ML for Kids&apos;e Kayıt
+              🔑 PictoBlox&apos;a Kayıt
             </h4>
             <p className="mb-3 text-sm text-[var(--color-text-secondary)]">
-              ML for Kids, çocuklar için makine öğrenimi deneyimi sunan ücretsiz
+              PictoBlox, çocuklar için makine öğrenimi deneyimi sunan ücretsiz
               bir platformdur. Metin, görüntü veya sayı sınıflandırma projeleri
-              oluşturabilir ve bunları Scratch ile birleştirebilirsiniz.
+              oluşturabilir ve bunları blok kodlama ile birleştirebilirsiniz.
             </p>
             <a
               href="https://machinelearningforkids.co.uk"
@@ -172,7 +181,7 @@ export default function MLForKidsRehber() {
               rel="noopener noreferrer"
               className="inline-flex items-center gap-2 rounded-lg bg-purple-500 px-4 py-2 text-sm font-bold text-white transition hover:bg-purple-600"
             >
-              ML for Kids&apos;i Aç ↗
+              PictoBlox&apos;u Aç ↗
             </a>
           </div>
           <div className="rounded-xl border border-[var(--color-border)] p-4">
@@ -335,7 +344,7 @@ export default function MLForKidsRehber() {
         <div className="space-y-4">
           <div className="rounded-xl bg-amber-50 p-4 dark:bg-amber-900/20">
             <p className="text-sm text-[var(--color-text-secondary)]">
-              ML for Kids&apos;te &quot;Learn &amp; Test&quot; butonuna tıkla.
+              PictoBlox&apos;ta &quot;Train Model&quot; butonuna tıkla.
               Model eğitildikten sonra &quot;Test&quot; bölümünde 5 farklı
               girdiyi dene ve sonuçları kaydet:
             </p>
@@ -383,11 +392,11 @@ export default function MLForKidsRehber() {
         </div>
       )}
 
-      {/* Adım 5: Scratch Entegrasyonu */}
+      {/* Adım 5: PictoBlox Entegrasyonu */}
       {!tamamlandi && adim === 5 && (
         <div className="space-y-4">
           <p className="text-sm text-[var(--color-text-secondary)]">
-            Modelini Scratch&apos;te kullanmak için aşağıdaki adımları takip et:
+            Modelini PictoBlox&apos;ta kullanmak için aşağıdaki adımları takip et:
           </p>
           <div className="space-y-2">
             {scratchKontrolListesi.map((madde, i) => (
@@ -434,7 +443,7 @@ export default function MLForKidsRehber() {
         <div className="space-y-4 text-center">
           <div className="text-5xl">🏆</div>
           <h4 className="text-xl font-bold text-[var(--color-text)]">
-            ML for Kids Rehberini Tamamladın!
+            PictoBlox Rehberini Tamamladın!
           </h4>
           <div className="mx-auto max-w-md space-y-2 text-left text-sm">
             <div className="flex justify-between rounded-lg bg-[var(--color-bg-secondary)] p-3">
@@ -467,7 +476,7 @@ export default function MLForKidsRehber() {
             </div>
             <div className="flex justify-between rounded-lg bg-[var(--color-bg-secondary)] p-3">
               <span className="text-[var(--color-text-secondary)]">
-                Scratch Adımları:
+                PictoBlox Adımları:
               </span>
               <span className="font-bold text-[var(--color-text)]">
                 {scratchChecklist.filter(Boolean).length}/

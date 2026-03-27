@@ -118,7 +118,7 @@ export default function AnaSayfa() {
           <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
             {[
               { icon: "🔌", baslik: "Unplugged Etkinlikler", aciklama: "Bilgisayarsız, sınıfta yapılabilir etkinlikler. Kapsayıcı — herkes katılır.", arka: "Kağıt, makas ve hayal gücüyle yapay zeka keşfet! Her bölümde en az 1 unplugged etkinlik var.", renk: "from-emerald-500 to-teal-500" },
-              { icon: "🧪", baslik: "Uygulamalı Öğrenme", aciklama: "Teachable Machine, PictoBlox, ML for Kids ile gerçek YZ projeleri.", arka: "Kendi modelini eğit, kendi oyununu yap! Adım adım rehberlerle pratik YZ deneyimi.", renk: "from-sky-500 to-blue-500" },
+              { icon: "🧪", baslik: "Uygulamalı Öğrenme", aciklama: "Teachable Machine ve PictoBlox ile gerçek YZ projeleri.", arka: "Kendi modelini eğit, kendi oyununu yap! Adım adım rehberlerle pratik YZ deneyimi.", renk: "from-sky-500 to-blue-500" },
               { icon: "🖨️", baslik: "Yazıcı Dostu", aciklama: "Etkinlik kartları, çalışma yaprakları ve formlar PDF indirilebilir.", arka: "32 indirilebilir materyal: kart setleri, formlar, rehberler ve sertifika — hepsi yazdırılabilir.", renk: "from-violet-500 to-purple-500" },
               { icon: "📱", baslik: "QR Kod Entegrasyonu", aciklama: "Kitaptan doğrudan interaktif etkinliklere erişim.", arka: "Basılı kitaptaki QR kodlar seni doğrudan web etkinliklerine, quizlere ve videolara götürür.", renk: "from-orange-500 to-amber-500" },
               { icon: "🧩", baslik: "İnteraktif Quizler", aciklama: "Her bölüm sonunda anında geri bildirimli değerlendirme.", arka: "50+ quiz sorusu, anında geri bildirim, puan takibi. Öğrendiğini test et!", renk: "from-pink-500 to-rose-500" },
@@ -215,7 +215,7 @@ export default function AnaSayfa() {
             {[
               { ad: "Teachable Machine", aciklama: "Kodsuz ML model eğitimi", url: "https://teachablemachine.withgoogle.com/", icon: "🧪" },
               { ad: "PictoBlox", aciklama: "Blok tabanlı YZ kodlama", url: "https://thestempedia.com/product/pictoblox/", icon: "🧩" },
-              { ad: "ML for Kids", aciklama: "Scratch ile ML projeleri", url: "https://machinelearningforkids.co.uk/", icon: "🎓" },
+
 
               { ad: "Canva AI", aciklama: "YZ destekli tasarım", url: "https://canva.com/", icon: "🎨" },
               { ad: "ChatGPT", aciklama: "Üretken YZ deneyimi", url: "https://chatgpt.com/", icon: "💬" },
@@ -234,38 +234,6 @@ export default function AnaSayfa() {
                   <h4 className="text-sm font-bold">{a.ad}</h4>
                   <p className="text-xs text-[var(--color-text-secondary)]">{a.aciklama}</p>
                 </div>
-              </a>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Ilham Kaynaklari */}
-      <section className="py-20">
-        <div className="mx-auto max-w-6xl px-6">
-          <div className="mb-12 text-center">
-            <h2 className="mb-3 text-3xl font-extrabold">İlham Kaynakları</h2>
-            <p className="mx-auto max-w-lg text-[var(--color-text-secondary)]">
-              Dünya çapında YZ okuryazarlığı araştırmalarından ilham alarak tasarlandı
-            </p>
-          </div>
-          <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
-            {[
-              { ad: "MIT RAISE", aciklama: "Responsible AI for Social Empowerment", url: "https://raise.mit.edu/", logo: "🏛️" },
-              { ad: "Day of AI", aciklama: "AI Literacy is for Everyone", url: "https://dayofai.org/", logo: "📅" },
-              { ad: "AI4K12", aciklama: "Five Big Ideas in AI", url: "https://ai4k12.org/", logo: "🎓" },
-              { ad: "MEB BTY", aciklama: "Bilişim Teknolojileri Müfredatı", url: "https://mufredat.meb.gov.tr/", logo: "🇹🇷" },
-            ].map((k) => (
-              <a
-                key={k.ad}
-                href={k.url}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="card-hover rounded-xl border border-[var(--color-border)] bg-[var(--color-bg-secondary)] p-5 text-center"
-              >
-                <span className="text-4xl">{k.logo}</span>
-                <h4 className="mt-3 font-bold">{k.ad}</h4>
-                <p className="mt-1 text-xs text-[var(--color-text-secondary)]">{k.aciklama}</p>
               </a>
             ))}
           </div>

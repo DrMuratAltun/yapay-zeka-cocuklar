@@ -146,7 +146,6 @@ export default function ZamanCizelgesi() {
                   >
                     <span className="mr-1">{olay.emoji}</span>
                     <span className="font-medium">{olay.baslik}</span>
-                    <span className="ml-1 text-xs text-[var(--color-text-secondary)]">({olay.yil})</span>
                   </button>
                 ))}
               </div>
@@ -181,7 +180,7 @@ export default function ZamanCizelgesi() {
                       onClick={() => pozisyonaYerlestir(i + 1)}
                       className="my-1 w-full rounded border-2 border-dashed border-sky-300 bg-sky-50/50 py-2 text-xs text-sky-600 transition hover:bg-sky-100 dark:bg-sky-900/10 dark:hover:bg-sky-900/20"
                     >
-                      ↓ Buraya yerleştir ({olay.yil} sonrası)
+                      ↓ Buraya yerleştir (bu olaydan sonra)
                     </button>
                   )}
                 </div>

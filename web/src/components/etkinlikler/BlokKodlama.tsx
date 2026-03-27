@@ -134,6 +134,15 @@ export default function BlokKodlama() {
 
   return (
     <div className="space-y-6 rounded-2xl border border-[var(--color-border)] bg-[var(--color-bg)] p-6">
+      <div className="mb-6 rounded-2xl border border-sky-200 bg-sky-50 p-5 dark:border-sky-800 dark:bg-sky-900/20">
+        <h4 className="mb-2 flex items-center gap-2 font-bold text-sky-700 dark:text-sky-300">
+          <span>📖</span> Blok Tabanlı Programlama Nedir?
+        </h4>
+        <p className="text-sm leading-relaxed text-sky-800 dark:text-sky-200">
+          Blok tabanlı programlama, kod yazmak yerine renkli blokları birbirine bağlayarak program oluşturmaktır. Scratch, mBlock ve PictoBlox gibi platformlar bu yöntemi kullanır. Bu sayede programlama mantığını (döngüler, koşullar, değişkenler) metin yazmadan öğrenebilirsin.
+        </p>
+      </div>
+
       <div className="text-center">
         <h3 className="text-2xl font-bold">🧩 Blok Kodlama Simülatörü</h3>
         <p className="mt-1 text-sm text-[var(--color-text-secondary)]">

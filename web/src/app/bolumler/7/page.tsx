@@ -105,7 +105,7 @@ const SlaytTasarimDusuncesi = (
           { adim: 1, baslik: "Empati Kur", aciklama: "Problemden etkilenen insanları anla. Onlarla konuş, gözlemle, yaşadıkları zorluğu hisset.", icon: "❤️", renk: "bg-rose-600" },
           { adim: 2, baslik: "Problemi Tanımla", aciklama: "Sorunu net bir cümleyle ifade et: 'Kim, ne, neden?' Kötü tanımlanmış problem çözülemez.", icon: "🎯", renk: "bg-orange-600" },
           { adim: 3, baslik: "Fikir Üret", aciklama: "Mümkün olduğunca çok fikir üret. Beyin fırtınası yap. Hiçbir fikri eleştirme, önce çok üret.", icon: "💡", renk: "bg-amber-600" },
-          { adim: 4, baslik: "Prototip Yap", aciklama: "En umut verici fikri hızlıca basit bir prototipe dönüştür (kağıt üzerinde, Scratch'te, Teachable Machine'de).", icon: "🔧", renk: "bg-emerald-600" },
+          { adim: 4, baslik: "Prototip Yap", aciklama: "En umut verici fikri hızlıca basit bir prototipe dönüştür (kağıt üzerinde, PictoBlox'ta, Teachable Machine'de).", icon: "🔧", renk: "bg-emerald-600" },
           { adim: 5, baslik: "Test Et", aciklama: "Prototipini gerçek kullanıcılarla test et. Geri bildirim al, geliştir, tekrar test et.", icon: "🧪", renk: "bg-blue-600" },
         ].map((a) => (
           <div key={a.adim} className="flex items-start gap-4">
@@ -138,7 +138,7 @@ const SlaytProblemler = (
         {[
           { problem: "Okul kantininde israf", cozum: "Kameralarla yemek israfını tespit eden YZ sistemi", araclar: "Teachable Machine + PictoBlox", icon: "🍽️" },
           { problem: "Sınıflarda gürültü", cozum: "Ses seviyesini ölçüp uyarı veren akıllı sistem", araclar: "PictoBlox ses tanıma", icon: "🔊" },
-          { problem: "Bitki bakımı unutma", cozum: "Toprak nemini izleyip sulama hatırlatması yapan uygulama", araclar: "ML for Kids + Scratch", icon: "🌱" },
+          { problem: "Bitki bakımı unutma", cozum: "Toprak nemini izleyip sulama hatırlatması yapan uygulama", araclar: "PictoBlox", icon: "🌱" },
           { problem: "Çöp sınıflandırma", cozum: "Atıkları otomatik sınıflandıran geri dönüşüm asistanı", araclar: "Teachable Machine görüntü", icon: "♻️" },
           { problem: "Otopark sorunu", cozum: "Boş park yerlerini tespit eden kamera sistemi", araclar: "Bilgisayar görüsü", icon: "🅿️" },
           { problem: "Hasta bitki tespiti", cozum: "Yaprak fotoğraflarından hastalık teşhisi yapan model", araclar: "Teachable Machine", icon: "🍃" },
@@ -245,7 +245,7 @@ const SlaytEtkinlik2 = (
       <h3 className="mb-2 text-xl font-bold">Etkinlik 2: Mini YZ Projesi</h3>
       <p className="text-[var(--color-text-secondary)]">
         Seçtiğiniz problemi çözen bir YZ prototipi geliştirin. Teachable Machine,
-        PictoBlox veya ML for Kids kullanarak çalışan bir model eğitin. Projenizi
+        PictoBlox kullanarak çalışan bir model eğitin. Projenizi
         sınıfa sunun: problem, çözüm, kullanılan teknoloji ve sonuçlar.
       </p>
     </div>

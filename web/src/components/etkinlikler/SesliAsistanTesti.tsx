@@ -76,6 +76,15 @@ export default function SesliAsistanTesti() {
 
   return (
     <div className="space-y-6 rounded-2xl border border-[var(--color-border)] bg-[var(--color-bg)] p-4 sm:p-6">
+      <div className="mb-6 rounded-2xl border border-sky-200 bg-sky-50 p-5 dark:border-sky-800 dark:bg-sky-900/20">
+        <h4 className="mb-2 flex items-center gap-2 font-bold text-sky-700 dark:text-sky-300">
+          <span>📖</span> Doğal Dil İşleme (NLP) ve Sesli Asistanlar Nedir?
+        </h4>
+        <p className="text-sm leading-relaxed text-sky-800 dark:text-sky-200">
+          Sesli asistanlar (Siri, Alexa, Google Asistan) konuşmalarını anlayabilmek için &quot;Doğal Dil İşleme&quot; (NLP) teknolojisini kullanır. NLP, yapay zekanın insan dilini anlamasını, yorumlamasını ve yanıt üretmesini sağlayan bir alan. Ses tanıma ile sözlerin metne dönüştürülür, sonra YZ bu metni anlayıp sana cevap verir.
+        </p>
+      </div>
+
       <div className="flex flex-wrap items-center justify-between gap-3">
         <h3 className="text-lg font-bold">🎙️ Sesli Asistan Test Takipçisi</h3>
         <span className="rounded-full bg-sky-100 px-3 py-1 text-sm font-semibold text-sky-700 dark:bg-sky-900/30 dark:text-sky-300">
