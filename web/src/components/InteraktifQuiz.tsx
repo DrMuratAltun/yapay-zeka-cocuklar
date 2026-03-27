@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import { useActivityTracker } from "./ActivityTracker";
 
 interface Soru {
   soru: string;
@@ -18,6 +19,7 @@ export default function InteraktifQuiz({
 }) {
   const [cevaplar, setCevaplar] = useState<Record<number, number>>({});
   const [gosterSonuc, setGosterSonuc] = useState(false);
+  const { completeActivity } = useActivityTracker();
 
   const dogruSayisi = Object.entries(cevaplar).filter(
     ([i, c]) => sorular[Number(i)].dogru === c
@@ -30,6 +32,13 @@ export default function InteraktifQuiz({
 
   function kontrolEt() {
     setGosterSonuc(true);
+    // Use setTimeout to ensure dogruSayisi is evaluated with latest state if needed, 
+    // but dogruSayisi is derived during render, so we recalculate it just in case:
+    const anlikDogruSayisi = Object.entries(cevaplar).filter(
+      ([i, c]) => sorular[Number(i)].dogru === c
+    ).length;
+    const score = Math.round((anlikDogruSayisi / sorular.length) * 100);
+    completeActivity(score, { dogru: anlikDogruSayisi, toplam: sorular.length });
   }
 
   function sifirla() {

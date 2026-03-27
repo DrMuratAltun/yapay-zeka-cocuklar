@@ -1,5 +1,6 @@
 import Link from "next/link";
 import NeuralBackground from "@/components/NeuralBackground";
+import YapayZekaOkulumBanner from "@/components/Banner";
 
 const bolumler = [
   { no: 1, baslik: "Yapay Zeka Nedir?", altBaslik: "Keşif Yolculuğu", seviye: "6. Sınıf", ders: 4, renk: "from-sky-400 to-blue-500", hazir: true },
@@ -237,6 +238,13 @@ export default function AnaSayfa() {
               </a>
             ))}
           </div>
+        </div>
+      </section>
+
+      {/* Yapay Zeka Okulum Banner */}
+      <section className="py-8">
+        <div className="mx-auto max-w-6xl px-6">
+          <YapayZekaOkulumBanner />
         </div>
       </section>
 
