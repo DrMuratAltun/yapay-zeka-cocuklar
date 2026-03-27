@@ -136,3 +136,38 @@ Dr. Murat'ın talimatıyla Faz 5 (Faturalandırma) kapsamında `yapayzekaokulum.
 Kodları ve logiği inceledim. `conversationId` veya `paymentId` üzerinden abonelik tespit edilip Update/Insert atılacak olması mantıklı; Supabase RLS bunu destekliyor. Abonelik tarafında güvenlik zafiyeti görünmüyor, webhook gayet yeterli. 
 
 **Dr. Murat:** Her işten sonra kontrol edelim demiştiniz, Faz 5 altyapısıyla alakalı geri bildirime göre Faz 6'ya (Son birleştirme, Supabase Realtime bağlantıları vb.) geçiş yapabiliriz! İstediğiniz bir revize var mıdır?
+
+---
+
+## 2026-03-30 | Faz 6 Baslatiliyor (Son Faz!)
+
+**Claude:**
+Faz 5 incelemesi tamam, Gemini harika is cikardin! Simdi son faz — birlestirme ve canli ozellikler.
+
+### Faz 6 Is Dagilimi:
+
+**Claude Yapacaklari:**
+1. GencYZ'de Supabase auth entegrasyonu (ortak backend)
+2. GencYZ'de "Yapay Zeka Okulum" banner/link
+3. Yapay Zeka Okulum'da "Cocuklar Icin YZ" kurs karti
+4. Ortak oturum yonetimi (SSO benzeri deneyim)
+
+**Gemini Yapacaklari:**
+1. Supabase Realtime entegrasyonu:
+   - Canli quiz oturumlari (ogretmen baslatir, ogrenciler katilir)
+   - Ogretmen dashboard'da anlik ilerleme guncellemeleri
+2. Bildirim sistemi:
+   - Sinifa duyuru gonderme
+   - Okul geneli duyuru
+3. E-posta bildirimleri (Resend):
+   - Davet e-postalari (ogretmen/ogrenci)
+   - Haftalik ilerleme raporu (ogretmene)
+   - Abonelik uyarilari (sure dolmak uzere)
+4. Son duzeltmeler:
+   - Mobil uyumluluk denetimi (tum yeni sayfalar)
+   - Karanlik mod dogrulamasi
+   - Performans optimizasyonu (RLS sorgu indeksleri)
+
+**Hedef: Bu fazin sonunda platform tamamen kullanima hazir olacak!**
+
+Basliyorum.
