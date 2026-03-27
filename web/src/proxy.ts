@@ -1,94 +1,107 @@
 import { createServerClient } from '@supabase/ssr'
 import { NextResponse, type NextRequest } from 'next/server'
 
-export async function proxy(request: NextRequest) {
-  let supabaseResponse = NextResponse.next({ request })
-
-  const supabase = createServerClient(
-    process.env.NEXT_PUBLIC_SUPABASE_URL!,
-    process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!,
-    {
-      cookies: {
-        getAll() {
-          return request.cookies.getAll()
-        },
-        setAll(cookiesToSet) {
-          cookiesToSet.forEach(({ name, value }) =>
-            request.cookies.set(name, value)
-          )
-          supabaseResponse = NextResponse.next({ request })
-          cookiesToSet.forEach(({ name, value, options }) =>
-            supabaseResponse.cookies.set(name, value, options)
-          )
-        },
-      },
-    }
-  )
-
-  const {
-    data: { user },
-  } = await supabase.auth.getUser()
-
+async function handler(request: NextRequest) {
   const path = request.nextUrl.pathname
 
   // Bölüm 1 ücretsiz demo — her zaman serbest
   if (path === '/bolumler/1') {
-    return supabaseResponse
+    return NextResponse.next()
   }
 
-  // Admin/öğretmen yönetim route'ları → /giris (email+şifre)
+  // Route sınıflandırması
   const adminRoutes = ['/admin', '/okul', '/ogretmen/siniflar']
   const isAdminRoute = adminRoutes.some((r) => path.startsWith(r))
-
-  // Öğrenci içerik route'ları → /kolay-giris (sınıf kodu+nickname)
   const studentRoutes = ['/bolumler/', '/ogrenci']
   const isStudentRoute = studentRoutes.some((r) => path.startsWith(r))
 
-  // Giriş yapmamış kullanıcıları doğru login sayfasına yönlendir
-  if (!user && isAdminRoute) {
-    const loginUrl = new URL('/giris', request.url)
-    loginUrl.searchParams.set('redirect', path)
-    return NextResponse.redirect(loginUrl)
-  }
+  let supabaseResponse = NextResponse.next({ request })
 
-  if (!user && isStudentRoute) {
-    const loginUrl = new URL('/kolay-giris', request.url)
-    loginUrl.searchParams.set('redirect', path)
-    return NextResponse.redirect(loginUrl)
-  }
+  try {
+    const supabase = createServerClient(
+      process.env.NEXT_PUBLIC_SUPABASE_URL!,
+      process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!,
+      {
+        cookies: {
+          getAll() {
+            return request.cookies.getAll()
+          },
+          setAll(cookiesToSet) {
+            cookiesToSet.forEach(({ name, value }) =>
+              request.cookies.set(name, value)
+            )
+            supabaseResponse = NextResponse.next({ request })
+            cookiesToSet.forEach(({ name, value, options }) =>
+              supabaseResponse.cookies.set(name, value, options)
+            )
+          },
+        },
+      }
+    )
 
-  // Giriş yapmış kullanıcılarda rol kontrolü (sadece admin route'lar için)
-  if (user && isAdminRoute) {
-    const { data: roleData } = await supabase
-      .from('school_users')
-      .select('role')
-      .eq('user_id', user.id)
-      .limit(1)
-      .single()
+    const {
+      data: { user },
+    } = await supabase.auth.getUser()
 
-    const role = roleData?.role
-
-    if (path.startsWith('/admin') && role !== 'super_admin') {
-      return NextResponse.redirect(new URL('/', request.url))
+    // Giriş yapmamış → doğru login sayfasına yönlendir
+    if (!user && isAdminRoute) {
+      const loginUrl = new URL('/giris', request.url)
+      loginUrl.searchParams.set('redirect', path)
+      return NextResponse.redirect(loginUrl)
     }
 
-    if (
-      path.startsWith('/okul') &&
-      !['school_admin', 'super_admin'].includes(role ?? '')
-    ) {
-      return NextResponse.redirect(new URL('/', request.url))
+    if (!user && isStudentRoute) {
+      const loginUrl = new URL('/kolay-giris', request.url)
+      loginUrl.searchParams.set('redirect', path)
+      return NextResponse.redirect(loginUrl)
     }
 
-    if (
-      path.startsWith('/ogretmen/siniflar') &&
-      !['teacher', 'school_admin', 'super_admin'].includes(role ?? '')
-    ) {
-      return NextResponse.redirect(new URL('/', request.url))
+    // Giriş yapmış — admin route'larda rol kontrolü
+    if (user && isAdminRoute) {
+      const { data: roleData } = await supabase
+        .from('school_users')
+        .select('role')
+        .eq('user_id', user.id)
+        .limit(1)
+        .single()
+
+      const role = roleData?.role
+
+      if (path.startsWith('/admin') && role !== 'super_admin') {
+        return NextResponse.redirect(new URL('/', request.url))
+      }
+
+      if (
+        path.startsWith('/okul') &&
+        !['school_admin', 'super_admin'].includes(role ?? '')
+      ) {
+        return NextResponse.redirect(new URL('/', request.url))
+      }
+
+      if (
+        path.startsWith('/ogretmen/siniflar') &&
+        !['teacher', 'school_admin', 'super_admin'].includes(role ?? '')
+      ) {
+        return NextResponse.redirect(new URL('/', request.url))
+      }
     }
+
+    return supabaseResponse
+  } catch {
+    // Supabase hatası → güvenli taraf: korumalı route'larda erişimi engelle
+    if (isAdminRoute) {
+      return NextResponse.redirect(new URL('/giris', request.url))
+    }
+    if (isStudentRoute) {
+      return NextResponse.redirect(new URL('/kolay-giris', request.url))
+    }
+    return NextResponse.next()
   }
-
-  return supabaseResponse
 }
+
+// Next.js 16 proxy + Next.js 15 middleware uyumluluğu
+export const proxy = handler
+export const middleware = handler
 
 export const config = {
   matcher: [
