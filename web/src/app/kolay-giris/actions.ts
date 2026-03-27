@@ -37,7 +37,8 @@ export async function getStudentsByClassCode(
 export async function loginStudent(
   accessCode: string,
   nickname: string,
-  credential: string
+  credential: string,
+  redirectTo?: string
 ): Promise<{ error: string } | void> {
   const supabase = await createClient()
 
@@ -52,5 +53,5 @@ export async function loginStudent(
     return { error: 'Giriş başarısız. Sembolünü kontrol et.' }
   }
 
-  redirect('/')
+  redirect(redirectTo ?? '/ogrenci')
 }

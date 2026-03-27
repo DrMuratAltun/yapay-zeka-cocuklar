@@ -1,12 +1,23 @@
 'use client'
 
-import { useState } from 'react'
+import { Suspense, useState } from 'react'
+import { useSearchParams } from 'next/navigation'
 import { getStudentsByClassCode, loginStudent } from './actions'
 import { EMOJI_LIST, type KolayGirisStudent } from '@/types/saas'
 
 type Step = 'code' | 'nickname' | 'credential'
 
 export default function KolayGirisPage() {
+  return (
+    <Suspense>
+      <KolayGirisForm />
+    </Suspense>
+  )
+}
+
+function KolayGirisForm() {
+  const searchParams = useSearchParams()
+  const redirectTo = searchParams.get('redirect') ?? undefined
   const [step, setStep] = useState<Step>('code')
   const [accessCode, setAccessCode] = useState('')
   const [students, setStudents] = useState<KolayGirisStudent[]>([])
@@ -67,7 +78,7 @@ export default function KolayGirisPage() {
       credential = pin
     }
 
-    const result = await loginStudent(accessCode, selectedNickname, credential)
+    const result = await loginStudent(accessCode, selectedNickname, credential, redirectTo)
     if (result?.error) {
       setError(result.error)
     }

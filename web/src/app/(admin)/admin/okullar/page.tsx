@@ -1,96 +1,216 @@
-"use client";
+'use client'
 
-import { useEffect, useState } from 'react';
+import { useEffect, useState } from 'react'
+import Link from 'next/link'
+import type { School } from '@/types/saas'
 
 export default function SuperAdminOkullar() {
-  const [schools, setSchools] = useState<any[]>([]);
-  const [loading, setLoading] = useState(true);
-  const [formData, setFormData] = useState({ name: '', quota_students: 110, quota_teachers: 5 });
+  const [schools, setSchools] = useState<School[]>([])
+  const [loading, setLoading] = useState(true)
+  const [formOpen, setFormOpen] = useState(false)
+  const [formData, setFormData] = useState({
+    name: '',
+    quota_students: 110,
+    quota_teachers: 5,
+  })
+  const [creating, setCreating] = useState(false)
+  const [error, setError] = useState('')
 
   const fetchSchools = async () => {
-    setLoading(true);
-    const res = await fetch('/api/schools');
-    const data = await res.json();
-    if (res.ok) setSchools(data);
-    setLoading(false);
-  };
+    setLoading(true)
+    const res = await fetch('/api/schools')
+    if (res.ok) setSchools(await res.json())
+    setLoading(false)
+  }
 
   useEffect(() => {
-    fetchSchools();
-  }, []);
+    fetchSchools()
+  }, [])
 
   const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault();
+    e.preventDefault()
+    setCreating(true)
+    setError('')
     const res = await fetch('/api/schools', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify(formData),
-    });
+    })
     if (res.ok) {
-        setFormData({ name: '', quota_students: 110, quota_teachers: 5 });
-        fetchSchools();
+      setFormData({ name: '', quota_students: 110, quota_teachers: 5 })
+      setFormOpen(false)
+      fetchSchools()
     } else {
-        const err = await res.json();
-        alert('Hata: ' + err.error);
+      const err = await res.json()
+      setError(err.error)
     }
-  };
+    setCreating(false)
+  }
+
+  const statusMap = {
+    active: { label: 'Aktif', bg: 'bg-green-100 text-green-700' },
+    trial: { label: 'Deneme', bg: 'bg-amber-100 text-amber-700' },
+    suspended: { label: 'Askıda', bg: 'bg-red-100 text-red-700' },
+  }
 
   return (
-    <div className="p-8 max-w-6xl mx-auto text-black">
-      <h1 className="text-3xl font-bold mb-8 text-black">Sistem Yöneticisi: Okul ve Kota Yönetimi</h1>
-      
-      <div className="bg-white p-6 rounded-lg shadow-md border mb-8 text-black">
-        <h2 className="text-xl font-semibold mb-4 text-black">Yeni Özel Okul Tanımla</h2>
-        <form onSubmit={handleSubmit} className="flex gap-4 items-end flex-wrap">
-          <div className="flex-1 min-w-[200px]">
-            <label className="block text-sm font-medium mb-1">Okul Adı</label>
-            <input required type="text" value={formData.name} onChange={e => setFormData({...formData, name: e.target.value})} className="w-full border rounded p-2" placeholder="Örn: ABC Koleji" />
+    <div className="min-h-screen bg-gray-50">
+      <div className="max-w-6xl mx-auto p-6 sm:p-8">
+        {/* Header */}
+        <div className="flex items-center justify-between mb-8">
+          <div>
+            <h1 className="text-3xl font-bold text-gray-900">Okul Yonetimi</h1>
+            <p className="text-gray-500 mt-1">
+              {schools.length} okul kayitli
+            </p>
           </div>
-          <div className="w-32">
-            <label className="block text-sm font-medium mb-1">Öğrenci Kotası</label>
-            <input required type="number" value={formData.quota_students} onChange={e => setFormData({...formData, quota_students: Number(e.target.value)})} className="w-full border rounded p-2" />
-          </div>
-          <div className="w-32">
-            <label className="block text-sm font-medium mb-1">Öğretmen Kotası</label>
-            <input required type="number" value={formData.quota_teachers} onChange={e => setFormData({...formData, quota_teachers: Number(e.target.value)})} className="w-full border rounded p-2" />
-          </div>
-          <button type="submit" className="bg-blue-600 text-white px-6 py-2 rounded hover:bg-blue-700 transition h-[42px]">
-            Oluştur
+          <button
+            onClick={() => setFormOpen(!formOpen)}
+            className="bg-blue-600 text-white px-5 py-2.5 rounded-xl hover:bg-blue-700 transition font-medium flex items-center gap-2"
+          >
+            <span className="text-lg">+</span> Yeni Okul
           </button>
-        </form>
-      </div>
+        </div>
 
-      <div className="bg-white rounded-lg shadow border overflow-hidden">
-        <table className="w-full text-left">
-          <thead className="bg-slate-100 border-b">
-            <tr>
-              <th className="p-4 font-semibold text-slate-700">Okul Adı</th>
-              <th className="p-4 font-semibold text-slate-700">Öğrenci Kotası</th>
-              <th className="p-4 font-semibold text-slate-700">Öğretmen Kotası</th>
-              <th className="p-4 font-semibold text-slate-700">Durum</th>
-            </tr>
-          </thead>
-          <tbody>
-            {loading ? (
-              <tr><td colSpan={4} className="p-4 text-center">Okullar yükleniyor...</td></tr>
-            ) : schools.map(school => (
-              <tr key={school.id} className="border-b last:border-0 hover:bg-slate-50">
-                <td className="p-4 font-medium">{school.name}</td>
-                <td className="p-4">{school.quota_students} Öğrenci</td>
-                <td className="p-4">{school.quota_teachers} Öğretmen</td>
-                <td className="p-4">
-                  <span className={`px-2 py-1 rounded text-xs font-medium ${school.status === 'active' ? 'bg-green-100 text-green-800' : 'bg-red-100 text-red-800'}`}>
-                    {school.status === 'active' ? 'Aktif' : 'Askıda'}
-                  </span>
-                </td>
-              </tr>
-            ))}
-            {!loading && schools.length === 0 && (
-              <tr><td colSpan={4} className="p-4 text-center text-gray-500">Sistemde B2B satışı yapılmış okul bulunmamaktadır.</td></tr>
-            )}
-          </tbody>
-        </table>
+        {/* Okul Ekleme Formu */}
+        {formOpen && (
+          <div className="bg-white rounded-xl border shadow-sm p-6 mb-6">
+            <h2 className="text-lg font-semibold text-gray-800 mb-4">
+              Yeni Okul Tanimla
+            </h2>
+            <form onSubmit={handleSubmit} className="space-y-4">
+              <div className="grid sm:grid-cols-3 gap-4">
+                <div className="sm:col-span-1">
+                  <label className="block text-sm font-medium text-gray-600 mb-1">
+                    Okul Adi
+                  </label>
+                  <input
+                    required
+                    type="text"
+                    value={formData.name}
+                    onChange={(e) =>
+                      setFormData({ ...formData, name: e.target.value })
+                    }
+                    placeholder="Orn: ABC Koleji"
+                    className="w-full border rounded-lg p-2.5 focus:ring-2 focus:ring-blue-300 focus:outline-none"
+                  />
+                </div>
+                <div>
+                  <label className="block text-sm font-medium text-gray-600 mb-1">
+                    Ogrenci Kotasi
+                  </label>
+                  <input
+                    required
+                    type="number"
+                    min={1}
+                    value={formData.quota_students}
+                    onChange={(e) =>
+                      setFormData({
+                        ...formData,
+                        quota_students: Number(e.target.value),
+                      })
+                    }
+                    className="w-full border rounded-lg p-2.5 focus:ring-2 focus:ring-blue-300 focus:outline-none"
+                  />
+                </div>
+                <div>
+                  <label className="block text-sm font-medium text-gray-600 mb-1">
+                    Ogretmen Kotasi
+                  </label>
+                  <input
+                    required
+                    type="number"
+                    min={1}
+                    value={formData.quota_teachers}
+                    onChange={(e) =>
+                      setFormData({
+                        ...formData,
+                        quota_teachers: Number(e.target.value),
+                      })
+                    }
+                    className="w-full border rounded-lg p-2.5 focus:ring-2 focus:ring-blue-300 focus:outline-none"
+                  />
+                </div>
+              </div>
+              {error && (
+                <p className="text-red-500 text-sm">{error}</p>
+              )}
+              <div className="flex gap-3">
+                <button
+                  type="submit"
+                  disabled={creating}
+                  className="bg-blue-600 text-white px-6 py-2.5 rounded-lg hover:bg-blue-700 disabled:opacity-50 transition font-medium"
+                >
+                  {creating ? 'Olusturuluyor...' : 'Okul Olustur'}
+                </button>
+                <button
+                  type="button"
+                  onClick={() => setFormOpen(false)}
+                  className="text-gray-500 hover:text-gray-700 px-4 py-2.5"
+                >
+                  Iptal
+                </button>
+              </div>
+            </form>
+          </div>
+        )}
+
+        {/* Okul Kartları */}
+        {loading ? (
+          <div className="text-center py-16 text-gray-400">Yukleniyor...</div>
+        ) : schools.length === 0 ? (
+          <div className="text-center py-16 bg-white rounded-xl border">
+            <div className="text-5xl mb-4">🏫</div>
+            <p className="text-gray-500 text-lg">
+              Henuz okul eklenmemis.
+            </p>
+            <p className="text-gray-400 text-sm mt-1">
+              &quot;Yeni Okul&quot; butonuyla baslayabilirsiniz.
+            </p>
+          </div>
+        ) : (
+          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
+            {schools.map((school) => {
+              const st = statusMap[school.status] ?? statusMap.trial
+              return (
+                <Link
+                  key={school.id}
+                  href={`/admin/okullar/${school.id}`}
+                  className="bg-white rounded-xl border shadow-sm p-5 hover:shadow-md hover:border-blue-200 transition group"
+                >
+                  <div className="flex items-start justify-between mb-3">
+                    <h3 className="font-semibold text-gray-800 text-lg group-hover:text-blue-600 transition">
+                      {school.name}
+                    </h3>
+                    <span
+                      className={`px-2 py-0.5 rounded-full text-xs font-medium ${st.bg}`}
+                    >
+                      {st.label}
+                    </span>
+                  </div>
+                  <div className="space-y-2 text-sm text-gray-500">
+                    <div className="flex justify-between">
+                      <span>Ogrenci kotasi</span>
+                      <span className="font-medium text-gray-700">
+                        {school.quota_students}
+                      </span>
+                    </div>
+                    <div className="flex justify-between">
+                      <span>Ogretmen kotasi</span>
+                      <span className="font-medium text-gray-700">
+                        {school.quota_teachers}
+                      </span>
+                    </div>
+                  </div>
+                  <div className="mt-4 text-blue-600 text-sm font-medium group-hover:underline">
+                    Detay ve Yonetim →
+                  </div>
+                </Link>
+              )
+            })}
+          </div>
+        )}
       </div>
     </div>
-  );
+  )
 }

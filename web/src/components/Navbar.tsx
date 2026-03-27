@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 import { useState, useRef, useEffect } from "react";
+import { createClient } from "@/lib/supabase/client";
 
 function useTheme() {
   const [dark, setDark] = useState(false);
@@ -62,8 +63,17 @@ const navLinks = [
 export default function Navbar() {
   const [menuAcik, setMenuAcik] = useState(false);
   const [bolumMenuAcik, setBolumMenuAcik] = useState(false);
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
   const dropdownRef = useRef<HTMLDivElement>(null);
   const { dark, toggle } = useTheme();
+
+  // Session kontrolü
+  useEffect(() => {
+    const supabase = createClient();
+    supabase.auth.getUser().then(({ data }) => {
+      setIsLoggedIn(!!data.user);
+    });
+  }, []);
 
   // Dropdown dışına tıklayınca kapat
   useEffect(() => {
@@ -106,19 +116,33 @@ export default function Navbar() {
                 <div className="mb-2 px-3 py-1.5 text-xs font-bold text-[var(--color-text-secondary)]">
                   10 Bölüm
                 </div>
-                {bolumler.map((b) => (
-                  <Link
-                    key={b.no}
-                    href={`/bolumler/${b.no}`}
-                    onClick={() => setBolumMenuAcik(false)}
-                    className="flex items-center gap-3 rounded-lg px-3 py-2 transition hover:bg-[var(--color-bg-secondary)]"
-                  >
-                    <span className={`flex h-7 w-7 items-center justify-center rounded-lg text-xs font-bold text-white ${b.renk}`}>
-                      {b.no}
-                    </span>
-                    <span className="text-sm">{b.baslik}</span>
-                  </Link>
-                ))}
+                {bolumler.map((b) => {
+                  const locked = b.no > 1 && !isLoggedIn;
+                  return (
+                    <Link
+                      key={b.no}
+                      href={`/bolumler/${b.no}`}
+                      onClick={() => setBolumMenuAcik(false)}
+                      className="flex items-center gap-3 rounded-lg px-3 py-2 transition hover:bg-[var(--color-bg-secondary)]"
+                    >
+                      <span className={`flex h-7 w-7 items-center justify-center rounded-lg text-xs font-bold text-white ${b.renk}`}>
+                        {b.no}
+                      </span>
+                      <span className="flex-1 text-sm">{b.baslik}</span>
+                      {b.no === 1 && (
+                        <span className="text-[10px] font-medium bg-green-100 text-green-700 px-1.5 py-0.5 rounded">
+                          Ucretsiz
+                        </span>
+                      )}
+                      {locked && (
+                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" className="text-gray-400">
+                          <rect x="3" y="11" width="18" height="11" rx="2" ry="2" />
+                          <path d="M7 11V7a5 5 0 0110 0v4" />
+                        </svg>
+                      )}
+                    </Link>
+                  );
+                })}
               </div>
             )}
           </div>
@@ -167,19 +191,28 @@ export default function Navbar() {
         <div className="border-t border-[var(--color-border)] px-6 py-4 md:hidden max-h-[70vh] overflow-y-auto">
           <div className="mb-3 text-xs font-bold text-[var(--color-text-secondary)]">Bölümler</div>
           <div className="mb-4 grid grid-cols-2 gap-2">
-            {bolumler.map((b) => (
-              <Link
-                key={b.no}
-                href={`/bolumler/${b.no}`}
-                onClick={() => setMenuAcik(false)}
-                className="flex items-center gap-2 rounded-lg border border-[var(--color-border)] px-3 py-2 text-xs font-medium transition hover:bg-[var(--color-bg-secondary)]"
-              >
-                <span className={`flex h-5 w-5 items-center justify-center rounded text-[10px] font-bold text-white ${b.renk}`}>
-                  {b.no}
-                </span>
-                <span className="truncate">{b.baslik}</span>
-              </Link>
-            ))}
+            {bolumler.map((b) => {
+              const locked = b.no > 1 && !isLoggedIn;
+              return (
+                <Link
+                  key={b.no}
+                  href={`/bolumler/${b.no}`}
+                  onClick={() => setMenuAcik(false)}
+                  className="flex items-center gap-2 rounded-lg border border-[var(--color-border)] px-3 py-2 text-xs font-medium transition hover:bg-[var(--color-bg-secondary)]"
+                >
+                  <span className={`flex h-5 w-5 items-center justify-center rounded text-[10px] font-bold text-white ${b.renk}`}>
+                    {b.no}
+                  </span>
+                  <span className="flex-1 truncate">{b.baslik}</span>
+                  {locked && (
+                    <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" className="text-gray-400 shrink-0">
+                      <rect x="3" y="11" width="18" height="11" rx="2" ry="2" />
+                      <path d="M7 11V7a5 5 0 0110 0v4" />
+                    </svg>
+                  )}
+                </Link>
+              );
+            })}
           </div>
           <div className="border-t border-[var(--color-border)] pt-3 space-y-3 text-sm font-medium">
             {navLinks.map((link) => (
