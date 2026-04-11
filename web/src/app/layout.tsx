@@ -1,11 +1,14 @@
 import type { Metadata } from "next";
-import { Geist } from "next/font/google";
+import Link from "next/link";
+import { Geist, Cinzel, Nunito } from "next/font/google";
 import { Analytics } from "@vercel/analytics/next";
 import { SpeedInsights } from "@vercel/speed-insights/next";
 import Navbar from "@/components/Navbar";
 import "./globals.css";
 
 const geist = Geist({ subsets: ["latin"] });
+const cinzel = Cinzel({ subsets: ["latin"], weight: ["500", "700"], variable: "--font-cinzel" });
+const nunito = Nunito({ subsets: ["latin"], weight: ["400", "600", "700"], variable: "--font-nunito" });
 
 export const metadata: Metadata = {
   title: {
@@ -81,44 +84,67 @@ export default function RootLayout({
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{
-            __html: JSON.stringify({
-              "@context": "https://schema.org",
-              "@type": "WebSite",
-              name: "GençYZ",
-              alternateName: "Yapay Zeka Macerası",
-              url: "https://gencyz.com",
-              description:
-                "Ortaokul öğrencileri (6-8. sınıf) için uygulamalı yapay zeka eğitim platformu",
-              inLanguage: "tr",
-              author: {
-                "@type": "Person",
-                name: "Dr. Murat ALTUN",
-                url: "https://drmurataltun.github.io",
-                jobTitle: "Yapay Zeka Eğitimci",
+            __html: JSON.stringify([
+              {
+                "@context": "https://schema.org",
+                "@type": "WebSite",
+                name: "GençYZ",
+                alternateName: "Yapay Zeka Macerası",
+                url: "https://gencyz.com",
+                description:
+                  "Ortaokul öğrencileri (6-8. sınıf) için uygulamalı yapay zeka eğitim platformu",
+                inLanguage: "tr",
               },
-              publisher: {
-                "@type": "Organization",
+              {
+                "@context": "https://schema.org",
+                "@type": "EducationalOrganization",
                 name: "GençYZ",
                 url: "https://gencyz.com",
+                description:
+                  "Ortaokul öğrencileri için uygulamalı yapay zeka eğitim platformu",
+                sameAs: [
+                  "https://yapayzekaokulum.com",
+                  "https://akademikyz.com",
+                  "https://yz-araclari.com",
+                  "https://altunmurat.wordpress.com",
+                  "https://github.com/DrMuratAltun",
+                  "https://linkedin.com/in/drmurataltun",
+                  "https://instagram.com/drmurataltun",
+                  "https://researchgate.net/profile/Murat_Altun2",
+                ],
+                founder: {
+                  "@type": "Person",
+                  name: "Dr. Murat ALTUN",
+                  url: "https://drmurataltun.github.io",
+                  jobTitle: "Yapay Zeka Eğitmeni",
+                  sameAs: [
+                    "https://drmurataltun.github.io",
+                    "https://altunmurat.wordpress.com",
+                    "https://linkedin.com/in/drmurataltun",
+                    "https://researchgate.net/profile/Murat_Altun2",
+                  ],
+                },
               },
-              educationalLevel: "6-8. Sınıf (Ortaokul)",
-              audience: {
-                "@type": "EducationalAudience",
-                educationalRole: "student",
-                audienceType: "Ortaokul Öğrencileri (11-14 yaş)",
-              },
-              hasCourse: {
+              {
+                "@context": "https://schema.org",
                 "@type": "Course",
                 name: "Yapay Zeka Okuryazarlığı",
                 description:
-                  "10 bölüm, 50+ interaktif etkinlik ile yapay zeka eğitimi",
+                  "10 bölüm, 50+ interaktif etkinlik ile ortaokul öğrencileri için yapay zeka eğitimi",
+                url: "https://gencyz.com/bolumler",
                 provider: {
-                  "@type": "Person",
-                  name: "Dr. Murat ALTUN",
+                  "@type": "EducationalOrganization",
+                  name: "GençYZ",
+                  url: "https://gencyz.com",
                 },
-                numberOfCredits: 10,
-                educationalLevel: "Ortaokul",
+                educationalLevel: "6-8. Sınıf (Ortaokul)",
                 inLanguage: "tr",
+                numberOfCredits: 10,
+                audience: {
+                  "@type": "EducationalAudience",
+                  educationalRole: "student",
+                  audienceType: "Ortaokul Öğrencileri (11-14 yaş)",
+                },
                 teaches: [
                   "Yapay zeka nedir",
                   "Makine öğrenimi",
@@ -127,14 +153,57 @@ export default function RootLayout({
                   "YZ etiği",
                   "Veri okuryazarlığı",
                 ],
+                hasCourseInstance: {
+                  "@type": "CourseInstance",
+                  courseMode: "online",
+                  courseWorkload: "58 ders saati",
+                },
               },
-            }),
+            ]),
           }}
         />
       </head>
-      <body className={geist.className}>
+      <body className={`${geist.className} ${cinzel.variable} ${nunito.variable} flex min-h-screen flex-col`}>
         <Navbar />
-        {children}
+        <main className="flex-1">{children}</main>
+        <footer className="border-t border-[var(--color-border)] bg-[var(--color-bg-secondary)]">
+          <div className="mx-auto max-w-6xl px-6 py-10">
+            <div className="grid gap-8 md:grid-cols-3">
+              <div>
+                <p className="text-lg font-extrabold">🤖 GençYZ</p>
+                <p className="mt-1 text-sm text-[var(--color-text-secondary)]">
+                  Dr. Murat ALTUN
+                </p>
+                <p className="mt-3 text-xs text-[var(--color-text-secondary)]">
+                  Ortaokul öğrencileri için uygulamalı yapay zeka eğitim platformu.
+                </p>
+              </div>
+              <div>
+                <h4 className="mb-3 text-sm font-bold">Hızlı Erişim</h4>
+                <div className="space-y-2 text-sm text-[var(--color-text-secondary)]">
+                  <Link href="/bolumler" className="block hover:text-sky-600 transition">Bölümler</Link>
+                  <Link href="/ozellikler" className="block hover:text-sky-600 transition">Özellikler</Link>
+                  <Link href="/ogretmen" className="block hover:text-sky-600 transition">Öğretmen</Link>
+                  <Link href="/hakkinda" className="block hover:text-sky-600 transition">Hakkında</Link>
+                </div>
+              </div>
+              <div>
+                <h4 className="mb-3 text-sm font-bold">Diğer Projelerimiz</h4>
+                <div className="space-y-2 text-sm text-[var(--color-text-secondary)]">
+                  <a href="https://yapayzekaokulum.com" target="_blank" rel="noopener noreferrer" className="block hover:text-sky-600 transition">Yapay Zeka Okulum — Herkes için YZ eğitimi</a>
+                  <a href="https://akademikyz.com" target="_blank" rel="noopener noreferrer" className="block hover:text-sky-600 transition">Akademik YZ — Araştırmacılar için YZ</a>
+                  <a href="https://yz-araclari.com" target="_blank" rel="noopener noreferrer" className="block hover:text-sky-600 transition">YZ Araçları — Yapay zeka araç rehberi</a>
+                  <a href="https://drmurataltun.github.io/VB-YZ-90/" target="_blank" rel="noopener noreferrer" className="block hover:text-sky-600 transition">Veri Bilimi & YZ Uzmanlığı — 90 Saatlik Program</a>
+                  <a href="https://drmurataltun.github.io" target="_blank" rel="noopener noreferrer" className="block hover:text-sky-600 transition">Dr. Murat ALTUN — Kişisel site</a>
+                  <a href="https://altunmurat.wordpress.com" target="_blank" rel="noopener noreferrer" className="block hover:text-sky-600 transition">Dr. Murat ALTUN — Blog</a>
+                </div>
+                <p className="mt-4 text-sm text-[var(--color-text-secondary)]">
+                  &copy; 2025 Dr. Murat ALTUN. Tüm hakları saklıdır.
+                </p>
+              </div>
+            </div>
+          </div>
+        </footer>
         <Analytics />
         <SpeedInsights />
       </body>
