@@ -14,6 +14,10 @@ import SesliAsistanTesti from "@/components/etkinlikler/SesliAsistanTesti";
 import YzRoportaj from "@/components/etkinlikler/YzRoportaj";
 import AkilliEvSimulator from "@/components/etkinlikler/AkilliEvSimulator";
 import OneriSistemiSim from "@/components/etkinlikler/OneriSistemiSim";
+import BilgiKutusu from "@/components/anlati/BilgiKutusu";
+import GecisSlayt from "@/components/anlati/GecisSlayt";
+import OzetKarti from "@/components/anlati/OzetKarti";
+import Hikaye from "@/components/anlati/Hikaye";
 
 const quizSorulari = [
   {
@@ -167,6 +171,96 @@ const telefonYzOrnekleri = [
   { ozellik: "Spam arama engelleme", teknoloji: "Makine öğrenimi", icon: "🚫" },
   { ozellik: "Pil kullanım optimizasyonu", teknoloji: "Makine öğrenimi", icon: "🔋" },
 ];
+
+/* ---- Hoş Geldin (yeni) ---- */
+const SlaytHosGeldin2 = (
+  <>
+    <div className="relative overflow-hidden rounded-3xl bg-gradient-to-br from-emerald-500 via-teal-500 to-cyan-500 p-8 text-center text-white shadow-xl">
+      <div className="absolute inset-0 opacity-20">
+        <div className="absolute -top-20 -right-20 h-60 w-60 rounded-full bg-white blur-3xl" />
+      </div>
+      <div className="relative">
+        <span className="inline-block text-6xl float-3" aria-hidden="true">📱</span>
+        <h3 className="mt-4 text-3xl font-extrabold md:text-4xl">YZ Aslında Cebinde</h3>
+        <p className="mx-auto mt-3 max-w-xl text-sm text-white/90 md:text-base">
+          Bu sabah uyandığından beri en az 10 farklı YZ ile etkileşime geçtin. Bu bölümde hepsini fark edeceksin!
+        </p>
+      </div>
+    </div>
+
+    <Hikaye
+      karakter="Zeki"
+      karakterEmoji="🤖"
+      baslik="Sıradan bir gün..."
+      paragraflar={[
+        "Sabah alarm çaldı (alarm dijital ama YZ değil). Telefonuna bakıp bildirimleri gördün — Instagram sana en ilgi çekici 5 paylaşımı seçti. Bu YZ.",
+        "Spotify çaldı — sana özel hazırlanmış \"Günaydın\" listesi vardı. Bu YZ. Yola çıktın, Google Maps trafik sıkışıklığını tahmin etti. Bu da YZ.",
+        <span key="end">
+          Hatta klavyeden yazdığın her kelimenin önerisi bile YZ! Bu bölümde bunları
+          birer birer keşfedip <strong>günlük hayatındaki 6 YZ alanını</strong> tanıyacaksın.
+        </span>,
+      ]}
+      renkGradient="from-emerald-500 via-teal-500 to-cyan-500"
+    />
+  </>
+);
+
+/* ---- Geçiş: Konudan → Etkinliklere ---- */
+const SlaytGecis2_1 = (
+  <GecisSlayt
+    emoji="🎯"
+    renkGradient="from-teal-400 to-emerald-500"
+    oncekiBaslik="6 Alanı Gördük"
+    oncekiOzet={
+      <p>
+        Telefondaki YZ, öneri sistemleri, sesli asistanlar, otonom araçlar, akıllı tarım ve sağlık
+        alanlarında YZ&apos;nin gerçek kullanımını öğrendin.
+      </p>
+    }
+    sonrakiBaslik="Şimdi Detektiflik Zamanı"
+    sonrakiOzet={
+      <p>
+        Sıradaki etkinliklerde <strong>kendi çevrendeki YZ&apos;leri</strong> tespit edeceksin: harita
+        çıkar, sesli asistanı test et, bir aile ferdiyle YZ röportajı yap.
+      </p>
+    }
+    hikaye={
+      <span>
+        <strong>Zeki&apos;den ipucu:</strong> Bir teknolojinin YZ olup olmadığını anlamak için sor:
+        &quot;Bu öğreniyor mu? Veriyle daha iyi mi oluyor?&quot; Cevap evetse — büyük ihtimalle YZ.
+      </span>
+    }
+  />
+);
+
+/* ---- Bölüm 2 Özeti ---- */
+const SlaytBolumOzeti2 = (
+  <OzetKarti
+    baslik="Bölüm 2 Özeti"
+    renkGradient="from-emerald-500 to-teal-700"
+    ogrenilenler={[
+      "YZ günlük hayatın her yerinde: telefon, ulaşım, sağlık, eğlence, eğitim.",
+      "Öneri sistemleri (Netflix, YouTube, Spotify) izleme/dinleme alışkanlıklarını analiz eder.",
+      "Sesli asistanlar (Siri, Alexa) konuşmayı metne çevirir, niyetimizi anlar, cevap üretir.",
+      "Otonom araçlar (Tesla, Waymo) çevreyi 'görür' ve sürüş kararları verir.",
+      "Akıllı tarım kameralarla bitki hastalıklarını tespit eder, sulama optimizasyonu yapar.",
+      "Bir teknoloji öğreniyor ve veriyle gelişiyorsa — büyük ihtimalle YZ.",
+    ]}
+    anahtarKelimeler={[
+      "öneri sistemi",
+      "sesli asistan",
+      "otonom araç",
+      "akıllı tarım",
+      "doğal dil işleme",
+      "bilgisayarlı görü",
+    ]}
+    sorular={[
+      "Bugün kullandığın 5 farklı YZ uygulamasını sayabilir misin?",
+      "Netflix sana neden böyle filmler öneriyor olabilir? Hangi verilerinden besleniyor?",
+      "Sesli asistana 'Sana güveniyor muyum?' deseydin, ne demek isterdin?",
+    ]}
+  />
+);
 
 const SlaytKazanimlar = (
   <>
@@ -674,18 +768,21 @@ export default function Bolum2() {
       oncekiBolum={1}
       sonrakiBolum={3}
       slaytlar={[
+        { baslik: "Hoş Geldin!", icon: "👋", icerik: SlaytHosGeldin2 },
         { baslik: "Kazanımlar", icon: "🎯", icerik: SlaytKazanimlar },
         { baslik: "YZ Her Yerde!", icon: "🌍", icerik: SlaytYzHerYerde },
         { baslik: "Cebindeki Yapay Zeka", icon: "📱", icerik: SlaytCebindekiYz },
         { baslik: "YZ Kullanım Alanları", icon: "🌐", icerik: SlaytYzKullanimAlanlari },
         { baslik: "Öneri Sistemleri", icon: "🎬", icerik: SlaytOneriSistemleri },
         { baslik: "Sesli Asistanlar", icon: "🎙️", icerik: SlaytSesliAsistanlar },
+        { baslik: "Detektiflik Zamanı", icon: "🔎", icerik: SlaytGecis2_1 },
         { baslik: "Etkinlik: YZ Haritası", icon: "🎮", icerik: SlaytEtkinlik1 },
         { baslik: "Etkinlik: YZ veya Değil?", icon: "🎮", icerik: SlaytEtkinlik2 },
         { baslik: "Etkinlik: Sesli Asistan", icon: "🎮", icerik: SlaytEtkinlik3 },
         { baslik: "Etkinlik: YZ Röportajı", icon: "🎮", icerik: SlaytEtkinlik4 },
         { baslik: "İnteraktif Oyun", icon: "🕹️", icerik: SlaytOyun },
         { baslik: "Değerlendirme", icon: "📝", icerik: SlaytDegerlendirme },
+        { baslik: "Bölüm Özeti", icon: "🏆", icerik: SlaytBolumOzeti2 },
         { baslik: "Materyaller", icon: "📥", icerik: SlaytMateryaller },
       ]}
     />

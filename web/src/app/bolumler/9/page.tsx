@@ -12,6 +12,10 @@ import EtikMahkeme from "@/components/etkinlikler/EtikMahkeme";
 import DeepfakeTespit from "@/components/etkinlikler/DeepfakeTespit";
 import OnyargiSimulator from "@/components/etkinlikler/OnyargiSimulator";
 import GizlilikDenetcisi from "@/components/etkinlikler/GizlilikDenetcisi";
+import BilgiKutusu from "@/components/anlati/BilgiKutusu";
+import GecisSlayt from "@/components/anlati/GecisSlayt";
+import OzetKarti from "@/components/anlati/OzetKarti";
+import Hikaye from "@/components/anlati/Hikaye";
 
 const quizSorulari = [
   {
@@ -70,6 +74,100 @@ const quizSorulari = [
     aciklama: "Sorumlu YZ kullanımı, YZ'nin gücünü ve sınırlarını bilmek, her zaman insan denetimini korumak ve etik ilkelere uymak demektir.",
   },
 ];
+
+/* ---- Hoş Geldin (yeni) ---- */
+const SlaytHosGeldin9 = (
+  <>
+    <div className="relative overflow-hidden rounded-3xl bg-gradient-to-br from-amber-500 via-orange-500 to-red-500 p-8 text-center text-white shadow-xl">
+      <div className="absolute inset-0 opacity-20">
+        <div className="absolute -top-20 -right-20 h-60 w-60 rounded-full bg-white blur-3xl" />
+      </div>
+      <div className="relative">
+        <span className="inline-block text-6xl float-1" aria-hidden="true">⚖️</span>
+        <h3 className="mt-4 text-3xl font-extrabold md:text-4xl">YZ&apos;nin Pusulası: Etik</h3>
+        <p className="mx-auto mt-3 max-w-xl text-sm text-white/90 md:text-base">
+          Güçlü bir araç doğru kullanılmalı. Bu bölümde YZ&apos;yi sorumlu kullanmanın ilkelerini öğreneceksin.
+        </p>
+      </div>
+    </div>
+
+    <Hikaye
+      karakter="Zeki"
+      karakterEmoji="🤖"
+      baslik="Senin gibi düşünen biri lazım..."
+      paragraflar={[
+        "Düşün: bir hastanede YZ yanlış teşhis koydu, hasta zarar gördü. Kim suçlu? Doktor mu, YZ mi, YZ&apos;yi yapan şirket mi?",
+        "Ya da deepfake bir video tanınmış birini kötü bir şey yaparken gösterdi — gerçek değil ama herkes inandı. Ne yapmalı?",
+        <span key="end">
+          Bu bölümde tek bir &quot;doğru&quot; cevap bulamayacaksın. Çünkü etik <strong>yargı</strong> gerektirir.
+          Ama düşünme yöntemleri öğreneceksin: önyargı, şeffaflık, gizlilik, hesap verebilirlik...
+        </span>,
+      ]}
+      renkGradient="from-amber-500 via-orange-500 to-red-500"
+    />
+  </>
+);
+
+/* ---- Geçiş: Teori → Etkinlik ---- */
+const SlaytGecis9_1 = (
+  <GecisSlayt
+    emoji="⚖️"
+    renkGradient="from-orange-500 to-red-500"
+    oncekiBaslik="İlkeleri Tanıdık"
+    oncekiOzet={
+      <p>
+        YZ etiğinin 6 ilkesini, önyargı problemini, deepfake risklerini ve YZ&apos;nin
+        toplumsal etkilerini öğrendin.
+      </p>
+    }
+    sonrakiBaslik="Şimdi: Karar Vermek Zor"
+    sonrakiOzet={
+      <p>
+        Sıradaki etkinliklerde YZ Mahkemesi&apos;nde savcı/avukat olacak, deepfake tespit edecek
+        ve <strong>kendi etik pusulanı</strong> oluşturacaksın.
+      </p>
+    }
+    hikaye={
+      <span>
+        <strong>Zeki&apos;den uyarı:</strong> Etik konularda &quot;tek doğru&quot; çoğu zaman yoktur.
+        Önemli olan farklı bakış açılarını dinlemek, gerekçelerini sunmak ve &quot;şu an
+        haklı olabilirim, yarın değişebilirim&quot; alçakgönüllülüğünü korumak.
+      </span>
+    }
+  />
+);
+
+/* ---- Bölüm 9 Özeti ---- */
+const SlaytBolumOzeti9 = (
+  <OzetKarti
+    baslik="Bölüm 9 Özeti"
+    renkGradient="from-amber-500 to-orange-700"
+    ogrenilenler={[
+      "YZ etiği = YZ'yi tasarlarken/kullanırken doğru, adil, sorumlu davranma ilkeleri.",
+      "6 temel ilke: Şeffaflık, Adalet, Gizlilik, Hesap Verebilirlik, Güvenlik, İnsan Denetimi.",
+      "Önyargı (bias): Eğitim verisindeki dengesizliğin modele yansıması — ayrımcılığa yol açar.",
+      "Deepfake: YZ üretimi sahte video/ses. Dezenformasyon ve dolandırıcılık için kullanılır.",
+      "YZ'nin çevreye etkisi: Büyük modeller eğitiminde tonlarca CO2 salımı.",
+      "Sorumlu YZ: Sınırlarını bil, insan denetiminden vazgeçme, kaynakları doğrula.",
+    ]}
+    anahtarKelimeler={[
+      "etik",
+      "önyargı",
+      "şeffaflık",
+      "adalet",
+      "gizlilik",
+      "deepfake",
+      "dezenformasyon",
+      "hesap verebilirlik",
+      "sorumlu YZ",
+    ]}
+    sorular={[
+      "YZ bir iş başvurusunu reddetti. Neden reddedildiğini bilme hakkın var mı? Neden?",
+      "Karşına bir deepfake video geldiğinde 3 kontrol noktası nelerdir?",
+      "ChatGPT'yi kullanırken hangi kişisel bilgilerini PAYLAŞMAMALISIN?",
+    ]}
+  />
+);
 
 const SlaytKazanimlar = (
   <>
@@ -328,17 +426,20 @@ const SlaytMateryaller = (
 
 export default function Bolum9() {
   const slaytlar = [
+    { baslik: "Hoş Geldin!", icon: "👋", icerik: SlaytHosGeldin9 },
     { baslik: "Kazanımlar", icon: "🎯", icerik: SlaytKazanimlar },
     { baslik: "YZ Etiği Nedir?", icon: "⚖️", icerik: SlaytEtikIlkeleri },
     { baslik: "Önyargı Problemi", icon: "🔍", icerik: SlaytOnyargi },
     { baslik: "Deepfake ve Dezenformasyon", icon: "🎭", icerik: SlaytDeepfake },
     { baslik: "Toplumsal Etkiler", icon: "🌍", icerik: SlaytToplumsalEtki },
+    { baslik: "Pusulanı Bul", icon: "🧭", icerik: SlaytGecis9_1 },
     { baslik: "Etkinlik: YZ Mahkemesi", icon: "🎮", icerik: SlaytEtkinlik1 },
     { baslik: "Etkinlik: Önyargı Simülatörü", icon: "🔍", icerik: SlaytEtkinlik1b },
     { baslik: "Etkinlik: Etik Pusula", icon: "🎮", icerik: SlaytEtkinlik2 },
     { baslik: "Etkinlik: Deepfake Dedektifi", icon: "🎮", icerik: SlaytEtkinlik3 },
     { baslik: "Etik Pusula", icon: "🧩", icerik: SlaytOyun },
     { baslik: "Değerlendirme", icon: "📝", icerik: SlaytDegerlendirme },
+    { baslik: "Bölüm Özeti", icon: "🏆", icerik: SlaytBolumOzeti9 },
     { baslik: "Materyaller", icon: "📥", icerik: SlaytMateryaller },
   ];
 

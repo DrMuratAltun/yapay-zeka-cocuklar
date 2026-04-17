@@ -8,12 +8,19 @@ import Image from "next/image";
 import InteraktifQuiz from "@/components/InteraktifQuiz";
 import BolumSlider from "@/components/BolumSlider";
 import KararAgaci from "@/components/oyunlar/KararAgaci";
+import SinirAgiOyunAlani from "@/components/oyunlar/SinirAgiOyunAlani";
+import OgrenmeTurleri from "@/components/oyunlar/OgrenmeTurleri";
 import MeyveSiniflandirici from "@/components/etkinlikler/MeyveSiniflandirici";
 import ModelBasariRaporu from "@/components/etkinlikler/ModelBasariRaporu";
 import TeachableMachineRehber from "@/components/etkinlikler/TeachableMachineRehber";
 import MLForKidsRehber from "@/components/etkinlikler/MLForKidsRehber";
 import SiniflandirmaPratigi from "@/components/etkinlikler/SiniflandirmaPratigi";
 import OgrenimTurleriQuiz from "@/components/etkinlikler/OgrenimTurleriQuiz";
+import BilgiKutusu from "@/components/anlati/BilgiKutusu";
+import GecisSlayt from "@/components/anlati/GecisSlayt";
+import KonuBasligi from "@/components/anlati/KonuBasligi";
+import OzetKarti from "@/components/anlati/OzetKarti";
+import Hikaye from "@/components/anlati/Hikaye";
 
 const quizSorulari = [
   {
@@ -74,6 +81,154 @@ const quizSorulari = [
 ];
 
 /* ---- Slayt 1: Kazanımlar ---- */
+/* ---- Hoş Geldin (yeni) ---- */
+const SlaytHosGeldin4 = (
+  <>
+    <div className="relative overflow-hidden rounded-3xl bg-gradient-to-br from-orange-500 via-amber-500 to-yellow-500 p-8 text-center text-white shadow-xl">
+      <div className="absolute inset-0 opacity-20">
+        <div className="absolute -top-20 -left-20 h-60 w-60 rounded-full bg-white blur-3xl" />
+      </div>
+      <div className="relative">
+        <span className="inline-block text-6xl float-1" aria-hidden="true">🤖</span>
+        <h3 className="mt-4 text-3xl font-extrabold md:text-4xl">Makineler Nasıl Öğrenir?</h3>
+        <p className="mx-auto mt-3 max-w-xl text-sm text-white/90 md:text-base">
+          Bu bölüm yapay zekanın kalbi! Makinelerin nasıl &quot;deneyimden&quot; öğrendiğini, kendi modelini eğitebildiğini göreceksin.
+        </p>
+      </div>
+    </div>
+
+    <Hikaye
+      karakter="Zeki"
+      karakterEmoji="🤖"
+      baslik="Bir bebek kediyi nasıl tanır?"
+      paragraflar={[
+        "Bir bebek için \"kedi\" tanımı yapamazsın. Onun yerine ona kedi gösterirsin: \"İşte kedi!\" Bir, iki, on, yüz... Sonunda bebek kediyi tanır oldu.",
+        "Makine öğrenmesi tam olarak bu. Önceden kural yazmak yerine örnek gösterir, makine örüntüyü kendi keşfeder.",
+        <span key="end">
+          Bu bölümde: 3 öğrenme türünü öğreneceksin (denetimli/denetimsiz/pekiştirmeli),
+          <strong> Sinir Ağı Oyun Alanı</strong>nda canlı bir ağı çalıştıracaksın ve
+          <strong> Öğrenme Türleri Sıralayıcı</strong>&apos;da gerçek problemleri kategorize edeceksin.
+        </span>,
+      ]}
+      renkGradient="from-orange-500 via-amber-500 to-yellow-500"
+    />
+  </>
+);
+
+/* ---- Geçiş: Teori → Sinir Ağı Lab ---- */
+const SlaytGecis4_1 = (
+  <GecisSlayt
+    emoji="🧠"
+    renkGradient="from-amber-500 to-orange-500"
+    oncekiBaslik="ML Türlerini Tanıdık"
+    oncekiOzet={
+      <p>
+        Geleneksel programlamayla makine öğrenmesinin farkını, 3 öğrenme türünü ve karar ağaçlarını gördün.
+      </p>
+    }
+    sonrakiBaslik="Şimdi: Canlı Bir Sinir Ağı"
+    sonrakiOzet={
+      <p>
+        Sıradaki <strong>Sinir Ağı Oyun Alanı</strong>&apos;nda kaydırıcılarla giriş değiştirip
+        ağın tahminini canlı izleyeceksin. Bu &quot;derin öğrenme&quot;nin en küçük örneği!
+      </p>
+    }
+  />
+);
+
+/* ---- Sinir Ağı Lab Slaytı ---- */
+const SlaytSinirAgiLab4 = (
+  <section className="space-y-6">
+    <KonuBasligi
+      emoji="🧠"
+      baslik="Sinir Ağı Oyun Alanı"
+      altBaslik="Beyin gibi öğrenen yapay ağlar"
+      renkGradient="from-violet-500 to-purple-600"
+    />
+
+    <p className="text-sm text-[var(--color-text-secondary)] md:text-base">
+      Yapay sinir ağları, beynimizdeki nöron bağlantılarından ilham alır. Aşağıdaki laboratuvarda
+      gerçek bir &quot;mini sinir ağı&quot; çalıştırıyorsun!
+    </p>
+
+    <div className="overflow-hidden rounded-2xl border border-[var(--color-border)]">
+      <Image
+        src="/images/illustrasyonlar/sinir-aglari.svg"
+        alt="Sinir ağı katmanları diyagramı"
+        width={1000}
+        height={600}
+        className="h-auto w-full"
+      />
+    </div>
+
+    <SinirAgiOyunAlani />
+
+    <BilgiKutusu tip="biliyor-muydun">
+      Bir insan beyninde yaklaşık <strong>86 milyar nöron</strong> ve trilyonlarca bağlantı var.
+      GPT-4&apos;te ise <strong>1,7 trilyon ağırlık</strong> var. Yine de insan beyninin verimliliği eşsiz!
+    </BilgiKutusu>
+  </section>
+);
+
+/* ---- Öğrenme Türleri Sıralayıcı Slaytı ---- */
+const SlaytOgrenmeTurleriLab = (
+  <section className="space-y-6">
+    <KonuBasligi
+      emoji="🎓"
+      baslik="Öğrenme Türleri Sıralayıcı"
+      altBaslik="Hangi problem hangi türle çözülür?"
+      renkGradient="from-sky-500 to-violet-500"
+    />
+
+    <p className="text-sm text-[var(--color-text-secondary)] md:text-base">
+      12 gerçek dünya problemi var. Her birini doğru öğrenme türüne yerleştir!
+      Sürükle-bırak veya butonlarla seç.
+    </p>
+
+    <OgrenmeTurleri />
+
+    <BilgiKutusu tip="ipucu">
+      <strong>İpucu:</strong> &quot;Önceden doğru cevabı biliyor muyuz?&quot; → <em>Denetimli</em>.
+      &quot;Sadece veri var, kategorize et&quot; → <em>Denetimsiz</em>.
+      &quot;Ödül-ceza ile öğreniyor mu?&quot; → <em>Pekiştirmeli</em>.
+    </BilgiKutusu>
+  </section>
+);
+
+/* ---- Bölüm 4 Özeti ---- */
+const SlaytBolumOzeti4 = (
+  <OzetKarti
+    baslik="Bölüm 4 Özeti"
+    renkGradient="from-orange-500 to-amber-600"
+    ogrenilenler={[
+      "Geleneksel programlama: insan kural yazar. ML: makine veriden öğrenir.",
+      "Denetimli öğrenme: etiketli veri (girdi + doğru cevap) ile eğitim.",
+      "Denetimsiz öğrenme: etiketsiz veride örüntü/grup keşfi.",
+      "Pekiştirmeli öğrenme: ödül-ceza ile deneme-yanılma.",
+      "Sınıflandırma vs Regresyon: sınıf tahmin et VS sayı tahmin et.",
+      "Karar ağacı: 'evet/hayır' soruları zinciri ile karar verir.",
+      "Sinir ağı: Giriş → Gizli katmanlar → Çıkış. Ağırlıklar eğitimle öğrenilir.",
+    ]}
+    anahtarKelimeler={[
+      "makine öğrenmesi",
+      "denetimli",
+      "denetimsiz",
+      "pekiştirmeli",
+      "sınıflandırma",
+      "regresyon",
+      "karar ağacı",
+      "sinir ağı",
+      "model eğitimi",
+      "doğruluk",
+    ]}
+    sorular={[
+      "Spotify'ın sana öneri yapması hangi öğrenme türü? Neden?",
+      "Yeni bir oyun öğrenen YZ asistanı hangi tür?",
+      "Karar ağacının sinir ağına göre artıları ne olabilir?",
+    ]}
+  />
+);
+
 const SlaytKazanimlar = (
   <>
     <section className="rounded-2xl border-l-4 border-orange-500 bg-orange-50 p-6 dark:bg-orange-900/20">
@@ -508,11 +663,15 @@ export default function Bolum4() {
       oncekiBolum={3}
       sonrakiBolum={5}
       slaytlar={[
+        { baslik: "Hoş Geldin!", icon: "👋", icerik: SlaytHosGeldin4 },
         { baslik: "Kazanımlar", icon: "🎯", icerik: SlaytKazanimlar },
         { baslik: "Geleneksel vs ML", icon: "📖", icerik: SlaytGelenekselVsML },
         { baslik: "Öğrenme Türleri", icon: "🧠", icerik: SlaytOgrenimTurleri },
+        { baslik: "Öğrenme Türleri Lab", icon: "🎓", icerik: SlaytOgrenmeTurleriLab },
         { baslik: "Sınıflandırma ve Tahmin", icon: "📊", icerik: SlaytSiniflandirma },
         { baslik: "Karar Ağacı", icon: "🌳", icerik: SlaytKararAgaci },
+        { baslik: "Sinir Ağına Geçiş", icon: "🧭", icerik: SlaytGecis4_1 },
+        { baslik: "Sinir Ağı Lab", icon: "🧪", icerik: SlaytSinirAgiLab4 },
         { baslik: "Teachable Machine", icon: "🤖", icerik: SlaytTeachableMachine },
         { baslik: "Etkinlik: Meyve Sınıflandırıcı", icon: "🎮", icerik: SlaytEtkinlik1 },
         { baslik: "Etkinlik: Teachable Machine", icon: "🎮", icerik: SlaytEtkinlik2 },
@@ -520,6 +679,7 @@ export default function Bolum4() {
         { baslik: "Etkinlik: Model Başarı Raporu", icon: "🎮", icerik: SlaytEtkinlik4 },
         { baslik: "İnteraktif Oyun", icon: "🕹️", icerik: SlaytOyun },
         { baslik: "Değerlendirme", icon: "📝", icerik: SlaytDegerlendirme },
+        { baslik: "Bölüm Özeti", icon: "🏆", icerik: SlaytBolumOzeti4 },
         { baslik: "Materyaller", icon: "📥", icerik: SlaytMateryaller },
       ]}
     />

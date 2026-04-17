@@ -12,6 +12,10 @@ import PromptDeneme from "@/components/etkinlikler/PromptDeneme";
 import EtikSenaryolar from "@/components/etkinlikler/EtikSenaryolar";
 import PromptGelistirici from "@/components/etkinlikler/PromptGelistirici";
 import HalusinasyonDedektifi from "@/components/etkinlikler/HalusinasyonDedektifi";
+import BilgiKutusu from "@/components/anlati/BilgiKutusu";
+import GecisSlayt from "@/components/anlati/GecisSlayt";
+import OzetKarti from "@/components/anlati/OzetKarti";
+import Hikaye from "@/components/anlati/Hikaye";
 
 const quizSorulari = [
   {
@@ -72,6 +76,108 @@ const quizSorulari = [
 ];
 
 /* ---- Slayt 1: Kazanımlar ---- */
+/* ---- Hoş Geldin (yeni) ---- */
+const SlaytHosGeldin5 = (
+  <>
+    <div className="relative overflow-hidden rounded-3xl bg-gradient-to-br from-pink-500 via-rose-500 to-fuchsia-500 p-8 text-center text-white shadow-xl">
+      <div className="absolute inset-0 opacity-20">
+        <div className="absolute -bottom-20 -left-20 h-60 w-60 rounded-full bg-white blur-3xl" />
+      </div>
+      <div className="relative">
+        <span className="inline-block text-6xl float-2" aria-hidden="true">✨</span>
+        <h3 className="mt-4 text-3xl font-extrabold md:text-4xl">YZ ile Yaratıcı Ol</h3>
+        <p className="mx-auto mt-3 max-w-xl text-sm text-white/90 md:text-base">
+          ChatGPT, Gemini, Bing Image Creator... Bu bölümde üretken YZ&apos;ye doğru soru sormayı öğreneceksin!
+        </p>
+      </div>
+    </div>
+
+    <div className="overflow-hidden rounded-2xl border border-[var(--color-border)]">
+      <Image
+        src="/images/illustrasyonlar/sohbet-robotu.svg"
+        alt="Sohbet robotu ile kullanıcı konuşması"
+        width={800}
+        height={600}
+        className="h-auto w-full"
+      />
+    </div>
+
+    <Hikaye
+      karakter="Zeki"
+      karakterEmoji="🤖"
+      baslik="Üretken YZ neden 'üretken'?"
+      paragraflar={[
+        "ChatGPT'ye \"bana bir şiir yaz\" dediğinde, yanıtı önceden bir yerde durmuyor. Anlık olarak ÜRETİYOR. Aynı soruyu 5 kez sorsan, 5 farklı şiir alabilirsin!",
+        "Bu, klasik bir aramadan çok farklı. Google'a \"hava durumu\" yazınca cevap dünyada bir yerde duruyor. ChatGPT'de cevap o anda doğuyor.",
+        <span key="end">
+          Bu güç büyük sorumluluk getirir: <strong>doğru sormak</strong>, <strong>halüsinasyonlardan</strong> kaçınmak ve
+          <strong> etik</strong> kullanmak. Bu bölümde hepsini öğreneceksin.
+        </span>,
+      ]}
+      renkGradient="from-pink-500 via-rose-500 to-fuchsia-500"
+    />
+  </>
+);
+
+/* ---- Geçiş: Teori → Prompt Pratiği ---- */
+const SlaytGecis5_1 = (
+  <GecisSlayt
+    emoji="✨"
+    renkGradient="from-pink-500 to-rose-500"
+    oncekiBaslik="Üretken YZ&apos;yi Tanıdık"
+    oncekiOzet={
+      <p>
+        LLM&apos;lerin nasıl çalıştığını, prompt mühendisliğini, halüsinasyon riskini ve etik
+        kuralları gördün. Artık hazırsın.
+      </p>
+    }
+    sonrakiBaslik="Şimdi: Promptlarla Pratik"
+    sonrakiOzet={
+      <p>
+        Sıradaki etkinliklerde prompt düellosu yapacak, ChatGPT&apos;yi test edecek ve
+        görüntü üretmeyi deneyeceksin. <strong>Tek kural:</strong> doğru soru, doğru cevabı doğurur!
+      </p>
+    }
+    hikaye={
+      <span>
+        <strong>Zeki&apos;den ipucu:</strong> İyi prompt formülü → <em>Rol + Görev + Bağlam + Format</em>.
+        Mesela: &quot;Bir biyoloji öğretmeni gibi (rol), fotosentezi anlat (görev), 6. sınıf öğrencisi için
+        (bağlam), 5 madde olarak (format).&quot;
+      </span>
+    }
+  />
+);
+
+/* ---- Bölüm 5 Özeti ---- */
+const SlaytBolumOzeti5 = (
+  <OzetKarti
+    baslik="Bölüm 5 Özeti"
+    renkGradient="from-pink-500 to-rose-700"
+    ogrenilenler={[
+      "Üretken YZ, anında yeni içerik üretir (metin, görüntü, ses, video).",
+      "Büyük Dil Modelleri (LLM) milyarlarca metinden öğrenir, sonraki kelimeyi tahmin eder.",
+      "Prompt mühendisliği = YZ'ye doğru soru sorma sanatı. Rol + Görev + Bağlam + Format.",
+      "Halüsinasyon: YZ kendinden emin biçimde YANLIŞ bilgi üretebilir. Hep doğrula!",
+      "Etik kullanım: kaynak göster, telifsiz görüntü üret, sahte bilgi üretme.",
+    ]}
+    anahtarKelimeler={[
+      "üretken YZ",
+      "LLM",
+      "prompt",
+      "halüsinasyon",
+      "telif",
+      "ChatGPT",
+      "Gemini",
+      "etik kullanım",
+    ]}
+    sorular={[
+      "ChatGPT'ye 'Türkiye'nin başkenti hangi yıl Berlin oldu?' deseydim ne cevap verirdi? Neden tehlikeli?",
+      "İyi bir prompt yaz: 'Sıfırdan basit bir şiir' yerine ne yazardın?",
+      "Bir ödev için ChatGPT kullanırken hangi etik kuralı atlamamalısın?",
+    ]}
+  />
+);
+
 const SlaytKazanimlar = (
   <>
     <section className="rounded-2xl border-l-4 border-pink-500 bg-pink-50 p-6 dark:bg-pink-900/20">
@@ -427,12 +533,14 @@ export default function Bolum5() {
       oncekiBolum={4}
       sonrakiBolum={6}
       slaytlar={[
+        { baslik: "Hoş Geldin!", icon: "👋", icerik: SlaytHosGeldin5 },
         { baslik: "Kazanımlar", icon: "🎯", icerik: SlaytKazanimlar },
         { baslik: "Üretken YZ Nedir?", icon: "📖", icerik: SlaytUretkenYZ },
         { baslik: "Büyük Dil Modelleri", icon: "🧠", icerik: SlaytLLM },
         { baslik: "Prompt Mühendisliği", icon: "📝", icerik: SlaytPrompt },
         { baslik: "YZ Halüsinasyonu", icon: "⚠️", icerik: SlaytHalusinasyon },
         { baslik: "Etik Kullanım", icon: "⚖️", icerik: SlaytEtik },
+        { baslik: "Pratiğe Geçiş", icon: "✨", icerik: SlaytGecis5_1 },
         { baslik: "Etkinlik: Prompt Düellosu", icon: "🎮", icerik: SlaytEtkinlik1 },
         { baslik: "Etkinlik: Prompt Geliştirici", icon: "✨", icerik: SlaytEtkinlik1b },
         { baslik: "Etkinlik: ChatGPT/Gemini", icon: "🎮", icerik: SlaytEtkinlik2 },
@@ -440,6 +548,7 @@ export default function Bolum5() {
         { baslik: "Etkinlik: YZ Etik Mahkemesi", icon: "🎮", icerik: SlaytEtkinlik4 },
         { baslik: "İnteraktif Oyun", icon: "🕹️", icerik: SlaytOyun },
         { baslik: "Değerlendirme", icon: "📝", icerik: SlaytDegerlendirme },
+        { baslik: "Bölüm Özeti", icon: "🏆", icerik: SlaytBolumOzeti5 },
         { baslik: "Materyaller", icon: "📥", icerik: SlaytMateryaller },
       ]}
     />
