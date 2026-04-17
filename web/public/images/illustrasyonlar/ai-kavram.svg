@@ -1,0 +1,75 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 300" role="img" aria-label="Yapay Zeka kavramı: yarı biyolojik yarı dijital beyin">
+  <defs>
+    <linearGradient id="bg-ai" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#e0f2fe"/>
+      <stop offset="1" stop-color="#ede9fe"/>
+    </linearGradient>
+    <linearGradient id="brain-g" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#f472b6"/>
+      <stop offset="1" stop-color="#a78bfa"/>
+    </linearGradient>
+    <linearGradient id="chip-g" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#0ea5e9"/>
+      <stop offset="1" stop-color="#22d3ee"/>
+    </linearGradient>
+  </defs>
+  <rect width="400" height="300" rx="16" fill="url(#bg-ai)"/>
+  <!-- Orbit rings -->
+  <ellipse cx="200" cy="160" rx="160" ry="55" fill="none" stroke="#c7d2fe" stroke-width="1.5" stroke-dasharray="4 4" opacity="0.6"/>
+  <ellipse cx="200" cy="160" rx="120" ry="40" fill="none" stroke="#c7d2fe" stroke-width="1.5" stroke-dasharray="4 4" opacity="0.6"/>
+  <!-- Beyin (sol yarı - biyolojik) -->
+  <path d="M 200 80 C 160 80 130 110 135 140 C 125 150 130 175 150 180 C 145 205 175 220 200 210 L 200 80 Z"
+        fill="url(#brain-g)" stroke="#7c3aed" stroke-width="2"/>
+  <path d="M 165 120 C 175 115 185 125 180 135" fill="none" stroke="#ffffff" stroke-width="1.5" opacity="0.7"/>
+  <path d="M 155 150 C 170 145 185 160 175 170" fill="none" stroke="#ffffff" stroke-width="1.5" opacity="0.7"/>
+  <path d="M 170 180 C 180 178 190 188 185 195" fill="none" stroke="#ffffff" stroke-width="1.5" opacity="0.7"/>
+  <!-- Beyin (sağ yarı - dijital çip) -->
+  <rect x="200" y="90" width="70" height="120" rx="10" fill="url(#chip-g)" stroke="#0369a1" stroke-width="2"/>
+  <!-- Chip pins -->
+  <g fill="#0369a1">
+    <rect x="195" y="100" width="8" height="4"/>
+    <rect x="195" y="115" width="8" height="4"/>
+    <rect x="195" y="130" width="8" height="4"/>
+    <rect x="195" y="145" width="8" height="4"/>
+    <rect x="195" y="160" width="8" height="4"/>
+    <rect x="195" y="175" width="8" height="4"/>
+    <rect x="195" y="190" width="8" height="4"/>
+    <rect x="267" y="100" width="8" height="4"/>
+    <rect x="267" y="115" width="8" height="4"/>
+    <rect x="267" y="130" width="8" height="4"/>
+    <rect x="267" y="145" width="8" height="4"/>
+    <rect x="267" y="160" width="8" height="4"/>
+    <rect x="267" y="175" width="8" height="4"/>
+    <rect x="267" y="190" width="8" height="4"/>
+  </g>
+  <!-- Chip içinde devre -->
+  <g fill="none" stroke="#ffffff" stroke-width="2" opacity="0.9">
+    <circle cx="220" cy="115" r="4"/>
+    <circle cx="250" cy="115" r="4"/>
+    <circle cx="220" cy="145" r="4"/>
+    <circle cx="250" cy="145" r="4"/>
+    <circle cx="220" cy="175" r="4"/>
+    <circle cx="250" cy="175" r="4"/>
+    <line x1="224" y1="115" x2="246" y2="115"/>
+    <line x1="220" y1="119" x2="220" y2="141"/>
+    <line x1="250" y1="119" x2="250" y2="141"/>
+    <line x1="224" y1="145" x2="246" y2="145"/>
+    <line x1="220" y1="149" x2="220" y2="171"/>
+    <line x1="250" y1="149" x2="250" y2="171"/>
+  </g>
+  <!-- Bağlantı kıvılcımları -->
+  <g fill="#fbbf24">
+    <circle cx="200" cy="130" r="5"/>
+    <circle cx="200" cy="160" r="4"/>
+    <circle cx="200" cy="190" r="5"/>
+  </g>
+  <!-- Yıldız parlamaları -->
+  <g fill="#fcd34d">
+    <path d="M 90 60 L 93 68 L 100 71 L 93 74 L 90 82 L 87 74 L 80 71 L 87 68 Z"/>
+    <path d="M 310 50 L 312 56 L 318 58 L 312 60 L 310 66 L 308 60 L 302 58 L 308 56 Z"/>
+    <path d="M 330 230 L 332 236 L 338 238 L 332 240 L 330 246 L 328 240 L 322 238 L 328 236 Z"/>
+  </g>
+  <!-- Başlık -->
+  <text x="200" y="270" text-anchor="middle" font-family="system-ui,sans-serif" font-size="18" font-weight="800" fill="#1e293b">Yapay Zeka</text>
+  <text x="200" y="288" text-anchor="middle" font-family="system-ui,sans-serif" font-size="11" fill="#64748b">İnsan zekasının dijital yansıması</text>
+</svg>
