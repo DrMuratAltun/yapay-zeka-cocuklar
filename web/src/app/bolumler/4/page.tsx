@@ -21,6 +21,7 @@ import GecisSlayt from "@/components/anlati/GecisSlayt";
 import KonuBasligi from "@/components/anlati/KonuBasligi";
 import OzetKarti from "@/components/anlati/OzetKarti";
 import Hikaye from "@/components/anlati/Hikaye";
+import IcSayfa from "@/components/anlati/IcSayfa";
 
 const quizSorulari = [
   {
@@ -308,55 +309,94 @@ const SlaytGelenekselVsML = (
 
 /* ---- Slayt 3: Makine Öğrenimi Türleri ---- */
 const SlaytOgrenimTurleri = (
-  <section className="space-y-4">
-    <h3 className="text-2xl font-extrabold">2. Makine Öğrenimi Türleri</h3>
-    <div className="space-y-4">
-      <div className="rounded-xl border-2 border-emerald-300 bg-emerald-50 p-5 dark:border-emerald-700 dark:bg-emerald-900/20">
-        <h4 className="mb-2 font-bold text-emerald-700 dark:text-emerald-400">🏷️ Gözetimli Öğrenme (Supervised Learning)</h4>
-        <p className="mb-2 text-sm">Her veri için doğru cevap (etiket) verilir. Model, girdi-çıktı ilişkisini öğrenir.</p>
-        <div className="rounded-lg bg-white/60 p-3 text-sm dark:bg-white/5">
-          <p className="font-medium">Örnekler:</p>
-          <ul className="ml-4 list-disc text-[var(--color-text-secondary)]">
-            <li>E-posta: &quot;spam&quot; veya &quot;spam değil&quot; sınıflandırması</li>
-            <li>Görüntü: &quot;kedi&quot; veya &quot;köpek&quot; tanıma</li>
-            <li>Ev fiyatı tahmini (m2, oda sayısı &rarr; fiyat)</li>
-          </ul>
-        </div>
-        <p className="mt-2 rounded bg-emerald-200 px-2 py-1 text-center text-xs font-bold dark:bg-emerald-800">EN YAYGIN TÜR</p>
-      </div>
-
-      <div className="rounded-xl border-2 border-blue-300 bg-blue-50 p-5 dark:border-blue-700 dark:bg-blue-900/20">
-        <h4 className="mb-2 font-bold text-blue-700 dark:text-blue-400">🔍 Gözetimsiz Öğrenme (Unsupervised Learning)</h4>
-        <p className="mb-2 text-sm">Etiket yoktur. Model verideki gizli örüntüleri ve grupları kendisi keşfeder.</p>
-        <div className="rounded-lg bg-white/60 p-3 text-sm dark:bg-white/5">
-          <p className="font-medium">Örnekler:</p>
-          <ul className="ml-4 list-disc text-[var(--color-text-secondary)]">
-            <li>Müşteri segmentasyonu (benzer müşterileri gruplama)</li>
-            <li>Haber konularını otomatik gruplama</li>
-            <li>Anormal davranış tespiti</li>
-          </ul>
-        </div>
-      </div>
-
-      <div className="rounded-xl border-2 border-violet-300 bg-violet-50 p-5 dark:border-violet-700 dark:bg-violet-900/20">
-        <h4 className="mb-2 font-bold text-violet-700 dark:text-violet-400">🎮 Pekiştirmeli Öğrenme (Reinforcement Learning)</h4>
-        <p className="mb-2 text-sm">Model deneme-yanılma ile öğrenir. Doğru davranışlar ödül, yanlış davranışlar ceza alır.</p>
-        <div className="rounded-lg bg-white/60 p-3 text-sm dark:bg-white/5">
-          <p className="font-medium">Örnekler:</p>
-          <ul className="ml-4 list-disc text-[var(--color-text-secondary)]">
-            <li>AlphaGo - Go oyununu öğrenen YZ</li>
-            <li>Robotların yürümesini öğrenmesi</li>
-            <li>Otonom araçların sürüşü öğrenmesi</li>
-          </ul>
-        </div>
-      </div>
-    </div>
-
-    <div className="mt-4 flex flex-col items-center rounded-xl border border-[var(--color-border)] bg-[var(--color-bg)] p-4">
-      <Image src="/images/bolumler/neural-network.svg" alt="Yapay sinir agi diyagrami" width={500} height={400} className="rounded-lg object-cover shadow-md" />
-      <p className="mt-2 text-center text-sm text-[var(--color-text-secondary)]">Yapay sinir agi: Noronlarin katmanlar halinde baglantisi</p>
-      <p className="text-xs text-[var(--color-text-secondary)] italic">Gorsel: Cburnett, CC BY-SA 3.0</p>
-    </div>
+  <section className="space-y-3">
+    <h3 className="text-xl font-extrabold">2. Makine Öğrenimi Türleri</h3>
+    <IcSayfa
+      renkGradient="from-emerald-500 via-blue-500 to-violet-500"
+      sayfalar={[
+        {
+          emoji: "🏷️",
+          baslik: "Gözetimli Öğrenme (Supervised)",
+          icerik: (
+            <div className="rounded-xl border-2 border-emerald-300 bg-emerald-50 p-4 dark:border-emerald-700 dark:bg-emerald-900/20">
+              <p className="mb-2 text-sm">
+                Her veri için doğru cevap (etiket) verilir. Model, girdi-çıktı ilişkisini öğrenir.
+              </p>
+              <div className="rounded-lg bg-white/60 p-3 text-sm dark:bg-white/5">
+                <p className="font-medium">Örnekler:</p>
+                <ul className="ml-4 list-disc text-[var(--color-text-secondary)]">
+                  <li>E-posta: &quot;spam&quot; veya &quot;spam değil&quot; sınıflandırması</li>
+                  <li>Görüntü: &quot;kedi&quot; veya &quot;köpek&quot; tanıma</li>
+                  <li>Ev fiyatı tahmini (m2, oda sayısı → fiyat)</li>
+                </ul>
+              </div>
+              <p className="mt-2 rounded bg-emerald-200 px-2 py-1 text-center text-xs font-bold dark:bg-emerald-800">
+                EN YAYGIN TÜR
+              </p>
+            </div>
+          ),
+        },
+        {
+          emoji: "🔍",
+          baslik: "Gözetimsiz Öğrenme (Unsupervised)",
+          icerik: (
+            <div className="rounded-xl border-2 border-blue-300 bg-blue-50 p-4 dark:border-blue-700 dark:bg-blue-900/20">
+              <p className="mb-2 text-sm">
+                Etiket yoktur. Model verideki gizli örüntüleri ve grupları kendisi keşfeder.
+              </p>
+              <div className="rounded-lg bg-white/60 p-3 text-sm dark:bg-white/5">
+                <p className="font-medium">Örnekler:</p>
+                <ul className="ml-4 list-disc text-[var(--color-text-secondary)]">
+                  <li>Müşteri segmentasyonu (benzer müşterileri gruplama)</li>
+                  <li>Haber konularını otomatik gruplama</li>
+                  <li>Anormal davranış tespiti</li>
+                </ul>
+              </div>
+            </div>
+          ),
+        },
+        {
+          emoji: "🎮",
+          baslik: "Pekiştirmeli Öğrenme (Reinforcement)",
+          icerik: (
+            <div className="rounded-xl border-2 border-violet-300 bg-violet-50 p-4 dark:border-violet-700 dark:bg-violet-900/20">
+              <p className="mb-2 text-sm">
+                Model deneme-yanılma ile öğrenir. Doğru davranışlar ödül, yanlış davranışlar ceza alır.
+              </p>
+              <div className="rounded-lg bg-white/60 p-3 text-sm dark:bg-white/5">
+                <p className="font-medium">Örnekler:</p>
+                <ul className="ml-4 list-disc text-[var(--color-text-secondary)]">
+                  <li>AlphaGo - Go oyununu öğrenen YZ</li>
+                  <li>Robotların yürümesini öğrenmesi</li>
+                  <li>Otonom araçların sürüşü öğrenmesi</li>
+                </ul>
+              </div>
+            </div>
+          ),
+        },
+        {
+          emoji: "🧠",
+          baslik: "Sinir Ağları — Büyük Resim",
+          icerik: (
+            <div className="flex flex-col items-center rounded-xl border border-[var(--color-border)] bg-[var(--color-bg)] p-3">
+              <Image
+                src="/images/bolumler/neural-network.svg"
+                alt="Yapay sinir agi diyagrami"
+                width={500}
+                height={360}
+                className="rounded-lg object-cover shadow-md"
+              />
+              <p className="mt-2 text-center text-sm text-[var(--color-text-secondary)]">
+                Yapay sinir ağı: Nöronların katmanlar halinde bağlantısı
+              </p>
+              <p className="text-xs text-[var(--color-text-secondary)] italic">
+                Görsel: Cburnett, CC BY-SA 3.0
+              </p>
+            </div>
+          ),
+        },
+      ]}
+    />
   </section>
 );
 
