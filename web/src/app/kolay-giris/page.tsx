@@ -1,8 +1,9 @@
 'use client'
 
-import { Suspense, useState } from 'react'
-import { useSearchParams } from 'next/navigation'
+import { Suspense, useEffect, useState } from 'react'
+import { useRouter, useSearchParams } from 'next/navigation'
 import { getStudentsByClassCode, loginStudent } from './actions'
+import { createClient } from '@/lib/supabase/client'
 import { EMOJI_LIST, type KolayGirisStudent } from '@/types/saas'
 
 type Step = 'code' | 'nickname' | 'credential'
@@ -16,9 +17,29 @@ export default function KolayGirisPage() {
 }
 
 function KolayGirisForm() {
+  const router = useRouter()
   const searchParams = useSearchParams()
   const redirectTo = searchParams.get('redirect') ?? undefined
   const [step, setStep] = useState<Step>('code')
+  const [kontrolEdildi, setKontrolEdildi] = useState(false)
+
+  // Zaten giriş yapmış öğrenciyi direkt /ogrenci'ye gönder
+  useEffect(() => {
+    let iptal = false
+    const sup = createClient()
+    ;(async () => {
+      const { data } = await sup.auth.getUser()
+      if (iptal) return
+      if (data.user) {
+        router.replace(redirectTo || '/ogrenci')
+      } else {
+        setKontrolEdildi(true)
+      }
+    })()
+    return () => {
+      iptal = true
+    }
+  }, [router, redirectTo])
   const [accessCode, setAccessCode] = useState('')
   const [students, setStudents] = useState<KolayGirisStudent[]>([])
   const [credentialType, setCredentialType] = useState('pin')
@@ -83,6 +104,14 @@ function KolayGirisForm() {
       setError(result.error)
     }
     setLoading(false)
+  }
+
+  if (!kontrolEdildi) {
+    return (
+      <div className="min-h-screen bg-gradient-to-br from-blue-50 to-purple-50 flex items-center justify-center p-4">
+        <div className="text-sm text-slate-500">Yükleniyor...</div>
+      </div>
+    )
   }
 
   return (
