@@ -114,23 +114,23 @@ export default function BolumSlider({
   const ilerleme = ((aktifSlayt + 1) / slaytlar.length) * 100;
 
   return (
-    <div className="min-h-screen flex flex-col">
-      {/* Header */}
-      <header className={`bg-gradient-to-r ${renk} text-white`}>
-        <div className="mx-auto max-w-6xl px-4 py-6 sm:px-6 sm:py-8">
-          <Link href="/" className="mb-3 inline-block text-sm text-white/70 hover:text-white transition">
+    <div className="h-screen flex flex-col overflow-hidden">
+      {/* Header — kompakt */}
+      <header className={`bg-gradient-to-r ${renk} text-white shrink-0`}>
+        <div className="mx-auto max-w-6xl px-4 py-3 sm:px-6 sm:py-4">
+          <Link href="/" className="mb-1 inline-block text-[11px] text-white/70 hover:text-white transition">
             &larr; Ana Sayfa
           </Link>
-          <p className="text-xs font-medium tracking-wider text-white/70 sm:text-sm">
+          <p className="text-[10px] font-medium tracking-wider text-white/70 sm:text-xs">
             BÖLÜM {bolumNo} &middot; {seviye} &middot; {ders} ders saati
           </p>
-          <h1 className="mt-1 text-2xl font-extrabold sm:text-3xl md:text-4xl">{bolumBaslik}</h1>
-          <p className="mt-1 text-sm text-white/80 sm:text-base">{bolumAltBaslik}</p>
+          <h1 className="text-lg font-extrabold sm:text-xl md:text-2xl">{bolumBaslik}</h1>
+          <p className="text-xs text-white/80 sm:text-sm">{bolumAltBaslik}</p>
         </div>
       </header>
 
       {/* İlerleme çubuğu */}
-      <div className="h-1 bg-[var(--color-border)]">
+      <div className="h-1 bg-[var(--color-border)] shrink-0">
         <div
           className={`h-full bg-gradient-to-r ${renk} transition-all duration-300`}
           style={{ width: `${ilerleme}%` }}
@@ -138,7 +138,7 @@ export default function BolumSlider({
       </div>
 
       {/* Ana içerik: Sidebar + Content */}
-      <div className="flex flex-1 relative">
+      <div className="flex flex-1 min-h-0 relative">
         {/* Mobil sidebar toggle */}
         <button
           type="button"
@@ -217,27 +217,29 @@ export default function BolumSlider({
         </aside>
 
         {/* Ana İçerik */}
-        <main className="flex-1 min-w-0 px-4 py-6 sm:px-8 lg:px-12 lg:py-8">
-          <div className="mx-auto max-w-3xl">
+        <main className="flex-1 min-w-0 flex flex-col px-4 py-4 sm:px-6 lg:px-8 lg:py-6">
+          <div className="mx-auto flex w-full max-w-3xl flex-col flex-1 min-h-0">
             {/* Slayt başlık */}
-            <div className="mb-6">
-              <p className="text-xs text-[var(--color-text-secondary)] mb-1">
+            <div className="mb-3 shrink-0">
+              <p className="text-[11px] text-[var(--color-text-secondary)]">
                 {aktifSlayt + 1} / {slaytlar.length}
-                <span className="ml-2 text-green-600 dark:text-green-400">({tamamlanan}/{slaytlar.length} tamamlandı)</span>
+                <span className="ml-2 text-green-600 dark:text-green-400">
+                  ({tamamlanan}/{slaytlar.length} tamamlandı)
+                </span>
               </p>
-              <h2 className="text-2xl font-extrabold flex items-center gap-2">
+              <h2 className="text-xl font-extrabold flex items-center gap-2 md:text-2xl">
                 <span>{slaytlar[aktifSlayt].icon}</span>
                 {slaytlar[aktifSlayt].baslik}
               </h2>
             </div>
 
-            {/* Slayt içerik */}
-            <div className="space-y-8">
+            {/* Slayt içerik — viewport ile sınırlı, içeride kaydırılır */}
+            <div className="flex-1 min-h-0 overflow-y-auto space-y-6 pr-1 scroll-smooth">
               {slaytlar[aktifSlayt].icerik}
             </div>
 
-            {/* Alt navigasyon */}
-            <div className="mt-12 flex items-center justify-between border-t border-[var(--color-border)] pt-6">
+            {/* Alt navigasyon — sabit, içerik tarafından itilmez */}
+            <div className="mt-3 flex shrink-0 items-center justify-between border-t border-[var(--color-border)] pt-3">
               {ilkSlayt ? (
                 oncekiBolum ? (
                   <Link

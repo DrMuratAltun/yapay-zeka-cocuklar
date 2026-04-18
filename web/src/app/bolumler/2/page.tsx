@@ -18,6 +18,7 @@ import BilgiKutusu from "@/components/anlati/BilgiKutusu";
 import GecisSlayt from "@/components/anlati/GecisSlayt";
 import OzetKarti from "@/components/anlati/OzetKarti";
 import Hikaye from "@/components/anlati/Hikaye";
+import IcSayfa from "@/components/anlati/IcSayfa";
 
 const quizSorulari = [
   {
@@ -455,89 +456,104 @@ const SlaytOneriSistemleri = (
 );
 
 const SlaytSesliAsistanlar = (
-  <>
-    <section className="space-y-4">
-      <h2 className="text-2xl font-extrabold">
-        5. Sesli Asistanlar ve Chatbotlar
-      </h2>
-      <p>
-        Siri, Google Asistan, Alexa gibi sesli asistanlar birden fazla YZ
-        teknolojisini bir arada kullanır:
-      </p>
-      <div className="overflow-x-auto">
-        <table className="w-full rounded-xl border border-[var(--color-border)] text-sm">
-          <thead className="bg-emerald-600 text-white">
-            <tr>
-              <th className="px-4 py-3 text-left">Aşama</th>
-              <th className="px-4 py-3 text-left">Teknoloji</th>
-              <th className="px-4 py-3 text-left">Ne Yapar?</th>
-            </tr>
-          </thead>
-          <tbody>
-            {[
-              [
-                "1. Dinleme",
-                "Konuşma Tanıma (ASR)",
-                "Sesini metne çevirir",
-              ],
-              [
-                "2. Anlama",
-                "Doğal Dil İşleme (NLP)",
-                "Ne demek istediğini anlar",
-              ],
-              [
-                "3. İşlem",
-                "Akıl Yürütme",
-                "En iyi yanıtı bulur",
-              ],
-              [
-                "4. Yanıtlama",
-                "Konuşma Sentezi (TTS)",
-                "Yanıtı sesli olarak söyler",
-              ],
-            ].map(([asama, teknoloji, neYapar], i) => (
-              <tr
-                key={asama}
-                className={
-                  i % 2 === 0 ? "bg-[var(--color-bg-secondary)]" : ""
-                }
-              >
-                <td className="px-4 py-2.5 font-medium">{asama}</td>
-                <td className="px-4 py-2.5">{teknoloji}</td>
-                <td className="px-4 py-2.5">{neYapar}</td>
-              </tr>
-            ))}
-          </tbody>
-        </table>
-      </div>
-    </section>
-
-    <div className="grid gap-4 md:grid-cols-2">
-      <div className="rounded-xl border border-emerald-200 bg-emerald-50 p-5 dark:border-emerald-800 dark:bg-emerald-900/20">
-        <h3 className="mb-2 font-bold">🚗 Otonom Araçlar</h3>
-        <p className="text-sm text-[var(--color-text-secondary)]">
-          Tesla, Waymo gibi şirketlerin sürücüsüz araçları kameralar,
-          radarlar ve LIDAR sensörleri ile çevreyi algılar. YZ, diğer
-          araçları, yayaları ve trafik işaretlerini tanımlayarak aracı
-          güvenli bir şekilde sürebilir.
-        </p>
-        <div className="mt-4 flex flex-col items-center rounded-xl border border-[var(--color-border)] bg-[var(--color-bg)] p-4">
-          <Image src="/images/bolumler/waymo.jpg" alt="Waymo sürücüsüz araç" width={480} height={320} className="rounded-lg object-cover shadow-md" />
-          <p className="mt-2 text-center text-sm text-[var(--color-text-secondary)]">Waymo otonom (surucusuz) araci - yapay zeka ile trafikteki nesneleri algilayarak guvenli suruyor</p>
-          <p className="text-xs text-[var(--color-text-secondary)] italic">CC BY-SA 4.0, Dllu</p>
-        </div>
-      </div>
-      <div className="rounded-xl border border-emerald-200 bg-emerald-50 p-5 dark:border-emerald-800 dark:bg-emerald-900/20">
-        <h3 className="mb-2 font-bold">🌾 Akıllı Tarım</h3>
-        <p className="text-sm text-[var(--color-text-secondary)]">
-          Drone&apos;lar tarlaları havadan tarayarak hastalıklı bitkileri
-          tespit eder. YZ destekli sulama sistemleri toprağın nem durumuna
-          göre su tasarrufu sağlar. Türkiye&apos;de de akıllı tarım
-          uygulamaları yaygınlaşmaktadır.
-        </p>
-      </div>
-    </div>
-  </>
+  <section className="space-y-3">
+    <h3 className="text-xl font-extrabold">5. Sesli Asistanlar ve Otonom Sistemler</h3>
+    <IcSayfa
+      renkGradient="from-emerald-500 to-teal-500"
+      sayfalar={[
+        {
+          emoji: "🎙️",
+          baslik: "Sesli Asistan Nasıl Çalışır?",
+          icerik: (
+            <div className="space-y-3">
+              <p className="text-sm">
+                Siri, Google Asistan, Alexa — birden fazla YZ teknolojisini birlikte
+                kullanır. 4 aşamada işleyiş:
+              </p>
+              <div className="overflow-x-auto">
+                <table className="w-full rounded-xl border border-[var(--color-border)] text-sm">
+                  <thead className="bg-emerald-600 text-white">
+                    <tr>
+                      <th className="px-3 py-2 text-left">Aşama</th>
+                      <th className="px-3 py-2 text-left">Teknoloji</th>
+                      <th className="px-3 py-2 text-left">Ne Yapar?</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    {[
+                      ["1. Dinleme", "Konuşma Tanıma (ASR)", "Sesini metne çevirir"],
+                      ["2. Anlama", "Doğal Dil İşleme (NLP)", "Ne demek istediğini anlar"],
+                      ["3. İşlem", "Akıl Yürütme", "En iyi yanıtı bulur"],
+                      ["4. Yanıtlama", "Konuşma Sentezi (TTS)", "Yanıtı sesli söyler"],
+                    ].map(([a, t, n], i) => (
+                      <tr key={a} className={i % 2 === 0 ? "bg-[var(--color-bg-secondary)]" : ""}>
+                        <td className="px-3 py-2 font-medium">{a}</td>
+                        <td className="px-3 py-2">{t}</td>
+                        <td className="px-3 py-2">{n}</td>
+                      </tr>
+                    ))}
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          ),
+        },
+        {
+          emoji: "🚗",
+          baslik: "Otonom Araçlar",
+          icerik: (
+            <div className="rounded-xl border border-emerald-200 bg-emerald-50 p-4 dark:border-emerald-800 dark:bg-emerald-900/20">
+              <p className="text-sm text-[var(--color-text)]">
+                Tesla, Waymo gibi şirketlerin sürücüsüz araçları kameralar, radarlar ve LIDAR
+                sensörleri ile çevreyi algılar. YZ, diğer araçları, yayaları ve trafik işaretlerini
+                tanımlayarak aracı güvenli bir şekilde sürebilir.
+              </p>
+              <div className="mt-3 flex flex-col items-center rounded-xl border border-[var(--color-border)] bg-[var(--color-bg)] p-3">
+                <Image
+                  src="/images/bolumler/waymo.jpg"
+                  alt="Waymo sürücüsüz araç"
+                  width={380}
+                  height={240}
+                  className="rounded-lg object-cover shadow-md"
+                />
+                <p className="mt-1 text-center text-[11px] text-[var(--color-text-secondary)]">
+                  Waymo — YZ ile trafikteki nesneleri algılayarak güvenli sürüyor
+                </p>
+                <p className="text-[10px] text-[var(--color-text-secondary)] italic">CC BY-SA 4.0, Dllu</p>
+              </div>
+            </div>
+          ),
+        },
+        {
+          emoji: "🌾",
+          baslik: "Akıllı Tarım",
+          icerik: (
+            <div className="rounded-xl border border-emerald-200 bg-emerald-50 p-4 dark:border-emerald-800 dark:bg-emerald-900/20">
+              <p className="text-sm text-[var(--color-text)]">
+                Drone&apos;lar tarlaları havadan tarayarak hastalıklı bitkileri tespit eder. YZ
+                destekli sulama sistemleri toprağın nem durumuna göre su tasarrufu sağlar.
+                Türkiye&apos;de de akıllı tarım uygulamaları yaygınlaşmaktadır.
+              </p>
+              <ul className="mt-3 space-y-1 text-sm text-[var(--color-text)]">
+                <li className="flex items-start gap-2">
+                  <span className="mt-0.5">🌱</span>
+                  <span>Bitki hastalığı tespiti → erken müdahale</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <span className="mt-0.5">💧</span>
+                  <span>Otomatik sulama → %40&apos;a varan su tasarrufu</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <span className="mt-0.5">🛰️</span>
+                  <span>Uydu verileriyle tarla izleme</span>
+                </li>
+              </ul>
+            </div>
+          ),
+        },
+      ]}
+    />
+  </section>
 );
 
 const SlaytEtkinlik1 = (

@@ -16,6 +16,7 @@ import BilgiKutusu from "@/components/anlati/BilgiKutusu";
 import GecisSlayt from "@/components/anlati/GecisSlayt";
 import OzetKarti from "@/components/anlati/OzetKarti";
 import Hikaye from "@/components/anlati/Hikaye";
+import IcSayfa from "@/components/anlati/IcSayfa";
 
 const quizSorulari = [
   {
@@ -269,60 +270,87 @@ const SlaytLLM = (
 
 /* ---- Slayt 4: Prompt Mühendisliği ---- */
 const SlaytPrompt = (
-  <section className="space-y-4">
-    <h3 className="text-2xl font-extrabold">3. Prompt Mühendisliği: YZ&apos;ye Nasıl Soru Sorulur?</h3>
-    <p>
-      Prompt (istem), YZ&apos;ye verdiğiniz talimattır. İyi bir prompt = iyi bir sonuç!
-    </p>
-    <div className="overflow-x-auto">
-      <table className="w-full rounded-xl border border-[var(--color-border)] text-sm">
-        <thead className="bg-pink-600 text-white">
-          <tr>
-            <th className="px-4 py-3 text-left">Kötü Prompt ❌</th>
-            <th className="px-4 py-3 text-left">İyi Prompt ✅</th>
-            <th className="px-4 py-3 text-left">Neden?</th>
-          </tr>
-        </thead>
-        <tbody>
-          {[
-            ["Bana bir şey yaz", "6. sınıf öğrencisi için yapay zeka hakkında 100 kelimelik bir paragraf yaz", "Konu, hedef kitle ve uzunluk belirtilmiş"],
-            ["Çiz", "Uzayda yüzen bir astronot kedinin dijital resmi, karikatür tarzında", "Konu, stil ve detay verilmiş"],
-            ["Matematik yap", "Bu denklemi adım adım çöz: 3x + 7 = 22", "Spesifik problem ve yöntem belirtilmiş"],
-            ["Kod yaz", "Python ile 1'den 100'e kadar asal sayıları bulan bir program yaz, her adımı açıklayarak", "Dil, görev ve format belirtilmiş"],
-          ].map(([kotu, iyi, neden], i) => (
-            <tr key={i} className={i % 2 === 0 ? "bg-[var(--color-bg-secondary)]" : ""}>
-              <td className="px-4 py-2.5 text-rose-600 dark:text-rose-400">{kotu}</td>
-              <td className="px-4 py-2.5 text-emerald-600 dark:text-emerald-400">{iyi}</td>
-              <td className="px-4 py-2.5 text-[var(--color-text-secondary)]">{neden}</td>
-            </tr>
-          ))}
-        </tbody>
-      </table>
-    </div>
-
-    <div className="rounded-xl border-2 border-pink-300 bg-pink-50 p-5 dark:border-pink-700 dark:bg-pink-900/20">
-      <h4 className="mb-3 font-bold text-pink-700 dark:text-pink-400">🔑 İyi Prompt Formülü</h4>
-      <div className="grid gap-2 text-sm sm:grid-cols-2">
-        {[
-          { eleman: "Rol", ornek: "Sen bir tarih öğretmenisin...", icon: "🎭" },
-          { eleman: "Görev", ornek: "...6. sınıflar için bir ders notu yaz...", icon: "📋" },
-          { eleman: "Bağlam", ornek: "...konu: Osmanlı Devleti'nin kuruluşu...", icon: "🌍" },
-          { eleman: "Format", ornek: "...madde işareti ile, en fazla 200 kelime.", icon: "📐" },
-        ].map((p) => (
-          <div key={p.eleman} className="flex items-start gap-2 rounded-lg bg-white/60 p-3 dark:bg-white/5">
-            <span className="text-xl">{p.icon}</span>
-            <div>
-              <span className="font-bold">{p.eleman}:</span>
-              <p className="text-xs text-[var(--color-text-secondary)]">{p.ornek}</p>
+  <section className="space-y-3">
+    <h3 className="text-xl font-extrabold">3. Prompt Mühendisliği: YZ&apos;ye Nasıl Soru Sorulur?</h3>
+    <IcSayfa
+      renkGradient="from-pink-500 to-rose-500"
+      sayfalar={[
+        {
+          emoji: "💬",
+          baslik: "Prompt Nedir?",
+          icerik: (
+            <div className="space-y-3">
+              <p className="text-sm">
+                Prompt (istem), YZ&apos;ye verdiğiniz <strong>talimat</strong>tır. İyi prompt = iyi sonuç.
+                YZ düşünce okuyamaz — ne kadar açık yazarsan o kadar iyi yanıt verir.
+              </p>
+              <div className="rounded-xl border-l-4 border-amber-500 bg-amber-50 p-3 text-sm dark:bg-amber-900/20">
+                ⚠️ <strong>Dikkat:</strong> &quot;Harika bir şey yaz&quot; demek yerine, ne
+                istediğini <em>adım adım</em> tarif et.
+              </div>
             </div>
-          </div>
-        ))}
-      </div>
-    </div>
-
-    <div className="rounded-xl border-l-4 border-amber-500 bg-amber-50 p-4 dark:bg-amber-900/20">
-      <p className="font-medium">⚠️ <strong>Dikkat:</strong> &quot;Harika bir prompt yaz&quot; demek yerine, ne istediğinizi adım adım tarif edin. YZ zihin okuyamaz!</p>
-    </div>
+          ),
+        },
+        {
+          emoji: "🔍",
+          baslik: "Kötü vs İyi Prompt",
+          icerik: (
+            <div className="overflow-x-auto">
+              <table className="w-full rounded-xl border border-[var(--color-border)] text-xs sm:text-sm">
+                <thead className="bg-pink-600 text-white">
+                  <tr>
+                    <th className="px-3 py-2 text-left">Kötü ❌</th>
+                    <th className="px-3 py-2 text-left">İyi ✅</th>
+                    <th className="hidden px-3 py-2 text-left md:table-cell">Neden?</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {[
+                    ["Bana bir şey yaz", "6. sınıf için YZ hakkında 100 kelimelik paragraf yaz", "Konu + kitle + uzunluk"],
+                    ["Çiz", "Uzayda yüzen astronot kedi, karikatür tarzı", "Konu + stil + detay"],
+                    ["Matematik yap", "3x + 7 = 22 denklemini adım adım çöz", "Problem + yöntem"],
+                    ["Kod yaz", "Python ile 1-100 arası asalları bul, her adımı açıkla", "Dil + görev + format"],
+                  ].map(([k, i_, n], idx) => (
+                    <tr key={idx} className={idx % 2 === 0 ? "bg-[var(--color-bg-secondary)]" : ""}>
+                      <td className="px-3 py-2 text-rose-600 dark:text-rose-400">{k}</td>
+                      <td className="px-3 py-2 text-emerald-600 dark:text-emerald-400">{i_}</td>
+                      <td className="hidden px-3 py-2 text-[var(--color-text-secondary)] md:table-cell">{n}</td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </div>
+          ),
+        },
+        {
+          emoji: "🔑",
+          baslik: "İyi Prompt Formülü",
+          icerik: (
+            <div className="rounded-xl border-2 border-pink-300 bg-pink-50 p-4 dark:border-pink-700 dark:bg-pink-900/20">
+              <p className="mb-3 text-sm text-pink-700 dark:text-pink-300">
+                <strong>Rol + Görev + Bağlam + Format</strong>
+              </p>
+              <div className="grid gap-2 sm:grid-cols-2">
+                {[
+                  { eleman: "Rol", ornek: "Sen bir tarih öğretmenisin...", icon: "🎭" },
+                  { eleman: "Görev", ornek: "...6. sınıflar için ders notu yaz...", icon: "📋" },
+                  { eleman: "Bağlam", ornek: "...konu: Osmanlı kuruluşu...", icon: "🌍" },
+                  { eleman: "Format", ornek: "...madde işareti, max 200 kelime.", icon: "📐" },
+                ].map((p) => (
+                  <div key={p.eleman} className="flex items-start gap-2 rounded-lg bg-white/70 p-2.5 text-xs dark:bg-white/5">
+                    <span className="text-lg">{p.icon}</span>
+                    <div>
+                      <span className="font-bold">{p.eleman}:</span>
+                      <p className="text-[11px] text-[var(--color-text-secondary)]">{p.ornek}</p>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+          ),
+        },
+      ]}
+    />
   </section>
 );
 
