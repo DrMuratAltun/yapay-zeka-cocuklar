@@ -57,12 +57,18 @@ export default function AnaSayfa() {
                   Bölümleri Keşfet
                 </a>
                 <Link
-                  href="/hakkinda"
-                  className="rounded-xl border border-white/10 bg-white/5 px-8 py-3.5 font-bold backdrop-blur transition hover:bg-white/10"
+                  href="/kolay-giris"
+                  className="flex items-center gap-2 rounded-xl border-2 border-sky-400/40 bg-sky-500/20 px-8 py-3.5 font-bold text-white backdrop-blur transition hover:bg-sky-500/30"
                 >
-                  Hakkında
+                  <span>🎒</span>
+                  <span>Öğrenci Girişi</span>
                 </Link>
               </div>
+              <p className="mt-4 text-xs text-slate-300">
+                <Link href="/giris" className="underline hover:text-white">
+                  Öğretmen / Yönetici girişi →
+                </Link>
+              </p>
             </div>
 
             {/* Sag: Istatistikler */}
