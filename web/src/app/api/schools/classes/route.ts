@@ -1,4 +1,5 @@
 import { createClient } from '@/lib/supabase/server'
+import { createAdminClient } from '@/lib/supabase/admin'
 import { NextRequest, NextResponse } from 'next/server'
 
 // GET /api/schools/classes?my=true — giriş yapan öğretmenin/okul admininin sınıfları
@@ -6,24 +7,35 @@ import { NextRequest, NextResponse } from 'next/server'
 // aksi halde → aynı okula ait tüm sınıflar (okul admini için)
 export async function GET(req: NextRequest) {
   const supabase = await createClient()
+  const admin = createAdminClient()
+
   const {
     data: { user },
   } = await supabase.auth.getUser()
   if (!user) return NextResponse.json({ error: 'Yetkisiz' }, { status: 401 })
 
-  const { data: myRole } = await supabase
+  // RLS'den kaçınmak için admin client ile rol sorgusu (user.id doğrulanmış)
+  const { data: myRole, error: roleError } = await admin
     .from('school_users')
     .select('school_id, role')
     .eq('user_id', user.id)
     .in('role', ['teacher', 'school_admin', 'super_admin'])
-    .single()
+    .maybeSingle()
 
-  if (!myRole) return NextResponse.json({ error: 'Yetki yok' }, { status: 403 })
+  if (roleError) {
+    return NextResponse.json({ error: roleError.message }, { status: 500 })
+  }
+  if (!myRole) {
+    return NextResponse.json(
+      { error: 'Yetki yok. Okul yöneticisinden teacher rolüyle eşleştirilmeyi iste.' },
+      { status: 403 }
+    )
+  }
 
   const { searchParams } = new URL(req.url)
   const sadeceBenim = searchParams.get('my') === 'true'
 
-  let query = supabase
+  let query = admin
     .from('classes')
     .select('id, name, access_code, credential_type, teacher_id, school_id, created_at')
     .eq('school_id', myRole.school_id)
@@ -40,7 +52,7 @@ export async function GET(req: NextRequest) {
   // Her sınıfın öğrenci sayısını ekle
   const classesWithCounts = await Promise.all(
     (classes ?? []).map(async (c) => {
-      const { count } = await supabase
+      const { count } = await admin
         .from('class_students')
         .select('*', { count: 'exact', head: true })
         .eq('class_id', c.id)
@@ -54,18 +66,27 @@ export async function GET(req: NextRequest) {
 // POST /api/schools/classes — sınıf oluştur (teacher, school_admin, super_admin)
 export async function POST(req: NextRequest) {
   const supabase = await createClient()
-  const { data: { user } } = await supabase.auth.getUser()
+  const admin = createAdminClient()
+
+  const {
+    data: { user },
+  } = await supabase.auth.getUser()
   if (!user) return NextResponse.json({ error: 'Yetkisiz' }, { status: 401 })
 
-  // Yetki kontrolü: teacher, school_admin veya super_admin
-  const { data: myRole } = await supabase
+  // Yetki kontrolü (admin client ile RLS bypass)
+  const { data: myRole } = await admin
     .from('school_users')
     .select('school_id, role')
     .eq('user_id', user.id)
     .in('role', ['teacher', 'school_admin', 'super_admin'])
-    .single()
+    .maybeSingle()
 
-  if (!myRole) return NextResponse.json({ error: 'Sınıf oluşturma yetkisi yok' }, { status: 403 })
+  if (!myRole) {
+    return NextResponse.json(
+      { error: 'Sınıf oluşturma yetkin yok. Okul yöneticisinden teacher rolüyle eşleştirilmeyi iste.' },
+      { status: 403 }
+    )
+  }
 
   const body = await req.json()
   const { name, access_code, credential_type } = body
@@ -74,7 +95,22 @@ export async function POST(req: NextRequest) {
     return NextResponse.json({ error: 'name ve access_code zorunlu' }, { status: 400 })
   }
 
-  const { data, error } = await supabase
+  // Sınıf kodunun aynı okulda benzersiz olduğundan emin ol
+  const { data: mevcut } = await admin
+    .from('classes')
+    .select('id')
+    .eq('school_id', myRole.school_id)
+    .eq('access_code', access_code.toUpperCase())
+    .maybeSingle()
+
+  if (mevcut) {
+    return NextResponse.json(
+      { error: 'Bu sınıf kodu zaten kullanımda. Farklı bir kod dene.' },
+      { status: 409 }
+    )
+  }
+
+  const { data, error } = await admin
     .from('classes')
     .insert({
       school_id: myRole.school_id,

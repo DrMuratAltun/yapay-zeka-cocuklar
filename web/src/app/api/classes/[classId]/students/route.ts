@@ -8,6 +8,7 @@ export async function GET(
   { params }: { params: Promise<{ classId: string }> }
 ) {
   const supabase = await createClient()
+  const admin = createAdminClient()
   const { classId } = await params
 
   const {
@@ -15,8 +16,8 @@ export async function GET(
   } = await supabase.auth.getUser()
   if (!user) return NextResponse.json({ error: 'Yetkisiz' }, { status: 401 })
 
-  // Sınıf bilgisi
-  const { data: classData, error: classError } = await supabase
+  // Sınıf bilgisi (RLS bypass — user.id doğrulanmış)
+  const { data: classData, error: classError } = await admin
     .from('classes')
     .select('id, name, access_code, credential_type, school_id, teacher_id')
     .eq('id', classId)
@@ -29,7 +30,7 @@ export async function GET(
   // Yetki kontrolü: sınıfın öğretmeni, school_admin veya super_admin
   const isTeacher = classData.teacher_id === user.id
   if (!isTeacher) {
-    const { data: roleData } = await supabase
+    const { data: roleData } = await admin
       .from('school_users')
       .select('role')
       .eq('user_id', user.id)
@@ -43,7 +44,7 @@ export async function GET(
   }
 
   // Öğrenci listesi
-  const { data: students } = await supabase
+  const { data: students } = await admin
     .from('class_students')
     .select('id, user_id, nickname, credential_plain, created_at')
     .eq('class_id', classId)
@@ -69,7 +70,7 @@ export async function POST(
   } = await supabase.auth.getUser()
   if (!user) return NextResponse.json({ error: 'Yetkisiz' }, { status: 401 })
 
-  const { data: classData } = await supabase
+  const { data: classData } = await adminClient
     .from('classes')
     .select('id, school_id, access_code, credential_type, teacher_id')
     .eq('id', classId)
@@ -80,7 +81,18 @@ export async function POST(
   }
 
   if (classData.teacher_id !== user.id) {
-    return NextResponse.json({ error: 'Bu sınıfa erişim yok' }, { status: 403 })
+    // School admin/super_admin de ekleyebilmeli
+    const { data: roleData } = await adminClient
+      .from('school_users')
+      .select('role')
+      .eq('user_id', user.id)
+      .eq('school_id', classData.school_id)
+      .in('role', ['school_admin', 'super_admin'])
+      .maybeSingle()
+
+    if (!roleData) {
+      return NextResponse.json({ error: 'Bu sınıfa erişim yok' }, { status: 403 })
+    }
   }
 
   const body = await req.json()
@@ -91,13 +103,13 @@ export async function POST(
   }
 
   // Kota kontrolü
-  const { data: school } = await supabase
+  const { data: school } = await adminClient
     .from('schools')
     .select('quota_students')
     .eq('id', classData.school_id)
     .single()
 
-  const { count: currentCount } = await supabase
+  const { count: currentCount } = await adminClient
     .from('school_users')
     .select('*', { count: 'exact', head: true })
     .eq('school_id', classData.school_id)

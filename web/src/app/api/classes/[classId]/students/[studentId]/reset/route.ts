@@ -18,7 +18,7 @@ export async function POST(
   } = await supabase.auth.getUser()
   if (!user) return NextResponse.json({ error: 'Yetkisiz' }, { status: 401 })
 
-  const { data: classData } = await supabase
+  const { data: classData } = await adminClient
     .from('classes')
     .select('teacher_id, school_id')
     .eq('id', classId)

@@ -16,8 +16,8 @@ export async function DELETE(
   } = await supabase.auth.getUser()
   if (!user) return NextResponse.json({ error: 'Yetkisiz' }, { status: 401 })
 
-  // Sınıf bilgisi
-  const { data: classData } = await supabase
+  // Sınıf bilgisi (admin client — RLS bypass)
+  const { data: classData } = await adminClient
     .from('classes')
     .select('teacher_id, school_id')
     .eq('id', classId)
@@ -28,7 +28,7 @@ export async function DELETE(
   }
 
   if (classData.teacher_id !== user.id) {
-    const { data: roleData } = await supabase
+    const { data: roleData } = await adminClient
       .from('school_users')
       .select('role')
       .eq('user_id', user.id)
