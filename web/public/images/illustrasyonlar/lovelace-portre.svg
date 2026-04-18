@@ -1,0 +1,54 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 240" role="img" aria-label="Ada Lovelace stilize portre">
+  <defs>
+    <linearGradient id="ada-bg" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#9d174d"/>
+      <stop offset="1" stop-color="#be185d"/>
+    </linearGradient>
+    <linearGradient id="ada-skin" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#fde68a"/>
+      <stop offset="1" stop-color="#f59e0b"/>
+    </linearGradient>
+  </defs>
+  <rect width="200" height="240" rx="18" fill="url(#ada-bg)"/>
+  <g fill="#ffffff" opacity="0.12" font-family="serif" font-size="11">
+    <text x="10" y="22" font-style="italic">1815</text>
+    <text x="155" y="28" font-style="italic">algoritma</text>
+    <text x="15" y="228">BASIC</text>
+  </g>
+  <!-- Vücut / elbise -->
+  <path d="M 38 200 L 55 165 Q 100 155 145 165 L 162 200 L 168 240 L 32 240 Z" fill="#7e22ce"/>
+  <path d="M 60 175 Q 100 185 140 175 L 140 185 Q 100 195 60 185 Z" fill="#c084fc"/>
+  <!-- Boyun -->
+  <rect x="89" y="150" width="22" height="18" fill="url(#ada-skin)"/>
+  <!-- Baş -->
+  <ellipse cx="100" cy="112" rx="36" ry="44" fill="url(#ada-skin)"/>
+  <!-- Saç bukleleri -->
+  <g fill="#1c1917">
+    <ellipse cx="65" cy="120" rx="12" ry="22"/>
+    <ellipse cx="135" cy="120" rx="12" ry="22"/>
+    <circle cx="75" cy="145" r="8"/>
+    <circle cx="125" cy="145" r="8"/>
+  </g>
+  <!-- Üst saç -->
+  <path d="M 68 85 Q 75 60 100 58 Q 125 60 132 85 Q 130 92 120 88 Q 110 78 100 78 Q 90 78 80 88 Q 70 92 68 85 Z" fill="#1c1917"/>
+  <!-- Saç ayırımı çizgileri -->
+  <path d="M 85 80 Q 80 90 82 110" fill="none" stroke="#44403c" stroke-width="1" opacity="0.6"/>
+  <path d="M 115 80 Q 120 90 118 110" fill="none" stroke="#44403c" stroke-width="1" opacity="0.6"/>
+
+  <!-- Kaş -->
+  <path d="M 82 100 Q 88 98 94 100" fill="none" stroke="#44403c" stroke-width="1.5" stroke-linecap="round"/>
+  <path d="M 106 100 Q 112 98 118 100" fill="none" stroke="#44403c" stroke-width="1.5" stroke-linecap="round"/>
+  <!-- Gözler -->
+  <ellipse cx="88" cy="110" rx="3" ry="2.5" fill="#1f2937"/>
+  <ellipse cx="112" cy="110" rx="3" ry="2.5" fill="#1f2937"/>
+  <circle cx="89" cy="109" r="0.8" fill="#ffffff"/>
+  <circle cx="113" cy="109" r="0.8" fill="#ffffff"/>
+  <!-- Burun -->
+  <path d="M 100 114 Q 97 124 99 129 L 103 129" fill="none" stroke="#b45309" stroke-width="1"/>
+  <!-- Dudaklar -->
+  <path d="M 92 138 Q 100 142 108 138" fill="#be185d" stroke="#9d174d" stroke-width="0.8"/>
+  <path d="M 92 140 Q 100 143 108 140" fill="none" stroke="#9d174d" stroke-width="0.5"/>
+
+  <rect x="15" y="200" width="92" height="20" rx="10" fill="#ffffff" fill-opacity="0.12"/>
+  <text x="61" y="214" text-anchor="middle" font-family="system-ui" font-size="10" font-weight="700" fill="#ffffff">Ada Lovelace</text>
+</svg>

@@ -14,6 +14,9 @@ import YzDedektifi from "@/components/etkinlikler/YzDedektifi";
 import ZamanCizelgesi from "@/components/etkinlikler/ZamanCizelgesi";
 import TuringTesti from "@/components/etkinlikler/TuringTesti";
 import YzZekaKarsilastir from "@/components/etkinlikler/YzZekaKarsilastir";
+import OnculerInteraktif from "@/components/etkinlikler/OnculerInteraktif";
+import TarihceZamanMakinesi from "@/components/etkinlikler/TarihceZamanMakinesi";
+import YzTurleriKesif from "@/components/etkinlikler/YzTurleriKesif";
 import BilgiKutusu from "@/components/anlati/BilgiKutusu";
 import GecisSlayt from "@/components/anlati/GecisSlayt";
 import KonuBasligi from "@/components/anlati/KonuBasligi";
@@ -277,49 +280,16 @@ const SlaytYapayZekaNedir = (
   </>
 );
 
-/* ---- Slayt 4: Öncüler ---- */
+/* ---- Slayt 4: Öncüler (interaktif) ---- */
 const SlaytOnculer = (
-  <section className="grid gap-4 md:grid-cols-2">
-    <div className="rounded-xl border border-sky-200 bg-sky-50 p-5 dark:border-sky-800 dark:bg-sky-900/20">
-      <div className="mb-3 flex items-center gap-4">
-        <Image
-          src="/images/bolumler/turing.jpg"
-          alt="Alan Turing"
-          width={80}
-          height={100}
-          className="rounded-lg object-cover shadow-md"
-        />
-        <h4 className="text-lg font-bold">Alan Turing (1912-1954)</h4>
-      </div>
-      <p className="text-sm text-[var(--color-text-secondary)]">
-        İngiliz matematikçi ve bilgisayar biliminin babası.
-        &quot;Makineler düşünebilir mi?&quot; sorusunu ilk kez o sormuştur.
-        Turing Testi&apos;ni öne sürmüştür.
-      </p>
-      <p className="mt-2 text-xs text-[var(--color-text-secondary)] italic">
-        Fotoğraf: Public Domain, Wikimedia Commons
-      </p>
-    </div>
-    <div className="rounded-xl border border-sky-200 bg-sky-50 p-5 dark:border-sky-800 dark:bg-sky-900/20">
-      <div className="mb-3 flex items-center gap-4">
-        <Image
-          src="/images/bolumler/cahit-arf.jpg"
-          alt="Cahit Arf - 10 TL banknot"
-          width={120}
-          height={60}
-          className="rounded-lg object-cover shadow-md"
-        />
-        <h4 className="text-lg font-bold">Cahit Arf (1910-1997)</h4>
-      </div>
-      <p className="text-sm text-[var(--color-text-secondary)]">
-        Türkiye&apos;nin en büyük matematikçilerinden biri. 10 liralık
-        banknotların arkasında resmi bulunan Cahit Arf, &quot;Makineler
-        düşünebilir mi ve nasıl düşünebilir?&quot; çalışması yayımlamıştır.
-      </p>
-      <p className="mt-2 text-xs text-[var(--color-text-secondary)] italic">
-        Görsel: Public Domain (TR currency), Wikimedia Commons
-      </p>
-    </div>
+  <section className="space-y-3">
+    <KonuBasligi
+      emoji="👨‍🔬"
+      baslik="YZ'nin Öncüleri"
+      altBaslik="Kartlara tıkla, hikayelerini oku"
+      renkGradient="from-sky-500 to-indigo-600"
+    />
+    <OnculerInteraktif />
   </section>
 );
 
@@ -342,93 +312,29 @@ const SlaytVideo = (
   </section>
 );
 
-/* ---- Slayt 6: YZ Tarihçesi ---- */
+/* ---- Slayt 6: YZ Tarihçesi (interaktif zaman makinesi) ---- */
 const SlaytTarihce = (
-  <section className="space-y-4">
-    <h3 className="text-xl font-extrabold">YZ Tarihçesi</h3>
-    <div className="space-y-3">
-      {[
-        { yil: "1642", olay: "İlk mekanik hesap makinesi (Pascal)" },
-        { yil: "1950", olay: "Turing Testi öne sürüldü" },
-        { yil: "1956", olay: "\"Yapay zeka\" terimi ilk kez kullanıldı" },
-        { yil: "1959", olay: "Cahit Arf'ın çalışması" },
-        { yil: "1965", olay: "ELIZA - ilk sohbet robotu" },
-        { yil: "1997", olay: "Deep Blue satranç şampiyonunu yendi" },
-        { yil: "2011", olay: "Siri ve sesli asistanlar" },
-        { yil: "2016", olay: "AlphaGo, Go şampiyonunu yendi" },
-        { yil: "2022", olay: "ChatGPT - üretken YZ çağı" },
-      ].map((item) => (
-        <div key={item.yil} className="flex items-start gap-4">
-          <span className="shrink-0 rounded-lg bg-sky-600 px-3 py-1 text-sm font-bold text-white">
-            {item.yil}
-          </span>
-          <p>{item.olay}</p>
-        </div>
-      ))}
-    </div>
-    <div className="mt-4 rounded-xl border border-[var(--color-border)] bg-[var(--color-bg)] p-4">
-      <div className="flex flex-col items-center gap-3 sm:flex-row">
-        <Image
-          src="/images/bolumler/deep-blue.jpg"
-          alt="IBM Deep Blue"
-          width={200}
-          height={150}
-          className="rounded-lg object-cover shadow-md"
-        />
-        <div>
-          <h4 className="font-bold">1997: Deep Blue vs Kasparov</h4>
-          <p className="text-sm text-[var(--color-text-secondary)]">
-            IBM&apos;in Deep Blue bilgisayarı, dünya satranç şampiyonu Garry Kasparov&apos;u yenerek tarihe geçti.
-          </p>
-          <p className="mt-1 text-xs text-[var(--color-text-secondary)] italic">
-            Fotoğraf: James the photographer, CC BY 2.0, Wikimedia Commons
-          </p>
-        </div>
-      </div>
-    </div>
+  <section className="space-y-3">
+    <KonuBasligi
+      emoji="📅"
+      baslik="Zaman Makinesi"
+      altBaslik="YZ'nin 380 yıllık yolculuğu"
+      renkGradient="from-violet-500 to-purple-600"
+    />
+    <TarihceZamanMakinesi />
   </section>
 );
 
-/* ---- Slayt 7: YZ Türleri ---- */
+/* ---- Slayt 7: YZ Türleri (interaktif keşif) ---- */
 const SlaytYzTurleri = (
-  <section className="space-y-4">
-    <h3 className="text-xl font-extrabold">Yapay Zeka Türleri</h3>
-    <div className="grid gap-4 md:grid-cols-3">
-      <div className="rounded-xl border-2 border-emerald-300 bg-emerald-50 p-5 dark:border-emerald-700 dark:bg-emerald-900/20">
-        <h4 className="mb-2 font-bold text-emerald-700 dark:text-emerald-400">Dar YZ (Narrow AI)</h4>
-        <p className="mb-2 text-sm">Sadece belirli bir görevi yapar.</p>
-        <p className="text-xs text-emerald-600 dark:text-emerald-400">Örnekler: Siri, Google Çevirmen, öneri sistemleri</p>
-        <p className="mt-2 rounded bg-emerald-200 px-2 py-1 text-center text-xs font-bold dark:bg-emerald-800">BUGÜN KULLANDIĞIMIZ TÜM YZ</p>
-      </div>
-      <div className="rounded-xl border-2 border-amber-300 bg-amber-50 p-5 dark:border-amber-700 dark:bg-amber-900/20">
-        <h4 className="mb-2 font-bold text-amber-700 dark:text-amber-400">Genel YZ (AGI)</h4>
-        <p className="mb-2 text-sm">Her türlü zihinsel görev.</p>
-        <p className="text-xs text-amber-600 dark:text-amber-400">Henüz geliştirilmedi</p>
-        <p className="mt-2 rounded bg-amber-200 px-2 py-1 text-center text-xs font-bold dark:bg-amber-800">ARAŞTIRMA AŞAMASINDA</p>
-      </div>
-      <div className="rounded-xl border-2 border-rose-300 bg-rose-50 p-5 dark:border-rose-700 dark:bg-rose-900/20">
-        <h4 className="mb-2 font-bold text-rose-700 dark:text-rose-400">Süper YZ (ASI)</h4>
-        <p className="mb-2 text-sm">İnsandan çok daha zeki.</p>
-        <p className="text-xs text-rose-600 dark:text-rose-400">Tamamen teorik</p>
-        <p className="mt-2 rounded bg-rose-200 px-2 py-1 text-center text-xs font-bold dark:bg-rose-800">BİLİM KURGU</p>
-      </div>
-    </div>
-    {/* AI-ML-DL ilişki diyagramı */}
-    <div className="mt-4 flex flex-col items-center rounded-xl border border-[var(--color-border)] bg-[var(--color-bg)] p-4">
-      <Image
-        src="/images/bolumler/ml-diagram.svg"
-        alt="Yapay Zeka, Makine Öğrenimi ve Derin Öğrenme ilişkisi"
-        width={400}
-        height={300}
-        className="rounded-lg"
-      />
-      <p className="mt-2 text-center text-sm text-[var(--color-text-secondary)]">
-        Yapay Zeka, Makine Öğrenimi ve Derin Öğrenme arasındaki ilişki
-      </p>
-      <p className="text-xs text-[var(--color-text-secondary)] italic">
-        Görsel: CC BY-SA 4.0, Wikimedia Commons
-      </p>
-    </div>
+  <section className="space-y-3">
+    <KonuBasligi
+      emoji="🔬"
+      baslik="Yapay Zeka Türleri"
+      altBaslik="3 tür YZ: Dar, Genel, Süper"
+      renkGradient="from-emerald-500 to-teal-600"
+    />
+    <YzTurleriKesif />
   </section>
 );
 

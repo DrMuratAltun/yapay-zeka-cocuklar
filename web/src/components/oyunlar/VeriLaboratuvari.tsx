@@ -189,46 +189,36 @@ export default function VeriLaboratuvari() {
   }, [w, b, egitimeBasladik]);
 
   return (
-    <div className="rounded-2xl border border-[var(--color-border)] bg-[var(--color-bg-secondary)] p-5 sm:p-6">
-      <div className="mb-4">
-        <h3 className="text-xl font-extrabold">🧪 Veri Laboratuvarı</h3>
-        <p className="mt-1 text-sm text-[var(--color-text-secondary)]">
-          İki sınıftan veri noktaları ekle, modeli eğit ve sınıflandırıcının nasıl öğrendiğini gör!
-        </p>
+    <div className="rounded-2xl border border-[var(--color-border)] bg-[var(--color-bg-secondary)] p-3 sm:p-4">
+      {/* Kompakt header */}
+      <div className="mb-2 flex flex-wrap items-center justify-between gap-2">
+        <h3 className="text-base font-extrabold">🧪 Veri Laboratuvarı</h3>
+        <div className="flex items-center gap-1.5">
+          {SINIFLAR.map((s, i) => (
+            <button
+              key={s.ad}
+              type="button"
+              onClick={() => setSeciliSinif(i as 0 | 1)}
+              className={`cursor-pointer rounded-full border-2 px-2.5 py-0.5 text-xs font-bold transition ${
+                seciliSinif === i ? "text-white shadow-md" : "bg-[var(--color-bg)] text-[var(--color-text)]"
+              }`}
+              style={
+                seciliSinif === i
+                  ? { backgroundColor: s.renk, borderColor: s.renk }
+                  : { borderColor: s.renk }
+              }
+            >
+              <span className="mr-0.5">{s.emoji}</span>
+              {s.ad}
+            </button>
+          ))}
+          <span className="text-xs text-[var(--color-text-secondary)]">{noktalar.length} nokta</span>
+        </div>
       </div>
 
-      {/* Sınıf seçici + kontroller */}
-      <div className="mb-3 flex flex-wrap items-center gap-2">
-        <span className="text-sm font-medium text-[var(--color-text-secondary)]">
-          Eklenecek sınıf:
-        </span>
-        {SINIFLAR.map((s, i) => (
-          <button
-            key={s.ad}
-            type="button"
-            onClick={() => setSeciliSinif(i as 0 | 1)}
-            className={`cursor-pointer rounded-full border-2 px-3 py-1 text-sm font-bold transition ${
-              seciliSinif === i
-                ? "text-white shadow-md"
-                : "bg-[var(--color-bg)] text-[var(--color-text)]"
-            }`}
-            style={
-              seciliSinif === i
-                ? { backgroundColor: s.renk, borderColor: s.renk }
-                : { borderColor: s.renk }
-            }
-          >
-            <span className="mr-1">{s.emoji}</span>
-            {s.ad}
-          </button>
-        ))}
-        <span className="ml-auto text-xs text-[var(--color-text-secondary)]">
-          {noktalar.length} nokta
-        </span>
-      </div>
-
-      {/* 2D çizim alanı */}
-      <div className="overflow-hidden rounded-xl border border-[var(--color-border)] bg-white shadow-inner dark:bg-slate-950">
+      {/* Grid: SVG | kontroller + metrikler */}
+      <div className="grid gap-3 lg:grid-cols-[1.6fr_1fr]">
+        <div className="overflow-hidden rounded-xl border border-[var(--color-border)] bg-white shadow-inner dark:bg-slate-950">
         <svg
           ref={svgRef}
           viewBox={`0 0 ${GENISLIK} ${YUKSEKLIK}`}
@@ -360,92 +350,92 @@ export default function VeriLaboratuvari() {
             </text>
           )}
         </svg>
-      </div>
-
-      {/* Eğitim paneli */}
-      <div className="mt-4 grid gap-3 sm:grid-cols-4">
-        <button
-          type="button"
-          onClick={egit}
-          disabled={noktalar.length < 2}
-          className={`rounded-lg px-4 py-2.5 text-sm font-bold text-white transition ${
-            noktalar.length < 2
-              ? "cursor-not-allowed bg-gray-300"
-              : "cursor-pointer bg-emerald-600 hover:bg-emerald-700"
-          }`}
-        >
-          ▶ Modeli Eğit
-        </button>
-        <button
-          type="button"
-          onClick={tekAdim}
-          disabled={noktalar.length < 2}
-          className={`rounded-lg border-2 px-4 py-2.5 text-sm font-bold transition ${
-            noktalar.length < 2
-              ? "cursor-not-allowed border-gray-300 text-gray-400"
-              : "cursor-pointer border-sky-600 text-sky-600 hover:bg-sky-50 dark:hover:bg-sky-900/20"
-          }`}
-        >
-          ⏭ Tek Adım
-        </button>
-        <button
-          type="button"
-          onClick={ornekVeri}
-          className="cursor-pointer rounded-lg border-2 border-[var(--color-border)] px-4 py-2.5 text-sm font-medium transition hover:bg-[var(--color-bg)]"
-        >
-          🔄 Örnek Veri
-        </button>
-        <button
-          type="button"
-          onClick={tumuTemizle}
-          className="cursor-pointer rounded-lg border-2 border-rose-200 px-4 py-2.5 text-sm font-medium text-rose-600 transition hover:bg-rose-50 dark:border-rose-900 dark:hover:bg-rose-900/20"
-        >
-          🗑️ Temizle
-        </button>
-      </div>
-
-      {/* Metrikler */}
-      <div className="mt-4 grid gap-3 sm:grid-cols-3">
-        <div className="rounded-xl border border-[var(--color-border)] bg-[var(--color-bg)] p-3 text-center">
-          <p className="text-xs uppercase tracking-wider text-[var(--color-text-secondary)]">
-            Eğitim Adımı
-          </p>
-          <p className="mt-1 text-2xl font-extrabold text-sky-600">{epoch}</p>
         </div>
-        <div className="rounded-xl border border-[var(--color-border)] bg-[var(--color-bg)] p-3 text-center">
-          <p className="text-xs uppercase tracking-wider text-[var(--color-text-secondary)]">
-            Doğruluk
-          </p>
-          <p
-            className={`mt-1 text-2xl font-extrabold ${
-              dogruluk === null
-                ? "text-gray-400"
-                : dogruluk >= 90
-                ? "text-emerald-600"
-                : dogruluk >= 70
-                ? "text-amber-600"
-                : "text-rose-600"
-            }`}
-          >
-            {dogruluk === null ? "—" : `%${dogruluk}`}
-          </p>
-        </div>
-        <div className="rounded-xl border border-[var(--color-border)] bg-[var(--color-bg)] p-3 text-center">
-          <p className="text-xs uppercase tracking-wider text-[var(--color-text-secondary)]">
-            Ağırlıklar
-          </p>
-          <p className="mt-1 font-mono text-xs">
-            w₁={w[0].toFixed(2)} <br />
-            w₂={w[1].toFixed(2)}, b={b.toFixed(2)}
-          </p>
-        </div>
-      </div>
 
-      <div className="mt-4 rounded-xl border-l-4 border-violet-400 bg-violet-50 p-3 text-sm text-violet-800 dark:bg-violet-900/20 dark:text-violet-300">
-        <strong>Neler oluyor?</strong> Model, her adımda noktalarla kendi tahminini karşılaştırıyor ve
-        &quot;ağırlık&quot; değerlerini biraz ayarlıyor. Mavi kesik çizgi modelin öğrendiği{" "}
-        <em>karar sınırı</em>. Kırmızı halkalar = yanlış sınıflandırılmış noktalar. Dengesiz bir veri seti
-        kurarsan (örneğin çoğunluk tek tip), modelin o sınıfa yönelik <em>önyargı</em> geliştirdiğini göreceksin!
+        {/* Sağ kolon: kontroller + metrikler */}
+        <div className="space-y-2">
+          <div className="grid grid-cols-2 gap-1.5">
+            <button
+              type="button"
+              onClick={egit}
+              disabled={noktalar.length < 2}
+              className={`rounded-lg px-2.5 py-2 text-xs font-bold text-white transition ${
+                noktalar.length < 2 ? "cursor-not-allowed bg-gray-300" : "cursor-pointer bg-emerald-600 hover:bg-emerald-700"
+              }`}
+            >
+              ▶ Eğit
+            </button>
+            <button
+              type="button"
+              onClick={tekAdim}
+              disabled={noktalar.length < 2}
+              className={`rounded-lg border-2 px-2.5 py-2 text-xs font-bold transition ${
+                noktalar.length < 2
+                  ? "cursor-not-allowed border-gray-300 text-gray-400"
+                  : "cursor-pointer border-sky-600 text-sky-600 hover:bg-sky-50 dark:hover:bg-sky-900/20"
+              }`}
+            >
+              ⏭ Tek Adım
+            </button>
+            <button
+              type="button"
+              onClick={ornekVeri}
+              className="cursor-pointer rounded-lg border-2 border-[var(--color-border)] px-2.5 py-2 text-xs font-medium transition hover:bg-[var(--color-bg)]"
+            >
+              🔄 Örnek
+            </button>
+            <button
+              type="button"
+              onClick={tumuTemizle}
+              className="cursor-pointer rounded-lg border-2 border-rose-200 px-2.5 py-2 text-xs font-medium text-rose-600 transition hover:bg-rose-50 dark:border-rose-900 dark:hover:bg-rose-900/20"
+            >
+              🗑️ Temizle
+            </button>
+          </div>
+
+          {/* Metrikler — kompakt */}
+          <div className="grid grid-cols-2 gap-1.5">
+            <div className="rounded-lg border border-[var(--color-border)] bg-[var(--color-bg)] p-2 text-center">
+              <p className="text-[9px] uppercase tracking-wider text-[var(--color-text-secondary)]">
+                Adım
+              </p>
+              <p className="text-lg font-extrabold text-sky-600">{epoch}</p>
+            </div>
+            <div className="rounded-lg border border-[var(--color-border)] bg-[var(--color-bg)] p-2 text-center">
+              <p className="text-[9px] uppercase tracking-wider text-[var(--color-text-secondary)]">
+                Doğruluk
+              </p>
+              <p
+                className={`text-lg font-extrabold ${
+                  dogruluk === null
+                    ? "text-gray-400"
+                    : dogruluk >= 90
+                    ? "text-emerald-600"
+                    : dogruluk >= 70
+                    ? "text-amber-600"
+                    : "text-rose-600"
+                }`}
+              >
+                {dogruluk === null ? "—" : `%${dogruluk}`}
+              </p>
+            </div>
+          </div>
+          <div className="rounded-lg border border-[var(--color-border)] bg-[var(--color-bg)] p-2 font-mono text-[10px] text-[var(--color-text-secondary)]">
+            w₁={w[0].toFixed(2)} · w₂={w[1].toFixed(2)} · b={b.toFixed(2)}
+          </div>
+
+          {/* Mini bilgi */}
+          <details className="rounded-lg border border-[var(--color-border)] bg-[var(--color-bg)] p-2 text-xs">
+            <summary className="cursor-pointer font-bold text-violet-700 dark:text-violet-300">
+              💡 Neler oluyor?
+            </summary>
+            <p className="mt-2 text-[11px] text-[var(--color-text-secondary)]">
+              Model her adımda noktalarla tahminini karşılaştırır, ağırlıkları azar azar ayarlar.
+              Mavi kesik çizgi = öğrenilen <em>karar sınırı</em>. Kırmızı halkalar = yanlış sınıflandırılmış.
+              Dengesiz veri seti → <strong>önyargılı model</strong>!
+            </p>
+          </details>
+        </div>
       </div>
     </div>
   );

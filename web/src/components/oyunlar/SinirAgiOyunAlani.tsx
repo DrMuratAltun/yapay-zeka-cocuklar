@@ -59,6 +59,7 @@ const B_CIKIS_BASLANGIC = -0.3;
 export default function SinirAgiOyunAlani() {
   const [girisler, setGirisler] = useState<[number, number, number]>([0.9, 0.85, 0.6]);
   const [kesifModu, setKesifModu] = useState(false);
+  const [bilgiAcik, setBilgiAcik] = useState(false);
 
   // Keşif modunda öğrenci ağırlıkları kendi değiştirebilir
   const [wGizli, setWGizli] = useState<number[][]>(W_GIZLI_BASLANGIC);
@@ -110,29 +111,54 @@ export default function SinirAgiOyunAlani() {
   ];
 
   return (
-    <div className="rounded-2xl border border-[var(--color-border)] bg-[var(--color-bg-secondary)] p-5 sm:p-6">
-      <div className="mb-4 flex flex-wrap items-start justify-between gap-3">
-        <div>
-          <h3 className="text-xl font-extrabold">🧠 Sinir Ağı Oyun Alanı</h3>
-          <p className="mt-1 text-sm text-[var(--color-text-secondary)]">
-            Kaydırıcıları oynat, sinir ağı ne diyor gör!
-          </p>
+    <div className="rounded-2xl border border-[var(--color-border)] bg-[var(--color-bg-secondary)] p-3 sm:p-4">
+      {/* Kompakt header */}
+      <div className="mb-3 flex flex-wrap items-center justify-between gap-2">
+        <h3 className="text-base font-extrabold">🧠 Sinir Ağı Oyun Alanı</h3>
+        <div className="flex gap-1.5">
+          <button
+            type="button"
+            onClick={() => setBilgiAcik((v) => !v)}
+            className="cursor-pointer rounded-lg border border-[var(--color-border)] bg-[var(--color-bg)] px-2 py-1 text-xs transition hover:bg-sky-50"
+            aria-label="Bilgi"
+          >
+            {bilgiAcik ? "✕ Kapat" : "ℹ️ Nasıl?"}
+          </button>
+          <button
+            type="button"
+            onClick={() => setKesifModu((v) => !v)}
+            className={`cursor-pointer rounded-lg px-2.5 py-1 text-xs font-bold transition ${
+              kesifModu
+                ? "bg-amber-500 text-white"
+                : "border border-[var(--color-border)] bg-[var(--color-bg)] text-[var(--color-text-secondary)] hover:bg-amber-50"
+            }`}
+          >
+            {kesifModu ? "⚗️ Keşif Açık" : "⚗️ Keşif"}
+          </button>
         </div>
-        <button
-          type="button"
-          onClick={() => setKesifModu((v) => !v)}
-          className={`cursor-pointer rounded-lg px-3 py-1.5 text-xs font-bold transition ${
-            kesifModu
-              ? "bg-amber-500 text-white"
-              : "border border-[var(--color-border)] bg-[var(--color-bg)] text-[var(--color-text-secondary)] hover:bg-[var(--color-bg-secondary)]"
-          }`}
-        >
-          {kesifModu ? "✨ Keşif Modu Açık" : "Keşif Modunu Aç"}
-        </button>
       </div>
 
+      {/* Bilgi panel (collapsible) */}
+      {bilgiAcik && (
+        <div className="mb-3 rounded-lg border-l-4 border-sky-400 bg-sky-50 p-2.5 text-xs text-sky-800 dark:bg-sky-900/20 dark:text-sky-300">
+          <strong>Nasıl çalışır?</strong> Her giriş, ağırlıklarla çarpılarak gizli katmana gider.
+          Gizli nöronlar girdileri karıştırır, çıkış nöronu son kararı verir. Ağırlıklar
+          eğitim sırasında otomatik öğrenilir — Keşif Modu&apos;nu açıp sen de dene!
+          <br />
+          <span className="mt-1 inline-block">
+            <span className="inline-block h-1.5 w-6 align-middle" style={{ background: "#0ea5e9" }} /> pozitif &nbsp;
+            <span className="inline-block h-1.5 w-6 align-middle" style={{ background: "#ef4444" }} /> negatif &nbsp;
+            kalınlık = büyüklük
+          </span>
+        </div>
+      )}
+
+      {/* 2-kolonlu grid: ağ + tahmin | kontroller */}
+      <div className="grid gap-3 lg:grid-cols-[1.7fr_1fr]">
+        {/* Sol kolon: SVG + tahmin */}
+        <div className="space-y-2">
       {/* Ağ görselleştirme */}
-      <div className="overflow-hidden rounded-xl border border-[var(--color-border)] bg-gradient-to-br from-slate-50 to-sky-50 p-3 dark:from-slate-900 dark:to-sky-950/40">
+      <div className="overflow-hidden rounded-xl border border-[var(--color-border)] bg-gradient-to-br from-slate-50 to-sky-50 p-2 dark:from-slate-900 dark:to-sky-950/40">
         <svg
           viewBox="0 0 600 340"
           className="mx-auto h-auto w-full max-w-2xl"
@@ -305,84 +331,89 @@ export default function SinirAgiOyunAlani() {
             ÇIKIŞ KATMANI
           </text>
         </svg>
-        <p className="mt-2 text-center text-xs text-[var(--color-text-secondary)]">
-          <span className="inline-block h-2 w-8 align-middle" style={{ background: "#0ea5e9" }} /> pozitif ağırlık &nbsp;·&nbsp;
-          <span className="inline-block h-2 w-8 align-middle" style={{ background: "#ef4444" }} /> negatif ağırlık &nbsp;·&nbsp;
-          çizgi kalınlığı = ağırlığın büyüklüğü
-        </p>
       </div>
 
-      {/* Tahmin paneli */}
+      {/* Tahmin paneli — kompakt */}
       <div
-        className={`mt-4 flex items-center justify-between rounded-2xl p-4 text-white shadow-lg ${
+        className={`flex items-center justify-between rounded-xl px-4 py-2 text-white shadow-lg ${
           cikisAktivasyon > 0.5
             ? "bg-gradient-to-r from-red-500 to-rose-600"
             : "bg-gradient-to-r from-amber-500 to-orange-600"
         }`}
       >
         <div>
-          <p className="text-xs uppercase tracking-wider text-white/80">Sinir Ağının Tahmini</p>
-          <p className="text-3xl font-extrabold">
+          <p className="text-[10px] uppercase tracking-wider text-white/80">Tahmin</p>
+          <p className="text-xl font-extrabold">
             {tahminEmoji} {tahmin}
           </p>
         </div>
         <div className="text-right">
-          <p className="text-xs uppercase tracking-wider text-white/80">Güven</p>
-          <p className="text-3xl font-extrabold">%{guven}</p>
+          <p className="text-[10px] uppercase tracking-wider text-white/80">Güven</p>
+          <p className="text-xl font-extrabold">%{guven}</p>
         </div>
       </div>
+        </div>
 
-      {/* Giriş kaydırıcıları */}
-      <div className="mt-5 grid gap-4 sm:grid-cols-3">
-        {girisEtiketleri.map((meta, i) => (
-          <div key={meta.ad} className="rounded-xl border border-[var(--color-border)] bg-[var(--color-bg)] p-3">
-            <label className="flex items-center justify-between text-sm font-medium">
-              <span>
-                <span className="mr-1" aria-hidden="true">{meta.emoji}</span>
-                {meta.ad}
-              </span>
-              <span className="font-bold" style={{ color: meta.renk }}>
-                {girisler[i].toFixed(2)}
-              </span>
-            </label>
-            <input
-              type="range"
-              min={0}
-              max={1}
-              step={0.05}
-              value={girisler[i]}
-              onChange={(e) => setGiris(i, Number(e.target.value))}
-              className="mt-2 w-full cursor-pointer"
-              style={{ accentColor: meta.renk }}
-            />
+        {/* Sağ kolon: kontroller */}
+        <div className="space-y-2">
+          {/* Giriş kaydırıcıları */}
+          <div className="rounded-xl border border-[var(--color-border)] bg-[var(--color-bg)] p-2.5">
+            <p className="mb-1.5 text-[10px] font-bold uppercase tracking-wider text-[var(--color-text-secondary)]">
+              🎛️ Girdiler
+            </p>
+            <div className="space-y-2">
+              {girisEtiketleri.map((meta, i) => (
+                <div key={meta.ad}>
+                  <label className="flex items-center justify-between text-xs font-medium">
+                    <span>
+                      <span className="mr-1" aria-hidden="true">{meta.emoji}</span>
+                      {meta.ad}
+                    </span>
+                    <span className="font-bold" style={{ color: meta.renk }}>
+                      {girisler[i].toFixed(2)}
+                    </span>
+                  </label>
+                  <input
+                    type="range"
+                    min={0}
+                    max={1}
+                    step={0.05}
+                    value={girisler[i]}
+                    onChange={(e) => setGiris(i, Number(e.target.value))}
+                    className="mt-0.5 w-full cursor-pointer"
+                    style={{ accentColor: meta.renk }}
+                  />
+                </div>
+              ))}
+            </div>
           </div>
-        ))}
-      </div>
 
-      {/* Presetler */}
-      <div className="mt-4">
-        <p className="mb-2 text-xs font-bold uppercase tracking-wider text-[var(--color-text-secondary)]">
-          Hazır Örnekler
-        </p>
-        <div className="flex flex-wrap gap-2">
-          {PRESETLER.map((p) => (
-            <button
-              key={p.ad}
-              type="button"
-              onClick={() => presetYukle(p)}
-              className="cursor-pointer rounded-full border border-[var(--color-border)] bg-[var(--color-bg)] px-3 py-1.5 text-sm font-medium transition hover:border-sky-400 hover:bg-sky-50 dark:hover:bg-sky-900/20"
-              title={p.aciklama}
-            >
-              <span className="mr-1">{p.emoji}</span>
-              {p.ad}
-            </button>
-          ))}
+          {/* Presetler */}
+          <div className="rounded-xl border border-[var(--color-border)] bg-[var(--color-bg)] p-2.5">
+            <p className="mb-1.5 text-[10px] font-bold uppercase tracking-wider text-[var(--color-text-secondary)]">
+              ⚡ Hazır Örnekler
+            </p>
+            <div className="flex flex-wrap gap-1">
+              {PRESETLER.map((p) => (
+                <button
+                  key={p.ad}
+                  type="button"
+                  onClick={() => presetYukle(p)}
+                  className="cursor-pointer rounded-full border border-[var(--color-border)] bg-[var(--color-bg-secondary)] px-2 py-0.5 text-[11px] font-medium transition hover:border-sky-400 hover:bg-sky-50 dark:hover:bg-sky-900/20"
+                  title={p.aciklama}
+                >
+                  <span className="mr-0.5">{p.emoji}</span>
+                  {p.ad}
+                </button>
+              ))}
+            </div>
+          </div>
         </div>
       </div>
 
-      {/* Keşif modu: ağırlık ayarlama */}
+      {/* Keşif modu: ağırlık ayarlama (collapsible) */}
       {kesifModu && (
-        <div className="mt-5 rounded-xl border-2 border-amber-300 bg-amber-50 p-4 dark:border-amber-800 dark:bg-amber-900/20">
+        <div className="mt-3 rounded-xl border-2 border-amber-300 bg-amber-50 p-3 dark:border-amber-800 dark:bg-amber-900/20">
           <div className="mb-3 flex items-center justify-between">
             <h4 className="text-sm font-bold text-amber-800 dark:text-amber-300">
               ⚗️ Ağırlıkları Kendin Ayarla
@@ -466,11 +497,6 @@ export default function SinirAgiOyunAlani() {
         </div>
       )}
 
-      {/* Açıklama */}
-      <div className="mt-4 rounded-xl border-l-4 border-sky-400 bg-sky-50 p-3 text-sm text-sky-800 dark:bg-sky-900/20 dark:text-sky-300">
-        <strong>Nasıl çalışır?</strong> Her giriş, sayı olarak gizli katmana gönderilir. Her bağlantının bir <em>ağırlığı</em> vardır;
-        bu ağırlıklar eğitim sırasında otomatik öğrenilir. Gizli nöronlar girişleri karıştırır ve çıkış nöronu son kararı verir!
-      </div>
     </div>
   );
 }
