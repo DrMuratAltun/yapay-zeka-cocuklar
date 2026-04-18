@@ -1,21 +1,71 @@
 import { createClient } from '@/lib/supabase/server'
 import { NextRequest, NextResponse } from 'next/server'
 
-// POST /api/schools/classes — sınıf oluştur (school_admin)
+// GET /api/schools/classes?my=true — giriş yapan öğretmenin/okul admininin sınıfları
+// my=true → sadece kendi açtığım sınıflar
+// aksi halde → aynı okula ait tüm sınıflar (okul admini için)
+export async function GET(req: NextRequest) {
+  const supabase = await createClient()
+  const {
+    data: { user },
+  } = await supabase.auth.getUser()
+  if (!user) return NextResponse.json({ error: 'Yetkisiz' }, { status: 401 })
+
+  const { data: myRole } = await supabase
+    .from('school_users')
+    .select('school_id, role')
+    .eq('user_id', user.id)
+    .in('role', ['teacher', 'school_admin', 'super_admin'])
+    .single()
+
+  if (!myRole) return NextResponse.json({ error: 'Yetki yok' }, { status: 403 })
+
+  const { searchParams } = new URL(req.url)
+  const sadeceBenim = searchParams.get('my') === 'true'
+
+  let query = supabase
+    .from('classes')
+    .select('id, name, access_code, credential_type, teacher_id, school_id, created_at')
+    .eq('school_id', myRole.school_id)
+    .order('created_at', { ascending: false })
+
+  // Öğretmen rolü → her zaman sadece kendi sınıfları
+  if (myRole.role === 'teacher' || sadeceBenim) {
+    query = query.eq('teacher_id', user.id)
+  }
+
+  const { data: classes, error } = await query
+  if (error) return NextResponse.json({ error: error.message }, { status: 500 })
+
+  // Her sınıfın öğrenci sayısını ekle
+  const classesWithCounts = await Promise.all(
+    (classes ?? []).map(async (c) => {
+      const { count } = await supabase
+        .from('class_students')
+        .select('*', { count: 'exact', head: true })
+        .eq('class_id', c.id)
+      return { ...c, student_count: count ?? 0 }
+    })
+  )
+
+  return NextResponse.json({ classes: classesWithCounts })
+}
+
+// POST /api/schools/classes — sınıf oluştur (teacher, school_admin, super_admin)
 export async function POST(req: NextRequest) {
   const supabase = await createClient()
   const { data: { user } } = await supabase.auth.getUser()
   if (!user) return NextResponse.json({ error: 'Yetkisiz' }, { status: 401 })
 
-  // school_admin kontrolü ve school_id'yi al
+  // Yetki kontrolü: teacher, school_admin veya super_admin
   const { data: myRole } = await supabase
     .from('school_users')
     .select('school_id, role')
     .eq('user_id', user.id)
-    .in('role', ['school_admin', 'super_admin'])
+    .in('role', ['teacher', 'school_admin', 'super_admin'])
     .single()
 
-  if (!myRole) return NextResponse.json({ error: 'Okul admin yetkisi yok' }, { status: 403 })
+  if (!myRole) return NextResponse.json({ error: 'Sınıf oluşturma yetkisi yok' }, { status: 403 })
 
   const body = await req.json()
   const { name, access_code, credential_type } = body
