@@ -1,0 +1,99 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 320" role="img" aria-label="İnsan ve yapay zeka işbirliği ile geleceğe vizyon">
+  <defs>
+    <linearGradient id="bg-future" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#1e1b4b"/>
+      <stop offset="1" stop-color="#312e81"/>
+    </linearGradient>
+    <linearGradient id="human-g" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#f59e0b"/>
+      <stop offset="1" stop-color="#dc2626"/>
+    </linearGradient>
+    <linearGradient id="ai-g" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#06b6d4"/>
+      <stop offset="1" stop-color="#3b82f6"/>
+    </linearGradient>
+  </defs>
+  <rect width="500" height="320" rx="16" fill="url(#bg-future)"/>
+
+  <!-- Yıldızlar -->
+  <g fill="#ffffff" opacity="0.8">
+    <circle cx="40" cy="40" r="1.5"/>
+    <circle cx="90" cy="70" r="1"/>
+    <circle cx="150" cy="30" r="1.5"/>
+    <circle cx="220" cy="50" r="1"/>
+    <circle cx="290" cy="35" r="1.5"/>
+    <circle cx="360" cy="60" r="1"/>
+    <circle cx="430" cy="30" r="1.5"/>
+    <circle cx="470" cy="80" r="1"/>
+    <circle cx="50" cy="120" r="1"/>
+    <circle cx="450" cy="140" r="1.5"/>
+  </g>
+
+  <!-- Parıldayan yıldız -->
+  <g fill="#fcd34d">
+    <path d="M 80 60 L 83 68 L 91 71 L 83 74 L 80 82 L 77 74 L 69 71 L 77 68 Z" opacity="0.9"/>
+    <path d="M 420 100 L 422 106 L 428 108 L 422 110 L 420 116 L 418 110 L 412 108 L 418 106 Z" opacity="0.9"/>
+  </g>
+
+  <!-- Yer -->
+  <path d="M 0 270 L 500 270 L 500 320 L 0 320 Z" fill="#0c0a3a"/>
+  <!-- Yerdeki ışık dalgası -->
+  <ellipse cx="250" cy="270" rx="220" ry="18" fill="#06b6d4" opacity="0.2"/>
+  <ellipse cx="250" cy="270" rx="160" ry="12" fill="#06b6d4" opacity="0.3"/>
+
+  <!-- İnsan figürü (sol) -->
+  <g transform="translate(140 130)">
+    <!-- Head -->
+    <circle cx="30" cy="25" r="20" fill="#fdba74"/>
+    <path d="M 12 24 Q 30 0 48 24 Q 48 10 30 8 Q 12 10 12 24 Z" fill="#78350f"/>
+    <circle cx="24" cy="25" r="2" fill="#0f172a"/>
+    <circle cx="36" cy="25" r="2" fill="#0f172a"/>
+    <path d="M 24 34 Q 30 39 36 34" fill="none" stroke="#0f172a" stroke-width="1.5" stroke-linecap="round"/>
+    <!-- Body -->
+    <path d="M 10 48 L 50 48 L 55 130 L 5 130 Z" fill="url(#human-g)"/>
+    <!-- Arm extended -->
+    <rect x="45" y="60" width="35" height="10" rx="5" fill="url(#human-g)" transform="rotate(-20 45 65)"/>
+    <circle cx="78" cy="52" r="7" fill="#fdba74"/>
+  </g>
+
+  <!-- Robot figürü (sağ) -->
+  <g transform="translate(260 130)">
+    <!-- Head -->
+    <rect x="15" y="5" width="50" height="40" rx="8" fill="#cbd5e1" stroke="#64748b" stroke-width="2"/>
+    <!-- Eyes glowing -->
+    <circle cx="28" cy="25" r="6" fill="#06b6d4"/>
+    <circle cx="52" cy="25" r="6" fill="#06b6d4"/>
+    <circle cx="28" cy="25" r="3" fill="#ffffff" opacity="0.8"/>
+    <circle cx="52" cy="25" r="3" fill="#ffffff" opacity="0.8"/>
+    <!-- Mouth -->
+    <rect x="30" y="35" width="20" height="3" rx="1" fill="#475569"/>
+    <!-- Antenna -->
+    <line x1="40" y1="5" x2="40" y2="-10" stroke="#64748b" stroke-width="2"/>
+    <circle cx="40" cy="-12" r="4" fill="#06b6d4">
+      <animate attributeName="opacity" values="0.5;1;0.5" dur="2s" repeatCount="indefinite"/>
+    </circle>
+    <!-- Body -->
+    <rect x="10" y="48" width="60" height="80" rx="10" fill="url(#ai-g)" stroke="#1e40af" stroke-width="2"/>
+    <!-- Chest light -->
+    <circle cx="40" cy="80" r="10" fill="#ffffff" opacity="0.3"/>
+    <circle cx="40" cy="80" r="6" fill="#fcd34d"/>
+    <!-- Arm extended toward human -->
+    <rect x="-15" y="60" width="35" height="10" rx="5" fill="url(#ai-g)" transform="rotate(20 20 65)"/>
+    <circle cx="-8" cy="50" r="7" fill="#06b6d4" stroke="#1e40af" stroke-width="1"/>
+  </g>
+
+  <!-- El ele tutuşma noktası (ışıltı) -->
+  <g transform="translate(250 175)">
+    <circle cx="0" cy="0" r="20" fill="#fcd34d" opacity="0.3">
+      <animate attributeName="r" values="15;25;15" dur="2s" repeatCount="indefinite"/>
+    </circle>
+    <circle cx="0" cy="0" r="10" fill="#fcd34d" opacity="0.8"/>
+    <path d="M 0 -8 L 2 -2 L 8 0 L 2 2 L 0 8 L -2 2 L -8 0 L -2 -2 Z" fill="#ffffff"/>
+  </g>
+
+  <!-- Başlık -->
+  <text x="250" y="50" text-anchor="middle" font-family="system-ui" font-size="20" font-weight="800" fill="#ffffff">Birlikte Daha Güçlüyüz</text>
+  <text x="250" y="72" text-anchor="middle" font-family="system-ui" font-size="12" fill="#c7d2fe">İnsan + Yapay Zeka işbirliği</text>
+
+  <text x="250" y="305" text-anchor="middle" font-family="system-ui" font-size="11" fill="#c7d2fe" opacity="0.8">Geleceği birlikte inşa edeceğiz</text>
+</svg>

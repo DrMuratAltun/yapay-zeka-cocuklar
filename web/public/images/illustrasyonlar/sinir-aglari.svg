@@ -1,0 +1,86 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 300" role="img" aria-label="Sinir ağı katmanları ve bağlantıları">
+  <defs>
+    <linearGradient id="bg-nn" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#f0f9ff"/>
+      <stop offset="1" stop-color="#ede9fe"/>
+    </linearGradient>
+    <radialGradient id="node-in">
+      <stop offset="0" stop-color="#38bdf8"/>
+      <stop offset="1" stop-color="#0284c7"/>
+    </radialGradient>
+    <radialGradient id="node-hidden">
+      <stop offset="0" stop-color="#c084fc"/>
+      <stop offset="1" stop-color="#7c3aed"/>
+    </radialGradient>
+    <radialGradient id="node-out">
+      <stop offset="0" stop-color="#fb923c"/>
+      <stop offset="1" stop-color="#ea580c"/>
+    </radialGradient>
+  </defs>
+  <rect width="500" height="300" rx="16" fill="url(#bg-nn)"/>
+
+  <!-- Başlık -->
+  <text x="250" y="28" text-anchor="middle" font-family="system-ui" font-size="16" font-weight="800" fill="#0f172a">Sinir Ağı Nasıl Görünür?</text>
+
+  <!-- Bağlantılar: Giriş → Gizli 1 -->
+  <g stroke-opacity="0.4">
+    <!-- Girişten (x=100, y=80/140/200/260) gizli 1'e (x=230, y=90/150/210) -->
+    <line x1="100" y1="80"  x2="230" y2="90"  stroke="#0ea5e9" stroke-width="1.2"/>
+    <line x1="100" y1="80"  x2="230" y2="150" stroke="#0ea5e9" stroke-width="1.8"/>
+    <line x1="100" y1="80"  x2="230" y2="210" stroke="#ef4444" stroke-width="0.8"/>
+    <line x1="100" y1="140" x2="230" y2="90"  stroke="#ef4444" stroke-width="1.2"/>
+    <line x1="100" y1="140" x2="230" y2="150" stroke="#0ea5e9" stroke-width="2.5"/>
+    <line x1="100" y1="140" x2="230" y2="210" stroke="#0ea5e9" stroke-width="1.2"/>
+    <line x1="100" y1="200" x2="230" y2="90"  stroke="#0ea5e9" stroke-width="1.5"/>
+    <line x1="100" y1="200" x2="230" y2="150" stroke="#ef4444" stroke-width="1"/>
+    <line x1="100" y1="200" x2="230" y2="210" stroke="#0ea5e9" stroke-width="2"/>
+    <line x1="100" y1="260" x2="230" y2="90"  stroke="#ef4444" stroke-width="0.8"/>
+    <line x1="100" y1="260" x2="230" y2="150" stroke="#0ea5e9" stroke-width="1.5"/>
+    <line x1="100" y1="260" x2="230" y2="210" stroke="#0ea5e9" stroke-width="2.2"/>
+
+    <!-- Gizli 1 → Gizli 2 -->
+    <line x1="230" y1="90"  x2="340" y2="110" stroke="#0ea5e9" stroke-width="1.8"/>
+    <line x1="230" y1="90"  x2="340" y2="190" stroke="#ef4444" stroke-width="1.2"/>
+    <line x1="230" y1="150" x2="340" y2="110" stroke="#0ea5e9" stroke-width="2.2"/>
+    <line x1="230" y1="150" x2="340" y2="190" stroke="#0ea5e9" stroke-width="1.5"/>
+    <line x1="230" y1="210" x2="340" y2="110" stroke="#ef4444" stroke-width="1"/>
+    <line x1="230" y1="210" x2="340" y2="190" stroke="#0ea5e9" stroke-width="2"/>
+
+    <!-- Gizli 2 → Çıkış -->
+    <line x1="340" y1="110" x2="430" y2="150" stroke="#0ea5e9" stroke-width="2.5"/>
+    <line x1="340" y1="190" x2="430" y2="150" stroke="#ef4444" stroke-width="1.5"/>
+  </g>
+
+  <!-- Nöronlar: Giriş -->
+  <g>
+    <circle cx="100" cy="80" r="18" fill="url(#node-in)" stroke="#0284c7" stroke-width="2"/>
+    <circle cx="100" cy="140" r="18" fill="url(#node-in)" stroke="#0284c7" stroke-width="2"/>
+    <circle cx="100" cy="200" r="18" fill="url(#node-in)" stroke="#0284c7" stroke-width="2"/>
+    <circle cx="100" cy="260" r="18" fill="url(#node-in)" stroke="#0284c7" stroke-width="2"/>
+  </g>
+
+  <!-- Gizli katman 1 -->
+  <g>
+    <circle cx="230" cy="90" r="18" fill="url(#node-hidden)" stroke="#7c3aed" stroke-width="2"/>
+    <circle cx="230" cy="150" r="18" fill="url(#node-hidden)" stroke="#7c3aed" stroke-width="2"/>
+    <circle cx="230" cy="210" r="18" fill="url(#node-hidden)" stroke="#7c3aed" stroke-width="2"/>
+  </g>
+
+  <!-- Gizli katman 2 -->
+  <g>
+    <circle cx="340" cy="110" r="18" fill="url(#node-hidden)" stroke="#7c3aed" stroke-width="2"/>
+    <circle cx="340" cy="190" r="18" fill="url(#node-hidden)" stroke="#7c3aed" stroke-width="2"/>
+  </g>
+
+  <!-- Çıkış -->
+  <g>
+    <circle cx="430" cy="150" r="22" fill="url(#node-out)" stroke="#ea580c" stroke-width="2"/>
+  </g>
+
+  <!-- Katman etiketleri -->
+  <g font-family="system-ui" font-size="11" font-weight="700" fill="#475569" text-anchor="middle">
+    <text x="100" y="290">Giriş (4 özellik)</text>
+    <text x="285" y="290">Gizli Katmanlar</text>
+    <text x="430" y="290">Çıkış</text>
+  </g>
+</svg>

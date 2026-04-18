@@ -8,6 +8,7 @@ import Image from "next/image";
 import InteraktifQuiz from "@/components/InteraktifQuiz";
 import BolumSlider from "@/components/BolumSlider";
 import VeriTuruAvcisi from "@/components/oyunlar/VeriTuruAvcisi";
+import VeriLaboratuvari from "@/components/oyunlar/VeriLaboratuvari";
 import VeriTopla from "@/components/etkinlikler/VeriTopla";
 import GirdiAvcilari from "@/components/etkinlikler/GirdiAvcilari";
 import SinifAnketi from "@/components/etkinlikler/SinifAnketi";
@@ -15,6 +16,11 @@ import VeriEtiketleme from "@/components/etkinlikler/VeriEtiketleme";
 import VeriSetiKesif from "@/components/etkinlikler/VeriSetiKesif";
 import VeriGorsellestirme from "@/components/etkinlikler/VeriGorsellestirme";
 import VeriTemizleme from "@/components/etkinlikler/VeriTemizleme";
+import BilgiKutusu from "@/components/anlati/BilgiKutusu";
+import GecisSlayt from "@/components/anlati/GecisSlayt";
+import KonuBasligi from "@/components/anlati/KonuBasligi";
+import OzetKarti from "@/components/anlati/OzetKarti";
+import Hikaye from "@/components/anlati/Hikaye";
 
 const quizSorulari = [
   {
@@ -450,6 +456,147 @@ const SlaytMateryaller = (
   </>
 );
 
+/* ---- Hoş Geldin Slaytı (yeni) ---- */
+const SlaytHosGeldin3 = (
+  <>
+    <div className="relative overflow-hidden rounded-3xl bg-gradient-to-br from-violet-500 via-purple-500 to-pink-500 p-8 text-center text-white shadow-xl">
+      <div className="absolute inset-0 opacity-20">
+        <div className="absolute -top-20 -left-20 h-60 w-60 rounded-full bg-white blur-3xl" />
+        <div className="absolute -bottom-20 -right-20 h-60 w-60 rounded-full bg-white blur-3xl" />
+      </div>
+      <div className="relative">
+        <span className="inline-block text-6xl float-2" aria-hidden="true">📊</span>
+        <h3 className="mt-4 text-3xl font-extrabold md:text-4xl">Veri: YZ&apos;nin Yakıtı</h3>
+        <p className="mx-auto mt-3 max-w-xl text-sm text-white/90 md:text-base">
+          YZ veri olmadan hiçbir şey öğrenemez. Peki veri tam olarak nedir? Bu bölümde birlikte bulacağız!
+        </p>
+      </div>
+    </div>
+
+    <Hikaye
+      karakter="Zeki"
+      karakterEmoji="🤖"
+      baslik="Bir benzetme yapalım..."
+      paragraflar={[
+        "Bir arabayı düşün. Ne kadar güçlü motor olursa olsun, benzinsiz gitmez değil mi?",
+        "Yapay zeka da öyle. En iyi algoritmalar bile, eğitim için iyi veri olmadan hiçbir şey öğrenemez. Yani veri, YZ için arabanın benzinidir.",
+        <span key="l">
+          Bu bölüm bittiğinde <strong>veri nedir, nasıl toplanır, nasıl temizlenir</strong> ve en
+          önemlisi — nasıl <em>önyargılı olmayan</em> bir veri seti oluşturulur sorularının
+          cevaplarını bileceksin.
+        </span>,
+      ]}
+      renkGradient="from-violet-500 via-purple-500 to-pink-500"
+    />
+  </>
+);
+
+/* ---- Geçiş: Teoriden → Laboratuvara ---- */
+const SlaytGecisVeriLab = (
+  <GecisSlayt
+    emoji="🧪"
+    renkGradient="from-violet-500 to-fuchsia-500"
+    oncekiBaslik="Veriyi Tanıdık"
+    oncekiOzet={
+      <p>
+        Veri türlerini, yapısal/yapısız farkını, büyük veriyi ve gizlilik ilkelerini öğrendin.
+        Artık bir YZ sisteminin nasıl veriyle beslendiğini biliyorsun.
+      </p>
+    }
+    sonrakiBaslik="Şimdi: Kendi Veri Setini Eğit!"
+    sonrakiOzet={
+      <p>
+        Sıradaki <strong>Veri Laboratuvarı</strong>&apos;nda iki sınıftan noktalar ekleyecek,
+        modeli gradient descent ile eğitecek ve karar sınırının nasıl oluştuğunu canlı izleyeceksin.
+      </p>
+    }
+    hikaye={
+      <span>
+        <strong>Zeki&apos;den ipucu:</strong> Laboratuvarda bir sınıftan çok, diğerinden az veri
+        eklersen ne olur sence? Hadi göster — bu <em>veri önyargısının</em> en basit hali!
+      </span>
+    }
+  />
+);
+
+/* ---- Veri Laboratuvarı Slaytı ---- */
+const SlaytVeriLab = (
+  <section className="space-y-6">
+    <KonuBasligi
+      emoji="🧪"
+      baslik="Veri Laboratuvarı"
+      altBaslik="Kendi sınıflandırıcını eğit!"
+      renkGradient="from-violet-500 to-fuchsia-500"
+    />
+
+    <p className="text-sm text-[var(--color-text-secondary)] md:text-base">
+      Bu laboratuvarda <strong>iki sınıftan veri noktaları</strong> ekleyeceksin (elma 🍎 ve muz 🍌).
+      Ardından basit bir lineer sınıflandırıcı eğitip, modelin öğrendiği <em>karar sınırını</em>{" "}
+      anında göreceksin. Gerçek makine öğrenmesi projelerinde kullanılan süreçle neredeyse aynı!
+    </p>
+
+    <div className="overflow-hidden rounded-2xl border border-[var(--color-border)]">
+      <Image
+        src="/images/illustrasyonlar/veri-akisi.svg"
+        alt="Veri akışı: Ham veri → Model eğitimi → Tahmin"
+        width={1000}
+        height={560}
+        className="h-auto w-full"
+      />
+    </div>
+
+    <VeriLaboratuvari />
+
+    <BilgiKutusu tip="ipucu" baslik="Deneyelim">
+      <ol className="ml-4 list-decimal space-y-1">
+        <li>Örnek veriyle başla. &quot;Modeli Eğit&quot; butonuna bas. Doğruluk kaç olmalı?</li>
+        <li>&quot;Tek Adım&quot; ile adım adım ilerle — karar sınırı her adımda biraz daha iyileşmeli.</li>
+        <li>Şimdi sadece bir sınıftan 10 nokta, diğerinden 2 nokta ekle. Ne oluyor? İşte <strong>veri önyargısı</strong>!</li>
+        <li>İki sınıfı üst üste koy (karışık). Model başarılı olabiliyor mu?</li>
+      </ol>
+    </BilgiKutusu>
+
+    <BilgiKutusu tip="gercek-hayat">
+      Bu gördüğün basit lineer sınıflandırıcının daha karmaşık kardeşleri, Gmail&apos;de
+      spam maillerini süzüyor, hastanelerde kanser hücrelerini tanıyor ve bankalarda
+      sahte işlem tespiti yapıyor. Temel fikir — hep aynı!
+    </BilgiKutusu>
+  </section>
+);
+
+/* ---- Bölüm 3 Özeti ---- */
+const SlaytBolumOzeti3 = (
+  <OzetKarti
+    baslik="Bölüm 3 Özeti"
+    renkGradient="from-violet-500 to-purple-700"
+    ogrenilenler={[
+      "Veri; metin, sayı, görüntü, ses gibi işlenebilir her türlü bilgi parçasıdır.",
+      "Yapısal veri tablolarda (ad, yaş, puan); yapısız veri kompozisyon, fotoğraf gibidir.",
+      "Veri hazırlama: topla → temizle → etiketle → eğit.",
+      "Büyük veri (big data) = çok miktar + çok çeşit + çok hız.",
+      "KVKK ve etik: Kişisel veri izinsiz toplanamaz!",
+      "Lineer sınıflandırıcı, veri noktalarını bir çizgiyle ayırarak öğrenir — karar sınırı.",
+      "Dengesiz veri → önyargılı model. Veri kalitesi her şeydir.",
+    ]}
+    anahtarKelimeler={[
+      "veri",
+      "yapısal veri",
+      "büyük veri",
+      "KVKK",
+      "veri temizleme",
+      "etiketleme",
+      "karar sınırı",
+      "önyargı",
+      "gradient descent",
+    ]}
+    sorular={[
+      "Telefonundaki hangi uygulamalar hangi tür veri topluyor?",
+      "Bir arkadaşının yüz fotoğrafını paylaşmadan önce ondan izin almak neden önemli?",
+      "Bir e-ticaret sitesi hangi veriler olmadan sana ürün öneremez?",
+    ]}
+  />
+);
+
 export default function Bolum3() {
   return (
     <BolumSlider
@@ -462,6 +609,7 @@ export default function Bolum3() {
       oncekiBolum={2}
       sonrakiBolum={4}
       slaytlar={[
+        { baslik: "Hoş Geldin!", icon: "👋", icerik: SlaytHosGeldin3 },
         { baslik: "Kazanımlar", icon: "🎯", icerik: SlaytKazanimlar },
         { baslik: "Veri Nedir?", icon: "📊", icerik: SlaytVeriNedir },
         { baslik: "Veri Türleri", icon: "📝", icerik: SlaytVeriTurleri },
@@ -470,6 +618,8 @@ export default function Bolum3() {
         { baslik: "Veri Hazırlama Süreci", icon: "🔧", icerik: SlaytVeriHazirlama },
         { baslik: "Büyük Veri", icon: "📦", icerik: SlaytBuyukVeri },
         { baslik: "Veri Gizliliği ve KVKK", icon: "🔒", icerik: SlaytVeriGizliligi },
+        { baslik: "Laboratuvara Geçiş", icon: "🧭", icerik: SlaytGecisVeriLab },
+        { baslik: "Veri Laboratuvarı", icon: "🧪", icerik: SlaytVeriLab },
         { baslik: "Etkinlik: Girdi Avcıları", icon: "🎮", icerik: SlaytEtkinlik1 },
         { baslik: "Etkinlik: Veri Topla", icon: "🎮", icerik: SlaytEtkinlik2 },
         { baslik: "Etkinlik: Veri Görselleştirme", icon: "📊", icerik: SlaytEtkinlik2b },
@@ -479,6 +629,7 @@ export default function Bolum3() {
         { baslik: "Etkinlik: Veri Etiketleme", icon: "🎮", icerik: SlaytEtkinlik5 },
         { baslik: "İnteraktif Oyun", icon: "🕹️", icerik: SlaytOyun },
         { baslik: "Değerlendirme", icon: "📝", icerik: SlaytDegerlendirme },
+        { baslik: "Bölüm Özeti", icon: "🏆", icerik: SlaytBolumOzeti3 },
         { baslik: "Materyaller", icon: "📥", icerik: SlaytMateryaller },
       ]}
     />

@@ -1,0 +1,57 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 240" role="img" aria-label="Alan Turing stilize portre">
+  <defs>
+    <linearGradient id="turing-bg" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#0c4a6e"/>
+      <stop offset="1" stop-color="#0e7490"/>
+    </linearGradient>
+    <linearGradient id="turing-skin" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#fde68a"/>
+      <stop offset="1" stop-color="#f59e0b"/>
+    </linearGradient>
+  </defs>
+  <rect width="200" height="240" rx="18" fill="url(#turing-bg)"/>
+
+  <!-- Dekoratif kodlayıcı desen -->
+  <g fill="#ffffff" opacity="0.08" font-family="monospace" font-size="8">
+    <text x="10" y="20">01001</text>
+    <text x="140" y="30">11010</text>
+    <text x="15" y="220">10110</text>
+    <text x="135" y="230">01011</text>
+  </g>
+  <g opacity="0.12" stroke="#ffffff" stroke-width="1" fill="none">
+    <circle cx="100" cy="110" r="80"/>
+    <circle cx="100" cy="110" r="65"/>
+  </g>
+
+  <!-- Vücut (takım elbise) -->
+  <path d="M 50 200 L 60 170 Q 100 160 140 170 L 150 200 L 150 240 L 50 240 Z" fill="#374151" stroke="#1f2937" stroke-width="1.5"/>
+  <!-- Yaka -->
+  <path d="M 75 175 L 95 195 L 100 175 L 105 195 L 125 175 L 125 180 L 105 200 L 100 180 L 95 200 L 75 180 Z" fill="#ffffff"/>
+  <!-- Kravat -->
+  <path d="M 95 200 L 100 220 L 105 200 Z" fill="#b91c1c"/>
+
+  <!-- Boyun -->
+  <rect x="88" y="155" width="24" height="18" fill="url(#turing-skin)"/>
+
+  <!-- Baş -->
+  <ellipse cx="100" cy="115" rx="36" ry="44" fill="url(#turing-skin)" stroke="#b45309" stroke-width="0.8"/>
+
+  <!-- Saç -->
+  <path d="M 65 90 Q 68 60 100 58 Q 132 60 135 90 Q 138 110 130 112 Q 130 75 100 72 Q 70 75 70 112 Q 62 110 65 90 Z" fill="#44403c"/>
+  <!-- Kaş -->
+  <rect x="82" y="102" width="10" height="2" rx="1" fill="#44403c"/>
+  <rect x="108" y="102" width="10" height="2" rx="1" fill="#44403c"/>
+  <!-- Gözler -->
+  <ellipse cx="87" cy="112" rx="3" ry="2.5" fill="#1f2937"/>
+  <ellipse cx="113" cy="112" rx="3" ry="2.5" fill="#1f2937"/>
+  <circle cx="88" cy="111" r="0.8" fill="#ffffff"/>
+  <circle cx="114" cy="111" r="0.8" fill="#ffffff"/>
+  <!-- Burun -->
+  <path d="M 100 115 Q 97 125 99 131 L 103 131 Q 104 127 100 115" fill="none" stroke="#b45309" stroke-width="1"/>
+  <!-- Ağız (hafif tebessüm) -->
+  <path d="M 90 140 Q 100 145 110 140" fill="none" stroke="#78350f" stroke-width="1.5" stroke-linecap="round"/>
+
+  <!-- İsim etiketi -->
+  <rect x="15" y="200" width="80" height="20" rx="10" fill="#ffffff" fill-opacity="0.12"/>
+  <text x="55" y="214" text-anchor="middle" font-family="system-ui" font-size="10" font-weight="700" fill="#ffffff">Alan Turing</text>
+</svg>
