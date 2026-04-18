@@ -12,6 +12,33 @@ interface StudentItem {
   created_at: string
 }
 
+interface StudentProgress {
+  user_id: string
+  nickname: string
+  total_activities: number
+  total_score: number
+  last_activity_at: string | null
+  distinct_bolumler: number
+}
+
+interface ProgressSummary {
+  total_students: number
+  active_students: number
+  total_activities: number
+  total_score: number
+}
+
+function yakinZaman(iso: string) {
+  const t = new Date(iso).getTime()
+  const simdi = Date.now()
+  const fark = Math.floor((simdi - t) / 1000)
+  if (fark < 60) return 'az önce'
+  if (fark < 3600) return `${Math.floor(fark / 60)} dk önce`
+  if (fark < 86400) return `${Math.floor(fark / 3600)} sa önce`
+  if (fark < 604800) return `${Math.floor(fark / 86400)} gün önce`
+  return new Date(iso).toLocaleDateString('tr-TR')
+}
+
 interface ClassInfo {
   id: string
   name: string
@@ -27,6 +54,8 @@ export default function SinifDetay() {
 
   const [classInfo, setClassInfo] = useState<ClassInfo | null>(null)
   const [students, setStudents] = useState<StudentItem[]>([])
+  const [progressMap, setProgressMap] = useState<Record<string, StudentProgress>>({})
+  const [progressSummary, setProgressSummary] = useState<ProgressSummary | null>(null)
   const [loading, setLoading] = useState(true)
 
   // Toplu ekleme
@@ -45,11 +74,23 @@ export default function SinifDetay() {
 
   const fetchStudents = async () => {
     setLoading(true)
-    const res = await fetch(`/api/classes/${classId}/students`)
-    if (res.ok) {
-      const data = await res.json()
+    const [studRes, progRes] = await Promise.all([
+      fetch(`/api/classes/${classId}/students`),
+      fetch(`/api/classes/${classId}/progress`),
+    ])
+    if (studRes.ok) {
+      const data = await studRes.json()
       setClassInfo(data.classInfo)
       setStudents(data.students)
+    }
+    if (progRes.ok) {
+      const pdata = await progRes.json()
+      const map: Record<string, StudentProgress> = {}
+      for (const p of (pdata.progress ?? []) as StudentProgress[]) {
+        map[p.user_id] = p
+      }
+      setProgressMap(map)
+      setProgressSummary(pdata.summary ?? null)
     }
     setLoading(false)
   }
@@ -173,28 +214,64 @@ export default function SinifDetay() {
   return (
     <div className="min-h-screen bg-gray-50">
       <div className="max-w-5xl mx-auto p-6 sm:p-8">
+        {/* Geri linki */}
+        <div className="mb-3">
+          <a href="/ogretmen" className="text-sm text-violet-600 hover:underline">
+            ← Öğretmen Paneli
+          </a>
+        </div>
+
         {/* Sinif Bilgi Karti */}
         {classInfo && (
-          <div className="bg-white rounded-xl border p-5 mb-6">
+          <div className="bg-gradient-to-br from-violet-500 to-indigo-600 rounded-2xl p-5 mb-4 text-white shadow-lg">
             <div className="flex items-center justify-between flex-wrap gap-4">
               <div>
-                <h1 className="text-2xl font-bold text-gray-900">
-                  {classInfo.name}
-                </h1>
-                <div className="flex items-center gap-4 mt-2 text-sm text-gray-500">
-                  <span>
-                    Sinif Kodu:{' '}
-                    <code className="bg-blue-50 text-blue-700 px-2 py-0.5 rounded font-mono font-medium">
+                <p className="text-xs font-semibold uppercase tracking-wider text-white/80">
+                  Sınıf
+                </p>
+                <h1 className="text-2xl font-extrabold mt-0.5">{classInfo.name}</h1>
+                <div className="flex items-center gap-3 mt-2 text-sm flex-wrap">
+                  <span className="inline-flex items-center gap-1.5 rounded-full bg-white/20 px-3 py-1 backdrop-blur">
+                    🔑 Kod:{' '}
+                    <code className="font-mono font-bold tracking-wide">
                       {classInfo.access_code}
                     </code>
                   </span>
-                  <span>Giris Tipi: {credLabel}</span>
-                  <span>{students.length} ogrenci</span>
+                  <span className="inline-flex items-center gap-1.5 rounded-full bg-white/20 px-3 py-1 backdrop-blur">
+                    {classInfo.credential_type === 'pin' ? '🔢' : classInfo.credential_type === 'emoji' ? '😊' : '💬'} {credLabel}
+                  </span>
                 </div>
               </div>
             </div>
           </div>
         )}
+
+        {/* İstatistik kartları */}
+        <div className="grid grid-cols-2 lg:grid-cols-4 gap-3 mb-6">
+          <div className="rounded-xl border border-slate-200 bg-white p-4">
+            <p className="text-[10px] uppercase tracking-wider text-slate-500 font-bold">Öğrenci</p>
+            <p className="text-2xl font-extrabold text-violet-600 mt-1">{students.length}</p>
+          </div>
+          <div className="rounded-xl border border-slate-200 bg-white p-4">
+            <p className="text-[10px] uppercase tracking-wider text-slate-500 font-bold">Aktif Öğrenci</p>
+            <p className="text-2xl font-extrabold text-emerald-600 mt-1">
+              {progressSummary?.active_students ?? 0}
+              <span className="text-sm text-slate-400 font-normal">/{students.length}</span>
+            </p>
+          </div>
+          <div className="rounded-xl border border-slate-200 bg-white p-4">
+            <p className="text-[10px] uppercase tracking-wider text-slate-500 font-bold">Toplam Etkinlik</p>
+            <p className="text-2xl font-extrabold text-sky-600 mt-1">
+              {progressSummary?.total_activities ?? 0}
+            </p>
+          </div>
+          <div className="rounded-xl border border-slate-200 bg-white p-4">
+            <p className="text-[10px] uppercase tracking-wider text-slate-500 font-bold">Toplam Puan</p>
+            <p className="text-2xl font-extrabold text-amber-600 mt-1">
+              {progressSummary?.total_score ?? 0}
+            </p>
+          </div>
+        </div>
 
         {/* Aksiyon mesaji */}
         {actionMsg && (
@@ -303,51 +380,86 @@ export default function SinifDetay() {
           ) : (
             <div className="overflow-x-auto">
               <table className="w-full text-left text-sm">
-                <thead className="bg-gray-50 border-b">
+                <thead className="bg-gray-50 border-b text-[10px] uppercase tracking-wider text-slate-500">
                   <tr>
-                    <th className="p-4 font-medium text-gray-500">#</th>
-                    <th className="p-4 font-medium text-gray-500">Takma Ad</th>
-                    <th className="p-4 font-medium text-gray-500">{credLabel}</th>
-                    <th className="p-4 font-medium text-gray-500">Eklenme</th>
-                    <th className="p-4 font-medium text-gray-500">Islemler</th>
+                    <th className="p-3 font-bold">#</th>
+                    <th className="p-3 font-bold">Takma Ad</th>
+                    <th className="p-3 font-bold">{credLabel}</th>
+                    <th className="p-3 font-bold">İlerleme</th>
+                    <th className="p-3 font-bold text-center">Etkinlik</th>
+                    <th className="p-3 font-bold text-center">Puan</th>
+                    <th className="p-3 font-bold">Son Aktivite</th>
+                    <th className="p-3 font-bold">İşlemler</th>
                   </tr>
                 </thead>
                 <tbody>
-                  {students.map((s, i) => (
-                    <tr
-                      key={s.id}
-                      className="border-b last:border-0 hover:bg-gray-50"
-                    >
-                      <td className="p-4 text-gray-400">{i + 1}</td>
-                      <td className="p-4 font-medium text-gray-800">
-                        {s.nickname}
-                      </td>
-                      <td className="p-4">
-                        <code className="bg-gray-100 px-2 py-0.5 rounded text-sm font-mono">
-                          {s.credential_plain}
-                        </code>
-                      </td>
-                      <td className="p-4 text-gray-500">
-                        {new Date(s.created_at).toLocaleDateString('tr-TR')}
-                      </td>
-                      <td className="p-4">
-                        <div className="flex gap-3">
-                          <button
-                            onClick={() => handleReset(s.id, s.nickname)}
-                            className="text-blue-600 hover:text-blue-800 text-sm"
-                          >
-                            Sifre Sifirla
-                          </button>
-                          <button
-                            onClick={() => handleDelete(s.id, s.nickname)}
-                            className="text-red-500 hover:text-red-700 text-sm"
-                          >
-                            Sil
-                          </button>
-                        </div>
-                      </td>
-                    </tr>
-                  ))}
+                  {students.map((s, i) => {
+                    const p = progressMap[s.user_id]
+                    const bolumYuzde = Math.min(100, Math.round(((p?.distinct_bolumler ?? 0) / 10) * 100))
+                    const sonZaman = p?.last_activity_at
+                      ? yakinZaman(p.last_activity_at)
+                      : '—'
+                    return (
+                      <tr
+                        key={s.id}
+                        className="border-b last:border-0 hover:bg-gray-50"
+                      >
+                        <td className="p-3 text-gray-400">{i + 1}</td>
+                        <td className="p-3 font-medium text-gray-800">
+                          {s.nickname}
+                        </td>
+                        <td className="p-3">
+                          <code className="bg-gray-100 px-2 py-0.5 rounded text-xs font-mono">
+                            {s.credential_plain}
+                          </code>
+                        </td>
+                        <td className="p-3 min-w-[120px]">
+                          <div className="flex items-center gap-2">
+                            <div className="h-1.5 flex-1 max-w-[80px] rounded-full bg-slate-100 overflow-hidden">
+                              <div
+                                className={`h-full rounded-full transition-all ${
+                                  bolumYuzde >= 70
+                                    ? 'bg-emerald-500'
+                                    : bolumYuzde >= 30
+                                    ? 'bg-violet-500'
+                                    : bolumYuzde > 0
+                                    ? 'bg-amber-500'
+                                    : 'bg-slate-300'
+                                }`}
+                                style={{ width: `${bolumYuzde}%` }}
+                              />
+                            </div>
+                            <span className="text-[10px] font-bold text-slate-500 whitespace-nowrap">
+                              {p?.distinct_bolumler ?? 0}/10
+                            </span>
+                          </div>
+                        </td>
+                        <td className="p-3 text-center font-bold text-sky-600">
+                          {p?.total_activities ?? 0}
+                        </td>
+                        <td className="p-3 text-center font-bold text-amber-600">
+                          {p?.total_score ?? 0}
+                        </td>
+                        <td className="p-3 text-gray-500 text-xs">{sonZaman}</td>
+                        <td className="p-3">
+                          <div className="flex gap-2">
+                            <button
+                              onClick={() => handleReset(s.id, s.nickname)}
+                              className="rounded-md bg-sky-50 px-2 py-1 text-xs font-semibold text-sky-700 hover:bg-sky-100"
+                            >
+                              🔑 Şifre
+                            </button>
+                            <button
+                              onClick={() => handleDelete(s.id, s.nickname)}
+                              className="rounded-md bg-rose-50 px-2 py-1 text-xs font-semibold text-rose-700 hover:bg-rose-100"
+                            >
+                              🗑️ Sil
+                            </button>
+                          </div>
+                        </td>
+                      </tr>
+                    )
+                  })}
                 </tbody>
               </table>
             </div>

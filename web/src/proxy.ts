@@ -10,7 +10,7 @@ async function handler(request: NextRequest) {
   }
 
   // Route sınıflandırması
-  const adminRoutes = ['/admin', '/okul', '/ogretmen/siniflar']
+  const adminRoutes = ['/admin', '/okul', '/ogretmen']
   const isAdminRoute = adminRoutes.some((r) => path.startsWith(r))
   const studentRoutes = ['/bolumler/', '/ogrenci']
   const isStudentRoute = studentRoutes.some((r) => path.startsWith(r))
@@ -79,7 +79,7 @@ async function handler(request: NextRequest) {
       }
 
       if (
-        path.startsWith('/ogretmen/siniflar') &&
+        path.startsWith('/ogretmen') &&
         !['teacher', 'school_admin', 'super_admin'].includes(role ?? '')
       ) {
         return NextResponse.redirect(new URL('/', request.url))
@@ -107,7 +107,8 @@ export const config = {
   matcher: [
     '/admin/:path*',
     '/okul/:path*',
-    '/ogretmen/siniflar/:path*',
+    '/ogretmen',
+    '/ogretmen/:path*',
     '/bolumler/:path*',
     '/ogrenci/:path*',
   ],

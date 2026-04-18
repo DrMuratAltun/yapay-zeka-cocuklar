@@ -6,6 +6,7 @@ import DashboardLayout from "@/components/dashboard/DashboardLayout";
 import DashboardSidebar, { SidebarItem } from "@/components/dashboard/DashboardSidebar";
 import ProfilRing from "@/components/dashboard/ProfilRing";
 import BarChart from "@/components/dashboard/BarChart";
+import BolumIlerleme from "@/components/dashboard/BolumIlerleme";
 
 type Progress = {
   activity_id?: string;
@@ -377,6 +378,11 @@ export default function OgrenciDashboard() {
             );
           })}
         </div>
+      </section>
+
+      {/* Bölüm İlerlemelerim */}
+      <section id="ilerleme" className="mb-6">
+        <BolumIlerleme baslik="📚 Bölüm İlerlemelerim" />
       </section>
 
       {/* Son Aktiviteler tablosu */}
