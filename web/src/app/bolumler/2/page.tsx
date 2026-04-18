@@ -401,58 +401,38 @@ const SlaytYzKullanimAlanlari = (
   </>
 );
 
+const ONERI_ADIMLARI = [
+  { adim: 1, baslik: "Veri Toplama", aciklama: "Neyi izlediğini, ne kadar izlediğini, neyi beğendiğini, neyi geçtiğini kaydeder." },
+  { adim: 2, baslik: "Örüntü Bulma", aciklama: "Benzer izleme alışkanlıkları olan kullanıcıları bulur. 'Seni sevenlerin sevdiklerini' keşfeder." },
+  { adim: 3, baslik: "Tahmin Yapma", aciklama: "Senin henüz izlemediğin ama sevebileceğin içerikleri tahmin eder." },
+  { adim: 4, baslik: "Öneri Sunma", aciklama: "Ana sayfanda 'Senin için seçtiklerimiz' olarak gösterir." },
+];
+
 const SlaytOneriSistemleri = (
-  <>
-    <section className="space-y-4">
-      <h2 className="text-2xl font-extrabold">
-        4. Öneri Sistemleri Nasıl Çalışır?
-      </h2>
-      <p>
-        Film, video ve müzik platformları &quot;Sana Özel&quot;
-        içerikler sunar. Peki bu nasıl çalışır?
-      </p>
-      <div className="space-y-3">
-        {[
-          {
-            adim: 1,
-            baslik: "Veri Toplama",
-            aciklama:
-              "Neyi izlediğini, ne kadar izlediğini, neyi beğendiğini, neyi geçtiğini kaydeder.",
-          },
-          {
-            adim: 2,
-            baslik: "Örüntü Bulma",
-            aciklama:
-              "Benzer izleme alışkanlıkları olan kullanıcıları bulur. 'Seni sevenlerin sevdiklerini' keşfeder.",
-          },
-          {
-            adim: 3,
-            baslik: "Tahmin Yapma",
-            aciklama:
-              "Senin henüz izlemediğin ama sevebileceğin içerikleri tahmin eder.",
-          },
-          {
-            adim: 4,
-            baslik: "Öneri Sunma",
-            aciklama:
-              "Ana sayfanda 'Senin için seçtiklerimiz' olarak gösterir.",
-          },
-        ].map((a) => (
-          <div key={a.adim} className="flex items-start gap-4">
-            <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-emerald-600 font-bold text-white">
+  <section className="space-y-3">
+    <h3 className="text-xl font-extrabold">4. Öneri Sistemleri Nasıl Çalışır?</h3>
+    <p className="text-sm">
+      Film, video ve müzik platformları &quot;Sana Özel&quot; içerikler sunar. 4 adımda nasıl?
+    </p>
+    <IcSayfa
+      renkGradient="from-emerald-500 to-teal-500"
+      sayfalar={ONERI_ADIMLARI.map((a) => ({
+        emoji: ["📥", "🔍", "🎯", "🎁"][a.adim - 1],
+        baslik: `Adım ${a.adim}: ${a.baslik}`,
+        icerik: (
+          <div className="flex items-start gap-3">
+            <span className="flex h-12 w-12 shrink-0 items-center justify-center rounded-full bg-emerald-600 text-lg font-bold text-white">
               {a.adim}
             </span>
             <div>
-              <h4 className="font-bold">{a.baslik}</h4>
-              <p className="text-sm text-[var(--color-text-secondary)]">
-                {a.aciklama}
-              </p>
+              <h4 className="text-base font-bold">{a.baslik}</h4>
+              <p className="mt-1 text-sm text-[var(--color-text-secondary)]">{a.aciklama}</p>
             </div>
           </div>
-        ))}
-      </div>
-    </section>
-  </>
+        ),
+      }))}
+    />
+  </section>
 );
 
 const SlaytSesliAsistanlar = (

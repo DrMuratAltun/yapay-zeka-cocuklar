@@ -22,6 +22,7 @@ import GecisSlayt from "@/components/anlati/GecisSlayt";
 import KonuBasligi from "@/components/anlati/KonuBasligi";
 import OzetKarti from "@/components/anlati/OzetKarti";
 import Hikaye from "@/components/anlati/Hikaye";
+import IcSayfa from "@/components/anlati/IcSayfa";
 
 const quizSorulari = [
   {
@@ -68,52 +69,65 @@ const quizSorulari = [
 
 /* ---- Slayt 0: Hoş Geldin (yeni) ---- */
 const SlaytHosGeldin = (
-  <>
-    <div className="relative overflow-hidden rounded-3xl bg-gradient-to-br from-sky-500 via-blue-500 to-violet-600 p-8 text-center text-white shadow-xl">
-      <div className="absolute inset-0 opacity-20">
-        <div className="absolute -top-20 -left-20 h-60 w-60 rounded-full bg-white blur-3xl" />
-        <div className="absolute -bottom-20 -right-20 h-60 w-60 rounded-full bg-white blur-3xl" />
-      </div>
-      <div className="relative">
-        <span className="inline-block text-6xl float-1" aria-hidden="true">
-          🤖
-        </span>
-        <h3 className="mt-4 text-3xl font-extrabold md:text-4xl">Bir Maceraya Hazır mısın?</h3>
-        <p className="mx-auto mt-3 max-w-xl text-sm text-white/90 md:text-base">
-          Sen farkında olmadan bugün en az 5 yapay zekayla konuştun. Şimdi onları tanıma zamanı!
-        </p>
-      </div>
-    </div>
-
-    <Hikaye
-      karakter="Zeki, YZ Asistanın"
-      karakterEmoji="🤖"
-      baslik="Merhaba kâşif!"
-      paragraflar={[
-        "Ben Zeki. Bu bölümde yanında olacağım. Birlikte zekanın ne olduğunu, makinelerin nasıl \"zeki\" davranabildiğini ve ben gibi YZ'lerin nasıl çalıştığını keşfedeceğiz.",
-        "Sana söz veriyorum: bu bölüm bittiğinde telefonundaki asistana, Netflix'in önerilerine ve ChatGPT'ye farklı bir gözle bakacaksın.",
-        <span key="l">Haydi başlayalım! Sol taraftaki menüden istediğin bölüme atlayabilir ya da ok tuşlarıyla (◀ ▶) ilerleyebilirsin.</span>,
-      ]}
-      renkGradient="from-sky-500 via-blue-500 to-violet-500"
-    />
-
-    <div className="grid gap-3 sm:grid-cols-3">
-      {[
-        { emoji: "⏱️", baslik: "4 ders saati", aciklama: "Kendi hızında ilerle" },
-        { emoji: "🎮", baslik: "6 etkinlik", aciklama: "Uygulayarak öğren" },
-        { emoji: "🧪", baslik: "2 oyun + 1 lab", aciklama: "Keşfet, dene, anla" },
-      ].map((k) => (
-        <div
-          key={k.baslik}
-          className="rounded-xl border border-[var(--color-border)] bg-[var(--color-bg-secondary)] p-4 text-center"
-        >
-          <div className="text-2xl" aria-hidden="true">{k.emoji}</div>
-          <div className="mt-1 text-sm font-bold">{k.baslik}</div>
-          <div className="text-xs text-[var(--color-text-secondary)]">{k.aciklama}</div>
-        </div>
-      ))}
-    </div>
-  </>
+  <IcSayfa
+    renkGradient="from-sky-500 via-blue-500 to-violet-500"
+    sayfalar={[
+      {
+        emoji: "🎉",
+        baslik: "Hoş Geldin!",
+        icerik: (
+          <div className="relative overflow-hidden rounded-2xl bg-gradient-to-br from-sky-500 via-blue-500 to-violet-600 p-5 text-center text-white shadow-lg">
+            <div className="absolute inset-0 opacity-20">
+              <div className="absolute -top-10 -left-10 h-40 w-40 rounded-full bg-white blur-3xl" />
+              <div className="absolute -bottom-10 -right-10 h-40 w-40 rounded-full bg-white blur-3xl" />
+            </div>
+            <div className="relative">
+              <span className="inline-block text-5xl float-1" aria-hidden="true">🤖</span>
+              <h3 className="mt-2 text-2xl font-extrabold md:text-3xl">Bir Maceraya Hazır mısın?</h3>
+              <p className="mx-auto mt-2 max-w-xl text-sm text-white/90">
+                Sen farkında olmadan bugün en az 5 yapay zekayla konuştun. Şimdi onları tanıma zamanı!
+              </p>
+            </div>
+          </div>
+        ),
+      },
+      {
+        emoji: "📖",
+        baslik: "Zeki ile tanış",
+        icerik: (
+          <Hikaye
+            karakter="Zeki, YZ Asistanın"
+            karakterEmoji="🤖"
+            baslik="Merhaba kâşif!"
+            paragraflar={[
+              "Ben Zeki. Bu bölümde yanında olacağım. Birlikte zekanın ne olduğunu, makinelerin nasıl \"zeki\" davranabildiğini ve ben gibi YZ'lerin nasıl çalıştığını keşfedeceğiz.",
+              "Sana söz veriyorum: bu bölüm bittiğinde telefonundaki asistana, Netflix'in önerilerine ve ChatGPT'ye farklı bir gözle bakacaksın.",
+            ]}
+            renkGradient="from-sky-500 via-blue-500 to-violet-500"
+          />
+        ),
+      },
+      {
+        emoji: "🧭",
+        baslik: "Bölümde Neler Var?",
+        icerik: (
+          <div className="grid gap-3 sm:grid-cols-3">
+            {[
+              { emoji: "⏱️", baslik: "4 ders saati", aciklama: "Kendi hızında ilerle" },
+              { emoji: "🎮", baslik: "6 etkinlik", aciklama: "Uygulayarak öğren" },
+              { emoji: "🧪", baslik: "2 oyun + 1 lab", aciklama: "Keşfet, dene, anla" },
+            ].map((k) => (
+              <div key={k.baslik} className="rounded-xl border border-[var(--color-border)] bg-[var(--color-bg-secondary)] p-3 text-center">
+                <div className="text-2xl" aria-hidden="true">{k.emoji}</div>
+                <div className="mt-1 text-sm font-bold">{k.baslik}</div>
+                <div className="text-xs text-[var(--color-text-secondary)]">{k.aciklama}</div>
+              </div>
+            ))}
+          </div>
+        ),
+      },
+    ]}
+  />
 );
 
 /* ---- Slayt 1: Kazanımlar ---- */
@@ -175,109 +189,153 @@ const SlaytGecis1 = (
 
 /* ---- Slayt 2: Zeka Nedir? ---- */
 const SlaytZekaNedir = (
-  <section className="space-y-4">
+  <section className="space-y-3">
     <KonuBasligi
       numara={1}
       baslik="Zeka Nedir?"
       altBaslik="Öğrenme, anlama ve uyum sağlama yeteneği"
       renkGradient="from-sky-500 to-blue-600"
     />
-    <p>
-      Zeka, öğrenme, anlama, problem çözme ve yeni durumlara uyum sağlama
-      yeteneklerimizin tamamıdır. İnsanlar bu yetenekleri doğal olarak
-      geliştirir: bir bebek yürümesini öğrenir, bir öğrenci matematik
-      problemlerini çözer, bir sporcu yeni taktikler geliştirir.
-    </p>
-
-    <div className="grid gap-3 sm:grid-cols-4">
-      {[
-        { emoji: "📚", ad: "Öğrenme", aciklama: "Deneyimlerden ders alma" },
-        { emoji: "🧩", ad: "Problem Çözme", aciklama: "Zorlukları aşmak" },
-        { emoji: "🔁", ad: "Uyum Sağlama", aciklama: "Değişene ayak uydurma" },
-        { emoji: "💭", ad: "Yaratıcılık", aciklama: "Yeni fikirler üretme" },
-      ].map((z) => (
-        <div
-          key={z.ad}
-          className="rounded-xl border border-[var(--color-border)] bg-[var(--color-bg-secondary)] p-3 text-center"
-        >
-          <div className="text-3xl" aria-hidden="true">
-            {z.emoji}
-          </div>
-          <div className="mt-1 text-sm font-bold">{z.ad}</div>
-          <div className="text-xs text-[var(--color-text-secondary)]">{z.aciklama}</div>
-        </div>
-      ))}
-    </div>
-
-    <BilgiKutusu tip="dusun">
-      Bir hesap makinesi saniyeler içinde binlerce çarpma işlemi yapabilir.
-      Bu onu <strong>zeki</strong> yapar mı? Neden?
-    </BilgiKutusu>
-
-    <BilgiKutusu tip="biliyor-muydun" baslik="İlginç Bilgi">
-      Zekayı ölçmenin tek bir yolu yok! Psikolog Howard Gardner,{" "}
-      <strong>8 farklı zeka türü</strong> olduğunu söyler:
-      dilsel, mantıksal-matematiksel, uzamsal, bedensel, müzikal, sosyal, içsel ve doğa zekası.
-      Sen hangisinde güçlüsün?
-    </BilgiKutusu>
+    <IcSayfa
+      renkGradient="from-sky-500 to-blue-600"
+      sayfalar={[
+        {
+          emoji: "🧠",
+          baslik: "Tanım",
+          icerik: (
+            <div className="space-y-3">
+              <p className="text-sm">
+                Zeka, <strong>öğrenme, anlama, problem çözme ve yeni durumlara uyum sağlama</strong>
+                yeteneklerimizin tamamıdır. Bebek yürümeyi, öğrenci matematiği, sporcu yeni
+                taktikleri nasıl öğreniyorsa — zeka işte budur.
+              </p>
+              <BilgiKutusu tip="dusun">
+                Bir hesap makinesi saniyeler içinde binlerce çarpma yapabilir. Bu onu{" "}
+                <strong>zeki</strong> yapar mı? Neden?
+              </BilgiKutusu>
+            </div>
+          ),
+        },
+        {
+          emoji: "🎯",
+          baslik: "Zekanın 4 bileşeni",
+          icerik: (
+            <div className="grid gap-3 sm:grid-cols-2">
+              {[
+                { emoji: "📚", ad: "Öğrenme", aciklama: "Deneyimlerden ders alma" },
+                { emoji: "🧩", ad: "Problem Çözme", aciklama: "Zorlukları aşmak" },
+                { emoji: "🔁", ad: "Uyum Sağlama", aciklama: "Değişene ayak uydurma" },
+                { emoji: "💭", ad: "Yaratıcılık", aciklama: "Yeni fikirler üretme" },
+              ].map((z) => (
+                <div
+                  key={z.ad}
+                  className="flex items-start gap-2 rounded-xl border border-[var(--color-border)] bg-[var(--color-bg-secondary)] p-3"
+                >
+                  <span className="text-2xl" aria-hidden="true">{z.emoji}</span>
+                  <div>
+                    <div className="text-sm font-bold">{z.ad}</div>
+                    <div className="text-xs text-[var(--color-text-secondary)]">{z.aciklama}</div>
+                  </div>
+                </div>
+              ))}
+            </div>
+          ),
+        },
+        {
+          emoji: "💡",
+          baslik: "8 Farklı Zeka Türü",
+          icerik: (
+            <BilgiKutusu tip="biliyor-muydun" baslik="Howard Gardner'a göre">
+              Zekayı ölçmenin tek bir yolu yok! Psikolog Howard Gardner,{" "}
+              <strong>8 farklı zeka türü</strong> olduğunu söyler:
+              <br />
+              <span className="mt-2 inline-block">
+                dilsel · mantıksal-matematiksel · uzamsal · bedensel · müzikal · sosyal · içsel · doğa
+              </span>
+              <br />
+              <em>Sen hangisinde güçlüsün?</em>
+            </BilgiKutusu>
+          ),
+        },
+      ]}
+    />
   </section>
 );
 
 /* ---- Slayt 3: Yapay Zeka Nedir? ---- */
 const SlaytYapayZekaNedir = (
-  <>
-    <div className="overflow-hidden rounded-2xl border border-[var(--color-border)]">
-      <Image
-        src="/images/illustrasyonlar/ai-kavram.svg"
-        alt="Yapay zeka kavramı: biyolojik beyin ve dijital çipin birleşimi"
-        width={800}
-        height={600}
-        className="h-auto w-full"
-      />
-    </div>
-    <section className="space-y-4">
-      <h3 className="text-xl font-extrabold">Yapay Zeka Nedir?</h3>
-      <p>
-        Yapay zeka, bilgisayarların ve makinelerin insanlara benzer
-        &quot;zeki&quot; davranışlar göstermesini sağlayan teknolojilerin genel
-        adıdır. Tek bir şey değildir — aksine, birçok yöntemden oluşan bir
-        <strong> şemsiye terimdir</strong>: makine öğrenmesi, derin öğrenme,
-        sinir ağları, doğal dil işleme ve daha fazlası.
-      </p>
-      <div className="overflow-x-auto">
-        <table className="w-full rounded-xl border border-[var(--color-border)] text-sm">
-          <thead className="bg-sky-600 text-white">
-            <tr>
-              <th className="px-4 py-3 text-left">Özellik</th>
-              <th className="px-4 py-3 text-left">İnsan Zekası</th>
-              <th className="px-4 py-3 text-left">Yapay Zeka</th>
-            </tr>
-          </thead>
-          <tbody>
-            {[
-              ["Öğrenme", "Deneyim ve gözlemle", "Veri ve algoritmalarla"],
-              ["Yaratıcılık", "Çok güçlü", "Sınırlı (taklit eder)"],
-              ["Duygular", "Var", "Yok (taklit edebilir)"],
-              ["Hız", "Sınırlı", "Çok hızlı"],
-              ["Yorgunluk", "Yorulur", "Yorulmaz"],
-              ["Esneklik", "Yeni durumlara uyum sağlar", "Eğitildiği konuda başarılı"],
-            ].map(([ozellik, insan, yz], i) => (
-              <tr key={ozellik} className={i % 2 === 0 ? "bg-[var(--color-bg-secondary)]" : ""}>
-                <td className="px-4 py-2.5 font-medium">{ozellik}</td>
-                <td className="px-4 py-2.5">{insan}</td>
-                <td className="px-4 py-2.5">{yz}</td>
-              </tr>
-            ))}
-          </tbody>
-        </table>
-      </div>
-      <BilgiKutusu tip="biliyor-muydun">
-        YZ 2024 itibariyle dünyada{" "}
-        <strong>günde yaklaşık 100 milyon kez</strong> ChatGPT kullanıcılarıyla konuşuyor.
-        Türkiye&apos;de de en çok kullanılan YZ araçlarından biri!
-      </BilgiKutusu>
-    </section>
-  </>
+  <section className="space-y-3">
+    <h3 className="text-xl font-extrabold">Yapay Zeka Nedir?</h3>
+    <IcSayfa
+      renkGradient="from-sky-500 to-blue-600"
+      sayfalar={[
+        {
+          emoji: "🎨",
+          baslik: "YZ'nin Kavramsal Resmi",
+          icerik: (
+            <div className="space-y-3">
+              <div className="overflow-hidden rounded-xl border border-[var(--color-border)]">
+                <Image
+                  src="/images/illustrasyonlar/ai-kavram.svg"
+                  alt="YZ: biyolojik beyin + dijital çip"
+                  width={800}
+                  height={480}
+                  className="h-auto w-full"
+                />
+              </div>
+              <p className="text-sm">
+                YZ bir <strong>şemsiye terim</strong>: makine öğrenmesi, derin öğrenme,
+                sinir ağları, doğal dil işleme ve daha fazlasını içerir.
+              </p>
+            </div>
+          ),
+        },
+        {
+          emoji: "⚖️",
+          baslik: "İnsan vs Makine — Karşılaştırma",
+          icerik: (
+            <div className="overflow-x-auto">
+              <table className="w-full rounded-xl border border-[var(--color-border)] text-xs sm:text-sm">
+                <thead className="bg-sky-600 text-white">
+                  <tr>
+                    <th className="px-3 py-2 text-left">Özellik</th>
+                    <th className="px-3 py-2 text-left">İnsan Zekası</th>
+                    <th className="px-3 py-2 text-left">YZ</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {[
+                    ["Öğrenme", "Deneyim ve gözlemle", "Veri ve algoritmalarla"],
+                    ["Yaratıcılık", "Çok güçlü", "Sınırlı (taklit)"],
+                    ["Duygular", "Var", "Yok (taklit edebilir)"],
+                    ["Hız", "Sınırlı", "Çok hızlı"],
+                    ["Yorgunluk", "Yorulur", "Yorulmaz"],
+                    ["Esneklik", "Yeni durumlara uyum", "Eğitildiği konuda başarılı"],
+                  ].map(([o, i, y], idx) => (
+                    <tr key={o} className={idx % 2 === 0 ? "bg-[var(--color-bg-secondary)]" : ""}>
+                      <td className="px-3 py-1.5 font-medium">{o}</td>
+                      <td className="px-3 py-1.5">{i}</td>
+                      <td className="px-3 py-1.5">{y}</td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </div>
+          ),
+        },
+        {
+          emoji: "💡",
+          baslik: "Biliyor muydun?",
+          icerik: (
+            <BilgiKutusu tip="biliyor-muydun">
+              YZ 2024 itibariyle dünyada <strong>günde yaklaşık 100 milyon kez</strong> ChatGPT
+              kullanıcılarıyla konuşuyor. Türkiye&apos;de de en çok kullanılan YZ araçlarından biri!
+            </BilgiKutusu>
+          ),
+        },
+      ]}
+    />
+  </section>
 );
 
 /* ---- Slayt 4: Öncüler (interaktif) ---- */
@@ -475,45 +533,63 @@ const SlaytGecis2 = (
 
 /* ---- Slayt Sinir Ağı Oyun Alanı (yeni interaktif uygulama) ---- */
 const SlaytSinirAgiLab = (
-  <section className="space-y-6">
+  <section className="space-y-3">
     <KonuBasligi
       emoji="🧠"
       baslik="Sinir Ağı Oyun Alanı"
       altBaslik="Yapay zekanın 'beyni' nasıl çalışır?"
       renkGradient="from-violet-500 to-purple-600"
     />
-
-    <p className="text-sm text-[var(--color-text-secondary)] md:text-base">
-      YZ&apos;nin büyük bir kısmı <strong>yapay sinir ağları</strong> ile çalışır.
-      Bu ağlar, beynimizdeki nöron bağlantılarından ilham almıştır. Aşağıdaki laboratuvarda
-      3 özellik girip (kırmızılık, yuvarlaklık, tatlılık) sinir ağının
-      bir meyveyi nasıl sınıflandırdığını gör!
-    </p>
-
-    <div className="overflow-hidden rounded-2xl border border-[var(--color-border)]">
-      <Image
-        src="/images/illustrasyonlar/sinir-aglari.svg"
-        alt="Sinir ağı katmanları diyagramı"
-        width={1000}
-        height={600}
-        className="h-auto w-full"
-      />
-    </div>
-
-    <SinirAgiOyunAlani />
-
-    <BilgiKutusu tip="ipucu" baslik="Nasıl Deneyelim?">
-      <ol className="ml-4 list-decimal space-y-1">
-        <li>Önce &quot;Tipik Elma&quot; ve &quot;Tipik Portakal&quot; butonlarına bas — sinir ağı doğru tahmin ediyor mu?</li>
-        <li>Kaydırıcıları kendin oynat. Tatlılığı arttırınca ne değişiyor?</li>
-        <li>&quot;Keşif Modu&quot;nu aç. Ağırlıkları sen ayarla — elmayı portakal olarak tanıyacak şekilde bozabilir misin?</li>
-      </ol>
-    </BilgiKutusu>
-
-    <BilgiKutusu tip="biliyor-muydun">
-      GPT-4 gibi büyük modellerde <strong>1,7 trilyon</strong> ağırlık (parametre) var.
-      Burada sadece 8 ağırlık kullandık, ama prensip aynı!
-    </BilgiKutusu>
+    <IcSayfa
+      renkGradient="from-violet-500 to-purple-600"
+      sayfalar={[
+        {
+          emoji: "📖",
+          baslik: "Giriş + Diyagram",
+          icerik: (
+            <div className="space-y-3">
+              <p className="text-sm">
+                YZ&apos;nin büyük kısmı <strong>yapay sinir ağları</strong> ile çalışır. Bu ağlar
+                beynimizdeki nöron bağlantılarından ilham almıştır.
+              </p>
+              <div className="overflow-hidden rounded-xl border border-[var(--color-border)]">
+                <Image
+                  src="/images/illustrasyonlar/sinir-aglari.svg"
+                  alt="Sinir ağı katmanları diyagramı"
+                  width={900}
+                  height={440}
+                  className="h-auto w-full"
+                />
+              </div>
+            </div>
+          ),
+        },
+        {
+          emoji: "🎮",
+          baslik: "Laboratuvar",
+          icerik: <SinirAgiOyunAlani />,
+        },
+        {
+          emoji: "💡",
+          baslik: "İpuçları + Biliyor muydun?",
+          icerik: (
+            <div className="space-y-3">
+              <BilgiKutusu tip="ipucu" baslik="Nasıl Deneyelim?">
+                <ol className="ml-4 list-decimal space-y-1">
+                  <li>&quot;Tipik Elma / Portakal&quot; butonlarına bas — doğru tahmin ediyor mu?</li>
+                  <li>Kaydırıcıları oynat. Tatlılığı arttırınca ne değişiyor?</li>
+                  <li>&quot;Keşif Modu&quot;nu aç. Ağırlıkları sen ayarla — bozabilir misin?</li>
+                </ol>
+              </BilgiKutusu>
+              <BilgiKutusu tip="biliyor-muydun">
+                GPT-4 gibi büyük modellerde <strong>1,7 trilyon</strong> ağırlık var. Burada sadece 8
+                ağırlık kullandık — prensip aynı!
+              </BilgiKutusu>
+            </div>
+          ),
+        },
+      ]}
+    />
   </section>
 );
 
