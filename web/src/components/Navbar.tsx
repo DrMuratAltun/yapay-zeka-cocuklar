@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { useState, useRef, useEffect } from "react";
-import { useRouter } from "next/navigation";
+import { useRouter, usePathname } from "next/navigation";
 import { createClient } from "@/lib/supabase/client";
 
 type UserRole = "super_admin" | "school_admin" | "teacher" | "student" | null;
@@ -130,6 +130,12 @@ export default function Navbar() {
   };
 
   const panelLink = userRole ? rolePanelLinks[userRole] : null;
+
+  // Dashboard sayfalarında Navbar'ı gizle (kendi sidebar'ları var)
+  const pathname = usePathname();
+  const dashboardRoutes = ["/ogrenci", "/ogretmen", "/okul", "/admin"];
+  const isDashboard = dashboardRoutes.some((r) => pathname === r || pathname.startsWith(r + "/"));
+  if (isDashboard) return null;
 
   return (
     <nav className="sticky top-0 z-50 border-b border-[var(--color-border)] bg-[var(--color-bg)]/90 backdrop-blur-md">
