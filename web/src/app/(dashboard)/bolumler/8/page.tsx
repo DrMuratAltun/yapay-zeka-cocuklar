@@ -2,17 +2,24 @@ import type { Metadata } from "next";
 
 export const metadata: Metadata = {
   title: "Bölüm 8: Dijital İçerik Üretimi | Yapay Zeka Macerası",
+  description:
+    "Yapay zeka ile yaratıcılık: metin, görsel ve müzik üretimi. YZ araçlarıyla dijital içerik oluştur.",
+  alternates: { canonical: "https://gencyz.com/bolumler/8" },
 };
 
 import Image from "next/image";
 import InteraktifQuiz from "@/components/InteraktifQuiz";
-import BolumSlider from "@/components/BolumSlider";
+import BolumCerceve from "@/components/BolumCerceve";
 import YapayMiGercekMi from "@/components/oyunlar/YapayMiGercekMi";
 import HikayeOlusturucu from "@/components/etkinlikler/HikayeOlusturucu";
 import PosterTasarimi from "@/components/etkinlikler/PosterTasarimi";
 import DijitalHikayeFormu from "@/components/etkinlikler/DijitalHikayeFormu";
 import PromptGalerisi from "@/components/etkinlikler/PromptGalerisi";
 import TelifKontrol from "@/components/etkinlikler/TelifKontrol";
+import TekSecimSoru from "@/components/mikro/TekSecimSoru";
+import DogruYanlis from "@/components/mikro/DogruYanlis";
+import EslestirmeOyunu from "@/components/mikro/EslestirmeOyunu";
+import KategoriSiniflandirma from "@/components/mikro/KategoriSiniflandirma";
 
 const quizSorulari = [
   {
@@ -72,7 +79,7 @@ const quizSorulari = [
   },
 ];
 
-/* ---- Slayt 1: Kazanımlar ---- */
+/* ---- Bölüm 1: Kazanımlar ---- */
 const SlaytKazanimlar = (
   <>
     <section className="rounded-2xl border-l-4 border-rose-500 bg-rose-50 p-6 dark:bg-rose-900/20">
@@ -94,7 +101,7 @@ const SlaytKazanimlar = (
   </>
 );
 
-/* ---- Slayt 2: YZ ile Görüntü Üretme ---- */
+/* ---- Bölüm 2: YZ ile Görüntü Üretme ---- */
 const SlaytGoruntuUretme = (
   <>
     <section className="space-y-4">
@@ -131,10 +138,17 @@ const SlaytGoruntuUretme = (
         <p className="font-medium">🤔 <strong>Biliyor Muydunuz?</strong> YZ ile üretilen ilk sanat eseri, 2018&apos;de 432.500 dolara satıldı!</p>
       </div>
     </section>
+
+    <TekSecimSoru
+      soru="Bu görüntü üretme araçlarından hangisi öğrenciler için en uygun olandır?"
+      secenekler={["Stable Diffusion", "Bing Image Creator", "Leonardo AI", "Midjourney"]}
+      dogruIndex={1}
+      aciklama="Bing Image Creator, ücretsiz ve kullanımı kolay olduğu için öğrenciler için en uygun seçenektir."
+    />
   </>
 );
 
-/* ---- Slayt 3: Prompt Teknikleri ---- */
+/* ---- Bölüm 3: Prompt Teknikleri ---- */
 const SlaytPromptTeknikleri = (
   <>
     <section className="space-y-4">
@@ -160,10 +174,20 @@ const SlaytPromptTeknikleri = (
         <p className="font-medium">💡 <strong>İpucu:</strong> Prompt&apos;a &quot;stil&quot; eklemek sonucu tamamen değiştirir. &quot;Sulu boya&quot;, &quot;pixel art&quot;, &quot;3D render&quot; gibi anahtar kelimeler deneyin!</p>
       </div>
     </section>
+
+    <EslestirmeOyunu
+      baslik="Prompt tekniklerini eşleştir"
+      ciftler={[
+        { sol: "Konu + Stil", sag: "Görüntünün temelini belirler" },
+        { sol: "Detay Ekleme", sag: "Kaliteyi ve çözünürlüğü artırır" },
+        { sol: "Negatif Prompt", sag: "İstenmeyen sonuçları önler" },
+        { sol: "Referans Verme", sag: "Belirli bir sanat tarzına yönlendirir" },
+      ]}
+    />
   </>
 );
 
-/* ---- Slayt 4: Canva AI ile Tasarım ---- */
+/* ---- Bölüm 4: Canva AI ile Tasarım ---- */
 const SlaytCanvaAI = (
   <>
     <section className="space-y-4">
@@ -192,10 +216,23 @@ const SlaytCanvaAI = (
         <p className="font-medium">⚠️ <strong>Dikkat:</strong> Canva AI&apos;da günlük kullanım limiti vardır. Eğitim hesabı ile daha fazla erişim sağlayabilirsiniz!</p>
       </div>
     </section>
+
+    <KategoriSiniflandirma
+      baslik="Canva AI özelliklerini doğru kategoriye yerleştir"
+      kategoriler={["Görüntü İşleme", "Metin İşleme", "Tasarım Yardımcısı"]}
+      ogeler={[
+        { ad: "Magic Media", kategori: "Görüntü İşleme" },
+        { ad: "Magic Eraser", kategori: "Görüntü İşleme" },
+        { ad: "Magic Write", kategori: "Metin İşleme" },
+        { ad: "Translate", kategori: "Metin İşleme" },
+        { ad: "Magic Design", kategori: "Tasarım Yardımcısı" },
+        { ad: "Magic Animate", kategori: "Tasarım Yardımcısı" },
+      ]}
+    />
   </>
 );
 
-/* ---- Slayt 5: Dijital Hikaye Anlatımı ---- */
+/* ---- Bölüm 5: Dijital Hikaye Anlatımı ---- */
 const SlaytDijitalHikaye = (
   <>
     <section className="space-y-4">
@@ -230,6 +267,12 @@ const SlaytDijitalHikaye = (
         <li>&#8226; Gerçek sanatçıların eserlerini taklit etmek için YZ kullanmaktan kaçının.</li>
       </ul>
     </div>
+
+    <DogruYanlis
+      ifade="YZ ile ürettiğim bir görseli sosyal medyada paylaşırken kaynağını belirtmeme gerek yoktur."
+      dogruMu={false}
+      aciklama="YZ ile üretilen içeriklerin kaynağını belirtmek etik bir sorumluluktur. Şeffaflık, dijital vatandaşlığın önemli bir parçasıdır."
+    />
   </>
 );
 
@@ -307,7 +350,7 @@ const SlaytEtkinlik3 = (
   </>
 );
 
-/* ---- Slayt 5: Oyun ---- */
+/* ---- Oyun ---- */
 const SlaytOyun = (
   <section className="space-y-6">
     <h2 className="text-2xl font-bold">🎮 Yapay mı Gerçek mi?</h2>
@@ -318,14 +361,14 @@ const SlaytOyun = (
   </section>
 );
 
-/* ---- Slayt 6: Değerlendirme ---- */
+/* ---- Değerlendirme ---- */
 const SlaytDegerlendirme = (
   <>
-    <InteraktifQuiz sorular={quizSorulari} />
+    <InteraktifQuiz sorular={quizSorulari} bolumNo={8} />
   </>
 );
 
-/* ---- Slayt 7: İndirilebilir Materyaller ---- */
+/* ---- İndirilebilir Materyaller ---- */
 const SlaytMateryaller = (
   <>
     <section className="rounded-2xl border border-[var(--color-border)] bg-[var(--color-bg-secondary)] p-6">
@@ -356,7 +399,7 @@ const SlaytMateryaller = (
 
 export default function Bolum8() {
   return (
-    <BolumSlider
+    <BolumCerceve
       bolumNo={8}
       bolumBaslik="Dijital İçerik Üretimi"
       bolumAltBaslik="YZ ile Yaratıcılık"
@@ -365,20 +408,20 @@ export default function Bolum8() {
       renk="from-rose-500 to-pink-600"
       oncekiBolum={7}
       sonrakiBolum={9}
-      slaytlar={[
-        { baslik: "Kazanımlar", icon: "🎯", icerik: SlaytKazanimlar },
-        { baslik: "YZ ile Görüntü Üretme", icon: "🖼️", icerik: SlaytGoruntuUretme },
-        { baslik: "Prompt Teknikleri", icon: "✍️", icerik: SlaytPromptTeknikleri },
-        { baslik: "Canva AI ile Tasarım", icon: "🎨", icerik: SlaytCanvaAI },
-        { baslik: "Dijital Hikaye Anlatımı", icon: "📖", icerik: SlaytDijitalHikaye },
-        { baslik: "Etkinlik: Yapay mı Gerçek mi?", icon: "🎮", icerik: SlaytEtkinlik1 },
-        { baslik: "Etkinlik: Prompt Galerisi", icon: "🖼️", icerik: SlaytEtkinlik1b },
-        { baslik: "Etkinlik: Poster Tasarımı", icon: "🎮", icerik: SlaytEtkinlik2 },
-        { baslik: "Etkinlik: Telif Kontrol", icon: "⚖️", icerik: SlaytEtkinlik2b },
-        { baslik: "Etkinlik: Dijital Hikaye", icon: "🎮", icerik: SlaytEtkinlik3 },
-        { baslik: "Yapay mı Gerçek mi?", icon: "🧩", icerik: SlaytOyun },
-        { baslik: "Değerlendirme", icon: "📝", icerik: SlaytDegerlendirme },
-        { baslik: "Materyaller", icon: "📥", icerik: SlaytMateryaller },
+      bolumler={[
+        { id: "b8-kazanimlar", baslik: "Kazanımlar", icon: "🎯", tur: "kazanim", icerik: SlaytKazanimlar, varsayilanAcik: true },
+        { id: "b8-goruntu-uretme", baslik: "YZ ile Görüntü Üretme", icon: "🖼️", tur: "icerik", icerik: SlaytGoruntuUretme, varsayilanAcik: true },
+        { id: "b8-prompt-teknikleri", baslik: "Prompt Teknikleri", icon: "✍️", tur: "icerik", icerik: SlaytPromptTeknikleri, varsayilanAcik: true },
+        { id: "b8-canva-ai", baslik: "Canva AI ile Tasarım", icon: "🎨", tur: "icerik", icerik: SlaytCanvaAI },
+        { id: "b8-dijital-hikaye", baslik: "Dijital Hikaye Anlatımı", icon: "📖", tur: "icerik", icerik: SlaytDijitalHikaye },
+        { id: "b8-etkinlik-yapay-mi-gercek-mi", baslik: "Etkinlik: Yapay mı Gerçek mi?", icon: "🎮", tur: "etkinlik", icerik: SlaytEtkinlik1 },
+        { id: "b8-etkinlik-prompt-galerisi", baslik: "Etkinlik: Prompt Galerisi", icon: "🖼️", tur: "etkinlik", icerik: SlaytEtkinlik1b },
+        { id: "b8-etkinlik-poster-tasarimi", baslik: "Etkinlik: Poster Tasarımı", icon: "🎮", tur: "etkinlik", icerik: SlaytEtkinlik2 },
+        { id: "b8-etkinlik-telif-kontrol", baslik: "Etkinlik: Telif Kontrol", icon: "⚖️", tur: "etkinlik", icerik: SlaytEtkinlik2b },
+        { id: "b8-etkinlik-dijital-hikaye", baslik: "Etkinlik: Dijital Hikaye", icon: "🎮", tur: "etkinlik", icerik: SlaytEtkinlik3 },
+        { id: "b8-oyun", baslik: "Yapay mı Gerçek mi?", icon: "🧩", tur: "oyun", icerik: SlaytOyun },
+        { id: "b8-quiz", baslik: "Değerlendirme", icon: "📝", tur: "quiz", icerik: SlaytDegerlendirme },
+        { id: "b8-materyaller", baslik: "Materyaller", icon: "📥", tur: "materyal", icerik: SlaytMateryaller },
       ]}
     />
   );

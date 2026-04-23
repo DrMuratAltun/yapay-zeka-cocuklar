@@ -2,15 +2,21 @@ import type { Metadata } from "next";
 
 export const metadata: Metadata = {
   title: "Bölüm 6: Blok Tabanlı YZ Kodlama | Yapay Zeka Macerası",
+  description:
+    "PictoBlox ile blok tabanlı yapay zeka kodlama projeleri. Yüz tanıma, nesne algılama ve ses komutları.",
+  alternates: { canonical: "https://gencyz.com/bolumler/6" },
 };
 
 import Image from "next/image";
 import InteraktifQuiz from "@/components/InteraktifQuiz";
-import BolumSlider from "@/components/BolumSlider";
+import BolumCerceve from "@/components/BolumCerceve";
 import AlgoritmaBulmacasi from "@/components/oyunlar/AlgoritmaBulmacasi";
 import AlgoritmaSirala from "@/components/etkinlikler/AlgoritmaSirala";
 import BlokKodlama from "@/components/etkinlikler/BlokKodlama";
 import PictoBloxProjeler from "@/components/etkinlikler/PictoBloxProjeler";
+import TekSecimSoru from "@/components/mikro/TekSecimSoru";
+import DogruYanlis from "@/components/mikro/DogruYanlis";
+import EslestirmeOyunu from "@/components/mikro/EslestirmeOyunu";
 
 const quizSorulari = [
   {
@@ -70,7 +76,7 @@ const quizSorulari = [
   },
 ];
 
-/* ---- Slayt 1: Kazanımlar ---- */
+/* ---- Kazanımlar ---- */
 const SlaytKazanimlar = (
   <>
     <section className="rounded-2xl border-l-4 border-blue-500 bg-blue-50 p-6 dark:bg-blue-900/20">
@@ -92,7 +98,7 @@ const SlaytKazanimlar = (
   </>
 );
 
-/* ---- Slayt 2: PictoBlox Nedir? ---- */
+/* ---- PictoBlox Nedir? ---- */
 const SlaytPictoBlox = (
   <>
     <section className="space-y-4">
@@ -120,10 +126,22 @@ const SlaytPictoBlox = (
         <p className="font-medium">🤔 <strong>Biliyor Muydunuz?</strong> PictoBlox dünya genelinde milyonlarca çocuk tarafından YZ projeleri için kullanılıyor!</p>
       </div>
     </section>
+
+    <TekSecimSoru
+      soru="PictoBlox'un en önemli özelliği hangisidir?"
+      secenekler={[
+        "Sadece Python ile çalışması",
+        "Blok tabanlı kodlama ile YZ projeleri yapmaya izin vermesi",
+        "Sadece masaüstünde çalışması",
+        "Yalnızca oyun geliştirmek için kullanılması",
+      ]}
+      dogruIndex={1}
+      aciklama="PictoBlox'un en güçlü özelliği, blok tabanlı arayüzüyle herkesin kolayca YZ projeleri geliştirebilmesidir."
+    />
   </>
 );
 
-/* ---- Slayt 3: Görüntü Sınıflandırma ---- */
+/* ---- Görüntü Sınıflandırma ---- */
 const SlaytGoruntuSiniflandirma = (
   <>
     <section className="space-y-4">
@@ -153,10 +171,16 @@ const SlaytGoruntuSiniflandirma = (
         <p className="font-medium">💡 <strong>İpucu:</strong> Model eğitirken farklı açılardan, farklı ışık koşullarında fotoğraf çekin. Ne kadar çeşitli veri, o kadar başarılı model!</p>
       </div>
     </section>
+
+    <DogruYanlis
+      ifade="Görüntü sınıflandırma modelini eğitmek için her sınıfa en az 5 örnek yeterlidir."
+      dogruMu={false}
+      aciklama="5 örnek yeterli değildir! Her sınıf için en az 30 örnek toplamalısınız. Ne kadar çok ve çeşitli veri olursa, model o kadar başarılı olur."
+    />
   </>
 );
 
-/* ---- Slayt 4: PictoBlox Metin Sınıflandırma ---- */
+/* ---- PictoBlox Metin Sınıflandırma ---- */
 const SlaytMLForKids = (
   <>
     <section className="space-y-4">
@@ -201,10 +225,20 @@ const SlaytMLForKids = (
         <p className="font-medium">⚠️ <strong>Dikkat:</strong> PictoBlox&apos;ta model eğitmeden önce her sınıfa en az 10 örnek eklemeyi unutmayın. Yetersiz veri = düşük doğruluk!</p>
       </div>
     </section>
+
+    <EslestirmeOyunu
+      baslik="PictoBlox metin sınıflandırma adımlarını eşleştir!"
+      ciftler={[
+        { sol: "ML Uzantısı Ekle", sag: "Uzantılar bölümünden seçilir" },
+        { sol: "Eğitim Verisi", sag: "Her sınıfa en az 10 örnek eklenir" },
+        { sol: "Model Eğit", sag: "Train Model butonuna basılır" },
+        { sol: "Blokları Kullan", sag: "Koşullu bloklar ile kodlanır" },
+      ]}
+    />
   </>
 );
 
-/* ---- Slayt 5: Proje Fikirleri ---- */
+/* ---- Proje Fikirleri ---- */
 const SlaytProjeFikirleri = (
   <>
     <section className="space-y-4">
@@ -231,6 +265,18 @@ const SlaytProjeFikirleri = (
         ))}
       </div>
     </section>
+
+    <TekSecimSoru
+      soru="Aşağıdaki projelerden hangisi PictoBlox'ta ses tanıma uzantısı gerektirir?"
+      secenekler={[
+        "Taş-Kağıt-Makas Oyunu",
+        "Geri Dönüşüm Asistanı",
+        "Sesle Kontrol Oyunu",
+        "Duygu Tanıma Aynası",
+      ]}
+      dogruIndex={2}
+      aciklama="Sesle Kontrol Oyunu, ses komutlarıyla çalıştığı için PictoBlox'un ses tanıma uzantısını kullanır. Diğerleri görüntü sınıflandırma veya yüz tanıma kullanır."
+    />
   </>
 );
 
@@ -299,7 +345,7 @@ const SlaytEtkinlik3 = (
   </>
 );
 
-/* ---- Slayt 5: Oyun ---- */
+/* ---- Oyun ---- */
 const SlaytOyun = (
   <section className="space-y-6">
     <h2 className="text-2xl font-bold">🎮 Algoritma Bulmacası</h2>
@@ -310,14 +356,14 @@ const SlaytOyun = (
   </section>
 );
 
-/* ---- Slayt 6: Değerlendirme ---- */
+/* ---- Değerlendirme ---- */
 const SlaytDegerlendirme = (
   <>
-    <InteraktifQuiz sorular={quizSorulari} />
+    <InteraktifQuiz sorular={quizSorulari} bolumNo={6} />
   </>
 );
 
-/* ---- Slayt 7: İndirilebilir Materyaller ---- */
+/* ---- İndirilebilir Materyaller ---- */
 const SlaytMateryaller = (
   <>
     <section className="rounded-2xl border border-[var(--color-border)] bg-[var(--color-bg-secondary)] p-6">
@@ -348,7 +394,7 @@ const SlaytMateryaller = (
 
 export default function Bolum6() {
   return (
-    <BolumSlider
+    <BolumCerceve
       bolumNo={6}
       bolumBaslik="Blok Tabanlı YZ Kodlama"
       bolumAltBaslik="PictoBlox Projeleri"
@@ -357,19 +403,19 @@ export default function Bolum6() {
       renk="from-blue-600 to-indigo-700"
       oncekiBolum={5}
       sonrakiBolum={7}
-      slaytlar={[
-        { baslik: "Kazanımlar", icon: "🎯", icerik: SlaytKazanimlar },
-        { baslik: "PictoBlox Nedir?", icon: "🧩", icerik: SlaytPictoBlox },
-        { baslik: "Görüntü Sınıflandırma", icon: "📷", icerik: SlaytGoruntuSiniflandirma },
-        { baslik: "PictoBlox Metin Sınıflandırma", icon: "🤖", icerik: SlaytMLForKids },
-        { baslik: "Proje Fikirleri", icon: "💡", icerik: SlaytProjeFikirleri },
-        { baslik: "Etkinlik: Algoritma Şefi", icon: "🎮", icerik: SlaytEtkinlik1 },
-        { baslik: "Etkinlik: Blok Kodlama", icon: "🧩", icerik: SlaytEtkinlik1b },
-        { baslik: "Etkinlik: Taş Kağıt Makas", icon: "🎮", icerik: SlaytEtkinlik2 },
-        { baslik: "Etkinlik: Duygu Analizi", icon: "🎮", icerik: SlaytEtkinlik3 },
-        { baslik: "Algoritma Bulmacası", icon: "🧩", icerik: SlaytOyun },
-        { baslik: "Değerlendirme", icon: "📝", icerik: SlaytDegerlendirme },
-        { baslik: "Materyaller", icon: "📥", icerik: SlaytMateryaller },
+      bolumler={[
+        { id: "b6-kazanimlar", baslik: "Kazanımlar", icon: "🎯", tur: "kazanim", icerik: SlaytKazanimlar, varsayilanAcik: true },
+        { id: "b6-pictoblox-nedir", baslik: "PictoBlox Nedir?", icon: "🧩", tur: "icerik", icerik: SlaytPictoBlox, varsayilanAcik: true },
+        { id: "b6-goruntu-siniflandirma", baslik: "Görüntü Sınıflandırma", icon: "📷", tur: "icerik", icerik: SlaytGoruntuSiniflandirma, varsayilanAcik: true },
+        { id: "b6-metin-siniflandirma", baslik: "PictoBlox Metin Sınıflandırma", icon: "🤖", tur: "icerik", icerik: SlaytMLForKids },
+        { id: "b6-proje-fikirleri", baslik: "Proje Fikirleri", icon: "💡", tur: "icerik", icerik: SlaytProjeFikirleri },
+        { id: "b6-etkinlik-algoritma-sefi", baslik: "Etkinlik: Algoritma Şefi", icon: "🎮", tur: "etkinlik", icerik: SlaytEtkinlik1 },
+        { id: "b6-etkinlik-blok-kodlama", baslik: "Etkinlik: Blok Kodlama", icon: "🧩", tur: "etkinlik", icerik: SlaytEtkinlik1b },
+        { id: "b6-etkinlik-tas-kagit-makas", baslik: "Etkinlik: Taş Kağıt Makas", icon: "🎮", tur: "etkinlik", icerik: SlaytEtkinlik2 },
+        { id: "b6-etkinlik-duygu-analizi", baslik: "Etkinlik: Duygu Analizi", icon: "🎮", tur: "etkinlik", icerik: SlaytEtkinlik3 },
+        { id: "b6-oyun", baslik: "Algoritma Bulmacası", icon: "🧩", tur: "oyun", icerik: SlaytOyun },
+        { id: "b6-quiz", baslik: "Değerlendirme", icon: "📝", tur: "quiz", icerik: SlaytDegerlendirme },
+        { id: "b6-materyaller", baslik: "Materyaller", icon: "📥", tur: "materyal", icerik: SlaytMateryaller },
       ]}
     />
   );

@@ -2,11 +2,14 @@ import type { Metadata } from "next";
 
 export const metadata: Metadata = {
   title: "Bölüm 3: Verinin Gücü | Yapay Zeka Macerası",
+  description:
+    "Veri nedir, yapay zeka için neden önemlidir? Veri toplama, etiketleme ve veri okuryazarlığı etkinlikleri.",
+  alternates: { canonical: "https://gencyz.com/bolumler/3" },
 };
 
 import Image from "next/image";
 import InteraktifQuiz from "@/components/InteraktifQuiz";
-import BolumSlider from "@/components/BolumSlider";
+import BolumCerceve from "@/components/BolumCerceve";
 import VeriTuruAvcisi from "@/components/oyunlar/VeriTuruAvcisi";
 import VeriTopla from "@/components/etkinlikler/VeriTopla";
 import GirdiAvcilari from "@/components/etkinlikler/GirdiAvcilari";
@@ -15,6 +18,10 @@ import VeriEtiketleme from "@/components/etkinlikler/VeriEtiketleme";
 import VeriSetiKesif from "@/components/etkinlikler/VeriSetiKesif";
 import VeriGorsellestirme from "@/components/etkinlikler/VeriGorsellestirme";
 import VeriTemizleme from "@/components/etkinlikler/VeriTemizleme";
+import TekSecimSoru from "@/components/mikro/TekSecimSoru";
+import DogruYanlis from "@/components/mikro/DogruYanlis";
+import KategoriSiniflandirma from "@/components/mikro/KategoriSiniflandirma";
+import EslestirmeOyunu from "@/components/mikro/EslestirmeOyunu";
 
 const quizSorulari = [
   {
@@ -120,6 +127,18 @@ const SlaytVeriNedir = (
         </p>
       </div>
     </section>
+
+    <TekSecimSoru
+      soru="Aşağıdakilerden hangisi bir veri örneği DEĞİLDİR?"
+      secenekler={[
+        "Sınıfın boy ölçüleri",
+        "Hava durumu kayıtları",
+        "Bir düşünce veya hayal",
+        "Telefonundaki fotoğraflar",
+      ]}
+      dogruIndex={2}
+      aciklama="Düşünceler ve hayaller kaydedilebilir veya işlenebilir bilgi parçaları değildir. Ancak yazıya döküldüğünde veri olurlar!"
+    />
   </>
 );
 
@@ -140,6 +159,17 @@ const SlaytVeriTurleri = (
         ))}
       </div>
     </section>
+
+    <EslestirmeOyunu
+      baslik="Veri örneklerini doğru türle eşleştir!"
+      ciftler={[
+        { sol: "Bir haber yazısı", sag: "Metin verisi" },
+        { sol: "Sıcaklık ölçümü", sag: "Sayı verisi" },
+        { sol: "Röntgen filmi", sag: "Görüntü verisi" },
+        { sol: "Kuş sesleri kaydı", sag: "Ses verisi" },
+        { sol: "GPS koordinatı", sag: "Konum verisi" },
+      ]}
+    />
   </>
 );
 
@@ -182,6 +212,19 @@ const SlaytYapisalVeri = (
         </p>
       </div>
     </section>
+
+    <KategoriSiniflandirma
+      baslik="Bu verileri doğru kategoriye yerleştir!"
+      kategoriler={["Yapısal Veri", "Yapısal Olmayan Veri"]}
+      ogeler={[
+        { ad: "Excel tablosu", kategori: "Yapısal Veri" },
+        { ad: "Bir fotoğraf", kategori: "Yapısal Olmayan Veri" },
+        { ad: "Öğrenci not listesi", kategori: "Yapısal Veri" },
+        { ad: "Bir e-posta metni", kategori: "Yapısal Olmayan Veri" },
+        { ad: "Nüfus sayım verileri", kategori: "Yapısal Veri" },
+        { ad: "YouTube videosu", kategori: "Yapısal Olmayan Veri" },
+      ]}
+    />
   </>
 );
 
@@ -209,6 +252,12 @@ const SlaytVeriNicinOnemli = (
         ))}
       </div>
     </section>
+
+    <DogruYanlis
+      ifade="Bir YZ modelini eğitmek için az ama kaliteli veri, çok ama kalitesiz veriden her zaman daha iyidir."
+      dogruMu={true}
+      aciklama="'Çöp girer, çöp çıkar' (GIGO) prensibi gereği, kalitesiz veri yanlış sonuçlara yol açar. Kaliteli veri her zaman önceliklidir."
+    />
   </>
 );
 
@@ -237,6 +286,18 @@ const SlaytVeriHazirlama = (
         ))}
       </div>
     </section>
+
+    <TekSecimSoru
+      soru="Veri hazırlama sürecinde en çok zaman alan adım hangisidir?"
+      secenekler={[
+        "Veri toplama",
+        "Veri temizleme",
+        "Veri etiketleme",
+        "Veri bölme",
+      ]}
+      dogruIndex={1}
+      aciklama="Veri temizleme, veri bilimcilerin zamanının yaklaşık %60-80'ini alır. Hatalı, eksik ve tutarsız verileri düzeltmek çok emek ister!"
+    />
   </>
 );
 
@@ -266,6 +327,15 @@ const SlaytBuyukVeri = (
         <p className="text-xs text-[var(--color-text-secondary)] italic">CC BY-SA 4.0</p>
       </div>
     </section>
+
+    <EslestirmeOyunu
+      baslik="Büyük verinin 3V özelliklerini eşleştir!"
+      ciftler={[
+        { sol: "Hacim (Volume)", sag: "Üretilen verinin büyüklüğü" },
+        { sol: "Hız (Velocity)", sag: "Verinin üretilme ve işlenme hızı" },
+        { sol: "Çeşitlilik (Variety)", sag: "Farklı formatlardaki veri tipleri" },
+      ]}
+    />
   </>
 );
 
@@ -299,6 +369,12 @@ const SlaytVeriGizliligi = (
         </div>
       </div>
     </section>
+
+    <DogruYanlis
+      ifade="Bir uygulama indirdiğinizde, uygulamanın kişisel verilerinizi toplaması için sizden izin alması gerekmez."
+      dogruMu={false}
+      aciklama="KVKK'ya göre kişisel verilerinizin toplanması için açık rızanız gereklidir. Uygulamalar izin almadan verilerinizi toplayamaz!"
+    />
   </>
 );
 
@@ -418,7 +494,7 @@ const SlaytOyun = (
 
 const SlaytDegerlendirme = (
   <>
-    <InteraktifQuiz sorular={quizSorulari} />
+    <InteraktifQuiz sorular={quizSorulari} bolumNo={3} />
   </>
 );
 
@@ -452,7 +528,7 @@ const SlaytMateryaller = (
 
 export default function Bolum3() {
   return (
-    <BolumSlider
+    <BolumCerceve
       bolumNo={3}
       bolumBaslik="Verinin Gücü"
       bolumAltBaslik="YZ'nin Yakıtı"
@@ -461,25 +537,25 @@ export default function Bolum3() {
       renk="from-violet-600 to-purple-700"
       oncekiBolum={2}
       sonrakiBolum={4}
-      slaytlar={[
-        { baslik: "Kazanımlar", icon: "🎯", icerik: SlaytKazanimlar },
-        { baslik: "Veri Nedir?", icon: "📊", icerik: SlaytVeriNedir },
-        { baslik: "Veri Türleri", icon: "📝", icerik: SlaytVeriTurleri },
-        { baslik: "Yapısal ve Yapısız Veri", icon: "📋", icerik: SlaytYapisalVeri },
-        { baslik: "Veri Neden Önemli?", icon: "🔗", icerik: SlaytVeriNicinOnemli },
-        { baslik: "Veri Hazırlama Süreci", icon: "🔧", icerik: SlaytVeriHazirlama },
-        { baslik: "Büyük Veri", icon: "📦", icerik: SlaytBuyukVeri },
-        { baslik: "Veri Gizliliği ve KVKK", icon: "🔒", icerik: SlaytVeriGizliligi },
-        { baslik: "Etkinlik: Girdi Avcıları", icon: "🎮", icerik: SlaytEtkinlik1 },
-        { baslik: "Etkinlik: Veri Topla", icon: "🎮", icerik: SlaytEtkinlik2 },
-        { baslik: "Etkinlik: Veri Görselleştirme", icon: "📊", icerik: SlaytEtkinlik2b },
-        { baslik: "Etkinlik: Sınıf Anketi", icon: "🎮", icerik: SlaytEtkinlik3 },
-        { baslik: "Etkinlik: Veri Seti Keşfedici", icon: "🎮", icerik: SlaytEtkinlik4 },
-        { baslik: "Etkinlik: Veri Temizleme", icon: "🧹", icerik: SlaytEtkinlik4b },
-        { baslik: "Etkinlik: Veri Etiketleme", icon: "🎮", icerik: SlaytEtkinlik5 },
-        { baslik: "İnteraktif Oyun", icon: "🕹️", icerik: SlaytOyun },
-        { baslik: "Değerlendirme", icon: "📝", icerik: SlaytDegerlendirme },
-        { baslik: "Materyaller", icon: "📥", icerik: SlaytMateryaller },
+      bolumler={[
+        { id: "b3-kazanimlar", baslik: "Kazanımlar", icon: "🎯", tur: "kazanim", icerik: SlaytKazanimlar, varsayilanAcik: true },
+        { id: "b3-veri-nedir", baslik: "Veri Nedir?", icon: "📊", tur: "icerik", icerik: SlaytVeriNedir, varsayilanAcik: true },
+        { id: "b3-veri-turleri", baslik: "Veri Türleri", icon: "📝", tur: "icerik", icerik: SlaytVeriTurleri, varsayilanAcik: true },
+        { id: "b3-yapisal-veri", baslik: "Yapısal ve Yapısız Veri", icon: "📋", tur: "icerik", icerik: SlaytYapisalVeri },
+        { id: "b3-veri-neden-onemli", baslik: "Veri Neden Önemli?", icon: "🔗", tur: "icerik", icerik: SlaytVeriNicinOnemli },
+        { id: "b3-veri-hazirlama", baslik: "Veri Hazırlama Süreci", icon: "🔧", tur: "icerik", icerik: SlaytVeriHazirlama },
+        { id: "b3-buyuk-veri", baslik: "Büyük Veri", icon: "📦", tur: "icerik", icerik: SlaytBuyukVeri },
+        { id: "b3-veri-gizliligi", baslik: "Veri Gizliliği ve KVKK", icon: "🔒", tur: "icerik", icerik: SlaytVeriGizliligi },
+        { id: "b3-etkinlik-girdi-avcilari", baslik: "Etkinlik: Girdi Avcıları", icon: "🎮", tur: "etkinlik", icerik: SlaytEtkinlik1 },
+        { id: "b3-etkinlik-veri-topla", baslik: "Etkinlik: Veri Topla", icon: "🎮", tur: "etkinlik", icerik: SlaytEtkinlik2 },
+        { id: "b3-etkinlik-veri-gorsellestirme", baslik: "Etkinlik: Veri Görselleştirme", icon: "📊", tur: "etkinlik", icerik: SlaytEtkinlik2b },
+        { id: "b3-etkinlik-sinif-anketi", baslik: "Etkinlik: Sınıf Anketi", icon: "🎮", tur: "etkinlik", icerik: SlaytEtkinlik3 },
+        { id: "b3-etkinlik-veri-seti-kesfedici", baslik: "Etkinlik: Veri Seti Keşfedici", icon: "🎮", tur: "etkinlik", icerik: SlaytEtkinlik4 },
+        { id: "b3-etkinlik-veri-temizleme", baslik: "Etkinlik: Veri Temizleme", icon: "🧹", tur: "etkinlik", icerik: SlaytEtkinlik4b },
+        { id: "b3-etkinlik-veri-etiketleme", baslik: "Etkinlik: Veri Etiketleme", icon: "🎮", tur: "etkinlik", icerik: SlaytEtkinlik5 },
+        { id: "b3-oyun", baslik: "İnteraktif Oyun", icon: "🕹️", tur: "oyun", icerik: SlaytOyun },
+        { id: "b3-quiz", baslik: "Değerlendirme", icon: "📝", tur: "quiz", icerik: SlaytDegerlendirme },
+        { id: "b3-materyaller", baslik: "Materyaller", icon: "📥", tur: "materyal", icerik: SlaytMateryaller },
       ]}
     />
   );

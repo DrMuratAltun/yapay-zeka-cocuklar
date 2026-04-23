@@ -2,11 +2,14 @@ import type { Metadata } from "next";
 
 export const metadata: Metadata = {
   title: "Bölüm 2: Günlük Hayatta YZ | Yapay Zeka Macerası",
+  description:
+    "Yapay zeka günlük hayatımızda nerede kullanılıyor? Akıllı asistanlar, öneri sistemleri ve daha fazlasını keşfet.",
+  alternates: { canonical: "https://gencyz.com/bolumler/2" },
 };
 
 import Image from "next/image";
 import InteraktifQuiz from "@/components/InteraktifQuiz";
-import BolumSlider from "@/components/BolumSlider";
+import BolumCerceve from "@/components/BolumCerceve";
 import YzEslestirme from "@/components/oyunlar/YzEslestirme";
 import YzHaritasi from "@/components/etkinlikler/YzHaritasi";
 import YzVeyaDegil from "@/components/etkinlikler/YzVeyaDegil";
@@ -14,6 +17,10 @@ import SesliAsistanTesti from "@/components/etkinlikler/SesliAsistanTesti";
 import YzRoportaj from "@/components/etkinlikler/YzRoportaj";
 import AkilliEvSimulator from "@/components/etkinlikler/AkilliEvSimulator";
 import OneriSistemiSim from "@/components/etkinlikler/OneriSistemiSim";
+import TekSecimSoru from "@/components/mikro/TekSecimSoru";
+import DogruYanlis from "@/components/mikro/DogruYanlis";
+import EslestirmeOyunu from "@/components/mikro/EslestirmeOyunu";
+import KategoriSiniflandirma from "@/components/mikro/KategoriSiniflandirma";
 
 const quizSorulari = [
   {
@@ -226,6 +233,12 @@ const SlaytYzHerYerde = (
         <p className="text-xs text-[var(--color-text-secondary)] italic">CC BY-SA 4.0, Giacomo Alessandroni</p>
       </div>
     </section>
+
+    <DogruYanlis
+      ifade="Navigasyon uygulamaları yapay zeka kullanmaz, sadece haritayı gösterir."
+      dogruMu={false}
+      aciklama="Navigasyon uygulamaları trafik verilerini analiz ederek en kısa ve en hızlı rotayı hesaplar. Bu bir yapay zeka uygulamasıdır!"
+    />
   </>
 );
 
@@ -268,6 +281,16 @@ const SlaytCebindekiYz = (
         önerileri, bildirim önceliklendirme ve daha fazlası!
       </p>
     </div>
+
+    <EslestirmeOyunu
+      baslik="Telefon özelliklerini doğru YZ teknolojisiyle eşleştir!"
+      ciftler={[
+        { sol: "Yüz tanıma ile kilit açma", sag: "Bilgisayar görüsü" },
+        { sol: "Sesli asistan", sag: "Doğal dil işleme" },
+        { sol: "Klavye kelime tahmini", sag: "Makine öğrenimi" },
+        { sol: "Otomatik fotoğraf iyileştirme", sag: "Görüntü işleme" },
+      ]}
+    />
   </>
 );
 
@@ -303,6 +326,19 @@ const SlaytYzKullanimAlanlari = (
         ))}
       </div>
     </section>
+
+    <KategoriSiniflandirma
+      baslik="Bu YZ uygulamaları hangi alana ait?"
+      kategoriler={["Sağlık", "Ulaşım", "Eğitim", "Güvenlik"]}
+      ogeler={[
+        { ad: "Röntgen analizi", kategori: "Sağlık" },
+        { ad: "Otonom araç", kategori: "Ulaşım" },
+        { ad: "Duolingo", kategori: "Eğitim" },
+        { ad: "Spam tespiti", kategori: "Güvenlik" },
+        { ad: "İlaç geliştirme", kategori: "Sağlık" },
+        { ad: "Trafik tahmini", kategori: "Ulaşım" },
+      ]}
+    />
   </>
 );
 
@@ -357,6 +393,18 @@ const SlaytOneriSistemleri = (
         ))}
       </div>
     </section>
+
+    <TekSecimSoru
+      soru="Bir film platformu sana yeni bir film öneriyorsa, bunu yaparken en çok hangisini kullanır?"
+      secenekler={[
+        "Filmlerin çekildiği ülke",
+        "Senin daha önce izlediğin ve beğendiğin filmler",
+        "Filmin reklam bütçesi",
+        "Filmin dosya boyutu",
+      ]}
+      dogruIndex={1}
+      aciklama="Öneri sistemleri senin geçmiş izleme alışkanlıklarını analiz ederek benzer içerikleri önerir."
+    />
   </>
 );
 
@@ -443,6 +491,12 @@ const SlaytSesliAsistanlar = (
         </p>
       </div>
     </div>
+
+    <DogruYanlis
+      ifade="Sesli asistanlar sadece ses tanıma teknolojisi kullanır."
+      dogruMu={false}
+      aciklama="Sesli asistanlar ses tanıma, doğal dil işleme, akıl yürütme ve konuşma sentezi gibi birden fazla YZ teknolojisini bir arada kullanır."
+    />
   </>
 );
 
@@ -589,7 +643,7 @@ const SlaytOyun = (
 
 const SlaytDegerlendirme = (
   <>
-    <InteraktifQuiz sorular={quizSorulari} />
+    <InteraktifQuiz sorular={quizSorulari} bolumNo={2} />
   </>
 );
 
@@ -664,7 +718,7 @@ const SlaytMateryaller = (
 
 export default function Bolum2() {
   return (
-    <BolumSlider
+    <BolumCerceve
       bolumNo={2}
       bolumBaslik="Günlük Hayatta YZ"
       bolumAltBaslik="Yapay Zeka Etrafımızda"
@@ -673,20 +727,20 @@ export default function Bolum2() {
       renk="from-emerald-600 to-teal-700"
       oncekiBolum={1}
       sonrakiBolum={3}
-      slaytlar={[
-        { baslik: "Kazanımlar", icon: "🎯", icerik: SlaytKazanimlar },
-        { baslik: "YZ Her Yerde!", icon: "🌍", icerik: SlaytYzHerYerde },
-        { baslik: "Cebindeki Yapay Zeka", icon: "📱", icerik: SlaytCebindekiYz },
-        { baslik: "YZ Kullanım Alanları", icon: "🌐", icerik: SlaytYzKullanimAlanlari },
-        { baslik: "Öneri Sistemleri", icon: "🎬", icerik: SlaytOneriSistemleri },
-        { baslik: "Sesli Asistanlar", icon: "🎙️", icerik: SlaytSesliAsistanlar },
-        { baslik: "Etkinlik: YZ Haritası", icon: "🎮", icerik: SlaytEtkinlik1 },
-        { baslik: "Etkinlik: YZ veya Değil?", icon: "🎮", icerik: SlaytEtkinlik2 },
-        { baslik: "Etkinlik: Sesli Asistan", icon: "🎮", icerik: SlaytEtkinlik3 },
-        { baslik: "Etkinlik: YZ Röportajı", icon: "🎮", icerik: SlaytEtkinlik4 },
-        { baslik: "İnteraktif Oyun", icon: "🕹️", icerik: SlaytOyun },
-        { baslik: "Değerlendirme", icon: "📝", icerik: SlaytDegerlendirme },
-        { baslik: "Materyaller", icon: "📥", icerik: SlaytMateryaller },
+      bolumler={[
+        { id: "b2-kazanimlar", baslik: "Kazanımlar", icon: "🎯", tur: "kazanim", icerik: SlaytKazanimlar, varsayilanAcik: true },
+        { id: "b2-yz-her-yerde", baslik: "YZ Her Yerde!", icon: "🌍", tur: "icerik", icerik: SlaytYzHerYerde, varsayilanAcik: true },
+        { id: "b2-cebindeki-yz", baslik: "Cebindeki Yapay Zeka", icon: "📱", tur: "icerik", icerik: SlaytCebindekiYz, varsayilanAcik: true },
+        { id: "b2-kullanim-alanlari", baslik: "YZ Kullanım Alanları", icon: "🌐", tur: "icerik", icerik: SlaytYzKullanimAlanlari },
+        { id: "b2-oneri-sistemleri", baslik: "Öneri Sistemleri", icon: "🎬", tur: "icerik", icerik: SlaytOneriSistemleri },
+        { id: "b2-sesli-asistanlar", baslik: "Sesli Asistanlar", icon: "🎙️", tur: "icerik", icerik: SlaytSesliAsistanlar },
+        { id: "b2-etkinlik-yz-haritasi", baslik: "Etkinlik: YZ Haritası", icon: "🎮", tur: "etkinlik", icerik: SlaytEtkinlik1 },
+        { id: "b2-etkinlik-yz-veya-degil", baslik: "Etkinlik: YZ veya Değil?", icon: "🎮", tur: "etkinlik", icerik: SlaytEtkinlik2 },
+        { id: "b2-etkinlik-sesli-asistan", baslik: "Etkinlik: Sesli Asistan", icon: "🎮", tur: "etkinlik", icerik: SlaytEtkinlik3 },
+        { id: "b2-etkinlik-yz-roportaji", baslik: "Etkinlik: YZ Röportajı", icon: "🎮", tur: "etkinlik", icerik: SlaytEtkinlik4 },
+        { id: "b2-oyun", baslik: "İnteraktif Oyun", icon: "🕹️", tur: "oyun", icerik: SlaytOyun },
+        { id: "b2-quiz", baslik: "Değerlendirme", icon: "📝", tur: "quiz", icerik: SlaytDegerlendirme },
+        { id: "b2-materyaller", baslik: "Materyaller", icon: "📥", tur: "materyal", icerik: SlaytMateryaller },
       ]}
     />
   );

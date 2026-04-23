@@ -15,41 +15,41 @@ const adimlar: Adim[] = [
   {
     baslik: "Empati",
     emoji: "\uD83D\uDC9C",
-    aciklama: "Kullanicilarin sorunlarini anla. Onlarin yerine koy kendini!",
-    yardimciSoru: "Bu sorunu yasamis birisiyle konussaydin, sana ne anlatirdi? Neler hisseder, nelerden sikayet eder?",
-    ornekCevap: "Ogrenciler yemekhane kuyruklarinda cok bekliyor. Teneffus kisa oldugu icin yemek yemeye yeterli zaman kalmiyor. Aciken ders dinlemek cok zor oluyor.",
+    aciklama: "Kullanıcıların sorunlarını anla. Onların yerine koy kendini!",
+    yardimciSoru: "Bu sorunu yaşamış birisiyle konuşsaydın, sana ne anlatırdı? Neler hisseder, nelerden şikâyet eder?",
+    ornekCevap: "Öğrenciler yemekhane kuyruklarında çok bekliyor. Teneffüs kısa olduğu için yemek yemeye yeterli zaman kalmıyor. Açken ders dinlemek çok zor oluyor.",
     renk: "purple",
   },
   {
-    baslik: "Tanimlama",
+    baslik: "Tanımlama",
     emoji: "\uD83C\uDFAF",
-    aciklama: "Sorunu net bir sekilde tanimla. Asil problem ne?",
-    yardimciSoru: "Empatide ogrendiklerine gore, cozmen gereken asil problem ne? Tek cumleyle yaz.",
-    ornekCevap: "Yemekhane kuyrugu cok uzun oldugu icin ogrenciler teneffuslerde yeterince yemek yiyemiyor ve derslere ac giriyor.",
+    aciklama: "Sorunu net bir şekilde tanımla. Asıl problem ne?",
+    yardimciSoru: "Empatide öğrendiklerine göre, çözmen gereken asıl problem ne? Tek cümleyle yaz.",
+    ornekCevap: "Yemekhane kuyruğu çok uzun olduğu için öğrenciler teneffüslerde yeterince yemek yiyemiyor ve derslere aç giriyor.",
     renk: "blue",
   },
   {
-    baslik: "Fikir Uretme",
+    baslik: "Fikir Üretme",
     emoji: "\uD83D\uDCA1",
-    aciklama: "Olabildigince cok fikir uret! Cilgin fikirler de olabilir!",
-    yardimciSoru: "Bu problemi cozmek icin aklina gelen tum fikirleri yaz. En az 3 farkli cozum onerisi bul!",
-    ornekCevap: "1) Mobil uygulama ile onceden siparis sistemi\n2) Farkli siniflar icin farkli yemek saatleri\n3) Yemek otomatlari koymak\n4) QR kodlu hizli odeme sistemi\n5) Sinif bazli siralama yerine rastgele kuyruk sistemi",
+    aciklama: "Olabildiğince çok fikir üret! Çılgın fikirler de olabilir!",
+    yardimciSoru: "Bu problemi çözmek için aklına gelen tüm fikirleri yaz. En az 3 farklı çözüm önerisi bul!",
+    ornekCevap: "1) Mobil uygulama ile önceden sipariş sistemi\n2) Farklı sınıflar için farklı yemek saatleri\n3) Yemek otomatları koymak\n4) QR kodlu hızlı ödeme sistemi\n5) Sınıf bazlı sıralama yerine rastgele kuyruk sistemi",
     renk: "yellow",
   },
   {
     baslik: "Prototip",
     emoji: "\uD83D\uDD28",
-    aciklama: "En iyi fikrini secip basit bir model/taslak olustur!",
-    yardimciSoru: "En begendigin fikri sec ve nasil calisacagini anlat. Kagit uzerinde bir taslak cizsen nasil gorunurdu?",
-    ornekCevap: "Mobil uygulama seciyorum: Ogrenci uygulamaya giris yapar > Gunun menusunu gorur > Yemegini secer > QR kod olusur > Yemekhaneye gidince QR kodu okutup sirasiz alir. Ekranda menu, secim butonu ve QR kod alani olacak.",
+    aciklama: "En iyi fikrini seçip basit bir model/taslak oluştur!",
+    yardimciSoru: "En beğendiğin fikri seç ve nasıl çalışacağını anlat. Kâğıt üzerinde bir taslak çizsen nasıl görünürdü?",
+    ornekCevap: "Mobil uygulama seçiyorum: Öğrenci uygulamaya giriş yapar → Günün menüsünü görür → Yemeğini seçer → QR kod oluşur → Yemekhaneye gidince QR kodu okutup sırasız alır. Ekranda menü, seçim butonu ve QR kod alanı olacak.",
     renk: "green",
   },
   {
     baslik: "Test",
     emoji: "\uD83E\uDDEA",
-    aciklama: "Prototipini test et! Geri bildirim al ve gelistir!",
-    yardimciSoru: "Prototipini 3 arkadasina gostersen, ne derlerdi? Neleri begenir, neleri elestirirlerdi? Nasil gelistirebilirsin?",
-    ornekCevap: "Arkadaslarim 'Internet olmazsa ne olacak?' dedi > Cozum: Offline mod eklenebilir. 'Herkesin telefonu yok' dedi > Cozum: Okul tabletleri veya kiosk ekranlar konulabilir. Menude alerjen uyarisi da olmali.",
+    aciklama: "Prototipini test et! Geri bildirim al ve geliştir!",
+    yardimciSoru: "Prototipini 3 arkadaşına göstersen, ne derlerdi? Neleri beğenir, neleri eleştirirlerdi? Nasıl geliştirebilirsin?",
+    ornekCevap: "Arkadaşlarım 'İnternet olmazsa ne olacak?' dedi → Çözüm: Offline mod eklenebilir. 'Herkesin telefonu yok' dedi → Çözüm: Okul tabletleri veya kiosk ekranlar konulabilir. Menüde alerjen uyarısı da olmalı.",
     renk: "red",
   },
 ];
@@ -105,9 +105,9 @@ export default function TasarimDusuncesi() {
       <div className="rounded-2xl border border-[var(--color-border)] bg-[var(--color-bg-secondary)] p-6">
         <div className="text-center mb-6">
           <div className="text-6xl mb-3">{"\uD83C\uDF1F"}</div>
-          <h3 className="text-2xl font-bold mb-2">Tasarim Dusuncesi Projen Hazir!</h3>
+          <h3 className="text-2xl font-bold mb-2">Tasarım Düşüncesi Projen Hazır!</h3>
           <p className="text-[var(--color-text-secondary)]">
-            Tebrikler! 5 adimi da tamamladin. Iste projenin ozeti:
+            Tebrikler! 5 adımı da tamamladın. İşte projenin özeti:
           </p>
         </div>
 
@@ -123,7 +123,7 @@ export default function TasarimDusuncesi() {
                   </h4>
                 </div>
                 <p className="text-sm whitespace-pre-wrap">
-                  {yanitlar[i] || <span className="italic text-[var(--color-text-secondary)]">(Bos birakildi)</span>}
+                  {yanitlar[i] || <span className="italic text-[var(--color-text-secondary)]">(Boş bırakıldı)</span>}
                 </p>
               </div>
             );
@@ -132,8 +132,8 @@ export default function TasarimDusuncesi() {
 
         <div className="rounded-xl bg-gradient-to-r from-purple-100 to-green-100 dark:from-purple-900/30 dark:to-green-900/30 p-4 mb-6">
           <p className="text-sm font-medium text-center">
-            {"\uD83C\uDF93"} Tasarim Dusuncesi, dunyanin en buyuk sirketlerinin (Google, Apple, IDEO) kullandigi bir yontemdir.
-            Sen de simdi bu yontemi ogrendin!
+            {"\uD83C\uDF93"} Tasarım Düşüncesi, dünyanın en büyük şirketlerinin (Google, Apple, IDEO) kullandığı bir yöntemdir.
+            Sen de şimdi bu yöntemi öğrendin!
           </p>
         </div>
 
@@ -142,7 +142,7 @@ export default function TasarimDusuncesi() {
             onClick={sifirla}
             className="cursor-pointer rounded-xl bg-gradient-to-r from-purple-500 to-green-500 px-8 py-3 font-bold text-white hover:opacity-90 transition"
           >
-            {"\uD83D\uDD04"} Yeni Proje Baslat
+            {"\uD83D\uDD04"} Yeni Proje Başlat
           </button>
         </div>
       </div>
@@ -151,11 +151,11 @@ export default function TasarimDusuncesi() {
 
   return (
     <div className="rounded-2xl border border-[var(--color-border)] bg-[var(--color-bg-secondary)] p-6">
-      {/* Baslik */}
+      {/* Başlık */}
       <div className="text-center mb-4">
-        <h3 className="text-xl font-bold">{"\uD83C\uDFA8"} Tasarim Dusuncesi Atolyesi</h3>
+        <h3 className="text-xl font-bold">{"\uD83C\uDFA8"} Tasarım Düşüncesi Atölyesi</h3>
         <p className="text-sm text-[var(--color-text-secondary)]">
-          Ornek problem: &quot;Okuldaki yemekhane kuyrugu cok uzun&quot;
+          Örnek problem: &quot;Okuldaki yemekhane kuyruğu çok uzun&quot;
         </p>
       </div>
 
@@ -195,7 +195,7 @@ export default function TasarimDusuncesi() {
           <span className="text-3xl">{adim.emoji}</span>
           <div>
             <h4 className={`text-lg font-bold ${renk.text}`}>
-              Adim {aktifAdim + 1}: {adim.baslik}
+              Adım {aktifAdim + 1}: {adim.baslik}
             </h4>
             <p className="text-sm text-[var(--color-text-secondary)]">{adim.aciklama}</p>
           </div>
@@ -218,11 +218,11 @@ export default function TasarimDusuncesi() {
           onClick={() => setOrnekGoster(!ornekGoster)}
           className="cursor-pointer mt-2 text-xs font-medium text-[var(--color-text-secondary)] hover:text-[var(--color-text-primary)] transition"
         >
-          {ornekGoster ? "\u25B2 Ornegi gizle" : "\u25BC Ornek cevabi gor"}
+          {ornekGoster ? "\u25B2 Örneği gizle" : "\u25BC Örnek cevabı gör"}
         </button>
         {ornekGoster && (
           <div className="mt-2 rounded-lg bg-white/80 dark:bg-gray-800/80 border border-dashed border-[var(--color-border)] p-3 text-xs text-[var(--color-text-secondary)] whitespace-pre-wrap">
-            {"\uD83D\uDCDD"} <strong>Ornek:</strong> {adim.ornekCevap}
+            {"\uD83D\uDCDD"} <strong>Örnek:</strong> {adim.ornekCevap}
           </div>
         )}
       </div>
@@ -249,17 +249,17 @@ export default function TasarimDusuncesi() {
           onClick={ileri}
           className={`cursor-pointer rounded-xl bg-gradient-to-r ${renk.gradient} px-6 py-2.5 font-bold text-white hover:opacity-90 transition`}
         >
-          {aktifAdim === adimlar.length - 1 ? "Tamamla \u2705" : "Ileri \u27A1\uFE0F"}
+          {aktifAdim === adimlar.length - 1 ? "Tamamla \u2705" : "İleri \u27A1\uFE0F"}
         </button>
       </div>
 
-      {/* Sifirlama */}
+      {/* Sıfırlama */}
       <div className="text-center mt-4">
         <button
           onClick={sifirla}
           className="cursor-pointer text-xs text-[var(--color-text-secondary)] hover:text-red-500 transition"
         >
-          {"\uD83D\uDD04"} Tekrar Basla
+          {"\uD83D\uDD04"} Tekrar Başla
         </button>
       </div>
     </div>

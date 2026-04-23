@@ -2,16 +2,23 @@ import type { Metadata } from "next";
 
 export const metadata: Metadata = {
   title: "Bölüm 5: Üretken Yapay Zeka | Yapay Zeka Macerası",
+  description:
+    "Üretken yapay zeka nedir? ChatGPT, DALL-E gibi araçları tanı, prompt mühendisliğini öğren.",
+  alternates: { canonical: "https://gencyz.com/bolumler/5" },
 };
 
 import Image from "next/image";
 import InteraktifQuiz from "@/components/InteraktifQuiz";
-import BolumSlider from "@/components/BolumSlider";
+import BolumCerceve from "@/components/BolumCerceve";
 import PromptUstasi from "@/components/oyunlar/PromptUstasi";
 import PromptDeneme from "@/components/etkinlikler/PromptDeneme";
 import EtikSenaryolar from "@/components/etkinlikler/EtikSenaryolar";
 import PromptGelistirici from "@/components/etkinlikler/PromptGelistirici";
 import HalusinasyonDedektifi from "@/components/etkinlikler/HalusinasyonDedektifi";
+import TekSecimSoru from "@/components/mikro/TekSecimSoru";
+import DogruYanlis from "@/components/mikro/DogruYanlis";
+import EslestirmeOyunu from "@/components/mikro/EslestirmeOyunu";
+import KategoriSiniflandirma from "@/components/mikro/KategoriSiniflandirma";
 
 const quizSorulari = [
   {
@@ -71,7 +78,7 @@ const quizSorulari = [
   },
 ];
 
-/* ---- Slayt 1: Kazanımlar ---- */
+/* ---- Kazanımlar ---- */
 const SlaytKazanimlar = (
   <>
     <section className="rounded-2xl border-l-4 border-pink-500 bg-pink-50 p-6 dark:bg-pink-900/20">
@@ -93,7 +100,7 @@ const SlaytKazanimlar = (
   </>
 );
 
-/* ---- Slayt 2: Üretken YZ Nedir? ---- */
+/* ---- Üretken YZ Nedir? ---- */
 const SlaytUretkenYZ = (
   <section className="space-y-4">
     <h3 className="text-2xl font-extrabold">1. Üretken YZ Nedir?</h3>
@@ -127,10 +134,20 @@ const SlaytUretkenYZ = (
     <div className="rounded-xl bg-gradient-to-r from-amber-50 to-orange-50 p-4 dark:from-amber-900/20 dark:to-orange-900/20">
       <p className="font-medium">🤔 <strong>Biliyor Muydunuz?</strong> ChatGPT, eğitimi sırasında internetteki milyarlarca kelimeyi okudu!</p>
     </div>
+
+    <EslestirmeOyunu
+      baslik="Üretken YZ araçlarını doğru içerik türüyle eşleştir"
+      ciftler={[
+        { sol: "ChatGPT", sag: "Metin üretme" },
+        { sol: "DALL-E", sag: "Görüntü üretme" },
+        { sol: "Suno", sag: "Müzik üretme" },
+        { sol: "Sora", sag: "Video üretme" },
+      ]}
+    />
   </section>
 );
 
-/* ---- Slayt 3: Büyük Dil Modelleri (LLM) ---- */
+/* ---- Büyük Dil Modelleri (LLM) ---- */
 const SlaytLLM = (
   <section className="space-y-4">
     <h3 className="text-2xl font-extrabold">2. Büyük Dil Modelleri (LLM)</h3>
@@ -158,10 +175,16 @@ const SlaytLLM = (
     <div className="rounded-xl border-l-4 border-sky-500 bg-sky-50 p-4 dark:bg-sky-900/20">
       <p className="font-medium">💡 <strong>İpucu:</strong> LLM&apos;ler &quot;anlama&quot; değil &quot;örüntü eşleştirme&quot; yapar. Bu yüzden bazen çok ikna edici ama yanlış cevaplar verebilirler!</p>
     </div>
+
+    <DogruYanlis
+      ifade="Büyük dil modelleri (LLM) metni gerçekten anlayarak cevap verir."
+      dogruMu={false}
+      aciklama="LLM'ler metni 'anlamaz'. Eğitim verilerindeki kalıpları ve örüntüleri kullanarak en olası kelimeyi tahmin eder. Bu yüzden bazen çok ikna edici ama yanlış cevaplar verebilirler."
+    />
   </section>
 );
 
-/* ---- Slayt 4: Prompt Mühendisliği ---- */
+/* ---- Prompt Mühendisliği ---- */
 const SlaytPrompt = (
   <section className="space-y-4">
     <h3 className="text-2xl font-extrabold">3. Prompt Mühendisliği: YZ&apos;ye Nasıl Soru Sorulur?</h3>
@@ -217,10 +240,23 @@ const SlaytPrompt = (
     <div className="rounded-xl border-l-4 border-amber-500 bg-amber-50 p-4 dark:bg-amber-900/20">
       <p className="font-medium">⚠️ <strong>Dikkat:</strong> &quot;Harika bir prompt yaz&quot; demek yerine, ne istediğinizi adım adım tarif edin. YZ zihin okuyamaz!</p>
     </div>
+
+    <KategoriSiniflandirma
+      baslik="Prompt elemanlarını doğru kategoriye yerleştir"
+      kategoriler={["Rol", "Görev", "Bağlam", "Format"]}
+      ogeler={[
+        { ad: "Sen bir bilim insanısın", kategori: "Rol" },
+        { ad: "Bir makale yaz", kategori: "Görev" },
+        { ad: "Konu: iklim değişikliği", kategori: "Bağlam" },
+        { ad: "En fazla 150 kelime", kategori: "Format" },
+        { ad: "Sen bir aşçısın", kategori: "Rol" },
+        { ad: "Madde işareti kullan", kategori: "Format" },
+      ]}
+    />
   </section>
 );
 
-/* ---- Slayt 5: YZ Halüsinasyonu ---- */
+/* ---- YZ Halüsinasyonu ---- */
 const SlaytHalusinasyon = (
   <section className="space-y-4">
     <h3 className="text-2xl font-extrabold">4. YZ Halüsinasyonu: Dikkat!</h3>
@@ -248,10 +284,22 @@ const SlaytHalusinasyon = (
         </ul>
       </div>
     </div>
+
+    <TekSecimSoru
+      soru="YZ'nin 'halüsinasyon' yapması ne anlama gelir?"
+      secenekler={[
+        "YZ'nin rüya görmesi",
+        "YZ'nin çok inandırıcı ama yanlış bilgi üretmesi",
+        "YZ'nin çok yavaş çalışması",
+        "YZ'nin internete bağlanamaması",
+      ]}
+      dogruIndex={1}
+      aciklama="Halüsinasyon, YZ'nin çok ikna edici görünen ama gerçekte yanlış olan bilgiler üretmesidir. Bu yüzden YZ'nin verdiği bilgileri her zaman başka kaynaklardan doğrulamalıyız."
+    />
   </section>
 );
 
-/* ---- Slayt 6: Etik Kullanım ve Akademik Dürüstlük ---- */
+/* ---- Etik Kullanım ve Akademik Dürüstlük ---- */
 const SlaytEtik = (
   <section className="space-y-4">
     <h3 className="text-2xl font-extrabold">5. Etik Kullanım ve Akademik Dürüstlük</h3>
@@ -274,6 +322,12 @@ const SlaytEtik = (
         </div>
       ))}
     </div>
+
+    <DogruYanlis
+      ifade="YZ ile ürettiğin bir yazıyı öğretmenine kendi yazdığın gibi gösterebilirsin."
+      dogruMu={false}
+      aciklama="Bu etik değildir ve akademik dürüstlüğe aykırıdır. YZ'yi yardımcı olarak kullanabilirsin ama ürettiği içeriği kendi eserin gibi sunmamalısın. Kaynak belirtmek çok önemlidir."
+    />
   </section>
 );
 
@@ -368,7 +422,7 @@ const SlaytEtkinlik4 = (
   </>
 );
 
-/* ---- Slayt 5: İnteraktif Oyun ---- */
+/* ---- İnteraktif Oyun ---- */
 const SlaytOyun = (
   <section className="space-y-6">
     <h2 className="text-2xl font-bold">🎮 Prompt Ustası</h2>
@@ -379,14 +433,14 @@ const SlaytOyun = (
   </section>
 );
 
-/* ---- Slayt 6: Değerlendirme ---- */
+/* ---- Değerlendirme ---- */
 const SlaytDegerlendirme = (
   <>
-    <InteraktifQuiz sorular={quizSorulari} />
+    <InteraktifQuiz sorular={quizSorulari} bolumNo={5} />
   </>
 );
 
-/* ---- Slayt 7: İndirilebilir Materyaller ---- */
+/* ---- İndirilebilir Materyaller ---- */
 const SlaytMateryaller = (
   <>
     <section className="rounded-2xl border border-[var(--color-border)] bg-[var(--color-bg-secondary)] p-6">
@@ -417,7 +471,7 @@ const SlaytMateryaller = (
 
 export default function Bolum5() {
   return (
-    <BolumSlider
+    <BolumCerceve
       bolumNo={5}
       bolumBaslik="Üretken Yapay Zeka"
       bolumAltBaslik="YZ Araçlarıyla Tanışın"
@@ -426,21 +480,21 @@ export default function Bolum5() {
       renk="from-pink-500 to-rose-600"
       oncekiBolum={4}
       sonrakiBolum={6}
-      slaytlar={[
-        { baslik: "Kazanımlar", icon: "🎯", icerik: SlaytKazanimlar },
-        { baslik: "Üretken YZ Nedir?", icon: "📖", icerik: SlaytUretkenYZ },
-        { baslik: "Büyük Dil Modelleri", icon: "🧠", icerik: SlaytLLM },
-        { baslik: "Prompt Mühendisliği", icon: "📝", icerik: SlaytPrompt },
-        { baslik: "YZ Halüsinasyonu", icon: "⚠️", icerik: SlaytHalusinasyon },
-        { baslik: "Etik Kullanım", icon: "⚖️", icerik: SlaytEtik },
-        { baslik: "Etkinlik: Prompt Düellosu", icon: "🎮", icerik: SlaytEtkinlik1 },
-        { baslik: "Etkinlik: Prompt Geliştirici", icon: "✨", icerik: SlaytEtkinlik1b },
-        { baslik: "Etkinlik: ChatGPT/Gemini", icon: "🎮", icerik: SlaytEtkinlik2 },
-        { baslik: "Etkinlik: Görüntü Üretme", icon: "🎮", icerik: SlaytEtkinlik3 },
-        { baslik: "Etkinlik: YZ Etik Mahkemesi", icon: "🎮", icerik: SlaytEtkinlik4 },
-        { baslik: "İnteraktif Oyun", icon: "🕹️", icerik: SlaytOyun },
-        { baslik: "Değerlendirme", icon: "📝", icerik: SlaytDegerlendirme },
-        { baslik: "Materyaller", icon: "📥", icerik: SlaytMateryaller },
+      bolumler={[
+        { id: "b5-kazanimlar", baslik: "Kazanımlar", icon: "🎯", tur: "kazanim", icerik: SlaytKazanimlar, varsayilanAcik: true },
+        { id: "b5-uretken-yz", baslik: "Üretken YZ Nedir?", icon: "📖", tur: "icerik", icerik: SlaytUretkenYZ, varsayilanAcik: true },
+        { id: "b5-buyuk-dil-modelleri", baslik: "Büyük Dil Modelleri", icon: "🧠", tur: "icerik", icerik: SlaytLLM, varsayilanAcik: true },
+        { id: "b5-prompt-muhendisligi", baslik: "Prompt Mühendisliği", icon: "📝", tur: "icerik", icerik: SlaytPrompt },
+        { id: "b5-yz-halusinasyonu", baslik: "YZ Halüsinasyonu", icon: "⚠️", tur: "icerik", icerik: SlaytHalusinasyon },
+        { id: "b5-etik-kullanim", baslik: "Etik Kullanım", icon: "⚖️", tur: "icerik", icerik: SlaytEtik },
+        { id: "b5-etkinlik-prompt-duellosu", baslik: "Etkinlik: Prompt Düellosu", icon: "🎮", tur: "etkinlik", icerik: SlaytEtkinlik1 },
+        { id: "b5-etkinlik-prompt-gelistirici", baslik: "Etkinlik: Prompt Geliştirici", icon: "✨", tur: "etkinlik", icerik: SlaytEtkinlik1b },
+        { id: "b5-etkinlik-chatgpt-gemini", baslik: "Etkinlik: ChatGPT/Gemini", icon: "🎮", tur: "etkinlik", icerik: SlaytEtkinlik2 },
+        { id: "b5-etkinlik-goruntu-uretme", baslik: "Etkinlik: Görüntü Üretme", icon: "🎮", tur: "etkinlik", icerik: SlaytEtkinlik3 },
+        { id: "b5-etkinlik-etik-mahkemesi", baslik: "Etkinlik: YZ Etik Mahkemesi", icon: "🎮", tur: "etkinlik", icerik: SlaytEtkinlik4 },
+        { id: "b5-oyun", baslik: "İnteraktif Oyun", icon: "🕹️", tur: "oyun", icerik: SlaytOyun },
+        { id: "b5-quiz", baslik: "Değerlendirme", icon: "📝", tur: "quiz", icerik: SlaytDegerlendirme },
+        { id: "b5-materyaller", baslik: "Materyaller", icon: "📥", tur: "materyal", icerik: SlaytMateryaller },
       ]}
     />
   );

@@ -2,17 +2,26 @@ import type { Metadata } from "next";
 
 export const metadata: Metadata = {
   title: "Bölüm 1: Yapay Zeka Nedir? | Yapay Zeka Macerası",
+  description:
+    "Yapay zeka nedir, nasıl çalışır? Turing testi, YZ tarihçesi ve insan-makine karşılaştırması ile keşif yolculuğuna başla.",
+  alternates: { canonical: "https://gencyz.com/bolumler/1" },
 };
 
 import Image from "next/image";
 import InteraktifQuiz from "@/components/InteraktifQuiz";
-import BolumSlider from "@/components/BolumSlider";
+import BolumCerceve from "@/components/BolumCerceve";
 import YzMiDegilMi from "@/components/oyunlar/YzMiDegilMi";
 import KimDahaZeki from "@/components/etkinlikler/KimDahaZeki";
 import YzDedektifi from "@/components/etkinlikler/YzDedektifi";
 import ZamanCizelgesi from "@/components/etkinlikler/ZamanCizelgesi";
+import InteraktifTarihce from "@/components/etkinlikler/InteraktifTarihce";
+import YzTarihcesi380 from "@/components/etkinlikler/YzTarihcesi380";
 import TuringTesti from "@/components/etkinlikler/TuringTesti";
 import YzZekaKarsilastir from "@/components/etkinlikler/YzZekaKarsilastir";
+import TekSecimSoru from "@/components/mikro/TekSecimSoru";
+import DogruYanlis from "@/components/mikro/DogruYanlis";
+import KategoriSiniflandirma from "@/components/mikro/KategoriSiniflandirma";
+import EslestirmeOyunu from "@/components/mikro/EslestirmeOyunu";
 
 const quizSorulari = [
   {
@@ -84,6 +93,18 @@ const SlaytKazanimlar = (
         )
       )}
     </div>
+
+    <TekSecimSoru
+      soru="Bu bölümde en çok hangi konuyu öğrenmeyi bekliyorsun?"
+      secenekler={[
+        "Yapay zekanın tarihçesi",
+        "YZ türleri arasındaki farklar",
+        "YZ'nin günlük hayattaki kullanımları",
+        "Hepsini merak ediyorum!",
+      ]}
+      dogruIndex={3}
+      aciklama="Harika! Bu bölümde tüm bu konuları keşfedeceksin. Hadi başlayalım!"
+    />
   </>
 );
 
@@ -103,6 +124,12 @@ const SlaytZekaNedir = (
         yapabilir. Bu onu zeki yapar mı? Neden?
       </p>
     </div>
+
+    <DogruYanlis
+      ifade="Bir hesap makinesi binlerce çarpma yapabildiği için zekidir."
+      dogruMu={false}
+      aciklama="Hesap makinesi çok hızlı hesap yapar ama yeni bir şey öğrenemez, farklı durumlara uyum sağlayamaz. Hız tek başına zeka değildir — zeka öğrenme, anlama ve uyum sağlama gerektirir."
+    />
   </section>
 );
 
@@ -142,6 +169,17 @@ const SlaytYapayZekaNedir = (
         </tbody>
       </table>
     </div>
+
+    <EslestirmeOyunu
+      baslik="Özellikleri doğru sütunla eşleştir!"
+      ciftler={[
+        { sol: "Deneyimle öğrenme", sag: "İnsan Zekası" },
+        { sol: "Veri ile öğrenme", sag: "Yapay Zeka" },
+        { sol: "Yaratıcılık", sag: "İnsan Zekası" },
+        { sol: "Yorulmadan çalışma", sag: "Yapay Zeka" },
+        { sol: "Duyguları hissetme", sag: "İnsan Zekası" },
+      ]}
+    />
   </section>
 );
 
@@ -188,6 +226,16 @@ const SlaytOnculer = (
         Görsel: Public Domain (TR currency), Wikimedia Commons
       </p>
     </div>
+
+    <EslestirmeOyunu
+      baslik="Kişileri başarılarıyla eşleştir!"
+      ciftler={[
+        { sol: "Alan Turing", sag: "Turing Testi'ni öne sürdü" },
+        { sol: "Cahit Arf", sag: "Makineler düşünebilir mi? çalışması" },
+        { sol: "John McCarthy", sag: "Yapay zeka terimini icat etti" },
+        { sol: "Blaise Pascal", sag: "İlk mekanik hesap makinesi" },
+      ]}
+    />
   </section>
 );
 
@@ -207,53 +255,40 @@ const SlaytVideo = (
     <p className="mt-3 text-sm text-[var(--color-text-secondary)]">
       📖 Yapay zekanın 1950&apos;lerden günümüze uzanan yolculuğunu keşfet!
     </p>
+
+    <TekSecimSoru
+      soru="Videoyu izledikten sonra: Yapay zeka alanındaki ilk büyük atılım ne zaman oldu?"
+      secenekler={["1930'larda", "1950'lerde", "1970'lerde", "2000'lerde"]}
+      dogruIndex={1}
+      aciklama="1950'lerde Alan Turing'in çalışmaları ve 1956'da Dartmouth Konferansı ile yapay zeka resmi bir alan olarak doğdu."
+    />
   </section>
 );
 
-/* ---- Slayt 6: YZ Tarihçesi ---- */
+/* ---- Slayt 6: YZ Tarihçesi (İnteraktif) ---- */
 const SlaytTarihce = (
   <section className="space-y-4">
     <h3 className="text-xl font-extrabold">YZ Tarihçesi</h3>
-    <div className="space-y-3">
-      {[
-        { yil: "1642", olay: "İlk mekanik hesap makinesi (Pascal)" },
-        { yil: "1950", olay: "Turing Testi öne sürüldü" },
-        { yil: "1956", olay: "\"Yapay zeka\" terimi ilk kez kullanıldı" },
-        { yil: "1959", olay: "Cahit Arf'ın çalışması" },
-        { yil: "1965", olay: "ELIZA - ilk sohbet robotu" },
-        { yil: "1997", olay: "Deep Blue satranç şampiyonunu yendi" },
-        { yil: "2011", olay: "Siri ve sesli asistanlar" },
-        { yil: "2016", olay: "AlphaGo, Go şampiyonunu yendi" },
-        { yil: "2022", olay: "ChatGPT - üretken YZ çağı" },
-      ].map((item) => (
-        <div key={item.yil} className="flex items-start gap-4">
-          <span className="shrink-0 rounded-lg bg-sky-600 px-3 py-1 text-sm font-bold text-white">
-            {item.yil}
-          </span>
-          <p>{item.olay}</p>
-        </div>
-      ))}
+    <p className="text-[var(--color-text-secondary)]">
+      Kartlara tıklayarak yapay zekanın tarihindeki dönüm noktalarını keşfet, sonra bilgini &quot;Yılı Tahmin Et&quot; modunda test et!
+    </p>
+    <InteraktifTarihce />
+  </section>
+);
+
+/* ---- Slayt 6b: YZ Tarihçesi — 380 Yıllık Zaman Makinesi ---- */
+const SlaytZamanMakinesi = (
+  <section className="space-y-4">
+    <div className="flex flex-wrap items-center gap-3">
+      <h3 className="text-xl font-extrabold">YZ Tarihçesi: 380 Yıllık Zaman Makinesi</h3>
+      <span className="rounded-lg bg-violet-500 px-3 py-1 text-xs font-bold text-white">İNTERAKTİF</span>
     </div>
-    <div className="mt-4 rounded-xl border border-[var(--color-border)] bg-[var(--color-bg)] p-4">
-      <div className="flex flex-col items-center gap-3 sm:flex-row">
-        <Image
-          src="/images/bolumler/deep-blue.jpg"
-          alt="IBM Deep Blue"
-          width={200}
-          height={150}
-          className="rounded-lg object-cover shadow-md"
-        />
-        <div>
-          <h4 className="font-bold">1997: Deep Blue vs Kasparov</h4>
-          <p className="text-sm text-[var(--color-text-secondary)]">
-            IBM&apos;in Deep Blue bilgisayarı, dünya satranç şampiyonu Garry Kasparov&apos;u yenerek tarihe geçti.
-          </p>
-          <p className="mt-1 text-xs text-[var(--color-text-secondary)] italic">
-            Fotoğraf: James the photographer, CC BY 2.0, Wikimedia Commons
-          </p>
-        </div>
-      </div>
-    </div>
+    <p className="text-[var(--color-text-secondary)]">
+      1642 Pascaline&apos;dan günümüze kadar uzanan 380 yıllık yolculukta dönüm
+      noktalarını keşfet. Zaman çizgisindeki düğümlere tıklayarak detayları oku,
+      her olaydan sonra mini quiz ile bilgini test et.
+    </p>
+    <YzTarihcesi380 />
   </section>
 );
 
@@ -297,6 +332,19 @@ const SlaytYzTurleri = (
         Görsel: CC BY-SA 4.0, Wikimedia Commons
       </p>
     </div>
+
+    <KategoriSiniflandirma
+      baslik="Bu örnekleri doğru YZ türüne yerleştir!"
+      kategoriler={["Dar YZ", "Genel YZ", "Süper YZ"]}
+      ogeler={[
+        { ad: "Siri", kategori: "Dar YZ" },
+        { ad: "Google Çevirmen", kategori: "Dar YZ" },
+        { ad: "Satranç bilgisayarı", kategori: "Dar YZ" },
+        { ad: "Her konuda düşünen robot", kategori: "Genel YZ" },
+        { ad: "İnsandan zeki makine", kategori: "Süper YZ" },
+        { ad: "Yüz tanıma", kategori: "Dar YZ" },
+      ]}
+    />
   </section>
 );
 
@@ -402,7 +450,7 @@ const SlaytOyun = (
 /* ---- Slayt 10: Değerlendirme ---- */
 const SlaytDegerlendirme = (
   <>
-    <InteraktifQuiz sorular={quizSorulari} />
+    <InteraktifQuiz sorular={quizSorulari} bolumNo={1} />
   </>
 );
 
@@ -433,12 +481,24 @@ const SlaytMateryaller = (
         ))}
       </div>
     </section>
+
+    <TekSecimSoru
+      soru="Bu bölümde öğrendiğin en şaşırtıcı bilgi hangisiydi?"
+      secenekler={[
+        "Yapay zeka teriminin 1956'da ortaya çıkması",
+        "Cahit Arf'ın YZ üzerine çalışması",
+        "Hesap makinesinin zeki sayılmaması",
+        "Hepsi ilginçti!",
+      ]}
+      dogruIndex={3}
+      aciklama="Harika! Bu bölümü tamamladın. Öğrendiklerini pekiştirmek için materyalleri incelemeyi unutma!"
+    />
   </>
 );
 
 export default function Bolum1() {
   return (
-    <BolumSlider
+    <BolumCerceve
       bolumNo={1}
       bolumBaslik="Yapay Zeka Nedir?"
       bolumAltBaslik="Keşif Yolculuğu"
@@ -447,22 +507,23 @@ export default function Bolum1() {
       renk="from-sky-600 to-blue-700"
       oncekiBolum={null}
       sonrakiBolum={2}
-      slaytlar={[
-        { baslik: "Kazanımlar", icon: "🎯", icerik: SlaytKazanimlar },
-        { baslik: "Zeka Nedir?", icon: "🧠", icerik: SlaytZekaNedir },
-        { baslik: "Yapay Zeka Nedir?", icon: "🤖", icerik: SlaytYapayZekaNedir },
-        { baslik: "Öncüler", icon: "👨‍🔬", icerik: SlaytOnculer },
-        { baslik: "Video", icon: "🎬", icerik: SlaytVideo },
-        { baslik: "YZ Tarihçesi", icon: "📅", icerik: SlaytTarihce },
-        { baslik: "YZ Türleri", icon: "🔬", icerik: SlaytYzTurleri },
-        { baslik: "Etkinlik: Kim Daha Zeki?", icon: "🎮", icerik: SlaytEtkinlik1 },
-        { baslik: "Etkinlik: Turing Testi", icon: "🧪", icerik: SlaytEtkinlik1b },
-        { baslik: "Etkinlik: YZ Dedektifi", icon: "🎮", icerik: SlaytEtkinlik2 },
-        { baslik: "Etkinlik: Zeka Karşılaştır", icon: "⚖️", icerik: SlaytEtkinlik2b },
-        { baslik: "Etkinlik: YZ Zaman Çizelgesi", icon: "🎮", icerik: SlaytEtkinlik3 },
-        { baslik: "İnteraktif Oyun", icon: "🕹️", icerik: SlaytOyun },
-        { baslik: "Değerlendirme", icon: "📝", icerik: SlaytDegerlendirme },
-        { baslik: "Materyaller", icon: "📥", icerik: SlaytMateryaller },
+      bolumler={[
+        { id: "b1-kazanimlar", baslik: "Kazanımlar", icon: "🎯", tur: "kazanim", icerik: SlaytKazanimlar, varsayilanAcik: true },
+        { id: "b1-zeka-nedir", baslik: "Zeka Nedir?", icon: "🧠", tur: "icerik", icerik: SlaytZekaNedir, varsayilanAcik: true },
+        { id: "b1-yz-nedir", baslik: "Yapay Zeka Nedir?", icon: "🤖", tur: "icerik", icerik: SlaytYapayZekaNedir, varsayilanAcik: true },
+        { id: "b1-onculer", baslik: "Öncüler", icon: "👨‍🔬", tur: "icerik", icerik: SlaytOnculer },
+        { id: "b1-video", baslik: "Video", icon: "🎬", tur: "video", icerik: SlaytVideo },
+        { id: "b1-tarihce", baslik: "YZ Tarihçesi", icon: "📅", tur: "icerik", icerik: SlaytTarihce },
+        { id: "b1-zaman-makinesi", baslik: "YZ Tarihçesi: Zaman Makinesi", icon: "⏳", tur: "etkinlik", icerik: SlaytZamanMakinesi },
+        { id: "b1-yz-turleri", baslik: "YZ Türleri", icon: "🔬", tur: "icerik", icerik: SlaytYzTurleri },
+        { id: "b1-etkinlik-kim-daha-zeki", baslik: "Etkinlik: Kim Daha Zeki?", icon: "🎮", tur: "etkinlik", icerik: SlaytEtkinlik1 },
+        { id: "b1-etkinlik-turing", baslik: "Etkinlik: Turing Testi", icon: "🧪", tur: "etkinlik", icerik: SlaytEtkinlik1b },
+        { id: "b1-etkinlik-dedektif", baslik: "Etkinlik: YZ Dedektifi", icon: "🔍", tur: "etkinlik", icerik: SlaytEtkinlik2 },
+        { id: "b1-etkinlik-karsilastir", baslik: "Etkinlik: Zeka Karşılaştır", icon: "⚖️", tur: "etkinlik", icerik: SlaytEtkinlik2b },
+        { id: "b1-etkinlik-zaman-cizelgesi", baslik: "Etkinlik: YZ Zaman Çizelgesi", icon: "🕰️", tur: "etkinlik", icerik: SlaytEtkinlik3 },
+        { id: "b1-oyun", baslik: "İnteraktif Oyun", icon: "🕹️", tur: "oyun", icerik: SlaytOyun },
+        { id: "b1-quiz", baslik: "Değerlendirme", icon: "📝", tur: "quiz", icerik: SlaytDegerlendirme },
+        { id: "b1-materyaller", baslik: "Materyaller", icon: "📥", tur: "materyal", icerik: SlaytMateryaller },
       ]}
     />
   );

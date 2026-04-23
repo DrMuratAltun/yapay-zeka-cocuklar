@@ -2,11 +2,14 @@ import type { Metadata } from "next";
 
 export const metadata: Metadata = {
   title: "Bölüm 4: Makineler Nasıl Öğrenir? | Yapay Zeka Macerası",
+  description:
+    "Makine öğrenimi temelleri: eğitim-test verileri, Teachable Machine ile kendi YZ modelini eğit.",
+  alternates: { canonical: "https://gencyz.com/bolumler/4" },
 };
 
 import Image from "next/image";
 import InteraktifQuiz from "@/components/InteraktifQuiz";
-import BolumSlider from "@/components/BolumSlider";
+import BolumCerceve from "@/components/BolumCerceve";
 import KararAgaci from "@/components/oyunlar/KararAgaci";
 import MeyveSiniflandirici from "@/components/etkinlikler/MeyveSiniflandirici";
 import ModelBasariRaporu from "@/components/etkinlikler/ModelBasariRaporu";
@@ -14,6 +17,10 @@ import TeachableMachineRehber from "@/components/etkinlikler/TeachableMachineReh
 import MLForKidsRehber from "@/components/etkinlikler/MLForKidsRehber";
 import SiniflandirmaPratigi from "@/components/etkinlikler/SiniflandirmaPratigi";
 import OgrenimTurleriQuiz from "@/components/etkinlikler/OgrenimTurleriQuiz";
+import TekSecimSoru from "@/components/mikro/TekSecimSoru";
+import DogruYanlis from "@/components/mikro/DogruYanlis";
+import KategoriSiniflandirma from "@/components/mikro/KategoriSiniflandirma";
+import EslestirmeOyunu from "@/components/mikro/EslestirmeOyunu";
 
 const quizSorulari = [
   {
@@ -73,7 +80,7 @@ const quizSorulari = [
   },
 ];
 
-/* ---- Slayt 1: Kazanımlar ---- */
+/* ---- Kazanımlar ---- */
 const SlaytKazanimlar = (
   <>
     <section className="rounded-2xl border-l-4 border-orange-500 bg-orange-50 p-6 dark:bg-orange-900/20">
@@ -95,7 +102,7 @@ const SlaytKazanimlar = (
   </>
 );
 
-/* ---- Slayt 2: Geleneksel Programlama vs Makine Öğrenimi ---- */
+/* ---- Geleneksel Programlama vs Makine Öğrenimi ---- */
 const SlaytGelenekselVsML = (
   <section className="space-y-4">
     <h3 className="text-2xl font-extrabold">1. Geleneksel Programlama vs Makine Öğrenimi</h3>
@@ -148,10 +155,22 @@ const SlaytGelenekselVsML = (
     <div className="rounded-xl bg-gradient-to-r from-amber-50 to-orange-50 p-4 dark:from-amber-900/20 dark:to-orange-900/20">
       <p className="font-medium">🤔 <strong>Biliyor Muydunuz?</strong> Google&apos;ın YZ&apos;si bir günde 10 milyon kedili fotoğrafı analiz edebilir!</p>
     </div>
+
+    <TekSecimSoru
+      soru="Makine öğreniminde bilgisayar ne yapar?"
+      secenekler={[
+        "Programcının yazdığı kuralları uygular",
+        "Verilerden kendi kurallarını öğrenir",
+        "İnternetten cevapları arar",
+        "Her seferinde rastgele tahmin yapar",
+      ]}
+      dogruIndex={1}
+      aciklama="Makine öğreniminde bilgisayar, verilerden örüntüleri keşfederek kendi kurallarını oluşturur. Programcı kuralları tek tek yazmaz."
+    />
   </section>
 );
 
-/* ---- Slayt 3: Makine Öğrenimi Türleri ---- */
+/* ---- Makine Öğrenimi Türleri ---- */
 const SlaytOgrenimTurleri = (
   <section className="space-y-4">
     <h3 className="text-2xl font-extrabold">2. Makine Öğrenimi Türleri</h3>
@@ -202,10 +221,23 @@ const SlaytOgrenimTurleri = (
       <p className="mt-2 text-center text-sm text-[var(--color-text-secondary)]">Yapay sinir agi: Noronlarin katmanlar halinde baglantisi</p>
       <p className="text-xs text-[var(--color-text-secondary)] italic">Gorsel: Cburnett, CC BY-SA 3.0</p>
     </div>
+
+    <KategoriSiniflandirma
+      baslik="Öğrenme türlerini doğru kategoriye yerleştir"
+      kategoriler={["Gözetimli Öğrenme", "Gözetimsiz Öğrenme", "Pekiştirmeli Öğrenme"]}
+      ogeler={[
+        { ad: "Spam e-posta filtreleme", kategori: "Gözetimli Öğrenme" },
+        { ad: "Müşterileri gruplara ayırma", kategori: "Gözetimsiz Öğrenme" },
+        { ad: "Robot yürüme öğrenimi", kategori: "Pekiştirmeli Öğrenme" },
+        { ad: "Kedi/köpek fotoğraf tanıma", kategori: "Gözetimli Öğrenme" },
+        { ad: "Go oyunu oynamayı öğrenme", kategori: "Pekiştirmeli Öğrenme" },
+        { ad: "Haber konularını gruplama", kategori: "Gözetimsiz Öğrenme" },
+      ]}
+    />
   </section>
 );
 
-/* ---- Slayt 4: Sınıflandırma ve Tahmin ---- */
+/* ---- Sınıflandırma ve Tahmin ---- */
 const SlaytSiniflandirma = (
   <section className="space-y-4">
     <h3 className="text-2xl font-extrabold">3. Sınıflandırma ve Tahmin</h3>
@@ -244,10 +276,20 @@ const SlaytSiniflandirma = (
     <div className="rounded-xl border-l-4 border-sky-500 bg-sky-50 p-4 dark:bg-sky-900/20">
       <p className="font-medium">💡 <strong>İpucu:</strong> Sınıflandırma &quot;hangi kutuya?&quot; sorusunu, tahmin ise &quot;ne kadar?&quot; sorusunu cevaplar. Bunu hatırla!</p>
     </div>
+
+    <EslestirmeOyunu
+      baslik="Görevi doğru makine öğrenimi türüyle eşleştir"
+      ciftler={[
+        { sol: "Bu e-posta spam mı?", sag: "Sınıflandırma" },
+        { sol: "Yarın hava kaç derece olacak?", sag: "Tahmin (Regresyon)" },
+        { sol: "Bu fotoğraftaki hayvan nedir?", sag: "Sınıflandırma" },
+        { sol: "Bu evin fiyatı ne kadar?", sag: "Tahmin (Regresyon)" },
+      ]}
+    />
   </section>
 );
 
-/* ---- Slayt 5: Karar Ağacı ile Sınıflandırma ---- */
+/* ---- Karar Ağacı ile Sınıflandırma ---- */
 const SlaytKararAgaci = (
   <section className="space-y-4">
     <h3 className="text-2xl font-extrabold">4. Karar Ağacı ile Sınıflandırma</h3>
@@ -299,10 +341,16 @@ const SlaytKararAgaci = (
     <div className="rounded-xl border-l-4 border-amber-500 bg-amber-50 p-4 dark:bg-amber-900/20">
       <p className="font-medium">⚠️ <strong>Dikkat:</strong> Karar ağacı çok derinleşirse &quot;aşırı uyum&quot; (overfitting) problemi oluşabilir. Ağacın basit ama etkili olması önemlidir!</p>
     </div>
+
+    <DogruYanlis
+      ifade="Karar ağacı ne kadar derin olursa model o kadar başarılı olur."
+      dogruMu={false}
+      aciklama="Hayır! Çok derin karar ağaçları 'aşırı uyum' (overfitting) yapar. Eğitim verisini ezberler ama yeni verilerde başarısız olur. Dengeyi bulmak önemlidir."
+    />
   </section>
 );
 
-/* ---- Slayt 6: Teachable Machine ile Model Eğitimi ---- */
+/* ---- Teachable Machine ile Model Eğitimi ---- */
 const SlaytTeachableMachine = (
   <>
     <section className="space-y-4">
@@ -358,6 +406,18 @@ const SlaytTeachableMachine = (
         içinde kendi modelinizi eğitebilirsiniz!
       </p>
     </div>
+
+    <TekSecimSoru
+      soru="Teachable Machine'de modelinizin başarısını artırmak için ne yapmalısınız?"
+      secenekler={[
+        "Daha az örnek kullanmak",
+        "Farklı açılardan daha fazla fotoğraf eklemek",
+        "Sadece tek bir fotoğraf yüklemek",
+        "Modeli eğitmeden doğrudan test etmek",
+      ]}
+      dogruIndex={1}
+      aciklama="Farklı açılardan, farklı ışık koşullarında daha fazla örnek eklemek modelin daha iyi öğrenmesini sağlar."
+    />
   </>
 );
 
@@ -449,7 +509,7 @@ const SlaytEtkinlik4 = (
   </>
 );
 
-/* ---- Slayt 5: İnteraktif Oyun ---- */
+/* ---- İnteraktif Oyun ---- */
 const SlaytOyun = (
   <section className="space-y-6">
     <h2 className="text-2xl font-bold">🎮 Karar Ağacı Oluşturucu</h2>
@@ -460,14 +520,14 @@ const SlaytOyun = (
   </section>
 );
 
-/* ---- Slayt 6: Değerlendirme ---- */
+/* ---- Değerlendirme ---- */
 const SlaytDegerlendirme = (
   <>
-    <InteraktifQuiz sorular={quizSorulari} />
+    <InteraktifQuiz sorular={quizSorulari} bolumNo={4} />
   </>
 );
 
-/* ---- Slayt 7: İndirilebilir Materyaller ---- */
+/* ---- İndirilebilir Materyaller ---- */
 const SlaytMateryaller = (
   <>
     <section className="rounded-2xl border border-[var(--color-border)] bg-[var(--color-bg-secondary)] p-6">
@@ -498,7 +558,7 @@ const SlaytMateryaller = (
 
 export default function Bolum4() {
   return (
-    <BolumSlider
+    <BolumCerceve
       bolumNo={4}
       bolumBaslik="Makineler Nasıl Öğrenir?"
       bolumAltBaslik="Makine Öğrenimi Temelleri"
@@ -507,20 +567,20 @@ export default function Bolum4() {
       renk="from-orange-500 to-amber-600"
       oncekiBolum={3}
       sonrakiBolum={5}
-      slaytlar={[
-        { baslik: "Kazanımlar", icon: "🎯", icerik: SlaytKazanimlar },
-        { baslik: "Geleneksel vs ML", icon: "📖", icerik: SlaytGelenekselVsML },
-        { baslik: "Öğrenme Türleri", icon: "🧠", icerik: SlaytOgrenimTurleri },
-        { baslik: "Sınıflandırma ve Tahmin", icon: "📊", icerik: SlaytSiniflandirma },
-        { baslik: "Karar Ağacı", icon: "🌳", icerik: SlaytKararAgaci },
-        { baslik: "Teachable Machine", icon: "🤖", icerik: SlaytTeachableMachine },
-        { baslik: "Etkinlik: Meyve Sınıflandırıcı", icon: "🎮", icerik: SlaytEtkinlik1 },
-        { baslik: "Etkinlik: Teachable Machine", icon: "🎮", icerik: SlaytEtkinlik2 },
-        { baslik: "Etkinlik: PictoBlox", icon: "🎮", icerik: SlaytEtkinlik3 },
-        { baslik: "Etkinlik: Model Başarı Raporu", icon: "🎮", icerik: SlaytEtkinlik4 },
-        { baslik: "İnteraktif Oyun", icon: "🕹️", icerik: SlaytOyun },
-        { baslik: "Değerlendirme", icon: "📝", icerik: SlaytDegerlendirme },
-        { baslik: "Materyaller", icon: "📥", icerik: SlaytMateryaller },
+      bolumler={[
+        { id: "b4-kazanimlar", baslik: "Kazanımlar", icon: "🎯", tur: "kazanim", icerik: SlaytKazanimlar, varsayilanAcik: true },
+        { id: "b4-geleneksel-vs-ml", baslik: "Geleneksel vs ML", icon: "📖", tur: "icerik", icerik: SlaytGelenekselVsML, varsayilanAcik: true },
+        { id: "b4-ogrenme-turleri", baslik: "Öğrenme Türleri", icon: "🧠", tur: "icerik", icerik: SlaytOgrenimTurleri, varsayilanAcik: true },
+        { id: "b4-siniflandirma-tahmin", baslik: "Sınıflandırma ve Tahmin", icon: "📊", tur: "icerik", icerik: SlaytSiniflandirma },
+        { id: "b4-karar-agaci", baslik: "Karar Ağacı", icon: "🌳", tur: "icerik", icerik: SlaytKararAgaci },
+        { id: "b4-teachable-machine", baslik: "Teachable Machine", icon: "🤖", tur: "icerik", icerik: SlaytTeachableMachine },
+        { id: "b4-etkinlik-meyve-siniflandirici", baslik: "Etkinlik: Meyve Sınıflandırıcı", icon: "🎮", tur: "etkinlik", icerik: SlaytEtkinlik1 },
+        { id: "b4-etkinlik-teachable-machine", baslik: "Etkinlik: Teachable Machine", icon: "🎮", tur: "etkinlik", icerik: SlaytEtkinlik2 },
+        { id: "b4-etkinlik-pictoblox", baslik: "Etkinlik: PictoBlox", icon: "🎮", tur: "etkinlik", icerik: SlaytEtkinlik3 },
+        { id: "b4-etkinlik-model-basari", baslik: "Etkinlik: Model Başarı Raporu", icon: "🎮", tur: "etkinlik", icerik: SlaytEtkinlik4 },
+        { id: "b4-oyun", baslik: "İnteraktif Oyun", icon: "🕹️", tur: "oyun", icerik: SlaytOyun },
+        { id: "b4-quiz", baslik: "Değerlendirme", icon: "📝", tur: "quiz", icerik: SlaytDegerlendirme },
+        { id: "b4-materyaller", baslik: "Materyaller", icon: "📥", tur: "materyal", icerik: SlaytMateryaller },
       ]}
     />
   );

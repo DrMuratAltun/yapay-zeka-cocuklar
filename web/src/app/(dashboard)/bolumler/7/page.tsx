@@ -2,17 +2,24 @@ import type { Metadata } from "next";
 
 export const metadata: Metadata = {
   title: "Bölüm 7: Gerçek Hayat Problemleri | Yapay Zeka Macerası",
+  description:
+    "STEM tabanlı yapay zeka çözümleri: sağlık, tarım, çevre ve ulaşım alanlarında gerçek dünya projeleri.",
+  alternates: { canonical: "https://gencyz.com/bolumler/7" },
 };
 
 import Image from "next/image";
 import InteraktifQuiz from "@/components/InteraktifQuiz";
-import BolumSlider from "@/components/BolumSlider";
+import BolumCerceve from "@/components/BolumCerceve";
 import ProblemCozumEslestir from "@/components/oyunlar/ProblemCozumEslestir";
 import TasarimDusuncesi from "@/components/etkinlikler/TasarimDusuncesi";
 import ProjePlanlama from "@/components/etkinlikler/ProjePlanlama";
 import GeriBildirimFormu from "@/components/etkinlikler/GeriBildirimFormu";
 import ProblemAnalizi from "@/components/etkinlikler/ProblemAnalizi";
 import SDGveYZ from "@/components/etkinlikler/SDGveYZ";
+import TekSecimSoru from "@/components/mikro/TekSecimSoru";
+import DogruYanlis from "@/components/mikro/DogruYanlis";
+import KategoriSiniflandirma from "@/components/mikro/KategoriSiniflandirma";
+import EslestirmeOyunu from "@/components/mikro/EslestirmeOyunu";
 
 const quizSorulari = [
   {
@@ -72,7 +79,7 @@ const quizSorulari = [
   },
 ];
 
-/* ---- Slayt 1: Kazanımlar ---- */
+/* ---- Kazanımlar ---- */
 const SlaytKazanimlar = (
   <>
     <section className="rounded-2xl border-l-4 border-teal-500 bg-teal-50 p-6 dark:bg-teal-900/20">
@@ -94,7 +101,7 @@ const SlaytKazanimlar = (
   </>
 );
 
-/* ---- Slayt 2: Tasarım Düşüncesi ---- */
+/* ---- Tasarım Düşüncesi ---- */
 const SlaytTasarimDusuncesi = (
   <>
     <section className="space-y-4">
@@ -121,10 +128,21 @@ const SlaytTasarimDusuncesi = (
         <p className="font-medium">🤔 <strong>Biliyor Muydunuz?</strong> Yapay zeka, doktorlardan %20 daha doğru kanser teşhisi koyabiliyor!</p>
       </div>
     </section>
+
+    <EslestirmeOyunu
+      baslik="Tasarım Düşüncesi adımlarını doğru açıklamalarıyla eşleştir!"
+      ciftler={[
+        { sol: "Empati Kur", sag: "Kullanıcıyı anla ve gözlemle" },
+        { sol: "Problemi Tanımla", sag: "Sorunu net bir cümleyle ifade et" },
+        { sol: "Fikir Üret", sag: "Beyin fırtınası ile çok fikir üret" },
+        { sol: "Prototip Yap", sag: "Basit bir çalışan model oluştur" },
+        { sol: "Test Et", sag: "Gerçek kullanıcılarla dene" },
+      ]}
+    />
   </>
 );
 
-/* ---- Slayt 3: Örnek Problemler ---- */
+/* ---- Örnek Problemler ---- */
 const SlaytProblemler = (
   <>
     <section className="space-y-4">
@@ -158,10 +176,23 @@ const SlaytProblemler = (
         <p className="font-medium">💡 <strong>İpucu:</strong> Problemi seçerken &quot;Bu problem beni veya çevremdeki insanları etkiliyor mu?&quot; diye sorun. Kişisel bağlantı motivasyonu artırır!</p>
       </div>
     </section>
+
+    <KategoriSiniflandirma
+      baslik="Bu problemleri doğru YZ çözüm aracıyla eşleştir!"
+      kategoriler={["Görüntü Tanıma", "Ses Tanıma", "Metin Analizi"]}
+      ogeler={[
+        { ad: "Çöp sınıflandırma", kategori: "Görüntü Tanıma" },
+        { ad: "Bitki hastalığı tespiti", kategori: "Görüntü Tanıma" },
+        { ad: "Gürültü uyarı sistemi", kategori: "Ses Tanıma" },
+        { ad: "Sesli komut ile kontrol", kategori: "Ses Tanıma" },
+        { ad: "Duygu analizi", kategori: "Metin Analizi" },
+        { ad: "Spam mesaj tespiti", kategori: "Metin Analizi" },
+      ]}
+    />
   </>
 );
 
-/* ---- Slayt 4: Proje Planlama Şablonu ---- */
+/* ---- Proje Planlama Şablonu ---- */
 const SlaytProjePlanlama = (
   <>
     <section className="space-y-4">
@@ -197,6 +228,24 @@ const SlaytProjePlanlama = (
         <p className="font-medium">⚠️ <strong>Dikkat:</strong> MVP&apos;yi mükemmel yapmaya çalışmayın! Önce &quot;çalışıyor mu?&quot; sorusuna cevap verin, sonra güzelleştirin.</p>
       </div>
     </section>
+
+    <DogruYanlis
+      ifade="MVP (Minimum Viable Product), projenin en detaylı ve en güzel versiyonudur."
+      dogruMu={false}
+      aciklama="MVP, projenin temel işlevini yerine getiren en basit versiyonudur. Amaç hızlıca çalışan bir prototip ortaya koymak, sonra geri bildirimlerle geliştirmektir."
+    />
+
+    <TekSecimSoru
+      soru="Proje planlamasında 'Geliştirme' aşamasına en çok süre ayrılmasının sebebi nedir?"
+      secenekler={[
+        "Çünkü en eğlenceli aşamadır",
+        "Model eğitimi, kodlama ve entegrasyon zaman alır",
+        "Diğer aşamalar önemsizdir",
+        "Öğretmen öyle istemiştir",
+      ]}
+      dogruIndex={1}
+      aciklama="Geliştirme aşaması; model eğitimi, kodlama ve parçaları bir araya getirme (entegrasyon) işlemlerini içerdiği için en uzun süren aşamadır."
+    />
   </>
 );
 
@@ -274,7 +323,7 @@ const SlaytEtkinlik3 = (
   </>
 );
 
-/* ---- Slayt 5: Oyun ---- */
+/* ---- Oyun ---- */
 const SlaytOyun = (
   <section className="space-y-6">
     <h2 className="text-2xl font-bold">🎮 Problem-Çözüm Eşleştir</h2>
@@ -285,14 +334,14 @@ const SlaytOyun = (
   </section>
 );
 
-/* ---- Slayt 6: Değerlendirme ---- */
+/* ---- Değerlendirme ---- */
 const SlaytDegerlendirme = (
   <>
-    <InteraktifQuiz sorular={quizSorulari} />
+    <InteraktifQuiz sorular={quizSorulari} bolumNo={7} />
   </>
 );
 
-/* ---- Slayt 7: İndirilebilir Materyaller ---- */
+/* ---- İndirilebilir Materyaller ---- */
 const SlaytMateryaller = (
   <>
     <section className="rounded-2xl border border-[var(--color-border)] bg-[var(--color-bg-secondary)] p-6">
@@ -323,7 +372,7 @@ const SlaytMateryaller = (
 
 export default function Bolum7() {
   return (
-    <BolumSlider
+    <BolumCerceve
       bolumNo={7}
       bolumBaslik="Gerçek Hayat Problemleri"
       bolumAltBaslik="STEM Tabanlı YZ Çözümleri"
@@ -332,19 +381,19 @@ export default function Bolum7() {
       renk="from-teal-500 to-cyan-600"
       oncekiBolum={6}
       sonrakiBolum={8}
-      slaytlar={[
-        { baslik: "Kazanımlar", icon: "🎯", icerik: SlaytKazanimlar },
-        { baslik: "Tasarım Düşüncesi", icon: "📖", icerik: SlaytTasarimDusuncesi },
-        { baslik: "Örnek Problemler", icon: "🌍", icerik: SlaytProblemler },
-        { baslik: "Proje Planlama", icon: "📋", icerik: SlaytProjePlanlama },
-        { baslik: "Etkinlik: Problem Avcıları", icon: "🎮", icerik: SlaytEtkinlik1 },
-        { baslik: "Etkinlik: Proje Planlama", icon: "📋", icerik: SlaytEtkinlik1b },
-        { baslik: "Etkinlik: Problem Analizi", icon: "🔍", icerik: SlaytEtkinlik1c },
-        { baslik: "Etkinlik: Mini YZ Projesi", icon: "🎮", icerik: SlaytEtkinlik2 },
-        { baslik: "Etkinlik: Proje Fuarı", icon: "🎮", icerik: SlaytEtkinlik3 },
-        { baslik: "Problem-Çözüm Eşleştir", icon: "🧩", icerik: SlaytOyun },
-        { baslik: "Değerlendirme", icon: "📝", icerik: SlaytDegerlendirme },
-        { baslik: "Materyaller", icon: "📥", icerik: SlaytMateryaller },
+      bolumler={[
+        { id: "b7-kazanimlar", baslik: "Kazanımlar", icon: "🎯", tur: "kazanim", icerik: SlaytKazanimlar, varsayilanAcik: true },
+        { id: "b7-tasarim-dusuncesi", baslik: "Tasarım Düşüncesi", icon: "📖", tur: "icerik", icerik: SlaytTasarimDusuncesi, varsayilanAcik: true },
+        { id: "b7-ornek-problemler", baslik: "Örnek Problemler", icon: "🌍", tur: "icerik", icerik: SlaytProblemler, varsayilanAcik: true },
+        { id: "b7-proje-planlama", baslik: "Proje Planlama", icon: "📋", tur: "icerik", icerik: SlaytProjePlanlama },
+        { id: "b7-etkinlik-problem-avcilari", baslik: "Etkinlik: Problem Avcıları", icon: "🎮", tur: "etkinlik", icerik: SlaytEtkinlik1 },
+        { id: "b7-etkinlik-proje-planlama", baslik: "Etkinlik: Proje Planlama", icon: "📋", tur: "etkinlik", icerik: SlaytEtkinlik1b },
+        { id: "b7-etkinlik-problem-analizi", baslik: "Etkinlik: Problem Analizi", icon: "🔍", tur: "etkinlik", icerik: SlaytEtkinlik1c },
+        { id: "b7-etkinlik-mini-yz-projesi", baslik: "Etkinlik: Mini YZ Projesi", icon: "🎮", tur: "etkinlik", icerik: SlaytEtkinlik2 },
+        { id: "b7-etkinlik-proje-fuari", baslik: "Etkinlik: Proje Fuarı", icon: "🎮", tur: "etkinlik", icerik: SlaytEtkinlik3 },
+        { id: "b7-oyun", baslik: "Problem-Çözüm Eşleştir", icon: "🧩", tur: "oyun", icerik: SlaytOyun },
+        { id: "b7-quiz", baslik: "Değerlendirme", icon: "📝", tur: "quiz", icerik: SlaytDegerlendirme },
+        { id: "b7-materyaller", baslik: "Materyaller", icon: "📥", tur: "materyal", icerik: SlaytMateryaller },
       ]}
     />
   );
