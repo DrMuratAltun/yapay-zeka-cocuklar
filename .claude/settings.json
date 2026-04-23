@@ -1,0 +1,12 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(npm cache:*)",
+      "Bash(sudo chown:*)",
+      "Bash(npm list:*)",
+      "Bash(rm -rf /Users/drmurataltun/.npm/_cacache/tmp/*)",
+      "Bash(npx --yes vercel --prod --yes)",
+      "Bash(find /Users/drmurataltun/.npm -user root -exec chown drmurataltun:staff {} +)"
+    ]
+  }
+}

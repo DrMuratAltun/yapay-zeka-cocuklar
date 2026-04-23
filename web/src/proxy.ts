@@ -1,4 +1,5 @@
 import { createServerClient } from '@supabase/ssr'
+import { createClient } from '@supabase/supabase-js'
 import { NextResponse, type NextRequest } from 'next/server'
 
 async function handler(request: NextRequest) {
@@ -9,8 +10,33 @@ async function handler(request: NextRequest) {
     return NextResponse.next()
   }
 
+  // API route'lari: sadece cookie refresh yap, redirect/rol kontrolu yapma
+  if (path.startsWith('/api/')) {
+    let supabaseResponse = NextResponse.next({ request })
+    try {
+      const supabase = createServerClient(
+        process.env.NEXT_PUBLIC_SUPABASE_URL!,
+        process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!,
+        {
+          cookies: {
+            getAll() { return request.cookies.getAll() },
+            setAll(cookiesToSet) {
+              cookiesToSet.forEach(({ name, value }) => request.cookies.set(name, value))
+              supabaseResponse = NextResponse.next({ request })
+              cookiesToSet.forEach(({ name, value, options }) =>
+                supabaseResponse.cookies.set(name, value, options)
+              )
+            },
+          },
+        }
+      )
+      await supabase.auth.getUser()
+    } catch {}
+    return supabaseResponse
+  }
+
   // Route sınıflandırması
-  const adminRoutes = ['/admin', '/okul', '/ogretmen/siniflar']
+  const adminRoutes = ['/admin', '/okul', '/ogretmen']
   const isAdminRoute = adminRoutes.some((r) => path.startsWith(r))
   const studentRoutes = ['/bolumler/', '/ogrenci']
   const isStudentRoute = studentRoutes.some((r) => path.startsWith(r))
@@ -56,9 +82,15 @@ async function handler(request: NextRequest) {
       return NextResponse.redirect(loginUrl)
     }
 
-    // Giriş yapmış — admin route'larda rol kontrolü
+    // Giriş yapmış — admin route'larda rol kontrolü (adminClient ile — RLS bypass)
     if (user && isAdminRoute) {
-      const { data: roleData } = await supabase
+      const adminClient = createClient(
+        process.env.NEXT_PUBLIC_SUPABASE_URL!,
+        process.env.SUPABASE_SERVICE_ROLE_KEY!,
+        { auth: { autoRefreshToken: false, persistSession: false } }
+      )
+
+      const { data: roleData } = await adminClient
         .from('school_users')
         .select('role')
         .eq('user_id', user.id)
@@ -79,7 +111,7 @@ async function handler(request: NextRequest) {
       }
 
       if (
-        path.startsWith('/ogretmen/siniflar') &&
+        path.startsWith('/ogretmen') &&
         !['teacher', 'school_admin', 'super_admin'].includes(role ?? '')
       ) {
         return NextResponse.redirect(new URL('/', request.url))
@@ -107,8 +139,9 @@ export const config = {
   matcher: [
     '/admin/:path*',
     '/okul/:path*',
-    '/ogretmen/siniflar/:path*',
+    '/ogretmen/:path*',
     '/bolumler/:path*',
     '/ogrenci/:path*',
+    '/api/:path*',
   ],
 }

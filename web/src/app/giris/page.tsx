@@ -19,28 +19,48 @@ function GirisForm() {
   const [loading, setLoading] = useState(false)
   const router = useRouter()
   const searchParams = useSearchParams()
-  const redirectTo = searchParams.get('redirect') ?? '/admin/okullar'
+  const explicitRedirect = searchParams.get('redirect')
 
   async function handleSubmit(e: React.FormEvent) {
     e.preventDefault()
     setLoading(true)
     setError('')
     const supabase = createClient()
-    const { error } = await supabase.auth.signInWithPassword({ email, password })
-    if (error) {
-      setError(error.message)
+    const { data: authData, error: authError } = await supabase.auth.signInWithPassword({ email, password })
+    if (authError) {
+      setError(authError.message)
       setLoading(false)
       return
     }
-    router.push(redirectTo)
+
+    // Explicit redirect varsa onu kullan
+    if (explicitRedirect) {
+      router.push(explicitRedirect)
+      return
+    }
+
+    // Yoksa role gore yonlendir (API uzerinden — RLS bypass)
+    const roleRes = await fetch('/api/auth/role')
+    const { role } = await roleRes.json()
+
+    if (role === 'super_admin') {
+      router.push('/admin/okullar')
+    } else if (role === 'school_admin') {
+      router.push('/okul')
+    } else if (role === 'teacher') {
+      router.push('/ogretmen/siniflar')
+    } else {
+      router.push('/ogrenci')
+    }
   }
 
   return (
     <div className="min-h-screen bg-gray-50 flex items-center justify-center p-4">
       <div className="bg-white rounded-2xl shadow-lg p-8 w-full max-w-sm space-y-6">
         <div className="text-center">
-          <h1 className="text-2xl font-bold text-gray-800">Admin Girişi</h1>
-          <p className="text-gray-500 text-sm mt-1">GençYZ Yönetim Paneli</p>
+          <div className="text-4xl mb-2">👩‍🏫</div>
+          <h1 className="text-2xl font-bold text-gray-800">Öğretmen / Yönetici Girişi</h1>
+          <p className="text-gray-500 text-sm mt-1">E-posta ve şifrenizle giriş yapın</p>
         </div>
         <form onSubmit={handleSubmit} className="space-y-4">
           <input

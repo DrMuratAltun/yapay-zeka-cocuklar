@@ -107,11 +107,70 @@ export default function BolumSlider({
     return () => window.removeEventListener("keydown", handleKeyDown);
   }, [aktifSlayt, slaytlar.length]);
 
-  const tamamlanan = visitedSlides.size;
+  // Erişim kontrolü: giriş yapılmış öğrenci + kilitli modül
+  const [accessBlocked, setAccessBlocked] = useState(false);
+  const [requiredBolum, setRequiredBolum] = useState<number | null>(null);
+
+  useEffect(() => {
+    fetch("/api/student/modules")
+      .then((res) => (res.ok ? res.json() : null))
+      .then((data) => {
+        if (!data || !data.enrolled || data.modules.length === 0) return;
+        const myModule = data.modules.find(
+          (m: { bolumNo: number }) => m.bolumNo === bolumNo
+        );
+        if (myModule && !myModule.unlocked) {
+          setAccessBlocked(true);
+          // Önceki modülü bul
+          const idx = data.modules.findIndex(
+            (m: { bolumNo: number }) => m.bolumNo === bolumNo
+          );
+          if (idx > 0) {
+            setRequiredBolum(data.modules[idx - 1].bolumNo);
+          }
+        }
+      })
+      .catch(() => {});
+  }, [bolumNo]);
+
+  const goruntulenen = visitedSlides.size;
 
   const ilkSlayt = aktifSlayt === 0;
   const sonSlayt = aktifSlayt === slaytlar.length - 1;
   const ilerleme = ((aktifSlayt + 1) / slaytlar.length) * 100;
+
+  if (accessBlocked) {
+    return (
+      <div className="min-h-screen flex flex-col items-center justify-center bg-gray-50 px-4">
+        <div className="max-w-md text-center bg-white rounded-2xl border border-gray-200 p-8 shadow-sm">
+          <div className="text-6xl mb-4">🔒</div>
+          <h1 className="text-2xl font-bold text-gray-900 mb-2">Bölüm Kilitli</h1>
+          <p className="text-gray-600 mb-6">
+            Bu bölüme erişmek için
+            {requiredBolum
+              ? ` önce Bölüm ${requiredBolum}'in quizini başarıyla tamamlaman gerekiyor.`
+              : " önceki bölümleri tamamlaman gerekiyor."}
+          </p>
+          <div className="flex gap-3 justify-center">
+            {requiredBolum && (
+              <Link
+                href={`/bolumler/${requiredBolum}`}
+                className="bg-sky-600 text-white px-6 py-2.5 rounded-lg font-medium hover:bg-sky-700 transition"
+              >
+                Bölüm {requiredBolum}&apos;e Git
+              </Link>
+            )}
+            <Link
+              href="/ogrenci"
+              className="border border-gray-300 px-6 py-2.5 rounded-lg font-medium hover:bg-gray-50 transition"
+            >
+              Panele Dön
+            </Link>
+          </div>
+        </div>
+      </div>
+    );
+  }
 
   return (
     <div className="min-h-screen flex flex-col">
@@ -206,7 +265,7 @@ export default function BolumSlider({
               <span>İlerleme</span>
               <span className="font-bold">{aktifSlayt + 1}/{slaytlar.length}</span>
             </div>
-            <p className="text-[10px] text-green-600 dark:text-green-400 mb-1.5">{tamamlanan}/{slaytlar.length} tamamlandı</p>
+            <p className="text-[10px] text-green-600 dark:text-green-400 mb-1.5">{goruntulenen}/{slaytlar.length} goruntulendi</p>
             <div className="h-1.5 bg-[var(--color-border)] rounded-full overflow-hidden">
               <div
                 className={`h-full bg-gradient-to-r ${renk} rounded-full transition-all duration-300`}
@@ -223,7 +282,7 @@ export default function BolumSlider({
             <div className="mb-6">
               <p className="text-xs text-[var(--color-text-secondary)] mb-1">
                 {aktifSlayt + 1} / {slaytlar.length}
-                <span className="ml-2 text-green-600 dark:text-green-400">({tamamlanan}/{slaytlar.length} tamamlandı)</span>
+                <span className="ml-2 text-green-600 dark:text-green-400">({goruntulenen}/{slaytlar.length} goruntulendi)</span>
               </p>
               <h2 className="text-2xl font-extrabold flex items-center gap-2">
                 <span>{slaytlar[aktifSlayt].icon}</span>

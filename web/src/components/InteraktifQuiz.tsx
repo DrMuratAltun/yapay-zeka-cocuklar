@@ -13,9 +13,11 @@ interface Soru {
 export default function InteraktifQuiz({
   sorular,
   baslik = "Değerlendirme Testi",
+  bolumNo,
 }: {
   sorular: Soru[];
   baslik?: string;
+  bolumNo?: number;
 }) {
   const [cevaplar, setCevaplar] = useState<Record<number, number>>({});
   const [gosterSonuc, setGosterSonuc] = useState(false);
@@ -39,6 +41,14 @@ export default function InteraktifQuiz({
     ).length;
     const score = Math.round((anlikDogruSayisi / sorular.length) * 100);
     completeActivity(score, { dogru: anlikDogruSayisi, toplam: sorular.length });
+    // Quiz sonucunu sunucuya kaydet (giriş yapılmamışsa 401 sessizce yutulur)
+    if (bolumNo) {
+      fetch("/api/quiz-results", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ bolumNo, score }),
+      }).catch(() => {});
+    }
   }
 
   function sifirla() {

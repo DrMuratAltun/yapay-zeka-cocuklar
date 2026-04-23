@@ -2,34 +2,31 @@ import { createClient } from '@/lib/supabase/server'
 import { createAdminClient } from '@/lib/supabase/admin'
 import { NextRequest, NextResponse } from 'next/server'
 
-// GET /api/classes/[classId]/students — sınıf öğrenci listesi (teacher view)
+// GET /api/classes/[classId]/students
 export async function GET(
   _req: NextRequest,
   { params }: { params: Promise<{ classId: string }> }
 ) {
   const supabase = await createClient()
+  const adminClient = createAdminClient()
   const { classId } = await params
 
-  const {
-    data: { user },
-  } = await supabase.auth.getUser()
+  const { data: { user } } = await supabase.auth.getUser()
   if (!user) return NextResponse.json({ error: 'Yetkisiz' }, { status: 401 })
 
-  // Sınıf bilgisi
-  const { data: classData, error: classError } = await supabase
+  const { data: classData, error: classError } = await adminClient
     .from('classes')
     .select('id, name, access_code, credential_type, school_id, teacher_id')
     .eq('id', classId)
     .single()
 
   if (classError || !classData) {
-    return NextResponse.json({ error: 'Sınıf bulunamadı' }, { status: 404 })
+    return NextResponse.json({ error: 'Sinif bulunamadi' }, { status: 404 })
   }
 
-  // Yetki kontrolü: sınıfın öğretmeni, school_admin veya super_admin
   const isTeacher = classData.teacher_id === user.id
   if (!isTeacher) {
-    const { data: roleData } = await supabase
+    const { data: roleData } = await adminClient
       .from('school_users')
       .select('role')
       .eq('user_id', user.id)
@@ -38,12 +35,11 @@ export async function GET(
       .maybeSingle()
 
     if (!roleData) {
-      return NextResponse.json({ error: 'Bu sınıfa erişim yok' }, { status: 403 })
+      return NextResponse.json({ error: 'Bu sinifa erisim yok' }, { status: 403 })
     }
   }
 
-  // Öğrenci listesi
-  const { data: students } = await supabase
+  const { data: students } = await adminClient
     .from('class_students')
     .select('id, user_id, nickname, credential_plain, created_at')
     .eq('class_id', classId)
@@ -55,7 +51,7 @@ export async function GET(
   })
 }
 
-// POST /api/classes/[classId]/students — tek öğrenci ekle
+// POST /api/classes/[classId]/students — tek ogrenci ekle
 export async function POST(
   req: NextRequest,
   { params }: { params: Promise<{ classId: string }> }
@@ -64,23 +60,21 @@ export async function POST(
   const adminClient = createAdminClient()
   const { classId } = await params
 
-  const {
-    data: { user },
-  } = await supabase.auth.getUser()
+  const { data: { user } } = await supabase.auth.getUser()
   if (!user) return NextResponse.json({ error: 'Yetkisiz' }, { status: 401 })
 
-  const { data: classData } = await supabase
+  const { data: classData } = await adminClient
     .from('classes')
     .select('id, school_id, access_code, credential_type, teacher_id')
     .eq('id', classId)
     .single()
 
   if (!classData) {
-    return NextResponse.json({ error: 'Sınıf bulunamadı' }, { status: 404 })
+    return NextResponse.json({ error: 'Sinif bulunamadi' }, { status: 404 })
   }
 
   if (classData.teacher_id !== user.id) {
-    return NextResponse.json({ error: 'Bu sınıfa erişim yok' }, { status: 403 })
+    return NextResponse.json({ error: 'Bu sinifa erisim yok' }, { status: 403 })
   }
 
   const body = await req.json()
@@ -90,21 +84,21 @@ export async function POST(
     return NextResponse.json({ error: 'nickname zorunlu' }, { status: 400 })
   }
 
-  // Kota kontrolü
-  const { data: school } = await supabase
+  // Kota kontrolu
+  const { data: school } = await adminClient
     .from('schools')
     .select('quota_students')
     .eq('id', classData.school_id)
     .single()
 
-  const { count: currentCount } = await supabase
+  const { count: currentCount } = await adminClient
     .from('school_users')
     .select('*', { count: 'exact', head: true })
     .eq('school_id', classData.school_id)
     .eq('role', 'student')
 
   if ((currentCount ?? 0) >= (school?.quota_students ?? 0)) {
-    return NextResponse.json({ error: 'Öğrenci kotası dolu' }, { status: 422 })
+    return NextResponse.json({ error: 'Ogrenci kotasi dolu' }, { status: 422 })
   }
 
   const credential = String(Math.floor(1000 + Math.random() * 9000))
@@ -141,7 +135,7 @@ export async function POST(
   if (studentError) {
     await adminClient.auth.admin.deleteUser(newUserId)
     return NextResponse.json(
-      { error: 'Bu nickname sınıfta zaten kullanımda' },
+      { error: 'Bu nickname sinifta zaten kullanimda' },
       { status: 409 }
     )
   }

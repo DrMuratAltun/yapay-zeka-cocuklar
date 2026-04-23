@@ -19,6 +19,8 @@ export interface SchoolUser {
   created_at: string
 }
 
+export type ModuleOrder = 'sequential' | 'random'
+
 export interface Class {
   id: string
   school_id: string
@@ -26,7 +28,38 @@ export interface Class {
   name: string
   access_code: string
   credential_type: CredentialType
+  module_order: ModuleOrder
   created_at: string
+}
+
+export interface ClassModule {
+  id: string
+  class_id: string
+  bolum_no: number
+  sort_order: number
+  min_quiz_score: number
+  assigned_at: string
+}
+
+export interface StudentQuizResult {
+  id: string
+  student_id: string
+  class_id: string
+  bolum_no: number
+  score: number
+  passed: boolean
+  completed_at: string
+}
+
+export interface StudentModuleView {
+  bolum_no: number
+  sort_order: number
+  min_quiz_score: number
+  unlocked: boolean
+  quiz_result?: {
+    score: number
+    passed: boolean
+  }
 }
 
 export interface ClassStudent {
