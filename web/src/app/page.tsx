@@ -47,6 +47,9 @@ export default function AnaSayfa() {
                   Hakkında
                 </Link>
               </div>
+              <p className="mt-4 text-xs text-slate-400">
+                Sağ üstten <strong className="text-sky-300">Giriş Yap</strong> ile öğrenci veya öğretmen panelinize ulaşabilirsiniz.
+              </p>
             </div>
 
             <div className="grid grid-cols-2 gap-4">

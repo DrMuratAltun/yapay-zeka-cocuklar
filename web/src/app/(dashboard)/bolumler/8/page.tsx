@@ -364,7 +364,7 @@ const SlaytOyun = (
 /* ---- Değerlendirme ---- */
 const SlaytDegerlendirme = (
   <>
-    <InteraktifQuiz sorular={quizSorulari} bolumNo={8} />
+    <InteraktifQuiz sorular={quizSorulari} />
   </>
 );
 
@@ -399,8 +399,8 @@ const SlaytMateryaller = (
 
 export default function Bolum8() {
   return (
-    <BolumCerceve
-      bolumNo={8}
+    <BolumCerceve bolumNo={8}
+     
       bolumBaslik="Dijital İçerik Üretimi"
       bolumAltBaslik="YZ ile Yaratıcılık"
       seviye="7-8. Sınıf"

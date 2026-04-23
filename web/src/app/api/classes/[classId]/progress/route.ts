@@ -2,12 +2,15 @@ import { createClient } from '@/lib/supabase/server'
 import { createAdminClient } from '@/lib/supabase/admin'
 import { NextRequest, NextResponse } from 'next/server'
 
-// GET /api/classes/[classId]/progress — sınıftaki tüm öğrencilerin quiz ilerlemesi
+// GET /api/classes/[classId]/progress
+// Sınıftaki tüm öğrencilerin ilerleme özeti (öğretmen için)
+// Dönüş: [{ user_id, nickname, total_activities, total_score, last_activity_at }]
 export async function GET(
   _req: NextRequest,
   { params }: { params: Promise<{ classId: string }> }
 ) {
   const supabase = await createClient()
+  const admin = createAdminClient()
   const { classId } = await params
 
   const {
@@ -15,93 +18,79 @@ export async function GET(
   } = await supabase.auth.getUser()
   if (!user) return NextResponse.json({ error: 'Yetkisiz' }, { status: 401 })
 
-  // teacher, school_admin veya super_admin kontrolü
-  const { data: myRole } = await supabase
-    .from('school_users')
-    .select('role, school_id')
-    .eq('user_id', user.id)
-    .in('role', ['super_admin', 'school_admin', 'teacher'])
-    .limit(1)
-    .maybeSingle()
+  // Yetki: sınıfın öğretmeni ya da school_admin/super_admin
+  const { data: classData } = await admin
+    .from('classes')
+    .select('id, school_id, teacher_id')
+    .eq('id', classId)
+    .single()
 
-  if (!myRole) return NextResponse.json({ error: 'Yetki yok' }, { status: 403 })
+  if (!classData) {
+    return NextResponse.json({ error: 'Sınıf bulunamadı' }, { status: 404 })
+  }
 
-  const adminClient = createAdminClient()
+  if (classData.teacher_id !== user.id) {
+    const { data: roleData } = await admin
+      .from('school_users')
+      .select('role')
+      .eq('user_id', user.id)
+      .eq('school_id', classData.school_id)
+      .in('role', ['school_admin', 'super_admin'])
+      .maybeSingle()
 
-  // Teacher ise kendi sınıfı mı?
-  if (myRole.role === 'teacher') {
-    const { data: cls } = await adminClient
-      .from('classes')
-      .select('teacher_id')
-      .eq('id', classId)
-      .single()
-
-    if (!cls || cls.teacher_id !== user.id) {
-      return NextResponse.json({ error: 'Bu sınıfta yetkiniz yok' }, { status: 403 })
+    if (!roleData) {
+      return NextResponse.json({ error: 'Bu sınıfa erişim yok' }, { status: 403 })
     }
   }
 
-  // Atanmış modüller
-  const { data: modules } = await adminClient
-    .from('class_modules')
-    .select('bolum_no, sort_order, min_quiz_score')
-    .eq('class_id', classId)
-    .order('sort_order', { ascending: true })
-
-  // Öğrenciler
-  const { data: students } = await adminClient
+  // Sınıftaki öğrencileri al
+  const { data: students } = await admin
     .from('class_students')
-    .select('student_id, nickname')
-    .eq('class_id', classId)
-    .order('nickname', { ascending: true })
-
-  // Tüm quiz sonuçları
-  const { data: results } = await adminClient
-    .from('student_quiz_results')
-    .select('student_id, bolum_no, score, passed')
+    .select('user_id, nickname')
     .eq('class_id', classId)
 
-  // Sonuçları öğrenci bazlı map'e çevir
-  const resultMap = new Map<string, Map<number, { score: number; passed: boolean }>>()
-  for (const r of results ?? []) {
-    if (!resultMap.has(r.student_id)) {
-      resultMap.set(r.student_id, new Map())
-    }
-    resultMap.get(r.student_id)!.set(r.bolum_no, { score: r.score, passed: r.passed })
+  if (!students || students.length === 0) {
+    return NextResponse.json({ progress: [], summary: { total_students: 0 } })
   }
 
-  const studentProgress = (students ?? []).map((s) => {
-    const quizzes = resultMap.get(s.student_id)
-    const moduleResults = (modules ?? []).map((m) => {
-      const result = quizzes?.get(m.bolum_no)
-      return {
-        bolumNo: m.bolum_no,
-        score: result?.score ?? null,
-        passed: result?.passed ?? false,
-      }
-    })
-    const passedCount = moduleResults.filter((r) => r.passed).length
-    const avgScore =
-      moduleResults.filter((r) => r.score !== null).length > 0
-        ? Math.round(
-            moduleResults
-              .filter((r) => r.score !== null)
-              .reduce((sum, r) => sum + (r.score ?? 0), 0) /
-              moduleResults.filter((r) => r.score !== null).length
-          )
-        : null
+  const userIds = students.map((s) => s.user_id)
 
+  // Bu öğrencilerin progress kayıtlarını topla
+  const { data: progressRows } = await admin
+    .from('student_progress')
+    .select('student_id, score, completed_at, activity_slug')
+    .in('student_id', userIds)
+    .order('completed_at', { ascending: false })
+
+  // Öğrenci bazında özet
+  const ozet = students.map((s) => {
+    const kayitlar = (progressRows ?? []).filter((p) => p.student_id === s.user_id)
+    const totalActivities = kayitlar.length
+    const totalScore = kayitlar.reduce((acc, p) => acc + (p.score || 0), 0)
+    const lastActivityAt = kayitlar.length > 0 ? kayitlar[0].completed_at : null
+    // Bölüm bazlı tahmin: activity_slug'da bolum-X varsa say
+    const bolumSet = new Set<number>()
+    kayitlar.forEach((p) => {
+      const m = p.activity_slug?.match(/bolum-?(\d+)/i)
+      if (m) bolumSet.add(Number(m[1]))
+    })
     return {
-      studentId: s.student_id,
+      user_id: s.user_id,
       nickname: s.nickname,
-      modules: moduleResults,
-      passedCount,
-      avgScore,
+      total_activities: totalActivities,
+      total_score: totalScore,
+      last_activity_at: lastActivityAt,
+      distinct_bolumler: bolumSet.size,
     }
   })
 
   return NextResponse.json({
-    modules: modules ?? [],
-    students: studentProgress,
+    progress: ozet,
+    summary: {
+      total_students: students.length,
+      active_students: ozet.filter((o) => o.total_activities > 0).length,
+      total_activities: ozet.reduce((acc, o) => acc + o.total_activities, 0),
+      total_score: ozet.reduce((acc, o) => acc + o.total_score, 0),
+    },
   })
 }

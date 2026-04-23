@@ -24,7 +24,7 @@ export async function POST(req: NextRequest) {
     return NextResponse.json({ error: 'file ve classId zorunlu' }, { status: 400 })
   }
 
-  const { data: classData, error: classError } = await supabase
+  const { data: classData, error: classError } = await adminClient
     .from('classes')
     .select('id, school_id, access_code, credential_type, teacher_id')
     .eq('id', classId)
@@ -35,16 +35,27 @@ export async function POST(req: NextRequest) {
   }
 
   if (classData.teacher_id !== user.id) {
-    return NextResponse.json({ error: 'Bu sınıfa erişim yok' }, { status: 403 })
+    // School admin/super_admin da izinli
+    const { data: roleData } = await adminClient
+      .from('school_users')
+      .select('role')
+      .eq('user_id', user.id)
+      .eq('school_id', classData.school_id)
+      .in('role', ['school_admin', 'super_admin'])
+      .maybeSingle()
+
+    if (!roleData) {
+      return NextResponse.json({ error: 'Bu sınıfa erişim yok' }, { status: 403 })
+    }
   }
 
-  const { data: schoolData } = await supabase
+  const { data: schoolData } = await adminClient
     .from('schools')
     .select('quota_students')
     .eq('id', classData.school_id)
     .single()
 
-  const { count: currentCount } = await supabase
+  const { count: currentCount } = await adminClient
     .from('school_users')
     .select('*', { count: 'exact', head: true })
     .eq('school_id', classData.school_id)

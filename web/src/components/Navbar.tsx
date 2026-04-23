@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { useState, useRef, useEffect } from "react";
-import { useRouter } from "next/navigation";
+import { useRouter, usePathname } from "next/navigation";
 import { createClient } from "@/lib/supabase/client";
 
 type UserRole = "super_admin" | "school_admin" | "teacher" | "student" | null;
@@ -43,9 +43,22 @@ function useTheme() {
   return { dark, toggle };
 }
 
+const bolumler = [
+  { no: 1, baslik: "Yapay Zeka Nedir?", renk: "bg-sky-500" },
+  { no: 2, baslik: "Günlük Hayatta YZ", renk: "bg-emerald-500" },
+  { no: 3, baslik: "Verinin Gücü", renk: "bg-violet-500" },
+  { no: 4, baslik: "Makineler Nasıl Öğrenir?", renk: "bg-orange-500" },
+  { no: 5, baslik: "Üretken Yapay Zeka", renk: "bg-pink-500" },
+  { no: 6, baslik: "Blok Tabanlı YZ Kodlama", renk: "bg-blue-600" },
+  { no: 7, baslik: "Gerçek Hayat Problemleri", renk: "bg-teal-500" },
+  { no: 8, baslik: "Dijital İçerik Üretimi", renk: "bg-rose-500" },
+  { no: 9, baslik: "YZ ve Etik", renk: "bg-amber-600" },
+  { no: 10, baslik: "Gelecek Seninle Başlar", renk: "bg-indigo-600" },
+];
+
 const navLinks = [
-  { href: "/bolumler", label: "Bölümler" },
-  { href: "/ozellikler", label: "Özellikler" },
+  { href: "/#ozellikler", label: "Özellikler" },
+  { href: "/#araclar", label: "Araçlar" },
   { href: "/ogretmen", label: "Öğretmen" },
   { href: "/hakkinda", label: "Hakkında" },
 ];
@@ -60,59 +73,52 @@ const roleLabels: Record<string, string> = {
 const rolePanelLinks: Record<string, { href: string; label: string }> = {
   super_admin: { href: "/admin/okullar", label: "Admin Paneli" },
   school_admin: { href: "/okul", label: "Okul Paneli" },
-  teacher: { href: "/ogretmen/siniflar", label: "Ogretmen Paneli" },
+  teacher: { href: "/okul", label: "Ogretmen Paneli" },
   student: { href: "/ogrenci", label: "Ogrenci Paneli" },
 };
 
 export default function Navbar() {
   const [menuAcik, setMenuAcik] = useState(false);
+  const [bolumMenuAcik, setBolumMenuAcik] = useState(false);
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [userRole, setUserRole] = useState<UserRole>(null);
   const [userMenuAcik, setUserMenuAcik] = useState(false);
+  const [girisMenuAcik, setGirisMenuAcik] = useState(false);
+  const dropdownRef = useRef<HTMLDivElement>(null);
   const userMenuRef = useRef<HTMLDivElement>(null);
+  const girisMenuRef = useRef<HTMLDivElement>(null);
   const router = useRouter();
   const { dark, toggle } = useTheme();
 
   // Session ve rol kontrolu
   useEffect(() => {
     const supabase = createClient();
-
-    async function checkSession(userId: string) {
-      setIsLoggedIn(true);
-      const { data: roleData } = await supabase
-        .from("school_users")
-        .select("role")
-        .eq("user_id", userId)
-        .limit(1)
-        .maybeSingle();
-      setUserRole((roleData?.role as UserRole) ?? "student");
-    }
-
-    // Ilk yuklemede session kontrol et
-    supabase.auth.getSession().then(({ data: { session } }) => {
-      if (session?.user) {
-        checkSession(session.user.id);
+    supabase.auth.getUser().then(async ({ data }) => {
+      if (data.user) {
+        setIsLoggedIn(true);
+        // Rol bilgisini al
+        const { data: roleData } = await supabase
+          .from("school_users")
+          .select("role")
+          .eq("user_id", data.user.id)
+          .limit(1)
+          .maybeSingle();
+        setUserRole((roleData?.role as UserRole) ?? "student");
       }
     });
-
-    // Auth degisikliklerini dinle (giris/cikis)
-    const { data: { subscription } } = supabase.auth.onAuthStateChange((_event, session) => {
-      if (session?.user) {
-        checkSession(session.user.id);
-      } else {
-        setIsLoggedIn(false);
-        setUserRole(null);
-      }
-    });
-
-    return () => subscription.unsubscribe();
   }, []);
 
   // Dropdown disina tiklayinca kapat
   useEffect(() => {
     function handleClickOutside(e: MouseEvent) {
+      if (dropdownRef.current && !dropdownRef.current.contains(e.target as Node)) {
+        setBolumMenuAcik(false);
+      }
       if (userMenuRef.current && !userMenuRef.current.contains(e.target as Node)) {
         setUserMenuAcik(false);
+      }
+      if (girisMenuRef.current && !girisMenuRef.current.contains(e.target as Node)) {
+        setGirisMenuAcik(false);
       }
     }
     document.addEventListener("mousedown", handleClickOutside);
@@ -130,6 +136,12 @@ export default function Navbar() {
 
   const panelLink = userRole ? rolePanelLinks[userRole] : null;
 
+  // Dashboard sayfalarında Navbar'ı gizle (kendi sidebar'ları var)
+  const pathname = usePathname();
+  const dashboardRoutes = ["/ogrenci", "/ogretmen", "/okul", "/admin"];
+  const isDashboard = dashboardRoutes.some((r) => pathname === r || pathname.startsWith(r + "/"));
+  if (isDashboard) return null;
+
   return (
     <nav className="sticky top-0 z-50 border-b border-[var(--color-border)] bg-[var(--color-bg)]/90 backdrop-blur-md">
       <div className="mx-auto flex max-w-6xl items-center justify-between px-6 py-3">
@@ -142,28 +154,115 @@ export default function Navbar() {
 
         {/* Desktop */}
         <div className="hidden items-center gap-5 text-sm font-medium md:flex">
+          {/* Bolumler Dropdown */}
+          <div ref={dropdownRef} className="relative">
+            <button
+              type="button"
+              onClick={() => setBolumMenuAcik(!bolumMenuAcik)}
+              className="flex items-center gap-1 transition hover:text-sky-600 cursor-pointer"
+            >
+              Bölümler
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" className={`transition-transform ${bolumMenuAcik ? "rotate-180" : ""}`}>
+                <polyline points="6 9 12 15 18 9" />
+              </svg>
+            </button>
+
+            {bolumMenuAcik && (
+              <div className="absolute left-1/2 top-full mt-2 w-80 -translate-x-1/2 rounded-xl border border-[var(--color-border)] bg-[var(--color-bg)] p-2 shadow-xl">
+                <div className="mb-2 px-3 py-1.5 text-xs font-bold text-[var(--color-text-secondary)]">
+                  10 Bölüm
+                </div>
+                {bolumler.map((b) => {
+                  const locked = b.no > 1 && !isLoggedIn;
+                  return (
+                    <Link
+                      key={b.no}
+                      href={`/bolumler/${b.no}`}
+                      onClick={() => setBolumMenuAcik(false)}
+                      className="flex items-center gap-3 rounded-lg px-3 py-2 transition hover:bg-[var(--color-bg-secondary)]"
+                    >
+                      <span className={`flex h-7 w-7 items-center justify-center rounded-lg text-xs font-bold text-white ${b.renk}`}>
+                        {b.no}
+                      </span>
+                      <span className="flex-1 text-sm">{b.baslik}</span>
+                      {b.no === 1 && (
+                        <span className="text-[10px] font-medium bg-green-100 text-green-700 px-1.5 py-0.5 rounded">
+                          Ucretsiz
+                        </span>
+                      )}
+                      {locked && (
+                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" className="text-gray-400">
+                          <rect x="3" y="11" width="18" height="11" rx="2" ry="2" />
+                          <path d="M7 11V7a5 5 0 0110 0v4" />
+                        </svg>
+                      )}
+                    </Link>
+                  );
+                })}
+              </div>
+            )}
+          </div>
+
           {navLinks.map((link) => (
             <Link key={link.href} href={link.href} className="transition hover:text-sky-600">
               {link.label}
             </Link>
           ))}
 
-          {/* Giris yapmamis → Ogrenci + Ogretmen giris linkleri */}
+          {/* Giris yapmamis → Giris Yap dropdown */}
           {!isLoggedIn && (
-            <>
-              <Link
-                href="/kolay-giris"
-                className="rounded-lg bg-emerald-600 px-3.5 py-1.5 text-white transition hover:bg-emerald-700"
+            <div ref={girisMenuRef} className="relative">
+              <button
+                type="button"
+                onClick={() => setGirisMenuAcik(!girisMenuAcik)}
+                className="flex items-center gap-1.5 rounded-lg bg-sky-600 px-4 py-1.5 text-white transition hover:bg-sky-700 cursor-pointer"
               >
-                Öğrenci Girişi
-              </Link>
-              <Link
-                href="/giris"
-                className="rounded-lg border border-sky-600 px-3.5 py-1.5 text-sky-600 transition hover:bg-sky-50"
-              >
-                Öğretmen Girişi
-              </Link>
-            </>
+                Giriş Yap
+                <svg
+                  width="12"
+                  height="12"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="2.5"
+                  strokeLinecap="round"
+                  className={`transition-transform ${girisMenuAcik ? "rotate-180" : ""}`}
+                >
+                  <polyline points="6 9 12 15 18 9" />
+                </svg>
+              </button>
+              {girisMenuAcik && (
+                <div className="absolute right-0 top-full mt-2 w-64 overflow-hidden rounded-xl border border-[var(--color-border)] bg-[var(--color-bg)] shadow-xl">
+                  <Link
+                    href="/kolay-giris"
+                    onClick={() => setGirisMenuAcik(false)}
+                    className="flex items-start gap-3 px-4 py-3 transition hover:bg-sky-50 dark:hover:bg-sky-900/20"
+                  >
+                    <span className="text-2xl" aria-hidden="true">🎒</span>
+                    <div>
+                      <p className="font-bold text-sm">Öğrenci Girişi</p>
+                      <p className="text-xs text-[var(--color-text-secondary)]">
+                        Sınıf kodu ile kolay giriş
+                      </p>
+                    </div>
+                  </Link>
+                  <div className="border-t border-[var(--color-border)]" />
+                  <Link
+                    href="/giris"
+                    onClick={() => setGirisMenuAcik(false)}
+                    className="flex items-start gap-3 px-4 py-3 transition hover:bg-violet-50 dark:hover:bg-violet-900/20"
+                  >
+                    <span className="text-2xl" aria-hidden="true">👩‍🏫</span>
+                    <div>
+                      <p className="font-bold text-sm">Öğretmen / Yönetici</p>
+                      <p className="text-xs text-[var(--color-text-secondary)]">
+                        E-posta ve şifreyle giriş
+                      </p>
+                    </div>
+                  </Link>
+                </div>
+              )}
+            </div>
           )}
 
           {/* Giris yapmis → Kullanici menusu */}
@@ -282,7 +381,32 @@ export default function Navbar() {
             </div>
           )}
 
-          <div className="space-y-3 text-sm font-medium">
+          <div className="mb-3 text-xs font-bold text-[var(--color-text-secondary)]">Bölümler</div>
+          <div className="mb-4 grid grid-cols-2 gap-2">
+            {bolumler.map((b) => {
+              const locked = b.no > 1 && !isLoggedIn;
+              return (
+                <Link
+                  key={b.no}
+                  href={`/bolumler/${b.no}`}
+                  onClick={() => setMenuAcik(false)}
+                  className="flex items-center gap-2 rounded-lg border border-[var(--color-border)] px-3 py-2 text-xs font-medium transition hover:bg-[var(--color-bg-secondary)]"
+                >
+                  <span className={`flex h-5 w-5 items-center justify-center rounded text-[10px] font-bold text-white ${b.renk}`}>
+                    {b.no}
+                  </span>
+                  <span className="flex-1 truncate">{b.baslik}</span>
+                  {locked && (
+                    <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" className="text-gray-400 shrink-0">
+                      <rect x="3" y="11" width="18" height="11" rx="2" ry="2" />
+                      <path d="M7 11V7a5 5 0 0110 0v4" />
+                    </svg>
+                  )}
+                </Link>
+              );
+            })}
+          </div>
+          <div className="border-t border-[var(--color-border)] pt-3 space-y-3 text-sm font-medium">
             {navLinks.map((link) => (
               <Link key={link.href} href={link.href} onClick={() => setMenuAcik(false)} className="block transition hover:text-sky-600">
                 {link.label}
@@ -290,22 +414,30 @@ export default function Navbar() {
             ))}
 
             {!isLoggedIn && (
-              <>
+              <div className="space-y-2 border-t border-[var(--color-border)] pt-3">
                 <Link
                   href="/kolay-giris"
                   onClick={() => setMenuAcik(false)}
-                  className="block text-emerald-600 font-semibold"
+                  className="flex items-center gap-3 rounded-lg bg-sky-50 px-3 py-2 font-semibold text-sky-700 dark:bg-sky-900/20 dark:text-sky-300"
                 >
-                  Öğrenci Girişi
+                  <span className="text-xl" aria-hidden="true">🎒</span>
+                  <div>
+                    <div className="text-sm">Öğrenci Girişi</div>
+                    <div className="text-[10px] font-normal text-[var(--color-text-secondary)]">Sınıf kodu ile</div>
+                  </div>
                 </Link>
                 <Link
                   href="/giris"
                   onClick={() => setMenuAcik(false)}
-                  className="block text-sky-600"
+                  className="flex items-center gap-3 rounded-lg bg-violet-50 px-3 py-2 font-semibold text-violet-700 dark:bg-violet-900/20 dark:text-violet-300"
                 >
-                  Öğretmen Girişi
+                  <span className="text-xl" aria-hidden="true">👩‍🏫</span>
+                  <div>
+                    <div className="text-sm">Öğretmen / Yönetici</div>
+                    <div className="text-[10px] font-normal text-[var(--color-text-secondary)]">E-posta ile</div>
+                  </div>
                 </Link>
-              </>
+              </div>
             )}
 
             {isLoggedIn && (

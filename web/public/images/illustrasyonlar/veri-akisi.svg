@@ -1,0 +1,93 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 280" role="img" aria-label="Veri akışı: ham veri, model eğitimi, sonuç">
+  <defs>
+    <linearGradient id="bg-data" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#ecfeff"/>
+      <stop offset="1" stop-color="#dbeafe"/>
+    </linearGradient>
+    <linearGradient id="arrow-g" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#0ea5e9"/>
+      <stop offset="1" stop-color="#8b5cf6"/>
+    </linearGradient>
+  </defs>
+  <rect width="500" height="280" rx="16" fill="url(#bg-data)"/>
+
+  <!-- 1. Ham Veri Kutusu -->
+  <g transform="translate(20 60)">
+    <rect width="120" height="140" rx="12" fill="#ffffff" stroke="#94a3b8" stroke-width="2"/>
+    <text x="60" y="22" text-anchor="middle" font-family="system-ui" font-size="11" font-weight="700" fill="#475569">HAM VERİ</text>
+    <!-- Fotoğraflar / çubuklar -->
+    <rect x="12" y="32" width="34" height="34" rx="4" fill="#fca5a5"/>
+    <rect x="50" y="32" width="34" height="34" rx="4" fill="#fcd34d"/>
+    <rect x="88" y="32" width="20" height="34" rx="4" fill="#86efac"/>
+    <rect x="12" y="72" width="24" height="24" rx="4" fill="#93c5fd"/>
+    <rect x="42" y="72" width="30" height="24" rx="4" fill="#f9a8d4"/>
+    <rect x="78" y="72" width="30" height="24" rx="4" fill="#c4b5fd"/>
+    <!-- Dots (satırlar) -->
+    <g fill="#64748b">
+      <circle cx="20" cy="110" r="2"/>
+      <circle cx="30" cy="110" r="2"/>
+      <circle cx="40" cy="110" r="2"/>
+      <circle cx="50" cy="110" r="2"/>
+      <circle cx="60" cy="110" r="2"/>
+      <circle cx="70" cy="110" r="2"/>
+      <circle cx="80" cy="110" r="2"/>
+      <circle cx="90" cy="110" r="2"/>
+      <circle cx="100" cy="110" r="2"/>
+    </g>
+    <text x="60" y="130" text-anchor="middle" font-family="system-ui" font-size="9" fill="#64748b">1000+ örnek</text>
+  </g>
+
+  <!-- Ok 1 -->
+  <g transform="translate(145 130)">
+    <path d="M 0 0 L 20 0 L 20 -6 L 35 5 L 20 16 L 20 10 L 0 10 Z" fill="url(#arrow-g)"/>
+  </g>
+
+  <!-- 2. Model / Eğitim -->
+  <g transform="translate(190 50)">
+    <rect width="120" height="160" rx="12" fill="#8b5cf6"/>
+    <text x="60" y="22" text-anchor="middle" font-family="system-ui" font-size="11" font-weight="700" fill="#ffffff">MODEL EĞİTİMİ</text>
+    <!-- Sinir ağı ikon -->
+    <g>
+      <circle cx="30" cy="60" r="6" fill="#ffffff"/>
+      <circle cx="30" cy="85" r="6" fill="#ffffff"/>
+      <circle cx="30" cy="110" r="6" fill="#ffffff"/>
+      <circle cx="60" cy="72" r="7" fill="#fcd34d"/>
+      <circle cx="60" cy="98" r="7" fill="#fcd34d"/>
+      <circle cx="90" cy="85" r="7" fill="#ffffff"/>
+      <g stroke="#ffffff" stroke-opacity="0.6" stroke-width="1.2">
+        <line x1="30" y1="60" x2="60" y2="72"/>
+        <line x1="30" y1="60" x2="60" y2="98"/>
+        <line x1="30" y1="85" x2="60" y2="72"/>
+        <line x1="30" y1="85" x2="60" y2="98"/>
+        <line x1="30" y1="110" x2="60" y2="72"/>
+        <line x1="30" y1="110" x2="60" y2="98"/>
+        <line x1="60" y1="72" x2="90" y2="85"/>
+        <line x1="60" y1="98" x2="90" y2="85"/>
+      </g>
+    </g>
+    <!-- İlerleme çubuğu -->
+    <rect x="15" y="130" width="90" height="6" rx="3" fill="#ffffff" fill-opacity="0.25"/>
+    <rect x="15" y="130" width="62" height="6" rx="3" fill="#fcd34d"/>
+    <text x="60" y="148" text-anchor="middle" font-family="system-ui" font-size="9" fill="#ffffff">eğitiliyor...</text>
+  </g>
+
+  <!-- Ok 2 -->
+  <g transform="translate(315 130)">
+    <path d="M 0 0 L 20 0 L 20 -6 L 35 5 L 20 16 L 20 10 L 0 10 Z" fill="url(#arrow-g)"/>
+  </g>
+
+  <!-- 3. Sonuç / Tahmin -->
+  <g transform="translate(360 60)">
+    <rect width="120" height="140" rx="12" fill="#10b981"/>
+    <text x="60" y="22" text-anchor="middle" font-family="system-ui" font-size="11" font-weight="700" fill="#ffffff">TAHMİN</text>
+    <!-- Hedef / onay ikonu -->
+    <circle cx="60" cy="75" r="28" fill="#ffffff"/>
+    <path d="M 46 76 L 56 86 L 76 66" fill="none" stroke="#10b981" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+    <text x="60" y="120" text-anchor="middle" font-family="system-ui" font-size="10" font-weight="700" fill="#ffffff">Bu bir ELMA</text>
+    <text x="60" y="132" text-anchor="middle" font-family="system-ui" font-size="9" fill="#ffffff" fill-opacity="0.9">güven: %94</text>
+  </g>
+
+  <!-- Başlık -->
+  <text x="250" y="30" text-anchor="middle" font-family="system-ui" font-size="15" font-weight="800" fill="#0f172a">Veri → Model → Tahmin</text>
+  <text x="250" y="250" text-anchor="middle" font-family="system-ui" font-size="11" fill="#64748b">Yapay zekanın 3 temel adımı</text>
+</svg>

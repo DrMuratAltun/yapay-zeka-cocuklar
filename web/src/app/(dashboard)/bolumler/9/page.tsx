@@ -2,23 +2,20 @@ import type { Metadata } from "next";
 
 export const metadata: Metadata = {
   title: "Bölüm 9: YZ ve Etik | Yapay Zeka Macerası",
-  description:
-    "Yapay zeka etiği: önyargı, deepfake, gizlilik ve sorumlu kullanım. Doğru kullanımın pusulası.",
-  alternates: { canonical: "https://gencyz.com/bolumler/9" },
 };
 
 import Image from "next/image";
-import BolumCerceve from "@/components/BolumCerceve";
+import BolumSlider from "@/components/BolumSlider";
 import InteraktifQuiz from "@/components/InteraktifQuiz";
 import EtikPusula from "@/components/oyunlar/EtikPusula";
 import EtikMahkeme from "@/components/etkinlikler/EtikMahkeme";
 import DeepfakeTespit from "@/components/etkinlikler/DeepfakeTespit";
 import OnyargiSimulator from "@/components/etkinlikler/OnyargiSimulator";
 import GizlilikDenetcisi from "@/components/etkinlikler/GizlilikDenetcisi";
-import TekSecimSoru from "@/components/mikro/TekSecimSoru";
-import DogruYanlis from "@/components/mikro/DogruYanlis";
-import KategoriSiniflandirma from "@/components/mikro/KategoriSiniflandirma";
-import EslestirmeOyunu from "@/components/mikro/EslestirmeOyunu";
+import BilgiKutusu from "@/components/anlati/BilgiKutusu";
+import GecisSlayt from "@/components/anlati/GecisSlayt";
+import OzetKarti from "@/components/anlati/OzetKarti";
+import Hikaye from "@/components/anlati/Hikaye";
 
 const quizSorulari = [
   {
@@ -78,7 +75,100 @@ const quizSorulari = [
   },
 ];
 
-/* ---- Bölüm 1: Kazanımlar ---- */
+/* ---- Hoş Geldin (yeni) ---- */
+const SlaytHosGeldin9 = (
+  <>
+    <div className="relative overflow-hidden rounded-3xl bg-gradient-to-br from-amber-500 via-orange-500 to-red-500 p-8 text-center text-white shadow-xl">
+      <div className="absolute inset-0 opacity-20">
+        <div className="absolute -top-20 -right-20 h-60 w-60 rounded-full bg-white blur-3xl" />
+      </div>
+      <div className="relative">
+        <span className="inline-block text-6xl float-1" aria-hidden="true">⚖️</span>
+        <h3 className="mt-4 text-3xl font-extrabold md:text-4xl">YZ&apos;nin Pusulası: Etik</h3>
+        <p className="mx-auto mt-3 max-w-xl text-sm text-white/90 md:text-base">
+          Güçlü bir araç doğru kullanılmalı. Bu bölümde YZ&apos;yi sorumlu kullanmanın ilkelerini öğreneceksin.
+        </p>
+      </div>
+    </div>
+
+    <Hikaye
+      karakter="Zeki"
+      karakterEmoji="🤖"
+      baslik="Senin gibi düşünen biri lazım..."
+      paragraflar={[
+        "Düşün: bir hastanede YZ yanlış teşhis koydu, hasta zarar gördü. Kim suçlu? Doktor mu, YZ mi, YZ&apos;yi yapan şirket mi?",
+        "Ya da deepfake bir video tanınmış birini kötü bir şey yaparken gösterdi — gerçek değil ama herkes inandı. Ne yapmalı?",
+        <span key="end">
+          Bu bölümde tek bir &quot;doğru&quot; cevap bulamayacaksın. Çünkü etik <strong>yargı</strong> gerektirir.
+          Ama düşünme yöntemleri öğreneceksin: önyargı, şeffaflık, gizlilik, hesap verebilirlik...
+        </span>,
+      ]}
+      renkGradient="from-amber-500 via-orange-500 to-red-500"
+    />
+  </>
+);
+
+/* ---- Geçiş: Teori → Etkinlik ---- */
+const SlaytGecis9_1 = (
+  <GecisSlayt
+    emoji="⚖️"
+    renkGradient="from-orange-500 to-red-500"
+    oncekiBaslik="İlkeleri Tanıdık"
+    oncekiOzet={
+      <p>
+        YZ etiğinin 6 ilkesini, önyargı problemini, deepfake risklerini ve YZ&apos;nin
+        toplumsal etkilerini öğrendin.
+      </p>
+    }
+    sonrakiBaslik="Şimdi: Karar Vermek Zor"
+    sonrakiOzet={
+      <p>
+        Sıradaki etkinliklerde YZ Mahkemesi&apos;nde savcı/avukat olacak, deepfake tespit edecek
+        ve <strong>kendi etik pusulanı</strong> oluşturacaksın.
+      </p>
+    }
+    hikaye={
+      <span>
+        <strong>Zeki&apos;den uyarı:</strong> Etik konularda &quot;tek doğru&quot; çoğu zaman yoktur.
+        Önemli olan farklı bakış açılarını dinlemek, gerekçelerini sunmak ve &quot;şu an
+        haklı olabilirim, yarın değişebilirim&quot; alçakgönüllülüğünü korumak.
+      </span>
+    }
+  />
+);
+
+/* ---- Bölüm 9 Özeti ---- */
+const SlaytBolumOzeti9 = (
+  <OzetKarti
+    baslik="Bölüm 9 Özeti"
+    renkGradient="from-amber-500 to-orange-700"
+    ogrenilenler={[
+      "YZ etiği = YZ'yi tasarlarken/kullanırken doğru, adil, sorumlu davranma ilkeleri.",
+      "6 temel ilke: Şeffaflık, Adalet, Gizlilik, Hesap Verebilirlik, Güvenlik, İnsan Denetimi.",
+      "Önyargı (bias): Eğitim verisindeki dengesizliğin modele yansıması — ayrımcılığa yol açar.",
+      "Deepfake: YZ üretimi sahte video/ses. Dezenformasyon ve dolandırıcılık için kullanılır.",
+      "YZ'nin çevreye etkisi: Büyük modeller eğitiminde tonlarca CO2 salımı.",
+      "Sorumlu YZ: Sınırlarını bil, insan denetiminden vazgeçme, kaynakları doğrula.",
+    ]}
+    anahtarKelimeler={[
+      "etik",
+      "önyargı",
+      "şeffaflık",
+      "adalet",
+      "gizlilik",
+      "deepfake",
+      "dezenformasyon",
+      "hesap verebilirlik",
+      "sorumlu YZ",
+    ]}
+    sorular={[
+      "YZ bir iş başvurusunu reddetti. Neden reddedildiğini bilme hakkın var mı? Neden?",
+      "Karşına bir deepfake video geldiğinde 3 kontrol noktası nelerdir?",
+      "ChatGPT'yi kullanırken hangi kişisel bilgilerini PAYLAŞMAMALISIN?",
+    ]}
+  />
+);
+
 const SlaytKazanimlar = (
   <>
     <section className="rounded-2xl border-l-4 border-amber-500 bg-amber-50 p-6 dark:bg-amber-900/20">
@@ -100,180 +190,127 @@ const SlaytKazanimlar = (
   </>
 );
 
-/* ---- Bölüm 2: YZ Etiği Nedir? ---- */
 const SlaytEtikIlkeleri = (
-  <>
-    <section className="space-y-4">
-      <h2 className="text-2xl font-extrabold">1. YZ Etiği Nedir?</h2>
-      <p>
-        YZ etiği, yapay zeka sistemlerinin tasarımında, geliştirilmesinde ve
-        kullanımında doğru, adil ve sorumlu davranma ilkelerinin bütünüdür.
-        YZ çok güçlü bir araç olduğu için bu gücü nasıl kullandığımız büyük önem taşır.
-      </p>
-      <div className="mt-4 flex flex-col items-center rounded-xl border border-[var(--color-border)] bg-[var(--color-bg)] p-4">
-        <Image src="/images/bolumler/scales.svg" alt="Adalet terazisi - YZ etiği ve adalet ilkesi" width={180} height={180} className="rounded-lg object-cover shadow-md" />
-        <p className="mt-2 text-center text-sm text-[var(--color-text-secondary)]">YZ etiğinin temel taşı: Adalet ve denge</p>
-        <p className="text-xs text-[var(--color-text-secondary)] italic">Public Domain</p>
-      </div>
-      <div className="grid gap-4 sm:grid-cols-2">
-        {[
-          { ilke: "Şeffaflık", aciklama: "YZ sistemlerinin nasıl karar verdiği anlaşılabilir olmalı", icon: "🔍" },
-          { ilke: "Adalet", aciklama: "Tüm insanlara ve gruplara eşit ve adil davranmalı", icon: "⚖️" },
-          { ilke: "Gizlilik", aciklama: "Kişisel verileri korumalı ve izinsiz kullanmamalı", icon: "🔒" },
-          { ilke: "Hesap Verebilirlik", aciklama: "YZ'nin yaptığı hatalardan biri sorumlu olmalı", icon: "📋" },
-          { ilke: "Güvenlik", aciklama: "YZ sistemleri güvenli çalışmalı ve zarar vermemeli", icon: "🛡️" },
-          { ilke: "İnsan Denetimi", aciklama: "Kritik kararlarda her zaman insan kontrolü olmalı", icon: "👤" },
-        ].map((i) => (
-          <div key={i.ilke} className="flex items-start gap-3 rounded-xl border border-[var(--color-border)] bg-[var(--color-bg-secondary)] p-4">
-            <span className="text-2xl">{i.icon}</span>
-            <div>
-              <h4 className="font-bold">{i.ilke}</h4>
-              <p className="text-sm text-[var(--color-text-secondary)]">{i.aciklama}</p>
-            </div>
+  <section className="space-y-4">
+    <h2 className="text-2xl font-extrabold">1. YZ Etiği Nedir?</h2>
+    <p>
+      YZ etiği, yapay zeka sistemlerinin tasarımında, geliştirilmesinde ve
+      kullanımında doğru, adil ve sorumlu davranma ilkelerinin bütünüdür.
+      YZ çok güçlü bir araç olduğu için bu gücü nasıl kullandığımız büyük önem taşır.
+    </p>
+    <div className="mt-4 flex flex-col items-center rounded-xl border border-[var(--color-border)] bg-[var(--color-bg)] p-4">
+      <Image src="/images/bolumler/scales.svg" alt="Adalet terazisi - YZ etiği ve adalet ilkesi" width={180} height={180} className="rounded-lg object-cover shadow-md" />
+      <p className="mt-2 text-center text-sm text-[var(--color-text-secondary)]">YZ etiğinin temel taşı: Adalet ve denge</p>
+      <p className="text-xs text-[var(--color-text-secondary)] italic">Public Domain</p>
+    </div>
+    <div className="grid gap-4 sm:grid-cols-2">
+      {[
+        { ilke: "Şeffaflık", aciklama: "YZ sistemlerinin nasıl karar verdiği anlaşılabilir olmalı", icon: "🔍" },
+        { ilke: "Adalet", aciklama: "Tüm insanlara ve gruplara eşit ve adil davranmalı", icon: "⚖️" },
+        { ilke: "Gizlilik", aciklama: "Kişisel verileri korumalı ve izinsiz kullanmamalı", icon: "🔒" },
+        { ilke: "Hesap Verebilirlik", aciklama: "YZ'nin yaptığı hatalardan biri sorumlu olmalı", icon: "📋" },
+        { ilke: "Güvenlik", aciklama: "YZ sistemleri güvenli çalışmalı ve zarar vermemeli", icon: "🛡️" },
+        { ilke: "İnsan Denetimi", aciklama: "Kritik kararlarda her zaman insan kontrolü olmalı", icon: "👤" },
+      ].map((i) => (
+        <div key={i.ilke} className="flex items-start gap-3 rounded-xl border border-[var(--color-border)] bg-[var(--color-bg-secondary)] p-4">
+          <span className="text-2xl">{i.icon}</span>
+          <div>
+            <h4 className="font-bold">{i.ilke}</h4>
+            <p className="text-sm text-[var(--color-text-secondary)]">{i.aciklama}</p>
           </div>
-        ))}
-      </div>
+        </div>
+      ))}
+    </div>
 
-      <div className="rounded-xl bg-gradient-to-r from-amber-50 to-orange-50 p-4 dark:from-amber-900/20 dark:to-orange-900/20">
-        <p className="font-medium">🤔 <strong>Biliyor Muydunuz?</strong> Deepfake videoların %96&apos;sı kadınları hedef alıyor — bu ciddi bir etik sorun!</p>
-      </div>
-    </section>
-
-    <EslestirmeOyunu
-      baslik="YZ etiği ilkelerini açıklamalarıyla eşleştir"
-      ciftler={[
-        { sol: "Şeffaflık", sag: "YZ kararlarının anlaşılabilir olması" },
-        { sol: "Adalet", sag: "Tüm gruplara eşit davranılması" },
-        { sol: "Gizlilik", sag: "Kişisel verilerin korunması" },
-        { sol: "Hesap Verebilirlik", sag: "Hatalardan birinin sorumlu olması" },
-      ]}
-    />
-  </>
+    <div className="rounded-xl bg-gradient-to-r from-amber-50 to-orange-50 p-4 dark:from-amber-900/20 dark:to-orange-900/20">
+      <p className="font-medium">🤔 <strong>Biliyor Muydunuz?</strong> Deepfake videoların %96&apos;sı kadınları hedef alıyor — bu ciddi bir etik sorun!</p>
+    </div>
+  </section>
 );
 
-/* ---- Bölüm 3: Önyargı Problemi ---- */
 const SlaytOnyargi = (
-  <>
-    <section className="space-y-4">
-      <h2 className="text-2xl font-extrabold">2. Önyargı (Bias) Problemi</h2>
-      <p>
-        YZ sistemleri eğitildikleri verilerdeki önyargıları öğrenir ve bu önyargıları
-        kararlarında yansıtır. Bu durum adaletsiz sonuçlara yol açabilir.
-      </p>
-      <div className="space-y-3">
-        {[
-          { ornek: "İşe Alım YZ'si", sorun: "Geçmiş veriler erkek adayları tercih ediyorsa, YZ de erkekleri tercih eder", etki: "Cinsiyet ayrımcılığı" },
-          { ornek: "Yüz Tanıma", sorun: "Eğitim verisinde belirli etnik gruplar az temsil edilmişse, bu gruplar için hata oranı yüksek olur", etki: "Irk ayrımcılığı" },
-          { ornek: "Kredi Skoru", sorun: "Belirli semtlerde yaşayanlara otomatik düşük skor verilmesi", etki: "Sosyoekonomik ayrımcılık" },
-        ].map((o) => (
-          <div key={o.ornek} className="rounded-xl border border-rose-200 bg-rose-50 p-4 dark:border-rose-800 dark:bg-rose-900/20">
-            <h4 className="mb-1 font-bold text-rose-700 dark:text-rose-400">{o.ornek}</h4>
-            <p className="text-sm text-[var(--color-text-secondary)]">{o.sorun}</p>
-            <p className="mt-1 text-xs font-medium text-rose-600 dark:text-rose-400">Etki: {o.etki}</p>
-          </div>
-        ))}
-      </div>
+  <section className="space-y-4">
+    <h2 className="text-2xl font-extrabold">2. Önyargı (Bias) Problemi</h2>
+    <p>
+      YZ sistemleri eğitildikleri verilerdeki önyargıları öğrenir ve bu önyargıları
+      kararlarında yansıtır. Bu durum adaletsiz sonuçlara yol açabilir.
+    </p>
+    <div className="space-y-3">
+      {[
+        { ornek: "İşe Alım YZ'si", sorun: "Geçmiş veriler erkek adayları tercih ediyorsa, YZ de erkekleri tercih eder", etki: "Cinsiyet ayrımcılığı" },
+        { ornek: "Yüz Tanıma", sorun: "Eğitim verisinde belirli etnik gruplar az temsil edilmişse, bu gruplar için hata oranı yüksek olur", etki: "Irk ayrımcılığı" },
+        { ornek: "Kredi Skoru", sorun: "Belirli semtlerde yaşayanlara otomatik düşük skor verilmesi", etki: "Sosyoekonomik ayrımcılık" },
+      ].map((o) => (
+        <div key={o.ornek} className="rounded-xl border border-rose-200 bg-rose-50 p-4 dark:border-rose-800 dark:bg-rose-900/20">
+          <h4 className="mb-1 font-bold text-rose-700 dark:text-rose-400">{o.ornek}</h4>
+          <p className="text-sm text-[var(--color-text-secondary)]">{o.sorun}</p>
+          <p className="mt-1 text-xs font-medium text-rose-600 dark:text-rose-400">Etki: {o.etki}</p>
+        </div>
+      ))}
+    </div>
 
-      <div className="rounded-xl border-l-4 border-sky-500 bg-sky-50 p-4 dark:bg-sky-900/20">
-        <p className="font-medium">💡 <strong>İpucu:</strong> Bir YZ sistemi adaletsiz sonuç veriyorsa, genellikle sorun YZ&apos;nin kendisinde değil, eğitim verisindeki dengesizliktedir!</p>
-      </div>
-    </section>
-
-    <TekSecimSoru
-      soru="Bir YZ sistemi adaletsiz sonuçlar veriyorsa bunun en olası nedeni nedir?"
-      secenekler={[
-        "YZ'nin kötü niyetli olması",
-        "Eğitim verisindeki dengesizlik ve önyargı",
-        "Bilgisayarın yavaş çalışması",
-        "İnternetin kesilmesi",
-      ]}
-      dogruIndex={1}
-      aciklama="YZ sistemleri eğitildikleri verilerdeki önyargıları yansıtır. Veri dengesiz veya önyargılıysa sonuçlar da adaletsiz olur."
-    />
-  </>
+    <div className="rounded-xl border-l-4 border-sky-500 bg-sky-50 p-4 dark:bg-sky-900/20">
+      <p className="font-medium">💡 <strong>İpucu:</strong> Bir YZ sistemi adaletsiz sonuç veriyorsa, genellikle sorun YZ&apos;nin kendisinde değil, eğitim verisindeki dengesizliktedir!</p>
+    </div>
+  </section>
 );
 
-/* ---- Bölüm 4: Deepfake ve Dezenformasyon ---- */
 const SlaytDeepfake = (
-  <>
-    <section className="space-y-4">
-      <h2 className="text-2xl font-extrabold">3. Deepfake ve Dezenformasyon</h2>
-      <p>
-        Deepfake, YZ kullanılarak oluşturulan gerçekçi görünen sahte video ve ses
-        içerikleridir. Eğlence için kullanılabileceği gibi yanıltma amaçlı da kullanılabilir.
-      </p>
-      <div className="grid gap-4 md:grid-cols-2">
-        <div className="rounded-xl border-2 border-rose-300 bg-rose-50 p-5 dark:border-rose-700 dark:bg-rose-900/20">
-          <h3 className="mb-2 font-bold text-rose-700 dark:text-rose-400">⚠️ Tehlikeler</h3>
-          <ul className="space-y-1 text-sm text-[var(--color-text-secondary)]">
-            <li>&#8226; Sahte haberler ve propaganda</li>
-            <li>&#8226; Kişilik hakları ihlali</li>
-            <li>&#8226; Dolandırıcılık (sahte ses ile banka işlemi)</li>
-            <li>&#8226; Seçim manipülasyonu</li>
-          </ul>
-        </div>
-        <div className="rounded-xl border-2 border-emerald-300 bg-emerald-50 p-5 dark:border-emerald-700 dark:bg-emerald-900/20">
-          <h3 className="mb-2 font-bold text-emerald-700 dark:text-emerald-400">🛡️ Nasıl Korunuruz?</h3>
-          <ul className="space-y-1 text-sm text-[var(--color-text-secondary)]">
-            <li>&#8226; Kaynağın güvenilirliğini kontrol et</li>
-            <li>&#8226; Görüntüdeki anormallikleri ara (dudak senkronu, göz kırpma)</li>
-            <li>&#8226; Birden fazla kaynaktan doğrula</li>
-            <li>&#8226; Deepfake tespit araçlarını kullan</li>
-          </ul>
-        </div>
+  <section className="space-y-4">
+    <h2 className="text-2xl font-extrabold">3. Deepfake ve Dezenformasyon</h2>
+    <p>
+      Deepfake, YZ kullanılarak oluşturulan gerçekçi görünen sahte video ve ses
+      içerikleridir. Eğlence için kullanılabileceği gibi yanıltma amaçlı da kullanılabilir.
+    </p>
+    <div className="grid gap-4 md:grid-cols-2">
+      <div className="rounded-xl border-2 border-rose-300 bg-rose-50 p-5 dark:border-rose-700 dark:bg-rose-900/20">
+        <h3 className="mb-2 font-bold text-rose-700 dark:text-rose-400">⚠️ Tehlikeler</h3>
+        <ul className="space-y-1 text-sm text-[var(--color-text-secondary)]">
+          <li>&#8226; Sahte haberler ve propaganda</li>
+          <li>&#8226; Kişilik hakları ihlali</li>
+          <li>&#8226; Dolandırıcılık (sahte ses ile banka işlemi)</li>
+          <li>&#8226; Seçim manipülasyonu</li>
+        </ul>
       </div>
-
-      <div className="rounded-xl border-l-4 border-amber-500 bg-amber-50 p-4 dark:bg-amber-900/20">
-        <p className="font-medium">⚠️ <strong>Dikkat:</strong> Sosyal medyada gördüğünüz her videoya inanmayın! &quot;Bu gerçek mi?&quot; diye sormayı alışkanlık haline getirin.</p>
+      <div className="rounded-xl border-2 border-emerald-300 bg-emerald-50 p-5 dark:border-emerald-700 dark:bg-emerald-900/20">
+        <h3 className="mb-2 font-bold text-emerald-700 dark:text-emerald-400">🛡️ Nasıl Korunuruz?</h3>
+        <ul className="space-y-1 text-sm text-[var(--color-text-secondary)]">
+          <li>&#8226; Kaynağın güvenilirliğini kontrol et</li>
+          <li>&#8226; Görüntüdeki anormallikleri ara (dudak senkronu, göz kırpma)</li>
+          <li>&#8226; Birden fazla kaynaktan doğrula</li>
+          <li>&#8226; Deepfake tespit araçlarını kullan</li>
+        </ul>
       </div>
-    </section>
+    </div>
 
-    <DogruYanlis
-      ifade="Deepfake videolar her zaman kolayca tespit edilebilir."
-      dogruMu={false}
-      aciklama="Deepfake teknolojisi sürekli gelişiyor ve bazı sahte videolar çok gerçekçi görünebilir. Bu yüzden kaynağı kontrol etmek ve birden fazla kaynaktan doğrulamak çok önemlidir."
-    />
-  </>
+    <div className="rounded-xl border-l-4 border-amber-500 bg-amber-50 p-4 dark:bg-amber-900/20">
+      <p className="font-medium">⚠️ <strong>Dikkat:</strong> Sosyal medyada gördüğünüz her videoya inanmayın! &quot;Bu gerçek mi?&quot; diye sormayı alışkanlık haline getirin.</p>
+    </div>
+  </section>
 );
 
-/* ---- Bölüm 5: Toplumsal Etkiler ---- */
 const SlaytToplumsalEtki = (
-  <>
-    <section className="space-y-4">
-      <h2 className="text-2xl font-extrabold">4. YZ&apos;nin Toplumsal Etkileri</h2>
-      <div className="grid gap-4 sm:grid-cols-3">
-        {[
-          { alan: "İş Gücü", icon: "💼", olumlu: "Yeni meslekler (YZ mühendisi, veri bilimci)", olumsuz: "Bazı rutin işlerin otomasyonu" },
-          { alan: "Çevre", icon: "🌿", olumlu: "Enerji optimizasyonu, iklim modellemesi", olumsuz: "Büyük modellerin yüksek enerji tüketimi" },
-          { alan: "Gizlilik", icon: "👁️", olumlu: "Güvenlik ve dolandırıcılık önleme", olumsuz: "Kitlesel gözetim ve veri toplama" },
-        ].map((a) => (
-          <div key={a.alan} className="rounded-xl border border-[var(--color-border)] bg-[var(--color-bg-secondary)] p-5">
-            <div className="mb-3 flex items-center gap-2">
-              <span className="text-2xl">{a.icon}</span>
-              <h4 className="font-bold">{a.alan}</h4>
-            </div>
-            <div className="space-y-2 text-xs">
-              <p className="text-emerald-600 dark:text-emerald-400">✅ {a.olumlu}</p>
-              <p className="text-rose-600 dark:text-rose-400">⚠️ {a.olumsuz}</p>
-            </div>
+  <section className="space-y-4">
+    <h2 className="text-2xl font-extrabold">4. YZ&apos;nin Toplumsal Etkileri</h2>
+    <div className="grid gap-4 sm:grid-cols-3">
+      {[
+        { alan: "İş Gücü", icon: "💼", olumlu: "Yeni meslekler (YZ mühendisi, veri bilimci)", olumsuz: "Bazı rutin işlerin otomasyonu" },
+        { alan: "Çevre", icon: "🌿", olumlu: "Enerji optimizasyonu, iklim modellemesi", olumsuz: "Büyük modellerin yüksek enerji tüketimi" },
+        { alan: "Gizlilik", icon: "👁️", olumlu: "Güvenlik ve dolandırıcılık önleme", olumsuz: "Kitlesel gözetim ve veri toplama" },
+      ].map((a) => (
+        <div key={a.alan} className="rounded-xl border border-[var(--color-border)] bg-[var(--color-bg-secondary)] p-5">
+          <div className="mb-3 flex items-center gap-2">
+            <span className="text-2xl">{a.icon}</span>
+            <h4 className="font-bold">{a.alan}</h4>
           </div>
-        ))}
-      </div>
-    </section>
-
-    <KategoriSiniflandirma
-      baslik="YZ'nin toplumsal etkilerini olumlu ve olumsuz olarak sınıflandır"
-      kategoriler={["Olumlu Etki", "Olumsuz Etki"]}
-      ogeler={[
-        { ad: "Yeni meslekler ortaya çıkması", kategori: "Olumlu Etki" },
-        { ad: "Enerji optimizasyonu", kategori: "Olumlu Etki" },
-        { ad: "Dolandırıcılık önleme", kategori: "Olumlu Etki" },
-        { ad: "Rutin işlerin otomasyonu", kategori: "Olumsuz Etki" },
-        { ad: "Yüksek enerji tüketimi", kategori: "Olumsuz Etki" },
-        { ad: "Kitlesel gözetim riski", kategori: "Olumsuz Etki" },
-      ]}
-    />
-  </>
+          <div className="space-y-2 text-xs">
+            <p className="text-emerald-600 dark:text-emerald-400">✅ {a.olumlu}</p>
+            <p className="text-rose-600 dark:text-rose-400">⚠️ {a.olumsuz}</p>
+          </div>
+        </div>
+      ))}
+    </div>
+  </section>
 );
 
 /* ---- Etkinlik 1: YZ Mahkemesi ---- */
@@ -343,7 +380,6 @@ const SlaytEtkinlik3 = (
   </>
 );
 
-/* ---- Oyun ---- */
 const SlaytOyun = (
   <section className="space-y-6">
     <h2 className="text-2xl font-bold">🎮 Etik Pusula</h2>
@@ -354,14 +390,12 @@ const SlaytOyun = (
   </section>
 );
 
-/* ---- Değerlendirme ---- */
 const SlaytDegerlendirme = (
   <>
-    <InteraktifQuiz sorular={quizSorulari} bolumNo={9} />
+    <InteraktifQuiz sorular={quizSorulari} />
   </>
 );
 
-/* ---- İndirilebilir Materyaller ---- */
 const SlaytMateryaller = (
   <>
     <section className="rounded-2xl border border-[var(--color-border)] bg-[var(--color-bg-secondary)] p-6">
@@ -391,30 +425,35 @@ const SlaytMateryaller = (
 );
 
 export default function Bolum9() {
+  const slaytlar = [
+    { baslik: "Hoş Geldin!", icon: "👋", icerik: SlaytHosGeldin9 },
+    { baslik: "Kazanımlar", icon: "🎯", icerik: SlaytKazanimlar },
+    { baslik: "YZ Etiği Nedir?", icon: "⚖️", icerik: SlaytEtikIlkeleri },
+    { baslik: "Önyargı Problemi", icon: "🔍", icerik: SlaytOnyargi },
+    { baslik: "Deepfake ve Dezenformasyon", icon: "🎭", icerik: SlaytDeepfake },
+    { baslik: "Toplumsal Etkiler", icon: "🌍", icerik: SlaytToplumsalEtki },
+    { baslik: "Pusulanı Bul", icon: "🧭", icerik: SlaytGecis9_1 },
+    { baslik: "Etkinlik: YZ Mahkemesi", icon: "🎮", icerik: SlaytEtkinlik1 },
+    { baslik: "Etkinlik: Önyargı Simülatörü", icon: "🔍", icerik: SlaytEtkinlik1b },
+    { baslik: "Etkinlik: Etik Pusula", icon: "🎮", icerik: SlaytEtkinlik2 },
+    { baslik: "Etkinlik: Deepfake Dedektifi", icon: "🎮", icerik: SlaytEtkinlik3 },
+    { baslik: "Etik Pusula", icon: "🧩", icerik: SlaytOyun },
+    { baslik: "Değerlendirme", icon: "📝", icerik: SlaytDegerlendirme },
+    { baslik: "Bölüm Özeti", icon: "🏆", icerik: SlaytBolumOzeti9 },
+    { baslik: "Materyaller", icon: "📥", icerik: SlaytMateryaller },
+  ];
+
   return (
-    <BolumCerceve
+    <BolumSlider
       bolumNo={9}
       bolumBaslik="YZ ve Etik"
       bolumAltBaslik="Doğru Kullanımın Pusulası"
       seviye="7-8. Sınıf"
       ders={4}
       renk="from-amber-500 to-orange-600"
+      slaytlar={slaytlar}
       oncekiBolum={8}
       sonrakiBolum={10}
-      bolumler={[
-        { id: "b9-kazanimlar", baslik: "Kazanımlar", icon: "🎯", tur: "kazanim", icerik: SlaytKazanimlar, varsayilanAcik: true },
-        { id: "b9-etik-ilkeleri", baslik: "YZ Etiği Nedir?", icon: "⚖️", tur: "icerik", icerik: SlaytEtikIlkeleri, varsayilanAcik: true },
-        { id: "b9-onyargi", baslik: "Önyargı Problemi", icon: "🔍", tur: "icerik", icerik: SlaytOnyargi, varsayilanAcik: true },
-        { id: "b9-deepfake", baslik: "Deepfake ve Dezenformasyon", icon: "🎭", tur: "icerik", icerik: SlaytDeepfake },
-        { id: "b9-toplumsal-etki", baslik: "Toplumsal Etkiler", icon: "🌍", tur: "icerik", icerik: SlaytToplumsalEtki },
-        { id: "b9-etkinlik-yz-mahkemesi", baslik: "Etkinlik: YZ Mahkemesi", icon: "🎮", tur: "etkinlik", icerik: SlaytEtkinlik1 },
-        { id: "b9-etkinlik-onyargi-simulator", baslik: "Etkinlik: Önyargı Simülatörü", icon: "🔍", tur: "etkinlik", icerik: SlaytEtkinlik1b },
-        { id: "b9-etkinlik-etik-pusula", baslik: "Etkinlik: Etik Pusula", icon: "🎮", tur: "etkinlik", icerik: SlaytEtkinlik2 },
-        { id: "b9-etkinlik-deepfake-dedektifi", baslik: "Etkinlik: Deepfake Dedektifi", icon: "🎮", tur: "etkinlik", icerik: SlaytEtkinlik3 },
-        { id: "b9-oyun", baslik: "Etik Pusula", icon: "🧩", tur: "oyun", icerik: SlaytOyun },
-        { id: "b9-quiz", baslik: "Değerlendirme", icon: "📝", tur: "quiz", icerik: SlaytDegerlendirme },
-        { id: "b9-materyaller", baslik: "Materyaller", icon: "📥", tur: "materyal", icerik: SlaytMateryaller },
-      ]}
     />
   );
 }

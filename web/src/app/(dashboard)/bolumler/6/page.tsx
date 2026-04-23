@@ -359,7 +359,7 @@ const SlaytOyun = (
 /* ---- Değerlendirme ---- */
 const SlaytDegerlendirme = (
   <>
-    <InteraktifQuiz sorular={quizSorulari} bolumNo={6} />
+    <InteraktifQuiz sorular={quizSorulari} />
   </>
 );
 
@@ -394,8 +394,8 @@ const SlaytMateryaller = (
 
 export default function Bolum6() {
   return (
-    <BolumCerceve
-      bolumNo={6}
+    <BolumCerceve bolumNo={6}
+     
       bolumBaslik="Blok Tabanlı YZ Kodlama"
       bolumAltBaslik="PictoBlox Projeleri"
       seviye="7. Sınıf"

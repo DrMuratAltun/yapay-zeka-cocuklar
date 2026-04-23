@@ -2,26 +2,27 @@ import type { Metadata } from "next";
 
 export const metadata: Metadata = {
   title: "Bölüm 1: Yapay Zeka Nedir? | Yapay Zeka Macerası",
-  description:
-    "Yapay zeka nedir, nasıl çalışır? Turing testi, YZ tarihçesi ve insan-makine karşılaştırması ile keşif yolculuğuna başla.",
-  alternates: { canonical: "https://gencyz.com/bolumler/1" },
 };
 
 import Image from "next/image";
 import InteraktifQuiz from "@/components/InteraktifQuiz";
-import BolumCerceve from "@/components/BolumCerceve";
+import BolumSlider from "@/components/BolumSlider";
 import YzMiDegilMi from "@/components/oyunlar/YzMiDegilMi";
+import SinirAgiOyunAlani from "@/components/oyunlar/SinirAgiOyunAlani";
 import KimDahaZeki from "@/components/etkinlikler/KimDahaZeki";
 import YzDedektifi from "@/components/etkinlikler/YzDedektifi";
 import ZamanCizelgesi from "@/components/etkinlikler/ZamanCizelgesi";
-import InteraktifTarihce from "@/components/etkinlikler/InteraktifTarihce";
-import YzTarihcesi380 from "@/components/etkinlikler/YzTarihcesi380";
 import TuringTesti from "@/components/etkinlikler/TuringTesti";
 import YzZekaKarsilastir from "@/components/etkinlikler/YzZekaKarsilastir";
-import TekSecimSoru from "@/components/mikro/TekSecimSoru";
-import DogruYanlis from "@/components/mikro/DogruYanlis";
-import KategoriSiniflandirma from "@/components/mikro/KategoriSiniflandirma";
-import EslestirmeOyunu from "@/components/mikro/EslestirmeOyunu";
+import OnculerInteraktif from "@/components/etkinlikler/OnculerInteraktif";
+import TarihceZamanMakinesi from "@/components/etkinlikler/TarihceZamanMakinesi";
+import YzTurleriKesif from "@/components/etkinlikler/YzTurleriKesif";
+import BilgiKutusu from "@/components/anlati/BilgiKutusu";
+import GecisSlayt from "@/components/anlati/GecisSlayt";
+import KonuBasligi from "@/components/anlati/KonuBasligi";
+import OzetKarti from "@/components/anlati/OzetKarti";
+import Hikaye from "@/components/anlati/Hikaye";
+import IcSayfa from "@/components/anlati/IcSayfa";
 
 const quizSorulari = [
   {
@@ -66,6 +67,69 @@ const quizSorulari = [
   },
 ];
 
+/* ---- Slayt 0: Hoş Geldin (yeni) ---- */
+const SlaytHosGeldin = (
+  <IcSayfa
+    renkGradient="from-sky-500 via-blue-500 to-violet-500"
+    sayfalar={[
+      {
+        emoji: "🎉",
+        baslik: "Hoş Geldin!",
+        icerik: (
+          <div className="relative overflow-hidden rounded-2xl bg-gradient-to-br from-sky-500 via-blue-500 to-violet-600 p-5 text-center text-white shadow-lg">
+            <div className="absolute inset-0 opacity-20">
+              <div className="absolute -top-10 -left-10 h-40 w-40 rounded-full bg-white blur-3xl" />
+              <div className="absolute -bottom-10 -right-10 h-40 w-40 rounded-full bg-white blur-3xl" />
+            </div>
+            <div className="relative">
+              <span className="inline-block text-5xl float-1" aria-hidden="true">🤖</span>
+              <h3 className="mt-2 text-2xl font-extrabold md:text-3xl">Bir Maceraya Hazır mısın?</h3>
+              <p className="mx-auto mt-2 max-w-xl text-sm text-white/90">
+                Sen farkında olmadan bugün en az 5 yapay zekayla konuştun. Şimdi onları tanıma zamanı!
+              </p>
+            </div>
+          </div>
+        ),
+      },
+      {
+        emoji: "📖",
+        baslik: "Zeki ile tanış",
+        icerik: (
+          <Hikaye
+            karakter="Zeki, YZ Asistanın"
+            karakterEmoji="🤖"
+            baslik="Merhaba kâşif!"
+            paragraflar={[
+              "Ben Zeki. Bu bölümde yanında olacağım. Birlikte zekanın ne olduğunu, makinelerin nasıl \"zeki\" davranabildiğini ve ben gibi YZ'lerin nasıl çalıştığını keşfedeceğiz.",
+              "Sana söz veriyorum: bu bölüm bittiğinde telefonundaki asistana, Netflix'in önerilerine ve ChatGPT'ye farklı bir gözle bakacaksın.",
+            ]}
+            renkGradient="from-sky-500 via-blue-500 to-violet-500"
+          />
+        ),
+      },
+      {
+        emoji: "🧭",
+        baslik: "Bölümde Neler Var?",
+        icerik: (
+          <div className="grid gap-3 sm:grid-cols-3">
+            {[
+              { emoji: "⏱️", baslik: "4 ders saati", aciklama: "Kendi hızında ilerle" },
+              { emoji: "🎮", baslik: "6 etkinlik", aciklama: "Uygulayarak öğren" },
+              { emoji: "🧪", baslik: "2 oyun + 1 lab", aciklama: "Keşfet, dene, anla" },
+            ].map((k) => (
+              <div key={k.baslik} className="rounded-xl border border-[var(--color-border)] bg-[var(--color-bg-secondary)] p-3 text-center">
+                <div className="text-2xl" aria-hidden="true">{k.emoji}</div>
+                <div className="mt-1 text-sm font-bold">{k.baslik}</div>
+                <div className="text-xs text-[var(--color-text-secondary)]">{k.aciklama}</div>
+              </div>
+            ))}
+          </div>
+        ),
+      },
+    ]}
+  />
+);
+
 /* ---- Slayt 1: Kazanımlar ---- */
 const SlaytKazanimlar = (
   <>
@@ -93,149 +157,197 @@ const SlaytKazanimlar = (
         )
       )}
     </div>
-
-    <TekSecimSoru
-      soru="Bu bölümde en çok hangi konuyu öğrenmeyi bekliyorsun?"
-      secenekler={[
-        "Yapay zekanın tarihçesi",
-        "YZ türleri arasındaki farklar",
-        "YZ'nin günlük hayattaki kullanımları",
-        "Hepsini merak ediyorum!",
-      ]}
-      dogruIndex={3}
-      aciklama="Harika! Bu bölümde tüm bu konuları keşfedeceksin. Hadi başlayalım!"
-    />
   </>
+);
+
+/* ---- Geçiş 1: Kazanımlardan → Konu Anlatımına ---- */
+const SlaytGecis1 = (
+  <GecisSlayt
+    emoji="🧭"
+    renkGradient="from-sky-400 to-blue-600"
+    oncekiBaslik="Yol Haritamız Hazır"
+    oncekiOzet={
+      <p>Bu bölümde neler öğreneceğimizi, hangi anahtar kelimelerle karşılaşacağımızı gördük.</p>
+    }
+    sonrakiBaslik="Şimdi: Zeka Nedir?"
+    sonrakiOzet={
+      <p>
+        Önce kendi zekamızı tanıyalım. Zeka sadece &quot;matematik&quot; demek değildir —
+        öğrenme, problem çözme, uyum sağlama ve hatta{" "}
+        <strong>hayal kurma</strong> da zekanın bir parçasıdır.
+      </p>
+    }
+    hikaye={
+      <span>
+        <strong>Zeki&apos;den not:</strong> Zekanın ne olduğunu anlamadan yapay zekayı anlayamayız.
+        Çünkü &quot;yapay zeka&quot;, adı üstünde, insan zekasını taklit etmeye çalışır. İlk soru şu olmalı:
+        <em>&quot;Biz nasıl öğreniyoruz?&quot;</em>
+      </span>
+    }
+  />
 );
 
 /* ---- Slayt 2: Zeka Nedir? ---- */
 const SlaytZekaNedir = (
-  <section className="space-y-4">
-    <h3 className="text-xl font-extrabold">Zeka Nedir?</h3>
-    <p>
-      Zeka, öğrenme, anlama, problem çözme ve yeni durumlara uyum sağlama
-      yeteneklerimizin tamamıdır. İnsanlar bu yetenekleri doğal olarak
-      geliştirir: bir bebek yürümesini öğrenir, bir öğrenci matematik
-      problemlerini çözer, bir sporcu yeni taktikler geliştirir.
-    </p>
-    <div className="rounded-xl bg-amber-50 p-4 dark:bg-amber-900/20">
-      <p className="font-medium text-amber-800 dark:text-amber-300">
-        🤔 Düşün: Bir hesap makinesi saniyeler içinde binlerce çarpma işlemi
-        yapabilir. Bu onu zeki yapar mı? Neden?
-      </p>
-    </div>
-
-    <DogruYanlis
-      ifade="Bir hesap makinesi binlerce çarpma yapabildiği için zekidir."
-      dogruMu={false}
-      aciklama="Hesap makinesi çok hızlı hesap yapar ama yeni bir şey öğrenemez, farklı durumlara uyum sağlayamaz. Hız tek başına zeka değildir — zeka öğrenme, anlama ve uyum sağlama gerektirir."
+  <section className="space-y-3">
+    <KonuBasligi
+      numara={1}
+      baslik="Zeka Nedir?"
+      altBaslik="Öğrenme, anlama ve uyum sağlama yeteneği"
+      renkGradient="from-sky-500 to-blue-600"
+    />
+    <IcSayfa
+      renkGradient="from-sky-500 to-blue-600"
+      sayfalar={[
+        {
+          emoji: "🧠",
+          baslik: "Tanım",
+          icerik: (
+            <div className="space-y-3">
+              <p className="text-sm">
+                Zeka, <strong>öğrenme, anlama, problem çözme ve yeni durumlara uyum sağlama</strong>
+                yeteneklerimizin tamamıdır. Bebek yürümeyi, öğrenci matematiği, sporcu yeni
+                taktikleri nasıl öğreniyorsa — zeka işte budur.
+              </p>
+              <BilgiKutusu tip="dusun">
+                Bir hesap makinesi saniyeler içinde binlerce çarpma yapabilir. Bu onu{" "}
+                <strong>zeki</strong> yapar mı? Neden?
+              </BilgiKutusu>
+            </div>
+          ),
+        },
+        {
+          emoji: "🎯",
+          baslik: "Zekanın 4 bileşeni",
+          icerik: (
+            <div className="grid gap-3 sm:grid-cols-2">
+              {[
+                { emoji: "📚", ad: "Öğrenme", aciklama: "Deneyimlerden ders alma" },
+                { emoji: "🧩", ad: "Problem Çözme", aciklama: "Zorlukları aşmak" },
+                { emoji: "🔁", ad: "Uyum Sağlama", aciklama: "Değişene ayak uydurma" },
+                { emoji: "💭", ad: "Yaratıcılık", aciklama: "Yeni fikirler üretme" },
+              ].map((z) => (
+                <div
+                  key={z.ad}
+                  className="flex items-start gap-2 rounded-xl border border-[var(--color-border)] bg-[var(--color-bg-secondary)] p-3"
+                >
+                  <span className="text-2xl" aria-hidden="true">{z.emoji}</span>
+                  <div>
+                    <div className="text-sm font-bold">{z.ad}</div>
+                    <div className="text-xs text-[var(--color-text-secondary)]">{z.aciklama}</div>
+                  </div>
+                </div>
+              ))}
+            </div>
+          ),
+        },
+        {
+          emoji: "💡",
+          baslik: "8 Farklı Zeka Türü",
+          icerik: (
+            <BilgiKutusu tip="biliyor-muydun" baslik="Howard Gardner'a göre">
+              Zekayı ölçmenin tek bir yolu yok! Psikolog Howard Gardner,{" "}
+              <strong>8 farklı zeka türü</strong> olduğunu söyler:
+              <br />
+              <span className="mt-2 inline-block">
+                dilsel · mantıksal-matematiksel · uzamsal · bedensel · müzikal · sosyal · içsel · doğa
+              </span>
+              <br />
+              <em>Sen hangisinde güçlüsün?</em>
+            </BilgiKutusu>
+          ),
+        },
+      ]}
     />
   </section>
 );
 
 /* ---- Slayt 3: Yapay Zeka Nedir? ---- */
 const SlaytYapayZekaNedir = (
-  <section className="space-y-4">
+  <section className="space-y-3">
     <h3 className="text-xl font-extrabold">Yapay Zeka Nedir?</h3>
-    <p>
-      Yapay zeka, bilgisayarların ve makinelerin insanlara benzer
-      &quot;zeki&quot; davranışlar göstermesini sağlayan teknolojilerin genel
-      adıdır.
-    </p>
-    <div className="overflow-x-auto">
-      <table className="w-full rounded-xl border border-[var(--color-border)] text-sm">
-        <thead className="bg-sky-600 text-white">
-          <tr>
-            <th className="px-4 py-3 text-left">Özellik</th>
-            <th className="px-4 py-3 text-left">İnsan Zekası</th>
-            <th className="px-4 py-3 text-left">Yapay Zeka</th>
-          </tr>
-        </thead>
-        <tbody>
-          {[
-            ["Öğrenme", "Deneyim ve gözlemle", "Veri ve algoritmalarla"],
-            ["Yaratıcılık", "Çok güçlü", "Sınırlı (taklit eder)"],
-            ["Duygular", "Var", "Yok (taklit edebilir)"],
-            ["Hız", "Sınırlı", "Çok hızlı"],
-            ["Yorgunluk", "Yorulur", "Yorulmaz"],
-            ["Esneklik", "Yeni durumlara uyum sağlar", "Eğitildiği konuda başarılı"],
-          ].map(([ozellik, insan, yz], i) => (
-            <tr key={ozellik} className={i % 2 === 0 ? "bg-[var(--color-bg-secondary)]" : ""}>
-              <td className="px-4 py-2.5 font-medium">{ozellik}</td>
-              <td className="px-4 py-2.5">{insan}</td>
-              <td className="px-4 py-2.5">{yz}</td>
-            </tr>
-          ))}
-        </tbody>
-      </table>
-    </div>
-
-    <EslestirmeOyunu
-      baslik="Özellikleri doğru sütunla eşleştir!"
-      ciftler={[
-        { sol: "Deneyimle öğrenme", sag: "İnsan Zekası" },
-        { sol: "Veri ile öğrenme", sag: "Yapay Zeka" },
-        { sol: "Yaratıcılık", sag: "İnsan Zekası" },
-        { sol: "Yorulmadan çalışma", sag: "Yapay Zeka" },
-        { sol: "Duyguları hissetme", sag: "İnsan Zekası" },
+    <IcSayfa
+      renkGradient="from-sky-500 to-blue-600"
+      sayfalar={[
+        {
+          emoji: "🎨",
+          baslik: "YZ'nin Kavramsal Resmi",
+          icerik: (
+            <div className="space-y-3">
+              <div className="overflow-hidden rounded-xl border border-[var(--color-border)]">
+                <Image
+                  src="/images/illustrasyonlar/ai-kavram.svg"
+                  alt="YZ: biyolojik beyin + dijital çip"
+                  width={800}
+                  height={480}
+                  className="h-auto w-full"
+                />
+              </div>
+              <p className="text-sm">
+                YZ bir <strong>şemsiye terim</strong>: makine öğrenmesi, derin öğrenme,
+                sinir ağları, doğal dil işleme ve daha fazlasını içerir.
+              </p>
+            </div>
+          ),
+        },
+        {
+          emoji: "⚖️",
+          baslik: "İnsan vs Makine — Karşılaştırma",
+          icerik: (
+            <div className="overflow-x-auto">
+              <table className="w-full rounded-xl border border-[var(--color-border)] text-xs sm:text-sm">
+                <thead className="bg-sky-600 text-white">
+                  <tr>
+                    <th className="px-3 py-2 text-left">Özellik</th>
+                    <th className="px-3 py-2 text-left">İnsan Zekası</th>
+                    <th className="px-3 py-2 text-left">YZ</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {[
+                    ["Öğrenme", "Deneyim ve gözlemle", "Veri ve algoritmalarla"],
+                    ["Yaratıcılık", "Çok güçlü", "Sınırlı (taklit)"],
+                    ["Duygular", "Var", "Yok (taklit edebilir)"],
+                    ["Hız", "Sınırlı", "Çok hızlı"],
+                    ["Yorgunluk", "Yorulur", "Yorulmaz"],
+                    ["Esneklik", "Yeni durumlara uyum", "Eğitildiği konuda başarılı"],
+                  ].map(([o, i, y], idx) => (
+                    <tr key={o} className={idx % 2 === 0 ? "bg-[var(--color-bg-secondary)]" : ""}>
+                      <td className="px-3 py-1.5 font-medium">{o}</td>
+                      <td className="px-3 py-1.5">{i}</td>
+                      <td className="px-3 py-1.5">{y}</td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </div>
+          ),
+        },
+        {
+          emoji: "💡",
+          baslik: "Biliyor muydun?",
+          icerik: (
+            <BilgiKutusu tip="biliyor-muydun">
+              YZ 2024 itibariyle dünyada <strong>günde yaklaşık 100 milyon kez</strong> ChatGPT
+              kullanıcılarıyla konuşuyor. Türkiye&apos;de de en çok kullanılan YZ araçlarından biri!
+            </BilgiKutusu>
+          ),
+        },
       ]}
     />
   </section>
 );
 
-/* ---- Slayt 4: Öncüler ---- */
+/* ---- Slayt 4: Öncüler (interaktif) ---- */
 const SlaytOnculer = (
-  <section className="grid gap-4 md:grid-cols-2">
-    <div className="rounded-xl border border-sky-200 bg-sky-50 p-5 dark:border-sky-800 dark:bg-sky-900/20">
-      <div className="mb-3 flex items-center gap-4">
-        <Image
-          src="/images/bolumler/turing.jpg"
-          alt="Alan Turing"
-          width={80}
-          height={100}
-          className="rounded-lg object-cover shadow-md"
-        />
-        <h4 className="text-lg font-bold">Alan Turing (1912-1954)</h4>
-      </div>
-      <p className="text-sm text-[var(--color-text-secondary)]">
-        İngiliz matematikçi ve bilgisayar biliminin babası.
-        &quot;Makineler düşünebilir mi?&quot; sorusunu ilk kez o sormuştur.
-        Turing Testi&apos;ni öne sürmüştür.
-      </p>
-      <p className="mt-2 text-xs text-[var(--color-text-secondary)] italic">
-        Fotoğraf: Public Domain, Wikimedia Commons
-      </p>
-    </div>
-    <div className="rounded-xl border border-sky-200 bg-sky-50 p-5 dark:border-sky-800 dark:bg-sky-900/20">
-      <div className="mb-3 flex items-center gap-4">
-        <Image
-          src="/images/bolumler/cahit-arf.jpg"
-          alt="Cahit Arf - 10 TL banknot"
-          width={120}
-          height={60}
-          className="rounded-lg object-cover shadow-md"
-        />
-        <h4 className="text-lg font-bold">Cahit Arf (1910-1997)</h4>
-      </div>
-      <p className="text-sm text-[var(--color-text-secondary)]">
-        Türkiye&apos;nin en büyük matematikçilerinden biri. 10 liralık
-        banknotların arkasında resmi bulunan Cahit Arf, &quot;Makineler
-        düşünebilir mi ve nasıl düşünebilir?&quot; çalışması yayımlamıştır.
-      </p>
-      <p className="mt-2 text-xs text-[var(--color-text-secondary)] italic">
-        Görsel: Public Domain (TR currency), Wikimedia Commons
-      </p>
-    </div>
-
-    <EslestirmeOyunu
-      baslik="Kişileri başarılarıyla eşleştir!"
-      ciftler={[
-        { sol: "Alan Turing", sag: "Turing Testi'ni öne sürdü" },
-        { sol: "Cahit Arf", sag: "Makineler düşünebilir mi? çalışması" },
-        { sol: "John McCarthy", sag: "Yapay zeka terimini icat etti" },
-        { sol: "Blaise Pascal", sag: "İlk mekanik hesap makinesi" },
-      ]}
+  <section className="space-y-3">
+    <KonuBasligi
+      emoji="👨‍🔬"
+      baslik="YZ'nin Öncüleri"
+      altBaslik="Kartlara tıkla, hikayelerini oku"
+      renkGradient="from-sky-500 to-indigo-600"
     />
+    <OnculerInteraktif />
   </section>
 );
 
@@ -255,96 +367,32 @@ const SlaytVideo = (
     <p className="mt-3 text-sm text-[var(--color-text-secondary)]">
       📖 Yapay zekanın 1950&apos;lerden günümüze uzanan yolculuğunu keşfet!
     </p>
-
-    <TekSecimSoru
-      soru="Videoyu izledikten sonra: Yapay zeka alanındaki ilk büyük atılım ne zaman oldu?"
-      secenekler={["1930'larda", "1950'lerde", "1970'lerde", "2000'lerde"]}
-      dogruIndex={1}
-      aciklama="1950'lerde Alan Turing'in çalışmaları ve 1956'da Dartmouth Konferansı ile yapay zeka resmi bir alan olarak doğdu."
-    />
   </section>
 );
 
-/* ---- Slayt 6: YZ Tarihçesi (İnteraktif) ---- */
+/* ---- Slayt 6: YZ Tarihçesi (interaktif zaman makinesi) ---- */
 const SlaytTarihce = (
-  <section className="space-y-4">
-    <h3 className="text-xl font-extrabold">YZ Tarihçesi</h3>
-    <p className="text-[var(--color-text-secondary)]">
-      Kartlara tıklayarak yapay zekanın tarihindeki dönüm noktalarını keşfet, sonra bilgini &quot;Yılı Tahmin Et&quot; modunda test et!
-    </p>
-    <InteraktifTarihce />
-  </section>
-);
-
-/* ---- Slayt 6b: YZ Tarihçesi — 380 Yıllık Zaman Makinesi ---- */
-const SlaytZamanMakinesi = (
-  <section className="space-y-4">
-    <div className="flex flex-wrap items-center gap-3">
-      <h3 className="text-xl font-extrabold">YZ Tarihçesi: 380 Yıllık Zaman Makinesi</h3>
-      <span className="rounded-lg bg-violet-500 px-3 py-1 text-xs font-bold text-white">İNTERAKTİF</span>
-    </div>
-    <p className="text-[var(--color-text-secondary)]">
-      1642 Pascaline&apos;dan günümüze kadar uzanan 380 yıllık yolculukta dönüm
-      noktalarını keşfet. Zaman çizgisindeki düğümlere tıklayarak detayları oku,
-      her olaydan sonra mini quiz ile bilgini test et.
-    </p>
-    <YzTarihcesi380 />
-  </section>
-);
-
-/* ---- Slayt 7: YZ Türleri ---- */
-const SlaytYzTurleri = (
-  <section className="space-y-4">
-    <h3 className="text-xl font-extrabold">Yapay Zeka Türleri</h3>
-    <div className="grid gap-4 md:grid-cols-3">
-      <div className="rounded-xl border-2 border-emerald-300 bg-emerald-50 p-5 dark:border-emerald-700 dark:bg-emerald-900/20">
-        <h4 className="mb-2 font-bold text-emerald-700 dark:text-emerald-400">Dar YZ (Narrow AI)</h4>
-        <p className="mb-2 text-sm">Sadece belirli bir görevi yapar.</p>
-        <p className="text-xs text-emerald-600 dark:text-emerald-400">Örnekler: Siri, Google Çevirmen, öneri sistemleri</p>
-        <p className="mt-2 rounded bg-emerald-200 px-2 py-1 text-center text-xs font-bold dark:bg-emerald-800">BUGÜN KULLANDIĞIMIZ TÜM YZ</p>
-      </div>
-      <div className="rounded-xl border-2 border-amber-300 bg-amber-50 p-5 dark:border-amber-700 dark:bg-amber-900/20">
-        <h4 className="mb-2 font-bold text-amber-700 dark:text-amber-400">Genel YZ (AGI)</h4>
-        <p className="mb-2 text-sm">Her türlü zihinsel görev.</p>
-        <p className="text-xs text-amber-600 dark:text-amber-400">Henüz geliştirilmedi</p>
-        <p className="mt-2 rounded bg-amber-200 px-2 py-1 text-center text-xs font-bold dark:bg-amber-800">ARAŞTIRMA AŞAMASINDA</p>
-      </div>
-      <div className="rounded-xl border-2 border-rose-300 bg-rose-50 p-5 dark:border-rose-700 dark:bg-rose-900/20">
-        <h4 className="mb-2 font-bold text-rose-700 dark:text-rose-400">Süper YZ (ASI)</h4>
-        <p className="mb-2 text-sm">İnsandan çok daha zeki.</p>
-        <p className="text-xs text-rose-600 dark:text-rose-400">Tamamen teorik</p>
-        <p className="mt-2 rounded bg-rose-200 px-2 py-1 text-center text-xs font-bold dark:bg-rose-800">BİLİM KURGU</p>
-      </div>
-    </div>
-    {/* AI-ML-DL ilişki diyagramı */}
-    <div className="mt-4 flex flex-col items-center rounded-xl border border-[var(--color-border)] bg-[var(--color-bg)] p-4">
-      <Image
-        src="/images/bolumler/ml-diagram.svg"
-        alt="Yapay Zeka, Makine Öğrenimi ve Derin Öğrenme ilişkisi"
-        width={400}
-        height={300}
-        className="rounded-lg"
-      />
-      <p className="mt-2 text-center text-sm text-[var(--color-text-secondary)]">
-        Yapay Zeka, Makine Öğrenimi ve Derin Öğrenme arasındaki ilişki
-      </p>
-      <p className="text-xs text-[var(--color-text-secondary)] italic">
-        Görsel: CC BY-SA 4.0, Wikimedia Commons
-      </p>
-    </div>
-
-    <KategoriSiniflandirma
-      baslik="Bu örnekleri doğru YZ türüne yerleştir!"
-      kategoriler={["Dar YZ", "Genel YZ", "Süper YZ"]}
-      ogeler={[
-        { ad: "Siri", kategori: "Dar YZ" },
-        { ad: "Google Çevirmen", kategori: "Dar YZ" },
-        { ad: "Satranç bilgisayarı", kategori: "Dar YZ" },
-        { ad: "Her konuda düşünen robot", kategori: "Genel YZ" },
-        { ad: "İnsandan zeki makine", kategori: "Süper YZ" },
-        { ad: "Yüz tanıma", kategori: "Dar YZ" },
-      ]}
+  <section className="space-y-3">
+    <KonuBasligi
+      emoji="📅"
+      baslik="Zaman Makinesi"
+      altBaslik="YZ'nin 380 yıllık yolculuğu"
+      renkGradient="from-violet-500 to-purple-600"
     />
+    <TarihceZamanMakinesi />
+  </section>
+);
+
+/* ---- Slayt 7: YZ Türleri (interaktif keşif) ---- */
+const SlaytYzTurleri = (
+  <section className="space-y-3">
+    <KonuBasligi
+      emoji="🔬"
+      baslik="Yapay Zeka Türleri"
+      altBaslik="3 tür YZ: Dar, Genel, Süper"
+      renkGradient="from-emerald-500 to-teal-600"
+    />
+    <YzTurleriKesif />
   </section>
 );
 
@@ -450,8 +498,160 @@ const SlaytOyun = (
 /* ---- Slayt 10: Değerlendirme ---- */
 const SlaytDegerlendirme = (
   <>
-    <InteraktifQuiz sorular={quizSorulari} bolumNo={1} />
+    <InteraktifQuiz sorular={quizSorulari} />
   </>
+);
+
+/* ---- Geçiş 2: Teoriden → Uygulamaya ---- */
+const SlaytGecis2 = (
+  <GecisSlayt
+    emoji="🎯"
+    renkGradient="from-emerald-400 to-teal-500"
+    oncekiBaslik="Teorik Temelleri Gördük"
+    oncekiOzet={
+      <p>
+        Zekayı, YZ&apos;nin tanımını, tarihini, Turing ve Cahit Arf&apos;ın katkılarını
+        ve YZ türlerini öğrendin. Artık YZ&apos;nin ne olduğunu biliyorsun.
+      </p>
+    }
+    sonrakiBaslik="Şimdi Uygulama Zamanı!"
+    sonrakiOzet={
+      <p>
+        Sırada <strong>etkinlikler</strong> var: kart sıralama, Turing testine katılma,
+        YZ dedektifi olma, gerçek hayattan örnekleri yakalama. Önce kendi ellerinle dene!
+      </p>
+    }
+    hikaye={
+      <span>
+        <strong>Zeki&apos;den ipucu:</strong> Bir konuyu gerçekten anladığının en iyi
+        göstergesi, o konuda bir arkadaşına anlatabilmendir. Aşağıdaki etkinlikleri
+        yaparken &quot;bunu bir 5. sınıf öğrencisine nasıl anlatırdım?&quot; diye düşün.
+      </span>
+    }
+  />
+);
+
+/* ---- Slayt Sinir Ağı Oyun Alanı (yeni interaktif uygulama) ---- */
+const SlaytSinirAgiLab = (
+  <section className="space-y-3">
+    <KonuBasligi
+      emoji="🧠"
+      baslik="Sinir Ağı Oyun Alanı"
+      altBaslik="Yapay zekanın 'beyni' nasıl çalışır?"
+      renkGradient="from-violet-500 to-purple-600"
+    />
+    <IcSayfa
+      renkGradient="from-violet-500 to-purple-600"
+      sayfalar={[
+        {
+          emoji: "📖",
+          baslik: "Giriş + Diyagram",
+          icerik: (
+            <div className="space-y-3">
+              <p className="text-sm">
+                YZ&apos;nin büyük kısmı <strong>yapay sinir ağları</strong> ile çalışır. Bu ağlar
+                beynimizdeki nöron bağlantılarından ilham almıştır.
+              </p>
+              <div className="overflow-hidden rounded-xl border border-[var(--color-border)]">
+                <Image
+                  src="/images/illustrasyonlar/sinir-aglari.svg"
+                  alt="Sinir ağı katmanları diyagramı"
+                  width={900}
+                  height={440}
+                  className="h-auto w-full"
+                />
+              </div>
+            </div>
+          ),
+        },
+        {
+          emoji: "🎮",
+          baslik: "Laboratuvar",
+          icerik: <SinirAgiOyunAlani />,
+        },
+        {
+          emoji: "💡",
+          baslik: "İpuçları + Biliyor muydun?",
+          icerik: (
+            <div className="space-y-3">
+              <BilgiKutusu tip="ipucu" baslik="Nasıl Deneyelim?">
+                <ol className="ml-4 list-decimal space-y-1">
+                  <li>&quot;Tipik Elma / Portakal&quot; butonlarına bas — doğru tahmin ediyor mu?</li>
+                  <li>Kaydırıcıları oynat. Tatlılığı arttırınca ne değişiyor?</li>
+                  <li>&quot;Keşif Modu&quot;nu aç. Ağırlıkları sen ayarla — bozabilir misin?</li>
+                </ol>
+              </BilgiKutusu>
+              <BilgiKutusu tip="biliyor-muydun">
+                GPT-4 gibi büyük modellerde <strong>1,7 trilyon</strong> ağırlık var. Burada sadece 8
+                ağırlık kullandık — prensip aynı!
+              </BilgiKutusu>
+            </div>
+          ),
+        },
+      ]}
+    />
+  </section>
+);
+
+/* ---- Geçiş 3: Etkinliklerden → Değerlendirmeye ---- */
+const SlaytGecis3 = (
+  <GecisSlayt
+    emoji="🎓"
+    renkGradient="from-amber-400 to-orange-500"
+    oncekiBaslik="Harika İş Çıkardın!"
+    oncekiOzet={
+      <p>
+        Etkinlikleri yaptın, oyunu oynadın ve YZ&apos;yi kendi ellerinle denedin.
+        Artık YZ&apos;yi gerçek hayatta tanımakta çok daha iyisin.
+      </p>
+    }
+    sonrakiBaslik="Şimdi Kendini Sınama Zamanı"
+    sonrakiOzet={
+      <p>
+        Sırada <strong>değerlendirme testi</strong> var. Endişelenme — yarışma değil,
+        sadece neleri iyi anladığını, nelere bir daha bakman gerektiğini görmek için.
+      </p>
+    }
+    hikaye={
+      <span>
+        <strong>Zeki&apos;den motivasyon:</strong> Yanlış cevap vermekten korkma.
+        YZ modelleri de <em>yanlış yapa yapa</em> öğrenir. Her hata, öğrenme fırsatıdır!
+      </span>
+    }
+  />
+);
+
+/* ---- Bölüm Özeti ---- */
+const SlaytBolumOzeti = (
+  <OzetKarti
+    baslik="Bölüm 1 Özeti"
+    renkGradient="from-sky-500 to-blue-700"
+    ogrenilenler={[
+      "Zeka nedir? Öğrenme, problem çözme, uyum sağlama ve yaratıcılığın birleşimi.",
+      "Yapay zeka, makinelerin insanlara benzer zeki davranışlar göstermesini sağlayan teknolojidir.",
+      "'Yapay zeka' terimi ilk kez 1956'da John McCarthy tarafından ortaya atıldı.",
+      "Alan Turing (1950 Turing Testi) ve Cahit Arf (1959 'Makineler düşünebilir mi?') öncüler.",
+      "3 tür YZ var: Dar YZ (bugün), Genel YZ (AGI - araştırma), Süper YZ (ASI - teorik).",
+      "Sinir ağları girdi → gizli katmanlar → çıktı şeklinde çalışır; ağırlıklar eğitimle öğrenilir.",
+    ]}
+    anahtarKelimeler={[
+      "zeka",
+      "yapay zeka",
+      "algoritma",
+      "Turing Testi",
+      "dar YZ",
+      "genel YZ",
+      "süper YZ",
+      "sinir ağı",
+      "nöron",
+      "ağırlık",
+    ]}
+    sorular={[
+      "Telefonunda kullandığın en az 3 YZ uygulaması sayabilir misin?",
+      "Bir hesap makinesini YZ yapan ya da yapmayan ne olurdu?",
+      "Neden bugün kullandığımız her YZ 'Dar YZ' kategorisindedir?",
+    ]}
+  />
 );
 
 /* ---- Slayt 11: İndirilebilir Materyaller ---- */
@@ -481,24 +681,12 @@ const SlaytMateryaller = (
         ))}
       </div>
     </section>
-
-    <TekSecimSoru
-      soru="Bu bölümde öğrendiğin en şaşırtıcı bilgi hangisiydi?"
-      secenekler={[
-        "Yapay zeka teriminin 1956'da ortaya çıkması",
-        "Cahit Arf'ın YZ üzerine çalışması",
-        "Hesap makinesinin zeki sayılmaması",
-        "Hepsi ilginçti!",
-      ]}
-      dogruIndex={3}
-      aciklama="Harika! Bu bölümü tamamladın. Öğrendiklerini pekiştirmek için materyalleri incelemeyi unutma!"
-    />
   </>
 );
 
 export default function Bolum1() {
   return (
-    <BolumCerceve
+    <BolumSlider
       bolumNo={1}
       bolumBaslik="Yapay Zeka Nedir?"
       bolumAltBaslik="Keşif Yolculuğu"
@@ -507,23 +695,28 @@ export default function Bolum1() {
       renk="from-sky-600 to-blue-700"
       oncekiBolum={null}
       sonrakiBolum={2}
-      bolumler={[
-        { id: "b1-kazanimlar", baslik: "Kazanımlar", icon: "🎯", tur: "kazanim", icerik: SlaytKazanimlar, varsayilanAcik: true },
-        { id: "b1-zeka-nedir", baslik: "Zeka Nedir?", icon: "🧠", tur: "icerik", icerik: SlaytZekaNedir, varsayilanAcik: true },
-        { id: "b1-yz-nedir", baslik: "Yapay Zeka Nedir?", icon: "🤖", tur: "icerik", icerik: SlaytYapayZekaNedir, varsayilanAcik: true },
-        { id: "b1-onculer", baslik: "Öncüler", icon: "👨‍🔬", tur: "icerik", icerik: SlaytOnculer },
-        { id: "b1-video", baslik: "Video", icon: "🎬", tur: "video", icerik: SlaytVideo },
-        { id: "b1-tarihce", baslik: "YZ Tarihçesi", icon: "📅", tur: "icerik", icerik: SlaytTarihce },
-        { id: "b1-zaman-makinesi", baslik: "YZ Tarihçesi: Zaman Makinesi", icon: "⏳", tur: "etkinlik", icerik: SlaytZamanMakinesi },
-        { id: "b1-yz-turleri", baslik: "YZ Türleri", icon: "🔬", tur: "icerik", icerik: SlaytYzTurleri },
-        { id: "b1-etkinlik-kim-daha-zeki", baslik: "Etkinlik: Kim Daha Zeki?", icon: "🎮", tur: "etkinlik", icerik: SlaytEtkinlik1 },
-        { id: "b1-etkinlik-turing", baslik: "Etkinlik: Turing Testi", icon: "🧪", tur: "etkinlik", icerik: SlaytEtkinlik1b },
-        { id: "b1-etkinlik-dedektif", baslik: "Etkinlik: YZ Dedektifi", icon: "🔍", tur: "etkinlik", icerik: SlaytEtkinlik2 },
-        { id: "b1-etkinlik-karsilastir", baslik: "Etkinlik: Zeka Karşılaştır", icon: "⚖️", tur: "etkinlik", icerik: SlaytEtkinlik2b },
-        { id: "b1-etkinlik-zaman-cizelgesi", baslik: "Etkinlik: YZ Zaman Çizelgesi", icon: "🕰️", tur: "etkinlik", icerik: SlaytEtkinlik3 },
-        { id: "b1-oyun", baslik: "İnteraktif Oyun", icon: "🕹️", tur: "oyun", icerik: SlaytOyun },
-        { id: "b1-quiz", baslik: "Değerlendirme", icon: "📝", tur: "quiz", icerik: SlaytDegerlendirme },
-        { id: "b1-materyaller", baslik: "Materyaller", icon: "📥", tur: "materyal", icerik: SlaytMateryaller },
+      slaytlar={[
+        { baslik: "Hoş Geldin!", icon: "👋", icerik: SlaytHosGeldin },
+        { baslik: "Kazanımlar", icon: "🎯", icerik: SlaytKazanimlar },
+        { baslik: "Yolculuk Başlıyor", icon: "🧭", icerik: SlaytGecis1 },
+        { baslik: "Zeka Nedir?", icon: "🧠", icerik: SlaytZekaNedir },
+        { baslik: "Yapay Zeka Nedir?", icon: "🤖", icerik: SlaytYapayZekaNedir },
+        { baslik: "Öncüler", icon: "👨‍🔬", icerik: SlaytOnculer },
+        { baslik: "Video", icon: "🎬", icerik: SlaytVideo },
+        { baslik: "YZ Tarihçesi", icon: "📅", icerik: SlaytTarihce },
+        { baslik: "YZ Türleri", icon: "🔬", icerik: SlaytYzTurleri },
+        { baslik: "Sinir Ağı Lab", icon: "🧪", icerik: SlaytSinirAgiLab },
+        { baslik: "Uygulama Zamanı", icon: "🎯", icerik: SlaytGecis2 },
+        { baslik: "Etkinlik: Kim Daha Zeki?", icon: "🎮", icerik: SlaytEtkinlik1 },
+        { baslik: "Etkinlik: Turing Testi", icon: "🧪", icerik: SlaytEtkinlik1b },
+        { baslik: "Etkinlik: YZ Dedektifi", icon: "🎮", icerik: SlaytEtkinlik2 },
+        { baslik: "Etkinlik: Zeka Karşılaştır", icon: "⚖️", icerik: SlaytEtkinlik2b },
+        { baslik: "Etkinlik: YZ Zaman Çizelgesi", icon: "🎮", icerik: SlaytEtkinlik3 },
+        { baslik: "İnteraktif Oyun", icon: "🕹️", icerik: SlaytOyun },
+        { baslik: "Kendini Sına", icon: "🎓", icerik: SlaytGecis3 },
+        { baslik: "Değerlendirme", icon: "📝", icerik: SlaytDegerlendirme },
+        { baslik: "Bölüm Özeti", icon: "🏆", icerik: SlaytBolumOzeti },
+        { baslik: "Materyaller", icon: "📥", icerik: SlaytMateryaller },
       ]}
     />
   );

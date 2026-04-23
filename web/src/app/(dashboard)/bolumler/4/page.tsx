@@ -2,25 +2,26 @@ import type { Metadata } from "next";
 
 export const metadata: Metadata = {
   title: "Bölüm 4: Makineler Nasıl Öğrenir? | Yapay Zeka Macerası",
-  description:
-    "Makine öğrenimi temelleri: eğitim-test verileri, Teachable Machine ile kendi YZ modelini eğit.",
-  alternates: { canonical: "https://gencyz.com/bolumler/4" },
 };
 
 import Image from "next/image";
 import InteraktifQuiz from "@/components/InteraktifQuiz";
-import BolumCerceve from "@/components/BolumCerceve";
+import BolumSlider from "@/components/BolumSlider";
 import KararAgaci from "@/components/oyunlar/KararAgaci";
+import SinirAgiOyunAlani from "@/components/oyunlar/SinirAgiOyunAlani";
+import OgrenmeTurleri from "@/components/oyunlar/OgrenmeTurleri";
 import MeyveSiniflandirici from "@/components/etkinlikler/MeyveSiniflandirici";
 import ModelBasariRaporu from "@/components/etkinlikler/ModelBasariRaporu";
 import TeachableMachineRehber from "@/components/etkinlikler/TeachableMachineRehber";
 import MLForKidsRehber from "@/components/etkinlikler/MLForKidsRehber";
 import SiniflandirmaPratigi from "@/components/etkinlikler/SiniflandirmaPratigi";
 import OgrenimTurleriQuiz from "@/components/etkinlikler/OgrenimTurleriQuiz";
-import TekSecimSoru from "@/components/mikro/TekSecimSoru";
-import DogruYanlis from "@/components/mikro/DogruYanlis";
-import KategoriSiniflandirma from "@/components/mikro/KategoriSiniflandirma";
-import EslestirmeOyunu from "@/components/mikro/EslestirmeOyunu";
+import BilgiKutusu from "@/components/anlati/BilgiKutusu";
+import GecisSlayt from "@/components/anlati/GecisSlayt";
+import KonuBasligi from "@/components/anlati/KonuBasligi";
+import OzetKarti from "@/components/anlati/OzetKarti";
+import Hikaye from "@/components/anlati/Hikaye";
+import IcSayfa from "@/components/anlati/IcSayfa";
 
 const quizSorulari = [
   {
@@ -80,7 +81,155 @@ const quizSorulari = [
   },
 ];
 
-/* ---- Kazanımlar ---- */
+/* ---- Slayt 1: Kazanımlar ---- */
+/* ---- Hoş Geldin (yeni) ---- */
+const SlaytHosGeldin4 = (
+  <>
+    <div className="relative overflow-hidden rounded-3xl bg-gradient-to-br from-orange-500 via-amber-500 to-yellow-500 p-8 text-center text-white shadow-xl">
+      <div className="absolute inset-0 opacity-20">
+        <div className="absolute -top-20 -left-20 h-60 w-60 rounded-full bg-white blur-3xl" />
+      </div>
+      <div className="relative">
+        <span className="inline-block text-6xl float-1" aria-hidden="true">🤖</span>
+        <h3 className="mt-4 text-3xl font-extrabold md:text-4xl">Makineler Nasıl Öğrenir?</h3>
+        <p className="mx-auto mt-3 max-w-xl text-sm text-white/90 md:text-base">
+          Bu bölüm yapay zekanın kalbi! Makinelerin nasıl &quot;deneyimden&quot; öğrendiğini, kendi modelini eğitebildiğini göreceksin.
+        </p>
+      </div>
+    </div>
+
+    <Hikaye
+      karakter="Zeki"
+      karakterEmoji="🤖"
+      baslik="Bir bebek kediyi nasıl tanır?"
+      paragraflar={[
+        "Bir bebek için \"kedi\" tanımı yapamazsın. Onun yerine ona kedi gösterirsin: \"İşte kedi!\" Bir, iki, on, yüz... Sonunda bebek kediyi tanır oldu.",
+        "Makine öğrenmesi tam olarak bu. Önceden kural yazmak yerine örnek gösterir, makine örüntüyü kendi keşfeder.",
+        <span key="end">
+          Bu bölümde: 3 öğrenme türünü öğreneceksin (denetimli/denetimsiz/pekiştirmeli),
+          <strong> Sinir Ağı Oyun Alanı</strong>nda canlı bir ağı çalıştıracaksın ve
+          <strong> Öğrenme Türleri Sıralayıcı</strong>&apos;da gerçek problemleri kategorize edeceksin.
+        </span>,
+      ]}
+      renkGradient="from-orange-500 via-amber-500 to-yellow-500"
+    />
+  </>
+);
+
+/* ---- Geçiş: Teori → Sinir Ağı Lab ---- */
+const SlaytGecis4_1 = (
+  <GecisSlayt
+    emoji="🧠"
+    renkGradient="from-amber-500 to-orange-500"
+    oncekiBaslik="ML Türlerini Tanıdık"
+    oncekiOzet={
+      <p>
+        Geleneksel programlamayla makine öğrenmesinin farkını, 3 öğrenme türünü ve karar ağaçlarını gördün.
+      </p>
+    }
+    sonrakiBaslik="Şimdi: Canlı Bir Sinir Ağı"
+    sonrakiOzet={
+      <p>
+        Sıradaki <strong>Sinir Ağı Oyun Alanı</strong>&apos;nda kaydırıcılarla giriş değiştirip
+        ağın tahminini canlı izleyeceksin. Bu &quot;derin öğrenme&quot;nin en küçük örneği!
+      </p>
+    }
+  />
+);
+
+/* ---- Sinir Ağı Lab Slaytı ---- */
+const SlaytSinirAgiLab4 = (
+  <section className="space-y-6">
+    <KonuBasligi
+      emoji="🧠"
+      baslik="Sinir Ağı Oyun Alanı"
+      altBaslik="Beyin gibi öğrenen yapay ağlar"
+      renkGradient="from-violet-500 to-purple-600"
+    />
+
+    <p className="text-sm text-[var(--color-text-secondary)] md:text-base">
+      Yapay sinir ağları, beynimizdeki nöron bağlantılarından ilham alır. Aşağıdaki laboratuvarda
+      gerçek bir &quot;mini sinir ağı&quot; çalıştırıyorsun!
+    </p>
+
+    <div className="overflow-hidden rounded-2xl border border-[var(--color-border)]">
+      <Image
+        src="/images/illustrasyonlar/sinir-aglari.svg"
+        alt="Sinir ağı katmanları diyagramı"
+        width={1000}
+        height={600}
+        className="h-auto w-full"
+      />
+    </div>
+
+    <SinirAgiOyunAlani />
+
+    <BilgiKutusu tip="biliyor-muydun">
+      Bir insan beyninde yaklaşık <strong>86 milyar nöron</strong> ve trilyonlarca bağlantı var.
+      GPT-4&apos;te ise <strong>1,7 trilyon ağırlık</strong> var. Yine de insan beyninin verimliliği eşsiz!
+    </BilgiKutusu>
+  </section>
+);
+
+/* ---- Öğrenme Türleri Sıralayıcı Slaytı ---- */
+const SlaytOgrenmeTurleriLab = (
+  <section className="space-y-6">
+    <KonuBasligi
+      emoji="🎓"
+      baslik="Öğrenme Türleri Sıralayıcı"
+      altBaslik="Hangi problem hangi türle çözülür?"
+      renkGradient="from-sky-500 to-violet-500"
+    />
+
+    <p className="text-sm text-[var(--color-text-secondary)] md:text-base">
+      12 gerçek dünya problemi var. Her birini doğru öğrenme türüne yerleştir!
+      Sürükle-bırak veya butonlarla seç.
+    </p>
+
+    <OgrenmeTurleri />
+
+    <BilgiKutusu tip="ipucu">
+      <strong>İpucu:</strong> &quot;Önceden doğru cevabı biliyor muyuz?&quot; → <em>Denetimli</em>.
+      &quot;Sadece veri var, kategorize et&quot; → <em>Denetimsiz</em>.
+      &quot;Ödül-ceza ile öğreniyor mu?&quot; → <em>Pekiştirmeli</em>.
+    </BilgiKutusu>
+  </section>
+);
+
+/* ---- Bölüm 4 Özeti ---- */
+const SlaytBolumOzeti4 = (
+  <OzetKarti
+    baslik="Bölüm 4 Özeti"
+    renkGradient="from-orange-500 to-amber-600"
+    ogrenilenler={[
+      "Geleneksel programlama: insan kural yazar. ML: makine veriden öğrenir.",
+      "Denetimli öğrenme: etiketli veri (girdi + doğru cevap) ile eğitim.",
+      "Denetimsiz öğrenme: etiketsiz veride örüntü/grup keşfi.",
+      "Pekiştirmeli öğrenme: ödül-ceza ile deneme-yanılma.",
+      "Sınıflandırma vs Regresyon: sınıf tahmin et VS sayı tahmin et.",
+      "Karar ağacı: 'evet/hayır' soruları zinciri ile karar verir.",
+      "Sinir ağı: Giriş → Gizli katmanlar → Çıkış. Ağırlıklar eğitimle öğrenilir.",
+    ]}
+    anahtarKelimeler={[
+      "makine öğrenmesi",
+      "denetimli",
+      "denetimsiz",
+      "pekiştirmeli",
+      "sınıflandırma",
+      "regresyon",
+      "karar ağacı",
+      "sinir ağı",
+      "model eğitimi",
+      "doğruluk",
+    ]}
+    sorular={[
+      "Spotify'ın sana öneri yapması hangi öğrenme türü? Neden?",
+      "Yeni bir oyun öğrenen YZ asistanı hangi tür?",
+      "Karar ağacının sinir ağına göre artıları ne olabilir?",
+    ]}
+  />
+);
+
 const SlaytKazanimlar = (
   <>
     <section className="rounded-2xl border-l-4 border-orange-500 bg-orange-50 p-6 dark:bg-orange-900/20">
@@ -102,142 +251,161 @@ const SlaytKazanimlar = (
   </>
 );
 
-/* ---- Geleneksel Programlama vs Makine Öğrenimi ---- */
+/* ---- Slayt 2: Geleneksel Programlama vs Makine Öğrenimi ---- */
 const SlaytGelenekselVsML = (
-  <section className="space-y-4">
-    <h3 className="text-2xl font-extrabold">1. Geleneksel Programlama vs Makine Öğrenimi</h3>
-    <p>
-      Geleneksel programlamada bilgisayara her adımı tek tek söyleriz.
-      Makine öğreniminde ise bilgisayara örnekler veririz ve o kendisi öğrenir.
-    </p>
-    <div className="grid gap-4 md:grid-cols-2">
-      <div className="rounded-xl border-2 border-blue-300 bg-blue-50 p-5 dark:border-blue-700 dark:bg-blue-900/20">
-        <h4 className="mb-3 font-bold text-blue-700 dark:text-blue-400">Geleneksel Programlama</h4>
-        <div className="space-y-2 text-sm">
-          <div className="flex items-center gap-2 rounded-lg bg-white/60 p-2 dark:bg-white/5">
-            <span className="font-mono text-blue-600">Veri</span>
-            <span>+</span>
-            <span className="font-mono text-blue-600">Kurallar</span>
-            <span>=</span>
-            <span className="font-bold">Sonuç</span>
-          </div>
-          <p className="text-[var(--color-text-secondary)]">
-            Programcı kuralları yazar:<br/>
-            &quot;Sıcaklık &gt; 30 ise &apos;sıcak&apos; yaz&quot;
-          </p>
-        </div>
-      </div>
-      <div className="rounded-xl border-2 border-orange-300 bg-orange-50 p-5 dark:border-orange-700 dark:bg-orange-900/20">
-        <h4 className="mb-3 font-bold text-orange-700 dark:text-orange-400">Makine Öğrenimi</h4>
-        <div className="space-y-2 text-sm">
-          <div className="flex items-center gap-2 rounded-lg bg-white/60 p-2 dark:bg-white/5">
-            <span className="font-mono text-orange-600">Veri</span>
-            <span>+</span>
-            <span className="font-mono text-orange-600">Sonuçlar</span>
-            <span>=</span>
-            <span className="font-bold">Kurallar</span>
-          </div>
-          <p className="text-[var(--color-text-secondary)]">
-            Bilgisayar kuralları kendisi bulur:<br/>
-            1000 örnek &rarr; &quot;sıcak/soğuk&quot; kalıbını öğrenir
-          </p>
-        </div>
-      </div>
-    </div>
-    <div className="rounded-xl bg-orange-50 p-4 dark:bg-orange-900/20">
-      <p className="font-medium text-orange-800 dark:text-orange-300">
-        🤔 Düşün: Bir çocuğa &quot;kedi&quot;yi tanımlamayı nasıl öğretirsin?
-        Kuralları mı anlatırsın (&quot;4 bacaklı, tüylü, miyavlar&quot;)
-        yoksa çok sayıda kedi fotoğrafı mı gösterirsin?
-      </p>
-    </div>
-
-    <div className="rounded-xl bg-gradient-to-r from-amber-50 to-orange-50 p-4 dark:from-amber-900/20 dark:to-orange-900/20">
-      <p className="font-medium">🤔 <strong>Biliyor Muydunuz?</strong> Google&apos;ın YZ&apos;si bir günde 10 milyon kedili fotoğrafı analiz edebilir!</p>
-    </div>
-
-    <TekSecimSoru
-      soru="Makine öğreniminde bilgisayar ne yapar?"
-      secenekler={[
-        "Programcının yazdığı kuralları uygular",
-        "Verilerden kendi kurallarını öğrenir",
-        "İnternetten cevapları arar",
-        "Her seferinde rastgele tahmin yapar",
+  <section className="space-y-3">
+    <h3 className="text-xl font-extrabold">1. Geleneksel Programlama vs Makine Öğrenimi</h3>
+    <IcSayfa
+      renkGradient="from-blue-500 to-orange-500"
+      sayfalar={[
+        {
+          emoji: "🎯",
+          baslik: "İki Yaklaşım Karşılaştırması",
+          icerik: (
+            <div className="grid gap-3 md:grid-cols-2">
+              <div className="rounded-xl border-2 border-blue-300 bg-blue-50 p-4 dark:border-blue-700 dark:bg-blue-900/20">
+                <h4 className="mb-2 font-bold text-blue-700 dark:text-blue-400">Geleneksel</h4>
+                <div className="flex flex-wrap items-center gap-1.5 rounded-lg bg-white/60 p-2 text-xs dark:bg-white/5">
+                  <span className="font-mono text-blue-600">Veri</span>+
+                  <span className="font-mono text-blue-600">Kurallar</span>=
+                  <span className="font-bold">Sonuç</span>
+                </div>
+                <p className="mt-2 text-xs text-[var(--color-text-secondary)]">
+                  Programcı kuralları yazar:<br />
+                  &quot;Sıcaklık &gt; 30 ise &apos;sıcak&apos;&quot;
+                </p>
+              </div>
+              <div className="rounded-xl border-2 border-orange-300 bg-orange-50 p-4 dark:border-orange-700 dark:bg-orange-900/20">
+                <h4 className="mb-2 font-bold text-orange-700 dark:text-orange-400">Makine Öğrenimi</h4>
+                <div className="flex flex-wrap items-center gap-1.5 rounded-lg bg-white/60 p-2 text-xs dark:bg-white/5">
+                  <span className="font-mono text-orange-600">Veri</span>+
+                  <span className="font-mono text-orange-600">Sonuçlar</span>=
+                  <span className="font-bold">Kurallar</span>
+                </div>
+                <p className="mt-2 text-xs text-[var(--color-text-secondary)]">
+                  Bilgisayar kuralları kendisi bulur:<br />
+                  1000 örnek → &quot;sıcak/soğuk&quot; kalıbını öğrenir
+                </p>
+              </div>
+            </div>
+          ),
+        },
+        {
+          emoji: "🤔",
+          baslik: "Düşünelim",
+          icerik: (
+            <div className="space-y-3">
+              <BilgiKutusu tip="dusun">
+                Bir çocuğa &quot;kedi&quot;yi tanımlamayı nasıl öğretirsin? Kuralları mı anlatırsın
+                (&quot;4 bacaklı, tüylü, miyavlar&quot;) yoksa çok sayıda kedi fotoğrafı mı
+                gösterirsin?
+              </BilgiKutusu>
+              <BilgiKutusu tip="biliyor-muydun">
+                Google&apos;ın YZ&apos;si bir günde <strong>10 milyon kedili fotoğrafı</strong>
+                analiz edebilir!
+              </BilgiKutusu>
+            </div>
+          ),
+        },
       ]}
-      dogruIndex={1}
-      aciklama="Makine öğreniminde bilgisayar, verilerden örüntüleri keşfederek kendi kurallarını oluşturur. Programcı kuralları tek tek yazmaz."
     />
   </section>
 );
 
-/* ---- Makine Öğrenimi Türleri ---- */
+/* ---- Slayt 3: Makine Öğrenimi Türleri ---- */
 const SlaytOgrenimTurleri = (
-  <section className="space-y-4">
-    <h3 className="text-2xl font-extrabold">2. Makine Öğrenimi Türleri</h3>
-    <div className="space-y-4">
-      <div className="rounded-xl border-2 border-emerald-300 bg-emerald-50 p-5 dark:border-emerald-700 dark:bg-emerald-900/20">
-        <h4 className="mb-2 font-bold text-emerald-700 dark:text-emerald-400">🏷️ Gözetimli Öğrenme (Supervised Learning)</h4>
-        <p className="mb-2 text-sm">Her veri için doğru cevap (etiket) verilir. Model, girdi-çıktı ilişkisini öğrenir.</p>
-        <div className="rounded-lg bg-white/60 p-3 text-sm dark:bg-white/5">
-          <p className="font-medium">Örnekler:</p>
-          <ul className="ml-4 list-disc text-[var(--color-text-secondary)]">
-            <li>E-posta: &quot;spam&quot; veya &quot;spam değil&quot; sınıflandırması</li>
-            <li>Görüntü: &quot;kedi&quot; veya &quot;köpek&quot; tanıma</li>
-            <li>Ev fiyatı tahmini (m2, oda sayısı &rarr; fiyat)</li>
-          </ul>
-        </div>
-        <p className="mt-2 rounded bg-emerald-200 px-2 py-1 text-center text-xs font-bold dark:bg-emerald-800">EN YAYGIN TÜR</p>
-      </div>
-
-      <div className="rounded-xl border-2 border-blue-300 bg-blue-50 p-5 dark:border-blue-700 dark:bg-blue-900/20">
-        <h4 className="mb-2 font-bold text-blue-700 dark:text-blue-400">🔍 Gözetimsiz Öğrenme (Unsupervised Learning)</h4>
-        <p className="mb-2 text-sm">Etiket yoktur. Model verideki gizli örüntüleri ve grupları kendisi keşfeder.</p>
-        <div className="rounded-lg bg-white/60 p-3 text-sm dark:bg-white/5">
-          <p className="font-medium">Örnekler:</p>
-          <ul className="ml-4 list-disc text-[var(--color-text-secondary)]">
-            <li>Müşteri segmentasyonu (benzer müşterileri gruplama)</li>
-            <li>Haber konularını otomatik gruplama</li>
-            <li>Anormal davranış tespiti</li>
-          </ul>
-        </div>
-      </div>
-
-      <div className="rounded-xl border-2 border-violet-300 bg-violet-50 p-5 dark:border-violet-700 dark:bg-violet-900/20">
-        <h4 className="mb-2 font-bold text-violet-700 dark:text-violet-400">🎮 Pekiştirmeli Öğrenme (Reinforcement Learning)</h4>
-        <p className="mb-2 text-sm">Model deneme-yanılma ile öğrenir. Doğru davranışlar ödül, yanlış davranışlar ceza alır.</p>
-        <div className="rounded-lg bg-white/60 p-3 text-sm dark:bg-white/5">
-          <p className="font-medium">Örnekler:</p>
-          <ul className="ml-4 list-disc text-[var(--color-text-secondary)]">
-            <li>AlphaGo - Go oyununu öğrenen YZ</li>
-            <li>Robotların yürümesini öğrenmesi</li>
-            <li>Otonom araçların sürüşü öğrenmesi</li>
-          </ul>
-        </div>
-      </div>
-    </div>
-
-    <div className="mt-4 flex flex-col items-center rounded-xl border border-[var(--color-border)] bg-[var(--color-bg)] p-4">
-      <Image src="/images/bolumler/neural-network.svg" alt="Yapay sinir agi diyagrami" width={500} height={400} className="rounded-lg object-cover shadow-md" />
-      <p className="mt-2 text-center text-sm text-[var(--color-text-secondary)]">Yapay sinir agi: Noronlarin katmanlar halinde baglantisi</p>
-      <p className="text-xs text-[var(--color-text-secondary)] italic">Gorsel: Cburnett, CC BY-SA 3.0</p>
-    </div>
-
-    <KategoriSiniflandirma
-      baslik="Öğrenme türlerini doğru kategoriye yerleştir"
-      kategoriler={["Gözetimli Öğrenme", "Gözetimsiz Öğrenme", "Pekiştirmeli Öğrenme"]}
-      ogeler={[
-        { ad: "Spam e-posta filtreleme", kategori: "Gözetimli Öğrenme" },
-        { ad: "Müşterileri gruplara ayırma", kategori: "Gözetimsiz Öğrenme" },
-        { ad: "Robot yürüme öğrenimi", kategori: "Pekiştirmeli Öğrenme" },
-        { ad: "Kedi/köpek fotoğraf tanıma", kategori: "Gözetimli Öğrenme" },
-        { ad: "Go oyunu oynamayı öğrenme", kategori: "Pekiştirmeli Öğrenme" },
-        { ad: "Haber konularını gruplama", kategori: "Gözetimsiz Öğrenme" },
+  <section className="space-y-3">
+    <h3 className="text-xl font-extrabold">2. Makine Öğrenimi Türleri</h3>
+    <IcSayfa
+      renkGradient="from-emerald-500 via-blue-500 to-violet-500"
+      sayfalar={[
+        {
+          emoji: "🏷️",
+          baslik: "Gözetimli Öğrenme (Supervised)",
+          icerik: (
+            <div className="rounded-xl border-2 border-emerald-300 bg-emerald-50 p-4 dark:border-emerald-700 dark:bg-emerald-900/20">
+              <p className="mb-2 text-sm">
+                Her veri için doğru cevap (etiket) verilir. Model, girdi-çıktı ilişkisini öğrenir.
+              </p>
+              <div className="rounded-lg bg-white/60 p-3 text-sm dark:bg-white/5">
+                <p className="font-medium">Örnekler:</p>
+                <ul className="ml-4 list-disc text-[var(--color-text-secondary)]">
+                  <li>E-posta: &quot;spam&quot; veya &quot;spam değil&quot; sınıflandırması</li>
+                  <li>Görüntü: &quot;kedi&quot; veya &quot;köpek&quot; tanıma</li>
+                  <li>Ev fiyatı tahmini (m2, oda sayısı → fiyat)</li>
+                </ul>
+              </div>
+              <p className="mt-2 rounded bg-emerald-200 px-2 py-1 text-center text-xs font-bold dark:bg-emerald-800">
+                EN YAYGIN TÜR
+              </p>
+            </div>
+          ),
+        },
+        {
+          emoji: "🔍",
+          baslik: "Gözetimsiz Öğrenme (Unsupervised)",
+          icerik: (
+            <div className="rounded-xl border-2 border-blue-300 bg-blue-50 p-4 dark:border-blue-700 dark:bg-blue-900/20">
+              <p className="mb-2 text-sm">
+                Etiket yoktur. Model verideki gizli örüntüleri ve grupları kendisi keşfeder.
+              </p>
+              <div className="rounded-lg bg-white/60 p-3 text-sm dark:bg-white/5">
+                <p className="font-medium">Örnekler:</p>
+                <ul className="ml-4 list-disc text-[var(--color-text-secondary)]">
+                  <li>Müşteri segmentasyonu (benzer müşterileri gruplama)</li>
+                  <li>Haber konularını otomatik gruplama</li>
+                  <li>Anormal davranış tespiti</li>
+                </ul>
+              </div>
+            </div>
+          ),
+        },
+        {
+          emoji: "🎮",
+          baslik: "Pekiştirmeli Öğrenme (Reinforcement)",
+          icerik: (
+            <div className="rounded-xl border-2 border-violet-300 bg-violet-50 p-4 dark:border-violet-700 dark:bg-violet-900/20">
+              <p className="mb-2 text-sm">
+                Model deneme-yanılma ile öğrenir. Doğru davranışlar ödül, yanlış davranışlar ceza alır.
+              </p>
+              <div className="rounded-lg bg-white/60 p-3 text-sm dark:bg-white/5">
+                <p className="font-medium">Örnekler:</p>
+                <ul className="ml-4 list-disc text-[var(--color-text-secondary)]">
+                  <li>AlphaGo - Go oyununu öğrenen YZ</li>
+                  <li>Robotların yürümesini öğrenmesi</li>
+                  <li>Otonom araçların sürüşü öğrenmesi</li>
+                </ul>
+              </div>
+            </div>
+          ),
+        },
+        {
+          emoji: "🧠",
+          baslik: "Sinir Ağları — Büyük Resim",
+          icerik: (
+            <div className="flex flex-col items-center rounded-xl border border-[var(--color-border)] bg-[var(--color-bg)] p-3">
+              <Image
+                src="/images/bolumler/neural-network.svg"
+                alt="Yapay sinir agi diyagrami"
+                width={500}
+                height={360}
+                className="rounded-lg object-cover shadow-md"
+              />
+              <p className="mt-2 text-center text-sm text-[var(--color-text-secondary)]">
+                Yapay sinir ağı: Nöronların katmanlar halinde bağlantısı
+              </p>
+              <p className="text-xs text-[var(--color-text-secondary)] italic">
+                Görsel: Cburnett, CC BY-SA 3.0
+              </p>
+            </div>
+          ),
+        },
       ]}
     />
   </section>
 );
 
-/* ---- Sınıflandırma ve Tahmin ---- */
+/* ---- Slayt 4: Sınıflandırma ve Tahmin ---- */
 const SlaytSiniflandirma = (
   <section className="space-y-4">
     <h3 className="text-2xl font-extrabold">3. Sınıflandırma ve Tahmin</h3>
@@ -276,149 +444,147 @@ const SlaytSiniflandirma = (
     <div className="rounded-xl border-l-4 border-sky-500 bg-sky-50 p-4 dark:bg-sky-900/20">
       <p className="font-medium">💡 <strong>İpucu:</strong> Sınıflandırma &quot;hangi kutuya?&quot; sorusunu, tahmin ise &quot;ne kadar?&quot; sorusunu cevaplar. Bunu hatırla!</p>
     </div>
-
-    <EslestirmeOyunu
-      baslik="Görevi doğru makine öğrenimi türüyle eşleştir"
-      ciftler={[
-        { sol: "Bu e-posta spam mı?", sag: "Sınıflandırma" },
-        { sol: "Yarın hava kaç derece olacak?", sag: "Tahmin (Regresyon)" },
-        { sol: "Bu fotoğraftaki hayvan nedir?", sag: "Sınıflandırma" },
-        { sol: "Bu evin fiyatı ne kadar?", sag: "Tahmin (Regresyon)" },
-      ]}
-    />
   </section>
 );
 
-/* ---- Karar Ağacı ile Sınıflandırma ---- */
+/* ---- Slayt 5: Karar Ağacı ile Sınıflandırma ---- */
 const SlaytKararAgaci = (
-  <section className="space-y-4">
-    <h3 className="text-2xl font-extrabold">4. Karar Ağacı ile Sınıflandırma</h3>
-    <p>
-      Karar ağacı, en anlaşılır makine öğrenimi algoritmalarından biridir.
-      Her düğümde bir soru sorulur ve cevaba göre dallanılır:
-    </p>
-    <div className="rounded-xl border border-[var(--color-border)] bg-[var(--color-bg-secondary)] p-6 text-center">
-      <div className="inline-block text-left text-sm">
-        <div className="mb-4 rounded-lg bg-orange-500 px-4 py-2 text-center font-bold text-white">Meyve hangisi?</div>
-        <div className="ml-4 space-y-3">
-          <div>
-            <span className="font-medium">Rengi kırmızı mı?</span>
-            <div className="ml-6 mt-1 space-y-2">
-              <div className="flex items-center gap-2">
-                <span className="text-emerald-600 font-bold">Evet &rarr;</span>
-                <span>Yuvarlak mı?</span>
+  <section className="space-y-3">
+    <h3 className="text-xl font-extrabold">4. Karar Ağacı ile Sınıflandırma</h3>
+    <IcSayfa
+      renkGradient="from-orange-500 to-amber-500"
+      sayfalar={[
+        {
+          emoji: "🌳",
+          baslik: "Ne işe yarar?",
+          icerik: (
+            <p className="text-sm">
+              Karar ağacı, <strong>en anlaşılır ML algoritmalarından biri</strong>. Her düğümde
+              bir soru sorulur, cevaba göre dallanılır. Sonunda yaprakta bir karar/sınıf vardır.
+              İnsan gibi düşünür — bu yüzden &quot;açıklanabilir YZ&quot;.
+            </p>
+          ),
+        },
+        {
+          emoji: "🍎",
+          baslik: "Örnek: Meyve Tanıma",
+          icerik: (
+            <div className="rounded-xl border border-[var(--color-border)] bg-[var(--color-bg-secondary)] p-4 text-sm">
+              <div className="mb-3 inline-block rounded-lg bg-orange-500 px-3 py-1.5 font-bold text-white">
+                Meyve hangisi?
               </div>
-              <div className="ml-10 space-y-1">
-                <div className="flex items-center gap-2">
-                  <span className="text-emerald-600 font-bold">Evet &rarr;</span>
-                  <span className="rounded bg-red-100 px-2 py-0.5 font-bold text-red-700 dark:bg-red-900/30 dark:text-red-400">🍎 Elma</span>
-                </div>
-                <div className="flex items-center gap-2">
-                  <span className="text-rose-600 font-bold">Hayır &rarr;</span>
-                  <span className="rounded bg-red-100 px-2 py-0.5 font-bold text-red-700 dark:bg-red-900/30 dark:text-red-400">🍓 Çilek</span>
-                </div>
-              </div>
-              <div className="flex items-center gap-2">
-                <span className="text-rose-600 font-bold">Hayır &rarr;</span>
-                <span>Sarı mı?</span>
-              </div>
-              <div className="ml-10 space-y-1">
-                <div className="flex items-center gap-2">
-                  <span className="text-emerald-600 font-bold">Evet &rarr;</span>
-                  <span className="rounded bg-yellow-100 px-2 py-0.5 font-bold text-yellow-700 dark:bg-yellow-900/30 dark:text-yellow-400">🍌 Muz</span>
-                </div>
-                <div className="flex items-center gap-2">
-                  <span className="text-rose-600 font-bold">Hayır &rarr;</span>
-                  <span className="rounded bg-orange-100 px-2 py-0.5 font-bold text-orange-700 dark:bg-orange-900/30 dark:text-orange-400">🍊 Portakal</span>
+              <div className="ml-3 space-y-2">
+                <span className="font-medium">Rengi kırmızı mı?</span>
+                <div className="ml-4 space-y-1.5">
+                  <div>
+                    <span className="font-bold text-emerald-600">Evet →</span> Yuvarlak mı?
+                    <div className="ml-6 mt-1 space-y-0.5">
+                      <div><span className="font-bold text-emerald-600">Evet →</span> <span className="rounded bg-red-100 px-1.5 py-0.5 text-xs font-bold text-red-700 dark:bg-red-900/30 dark:text-red-400">🍎 Elma</span></div>
+                      <div><span className="font-bold text-rose-600">Hayır →</span> <span className="rounded bg-red-100 px-1.5 py-0.5 text-xs font-bold text-red-700 dark:bg-red-900/30 dark:text-red-400">🍓 Çilek</span></div>
+                    </div>
+                  </div>
+                  <div>
+                    <span className="font-bold text-rose-600">Hayır →</span> Sarı mı?
+                    <div className="ml-6 mt-1 space-y-0.5">
+                      <div><span className="font-bold text-emerald-600">Evet →</span> <span className="rounded bg-yellow-100 px-1.5 py-0.5 text-xs font-bold text-yellow-700 dark:bg-yellow-900/30 dark:text-yellow-400">🍌 Muz</span></div>
+                      <div><span className="font-bold text-rose-600">Hayır →</span> <span className="rounded bg-orange-100 px-1.5 py-0.5 text-xs font-bold text-orange-700 dark:bg-orange-900/30 dark:text-orange-400">🍊 Portakal</span></div>
+                    </div>
+                  </div>
                 </div>
               </div>
             </div>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <div className="rounded-xl border-l-4 border-amber-500 bg-amber-50 p-4 dark:bg-amber-900/20">
-      <p className="font-medium">⚠️ <strong>Dikkat:</strong> Karar ağacı çok derinleşirse &quot;aşırı uyum&quot; (overfitting) problemi oluşabilir. Ağacın basit ama etkili olması önemlidir!</p>
-    </div>
-
-    <DogruYanlis
-      ifade="Karar ağacı ne kadar derin olursa model o kadar başarılı olur."
-      dogruMu={false}
-      aciklama="Hayır! Çok derin karar ağaçları 'aşırı uyum' (overfitting) yapar. Eğitim verisini ezberler ama yeni verilerde başarısız olur. Dengeyi bulmak önemlidir."
+          ),
+        },
+        {
+          emoji: "⚠️",
+          baslik: "Dikkat: Aşırı Uyum",
+          icerik: (
+            <BilgiKutusu tip="dikkat">
+              Karar ağacı çok derinleşirse <strong>aşırı uyum (overfitting)</strong> problemi
+              oluşabilir. Model eğitim örneklerini ezberler, yeni verilerde hata yapar. Ağacın
+              <em> basit ama etkili</em> olması önemlidir!
+            </BilgiKutusu>
+          ),
+        },
+      ]}
     />
   </section>
 );
 
-/* ---- Teachable Machine ile Model Eğitimi ---- */
+/* ---- Slayt 6: Teachable Machine ile Model Eğitimi ---- */
 const SlaytTeachableMachine = (
-  <>
-    <section className="space-y-4">
-      <h3 className="text-2xl font-extrabold">5. Teachable Machine ile Model Eğitimi</h3>
-      <p>
-        Google Teachable Machine, kodlama bilmeden kendi YZ modelinizi eğitmenizi
-        sağlar. Üç türde model eğitebilirsiniz:
-      </p>
-      <div className="grid gap-4 md:grid-cols-3">
-        {[
-          { tur: "Görüntü", icon: "📸", aciklama: "Kamera veya resim yükleme ile görüntü sınıflandırma modeli" },
-          { tur: "Ses", icon: "🎙️", aciklama: "Mikrofon ile farklı sesleri tanıyabilen model" },
-          { tur: "Poz", icon: "🤸", aciklama: "Vücut pozlarını tanıma ve sınıflandırma modeli" },
-        ].map((m) => (
-          <div key={m.tur} className="rounded-xl border border-orange-200 bg-orange-50 p-5 text-center dark:border-orange-800 dark:bg-orange-900/20">
-            <span className="text-4xl">{m.icon}</span>
-            <h4 className="mt-2 font-bold">{m.tur} Modeli</h4>
-            <p className="mt-1 text-xs text-[var(--color-text-secondary)]">{m.aciklama}</p>
-          </div>
-        ))}
-      </div>
-      <div className="space-y-3">
-        <h4 className="font-bold">Adım Adım: Görüntü Sınıflandırma Modeli</h4>
-        {[
-          { adim: 1, baslik: "Sınıf Oluştur", aciklama: "En az 2 sınıf oluşturun (örnek: 'Kedi' ve 'Köpek')" },
-          { adim: 2, baslik: "Örnek Topla", aciklama: "Her sınıf için en az 50 fotoğraf çekin veya yükleyin" },
-          { adim: 3, baslik: "Modeli Eğit", aciklama: "'Train Model' butonuna basın. Model örneklerden öğrenir" },
-          { adim: 4, baslik: "Test Et", aciklama: "Kameranızı açın veya yeni fotoğraf yükleyin. Model doğru mu tahmin ediyor?" },
-          { adim: 5, baslik: "Geliştir", aciklama: "Başarı düşükse daha fazla örnek ekleyin, farklı açılardan fotoğraflar çekin" },
-        ].map((a) => (
-          <div key={a.adim} className="flex items-start gap-4">
-            <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-orange-600 font-bold text-white">{a.adim}</span>
-            <div>
-              <h4 className="font-bold">{a.baslik}</h4>
-              <p className="text-sm text-[var(--color-text-secondary)]">{a.aciklama}</p>
+  <section className="space-y-3">
+    <h3 className="text-xl font-extrabold">5. Teachable Machine ile Model Eğitimi</h3>
+    <IcSayfa
+      renkGradient="from-orange-500 to-amber-500"
+      sayfalar={[
+        {
+          emoji: "🧪",
+          baslik: "3 Model Türü",
+          icerik: (
+            <div className="space-y-3">
+              <p className="text-sm">
+                Google Teachable Machine, kodlama bilmeden kendi YZ modelini eğitmeni sağlar.
+                Üç türde model eğitebilirsin:
+              </p>
+              <div className="grid gap-2 sm:grid-cols-3">
+                {[
+                  { tur: "Görüntü", icon: "📸", aciklama: "Kamera/resim sınıflandırma" },
+                  { tur: "Ses", icon: "🎙️", aciklama: "Mikrofonla ses tanıma" },
+                  { tur: "Poz", icon: "🤸", aciklama: "Vücut pozu sınıflandırma" },
+                ].map((m) => (
+                  <div key={m.tur} className="rounded-xl border border-orange-200 bg-orange-50 p-3 text-center dark:border-orange-800 dark:bg-orange-900/20">
+                    <span className="text-3xl">{m.icon}</span>
+                    <h4 className="mt-1 text-sm font-bold">{m.tur}</h4>
+                    <p className="text-[10px] text-[var(--color-text-secondary)]">{m.aciklama}</p>
+                  </div>
+                ))}
+              </div>
             </div>
-          </div>
-        ))}
-      </div>
-      <div className="rounded-lg bg-sky-50 p-3 text-sm dark:bg-sky-900/20">
-        <p className="font-medium text-sky-700 dark:text-sky-300">
-          🔗 teachablemachine.withgoogle.com adresinden hemen başlayabilirsiniz!
-        </p>
-      </div>
-    </section>
-
-    <div className="rounded-xl border-2 border-amber-300 bg-amber-50 p-5 dark:border-amber-700 dark:bg-amber-900/20">
-      <h3 className="mb-2 font-bold text-amber-700 dark:text-amber-400">💡 Biliyor Muydunuz?</h3>
-      <p className="text-sm text-amber-800 dark:text-amber-300">
-        GPT-4 modeli yaklaşık 1 trilyon parametreye sahiptir ve internetin büyük bir
-        bölümündeki metin verileriyle eğitilmiştir. Eğitim süreci aylarca sürmüş ve
-        milyonlarca dolar maliyeti olmuştur. Ama siz Teachable Machine ile dakikalar
-        içinde kendi modelinizi eğitebilirsiniz!
-      </p>
-    </div>
-
-    <TekSecimSoru
-      soru="Teachable Machine'de modelinizin başarısını artırmak için ne yapmalısınız?"
-      secenekler={[
-        "Daha az örnek kullanmak",
-        "Farklı açılardan daha fazla fotoğraf eklemek",
-        "Sadece tek bir fotoğraf yüklemek",
-        "Modeli eğitmeden doğrudan test etmek",
+          ),
+        },
+        {
+          emoji: "🛠️",
+          baslik: "5 Adımda Model Eğitimi",
+          icerik: (
+            <div className="space-y-2">
+              {[
+                { adim: 1, baslik: "Sınıf Oluştur", aciklama: "En az 2 sınıf (örn. 'Kedi' ve 'Köpek')" },
+                { adim: 2, baslik: "Örnek Topla", aciklama: "Her sınıf için en az 50 fotoğraf" },
+                { adim: 3, baslik: "Modeli Eğit", aciklama: "'Train Model' butonu → model öğrenir" },
+                { adim: 4, baslik: "Test Et", aciklama: "Kamera aç, yeni fotoğraf yükle, kontrol et" },
+                { adim: 5, baslik: "Geliştir", aciklama: "Başarı düşükse → daha çok örnek, farklı açı" },
+              ].map((a) => (
+                <div key={a.adim} className="flex items-start gap-2">
+                  <span className="flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-orange-600 text-xs font-bold text-white">
+                    {a.adim}
+                  </span>
+                  <div>
+                    <h4 className="text-sm font-bold">{a.baslik}</h4>
+                    <p className="text-xs text-[var(--color-text-secondary)]">{a.aciklama}</p>
+                  </div>
+                </div>
+              ))}
+              <div className="mt-2 rounded-lg bg-sky-50 p-2 text-xs font-medium text-sky-700 dark:bg-sky-900/20 dark:text-sky-300">
+                🔗 teachablemachine.withgoogle.com
+              </div>
+            </div>
+          ),
+        },
+        {
+          emoji: "💡",
+          baslik: "Biliyor muydun?",
+          icerik: (
+            <BilgiKutusu tip="biliyor-muydun">
+              GPT-4 modeli yaklaşık <strong>1 trilyon parametreye</strong> sahiptir. Eğitim süreci
+              aylarca sürmüş, milyonlarca dolar maliyeti olmuştur. Ama sen Teachable Machine ile
+              <strong> dakikalar içinde</strong> kendi modelini eğitebilirsin!
+            </BilgiKutusu>
+          ),
+        },
       ]}
-      dogruIndex={1}
-      aciklama="Farklı açılardan, farklı ışık koşullarında daha fazla örnek eklemek modelin daha iyi öğrenmesini sağlar."
     />
-  </>
+  </section>
 );
 
 /* ---- Etkinlik 1: Meyve Sınıflandırıcı ---- */
@@ -509,7 +675,7 @@ const SlaytEtkinlik4 = (
   </>
 );
 
-/* ---- İnteraktif Oyun ---- */
+/* ---- Slayt 5: İnteraktif Oyun ---- */
 const SlaytOyun = (
   <section className="space-y-6">
     <h2 className="text-2xl font-bold">🎮 Karar Ağacı Oluşturucu</h2>
@@ -520,14 +686,14 @@ const SlaytOyun = (
   </section>
 );
 
-/* ---- Değerlendirme ---- */
+/* ---- Slayt 6: Değerlendirme ---- */
 const SlaytDegerlendirme = (
   <>
-    <InteraktifQuiz sorular={quizSorulari} bolumNo={4} />
+    <InteraktifQuiz sorular={quizSorulari} />
   </>
 );
 
-/* ---- İndirilebilir Materyaller ---- */
+/* ---- Slayt 7: İndirilebilir Materyaller ---- */
 const SlaytMateryaller = (
   <>
     <section className="rounded-2xl border border-[var(--color-border)] bg-[var(--color-bg-secondary)] p-6">
@@ -558,7 +724,7 @@ const SlaytMateryaller = (
 
 export default function Bolum4() {
   return (
-    <BolumCerceve
+    <BolumSlider
       bolumNo={4}
       bolumBaslik="Makineler Nasıl Öğrenir?"
       bolumAltBaslik="Makine Öğrenimi Temelleri"
@@ -567,20 +733,25 @@ export default function Bolum4() {
       renk="from-orange-500 to-amber-600"
       oncekiBolum={3}
       sonrakiBolum={5}
-      bolumler={[
-        { id: "b4-kazanimlar", baslik: "Kazanımlar", icon: "🎯", tur: "kazanim", icerik: SlaytKazanimlar, varsayilanAcik: true },
-        { id: "b4-geleneksel-vs-ml", baslik: "Geleneksel vs ML", icon: "📖", tur: "icerik", icerik: SlaytGelenekselVsML, varsayilanAcik: true },
-        { id: "b4-ogrenme-turleri", baslik: "Öğrenme Türleri", icon: "🧠", tur: "icerik", icerik: SlaytOgrenimTurleri, varsayilanAcik: true },
-        { id: "b4-siniflandirma-tahmin", baslik: "Sınıflandırma ve Tahmin", icon: "📊", tur: "icerik", icerik: SlaytSiniflandirma },
-        { id: "b4-karar-agaci", baslik: "Karar Ağacı", icon: "🌳", tur: "icerik", icerik: SlaytKararAgaci },
-        { id: "b4-teachable-machine", baslik: "Teachable Machine", icon: "🤖", tur: "icerik", icerik: SlaytTeachableMachine },
-        { id: "b4-etkinlik-meyve-siniflandirici", baslik: "Etkinlik: Meyve Sınıflandırıcı", icon: "🎮", tur: "etkinlik", icerik: SlaytEtkinlik1 },
-        { id: "b4-etkinlik-teachable-machine", baslik: "Etkinlik: Teachable Machine", icon: "🎮", tur: "etkinlik", icerik: SlaytEtkinlik2 },
-        { id: "b4-etkinlik-pictoblox", baslik: "Etkinlik: PictoBlox", icon: "🎮", tur: "etkinlik", icerik: SlaytEtkinlik3 },
-        { id: "b4-etkinlik-model-basari", baslik: "Etkinlik: Model Başarı Raporu", icon: "🎮", tur: "etkinlik", icerik: SlaytEtkinlik4 },
-        { id: "b4-oyun", baslik: "İnteraktif Oyun", icon: "🕹️", tur: "oyun", icerik: SlaytOyun },
-        { id: "b4-quiz", baslik: "Değerlendirme", icon: "📝", tur: "quiz", icerik: SlaytDegerlendirme },
-        { id: "b4-materyaller", baslik: "Materyaller", icon: "📥", tur: "materyal", icerik: SlaytMateryaller },
+      slaytlar={[
+        { baslik: "Hoş Geldin!", icon: "👋", icerik: SlaytHosGeldin4 },
+        { baslik: "Kazanımlar", icon: "🎯", icerik: SlaytKazanimlar },
+        { baslik: "Geleneksel vs ML", icon: "📖", icerik: SlaytGelenekselVsML },
+        { baslik: "Öğrenme Türleri", icon: "🧠", icerik: SlaytOgrenimTurleri },
+        { baslik: "Öğrenme Türleri Lab", icon: "🎓", icerik: SlaytOgrenmeTurleriLab },
+        { baslik: "Sınıflandırma ve Tahmin", icon: "📊", icerik: SlaytSiniflandirma },
+        { baslik: "Karar Ağacı", icon: "🌳", icerik: SlaytKararAgaci },
+        { baslik: "Sinir Ağına Geçiş", icon: "🧭", icerik: SlaytGecis4_1 },
+        { baslik: "Sinir Ağı Lab", icon: "🧪", icerik: SlaytSinirAgiLab4 },
+        { baslik: "Teachable Machine", icon: "🤖", icerik: SlaytTeachableMachine },
+        { baslik: "Etkinlik: Meyve Sınıflandırıcı", icon: "🎮", icerik: SlaytEtkinlik1 },
+        { baslik: "Etkinlik: Teachable Machine", icon: "🎮", icerik: SlaytEtkinlik2 },
+        { baslik: "Etkinlik: PictoBlox", icon: "🎮", icerik: SlaytEtkinlik3 },
+        { baslik: "Etkinlik: Model Başarı Raporu", icon: "🎮", icerik: SlaytEtkinlik4 },
+        { baslik: "İnteraktif Oyun", icon: "🕹️", icerik: SlaytOyun },
+        { baslik: "Değerlendirme", icon: "📝", icerik: SlaytDegerlendirme },
+        { baslik: "Bölüm Özeti", icon: "🏆", icerik: SlaytBolumOzeti4 },
+        { baslik: "Materyaller", icon: "📥", icerik: SlaytMateryaller },
       ]}
     />
   );

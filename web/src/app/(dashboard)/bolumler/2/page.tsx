@@ -2,14 +2,11 @@ import type { Metadata } from "next";
 
 export const metadata: Metadata = {
   title: "Bölüm 2: Günlük Hayatta YZ | Yapay Zeka Macerası",
-  description:
-    "Yapay zeka günlük hayatımızda nerede kullanılıyor? Akıllı asistanlar, öneri sistemleri ve daha fazlasını keşfet.",
-  alternates: { canonical: "https://gencyz.com/bolumler/2" },
 };
 
 import Image from "next/image";
 import InteraktifQuiz from "@/components/InteraktifQuiz";
-import BolumCerceve from "@/components/BolumCerceve";
+import BolumSlider from "@/components/BolumSlider";
 import YzEslestirme from "@/components/oyunlar/YzEslestirme";
 import YzHaritasi from "@/components/etkinlikler/YzHaritasi";
 import YzVeyaDegil from "@/components/etkinlikler/YzVeyaDegil";
@@ -17,10 +14,11 @@ import SesliAsistanTesti from "@/components/etkinlikler/SesliAsistanTesti";
 import YzRoportaj from "@/components/etkinlikler/YzRoportaj";
 import AkilliEvSimulator from "@/components/etkinlikler/AkilliEvSimulator";
 import OneriSistemiSim from "@/components/etkinlikler/OneriSistemiSim";
-import TekSecimSoru from "@/components/mikro/TekSecimSoru";
-import DogruYanlis from "@/components/mikro/DogruYanlis";
-import EslestirmeOyunu from "@/components/mikro/EslestirmeOyunu";
-import KategoriSiniflandirma from "@/components/mikro/KategoriSiniflandirma";
+import BilgiKutusu from "@/components/anlati/BilgiKutusu";
+import GecisSlayt from "@/components/anlati/GecisSlayt";
+import OzetKarti from "@/components/anlati/OzetKarti";
+import Hikaye from "@/components/anlati/Hikaye";
+import IcSayfa from "@/components/anlati/IcSayfa";
 
 const quizSorulari = [
   {
@@ -175,6 +173,96 @@ const telefonYzOrnekleri = [
   { ozellik: "Pil kullanım optimizasyonu", teknoloji: "Makine öğrenimi", icon: "🔋" },
 ];
 
+/* ---- Hoş Geldin (yeni) ---- */
+const SlaytHosGeldin2 = (
+  <>
+    <div className="relative overflow-hidden rounded-3xl bg-gradient-to-br from-emerald-500 via-teal-500 to-cyan-500 p-8 text-center text-white shadow-xl">
+      <div className="absolute inset-0 opacity-20">
+        <div className="absolute -top-20 -right-20 h-60 w-60 rounded-full bg-white blur-3xl" />
+      </div>
+      <div className="relative">
+        <span className="inline-block text-6xl float-3" aria-hidden="true">📱</span>
+        <h3 className="mt-4 text-3xl font-extrabold md:text-4xl">YZ Aslında Cebinde</h3>
+        <p className="mx-auto mt-3 max-w-xl text-sm text-white/90 md:text-base">
+          Bu sabah uyandığından beri en az 10 farklı YZ ile etkileşime geçtin. Bu bölümde hepsini fark edeceksin!
+        </p>
+      </div>
+    </div>
+
+    <Hikaye
+      karakter="Zeki"
+      karakterEmoji="🤖"
+      baslik="Sıradan bir gün..."
+      paragraflar={[
+        "Sabah alarm çaldı (alarm dijital ama YZ değil). Telefonuna bakıp bildirimleri gördün — Instagram sana en ilgi çekici 5 paylaşımı seçti. Bu YZ.",
+        "Spotify çaldı — sana özel hazırlanmış \"Günaydın\" listesi vardı. Bu YZ. Yola çıktın, Google Maps trafik sıkışıklığını tahmin etti. Bu da YZ.",
+        <span key="end">
+          Hatta klavyeden yazdığın her kelimenin önerisi bile YZ! Bu bölümde bunları
+          birer birer keşfedip <strong>günlük hayatındaki 6 YZ alanını</strong> tanıyacaksın.
+        </span>,
+      ]}
+      renkGradient="from-emerald-500 via-teal-500 to-cyan-500"
+    />
+  </>
+);
+
+/* ---- Geçiş: Konudan → Etkinliklere ---- */
+const SlaytGecis2_1 = (
+  <GecisSlayt
+    emoji="🎯"
+    renkGradient="from-teal-400 to-emerald-500"
+    oncekiBaslik="6 Alanı Gördük"
+    oncekiOzet={
+      <p>
+        Telefondaki YZ, öneri sistemleri, sesli asistanlar, otonom araçlar, akıllı tarım ve sağlık
+        alanlarında YZ&apos;nin gerçek kullanımını öğrendin.
+      </p>
+    }
+    sonrakiBaslik="Şimdi Detektiflik Zamanı"
+    sonrakiOzet={
+      <p>
+        Sıradaki etkinliklerde <strong>kendi çevrendeki YZ&apos;leri</strong> tespit edeceksin: harita
+        çıkar, sesli asistanı test et, bir aile ferdiyle YZ röportajı yap.
+      </p>
+    }
+    hikaye={
+      <span>
+        <strong>Zeki&apos;den ipucu:</strong> Bir teknolojinin YZ olup olmadığını anlamak için sor:
+        &quot;Bu öğreniyor mu? Veriyle daha iyi mi oluyor?&quot; Cevap evetse — büyük ihtimalle YZ.
+      </span>
+    }
+  />
+);
+
+/* ---- Bölüm 2 Özeti ---- */
+const SlaytBolumOzeti2 = (
+  <OzetKarti
+    baslik="Bölüm 2 Özeti"
+    renkGradient="from-emerald-500 to-teal-700"
+    ogrenilenler={[
+      "YZ günlük hayatın her yerinde: telefon, ulaşım, sağlık, eğlence, eğitim.",
+      "Öneri sistemleri (Netflix, YouTube, Spotify) izleme/dinleme alışkanlıklarını analiz eder.",
+      "Sesli asistanlar (Siri, Alexa) konuşmayı metne çevirir, niyetimizi anlar, cevap üretir.",
+      "Otonom araçlar (Tesla, Waymo) çevreyi 'görür' ve sürüş kararları verir.",
+      "Akıllı tarım kameralarla bitki hastalıklarını tespit eder, sulama optimizasyonu yapar.",
+      "Bir teknoloji öğreniyor ve veriyle gelişiyorsa — büyük ihtimalle YZ.",
+    ]}
+    anahtarKelimeler={[
+      "öneri sistemi",
+      "sesli asistan",
+      "otonom araç",
+      "akıllı tarım",
+      "doğal dil işleme",
+      "bilgisayarlı görü",
+    ]}
+    sorular={[
+      "Bugün kullandığın 5 farklı YZ uygulamasını sayabilir misin?",
+      "Netflix sana neden böyle filmler öneriyor olabilir? Hangi verilerinden besleniyor?",
+      "Sesli asistana 'Sana güveniyor muyum?' deseydin, ne demek isterdin?",
+    ]}
+  />
+);
+
 const SlaytKazanimlar = (
   <>
     <section className="rounded-2xl border-l-4 border-emerald-500 bg-emerald-50 p-6 dark:bg-emerald-900/20">
@@ -233,12 +321,6 @@ const SlaytYzHerYerde = (
         <p className="text-xs text-[var(--color-text-secondary)] italic">CC BY-SA 4.0, Giacomo Alessandroni</p>
       </div>
     </section>
-
-    <DogruYanlis
-      ifade="Navigasyon uygulamaları yapay zeka kullanmaz, sadece haritayı gösterir."
-      dogruMu={false}
-      aciklama="Navigasyon uygulamaları trafik verilerini analiz ederek en kısa ve en hızlı rotayı hesaplar. Bu bir yapay zeka uygulamasıdır!"
-    />
   </>
 );
 
@@ -281,16 +363,6 @@ const SlaytCebindekiYz = (
         önerileri, bildirim önceliklendirme ve daha fazlası!
       </p>
     </div>
-
-    <EslestirmeOyunu
-      baslik="Telefon özelliklerini doğru YZ teknolojisiyle eşleştir!"
-      ciftler={[
-        { sol: "Yüz tanıma ile kilit açma", sag: "Bilgisayar görüsü" },
-        { sol: "Sesli asistan", sag: "Doğal dil işleme" },
-        { sol: "Klavye kelime tahmini", sag: "Makine öğrenimi" },
-        { sol: "Otomatik fotoğraf iyileştirme", sag: "Görüntü işleme" },
-      ]}
-    />
   </>
 );
 
@@ -326,178 +398,142 @@ const SlaytYzKullanimAlanlari = (
         ))}
       </div>
     </section>
-
-    <KategoriSiniflandirma
-      baslik="Bu YZ uygulamaları hangi alana ait?"
-      kategoriler={["Sağlık", "Ulaşım", "Eğitim", "Güvenlik"]}
-      ogeler={[
-        { ad: "Röntgen analizi", kategori: "Sağlık" },
-        { ad: "Otonom araç", kategori: "Ulaşım" },
-        { ad: "Duolingo", kategori: "Eğitim" },
-        { ad: "Spam tespiti", kategori: "Güvenlik" },
-        { ad: "İlaç geliştirme", kategori: "Sağlık" },
-        { ad: "Trafik tahmini", kategori: "Ulaşım" },
-      ]}
-    />
   </>
 );
 
+const ONERI_ADIMLARI = [
+  { adim: 1, baslik: "Veri Toplama", aciklama: "Neyi izlediğini, ne kadar izlediğini, neyi beğendiğini, neyi geçtiğini kaydeder." },
+  { adim: 2, baslik: "Örüntü Bulma", aciklama: "Benzer izleme alışkanlıkları olan kullanıcıları bulur. 'Seni sevenlerin sevdiklerini' keşfeder." },
+  { adim: 3, baslik: "Tahmin Yapma", aciklama: "Senin henüz izlemediğin ama sevebileceğin içerikleri tahmin eder." },
+  { adim: 4, baslik: "Öneri Sunma", aciklama: "Ana sayfanda 'Senin için seçtiklerimiz' olarak gösterir." },
+];
+
 const SlaytOneriSistemleri = (
-  <>
-    <section className="space-y-4">
-      <h2 className="text-2xl font-extrabold">
-        4. Öneri Sistemleri Nasıl Çalışır?
-      </h2>
-      <p>
-        Film, video ve müzik platformları &quot;Sana Özel&quot;
-        içerikler sunar. Peki bu nasıl çalışır?
-      </p>
-      <div className="space-y-3">
-        {[
-          {
-            adim: 1,
-            baslik: "Veri Toplama",
-            aciklama:
-              "Neyi izlediğini, ne kadar izlediğini, neyi beğendiğini, neyi geçtiğini kaydeder.",
-          },
-          {
-            adim: 2,
-            baslik: "Örüntü Bulma",
-            aciklama:
-              "Benzer izleme alışkanlıkları olan kullanıcıları bulur. 'Seni sevenlerin sevdiklerini' keşfeder.",
-          },
-          {
-            adim: 3,
-            baslik: "Tahmin Yapma",
-            aciklama:
-              "Senin henüz izlemediğin ama sevebileceğin içerikleri tahmin eder.",
-          },
-          {
-            adim: 4,
-            baslik: "Öneri Sunma",
-            aciklama:
-              "Ana sayfanda 'Senin için seçtiklerimiz' olarak gösterir.",
-          },
-        ].map((a) => (
-          <div key={a.adim} className="flex items-start gap-4">
-            <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-emerald-600 font-bold text-white">
+  <section className="space-y-3">
+    <h3 className="text-xl font-extrabold">4. Öneri Sistemleri Nasıl Çalışır?</h3>
+    <p className="text-sm">
+      Film, video ve müzik platformları &quot;Sana Özel&quot; içerikler sunar. 4 adımda nasıl?
+    </p>
+    <IcSayfa
+      renkGradient="from-emerald-500 to-teal-500"
+      sayfalar={ONERI_ADIMLARI.map((a) => ({
+        emoji: ["📥", "🔍", "🎯", "🎁"][a.adim - 1],
+        baslik: `Adım ${a.adim}: ${a.baslik}`,
+        icerik: (
+          <div className="flex items-start gap-3">
+            <span className="flex h-12 w-12 shrink-0 items-center justify-center rounded-full bg-emerald-600 text-lg font-bold text-white">
               {a.adim}
             </span>
             <div>
-              <h4 className="font-bold">{a.baslik}</h4>
-              <p className="text-sm text-[var(--color-text-secondary)]">
-                {a.aciklama}
-              </p>
+              <h4 className="text-base font-bold">{a.baslik}</h4>
+              <p className="mt-1 text-sm text-[var(--color-text-secondary)]">{a.aciklama}</p>
             </div>
           </div>
-        ))}
-      </div>
-    </section>
-
-    <TekSecimSoru
-      soru="Bir film platformu sana yeni bir film öneriyorsa, bunu yaparken en çok hangisini kullanır?"
-      secenekler={[
-        "Filmlerin çekildiği ülke",
-        "Senin daha önce izlediğin ve beğendiğin filmler",
-        "Filmin reklam bütçesi",
-        "Filmin dosya boyutu",
-      ]}
-      dogruIndex={1}
-      aciklama="Öneri sistemleri senin geçmiş izleme alışkanlıklarını analiz ederek benzer içerikleri önerir."
+        ),
+      }))}
     />
-  </>
+  </section>
 );
 
 const SlaytSesliAsistanlar = (
-  <>
-    <section className="space-y-4">
-      <h2 className="text-2xl font-extrabold">
-        5. Sesli Asistanlar ve Chatbotlar
-      </h2>
-      <p>
-        Siri, Google Asistan, Alexa gibi sesli asistanlar birden fazla YZ
-        teknolojisini bir arada kullanır:
-      </p>
-      <div className="overflow-x-auto">
-        <table className="w-full rounded-xl border border-[var(--color-border)] text-sm">
-          <thead className="bg-emerald-600 text-white">
-            <tr>
-              <th className="px-4 py-3 text-left">Aşama</th>
-              <th className="px-4 py-3 text-left">Teknoloji</th>
-              <th className="px-4 py-3 text-left">Ne Yapar?</th>
-            </tr>
-          </thead>
-          <tbody>
-            {[
-              [
-                "1. Dinleme",
-                "Konuşma Tanıma (ASR)",
-                "Sesini metne çevirir",
-              ],
-              [
-                "2. Anlama",
-                "Doğal Dil İşleme (NLP)",
-                "Ne demek istediğini anlar",
-              ],
-              [
-                "3. İşlem",
-                "Akıl Yürütme",
-                "En iyi yanıtı bulur",
-              ],
-              [
-                "4. Yanıtlama",
-                "Konuşma Sentezi (TTS)",
-                "Yanıtı sesli olarak söyler",
-              ],
-            ].map(([asama, teknoloji, neYapar], i) => (
-              <tr
-                key={asama}
-                className={
-                  i % 2 === 0 ? "bg-[var(--color-bg-secondary)]" : ""
-                }
-              >
-                <td className="px-4 py-2.5 font-medium">{asama}</td>
-                <td className="px-4 py-2.5">{teknoloji}</td>
-                <td className="px-4 py-2.5">{neYapar}</td>
-              </tr>
-            ))}
-          </tbody>
-        </table>
-      </div>
-    </section>
-
-    <div className="grid gap-4 md:grid-cols-2">
-      <div className="rounded-xl border border-emerald-200 bg-emerald-50 p-5 dark:border-emerald-800 dark:bg-emerald-900/20">
-        <h3 className="mb-2 font-bold">🚗 Otonom Araçlar</h3>
-        <p className="text-sm text-[var(--color-text-secondary)]">
-          Tesla, Waymo gibi şirketlerin sürücüsüz araçları kameralar,
-          radarlar ve LIDAR sensörleri ile çevreyi algılar. YZ, diğer
-          araçları, yayaları ve trafik işaretlerini tanımlayarak aracı
-          güvenli bir şekilde sürebilir.
-        </p>
-        <div className="mt-4 flex flex-col items-center rounded-xl border border-[var(--color-border)] bg-[var(--color-bg)] p-4">
-          <Image src="/images/bolumler/waymo.jpg" alt="Waymo sürücüsüz araç" width={480} height={320} className="rounded-lg object-cover shadow-md" />
-          <p className="mt-2 text-center text-sm text-[var(--color-text-secondary)]">Waymo otonom (surucusuz) araci - yapay zeka ile trafikteki nesneleri algilayarak guvenli suruyor</p>
-          <p className="text-xs text-[var(--color-text-secondary)] italic">CC BY-SA 4.0, Dllu</p>
-        </div>
-      </div>
-      <div className="rounded-xl border border-emerald-200 bg-emerald-50 p-5 dark:border-emerald-800 dark:bg-emerald-900/20">
-        <h3 className="mb-2 font-bold">🌾 Akıllı Tarım</h3>
-        <p className="text-sm text-[var(--color-text-secondary)]">
-          Drone&apos;lar tarlaları havadan tarayarak hastalıklı bitkileri
-          tespit eder. YZ destekli sulama sistemleri toprağın nem durumuna
-          göre su tasarrufu sağlar. Türkiye&apos;de de akıllı tarım
-          uygulamaları yaygınlaşmaktadır.
-        </p>
-      </div>
-    </div>
-
-    <DogruYanlis
-      ifade="Sesli asistanlar sadece ses tanıma teknolojisi kullanır."
-      dogruMu={false}
-      aciklama="Sesli asistanlar ses tanıma, doğal dil işleme, akıl yürütme ve konuşma sentezi gibi birden fazla YZ teknolojisini bir arada kullanır."
+  <section className="space-y-3">
+    <h3 className="text-xl font-extrabold">5. Sesli Asistanlar ve Otonom Sistemler</h3>
+    <IcSayfa
+      renkGradient="from-emerald-500 to-teal-500"
+      sayfalar={[
+        {
+          emoji: "🎙️",
+          baslik: "Sesli Asistan Nasıl Çalışır?",
+          icerik: (
+            <div className="space-y-3">
+              <p className="text-sm">
+                Siri, Google Asistan, Alexa — birden fazla YZ teknolojisini birlikte
+                kullanır. 4 aşamada işleyiş:
+              </p>
+              <div className="overflow-x-auto">
+                <table className="w-full rounded-xl border border-[var(--color-border)] text-sm">
+                  <thead className="bg-emerald-600 text-white">
+                    <tr>
+                      <th className="px-3 py-2 text-left">Aşama</th>
+                      <th className="px-3 py-2 text-left">Teknoloji</th>
+                      <th className="px-3 py-2 text-left">Ne Yapar?</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    {[
+                      ["1. Dinleme", "Konuşma Tanıma (ASR)", "Sesini metne çevirir"],
+                      ["2. Anlama", "Doğal Dil İşleme (NLP)", "Ne demek istediğini anlar"],
+                      ["3. İşlem", "Akıl Yürütme", "En iyi yanıtı bulur"],
+                      ["4. Yanıtlama", "Konuşma Sentezi (TTS)", "Yanıtı sesli söyler"],
+                    ].map(([a, t, n], i) => (
+                      <tr key={a} className={i % 2 === 0 ? "bg-[var(--color-bg-secondary)]" : ""}>
+                        <td className="px-3 py-2 font-medium">{a}</td>
+                        <td className="px-3 py-2">{t}</td>
+                        <td className="px-3 py-2">{n}</td>
+                      </tr>
+                    ))}
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          ),
+        },
+        {
+          emoji: "🚗",
+          baslik: "Otonom Araçlar",
+          icerik: (
+            <div className="rounded-xl border border-emerald-200 bg-emerald-50 p-4 dark:border-emerald-800 dark:bg-emerald-900/20">
+              <p className="text-sm text-[var(--color-text)]">
+                Tesla, Waymo gibi şirketlerin sürücüsüz araçları kameralar, radarlar ve LIDAR
+                sensörleri ile çevreyi algılar. YZ, diğer araçları, yayaları ve trafik işaretlerini
+                tanımlayarak aracı güvenli bir şekilde sürebilir.
+              </p>
+              <div className="mt-3 flex flex-col items-center rounded-xl border border-[var(--color-border)] bg-[var(--color-bg)] p-3">
+                <Image
+                  src="/images/bolumler/waymo.jpg"
+                  alt="Waymo sürücüsüz araç"
+                  width={380}
+                  height={240}
+                  className="rounded-lg object-cover shadow-md"
+                />
+                <p className="mt-1 text-center text-[11px] text-[var(--color-text-secondary)]">
+                  Waymo — YZ ile trafikteki nesneleri algılayarak güvenli sürüyor
+                </p>
+                <p className="text-[10px] text-[var(--color-text-secondary)] italic">CC BY-SA 4.0, Dllu</p>
+              </div>
+            </div>
+          ),
+        },
+        {
+          emoji: "🌾",
+          baslik: "Akıllı Tarım",
+          icerik: (
+            <div className="rounded-xl border border-emerald-200 bg-emerald-50 p-4 dark:border-emerald-800 dark:bg-emerald-900/20">
+              <p className="text-sm text-[var(--color-text)]">
+                Drone&apos;lar tarlaları havadan tarayarak hastalıklı bitkileri tespit eder. YZ
+                destekli sulama sistemleri toprağın nem durumuna göre su tasarrufu sağlar.
+                Türkiye&apos;de de akıllı tarım uygulamaları yaygınlaşmaktadır.
+              </p>
+              <ul className="mt-3 space-y-1 text-sm text-[var(--color-text)]">
+                <li className="flex items-start gap-2">
+                  <span className="mt-0.5">🌱</span>
+                  <span>Bitki hastalığı tespiti → erken müdahale</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <span className="mt-0.5">💧</span>
+                  <span>Otomatik sulama → %40&apos;a varan su tasarrufu</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <span className="mt-0.5">🛰️</span>
+                  <span>Uydu verileriyle tarla izleme</span>
+                </li>
+              </ul>
+            </div>
+          ),
+        },
+      ]}
     />
-  </>
+  </section>
 );
 
 const SlaytEtkinlik1 = (
@@ -643,7 +679,7 @@ const SlaytOyun = (
 
 const SlaytDegerlendirme = (
   <>
-    <InteraktifQuiz sorular={quizSorulari} bolumNo={2} />
+    <InteraktifQuiz sorular={quizSorulari} />
   </>
 );
 
@@ -718,7 +754,7 @@ const SlaytMateryaller = (
 
 export default function Bolum2() {
   return (
-    <BolumCerceve
+    <BolumSlider
       bolumNo={2}
       bolumBaslik="Günlük Hayatta YZ"
       bolumAltBaslik="Yapay Zeka Etrafımızda"
@@ -727,20 +763,23 @@ export default function Bolum2() {
       renk="from-emerald-600 to-teal-700"
       oncekiBolum={1}
       sonrakiBolum={3}
-      bolumler={[
-        { id: "b2-kazanimlar", baslik: "Kazanımlar", icon: "🎯", tur: "kazanim", icerik: SlaytKazanimlar, varsayilanAcik: true },
-        { id: "b2-yz-her-yerde", baslik: "YZ Her Yerde!", icon: "🌍", tur: "icerik", icerik: SlaytYzHerYerde, varsayilanAcik: true },
-        { id: "b2-cebindeki-yz", baslik: "Cebindeki Yapay Zeka", icon: "📱", tur: "icerik", icerik: SlaytCebindekiYz, varsayilanAcik: true },
-        { id: "b2-kullanim-alanlari", baslik: "YZ Kullanım Alanları", icon: "🌐", tur: "icerik", icerik: SlaytYzKullanimAlanlari },
-        { id: "b2-oneri-sistemleri", baslik: "Öneri Sistemleri", icon: "🎬", tur: "icerik", icerik: SlaytOneriSistemleri },
-        { id: "b2-sesli-asistanlar", baslik: "Sesli Asistanlar", icon: "🎙️", tur: "icerik", icerik: SlaytSesliAsistanlar },
-        { id: "b2-etkinlik-yz-haritasi", baslik: "Etkinlik: YZ Haritası", icon: "🎮", tur: "etkinlik", icerik: SlaytEtkinlik1 },
-        { id: "b2-etkinlik-yz-veya-degil", baslik: "Etkinlik: YZ veya Değil?", icon: "🎮", tur: "etkinlik", icerik: SlaytEtkinlik2 },
-        { id: "b2-etkinlik-sesli-asistan", baslik: "Etkinlik: Sesli Asistan", icon: "🎮", tur: "etkinlik", icerik: SlaytEtkinlik3 },
-        { id: "b2-etkinlik-yz-roportaji", baslik: "Etkinlik: YZ Röportajı", icon: "🎮", tur: "etkinlik", icerik: SlaytEtkinlik4 },
-        { id: "b2-oyun", baslik: "İnteraktif Oyun", icon: "🕹️", tur: "oyun", icerik: SlaytOyun },
-        { id: "b2-quiz", baslik: "Değerlendirme", icon: "📝", tur: "quiz", icerik: SlaytDegerlendirme },
-        { id: "b2-materyaller", baslik: "Materyaller", icon: "📥", tur: "materyal", icerik: SlaytMateryaller },
+      slaytlar={[
+        { baslik: "Hoş Geldin!", icon: "👋", icerik: SlaytHosGeldin2 },
+        { baslik: "Kazanımlar", icon: "🎯", icerik: SlaytKazanimlar },
+        { baslik: "YZ Her Yerde!", icon: "🌍", icerik: SlaytYzHerYerde },
+        { baslik: "Cebindeki Yapay Zeka", icon: "📱", icerik: SlaytCebindekiYz },
+        { baslik: "YZ Kullanım Alanları", icon: "🌐", icerik: SlaytYzKullanimAlanlari },
+        { baslik: "Öneri Sistemleri", icon: "🎬", icerik: SlaytOneriSistemleri },
+        { baslik: "Sesli Asistanlar", icon: "🎙️", icerik: SlaytSesliAsistanlar },
+        { baslik: "Detektiflik Zamanı", icon: "🔎", icerik: SlaytGecis2_1 },
+        { baslik: "Etkinlik: YZ Haritası", icon: "🎮", icerik: SlaytEtkinlik1 },
+        { baslik: "Etkinlik: YZ veya Değil?", icon: "🎮", icerik: SlaytEtkinlik2 },
+        { baslik: "Etkinlik: Sesli Asistan", icon: "🎮", icerik: SlaytEtkinlik3 },
+        { baslik: "Etkinlik: YZ Röportajı", icon: "🎮", icerik: SlaytEtkinlik4 },
+        { baslik: "İnteraktif Oyun", icon: "🕹️", icerik: SlaytOyun },
+        { baslik: "Değerlendirme", icon: "📝", icerik: SlaytDegerlendirme },
+        { baslik: "Bölüm Özeti", icon: "🏆", icerik: SlaytBolumOzeti2 },
+        { baslik: "Materyaller", icon: "📥", icerik: SlaytMateryaller },
       ]}
     />
   );
