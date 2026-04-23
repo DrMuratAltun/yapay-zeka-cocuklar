@@ -3,7 +3,7 @@ import Link from "next/link";
 import { Geist, Cinzel, Nunito } from "next/font/google";
 import { Analytics } from "@vercel/analytics/next";
 import { SpeedInsights } from "@vercel/speed-insights/next";
-import Navbar from "@/components/Navbar";
+import RouteShell from "@/components/RouteShell";
 import "./globals.css";
 
 const geist = Geist({ subsets: ["latin"] });
@@ -164,9 +164,9 @@ export default function RootLayout({
         />
       </head>
       <body className={`${geist.className} ${cinzel.variable} ${nunito.variable} flex min-h-screen flex-col`}>
-        <Navbar />
-        <main className="flex-1">{children}</main>
-        <footer className="border-t border-[var(--color-border)] bg-[var(--color-bg-secondary)]">
+        <RouteShell
+          footer={
+            <footer className="border-t border-[var(--color-border)] bg-[var(--color-bg-secondary)]">
           <div className="mx-auto max-w-6xl px-6 py-10">
             <div className="grid gap-8 md:grid-cols-3">
               <div>
@@ -193,6 +193,7 @@ export default function RootLayout({
                   <a href="https://yapayzekaokulum.com" target="_blank" rel="noopener noreferrer" className="block hover:text-sky-600 transition">Yapay Zeka Okulum — Herkes için YZ eğitimi</a>
                   <a href="https://akademikyz.com" target="_blank" rel="noopener noreferrer" className="block hover:text-sky-600 transition">Akademik YZ — Araştırmacılar için YZ</a>
                   <a href="https://yz-araclari.com" target="_blank" rel="noopener noreferrer" className="block hover:text-sky-600 transition">YZ Araçları — Yapay zeka araç rehberi</a>
+                  <a href="https://drmurataltun.github.io/deep-learning-bootcamp/" target="_blank" rel="noopener noreferrer" className="block hover:text-sky-600 transition">🧠 Derin Öğrenme Bootcamp — Keras ile 15 Hafta (İleri)</a>
                   <a href="https://drmurataltun.github.io/VB-YZ-90/" target="_blank" rel="noopener noreferrer" className="block hover:text-sky-600 transition">Veri Bilimi & YZ Uzmanlığı — 90 Saatlik Program</a>
                   <a href="https://drmurataltun.github.io" target="_blank" rel="noopener noreferrer" className="block hover:text-sky-600 transition">Dr. Murat ALTUN — Kişisel site</a>
                   <a href="https://altunmurat.wordpress.com" target="_blank" rel="noopener noreferrer" className="block hover:text-sky-600 transition">Dr. Murat ALTUN — Blog</a>
@@ -204,6 +205,10 @@ export default function RootLayout({
             </div>
           </div>
         </footer>
+          }
+        >
+          {children}
+        </RouteShell>
         <Analytics />
         <SpeedInsights />
       </body>
