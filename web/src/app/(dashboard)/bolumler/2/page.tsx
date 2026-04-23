@@ -564,9 +564,19 @@ const SlaytEtkinlik1 = (
     </div>
 
     <YzHaritasi />
-
-    <AkilliEvSimulator />
   </>
+);
+
+const SlaytAkilliEvSimulatoru = (
+  <section className="space-y-4">
+    <div>
+      <h3 className="text-xl font-bold">🏠 Akıllı Ev Simülatörü</h3>
+      <p className="text-sm text-[var(--color-text-secondary)]">
+        Odalardaki nesnelere tıklayarak yapay zeka özelliklerini keşfet!
+      </p>
+    </div>
+    <AkilliEvSimulator />
+  </section>
 );
 
 const SlaytEtkinlik2 = (
@@ -636,9 +646,19 @@ const SlaytEtkinlik3 = (
     </div>
 
     <SesliAsistanTesti />
-
-    <OneriSistemiSim />
   </>
+);
+
+const SlaytOneriSistemiSim = (
+  <section className="space-y-4">
+    <div>
+      <h3 className="text-xl font-bold">🎬 Öneri Sistemi Simülatörü</h3>
+      <p className="text-sm text-[var(--color-text-secondary)]">
+        Yapay zeka sana nasıl içerik önerir? Film beğenilerini seçerek keşfet.
+      </p>
+    </div>
+    <OneriSistemiSim />
+  </section>
 );
 
 const SlaytEtkinlik4 = (
@@ -773,8 +793,10 @@ export default function Bolum2() {
         { baslik: "Sesli Asistanlar", icon: "🎙️", icerik: SlaytSesliAsistanlar },
         { baslik: "Detektiflik Zamanı", icon: "🔎", icerik: SlaytGecis2_1 },
         { baslik: "Etkinlik: YZ Haritası", icon: "🎮", icerik: SlaytEtkinlik1 },
+        { baslik: "Akıllı Ev Simülatörü", icon: "🏠", icerik: SlaytAkilliEvSimulatoru },
         { baslik: "Etkinlik: YZ veya Değil?", icon: "🎮", icerik: SlaytEtkinlik2 },
         { baslik: "Etkinlik: Sesli Asistan", icon: "🎮", icerik: SlaytEtkinlik3 },
+        { baslik: "Öneri Sistemi Simülatörü", icon: "🎬", icerik: SlaytOneriSistemiSim },
         { baslik: "Etkinlik: YZ Röportajı", icon: "🎮", icerik: SlaytEtkinlik4 },
         { baslik: "İnteraktif Oyun", icon: "🕹️", icerik: SlaytOyun },
         { baslik: "Değerlendirme", icon: "📝", icerik: SlaytDegerlendirme },

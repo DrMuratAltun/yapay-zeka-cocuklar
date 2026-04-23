@@ -609,9 +609,20 @@ const SlaytEtkinlik1 = (
     </div>
 
     <MeyveSiniflandirici />
-
-    <SiniflandirmaPratigi />
   </>
+);
+
+/* ---- Sınıflandırma Pratiği (ayrı slayt) ---- */
+const SlaytSiniflandirmaPratigi = (
+  <section className="space-y-4">
+    <div>
+      <h3 className="text-xl font-bold">🎯 Sınıflandırma Pratiği</h3>
+      <p className="text-sm text-[var(--color-text-secondary)]">
+        Öğrendiğin özelliklere göre örnekleri doğru sınıflara yerleştir.
+      </p>
+    </div>
+    <SiniflandirmaPratigi />
+  </section>
 );
 
 /* ---- Etkinlik 2: Teachable Machine ---- */
@@ -631,9 +642,20 @@ const SlaytEtkinlik2 = (
     </div>
 
     <TeachableMachineRehber />
-
-    <OgrenimTurleriQuiz />
   </>
+);
+
+/* ---- Öğrenim Türleri Quiz (ayrı slayt) ---- */
+const SlaytOgrenimTurleriQuiz = (
+  <section className="space-y-4">
+    <div>
+      <h3 className="text-xl font-bold">📝 Öğrenim Türleri Quiz</h3>
+      <p className="text-sm text-[var(--color-text-secondary)]">
+        Gözetimli, gözetimsiz ve pekiştirmeli öğrenmeyi ayırt edebiliyor musun?
+      </p>
+    </div>
+    <OgrenimTurleriQuiz />
+  </section>
 );
 
 /* ---- Etkinlik 3: PictoBlox Sınıflandırma ---- */
@@ -745,7 +767,9 @@ export default function Bolum4() {
         { baslik: "Sinir Ağı Lab", icon: "🧪", icerik: SlaytSinirAgiLab4 },
         { baslik: "Teachable Machine", icon: "🤖", icerik: SlaytTeachableMachine },
         { baslik: "Etkinlik: Meyve Sınıflandırıcı", icon: "🎮", icerik: SlaytEtkinlik1 },
+        { baslik: "Sınıflandırma Pratiği", icon: "🎯", icerik: SlaytSiniflandirmaPratigi },
         { baslik: "Etkinlik: Teachable Machine", icon: "🎮", icerik: SlaytEtkinlik2 },
+        { baslik: "Öğrenim Türleri Quiz", icon: "📝", icerik: SlaytOgrenimTurleriQuiz },
         { baslik: "Etkinlik: PictoBlox", icon: "🎮", icerik: SlaytEtkinlik3 },
         { baslik: "Etkinlik: Model Başarı Raporu", icon: "🎮", icerik: SlaytEtkinlik4 },
         { baslik: "İnteraktif Oyun", icon: "🕹️", icerik: SlaytOyun },
