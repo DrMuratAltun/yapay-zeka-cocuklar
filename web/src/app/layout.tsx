@@ -49,6 +49,14 @@ export const metadata: Metadata = {
     siteName: "GençYZ",
     locale: "tr_TR",
     type: "website",
+    images: [
+      {
+        url: "/og-image.jpg",
+        width: 1200,
+        height: 630,
+        alt: "GençYZ — Çocuklar İçin Yapay Zeka Eğitim Platformu, Dr. Murat Altun",
+      },
+    ],
   },
   twitter: {
     card: "summary_large_image",
@@ -56,6 +64,7 @@ export const metadata: Metadata = {
     description:
       "Ortaokul öğrencileri için uygulamalı yapay zeka eğitimi. 10 bölüm, 50+ etkinlik, oyunlar ve projeler.",
     creator: "@drmurataltun",
+    images: ["/og-image.jpg"],
   },
   robots: {
     index: true,
