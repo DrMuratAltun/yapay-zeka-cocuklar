@@ -14,6 +14,7 @@ import {
 } from '@/data/bolumler'
 import { getBolumVideolari } from '@/data/videolar'
 import VideoSlayt from '@/components/anlati/VideoSlayt'
+import { IcIlerlemeContext, type IcIlerlemeDurum } from '@/components/anlati/icIlerleme'
 import { useBolumIlerleme } from '@/hooks/useBolumIlerleme'
 import { useProgress } from '@/hooks/useProgress'
 
@@ -145,6 +146,13 @@ export default function BolumCerceve({ bolumNo, bolumler }: BolumCerceveProps) {
     icerikRef.current?.scrollTo({ top: 0 })
   }, [])
 
+  // Konu içi sayfalayıcı (IcSayfa) durumu — yan menüde 📄 2/3 gösterimi
+  const [icDurum, setIcDurum] = useState<IcIlerlemeDurum | null>(null)
+  const icBildir = useCallback((d: IcIlerlemeDurum) => setIcDurum(d), [])
+  useEffect(() => {
+    setIcDurum(null)
+  }, [aktifIndex])
+
   const oncekiIcerik = () => aktifIndex > 0 && bolumSec(aktifIndex - 1)
   const sonrakiIcerik = () => aktifIndex < slaytlar.length - 1 && bolumSec(aktifIndex + 1)
 
@@ -193,6 +201,7 @@ export default function BolumCerceve({ bolumNo, bolumler }: BolumCerceveProps) {
       tamamlananlar={tamamlananlar}
       ilerlemeYuzdesi={ilerlemeYuzdesi}
       aktifIndex={aktifIndex}
+      icDurum={icDurum}
       onSec={bolumSec}
     />
   )
@@ -299,7 +308,9 @@ export default function BolumCerceve({ bolumNo, bolumler }: BolumCerceveProps) {
               )}
             </div>
             <div ref={icerikRef} className="min-h-0 flex-1 space-y-4 overflow-y-auto p-4 sm:p-5">
-              {aktifSlayt.icerik}
+              <IcIlerlemeContext.Provider value={{ bildir: icBildir }}>
+                {aktifSlayt.icerik}
+              </IcIlerlemeContext.Provider>
             </div>
           </article>
 
@@ -313,11 +324,11 @@ export default function BolumCerceve({ bolumNo, bolumler }: BolumCerceveProps) {
               <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
                 <polyline points="15 18 9 12 15 6" />
               </svg>
-              Önceki
+              Önceki<span className="hidden sm:inline">&nbsp;Konu</span>
             </button>
 
             <span className="text-xs text-muted-foreground">
-              {aktifIndex + 1} / {slaytlar.length}
+              Konu {aktifIndex + 1}/{slaytlar.length}
             </span>
 
             {sonMu ? (
@@ -344,7 +355,7 @@ export default function BolumCerceve({ bolumNo, bolumler }: BolumCerceveProps) {
                 onClick={sonrakiIcerik}
                 className="inline-flex items-center gap-1.5 rounded-lg bg-violet-600 px-4 py-2 text-sm font-semibold text-white transition hover:bg-violet-700"
               >
-                Sonraki
+                Sonraki<span className="hidden sm:inline">&nbsp;Konu</span>
                 <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
                   <polyline points="9 18 15 12 9 6" />
                 </svg>
@@ -365,6 +376,7 @@ function KonuMenu({
   tamamlananlar,
   ilerlemeYuzdesi,
   aktifIndex,
+  icDurum,
   onSec,
 }: {
   bolumNo: number
@@ -372,6 +384,7 @@ function KonuMenu({
   tamamlananlar: Set<string>
   ilerlemeYuzdesi: number
   aktifIndex: number
+  icDurum: IcIlerlemeDurum | null
   onSec: (idx: number) => void
 }) {
   const meta = getBolum(bolumNo)!
@@ -386,7 +399,10 @@ function KonuMenu({
     return turSirasi.filter((t) => m.has(t)).map((t) => ({ tur: t, items: m.get(t)! }))
   }, [slaytlar])
 
-  const [acikGruplar, setAcikGruplar] = useState<Set<BolumTur>>(() => new Set(aktifTur ? [aktifTur] : []))
+  // Tüm konu haritası tek bakışta görünsün — gruplar varsayılan AÇIK
+  const [acikGruplar, setAcikGruplar] = useState<Set<BolumTur>>(
+    () => new Set(slaytlar.map((s) => s.tur))
+  )
   useEffect(() => {
     if (!aktifTur) return
     setAcikGruplar((prev) => {
@@ -471,32 +487,53 @@ function KonuMenu({
                   {items.map(({ idx, s }) => {
                     const tamamlandi = tamamlananlar.has(s.id)
                     const aktif = idx === aktifIndex
+                    const sayfaGoster = aktif && icDurum && icDurum.toplam > 1
                     return (
                       <li key={s.id}>
                         <button
                           type="button"
                           data-konu-idx={idx}
                           onClick={() => onSec(idx)}
-                          className={`flex w-full items-center gap-2 px-3 py-1.5 text-left text-sm transition ${
+                          className={`w-full px-3 py-1.5 text-left text-sm transition ${
                             aktif
                               ? 'bg-violet-50 font-semibold text-violet-700 ring-1 ring-inset ring-violet-200 dark:bg-violet-950/40 dark:text-violet-300 dark:ring-violet-900'
                               : 'hover:bg-[var(--color-bg-secondary)]'
                           }`}
                           aria-current={aktif ? 'true' : undefined}
                         >
-                          <span className="flex h-4 w-4 shrink-0 items-center justify-center">
-                            {tamamlandi ? (
-                              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" className="text-emerald-500">
-                                <circle cx="12" cy="12" r="10" fill="currentColor" opacity="0.15" />
-                                <path d="M9 12l2 2 4-4" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" />
-                              </svg>
-                            ) : (
-                              <span className="text-[13px]">{s.icon}</span>
-                            )}
+                          <span className="flex items-center gap-2">
+                            <span className="flex h-4 w-4 shrink-0 items-center justify-center">
+                              {tamamlandi ? (
+                                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" className="text-emerald-500">
+                                  <circle cx="12" cy="12" r="10" fill="currentColor" opacity="0.15" />
+                                  <path d="M9 12l2 2 4-4" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" />
+                                </svg>
+                              ) : (
+                                <span className="text-[13px]">{s.icon}</span>
+                              )}
+                            </span>
+                            <span className={`flex-1 truncate text-[13px] ${tamamlandi && !aktif ? 'text-muted-foreground' : 'text-foreground'}`}>
+                              {s.baslik}
+                            </span>
                           </span>
-                          <span className={`flex-1 truncate text-[13px] ${tamamlandi && !aktif ? 'text-muted-foreground' : 'text-foreground'}`}>
-                            {s.baslik}
-                          </span>
+                          {/* Konu içi sayfa ilerlemesi (IcSayfa bildirir) */}
+                          {sayfaGoster && (
+                            <span className="mt-1 flex items-center gap-1.5 pl-6">
+                              <span className="flex items-center gap-0.5">
+                                {Array.from({ length: icDurum.toplam }, (_, i) => (
+                                  <span
+                                    key={i}
+                                    className={`h-1 rounded-full transition-all ${
+                                      i < icDurum.sayfa ? 'w-3 bg-violet-500' : 'w-1.5 bg-[var(--color-border)]'
+                                    }`}
+                                  />
+                                ))}
+                              </span>
+                              <span className="text-[10px] font-bold text-violet-500">
+                                📄 {icDurum.sayfa}/{icDurum.toplam}
+                              </span>
+                            </span>
+                          )}
                         </button>
                       </li>
                     )

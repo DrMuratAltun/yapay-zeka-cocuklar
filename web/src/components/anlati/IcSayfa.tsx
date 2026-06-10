@@ -1,6 +1,7 @@
 "use client";
 
-import { ReactNode, useState } from "react";
+import { ReactNode, useEffect, useState } from "react";
+import { useIcIlerleme } from "@/components/anlati/icIlerleme";
 
 export interface IcSayfaOge {
   baslik?: string;
@@ -38,6 +39,13 @@ export default function IcSayfa({
   const ilerleme = ((aktif + 1) / toplam) * 100;
   const sayfa = sayfalar[aktif];
 
+  // Sayfa durumunu çerçeveye bildir (yan menüde 📄 2/3 görünür)
+  const ic = useIcIlerleme();
+  const bildir = ic?.bildir;
+  useEffect(() => {
+    bildir?.({ sayfa: aktif + 1, toplam });
+  }, [aktif, toplam, bildir]);
+
   return (
     <div className="rounded-2xl border border-[var(--color-border)] bg-[var(--color-bg)] p-3 sm:p-4">
       {/* Üst bar: başlık + sayaç */}
@@ -55,7 +63,7 @@ export default function IcSayfa({
           )}
         </div>
         <span className="shrink-0 rounded-full bg-[var(--color-bg-secondary)] px-2.5 py-0.5 text-[11px] font-bold text-[var(--color-text-secondary)]">
-          {aktif + 1}/{toplam}
+          📄 Sayfa {aktif + 1}/{toplam}
           {toplamEtiketi ? ` ${toplamEtiketi}` : ""}
         </span>
       </div>
@@ -83,7 +91,7 @@ export default function IcSayfa({
               : "cursor-pointer border border-[var(--color-border)] hover:bg-[var(--color-bg-secondary)]"
           }`}
         >
-          ← Önceki
+          ← Önceki Sayfa
         </button>
 
         {/* Dot pagination */}
@@ -113,7 +121,7 @@ export default function IcSayfa({
               : `cursor-pointer bg-gradient-to-r ${renkGradient} text-white hover:opacity-90`
           }`}
         >
-          Sonraki →
+          Sonraki Sayfa →
         </button>
       </div>
     </div>
