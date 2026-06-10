@@ -38,13 +38,14 @@ Bu araçlar pedagojinin parçası; kaldırılmaz ama **erişim kesilirse** yedek
 | Scratch | B6 yedek, kılavuz | Çok düşük | — |
 | Quick Draw / AutoDraw | Kılavuz önerileri | Düşük | Tamamlayıcı, zorunlu değil |
 
-## 3. Wikimedia Görselleri → Yerelleştir (hızlı kazanım)
+## 3. Wikimedia Görselleri → Yerelleştir ✅ TAMAMLANDI (2026-06-10)
 
-`VeriEtiketleme.tsx` etkinliği **12 adet Wikimedia Commons görseline** (kedi/köpek fotoğrafları) çalışma anında bağımlı.
-Wikimedia thumbnail URL'leri zaman zaman kırılır → etkinlik bozulur.
-
-**Yapılacak:** Görselleri indirip `web/public/etkinlik/veri-etiketleme/` altına koy, bileşendeki URL'leri yerel yola çevir.
-Lisans: CC BY-SA — sayfa altına küçük atıf satırı yeterli. (15 dakikalık iş, istediğinde yaparım.)
+`VeriEtiketleme.tsx` etkinliğindeki 12 görsel `web/public/etkinlik/veri-etiketleme/` altına indirildi,
+bileşen yerel yollara geçirildi. **Not:** Eski URL'lerin tamamı Wikimedia'da 400 veriyordu ve 3 dosya
+Commons'tan tamamen silinmişti — yani etkinlik canlıda kırıktı. Silinen 3 köpek görseli (Golden
+Retriever, Bulldog, Pomeranian) uygun lisanslı yenileriyle değiştirildi, lisans bilgileri `kaynak`
+alanlarında güncellendi (CC BY-SA 3.0/4.0, CC BY 2.0/2.5, Public Domain). Görseller 600px'e
+küçültülüp sıkıştırıldı (toplam ~1.0 MB). Dış görsel bağımlılığı kalmadı.
 
 ## 4. Tamamlayıcı Dış Linkler (sorun değil, bilgi amaçlı)
 

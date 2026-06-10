@@ -11,11 +11,13 @@ interface Hayvan {
   kaynak: string;
 }
 
+// Görseller Wikimedia Commons'tan indirilip yerelleştirildi (2026-06-10) —
+// dış bağımlılık yok; lisanslar her görselin "kaynak" alanında, cevap sonrası gösterilir.
 const hayvanlar: Hayvan[] = [
   // Kediler
   {
     id: 1,
-    resimUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4d/Cat_November_2010-1a.jpg/300px-Cat_November_2010-1a.jpg",
+    resimUrl: "/etkinlik/veri-etiketleme/kedi-tekir.jpg",
     gizliAd: "Tekir Kedi",
     dogruCevap: "kedi",
     zorluk: "kolay",
@@ -23,7 +25,7 @@ const hayvanlar: Hayvan[] = [
   },
   {
     id: 2,
-    resimUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b6/Image_created_with_a_mobile_phone.png/300px-Image_created_with_a_mobile_phone.png",
+    resimUrl: "/etkinlik/veri-etiketleme/kedi-siyah.jpg",
     gizliAd: "Siyah Kedi",
     dogruCevap: "kedi",
     zorluk: "kolay",
@@ -31,7 +33,7 @@ const hayvanlar: Hayvan[] = [
   },
   {
     id: 3,
-    resimUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/2/25/Siam_lilacpoint.jpg/300px-Siam_lilacpoint.jpg",
+    resimUrl: "/etkinlik/veri-etiketleme/kedi-siyam.jpg",
     gizliAd: "Siyam Kedisi",
     dogruCevap: "kedi",
     zorluk: "kolay",
@@ -39,7 +41,7 @@ const hayvanlar: Hayvan[] = [
   },
   {
     id: 4,
-    resimUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d0/Maine_Coon_female.jpg/300px-Maine_Coon_female.jpg",
+    resimUrl: "/etkinlik/veri-etiketleme/kedi-mainecoon.jpg",
     gizliAd: "Maine Coon",
     dogruCevap: "kedi",
     zorluk: "zor",
@@ -47,40 +49,40 @@ const hayvanlar: Hayvan[] = [
   },
   {
     id: 5,
-    resimUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e8/Sphinx2_July_2006.jpg/300px-Sphinx2_July_2006.jpg",
+    resimUrl: "/etkinlik/veri-etiketleme/kedi-sfenks.jpg",
     gizliAd: "Sfenks (Tüysüz Kedi)",
     dogruCevap: "kedi",
     zorluk: "zor",
-    kaynak: "Wikimedia Commons, CC BY-SA 2.5",
-  },
-  {
-    id: 6,
-    resimUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b2/WhiteCat.jpg/300px-WhiteCat.jpg",
-    gizliAd: "Beyaz Ankara Kedisi",
-    dogruCevap: "kedi",
-    zorluk: "kolay",
-    kaynak: "Wikimedia Commons, Public Domain",
-  },
-  // Kopekler
-  {
-    id: 7,
-    resimUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/b/bd/Golden_Retriever_Dukedestansen.jpg/300px-Golden_Retriever_Dukedestansen.jpg",
-    gizliAd: "Golden Retriever",
-    dogruCevap: "kopek",
-    zorluk: "kolay",
     kaynak: "Wikimedia Commons, CC BY-SA 3.0",
   },
   {
+    id: 6,
+    resimUrl: "/etkinlik/veri-etiketleme/kedi-beyaz.jpg",
+    gizliAd: "Beyaz Ankara Kedisi",
+    dogruCevap: "kedi",
+    zorluk: "kolay",
+    kaynak: "Wikimedia Commons, CC BY-SA 3.0",
+  },
+  // Köpekler
+  {
+    id: 7,
+    resimUrl: "/etkinlik/veri-etiketleme/kopek-golden.jpg",
+    gizliAd: "Golden Retriever",
+    dogruCevap: "kopek",
+    zorluk: "kolay",
+    kaynak: "Wikimedia Commons (Dietmar Rabich), CC BY-SA 4.0",
+  },
+  {
     id: 8,
-    resimUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/1/18/Dog_park_in_San_Jose_%2818955867611%29.jpg/300px-Dog_park_in_San_Jose_%2818955867611%29.jpg",
+    resimUrl: "/etkinlik/veri-etiketleme/kopek-bulldog.jpg",
     gizliAd: "Bulldog",
     dogruCevap: "kopek",
     zorluk: "kolay",
-    kaynak: "Wikimedia Commons, CC BY 2.0",
+    kaynak: "Wikimedia Commons, CC BY-SA 4.0",
   },
   {
     id: 9,
-    resimUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f8/Full_attention_%288067543690%29.jpg/300px-Full_attention_%288067543690%29.jpg",
+    resimUrl: "/etkinlik/veri-etiketleme/kopek-kanis.jpg",
     gizliAd: "Kaniş (Poodle)",
     dogruCevap: "kopek",
     zorluk: "zor",
@@ -88,7 +90,7 @@ const hayvanlar: Hayvan[] = [
   },
   {
     id: 10,
-    resimUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4c/Chihuahua1_bvdb.jpg/300px-Chihuahua1_bvdb.jpg",
+    resimUrl: "/etkinlik/veri-etiketleme/kopek-chihuahua.jpg",
     gizliAd: "Chihuahua",
     dogruCevap: "kopek",
     zorluk: "zor",
@@ -96,19 +98,19 @@ const hayvanlar: Hayvan[] = [
   },
   {
     id: 11,
-    resimUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a9/Bianca_Ponarina_2.JPG/300px-Bianca_Ponarina_2.JPG",
+    resimUrl: "/etkinlik/veri-etiketleme/kopek-pomeranian.jpg",
     gizliAd: "Pomeranian",
     dogruCevap: "kopek",
     zorluk: "zor",
-    kaynak: "Wikimedia Commons, CC BY-SA 3.0",
+    kaynak: "Wikimedia Commons, Public Domain",
   },
   {
     id: 12,
-    resimUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a9/Siberian_Husky_pho.jpg/300px-Siberian_Husky_pho.jpg",
+    resimUrl: "/etkinlik/veri-etiketleme/kopek-husky.jpg",
     gizliAd: "Sibirya Kurdu (Husky)",
     dogruCevap: "kopek",
     zorluk: "kolay",
-    kaynak: "Wikimedia Commons, CC BY-SA 3.0",
+    kaynak: "Wikimedia Commons, CC BY 2.5",
   },
 ];
 
@@ -179,15 +181,15 @@ export default function VeriEtiketleme() {
     <div className="space-y-6 rounded-2xl border border-[var(--color-border)] bg-[var(--color-bg)] p-4 sm:p-6">
       <div className="mb-6 rounded-2xl border border-sky-200 bg-sky-50 p-5 dark:border-sky-800 dark:bg-sky-900/20">
         <h4 className="mb-2 flex items-center gap-2 font-bold text-sky-700 dark:text-sky-300">
-          <span>📖</span> Gozetimli Ogrenme ve Veri Etiketleme Nedir?
+          <span>📖</span> Gözetimli Öğrenme ve Veri Etiketleme Nedir?
         </h4>
         <p className="text-sm leading-relaxed text-sky-800 dark:text-sky-200">
-          Yapay zekanin ogrenmesi icin verilere &quot;etiket&quot; eklenmesi gerekir. Ornegin bir kedi fotografina &quot;kedi&quot; etiketi koymak gibi. Buna &quot;gozetimli ogrenme&quot; denir cunku YZ&apos;ye dogru cevabi gosteriyoruz. Bu etiketler sayesinde YZ, yeni verileri kendi basina tanimay ogrenebilir.
+          Yapay zekanın öğrenmesi için verilere &quot;etiket&quot; eklenmesi gerekir. Örneğin bir kedi fotoğrafına &quot;kedi&quot; etiketi koymak gibi. Buna &quot;gözetimli öğrenme&quot; denir çünkü YZ&apos;ye doğru cevabı gösteriyoruz. Bu etiketler sayesinde YZ, yeni verileri kendi başına tanımayı öğrenebilir.
         </p>
       </div>
 
       <div className="flex flex-wrap items-center justify-between gap-3">
-        <h3 className="text-lg font-bold">🏷️ Veri Etiketleme Atolyesi</h3>
+        <h3 className="text-lg font-bold">🏷️ Veri Etiketleme Atölyesi</h3>
         {basladi && (
           <div className="flex items-center gap-3 text-sm">
             <span className="rounded-full bg-sky-100 px-3 py-1 font-mono font-semibold text-sky-700 dark:bg-sky-900/30 dark:text-sky-300">
@@ -203,16 +205,16 @@ export default function VeriEtiketleme() {
       {!basladi ? (
         <div className="rounded-xl bg-violet-50 p-6 text-center dark:bg-violet-900/20">
           <p className="text-4xl">🐱🐕</p>
-          <h4 className="mt-2 text-lg font-bold">Veri Etiketleme Simulasyonu</h4>
+          <h4 className="mt-2 text-lg font-bold">Veri Etiketleme Simülasyonu</h4>
           <p className="mt-2 text-sm text-[var(--color-text-secondary)]">
-            {hayvanlar.length} hayvan fotografini &quot;Kedi&quot; veya &quot;Kopek&quot; olarak etiketleyeceksin. Bazilari zor olabilir!
-            Bir YZ egitimcisi gibi verileri dogru etiketlemeye calis.
+            {hayvanlar.length} hayvan fotoğrafını &quot;Kedi&quot; veya &quot;Köpek&quot; olarak etiketleyeceksin. Bazıları zor olabilir!
+            Bir YZ eğitimcisi gibi verileri doğru etiketlemeye çalış.
           </p>
           <button
             onClick={basla}
             className="mt-4 rounded-lg bg-violet-600 px-6 py-3 font-semibold text-white transition hover:bg-violet-700"
           >
-            Basla!
+            Başla!
           </button>
         </div>
       ) : !tamamlandi ? (
@@ -242,14 +244,14 @@ export default function VeriEtiketleme() {
               </span>
             )}
             <p className="mt-2 text-sm text-[var(--color-text-secondary)]">
-              Bu bir kedi mi yoksa kopek mi?
+              Bu bir kedi mi yoksa köpek mi?
             </p>
 
             {/* Cevap verdikten sonra gizli adi goster */}
             {cevapVerildi && (
               <div className={`mt-3 rounded-lg p-3 ${dogruMu ? "bg-emerald-50 dark:bg-emerald-900/20" : "bg-rose-50 dark:bg-rose-900/20"}`}>
                 <p className={`text-sm font-bold ${dogruMu ? "text-emerald-700 dark:text-emerald-300" : "text-rose-700 dark:text-rose-300"}`}>
-                  {dogruMu ? "✅ Dogru!" : "❌ Yanlis!"} Bu bir {mevcutHayvan.dogruCevap === "kedi" ? "kedi" : "kopek"}: <span className="underline">{mevcutHayvan.gizliAd}</span>
+                  {dogruMu ? "✅ Doğru!" : "❌ Yanlış!"} Bu bir {mevcutHayvan.dogruCevap === "kedi" ? "kedi" : "köpek"}: <span className="underline">{mevcutHayvan.gizliAd}</span>
                 </p>
                 <p className="mt-1 text-xs text-[var(--color-text-secondary)]">
                   {mevcutHayvan.kaynak}
@@ -258,7 +260,7 @@ export default function VeriEtiketleme() {
                   onClick={sonrakineGec}
                   className="mt-2 rounded-lg bg-violet-600 px-4 py-2 text-sm font-semibold text-white transition hover:bg-violet-700"
                 >
-                  {mevcutIndex < hayvanlar.length - 1 ? "Sonraki →" : "Sonuclari Gor"}
+                  {mevcutIndex < hayvanlar.length - 1 ? "Sonraki →" : "Sonuçları Gör"}
                 </button>
               </div>
             )}
@@ -275,7 +277,7 @@ export default function VeriEtiketleme() {
                   onClick={() => cevapVer("kopek")}
                   className="flex items-center gap-2 rounded-xl border-2 border-[var(--color-border)] bg-[var(--color-bg)] px-6 py-3 text-lg font-bold transition hover:border-blue-400 hover:bg-blue-50 dark:hover:bg-blue-900/20"
                 >
-                  🐕 Kopek
+                  🐕 Köpek
                 </button>
               </div>
             )}
@@ -285,30 +287,30 @@ export default function VeriEtiketleme() {
         <>
           {/* Sonuclar */}
           <div className="rounded-xl bg-violet-50 p-6 dark:bg-violet-900/20">
-            <h4 className="mb-4 text-center text-xl font-bold">📊 Etiketleme Sonuclari</h4>
+            <h4 className="mb-4 text-center text-xl font-bold">📊 Etiketleme Sonuçları</h4>
 
             <div className="mb-4 grid grid-cols-2 gap-3 sm:grid-cols-4">
               <div className="rounded-lg bg-white/60 p-3 text-center dark:bg-black/20">
                 <p className="text-2xl font-bold text-emerald-600">{dogruSayisi}</p>
-                <p className="text-xs text-[var(--color-text-secondary)]">Dogru</p>
+                <p className="text-xs text-[var(--color-text-secondary)]">Doğru</p>
               </div>
               <div className="rounded-lg bg-white/60 p-3 text-center dark:bg-black/20">
                 <p className="text-2xl font-bold text-rose-600">{hayvanlar.length - dogruSayisi}</p>
-                <p className="text-xs text-[var(--color-text-secondary)]">Yanlis</p>
+                <p className="text-xs text-[var(--color-text-secondary)]">Yanlış</p>
               </div>
               <div className="rounded-lg bg-white/60 p-3 text-center dark:bg-black/20">
                 <p className="text-2xl font-bold text-sky-600">%{dogruluk}</p>
-                <p className="text-xs text-[var(--color-text-secondary)]">Dogruluk</p>
+                <p className="text-xs text-[var(--color-text-secondary)]">Doğruluk</p>
               </div>
               <div className="rounded-lg bg-white/60 p-3 text-center dark:bg-black/20">
                 <p className="text-2xl font-bold text-amber-600">{dakika}:{saniye.toString().padStart(2, "0")}</p>
-                <p className="text-xs text-[var(--color-text-secondary)]">Sure</p>
+                <p className="text-xs text-[var(--color-text-secondary)]">Süre</p>
               </div>
             </div>
 
             {/* Karisiklik matrisi */}
             <div className="rounded-lg bg-white/60 p-4 dark:bg-black/20">
-              <h5 className="mb-3 text-center text-sm font-bold">Karisiklik Matrisi (Confusion Matrix)</h5>
+              <h5 className="mb-3 text-center text-sm font-bold">Karışıklık Matrisi (Confusion Matrix)</h5>
               <div className="overflow-x-auto">
                 <table className="mx-auto border-collapse text-sm">
                   <thead>
@@ -323,13 +325,13 @@ export default function VeriEtiketleme() {
                       <th className="p-2" />
                       <th className="p-2" />
                       <th className="p-2 text-center font-semibold">🐱 Kedi</th>
-                      <th className="p-2 text-center font-semibold">🐕 Kopek</th>
+                      <th className="p-2 text-center font-semibold">🐕 Köpek</th>
                     </tr>
                   </thead>
                   <tbody>
                     <tr>
                       <th rowSpan={2} className="border-r border-[var(--color-border)] p-2 text-center font-bold [writing-mode:vertical-rl] rotate-180">
-                        Gercek
+                        Gerçek
                       </th>
                       <th className="p-2 text-center font-semibold">🐱 Kedi</th>
                       <td className="p-2 text-center">
@@ -344,7 +346,7 @@ export default function VeriEtiketleme() {
                       </td>
                     </tr>
                     <tr>
-                      <th className="p-2 text-center font-semibold">🐕 Kopek</th>
+                      <th className="p-2 text-center font-semibold">🐕 Köpek</th>
                       <td className="p-2 text-center">
                         <span className="rounded bg-rose-200 px-3 py-1 font-bold text-rose-800 dark:bg-rose-800 dark:text-rose-200">
                           {yanlisPozitif}
@@ -360,14 +362,14 @@ export default function VeriEtiketleme() {
                 </table>
               </div>
               <p className="mt-2 text-center text-xs text-[var(--color-text-secondary)]">
-                Yesil = dogru etiketleme, Kirmizi = yanlis etiketleme
+                Yeşil = doğru etiketleme, Kırmızı = yanlış etiketleme
               </p>
             </div>
 
             {/* Hatali etiketlemeler */}
             {hayvanlar.length - dogruSayisi > 0 && (
               <div className="mt-4 rounded-lg bg-white/60 p-4 dark:bg-black/20">
-                <h5 className="mb-2 text-sm font-bold">❌ Yanlis etiketlenenler:</h5>
+                <h5 className="mb-2 text-sm font-bold">❌ Yanlış etiketlenenler:</h5>
                 <div className="space-y-2 text-sm">
                   {hayvanlar
                     .filter((h) => cevaplar[h.id] !== h.dogruCevap)
@@ -378,8 +380,8 @@ export default function VeriEtiketleme() {
                           <img src={h.resimUrl} alt={h.gizliAd} className="h-full w-full object-cover" />
                         </div>
                         <span className="font-medium">{h.gizliAd}</span>
-                        <span className="text-rose-600">(Sen: {cevaplar[h.id] === "kedi" ? "Kedi" : "Kopek"})</span>
-                        <span className="text-emerald-600">(Dogru: {h.dogruCevap === "kedi" ? "Kedi" : "Kopek"})</span>
+                        <span className="text-rose-600">(Sen: {cevaplar[h.id] === "kedi" ? "Kedi" : "Köpek"})</span>
+                        <span className="text-emerald-600">(Doğru: {h.dogruCevap === "kedi" ? "Kedi" : "Köpek"})</span>
                       </div>
                     ))}
                 </div>
@@ -389,10 +391,10 @@ export default function VeriEtiketleme() {
             <div className="mt-4 rounded-lg bg-amber-100/60 p-3 text-sm dark:bg-amber-900/20">
               <p className="font-medium text-amber-800 dark:text-amber-300">
                 {dogruluk >= 90
-                  ? "🌟 Harika! Neredeyse mukemmel bir etiketleyicisin!"
+                  ? "🌟 Harika! Neredeyse mükemmel bir etiketleyicisin!"
                   : dogruluk >= 70
-                  ? "👍 Iyi is! Ama bazi zor orneklerde yanildin. Gercek YZ egitiminde de bu tur karisikliklar yasanir."
-                  : "🤔 Bazi hayvanlari karistirdin. Bu, veri etiketlemenin ne kadar zor olabilecegini gosteriyor!"}
+                  ? "👍 İyi iş! Ama bazı zor örneklerde yanıldın. Gerçek YZ eğitiminde de bu tür karışıklıklar yaşanır."
+                  : "🤔 Bazı hayvanları karıştırdın. Bu, veri etiketlemenin ne kadar zor olabileceğini gösteriyor!"}
               </p>
             </div>
           </div>
