@@ -74,8 +74,6 @@ const SlaytHosGeldin = (
     renkGradient="from-sky-500 via-blue-500 to-violet-500"
     sayfalar={[
       {
-        emoji: "🎉",
-        baslik: "Hoş Geldin!",
         icerik: (
           <div className="relative overflow-hidden rounded-2xl bg-gradient-to-br from-sky-500 via-blue-500 to-violet-600 p-5 text-center text-white shadow-lg">
             <div className="absolute inset-0 opacity-20">

@@ -36,7 +36,6 @@ export default function IcSayfa({
 }: IcSayfaProps) {
   const [aktif, setAktif] = useState(baslangic);
   const toplam = sayfalar.length;
-  const ilerleme = ((aktif + 1) / toplam) * 100;
   const sayfa = sayfalar[aktif];
 
   // Sayfa durumunu çerçeveye bildir (yan menüde 📄 2/3 görünür)
@@ -47,12 +46,13 @@ export default function IcSayfa({
   }, [aktif, toplam, bildir]);
 
   return (
-    <div className="rounded-2xl border border-[var(--color-border)] bg-[var(--color-bg)] p-3 sm:p-4">
-      {/* Üst bar: başlık + sayaç */}
+    // Düz yerleşim — çerçeve kartının içinde ikinci bir "pencere" çizmez
+    <div>
+      {/* Üst bar: iç sayfa başlığı + sayaç (konu başlığı yan menüde zaten seçili) */}
       <div className="mb-3 flex items-center justify-between gap-2">
         <div className="min-w-0 flex-1">
           {sayfa.baslik && (
-            <p className="truncate text-sm font-bold">
+            <p className="truncate text-base font-bold">
               {sayfa.emoji && (
                 <span className="mr-1" aria-hidden="true">
                   {sayfa.emoji}
@@ -62,18 +62,12 @@ export default function IcSayfa({
             </p>
           )}
         </div>
-        <span className="shrink-0 rounded-full bg-[var(--color-bg-secondary)] px-2.5 py-0.5 text-[11px] font-bold text-[var(--color-text-secondary)]">
-          📄 Sayfa {aktif + 1}/{toplam}
-          {toplamEtiketi ? ` ${toplamEtiketi}` : ""}
-        </span>
-      </div>
-
-      {/* İlerleme */}
-      <div className="mb-3 h-1 overflow-hidden rounded-full bg-[var(--color-border)]">
-        <div
-          className={`h-full rounded-full bg-gradient-to-r ${renkGradient} transition-all duration-300`}
-          style={{ width: `${ilerleme}%` }}
-        />
+        {toplam > 1 && (
+          <span className="shrink-0 rounded-full bg-[var(--color-bg-secondary)] px-2.5 py-0.5 text-[11px] font-bold text-[var(--color-text-secondary)]">
+            📄 Sayfa {aktif + 1}/{toplam}
+            {toplamEtiketi ? ` ${toplamEtiketi}` : ""}
+          </span>
+        )}
       </div>
 
       {/* İçerik */}

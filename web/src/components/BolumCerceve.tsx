@@ -7,7 +7,6 @@ import {
   getBolum,
   slugifyBaslik,
   turSirasi,
-  turBadge,
   turGrupBaslik,
   okuBolumIlerleme,
   type BolumTur,
@@ -207,14 +206,14 @@ export default function BolumCerceve({ bolumNo, bolumler }: BolumCerceveProps) {
 
   return (
     <div className="flex h-dvh overflow-hidden">
-      {/* Desktop sol menü */}
-      <aside className="hidden lg:block w-72 shrink-0 border-r border-[var(--color-border)] bg-[var(--color-bg)]">
-        <div className="h-full overflow-y-auto px-3 py-4">{menuIcerik}</div>
+      {/* Desktop sol menü — 768px ve üstünde her zaman görünür */}
+      <aside className="hidden md:block w-60 xl:w-72 shrink-0 border-r border-[var(--color-border)] bg-[var(--color-bg)]">
+        <div className="h-full px-3 py-3">{menuIcerik}</div>
       </aside>
 
       {/* Mobil çekmece */}
       {menuAcik && (
-        <div className="lg:hidden fixed inset-0 z-50" role="dialog" aria-modal="true">
+        <div className="md:hidden fixed inset-0 z-50" role="dialog" aria-modal="true">
           <div className="absolute inset-0 bg-black/40" onClick={() => setMenuAcik(false)} />
           <div className="absolute left-0 top-0 h-full w-80 max-w-[88vw] overflow-y-auto bg-[var(--color-bg)] px-3 py-4 shadow-xl">
             <div className="mb-2 flex justify-end">
@@ -238,8 +237,8 @@ export default function BolumCerceve({ bolumNo, bolumler }: BolumCerceveProps) {
       {/* İçerik sütunu — viewport kilitli, slayt içi kayar */}
       <div className="flex h-full min-w-0 flex-1 flex-col">
         {/* Mobil üst bar */}
-        <div className="lg:hidden shrink-0 border-b border-[var(--color-border)] bg-[var(--color-bg)]/95 backdrop-blur">
-          <div className="flex items-center gap-3 px-4 py-2.5">
+        <div className="md:hidden shrink-0 border-b border-[var(--color-border)] bg-[var(--color-bg)]/95 backdrop-blur">
+          <div className="flex items-center gap-2 px-3 py-2.5">
             <button
               type="button"
               onClick={() => setMenuAcik(true)}
@@ -255,12 +254,47 @@ export default function BolumCerceve({ bolumNo, bolumler }: BolumCerceveProps) {
             </button>
             <div className="min-w-0 flex-1">
               <p className="truncate text-sm font-bold text-foreground">
-                {bolumNo}. {meta.baslik}
+                {aktifSlayt.icon} {aktifSlayt.baslik}
               </p>
             </div>
-            <span className="shrink-0 text-xs font-bold text-violet-600 dark:text-violet-400">
-              %{ilerlemeYuzdesi}
+            {/* Konu geçişi (telefon) */}
+            <button
+              type="button"
+              onClick={oncekiIcerik}
+              disabled={ilkMi}
+              className="rounded-lg border border-[var(--color-border)] p-1.5 disabled:opacity-30"
+              aria-label="Önceki konu"
+            >
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
+                <polyline points="15 18 9 12 15 6" />
+              </svg>
+            </button>
+            <span className="shrink-0 text-[11px] font-bold text-muted-foreground">
+              {aktifIndex + 1}/{slaytlar.length}
             </span>
+            {sonMu && sonrakiBolum ? (
+              <Link
+                href={`/bolumler/${sonrakiBolum}`}
+                className="rounded-lg bg-violet-600 p-1.5 text-white"
+                aria-label={`Bölüm ${sonrakiBolum}'e geç`}
+              >
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
+                  <polyline points="9 18 15 12 9 6" />
+                </svg>
+              </Link>
+            ) : (
+              <button
+                type="button"
+                onClick={sonrakiIcerik}
+                disabled={sonMu}
+                className="rounded-lg bg-violet-600 p-1.5 text-white disabled:opacity-30"
+                aria-label="Sonraki konu"
+              >
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
+                  <polyline points="9 18 15 12 9 6" />
+                </svg>
+              </button>
+            )}
           </div>
           <div className="h-1 bg-[var(--color-bg-secondary)]">
             <div
@@ -272,7 +306,7 @@ export default function BolumCerceve({ bolumNo, bolumler }: BolumCerceveProps) {
 
         <div className="mx-auto flex h-full min-h-0 w-full max-w-5xl flex-1 flex-col gap-2.5 px-3 pb-3 pt-2 sm:px-5">
           {/* İnce başlık — yalnız desktop (mobilde üst bar var) */}
-          <header className="hidden lg:flex shrink-0 items-center gap-3 overflow-hidden rounded-xl border border-[var(--color-border)] bg-[var(--color-bg)] px-4 py-1.5">
+          <header className="hidden md:flex shrink-0 items-center gap-3 overflow-hidden rounded-xl border border-[var(--color-border)] bg-[var(--color-bg)] px-4 py-1.5">
             <span className={`inline-block shrink-0 rounded-full bg-gradient-to-r ${meta.renk} px-2.5 py-0.5 text-[10px] font-bold uppercase tracking-wide text-white`}>
               Bölüm {bolumNo}
             </span>
@@ -288,24 +322,8 @@ export default function BolumCerceve({ bolumNo, bolumler }: BolumCerceveProps) {
             <IlerlemeHalkasi yuzde={ilerlemeYuzdesi} boyut={32} />
           </header>
 
-          {/* Aktif slayt — kalan tüm alanı kaplar, içi kayar */}
+          {/* Aktif slayt — başlık yok (konu zaten yan menüde seçili), içerik tüm alanı kaplar */}
           <article className="flex min-h-0 flex-1 flex-col rounded-2xl border border-[var(--color-border)] bg-[var(--color-bg)] shadow-sm">
-            <div className="flex shrink-0 items-center gap-3 border-b border-[var(--color-border)] px-4 py-2 sm:px-5">
-              <span className="text-xl">{aktifSlayt.icon}</span>
-              <div className="min-w-0 flex-1">
-                <h2 className="truncate text-base font-bold text-foreground sm:text-lg">{aktifSlayt.baslik}</h2>
-              </div>
-              <span className={`shrink-0 rounded-full px-2 py-0.5 text-xs ${turBadge[aktifSlayt.tur].bg}`}>
-                {turBadge[aktifSlayt.tur].label}
-              </span>
-              {tamamlandiMi(aktifSlayt.id) && (
-                <span className="flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-emerald-100 dark:bg-emerald-900/30">
-                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round" className="text-emerald-600 dark:text-emerald-400">
-                    <path d="M9 12l2 2 4-4" />
-                  </svg>
-                </span>
-              )}
-            </div>
             <div ref={icerikRef} className="min-h-0 flex-1 space-y-4 overflow-y-auto p-4 sm:p-5">
               <IcIlerlemeContext.Provider value={{ bildir: icBildir }}>
                 {aktifSlayt.icerik}
@@ -313,54 +331,6 @@ export default function BolumCerceve({ bolumNo, bolumler }: BolumCerceveProps) {
             </div>
           </article>
 
-          {/* Alt navigasyon */}
-          <div className="flex shrink-0 items-center justify-between gap-3">
-            <button
-              onClick={oncekiIcerik}
-              disabled={ilkMi}
-              className="inline-flex items-center gap-1.5 rounded-lg border border-[var(--color-border)] bg-[var(--color-bg)] px-4 py-2 text-sm font-semibold text-foreground transition hover:border-violet-300 hover:text-violet-600 disabled:cursor-not-allowed disabled:opacity-30"
-            >
-              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
-                <polyline points="15 18 9 12 15 6" />
-              </svg>
-              Önceki<span className="hidden sm:inline">&nbsp;Konu</span>
-            </button>
-
-            <span className="text-xs text-muted-foreground">
-              Konu {aktifIndex + 1}/{slaytlar.length}
-            </span>
-
-            {sonMu ? (
-              sonrakiBolum ? (
-                <Link
-                  href={`/bolumler/${sonrakiBolum}`}
-                  className="inline-flex items-center gap-1.5 rounded-lg bg-violet-600 px-4 py-2 text-sm font-semibold text-white transition hover:bg-violet-700"
-                >
-                  Bölüm {sonrakiBolum}
-                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
-                    <polyline points="9 18 15 12 9 6" />
-                  </svg>
-                </Link>
-              ) : (
-                <Link
-                  href="/bolumler"
-                  className="inline-flex items-center gap-1.5 rounded-lg bg-violet-600 px-4 py-2 text-sm font-semibold text-white transition hover:bg-violet-700"
-                >
-                  Tüm Bölümler
-                </Link>
-              )
-            ) : (
-              <button
-                onClick={sonrakiIcerik}
-                className="inline-flex items-center gap-1.5 rounded-lg bg-violet-600 px-4 py-2 text-sm font-semibold text-white transition hover:bg-violet-700"
-              >
-                Sonraki<span className="hidden sm:inline">&nbsp;Konu</span>
-                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
-                  <polyline points="9 18 15 12 9 6" />
-                </svg>
-              </button>
-            )}
-          </div>
         </div>
       </div>
     </div>
@@ -420,7 +390,7 @@ function KonuMenu({
   }, [aktifIndex])
 
   return (
-    <div className="flex flex-col gap-4">
+    <div className="flex h-full min-h-0 flex-col gap-3">
       {/* Marka + geri */}
       <div className="flex items-center justify-between px-1">
         <Link href="/" className="flex items-center gap-2">
@@ -448,8 +418,8 @@ function KonuMenu({
         <p className="text-sm font-bold leading-tight">{meta.baslik}</p>
       </div>
 
-      {/* Konu ağacı */}
-      <nav ref={navRef} className="space-y-1">
+      {/* Konu ağacı — kendi alanında kayar, alt kontroller sabit kalır */}
+      <nav ref={navRef} className="min-h-0 flex-1 space-y-1 overflow-y-auto">
         {gruplar.map(({ tur, items }) => {
           const acik = acikGruplar.has(tur)
           const tamam = items.filter((i) => tamamlananlar.has(i.s.id)).length
@@ -543,6 +513,46 @@ function KonuMenu({
           )
         })}
       </nav>
+
+      {/* Konu geçişi — konular arası gezinme yan menüden yapılır */}
+      <div className="flex items-center gap-2 rounded-xl border border-[var(--color-border)] bg-[var(--color-bg)] p-1.5">
+        <button
+          type="button"
+          onClick={() => onSec(aktifIndex - 1)}
+          disabled={aktifIndex === 0}
+          className="flex h-8 w-9 items-center justify-center rounded-lg border border-[var(--color-border)] transition hover:border-violet-300 hover:text-violet-600 disabled:cursor-not-allowed disabled:opacity-30"
+          aria-label="Önceki konu"
+        >
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
+            <polyline points="15 18 9 12 15 6" />
+          </svg>
+        </button>
+        <span className="flex-1 text-center text-xs font-semibold text-muted-foreground">
+          Konu {aktifIndex + 1}/{slaytlar.length}
+        </span>
+        {aktifIndex === slaytlar.length - 1 ? (
+          <Link
+            href={bolumNo < 10 ? `/bolumler/${bolumNo + 1}` : '/bolumler'}
+            className="flex h-8 items-center justify-center gap-1 rounded-lg bg-violet-600 px-2.5 text-[11px] font-bold text-white transition hover:bg-violet-700"
+          >
+            {bolumNo < 10 ? `Bölüm ${bolumNo + 1}` : 'Bitir'}
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
+              <polyline points="9 18 15 12 9 6" />
+            </svg>
+          </Link>
+        ) : (
+          <button
+            type="button"
+            onClick={() => onSec(aktifIndex + 1)}
+            className="flex h-8 w-9 items-center justify-center rounded-lg bg-violet-600 text-white transition hover:bg-violet-700"
+            aria-label="Sonraki konu"
+          >
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
+              <polyline points="9 18 15 12 9 6" />
+            </svg>
+          </button>
+        )}
+      </div>
 
       {/* İlerleme özeti */}
       <div className="flex items-center gap-3 rounded-xl bg-[var(--color-bg-secondary)] px-3 py-2.5">
