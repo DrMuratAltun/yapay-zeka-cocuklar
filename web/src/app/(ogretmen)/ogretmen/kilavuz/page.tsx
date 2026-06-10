@@ -6,11 +6,11 @@ export default function KilavuzListPage() {
     <div className="max-w-6xl mx-auto px-4 sm:px-6 py-6 sm:py-8">
       <div className="mb-8">
         <h1 className="text-2xl sm:text-3xl font-bold text-gray-900">
-          Bolum Kilavuzlari
+          Bölüm Kılavuzları
         </h1>
         <p className="text-gray-600 mt-1">
-          Her bolum icin detayli ogretmen rehberi: cevap anahtarlari, etkinlik
-          tuyolari, tartisma sorulari ve daha fazlasi.
+          Her bölüm için detaylı öğretmen rehberi: cevap anahtarları, etkinlik
+          tüyoları, tartışma soruları ve daha fazlası.
         </p>
       </div>
 
@@ -53,10 +53,10 @@ export default function KilavuzListPage() {
                   {k.etkinlikRehberi.length} etkinlik
                 </span>
                 <span className="bg-amber-50 text-amber-700 px-2 py-0.5 rounded">
-                  {k.tartismaSorulari.length} tartisma
+                  {k.tartismaSorulari.length} tartışma
                 </span>
                 <span className="bg-red-50 text-red-700 px-2 py-0.5 rounded">
-                  {k.yanilgilar.length} yanilgi
+                  {k.yanilgilar.length} yanılgı
                 </span>
               </div>
             </div>

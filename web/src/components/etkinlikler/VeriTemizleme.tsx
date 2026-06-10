@@ -342,7 +342,8 @@ export default function VeriTemizleme() {
               {hataTurleriLabel[seciliHata.tur]}
             </span>
             <span className="text-xs text-[var(--color-text-secondary)]">
-              Satır {seciliHata.satir}, {seciliHata.sutun === "tum" ? "Tüm Satır" : seciliHata.sutun}
+              Satır {seciliHata.satir},{" "}
+              {{ tum: "Tüm Satır", yas: "Yaş", sehir: "Şehir", kilo: "Kilo", boy: "Boy", isim: "İsim" }[seciliHata.sutun] ?? seciliHata.sutun}
             </span>
           </div>
           <p className={`text-sm ${hataRenkleri[seciliHata.tur].text}`}>

@@ -172,7 +172,7 @@ const yillikPlan = [
     icon: "🎨",
   },
   {
-    ay: "Mayıs - Haziran",
+    ay: "Mayıs - Hazıran",
     bolumler: "Bölüm 10",
     tema: "Proje + Portfolyo",
     aciklama: "Final projesi, sunum ve portfolyo oluşturma",

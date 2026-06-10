@@ -110,7 +110,7 @@ const kariyerler: Record<string, Kariyer[]> = {
     {
       baslik: "Prompt Mühendisi",
       icon: "✍️",
-      aciklama: "YZ araçlarından en iyi sonucu alacak talimatları tasarlayan uzman.",
+      aciklama: "YZ araçlarından en iyi sonuçu alacak talimatları tasarlayan uzman.",
       beceriler: ["Yaratıcı Yazım", "YZ Araçları Bilgisi", "Görsel Tasarım", "İletişim"],
       ornekProjeler: ["Marka için YZ içerik stratejisi", "Görsel üretim promptları", "Chatbot diyalog tasarımı"],
       gelecekGorunum: "Yepyeni bir meslek alanı. Talep hızla artıyor.",

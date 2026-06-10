@@ -118,17 +118,17 @@ export default function OgretmenDashboard() {
             <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4" />
             <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4z" />
           </svg>
-          Yukleniyor...
+          Yükleniyor...
         </div>
       </div>
     )
   }
 
   const statCards = [
-    { label: 'Siniflar', value: stats.totalClasses, sub: 'Aktif sinif', icon: '🏫', color: 'bg-blue-100 text-blue-600' },
-    { label: 'Ogrenciler', value: stats.totalStudents, sub: 'Toplam ogrenci', icon: '👨‍🎓', color: 'bg-emerald-100 text-emerald-600' },
-    { label: 'Moduller', value: stats.modulesAssigned, sub: 'Atanmis modul', icon: '📚', color: 'bg-violet-100 text-violet-600' },
-    { label: 'Ort. Puan', value: stats.avgScore > 0 ? `${stats.avgScore}%` : '-', sub: 'Quiz ortalamasi', icon: '⭐', color: 'bg-amber-100 text-amber-600' },
+    { label: 'Sınıflar', value: stats.totalClasses, sub: 'Aktif sınıf', icon: '🏫', color: 'bg-blue-100 text-blue-600' },
+    { label: 'Öğrenciler', value: stats.totalStudents, sub: 'Toplam öğrenci', icon: '👨‍🎓', color: 'bg-emerald-100 text-emerald-600' },
+    { label: 'Modüller', value: stats.modulesAssigned, sub: 'Atanmış modül', icon: '📚', color: 'bg-violet-100 text-violet-600' },
+    { label: 'Ort. Puan', value: stats.avgScore > 0 ? `${stats.avgScore}%` : '-', sub: 'Quiz ortalaması', icon: '⭐', color: 'bg-amber-100 text-amber-600' },
   ]
 
   return (
@@ -139,22 +139,22 @@ export default function OgretmenDashboard() {
           <CardContent className="pt-1">
             <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
               <div>
-                <p className="text-blue-200 text-sm font-medium mb-1">Ogretmen Paneli</p>
+                <p className="text-blue-200 text-sm font-medium mb-1">Öğretmen Paneli</p>
                 <h1 className="text-2xl sm:text-3xl font-bold">
-                  {school?.name ?? 'Yukleniyor...'}
+                  {school?.name ?? 'Yükleniyor...'}
                 </h1>
                 <p className="text-blue-100 mt-1 text-sm">
-                  Siniflarinizi yonetin, modul atayin ve ogrenci ilerlemesini takip edin.
+                  Sınıflarınızı yönetin, modül atayın ve öğrenci ilerlemesini takip edin.
                 </p>
               </div>
               <div className="flex gap-3 flex-wrap">
                 <div className="bg-white/15 backdrop-blur rounded-xl px-4 py-2.5 text-center min-w-[100px]">
                   <p className="text-2xl font-bold">{stats.studentsUsed}</p>
-                  <p className="text-xs text-blue-200">/ {stats.studentsQuota} ogrenci</p>
+                  <p className="text-xs text-blue-200">/ {stats.studentsQuota} öğrenci</p>
                 </div>
                 <div className="bg-white/15 backdrop-blur rounded-xl px-4 py-2.5 text-center min-w-[100px]">
                   <p className="text-2xl font-bold">{stats.teachersUsed}</p>
-                  <p className="text-xs text-blue-200">/ {stats.teachersQuota} ogretmen</p>
+                  <p className="text-xs text-blue-200">/ {stats.teachersQuota} öğretmen</p>
                 </div>
               </div>
             </div>
@@ -183,10 +183,10 @@ export default function OgretmenDashboard() {
       {/* Hizli Erisim */}
       <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4 mb-8">
         {[
-          { href: '/ogretmen/siniflar', icon: '📋', title: 'Siniflarim', desc: 'Siniflari yonetin, ogrenci ekleyin, modul atayin.', iconBg: 'bg-blue-600', hoverBorder: 'hover:border-blue-300', hoverText: 'group-hover:text-blue-600' },
-          { href: '/ogretmen/kilavuz', icon: '📝', title: 'Bolum Kilavuzlari', desc: 'Cevap anahtarlari, etkinlik rehberleri, tartisma sorulari.', iconBg: 'bg-amber-600', hoverBorder: 'hover:border-amber-300', hoverText: 'group-hover:text-amber-600' },
-          { href: '/ogretmen/kaynaklar', icon: '📖', title: 'Kaynaklar ve Ders Planlari', desc: 'Ders planlari, rubrikler, yillik plan ve faydali linkler.', iconBg: 'bg-emerald-600', hoverBorder: 'hover:border-emerald-300', hoverText: 'group-hover:text-emerald-600' },
-          { href: '/okul', icon: '🏫', title: 'Okul Paneli', desc: 'Okulunuzun genel istatistiklerini gorunteuleyin.', iconBg: 'bg-violet-600', hoverBorder: 'hover:border-violet-300', hoverText: 'group-hover:text-violet-600' },
+          { href: '/ogretmen/siniflar', icon: '📋', title: 'Sınıflarım', desc: 'Sınıfları yönetin, öğrenci ekleyin, modül atayın.', iconBg: 'bg-blue-600', hoverBorder: 'hover:border-blue-300', hoverText: 'group-hover:text-blue-600' },
+          { href: '/ogretmen/kilavuz', icon: '📝', title: 'Bölüm Kılavuzları', desc: 'Cevap anahtarları, etkinlik rehberleri, tartışma soruları.', iconBg: 'bg-amber-600', hoverBorder: 'hover:border-amber-300', hoverText: 'group-hover:text-amber-600' },
+          { href: '/ogretmen/kaynaklar', icon: '📖', title: 'Kaynaklar ve Ders Planları', desc: 'Ders planları, rubrikler, yıllık plan ve faydalı linkler.', iconBg: 'bg-emerald-600', hoverBorder: 'hover:border-emerald-300', hoverText: 'group-hover:text-emerald-600' },
+          { href: '/okul', icon: '🏫', title: 'Okul Paneli', desc: 'Okulunuzun genel istatistiklerini görüntüleyin.', iconBg: 'bg-violet-600', hoverBorder: 'hover:border-violet-300', hoverText: 'group-hover:text-violet-600' },
         ].map((item) => (
           <Link key={item.href} href={item.href}>
             <Card className={`h-full hover:shadow-md ${item.hoverBorder} transition-all group cursor-pointer`}>
@@ -210,9 +210,9 @@ export default function OgretmenDashboard() {
       {classes.length > 0 && (
         <Card>
           <CardHeader className="flex-row items-center justify-between border-b">
-            <CardTitle className="text-lg font-bold">Son Siniflar</CardTitle>
+            <CardTitle className="text-lg font-bold">Son Sınıflar</CardTitle>
             <Button variant="link" size="sm" render={<Link href="/ogretmen/siniflar" />}>
-              Tumunu Gor →
+              Tümünü Gör →
             </Button>
           </CardHeader>
           <CardContent className="p-0">
@@ -230,7 +230,7 @@ export default function OgretmenDashboard() {
                     <div>
                       <p className="font-medium text-foreground">{cls.name}</p>
                       <p className="text-xs text-muted-foreground">
-                        Kod: <Badge variant="secondary" className="font-mono text-[10px]">{cls.access_code}</Badge> · {cls.student_count} ogrenci
+                        Kod: <Badge variant="secondary" className="font-mono text-[10px]">{cls.access_code}</Badge> · {cls.student_count} öğrenci
                       </p>
                     </div>
                   </div>

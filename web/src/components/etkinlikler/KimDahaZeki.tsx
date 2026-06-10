@@ -241,7 +241,7 @@ export default function KimDahaZeki() {
               style={{ animation: "slide-up 0.3s ease-out" }}
             >
               <p className="mb-1 text-2xl">
-                {sonCevapDogru ? "✅ Dogru!" : "❌ Yanlis!"}
+                {sonCevapDogru ? "✅ Doğru!" : "❌ Yanlış!"}
               </p>
               <p className="mb-2 text-sm font-semibold">
                 Dogru cevap:{" "}
@@ -249,7 +249,7 @@ export default function KimDahaZeki() {
                   ? "🧑 Insan Daha Iyi"
                   : mevcutGorev.cevap === "makine"
                   ? "🤖 Makine Daha Iyi"
-                  : "🤝 Ikisi de Basarili"}
+                  : "🤝 Ikisi de Başarılı"}
               </p>
               <p className="text-sm text-[var(--color-text-secondary)]">
                 {mevcutGorev.aciklama}
@@ -290,7 +290,7 @@ export default function KimDahaZeki() {
                 className="rounded-xl bg-violet-600 px-8 py-3 font-bold text-white shadow-md transition-all hover:scale-105 hover:bg-violet-700 hover:shadow-lg active:scale-95"
               >
                 {mevcutIndex + 1 >= gorevler.length
-                  ? "Sonucu Gor 🏆"
+                  ? "Sonuçu Gor 🏆"
                   : "Sonraki ➡️"}
               </button>
             </div>

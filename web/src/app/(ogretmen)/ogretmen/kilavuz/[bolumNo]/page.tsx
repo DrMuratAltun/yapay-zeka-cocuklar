@@ -14,8 +14,8 @@ const tipRenk: Record<string, string> = {
 const tipLabel: Record<string, string> = {
   unplugged: 'Unplugged',
   bilgisayar: 'Bilgisayar',
-  simulasyon: 'Simulasyon',
-  yaratici: 'Yaratici',
+  simulasyon: 'Simülasyon',
+  yaratici: 'Yaratıcı',
   proje: 'Proje',
 }
 
@@ -40,7 +40,7 @@ export default async function KilavuzDetayPage({
           <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
             <polyline points="15 18 9 12 15 6" />
           </svg>
-          Tum Kilavuzlar
+          Tüm Kılavuzlar
         </Link>
         <PrintButton />
       </div>
@@ -50,7 +50,7 @@ export default async function KilavuzDetayPage({
         <div className="flex items-center gap-4 mb-3">
           <span className="text-4xl">{kilavuz.icon}</span>
           <div>
-            <p className="text-white/80 text-sm print:text-gray-600">Bolum {kilavuz.bolumNo}</p>
+            <p className="text-white/80 text-sm print:text-gray-600">Bölüm {kilavuz.bolumNo}</p>
             <h1 className="text-2xl sm:text-3xl font-bold">{kilavuz.baslik}</h1>
           </div>
         </div>
@@ -63,7 +63,7 @@ export default async function KilavuzDetayPage({
           </span>
         </div>
         <div>
-          <h3 className="font-semibold text-sm mb-2 text-white/90 print:text-gray-700">Kazanimlar</h3>
+          <h3 className="font-semibold text-sm mb-2 text-white/90 print:text-gray-700">Kazanımlar</h3>
           <ul className="space-y-1">
             {kilavuz.kazanimlar.map((k, i) => (
               <li key={i} className="flex items-start gap-2 text-sm text-white/90 print:text-black">
@@ -76,9 +76,9 @@ export default async function KilavuzDetayPage({
       </div>
 
       {/* 1. Ders Plani */}
-      <Section title="Ders Islenis Plani" icon="📋" id="ders-plani">
+      <Section title="Ders İşleniş Planı" icon="📋" id="ders-plani">
         <div className="bg-blue-50 border border-blue-200 rounded-lg p-4 mb-4 print:bg-gray-50">
-          <p className="text-sm font-semibold text-blue-800 mb-1">Isinma Aktivitesi</p>
+          <p className="text-sm font-semibold text-blue-800 mb-1">Isınma Aktivitesi</p>
           <p className="text-sm text-blue-700">{kilavuz.dersPlani.isinma}</p>
         </div>
 
@@ -86,8 +86,8 @@ export default async function KilavuzDetayPage({
           <table className="w-full text-sm border-collapse">
             <thead>
               <tr className="bg-gray-50">
-                <th className="text-left p-3 border font-semibold w-24">Sure</th>
-                <th className="text-left p-3 border font-semibold">Icerik</th>
+                <th className="text-left p-3 border font-semibold w-24">Süre</th>
+                <th className="text-left p-3 border font-semibold">İçerik</th>
               </tr>
             </thead>
             <tbody>
@@ -102,13 +102,13 @@ export default async function KilavuzDetayPage({
         </div>
 
         <div className="bg-amber-50 border border-amber-200 rounded-lg p-4 mt-4 print:bg-gray-50">
-          <p className="text-sm font-semibold text-amber-800 mb-1">Kapanis Aktivitesi</p>
+          <p className="text-sm font-semibold text-amber-800 mb-1">Kapanış Aktivitesi</p>
           <p className="text-sm text-amber-700">{kilavuz.dersPlani.kapanis}</p>
         </div>
       </Section>
 
       {/* 2. Quiz Cevap Anahtari */}
-      <Section title="Quiz Cevap Anahtari" icon="✅" id="cevap-anahtari">
+      <Section title="Quiz Cevap Anahtarı" icon="✅" id="cevap-anahtari">
         <div className="space-y-4">
           {kilavuz.quizCevapAnahtari.map((q) => (
             <div key={q.soruNo} className="border rounded-lg overflow-hidden">
@@ -128,11 +128,11 @@ export default async function KilavuzDetayPage({
                   <span className="text-sm font-semibold text-green-700">{q.dogruSecenek}</span>
                 </div>
                 <div className="bg-green-50 rounded-lg p-3 text-sm text-green-800">
-                  <span className="font-semibold">Aciklama: </span>
+                  <span className="font-semibold">Açıklama: </span>
                   {q.aciklama}
                 </div>
                 <div className="bg-yellow-50 rounded-lg p-3 text-sm text-yellow-800">
-                  <span className="font-semibold">Ogretmen Notu: </span>
+                  <span className="font-semibold">Öğretmen Notu: </span>
                   {q.ogretmenNotu}
                 </div>
               </div>
@@ -142,7 +142,7 @@ export default async function KilavuzDetayPage({
       </Section>
 
       {/* 3. Etkinlik Rehberi */}
-      <Section title="Etkinlik Yurutme Rehberi" icon="🎯" id="etkinlikler">
+      <Section title="Etkinlik Yürütme Rehberi" icon="🎯" id="etkinlikler">
         <div className="space-y-6">
           {kilavuz.etkinlikRehberi.map((e, i) => (
             <div key={i} className="border rounded-lg overflow-hidden">
@@ -163,7 +163,7 @@ export default async function KilavuzDetayPage({
               <div className="p-4 space-y-4">
                 {/* Hazirlik */}
                 <div>
-                  <p className="text-sm font-semibold text-gray-700 mb-2">Hazirlik</p>
+                  <p className="text-sm font-semibold text-gray-700 mb-2">Hazırlık</p>
                   <ul className="space-y-1">
                     {e.hazirlik.map((h, j) => (
                       <li key={j} className="flex items-start gap-2 text-sm text-gray-600">
@@ -176,7 +176,7 @@ export default async function KilavuzDetayPage({
 
                 {/* Adimlar */}
                 <div>
-                  <p className="text-sm font-semibold text-gray-700 mb-2">Adimlar</p>
+                  <p className="text-sm font-semibold text-gray-700 mb-2">Adımlar</p>
                   <ol className="space-y-1">
                     {e.adimlar.map((a, j) => (
                       <li key={j} className="flex items-start gap-2 text-sm text-gray-600">
@@ -192,7 +192,7 @@ export default async function KilavuzDetayPage({
                 {/* Olasi Sorunlar */}
                 {e.olasiSorunlar.length > 0 && (
                   <div className="bg-red-50 rounded-lg p-3">
-                    <p className="text-sm font-semibold text-red-700 mb-1">Olasi Sorunlar</p>
+                    <p className="text-sm font-semibold text-red-700 mb-1">Olası Sorunlar</p>
                     <ul className="space-y-1">
                       {e.olasiSorunlar.map((s, j) => (
                         <li key={j} className="text-sm text-red-600 flex items-start gap-2">
@@ -206,7 +206,7 @@ export default async function KilavuzDetayPage({
 
                 {/* Ileri Seviye */}
                 <div className="bg-violet-50 rounded-lg p-3">
-                  <p className="text-sm font-semibold text-violet-700 mb-1">Ileri Seviye Varyasyonu</p>
+                  <p className="text-sm font-semibold text-violet-700 mb-1">İleri Seviye Varyasyonu</p>
                   <p className="text-sm text-violet-600">{e.ileriSeviye}</p>
                 </div>
               </div>
@@ -216,7 +216,7 @@ export default async function KilavuzDetayPage({
       </Section>
 
       {/* 4. Tartisma Sorulari */}
-      <Section title="Tartisma Sorulari" icon="💬" id="tartisma">
+      <Section title="Tartışma Soruları" icon="💬" id="tartisma">
         <div className="space-y-4">
           {kilavuz.tartismaSorulari.map((t, i) => (
             <div key={i} className="border rounded-lg p-4">
@@ -227,7 +227,7 @@ export default async function KilavuzDetayPage({
                 {t.soru}
               </p>
               <div className="ml-8 space-y-1">
-                <p className="text-xs font-semibold text-gray-500 uppercase tracking-wide mb-1">Yonlendirme Ipuclari</p>
+                <p className="text-xs font-semibold text-gray-500 uppercase tracking-wide mb-1">Yönlendirme İpuçları</p>
                 {t.ipuclari.map((ip, j) => (
                   <p key={j} className="text-sm text-gray-600 flex items-start gap-2">
                     <span className="text-indigo-400">→</span>
@@ -241,22 +241,22 @@ export default async function KilavuzDetayPage({
       </Section>
 
       {/* 5. Yaygin Yanilgilar */}
-      <Section title="Yaygin Yanilgilar" icon="❌" id="yanilgilar">
+      <Section title="Yaygın Yanılgılar" icon="❌" id="yanilgilar">
         <div className="space-y-4">
           {kilavuz.yanilgilar.map((y, i) => (
             <div key={i} className="border rounded-lg overflow-hidden">
               <div className="grid sm:grid-cols-2">
                 <div className="bg-red-50 p-4 border-b sm:border-b-0 sm:border-r">
-                  <p className="text-xs font-semibold text-red-500 uppercase tracking-wide mb-1">Yanilgi</p>
+                  <p className="text-xs font-semibold text-red-500 uppercase tracking-wide mb-1">Yanılgı</p>
                   <p className="text-sm text-red-700 font-medium">{y.yanilgi}</p>
                 </div>
                 <div className="bg-green-50 p-4">
-                  <p className="text-xs font-semibold text-green-500 uppercase tracking-wide mb-1">Gercek</p>
+                  <p className="text-xs font-semibold text-green-500 uppercase tracking-wide mb-1">Gerçek</p>
                   <p className="text-sm text-green-700 font-medium">{y.gercek}</p>
                 </div>
               </div>
               <div className="p-4 bg-gray-50 border-t">
-                <p className="text-xs font-semibold text-gray-500 uppercase tracking-wide mb-1">Nasil Duzeltilir?</p>
+                <p className="text-xs font-semibold text-gray-500 uppercase tracking-wide mb-1">Nasıl Düzeltilir?</p>
                 <p className="text-sm text-gray-700">{y.nasilDuzeltilir}</p>
               </div>
             </div>
@@ -265,11 +265,11 @@ export default async function KilavuzDetayPage({
       </Section>
 
       {/* 6. Farklilastrma */}
-      <Section title="Farklilastirma Onerileri" icon="🎨" id="farklilastirma">
+      <Section title="Farklılaştırma Önerileri" icon="🎨" id="farklilastirma">
         <div className="grid sm:grid-cols-2 gap-4">
           <div className="border rounded-lg p-4 bg-emerald-50/50">
             <p className="font-semibold text-emerald-800 mb-3 flex items-center gap-2">
-              <span className="text-lg">🚀</span> Ileri Duzey Ogrenciler
+              <span className="text-lg">🚀</span> İleri Düzey Öğrenciler
             </p>
             <ul className="space-y-2">
               {kilavuz.farklilastirma.ileriDuzey.map((d, i) => (
@@ -282,7 +282,7 @@ export default async function KilavuzDetayPage({
           </div>
           <div className="border rounded-lg p-4 bg-blue-50/50">
             <p className="font-semibold text-blue-800 mb-3 flex items-center gap-2">
-              <span className="text-lg">🤝</span> Destege Ihtiyac Duyan Ogrenciler
+              <span className="text-lg">🤝</span> Desteğe İhtiyaç Duyan Öğrenciler
             </p>
             <ul className="space-y-2">
               {kilavuz.farklilastirma.destekGerekli.map((d, i) => (
@@ -335,21 +335,21 @@ export default async function KilavuzDetayPage({
             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
               <polyline points="15 18 9 12 15 6" />
             </svg>
-            Bolum {no - 1}
+            Bölüm {no - 1}
           </Link>
         ) : <span />}
         <Link
           href="/ogretmen/kilavuz"
           className="text-sm text-gray-500 hover:text-gray-700"
         >
-          Tum Kilavuzlar
+          Tüm Kılavuzlar
         </Link>
         {no < 10 ? (
           <Link
             href={`/ogretmen/kilavuz/${no + 1}`}
             className="text-sm text-blue-600 hover:underline flex items-center gap-1"
           >
-            Bolum {no + 1}
+            Bölüm {no + 1}
             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
               <polyline points="9 18 15 12 9 6" />
             </svg>

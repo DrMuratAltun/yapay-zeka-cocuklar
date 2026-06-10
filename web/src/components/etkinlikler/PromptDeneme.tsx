@@ -291,7 +291,7 @@ export default function PromptDeneme() {
       {gonderildi && (
         <div className="space-y-3">
           <div className="rounded-xl border border-[var(--color-border)] bg-[var(--color-bg-secondary)] p-4">
-            <h4 className="mb-3 font-bold text-[var(--color-text)]">Değerlendirme Sonucu</h4>
+            <h4 className="mb-3 font-bold text-[var(--color-text)]">Değerlendirme Sonuçu</h4>
             <div className="space-y-2">
               {senaryo.kriterler.map((kriter, i) => (
                 <div

@@ -5,7 +5,7 @@ import { useState, useCallback } from "react";
 interface Meyve {
   ad: string;
   emoji: string;
-  kategori: "Turuncgil" | "Cekirdekli" | "Uzumsu" | "Tropikal";
+  kategori: "Turunçgil" | "Çekirdekli" | "Üzümsü" | "Tropikal";
   ozellikler: {
     renk: string;
     sekil: string;
@@ -19,112 +19,112 @@ const meyveler: Meyve[] = [
   {
     ad: "Elma",
     emoji: "\ud83c\udf4e",
-    kategori: "Cekirdekli",
-    ozellikler: { renk: "Kirmizi/Yesil", sekil: "Yuvarlak", boyut: "Orta", kabukTipi: "Ince, parlak" },
-    aciklama: "Elma cekirdekli meyve grubundandir. Ic kisminda cekirdek yuvasi vardir.",
+    kategori: "Çekirdekli",
+    ozellikler: { renk: "Kırmızı/Yeşil", sekil: "Yuvarlak", boyut: "Orta", kabukTipi: "İnce, parlak" },
+    aciklama: "Elma çekirdekli meyve grubundandır. İç kısmında çekirdek yuvası vardır.",
   },
   {
     ad: "Portakal",
     emoji: "\ud83c\udf4a",
-    kategori: "Turuncgil",
-    ozellikler: { renk: "Turuncu", sekil: "Yuvarlak", boyut: "Orta", kabukTipi: "Kalin, gozenegeli" },
-    aciklama: "Portakal turuncgil ailesinin en bilinen uyesidir. Dilimli yapisi ve kalin kabugu vardir.",
+    kategori: "Turunçgil",
+    ozellikler: { renk: "Turuncu", sekil: "Yuvarlak", boyut: "Orta", kabukTipi: "Kalın, gözenekli" },
+    aciklama: "Portakal türünçgil ailesinin en bilinen üyesidir. Dilimli yapısı ve kalın kabuğu vardır.",
   },
   {
-    ad: "Cilek",
+    ad: "Çilek",
     emoji: "\ud83c\udf53",
-    kategori: "Uzumsu",
-    ozellikler: { renk: "Kirmizi", sekil: "Koni", boyut: "Kucuk", kabukTipi: "Ince, tohumlu" },
-    aciklama: "Cilek uzumsu meyveler grubundandir. Yumusak, etli yapisi ve dis yuzeyindeki tohumlariyla taninir.",
+    kategori: "Üzümsü",
+    ozellikler: { renk: "Kırmızı", sekil: "Koni", boyut: "Küçük", kabukTipi: "İnce, tohumlu" },
+    aciklama: "Çilek üzümsü meyveler grubundandır. Yumuşak, etli yapısı ve dış yüzeyindeki tohumlarıyla tanınır.",
   },
   {
     ad: "Muz",
     emoji: "\ud83c\udf4c",
     kategori: "Tropikal",
-    ozellikler: { renk: "Sari", sekil: "Uzun, kavisli", boyut: "Orta", kabukTipi: "Kalin, soyulabilir" },
-    aciklama: "Muz tropikal bolgelerde yetisir. Sicak iklimlerde buyur ve kendine ozgu kavisli sekli vardir.",
+    ozellikler: { renk: "Sarı", sekil: "Uzun, kavisli", boyut: "Orta", kabukTipi: "Kalın, soyulabilir" },
+    aciklama: "Muz tropikal bölgelerde yetişir. Sıcak iklimlerde büyür ve kendine özgü kavisli şekli vardır.",
   },
   {
-    ad: "Uzum",
+    ad: "Üzüm",
     emoji: "\ud83c\udf47",
-    kategori: "Uzumsu",
-    ozellikler: { renk: "Mor/Yesil", sekil: "Kucuk yuvarlak", boyut: "Kucuk", kabukTipi: "Cok ince" },
-    aciklama: "Uzum, uzumsu meyveler grubunun en klasik orneklerinden biridir. Salkimlar halinde yetisir.",
+    kategori: "Üzümsü",
+    ozellikler: { renk: "Mor/Yeşil", sekil: "Küçük yuvarlak", boyut: "Küçük", kabukTipi: "Çok ince" },
+    aciklama: "Üzüm, üzümsü meyveler grubunun en klasik örneklerinden biridir. Salkımlar halinde yetişir.",
   },
   {
     ad: "Limon",
     emoji: "\ud83c\udf4b",
-    kategori: "Turuncgil",
-    ozellikler: { renk: "Sari", sekil: "Oval", boyut: "Kucuk-Orta", kabukTipi: "Kalin, gozenegeli" },
-    aciklama: "Limon turuncgil ailesinin eksi uyesidir. Portakal gibi dilimli yapisi ve kalin kabugu vardir.",
+    kategori: "Turunçgil",
+    ozellikler: { renk: "Sarı", sekil: "Oval", boyut: "Küçük-Orta", kabukTipi: "Kalın, gözenekli" },
+    aciklama: "Limon türünçgil ailesinin ekşi üyesidir. Portakal gibi dilimli yapısı ve kalın kabuğu vardır.",
   },
   {
     ad: "Karpuz",
     emoji: "\ud83c\udf49",
-    kategori: "Uzumsu",
-    ozellikler: { renk: "Yesil dis, kirmizi ic", sekil: "Buyuk oval", boyut: "Cok buyuk", kabukTipi: "Cok kalin, sert" },
-    aciklama: "Karpuz botanik olarak uzumsu meyve ailesine aittir. Sulu ic yapisi ve buyuk boyutuyla bilinir.",
+    kategori: "Üzümsü",
+    ozellikler: { renk: "Yeşil dış, kırmızı iç", sekil: "Büyük oval", boyut: "Çok büyük", kabukTipi: "Çok kalın, sert" },
+    aciklama: "Karpuz botanik olarak üzümsü meyve ailesine aittir. Sulu iç yapısı ve büyük boyutuyla bilinir.",
   },
   {
     ad: "Kiraz",
     emoji: "\ud83c\udf52",
-    kategori: "Cekirdekli",
-    ozellikler: { renk: "Koyu kirmizi", sekil: "Kucuk yuvarlak", boyut: "Kucuk", kabukTipi: "Ince, parlak" },
-    aciklama: "Kiraz cekirdekli meyvedir. Ic kisminda sert bir cekirdegi vardir.",
+    kategori: "Çekirdekli",
+    ozellikler: { renk: "Koyu kırmızı", sekil: "Küçük yuvarlak", boyut: "Küçük", kabukTipi: "İnce, parlak" },
+    aciklama: "Kiraz çekirdekli meyvedir. İç kısmında sert bir çekirdeği vardır.",
   },
   {
     ad: "Ananas",
     emoji: "\ud83c\udf4d",
     kategori: "Tropikal",
-    ozellikler: { renk: "Sari-kahverengi", sekil: "Silindirik", boyut: "Buyuk", kabukTipi: "Sert, pulsu" },
-    aciklama: "Ananas tropikal bolgelerde yetisen egzotik bir meyvedir. Pullu dis gorunusu kendine ozgudur.",
+    ozellikler: { renk: "Sarı-kahverengi", sekil: "Silindirik", boyut: "Büyük", kabukTipi: "Sert, pulsu" },
+    aciklama: "Ananas tropikal bölgelerde yetişen egzotik bir meyvedir. Pullu dış görünüşü kendine özgüdür.",
   },
   {
-    ad: "Seftali",
+    ad: "Şeftali",
     emoji: "\ud83c\udf51",
-    kategori: "Cekirdekli",
-    ozellikler: { renk: "Turuncu-kirmizi", sekil: "Yuvarlak", boyut: "Orta", kabukTipi: "Ince, tuylu" },
-    aciklama: "Seftali cekirdekli meyvedir. Ortasinda buyuk, sert bir cekirdek bulunur.",
+    kategori: "Çekirdekli",
+    ozellikler: { renk: "Turuncu-kırmızı", sekil: "Yuvarlak", boyut: "Orta", kabukTipi: "İnce, tüylü" },
+    aciklama: "Şeftali çekirdekli meyvedir. Ortasında büyük, sert bir çekirdek bulunur.",
   },
   {
     ad: "Kivi",
     emoji: "\ud83e\udd5d",
     kategori: "Tropikal",
-    ozellikler: { renk: "Kahverengi dis, yesil ic", sekil: "Oval", boyut: "Kucuk", kabukTipi: "Ince, tuylu" },
-    aciklama: "Kivi tropikal/subtropikal bolgelerde yetisir. Tuylu kabugu ve yesil, tohumlu ic yapisi vardir.",
+    ozellikler: { renk: "Kahverengi dış, yeşil iç", sekil: "Oval", boyut: "Küçük", kabukTipi: "İnce, tüylü" },
+    aciklama: "Kivi tropikal/subtropikal bölgelerde yetişir. Tüylü kabuğu ve yeşil, tohumlu iç yapısı vardır.",
   },
   {
     ad: "Mandalina",
     emoji: "\ud83c\udf4a",
-    kategori: "Turuncgil",
-    ozellikler: { renk: "Turuncu", sekil: "Yuvarlak, basik", boyut: "Kucuk", kabukTipi: "Ince, kolay soyulur" },
-    aciklama: "Mandalina turuncgil ailesinin kucuk uyesidir. Portakaldan daha kucuk ve kabugu daha kolay soyulur.",
+    kategori: "Turunçgil",
+    ozellikler: { renk: "Turuncu", sekil: "Yuvarlak, basık", boyut: "Küçük", kabukTipi: "İnce, kolay soyulur" },
+    aciklama: "Mandalina türünçgil ailesinin küçük üyesidir. Portakaldan daha küçük ve kabuğu daha kolay soyulur.",
   },
 ];
 
 const kategoriler: { ad: Meyve["kategori"]; emoji: string; renk: string; aciklama: string }[] = [
-  { ad: "Turuncgil", emoji: "\ud83c\udf4a", renk: "orange", aciklama: "Kalin kabuklu, dilimli, eksi-tatli meyveler" },
-  { ad: "Cekirdekli", emoji: "\ud83c\udf51", renk: "red", aciklama: "Ortasinda sert cekirdek bulunan meyveler" },
-  { ad: "Uzumsu", emoji: "\ud83c\udf53", renk: "purple", aciklama: "Yumusak, sulu, cok tohumlu meyveler" },
-  { ad: "Tropikal", emoji: "\ud83c\udf34", renk: "green", aciklama: "Sicak iklimlerde yetisen egzotik meyveler" },
+  { ad: "Turun\u00e7gil", emoji: "\ud83c\udf4a", renk: "orange", aciklama: "Kal\u0131n kabuklu, dilimli, ek\u015fi-tatl\u0131 meyveler" },
+  { ad: "\u00c7ekirdekli", emoji: "\ud83c\udf51", renk: "red", aciklama: "Ortas\u0131nda sert \u00e7ekirdek bulunan meyveler" },
+  { ad: "\u00dcz\u00fcms\u00fc", emoji: "\ud83c\udf53", renk: "purple", aciklama: "Yumu\u015fak, sulu, \u00e7ok tohumlu meyveler" },
+  { ad: "Tropikal", emoji: "\ud83c\udf34", renk: "green", aciklama: "S\u0131cak iklimlerde yeti\u015fen egzotik meyveler" },
 ];
 
 const kategoriRenkleri: Record<string, { bg: string; border: string; text: string; hover: string; selected: string }> = {
-  Turuncgil: {
+  "Turunçgil": {
     bg: "bg-orange-100 dark:bg-orange-900/40",
     border: "border-orange-400",
     text: "text-orange-700 dark:text-orange-300",
     hover: "hover:bg-orange-200 dark:hover:bg-orange-800/60",
     selected: "bg-orange-300 dark:bg-orange-700",
   },
-  Cekirdekli: {
+  "Çekirdekli": {
     bg: "bg-red-100 dark:bg-red-900/40",
     border: "border-red-400",
     text: "text-red-700 dark:text-red-300",
     hover: "hover:bg-red-200 dark:hover:bg-red-800/60",
     selected: "bg-red-300 dark:bg-red-700",
   },
-  Uzumsu: {
+  "Üzümsü": {
     bg: "bg-purple-100 dark:bg-purple-900/40",
     border: "border-purple-400",
     text: "text-purple-700 dark:text-purple-300",
@@ -259,10 +259,10 @@ export default function MeyveSiniflandirici() {
     let mesaj = "";
     let emoji = "";
     if (yuzde >= 90) {
-      mesaj = "Muhtesem! Yapay zeka kadar iyi siniflandiriyorsun!";
+      mesaj = "Muhtesem! Yapay zeka kadar iyi sınıflandiriyorsun!";
       emoji = "\ud83c\udfc6";
     } else if (yuzde >= 70) {
-      mesaj = "Harika! Siniflandirma becerilerin cok iyi!";
+      mesaj = "Harika! Sınıflandirma becerilerin cok iyi!";
       emoji = "\u2b50";
     } else if (yuzde >= 50) {
       mesaj = "Iyi gidiyorsun! Biraz daha pratikle uzman olursun!";
@@ -382,7 +382,7 @@ export default function MeyveSiniflandirici() {
           }`}
         >
           <p className="font-bold text-lg mb-1">
-            {sonSecim.dogru ? "\u2705 Dogru!" : `\u274c Yanlis! Dogru cevap: ${sonSecim.dogruCevap}`}
+            {sonSecim.dogru ? "\u2705 Doğru!" : `\u274c Yanlis! Dogru cevap: ${sonSecim.dogruCevap}`}
           </p>
           <p className="text-sm text-gray-700 dark:text-gray-300">{sonSecim.aciklama}</p>
         </div>

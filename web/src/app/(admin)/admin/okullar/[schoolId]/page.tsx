@@ -96,7 +96,7 @@ export default function SchoolDetailPage() {
   }
 
   const handleRemoveUser = async (userId: string) => {
-    if (!confirm('Bu kullaniciyi okuldan cikaracaksiniz. Emin misiniz?')) return
+    if (!confirm('Bu kullaniciyi okuldan çıkaracaksınız. Emin misiniz?')) return
 
     const res = await fetch(`/api/schools/${schoolId}/users`, {
       method: 'DELETE',
@@ -279,7 +279,7 @@ export default function SchoolDetailPage() {
                 <div className="text-3xl font-bold text-gray-800">
                   {users.filter((u) => u.role === 'school_admin').length}
                 </div>
-                <div className="text-sm text-gray-500 mt-1">Okul Yoneticisi</div>
+                <div className="text-sm text-gray-500 mt-1">Okul Yöneticisi</div>
               </div>
             </div>
           </div>
@@ -336,7 +336,7 @@ export default function SchoolDetailPage() {
                       onChange={(e) =>
                         setUserForm({ ...userForm, full_name: e.target.value })
                       }
-                      placeholder="Orn: Ayse Yilmaz"
+                      placeholder="Orn: Ayse Yılmaz"
                       className="w-full border rounded-lg p-2.5 focus:ring-2 focus:ring-blue-300 focus:outline-none"
                     />
                   </div>
@@ -352,7 +352,7 @@ export default function SchoolDetailPage() {
                       className="w-full border rounded-lg p-2.5 focus:ring-2 focus:ring-blue-300 focus:outline-none"
                     >
                       <option value="teacher">Ogretmen</option>
-                      <option value="school_admin">Okul Yoneticisi</option>
+                      <option value="school_admin">Okul Yöneticisi</option>
                     </select>
                   </div>
                 </div>
@@ -418,7 +418,7 @@ export default function SchoolDetailPage() {
                             }`}
                           >
                             {u.role === 'school_admin'
-                              ? 'Okul Yoneticisi'
+                              ? 'Okul Yöneticisi'
                               : 'Ogretmen'}
                           </span>
                         </td>

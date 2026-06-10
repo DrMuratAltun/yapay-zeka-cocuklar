@@ -271,7 +271,7 @@ export default function TuringTesti() {
                 onClick={sonraki}
                 className="rounded-xl bg-sky-600 px-8 py-3 font-bold text-white shadow-md transition-all hover:scale-105 hover:bg-sky-700 hover:shadow-lg active:scale-95"
               >
-                {mevcutKonusma + 1 >= konusmalar.length ? "Sonucu Gör 🏆" : "Sonraki Konuşma ➡️"}
+                {mevcutKonusma + 1 >= konusmalar.length ? "Sonuçu Gör 🏆" : "Sonraki Konuşma ➡️"}
               </button>
             </div>
           )}

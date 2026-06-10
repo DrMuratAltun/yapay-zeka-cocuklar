@@ -67,7 +67,7 @@ export default function OgretmenSiniflarPage() {
       if (errData.error === 'no_school') {
         setError('no_school')
       } else {
-        setError('Sinif bilgileri yuklenemedi.')
+        setError('Sınıf bilgileri yüklenemedi.')
       }
     }
     setLoading(false)
@@ -96,7 +96,7 @@ export default function OgretmenSiniflarPage() {
         setCreateError(err.error ?? `HTTP ${res.status}`)
       }
     } catch (ex: any) {
-      setCreateError('Ag hatasi: ' + (ex.message ?? 'Bilinmeyen hata'))
+      setCreateError('Ağ hatası: ' + (ex.message ?? 'Bilinmeyen hata'))
     }
     setCreating(false)
   }
@@ -115,7 +115,7 @@ export default function OgretmenSiniflarPage() {
             <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4" />
             <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4z" />
           </svg>
-          Yukleniyor...
+          Yükleniyor...
         </div>
       </div>
     )
@@ -131,17 +131,17 @@ export default function OgretmenSiniflarPage() {
             <line x1="12" y1="17" x2="12.01" y2="17" />
           </svg>
         </div>
-        <h2 className="text-xl font-bold text-gray-900 mb-2">Henuz bir okula atanmamissiniz</h2>
+        <h2 className="text-xl font-bold text-gray-900 mb-2">Henüz bir okula atanmamışsınız</h2>
         <p className="text-gray-600 mb-6">
-          Sinif olusturmak icin bir okul yoneticisinin sizi okula eklemesi gerekiyor.
-          Lutfen okul yoneticinize basvurun.
+          Sınıf oluşturmak için bir okul yöneticisinin sizi okula eklemesi gerekiyor.
+          Lütfen okul yöneticinize başvurun.
         </p>
         <div className="bg-gray-50 rounded-xl p-4 text-sm text-gray-600 text-left space-y-2">
-          <p className="font-semibold text-gray-800">Yonetici ne yapmali?</p>
+          <p className="font-semibold text-gray-800">Yönetici ne yapmalı?</p>
           <ol className="list-decimal list-inside space-y-1">
-            <li>Okul Paneline giris yapmali</li>
-            <li>Kullanicilar bolumunden sizi ogretmen olarak eklemeli</li>
-            <li>Bu islem sonrasi bu sayfa otomatik calisacaktir</li>
+            <li>Okul Paneline giriş yapmalı</li>
+            <li>Kullanıcılar bölümünden sizi öğretmen olarak eklemeli</li>
+            <li>Bu işlem sonrası bu sayfa otomatik çalışacaktır</li>
           </ol>
         </div>
       </div>
@@ -157,8 +157,8 @@ export default function OgretmenSiniflarPage() {
       {/* Header */}
       <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-8">
         <div>
-          <h1 className="text-2xl sm:text-3xl font-bold text-gray-900">Siniflarim</h1>
-          <p className="text-gray-600 mt-1">Siniflarinizi yonetin, ogrenci ekleyin ve giris bilgilerini goruntuleyin.</p>
+          <h1 className="text-2xl sm:text-3xl font-bold text-gray-900">Sınıflarım</h1>
+          <p className="text-gray-600 mt-1">Sınıflarınızı yönetin, öğrenci ekleyin ve giriş bilgilerini görüntüleyin.</p>
         </div>
         <button
           onClick={() => setClassFormOpen(!classFormOpen)}
@@ -168,7 +168,7 @@ export default function OgretmenSiniflarPage() {
             <line x1="12" y1="5" x2="12" y2="19" />
             <line x1="5" y1="12" x2="19" y2="12" />
           </svg>
-          Yeni Sinif
+          Yeni Sınıf
         </button>
       </div>
 
@@ -176,7 +176,7 @@ export default function OgretmenSiniflarPage() {
       {classFormOpen && (
         <div className="bg-white rounded-xl border border-gray-200 shadow-sm p-6 mb-6">
           <div className="flex items-center justify-between mb-5">
-            <h2 className="text-lg font-bold text-gray-900">Yeni Sinif Olustur</h2>
+            <h2 className="text-lg font-bold text-gray-900">Yeni Sınıf Oluştur</h2>
             <button onClick={() => setClassFormOpen(false)} className="text-gray-400 hover:text-gray-600">
               <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
                 <line x1="18" y1="6" x2="6" y2="18" />
@@ -186,25 +186,25 @@ export default function OgretmenSiniflarPage() {
           </div>
           <form onSubmit={handleCreateClass} className="flex gap-4 items-end flex-wrap">
             <div className="flex-1 min-w-[200px]">
-              <label className="block text-sm font-semibold text-gray-700 mb-1.5">Sinif Adi</label>
+              <label className="block text-sm font-semibold text-gray-700 mb-1.5">Sınıf Adı</label>
               <input
                 required
                 type="text"
                 value={newClass.name}
                 onChange={(e) => setNewClass({ ...newClass, name: e.target.value })}
-                placeholder="Orn: 6-A"
+                placeholder="Örn: 6-A"
                 className="w-full border border-gray-300 rounded-lg p-2.5 text-gray-900 placeholder:text-gray-400 focus:ring-2 focus:ring-blue-500 focus:border-blue-500 focus:outline-none"
               />
             </div>
             <div className="w-48">
-              <label className="block text-sm font-semibold text-gray-700 mb-1.5">Giris Tipi</label>
+              <label className="block text-sm font-semibold text-gray-700 mb-1.5">Giriş Tipi</label>
               <select
                 value={newClass.credential_type}
                 onChange={(e) => setNewClass({ ...newClass, credential_type: e.target.value })}
                 className="w-full border border-gray-300 rounded-lg p-2.5 text-gray-900 focus:ring-2 focus:ring-blue-500 focus:border-blue-500 focus:outline-none"
               >
                 <option value="pin">PIN (4 haneli)</option>
-                <option value="emoji">Emoji Sembolu</option>
+                <option value="emoji">Emoji Sembolü</option>
                 <option value="word">Kelime</option>
               </select>
             </div>
@@ -213,7 +213,7 @@ export default function OgretmenSiniflarPage() {
               disabled={creating}
               className="bg-blue-600 text-white px-6 py-2.5 rounded-lg hover:bg-blue-700 disabled:opacity-50 transition font-semibold"
             >
-              {creating ? 'Olusturuluyor...' : 'Sinif Olustur'}
+              {creating ? 'Oluşturuluyor...' : 'Sınıf Oluştur'}
             </button>
           </form>
           {createError && (
@@ -228,7 +228,7 @@ export default function OgretmenSiniflarPage() {
       <div className="grid grid-cols-2 lg:grid-cols-3 gap-4 mb-8">
         <div className="bg-white border border-gray-200 rounded-xl p-5">
           <div className="flex items-center justify-between mb-3">
-            <span className="text-sm font-medium text-gray-500">Sinif Sayisi</span>
+            <span className="text-sm font-medium text-gray-500">Sınıf Sayısı</span>
             <span className="w-9 h-9 rounded-lg bg-blue-100 flex items-center justify-center">
               <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#2563eb" strokeWidth="2">
                 <rect x="2" y="3" width="20" height="14" rx="2" ry="2" />
@@ -238,12 +238,12 @@ export default function OgretmenSiniflarPage() {
             </span>
           </div>
           <div className="text-3xl font-bold text-gray-900">{classes.length}</div>
-          <p className="text-xs text-gray-500 mt-2">Aktif siniflariniz</p>
+          <p className="text-xs text-gray-500 mt-2">Aktif sınıflarınız</p>
         </div>
 
         <div className="bg-white border border-gray-200 rounded-xl p-5">
           <div className="flex items-center justify-between mb-3">
-            <span className="text-sm font-medium text-gray-500">Toplam Ogrenci</span>
+            <span className="text-sm font-medium text-gray-500">Toplam Öğrenci</span>
             <span className="w-9 h-9 rounded-lg bg-emerald-100 flex items-center justify-center">
               <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#059669" strokeWidth="2">
                 <path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2" />
@@ -254,20 +254,20 @@ export default function OgretmenSiniflarPage() {
             </span>
           </div>
           <div className="text-3xl font-bold text-gray-900">{totalStudents}</div>
-          <p className="text-xs text-gray-500 mt-2">Tum siniflardaki ogrenci</p>
+          <p className="text-xs text-gray-500 mt-2">Tüm sınıflardaki öğrenci</p>
         </div>
 
         <div className="bg-white border border-gray-200 rounded-xl p-5 col-span-2 lg:col-span-1">
           <div className="flex items-center justify-between mb-3">
-            <span className="text-sm font-medium text-gray-500">Hizli Erisim</span>
+            <span className="text-sm font-medium text-gray-500">Hızlı Erişim</span>
             <span className="w-9 h-9 rounded-lg bg-amber-100 flex items-center justify-center">
               <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#d97706" strokeWidth="2">
                 <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" />
               </svg>
             </span>
           </div>
-          <p className="text-sm text-gray-600">Ogrenci giris bilgileri icin sinifa tiklayin.</p>
-          <p className="text-xs text-gray-500 mt-2">PIN ve sifreleri goruntuleyebilirsiniz.</p>
+          <p className="text-sm text-gray-600">Öğrenci giriş bilgileri için sınıfa tıklayın.</p>
+          <p className="text-xs text-gray-500 mt-2">PIN ve şifreleri görüntüleyebilirsiniz.</p>
         </div>
       </div>
 
@@ -281,8 +281,8 @@ export default function OgretmenSiniflarPage() {
               <line x1="12" y1="17" x2="12" y2="21" />
             </svg>
           </div>
-          <p className="text-gray-700 text-lg font-semibold">Henuz sinif atanmamis</p>
-          <p className="text-gray-500 text-sm mt-1">Okul yoneticinizden sinif atanmasini bekleyin.</p>
+          <p className="text-gray-700 text-lg font-semibold">Henüz sınıf atanmamış</p>
+          <p className="text-gray-500 text-sm mt-1">Okul yöneticinizden sınıf atanmasını bekleyin.</p>
         </div>
       ) : (
         <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
@@ -312,25 +312,25 @@ export default function OgretmenSiniflarPage() {
 
                 <div className="space-y-3 mb-4">
                   <div className="flex items-center justify-between text-sm">
-                    <span className="text-gray-600">Sinif Kodu</span>
+                    <span className="text-gray-600">Sınıf Kodu</span>
                     <code className="bg-blue-50 text-blue-700 px-2 py-0.5 rounded-md font-mono font-semibold text-xs">
                       {cls.access_code}
                     </code>
                   </div>
                   <div className="flex items-center justify-between text-sm">
-                    <span className="text-gray-600">Giris Tipi</span>
+                    <span className="text-gray-600">Giriş Tipi</span>
                     <span className="text-gray-900 font-medium">
                       {cred.icon} {cred.label}
                     </span>
                   </div>
                   <div className="flex items-center justify-between text-sm">
-                    <span className="text-gray-600">Ogrenci</span>
+                    <span className="text-gray-600">Öğrenci</span>
                     <span className="font-semibold text-gray-900">{cls.student_count}</span>
                   </div>
                   <div className="flex items-center justify-between text-sm">
-                    <span className="text-gray-600">Modul</span>
+                    <span className="text-gray-600">Modül</span>
                     <span className="font-semibold text-gray-900">
-                      {cls.module_count ?? 0} atanmis
+                      {cls.module_count ?? 0} atanmış
                     </span>
                   </div>
                   {cls.avg_score !== null && cls.avg_score !== undefined && (
@@ -345,7 +345,7 @@ export default function OgretmenSiniflarPage() {
 
                 <div className="pt-4 border-t border-gray-100 flex items-center justify-end">
                   <span className="text-sm font-semibold text-blue-600 group-hover:translate-x-0.5 transition-transform inline-flex items-center gap-1">
-                    Sinifi Yonet
+                    Sınıfı Yönet
                     <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
                       <polyline points="9 18 15 12 9 6" />
                     </svg>

@@ -35,7 +35,7 @@ const TURLER: Record<Tur, TurMeta> = {
     tanim:
       "Sadece belirli bir görevi yapmak üzere tasarlanmıştır. O görevde uzman, başka bir şeyde değildir. Bugün kullandığımız TÜM YZ bu kategoridedir.",
     ornekler: ["Siri & Alexa", "Netflix önerisi", "Yüz tanıma", "Satranç motoru", "ChatGPT", "Spam filtresi"],
-    durum: "BUGÜN KULLANILAN TÜM YZ",
+    durum: "BUGÜN KullanılAN TÜM YZ",
   },
   genel: {
     ad: "Genel YZ",
@@ -55,7 +55,7 @@ const TURLER: Record<Tur, TurMeta> = {
     emoji: "🌌",
     renk: "#e11d48",
     bgRenk: "bg-rose-50 dark:bg-rose-900/20",
-    ingilizce: "ASI — Artificial Super Intelligence",
+    ingilizce: "ASI — Artificial Süper Intelligence",
     tanim:
       "Her alanda insandan çok daha zeki olacak hipotetik YZ. Bilim, sanat, sosyal becerilerde insanı aşacak. Şu an tamamen teorik; etik tartışmaların merkezinde.",
     ornekler: ["Terminator'un Skynet'i", "Ex Machina'nın Ava'sı", "Matrix'in Mimar'ı"],

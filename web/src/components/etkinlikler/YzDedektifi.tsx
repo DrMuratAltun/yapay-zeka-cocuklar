@@ -22,12 +22,12 @@ const kategoriler: Kategori[] = [
     renk: "bg-blue-50 border-blue-300",
     renkDark: "dark:bg-blue-900/30 dark:border-blue-600",
     ornekler: [
-      { metin: "Sesli asistan kullandim (Siri, Alexa, Google)", emoji: "🗣️" },
-      { metin: "Film/video platformu onerilerini takip ettim", emoji: "🎬" },
-      { metin: "Akilli ev cihazi kullandim (robot supurge, akilli lamba)", emoji: "💡" },
-      { metin: "Muzik platformu onerisi dinledim", emoji: "🎵" },
-      { metin: "Yuz tanima ile telefon actim", emoji: "📱" },
-      { metin: "Akilli termostat veya klima kullandim", emoji: "🌡️" },
+      { metin: "Sesli asistan kullandım (Siri, Alexa, Google)", emoji: "🗣️" },
+      { metin: "Film/video platformu önerilerini takip ettim", emoji: "🎬" },
+      { metin: "Akilli ev cihazi kullandım (robot supurge, akilli lamba)", emoji: "💡" },
+      { metin: "Muzik platformu önerisi dinledim", emoji: "🎵" },
+      { metin: "Yuz tanıma ile telefon actim", emoji: "📱" },
+      { metin: "Akilli termostat veya klima kullandım", emoji: "🌡️" },
     ],
   },
   {
@@ -36,11 +36,11 @@ const kategoriler: Kategori[] = [
     renk: "bg-emerald-50 border-emerald-300",
     renkDark: "dark:bg-emerald-900/30 dark:border-emerald-600",
     ornekler: [
-      { metin: "Google'da arama yaptim (arama onerisi aldi)", emoji: "🔍" },
-      { metin: "Otomatik yazim duzeltme kullandim", emoji: "📝" },
-      { metin: "Ceviri uygulamasi kullandim (Google Translate)", emoji: "🌐" },
-      { metin: "ChatGPT veya yapay zeka asistani kullandim", emoji: "🤖" },
-      { metin: "Matematik/fen problemi icin YZ aracindan yardim aldim", emoji: "🧮" },
+      { metin: "Google'da arama yaptim (arama önerisi aldi)", emoji: "🔍" },
+      { metin: "Otomatik yazim duzeltme kullandım", emoji: "📝" },
+      { metin: "Ceviri uygulamasi kullandım (Google Translate)", emoji: "🌐" },
+      { metin: "ChatGPT veya yapay zeka asistani kullandım", emoji: "🤖" },
+      { metin: "Matematik/fen problemi için YZ aracından yardım aldim", emoji: "🧮" },
     ],
   },
   {
@@ -49,10 +49,10 @@ const kategoriler: Kategori[] = [
     renk: "bg-amber-50 border-amber-300",
     renkDark: "dark:bg-amber-900/30 dark:border-amber-600",
     ornekler: [
-      { metin: "Navigasyon/harita uygulamasi kullandim", emoji: "🗺️" },
+      { metin: "Navigasyon/harita uygulamasi kullandım", emoji: "🗺️" },
       { metin: "Trafik tahmini gordum", emoji: "🚦" },
-      { metin: "Otopark asistani/geri gorus kamerasi kullandim", emoji: "📷" },
-      { metin: "Akilli bisiklet/scooter kiralama uygulamasi kullandim", emoji: "🛴" },
+      { metin: "Otopark asistani/geri görüş kamerasi kullandım", emoji: "📷" },
+      { metin: "Akilli bisiklet/scooter kiralama uygulamasi kullandım", emoji: "🛴" },
     ],
   },
   {
@@ -61,11 +61,11 @@ const kategoriler: Kategori[] = [
     renk: "bg-pink-50 border-pink-300",
     renkDark: "dark:bg-pink-900/30 dark:border-pink-600",
     ornekler: [
-      { metin: "Online alisveriste 'sana ozel' urunler gordum", emoji: "🎁" },
+      { metin: "Online alisveriste 'sana ozel' ürünler gordum", emoji: "🎁" },
       { metin: "Chatbot ile musteri hizmetlerine yazdim", emoji: "💬" },
-      { metin: "Fiyat karsilastirma araci kullandim", emoji: "💰" },
+      { metin: "Fiyat karşılaştırma araçı kullandım", emoji: "💰" },
       { metin: "QR kod taradim", emoji: "📲" },
-      { metin: "Sanal deneme/filtre kullandim (gozluk, kiyafet)", emoji: "👓" },
+      { metin: "Sanal deneme/filtre kullandım (gozluk, kiyafet)", emoji: "👓" },
     ],
   },
   {
@@ -75,9 +75,9 @@ const kategoriler: Kategori[] = [
     renkDark: "dark:bg-purple-900/30 dark:border-purple-600",
     ornekler: [
       { metin: "Video oyununda YZ rakibe karsi oynadim", emoji: "🕹️" },
-      { metin: "Fotograf filtresi/efekt kullandim", emoji: "📸" },
-      { metin: "Sosyal medyada 'senin icin' akisini izledim", emoji: "📱" },
-      { metin: "Yapay zeka ile resim/gorsel olusturdum", emoji: "🎨" },
+      { metin: "Fotograf filtresi/efekt kullandım", emoji: "📸" },
+      { metin: "Sosyal medyada 'senin için' akisini izledim", emoji: "📱" },
+      { metin: "Yapay zeka ile resim/görsel oluşturdum", emoji: "🎨" },
       { metin: "Sesli asistana saka/muzik istedim", emoji: "😂" },
     ],
   },
@@ -86,7 +86,7 @@ const kategoriler: Kategori[] = [
 const dedektifSeviyeleri = [
   { min: 0, max: 5, seviye: "Caylak Dedektif", emoji: "🔎", renk: "text-gray-600" },
   { min: 6, max: 12, seviye: "Dedektif", emoji: "🕵️", renk: "text-blue-600" },
-  { min: 13, max: 19, seviye: "Super Dedektif", emoji: "🦸", renk: "text-purple-600" },
+  { min: 13, max: 19, seviye: "Süper Dedektif", emoji: "🦸", renk: "text-purple-600" },
   { min: 20, max: 999, seviye: "YZ Ustasi Dedektif", emoji: "🏆", renk: "text-amber-600" },
 ];
 
@@ -283,11 +283,11 @@ export default function YzDedektifi() {
             <div className="mt-6 rounded-lg bg-indigo-100 p-4 dark:bg-indigo-900/30">
               <p className="text-sm text-indigo-800 dark:text-indigo-200">
                 {toplamIsaretli >= 20
-                  ? "Vay! Yapay zeka hayatinin her yerinde! Gercek bir YZ uzmanisın! 🌟"
+                  ? "Vay! Yapay zeka hayatinin her yerinde! Gerçek bir YZ uzmanısın! 🌟"
                   : toplamIsaretli >= 13
-                  ? "Harika gozlem! YZ'nin hayatindaki rolunu cok iyi fark ediyorsun! 🎯"
+                  ? "Harika gözlem! YZ'nin hayatindaki rolunu cok iyi fark ediyorsun! 🎯"
                   : toplamIsaretli >= 6
-                  ? "Iyi baslangiç! Ama etrafinda daha fazla YZ var, dikkatli bak! 👀"
+                  ? "Iyi başlangıç! Ama etrafinda daha fazla YZ var, dikkatli bak! 👀"
                   : "Tekrar dene ve etrafina daha dikkatli bak! YZ her yerde! 🔍"}
               </p>
             </div>

@@ -95,7 +95,7 @@ export default function OkulAdminPage() {
   }
 
   const handleRemoveTeacher = async (userId: string) => {
-    if (!data || !confirm('Bu ogretmeni okuldan kalici olarak kaldirmak istediginize emin misiniz?')) return
+    if (!data || !confirm('Bu öğretmeni okuldan kalici olarak kaldirmak istediginize emin misiniz?')) return
     setActionId(userId)
     const res = await fetch(`/api/schools/${data.school.id}/users`, {
       method: 'DELETE',
@@ -174,7 +174,7 @@ export default function OkulAdminPage() {
               {st.label}
             </span>
           </div>
-          <p className="text-gray-600">Okul yonetim paneli — siniflar, ogretmenler ve ogrenci kotalari</p>
+          <p className="text-gray-600">Okul yönetim paneli — sınıflar, öğretmenler ve öğrenci kotalari</p>
         </div>
         <button
           onClick={() => setClassFormOpen(!classFormOpen)}
@@ -192,7 +192,7 @@ export default function OkulAdminPage() {
       <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4 mb-8">
         <div className="bg-white border border-gray-200 rounded-xl p-5">
           <div className="flex items-center justify-between mb-3">
-            <span className="text-sm font-medium text-gray-500">Ogrenci Kullanimi</span>
+            <span className="text-sm font-medium text-gray-500">Öğrenci Kullanımı</span>
             <span className="w-9 h-9 rounded-lg bg-blue-100 flex items-center justify-center">
               <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#2563eb" strokeWidth="2">
                 <path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2" />
@@ -217,7 +217,7 @@ export default function OkulAdminPage() {
 
         <div className="bg-white border border-gray-200 rounded-xl p-5">
           <div className="flex items-center justify-between mb-3">
-            <span className="text-sm font-medium text-gray-500">Ogretmen Kullanimi</span>
+            <span className="text-sm font-medium text-gray-500">Öğretmen Kullanımı</span>
             <span className="w-9 h-9 rounded-lg bg-purple-100 flex items-center justify-center">
               <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#7c3aed" strokeWidth="2">
                 <path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2" />
@@ -240,7 +240,7 @@ export default function OkulAdminPage() {
 
         <div className="bg-white border border-gray-200 rounded-xl p-5">
           <div className="flex items-center justify-between mb-3">
-            <span className="text-sm font-medium text-gray-500">Toplam Sinif</span>
+            <span className="text-sm font-medium text-gray-500">Toplam Sınıf</span>
             <span className="w-9 h-9 rounded-lg bg-emerald-100 flex items-center justify-center">
               <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#059669" strokeWidth="2">
                 <rect x="2" y="3" width="20" height="14" rx="2" ry="2" />
@@ -250,12 +250,12 @@ export default function OkulAdminPage() {
             </span>
           </div>
           <div className="text-3xl font-bold text-gray-900">{classes.length}</div>
-          <p className="text-xs text-gray-500 mt-2">Aktif sinif sayisi</p>
+          <p className="text-xs text-gray-500 mt-2">Aktif sınıf sayısı</p>
         </div>
 
         <div className="bg-white border border-gray-200 rounded-xl p-5">
           <div className="flex items-center justify-between mb-3">
-            <span className="text-sm font-medium text-gray-500">Toplam Ogrenci</span>
+            <span className="text-sm font-medium text-gray-500">Toplam Öğrenci</span>
             <span className="w-9 h-9 rounded-lg bg-sky-100 flex items-center justify-center">
               <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#0284c7" strokeWidth="2">
                 <polyline points="22 12 18 12 15 21 9 3 6 12 2 12" />
@@ -265,7 +265,7 @@ export default function OkulAdminPage() {
           <div className="text-3xl font-bold text-gray-900">
             {classes.reduce((s, c) => s + c.student_count, 0)}
           </div>
-          <p className="text-xs text-gray-500 mt-2">Tum siniflardaki ogrenci</p>
+          <p className="text-xs text-gray-500 mt-2">Tum sınıflardakı öğrenci</p>
         </div>
       </div>
 
@@ -273,7 +273,7 @@ export default function OkulAdminPage() {
       {classFormOpen && (
         <div className="bg-white rounded-xl border border-gray-200 shadow-sm p-6 mb-6">
           <div className="flex items-center justify-between mb-5">
-            <h2 className="text-lg font-bold text-gray-900">Yeni Sinif Olustur</h2>
+            <h2 className="text-lg font-bold text-gray-900">Yeni Sınıf Oluştur</h2>
             <button onClick={() => setClassFormOpen(false)} className="text-gray-400 hover:text-gray-600">
               <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
                 <line x1="18" y1="6" x2="6" y2="18" />
@@ -283,7 +283,7 @@ export default function OkulAdminPage() {
           </div>
           <form onSubmit={handleCreateClass} className="flex gap-4 items-end flex-wrap">
             <div className="flex-1 min-w-[200px]">
-              <label className="block text-sm font-semibold text-gray-700 mb-1.5">Sinif Adi</label>
+              <label className="block text-sm font-semibold text-gray-700 mb-1.5">Sınıf Adi</label>
               <input
                 required
                 type="text"
@@ -310,7 +310,7 @@ export default function OkulAdminPage() {
               disabled={creating}
               className="bg-blue-600 text-white px-6 py-2.5 rounded-lg hover:bg-blue-700 disabled:opacity-50 transition font-semibold"
             >
-              {creating ? 'Olusturuluyor...' : 'Sinif Olustur'}
+              {creating ? 'Olusturuluyor...' : 'Sınıf Oluştur'}
             </button>
           </form>
         </div>
@@ -341,7 +341,7 @@ export default function OkulAdminPage() {
                   type="text"
                   value={newTeacher.full_name}
                   onChange={(e) => setNewTeacher({ ...newTeacher, full_name: e.target.value })}
-                  placeholder="Orn: Ayse Yilmaz"
+                  placeholder="Orn: Ayse Yılmaz"
                   className="w-full border border-gray-300 rounded-lg p-2 text-sm text-gray-900 placeholder:text-gray-400 focus:ring-2 focus:ring-purple-500 focus:border-purple-500 focus:outline-none"
                 />
               </div>
@@ -357,7 +357,7 @@ export default function OkulAdminPage() {
                 />
               </div>
               <div className="w-40">
-                <label className="block text-xs font-semibold text-gray-700 mb-1">Sifre *</label>
+                <label className="block text-xs font-semibold text-gray-700 mb-1">Şifre *</label>
                 <input
                   required
                   type="password"
@@ -387,8 +387,8 @@ export default function OkulAdminPage() {
                 <circle cx="12" cy="7" r="4" />
               </svg>
             </div>
-            <p className="text-gray-700 font-semibold">Henuz ogretmen eklenmemis</p>
-            <p className="text-gray-500 text-sm mt-1">&quot;Ogretmen Ekle&quot; butonuyla yeni ogretmen ekleyebilirsiniz.</p>
+            <p className="text-gray-700 font-semibold">Henuz öğretmen eklenmemis</p>
+            <p className="text-gray-500 text-sm mt-1">&quot;Öğretmen Ekle&quot; butonuyla yeni öğretmen ekleyebilirsiniz.</p>
           </div>
         ) : (
           <div className="overflow-x-auto">
@@ -493,8 +493,8 @@ export default function OkulAdminPage() {
                 <line x1="12" y1="17" x2="12" y2="21" />
               </svg>
             </div>
-            <p className="text-gray-700 font-semibold">Henuz sinif olusturulmamis</p>
-            <p className="text-gray-500 text-sm mt-1">&quot;Yeni Sinif&quot; butonuyla baslayabilirsiniz.</p>
+            <p className="text-gray-700 font-semibold">Henuz sınıf oluşturulmamıs</p>
+            <p className="text-gray-500 text-sm mt-1">&quot;Yeni Sınıf&quot; butonuyla başlayabilirsiniz.</p>
           </div>
         ) : (
           <div className="overflow-x-auto">
@@ -502,7 +502,7 @@ export default function OkulAdminPage() {
               <thead className="bg-gray-50 border-b border-gray-100">
                 <tr>
                   <th className="px-6 py-3 text-xs font-semibold text-gray-500 uppercase tracking-wider">Sinif</th>
-                  <th className="px-6 py-3 text-xs font-semibold text-gray-500 uppercase tracking-wider">Sinif Kodu</th>
+                  <th className="px-6 py-3 text-xs font-semibold text-gray-500 uppercase tracking-wider">Sınıf Kodu</th>
                   <th className="px-6 py-3 text-xs font-semibold text-gray-500 uppercase tracking-wider">Giris Tipi</th>
                   <th className="px-6 py-3 text-xs font-semibold text-gray-500 uppercase tracking-wider">Ogrenci</th>
                   <th className="px-6 py-3 text-xs font-semibold text-gray-500 uppercase tracking-wider">Islem</th>

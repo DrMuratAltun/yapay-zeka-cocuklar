@@ -83,7 +83,7 @@ export default function SuperAdminOkullar() {
       {/* Header */}
       <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-8">
         <div>
-          <h1 className="text-2xl sm:text-3xl font-bold text-gray-900">Platform Yonetimi</h1>
+          <h1 className="text-2xl sm:text-3xl font-bold text-gray-900">Platform Yönetimi</h1>
           <p className="text-gray-600 mt-1">
             Tum okullari, kotalari ve kullanicilari buradan yonetin.
           </p>
@@ -133,7 +133,7 @@ export default function SuperAdminOkullar() {
 
         <div className="bg-white border border-gray-200 rounded-xl p-5">
           <div className="flex items-center justify-between mb-3">
-            <span className="text-sm font-medium text-gray-500">Ogrenci Kotasi</span>
+            <span className="text-sm font-medium text-gray-500">Öğrenci Kotasi</span>
             <span className="w-9 h-9 rounded-lg bg-emerald-100 flex items-center justify-center">
               <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#059669" strokeWidth="2">
                 <path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2" />
@@ -144,12 +144,12 @@ export default function SuperAdminOkullar() {
             </span>
           </div>
           <div className="text-3xl font-bold text-gray-900">{totalStudentQuota}</div>
-          <p className="text-xs text-gray-500 mt-2">Toplam ogrenci kapasitesi</p>
+          <p className="text-xs text-gray-500 mt-2">Toplam öğrenci kapasitesi</p>
         </div>
 
         <div className="bg-white border border-gray-200 rounded-xl p-5">
           <div className="flex items-center justify-between mb-3">
-            <span className="text-sm font-medium text-gray-500">Ogretmen Kotasi</span>
+            <span className="text-sm font-medium text-gray-500">Öğretmen Kotasi</span>
             <span className="w-9 h-9 rounded-lg bg-purple-100 flex items-center justify-center">
               <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#7c3aed" strokeWidth="2">
                 <path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2" />
@@ -158,7 +158,7 @@ export default function SuperAdminOkullar() {
             </span>
           </div>
           <div className="text-3xl font-bold text-gray-900">{totalTeacherQuota}</div>
-          <p className="text-xs text-gray-500 mt-2">Toplam ogretmen kapasitesi</p>
+          <p className="text-xs text-gray-500 mt-2">Toplam öğretmen kapasitesi</p>
         </div>
 
         <div className="bg-white border border-gray-200 rounded-xl p-5">
@@ -171,7 +171,7 @@ export default function SuperAdminOkullar() {
             </span>
           </div>
           <div className="text-3xl font-bold text-green-600">Aktif</div>
-          <p className="text-xs text-gray-500 mt-2">Sistem calisiyor</p>
+          <p className="text-xs text-gray-500 mt-2">Sistem çalışıyor</p>
         </div>
       </div>
 
@@ -179,7 +179,7 @@ export default function SuperAdminOkullar() {
       {formOpen && (
         <div className="bg-white rounded-xl border border-gray-200 shadow-sm p-6 mb-6">
           <div className="flex items-center justify-between mb-5">
-            <h2 className="text-lg font-bold text-gray-900">Yeni Okul Tanimla</h2>
+            <h2 className="text-lg font-bold text-gray-900">Yeni Okul Tanımla</h2>
             <button
               onClick={() => setFormOpen(false)}
               className="text-gray-400 hover:text-gray-600 transition"
@@ -239,7 +239,7 @@ export default function SuperAdminOkullar() {
                 disabled={creating}
                 className="bg-blue-600 text-white px-6 py-2.5 rounded-lg hover:bg-blue-700 disabled:opacity-50 transition font-semibold"
               >
-                {creating ? 'Olusturuluyor...' : 'Okul Olustur'}
+                {creating ? 'Olusturuluyor...' : 'Okul Oluştur'}
               </button>
               <button
                 type="button"
@@ -308,11 +308,11 @@ export default function SuperAdminOkullar() {
                   </div>
                   <div className="space-y-3">
                     <div className="flex items-center justify-between text-sm">
-                      <span className="text-gray-600">Ogrenci kotasi</span>
+                      <span className="text-gray-600">Öğrenci kotasi</span>
                       <span className="font-semibold text-gray-900">{school.quota_students}</span>
                     </div>
                     <div className="flex items-center justify-between text-sm">
-                      <span className="text-gray-600">Ogretmen kotasi</span>
+                      <span className="text-gray-600">Öğretmen kotasi</span>
                       <span className="font-semibold text-gray-900">{school.quota_teachers}</span>
                     </div>
                   </div>

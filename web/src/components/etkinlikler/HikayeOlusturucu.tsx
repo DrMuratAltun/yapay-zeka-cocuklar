@@ -3,7 +3,7 @@
 import { useState } from "react";
 
 const temalar = [
-  { id: "doga", baslik: "Doga", icon: "🌿", aciklama: "Ormanlar, hayvanlar, cevre koruma" },
+  { id: "doga", baslik: "Doga", icon: "🌿", aciklama: "Ormanlar, hayvanlar, çevre koruma" },
   { id: "uzay", baslik: "Uzay", icon: "🚀", aciklama: "Gezegenler, astronotlar, kesif" },
   { id: "tarih", baslik: "Tarih", icon: "🏛️", aciklama: "Eski medeniyetler, kahramanlar, icatlar" },
 ];
@@ -11,7 +11,7 @@ const temalar = [
 const adimlar = [
   { no: 1, baslik: "Tema Sec", icon: "🎨" },
   { no: 2, baslik: "Hikayeni Yaz", icon: "✍️" },
-  { no: 3, baslik: "Gorsel Promptlari", icon: "🖼️" },
+  { no: 3, baslik: "Görsel Promptlari", icon: "🖼️" },
   { no: 4, baslik: "Ses ve Muzik", icon: "🎵" },
   { no: 5, baslik: "Storyboard", icon: "📋" },
 ];

@@ -130,7 +130,7 @@ export default function SinifDetay() {
         fetchStudents()
       }
     } catch {
-      setBulkError('Baglanti hatasi')
+      setBulkError('Bağlantı hatası')
     }
     setBulkLoading(false)
   }
@@ -163,7 +163,7 @@ export default function SinifDetay() {
 
   // Ogrenci sil
   const handleDelete = async (studentId: string, nickname: string) => {
-    if (!confirm(`${nickname} adli ogrenciyi silmek istediginize emin misiniz?`))
+    if (!confirm(`${nickname} adlı öğrenciyi silmek istediğinize emin misiniz?`))
       return
 
     const res = await fetch(`/api/classes/${classId}/students/${studentId}`, {
@@ -173,14 +173,14 @@ export default function SinifDetay() {
       setActionMsg(`${nickname} silindi.`)
       fetchStudents()
     } else {
-      setActionMsg('Hata olustu.')
+      setActionMsg('Hata oluştu.')
     }
     setTimeout(() => setActionMsg(''), 3000)
   }
 
   // Credential sifirla
   const handleReset = async (studentId: string, nickname: string) => {
-    if (!confirm(`${nickname} icin yeni PIN/sifre olusturulacak. Emin misiniz?`))
+    if (!confirm(`${nickname} için yeni PIN/şifre oluşturulacak. Emin misiniz?`))
       return
 
     const res = await fetch(
@@ -189,17 +189,17 @@ export default function SinifDetay() {
     )
     const data = await res.json()
     if (res.ok) {
-      setActionMsg(`${data.nickname}: Yeni sifre → ${data.new_credential}`)
+      setActionMsg(`${data.nickname}: Yeni şifre → ${data.new_credential}`)
       fetchStudents()
     } else {
-      setActionMsg('Hata olustu.')
+      setActionMsg('Hata oluştu.')
     }
   }
 
   if (loading) {
     return (
       <div className="min-h-screen bg-gray-50 flex items-center justify-center">
-        <p className="text-gray-400">Yukleniyor...</p>
+        <p className="text-gray-400">Yükleniyor...</p>
       </div>
     )
   }
@@ -285,7 +285,7 @@ export default function SinifDetay() {
           {/* Tek ogrenci ekleme */}
           <div className="bg-white rounded-xl border p-5">
             <h2 className="text-lg font-semibold text-gray-800 mb-3">
-              Ogrenci Ekle
+              Öğrenci Ekle
             </h2>
             <form onSubmit={handleSingleAdd} className="flex gap-2 items-end">
               <div className="flex-1">
@@ -297,7 +297,7 @@ export default function SinifDetay() {
                   type="text"
                   value={singleNickname}
                   onChange={(e) => setSingleNickname(e.target.value)}
-                  placeholder="Orn: KaplanAli"
+                  placeholder="Örn: KaplanAli"
                   className="w-full border rounded-lg p-2.5 focus:ring-2 focus:ring-blue-300 focus:outline-none"
                 />
               </div>
@@ -326,7 +326,7 @@ export default function SinifDetay() {
               Toplu Ekle
             </h2>
             <p className="text-sm text-gray-500 mb-2">
-              Her satira bir takma ad yazin. PIN otomatik olusturulur.
+              Her satıra bir takma ad yazın. PIN otomatik oluşturulur.
             </p>
             <textarea
               value={nicknameText}
@@ -339,7 +339,7 @@ export default function SinifDetay() {
               disabled={bulkLoading || !nicknameText.trim()}
               className="mt-2 bg-green-600 text-white px-5 py-2 rounded-lg hover:bg-green-700 disabled:opacity-50 transition font-medium text-sm"
             >
-              {bulkLoading ? 'Yukleniyor...' : 'Toplu Hesap Olustur'}
+              {bulkLoading ? 'Yükleniyor...' : 'Toplu Hesap Oluştur'}
             </button>
             {bulkError && (
               <p className="mt-2 text-sm text-red-600">{bulkError}</p>
@@ -348,7 +348,7 @@ export default function SinifDetay() {
               <div className="mt-2 text-sm">
                 {bulkResult.success.length > 0 && (
                   <p className="text-green-600">
-                    {bulkResult.success.length} ogrenci eklendi.
+                    {bulkResult.success.length} öğrenci eklendi.
                   </p>
                 )}
                 {bulkResult.errors.length > 0 && (
@@ -369,12 +369,12 @@ export default function SinifDetay() {
         <div className="bg-white rounded-xl border overflow-hidden">
           <div className="p-5 border-b">
             <h2 className="text-lg font-semibold text-gray-800">
-              Ogrenci Listesi ({students.length})
+              Öğrenci Listesi ({students.length})
             </h2>
           </div>
           {students.length === 0 ? (
             <div className="p-8 text-center text-gray-400">
-              Henuz ogrenci eklenmemis. Yukardaki formlari kullanarak ogrenci
+              Henüz öğrenci eklenmemiş. Yukarıdaki formları kullanarak öğrenci
               ekleyebilirsiniz.
             </div>
           ) : (
