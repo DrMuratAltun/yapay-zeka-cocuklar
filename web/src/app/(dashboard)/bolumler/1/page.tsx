@@ -23,6 +23,7 @@ import KonuBasligi from "@/components/anlati/KonuBasligi";
 import OzetKarti from "@/components/anlati/OzetKarti";
 import Hikaye from "@/components/anlati/Hikaye";
 import IcSayfa from "@/components/anlati/IcSayfa";
+import AcilirYonerge from "@/components/anlati/AcilirYonerge";
 
 const quizSorulari = [
   {
@@ -380,26 +381,24 @@ const SlaytYzTurleri = (
 /* ---- Slayt 8: Etkinlik 1 - Kim Daha Zeki? ---- */
 const SlaytEtkinlik1 = (
   <>
-    <div className="rounded-2xl border border-[var(--color-border)] bg-[var(--color-bg-secondary)] p-6">
-      <div className="mb-3 flex items-center gap-3">
-        <span className="rounded-lg bg-emerald-500 px-3 py-1 text-sm font-bold text-white">UNPLUGGED</span>
-        <span className="text-sm text-[var(--color-text-secondary)]">20 dakika &middot; Grup çalışması</span>
-      </div>
-      <h3 className="mb-2 text-xl font-bold">Etkinlik 1: Kim Daha Zeki?</h3>
-      <p className="mb-4 text-[var(--color-text-secondary)]">
+    <AcilirYonerge
+      baslik="Sınıf Etkinliği: Kim Daha Zeki? (kart oyunu)"
+      rozet="UNPLUGGED"
+      rozetRenk="bg-emerald-500"
+      sure="20 dakika · Grup çalışması"
+    >
+      <p className="text-[var(--color-text-secondary)]">
         Görev kartlarını kesin ve grubunuzla her görev için &quot;İnsan mı yoksa
         Makine mi daha iyi yapar?&quot; tartışmasını yapın.
       </p>
-      <div className="flex gap-3">
-        <a
-          href="/indirilebilir/bolum-01-kim-daha-zeki-kartlari.html"
-          target="_blank"
-          className="inline-block rounded-lg bg-sky-600 px-5 py-2 text-sm font-semibold text-white transition hover:bg-sky-700"
-        >
-          Kartları İndir
-        </a>
-      </div>
-    </div>
+      <a
+        href="/indirilebilir/bolum-01-kim-daha-zeki-kartlari.html"
+        target="_blank"
+        className="inline-block rounded-lg bg-sky-600 px-5 py-2 text-sm font-semibold text-white transition hover:bg-sky-700"
+      >
+        Kartları İndir
+      </a>
+    </AcilirYonerge>
 
     <KimDahaZeki />
   </>
@@ -415,25 +414,23 @@ const SlaytEtkinlik1b = (
 /* ---- Slayt 9: Etkinlik 2 - YZ Dedektifi ---- */
 const SlaytEtkinlik2 = (
   <>
-    <div className="rounded-2xl border border-[var(--color-border)] bg-[var(--color-bg-secondary)] p-6">
-      <div className="mb-3 flex items-center gap-3">
-        <span className="rounded-lg bg-blue-500 px-3 py-1 text-sm font-bold text-white">GÖZLEM</span>
-        <span className="text-sm text-[var(--color-text-secondary)]">1 gün + 20 dk sınıf tartışması</span>
-      </div>
-      <h3 className="mb-2 text-xl font-bold">Etkinlik 2: YZ Dedektifi</h3>
-      <p className="mb-4 text-[var(--color-text-secondary)]">
+    <AcilirYonerge
+      baslik="Ev Görevi: YZ Dedektifi (gözlem formu)"
+      rozet="GÖZLEM"
+      rozetRenk="bg-blue-500"
+      sure="1 gün + 20 dk sınıf tartışması"
+    >
+      <p className="text-[var(--color-text-secondary)]">
         Bir gün boyunca karşılaştığınız yapay zeka uygulamalarını gözlem formuna kaydedin.
       </p>
-      <div className="flex gap-3">
-        <a
-          href="/indirilebilir/bolum-01-yz-dedektifi-formu.html"
-          target="_blank"
-          className="inline-block rounded-lg bg-sky-600 px-5 py-2 text-sm font-semibold text-white transition hover:bg-sky-700"
-        >
-          Gözlem Formunu İndir
-        </a>
-      </div>
-    </div>
+      <a
+        href="/indirilebilir/bolum-01-yz-dedektifi-formu.html"
+        target="_blank"
+        className="inline-block rounded-lg bg-sky-600 px-5 py-2 text-sm font-semibold text-white transition hover:bg-sky-700"
+      >
+        Gözlem Formunu İndir
+      </a>
+    </AcilirYonerge>
 
     <YzDedektifi />
   </>
@@ -449,17 +446,17 @@ const SlaytEtkinlik2b = (
 /* ---- Slayt 10: Etkinlik 3 - YZ Zaman Çizelgesi ---- */
 const SlaytEtkinlik3 = (
   <>
-    <div className="rounded-2xl border border-[var(--color-border)] bg-[var(--color-bg-secondary)] p-6">
-      <div className="mb-3 flex items-center gap-3">
-        <span className="rounded-lg bg-emerald-500 px-3 py-1 text-sm font-bold text-white">UNPLUGGED</span>
-        <span className="text-sm text-[var(--color-text-secondary)]">25 dakika &middot; Grup çalışması</span>
-      </div>
-      <h3 className="mb-2 text-xl font-bold">Etkinlik 3: YZ Zaman Çizelgesi</h3>
+    <AcilirYonerge
+      baslik="Sınıf Etkinliği: YZ Zaman Çizelgesi (poster)"
+      rozet="UNPLUGGED"
+      rozetRenk="bg-emerald-500"
+      sure="25 dakika · Grup çalışması"
+    >
       <p className="text-[var(--color-text-secondary)]">
         A3 kağıda zaman çizelgesi çizin, önemli olayları yerleştirin ve
         gelecek tahminlerinizi ekleyin. Posterinizi sınıfta sergileyin.
       </p>
-    </div>
+    </AcilirYonerge>
 
     <ZamanCizelgesi />
   </>

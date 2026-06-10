@@ -137,10 +137,12 @@ export default function BolumCerceve({ bolumNo, bolumler }: BolumCerceveProps) {
       .catch(() => {})
   }, [bolumNo])
 
+  // Slayt içeriği kendi alanında kayar (viewport kilitli) — slayt değişince başa sar
+  const icerikRef = useRef<HTMLDivElement>(null)
   const bolumSec = useCallback((idx: number) => {
     setAktifIndex(idx)
     setMenuAcik(false)
-    window.scrollTo({ top: 0, behavior: 'smooth' })
+    icerikRef.current?.scrollTo({ top: 0 })
   }, [])
 
   const oncekiIcerik = () => aktifIndex > 0 && bolumSec(aktifIndex - 1)
@@ -196,10 +198,10 @@ export default function BolumCerceve({ bolumNo, bolumler }: BolumCerceveProps) {
   )
 
   return (
-    <div className="flex min-h-dvh">
+    <div className="flex h-dvh overflow-hidden">
       {/* Desktop sol menü */}
       <aside className="hidden lg:block w-72 shrink-0 border-r border-[var(--color-border)] bg-[var(--color-bg)]">
-        <div className="sticky top-0 h-dvh overflow-y-auto px-3 py-4">{menuIcerik}</div>
+        <div className="h-full overflow-y-auto px-3 py-4">{menuIcerik}</div>
       </aside>
 
       {/* Mobil çekmece */}
@@ -225,10 +227,10 @@ export default function BolumCerceve({ bolumNo, bolumler }: BolumCerceveProps) {
         </div>
       )}
 
-      {/* İçerik sütunu */}
-      <div className="min-w-0 flex-1">
+      {/* İçerik sütunu — viewport kilitli, slayt içi kayar */}
+      <div className="flex h-full min-w-0 flex-1 flex-col">
         {/* Mobil üst bar */}
-        <div className="lg:hidden sticky top-0 z-30 border-b border-[var(--color-border)] bg-[var(--color-bg)]/95 backdrop-blur">
+        <div className="lg:hidden shrink-0 border-b border-[var(--color-border)] bg-[var(--color-bg)]/95 backdrop-blur">
           <div className="flex items-center gap-3 px-4 py-2.5">
             <button
               type="button"
@@ -260,44 +262,30 @@ export default function BolumCerceve({ bolumNo, bolumler }: BolumCerceveProps) {
           </div>
         </div>
 
-        <div className="mx-auto max-w-4xl space-y-5 p-4 sm:p-6 lg:p-8">
-          {/* Başlık kartı */}
-          <header className="relative overflow-hidden rounded-2xl border border-[var(--color-border)] bg-[var(--color-bg)] p-5 sm:p-6">
-            <div className={`absolute inset-x-0 top-0 h-1.5 bg-gradient-to-r ${meta.renk}`} />
-            <div className="flex flex-wrap items-start justify-between gap-4">
-              <div className="min-w-0 flex-1">
-                <div className="mb-1.5 flex flex-wrap items-center gap-2">
-                  <span className="inline-block rounded-full bg-violet-100 px-2.5 py-0.5 text-[10px] font-bold uppercase tracking-wide text-violet-700 dark:bg-violet-950/40 dark:text-violet-300">
-                    Bölüm {bolumNo}
-                  </span>
-                  <span className="rounded-full bg-[var(--color-bg-secondary)] px-2 py-0.5 text-[10px] font-medium text-muted-foreground">
-                    {meta.seviye}
-                  </span>
-                  <span className="rounded-full bg-[var(--color-bg-secondary)] px-2 py-0.5 text-[10px] font-medium text-muted-foreground">
-                    {meta.ders} ders saati
-                  </span>
-                </div>
-                <h1 className="text-xl font-extrabold text-foreground sm:text-2xl">{meta.baslik}</h1>
-                <p className="mt-0.5 text-sm text-muted-foreground">{meta.altBaslik}</p>
-              </div>
-              <div className="hidden items-center gap-3 sm:flex">
-                <div className="text-right">
-                  <div className="text-2xl font-extrabold leading-none text-foreground">%{ilerlemeYuzdesi}</div>
-                  <div className="mt-0.5 text-[11px] text-muted-foreground">
-                    {tamamlananlar.size}/{slaytlar.length} konu
-                  </div>
-                </div>
-                <IlerlemeHalkasi yuzde={ilerlemeYuzdesi} boyut={48} />
-              </div>
-            </div>
+        <div className="mx-auto flex h-full min-h-0 w-full max-w-5xl flex-1 flex-col gap-2.5 px-3 pb-3 pt-2 sm:px-5">
+          {/* İnce başlık — yalnız desktop (mobilde üst bar var) */}
+          <header className="hidden lg:flex shrink-0 items-center gap-3 overflow-hidden rounded-xl border border-[var(--color-border)] bg-[var(--color-bg)] px-4 py-1.5">
+            <span className={`inline-block shrink-0 rounded-full bg-gradient-to-r ${meta.renk} px-2.5 py-0.5 text-[10px] font-bold uppercase tracking-wide text-white`}>
+              Bölüm {bolumNo}
+            </span>
+            <h1 className="min-w-0 flex-1 truncate text-sm font-extrabold text-foreground">
+              {meta.baslik}
+              <span className="ml-2 hidden font-medium text-muted-foreground xl:inline">
+                {meta.seviye} · {meta.ders} ders saati
+              </span>
+            </h1>
+            <span className="shrink-0 text-[11px] text-muted-foreground">
+              {tamamlananlar.size}/{slaytlar.length} konu
+            </span>
+            <IlerlemeHalkasi yuzde={ilerlemeYuzdesi} boyut={32} />
           </header>
 
-          {/* Aktif slayt */}
-          <article className="rounded-2xl border border-[var(--color-border)] bg-[var(--color-bg)] shadow-sm">
-            <div className="flex items-center gap-3 border-b border-[var(--color-border)] px-5 py-3">
-              <span className="text-2xl">{aktifSlayt.icon}</span>
+          {/* Aktif slayt — kalan tüm alanı kaplar, içi kayar */}
+          <article className="flex min-h-0 flex-1 flex-col rounded-2xl border border-[var(--color-border)] bg-[var(--color-bg)] shadow-sm">
+            <div className="flex shrink-0 items-center gap-3 border-b border-[var(--color-border)] px-4 py-2 sm:px-5">
+              <span className="text-xl">{aktifSlayt.icon}</span>
               <div className="min-w-0 flex-1">
-                <h2 className="truncate text-lg font-bold text-foreground">{aktifSlayt.baslik}</h2>
+                <h2 className="truncate text-base font-bold text-foreground sm:text-lg">{aktifSlayt.baslik}</h2>
               </div>
               <span className={`shrink-0 rounded-full px-2 py-0.5 text-xs ${turBadge[aktifSlayt.tur].bg}`}>
                 {turBadge[aktifSlayt.tur].label}
@@ -310,11 +298,13 @@ export default function BolumCerceve({ bolumNo, bolumler }: BolumCerceveProps) {
                 </span>
               )}
             </div>
-            <div className="space-y-4 p-5">{aktifSlayt.icerik}</div>
+            <div ref={icerikRef} className="min-h-0 flex-1 space-y-4 overflow-y-auto p-4 sm:p-5">
+              {aktifSlayt.icerik}
+            </div>
           </article>
 
           {/* Alt navigasyon */}
-          <div className="flex items-center justify-between gap-3">
+          <div className="flex shrink-0 items-center justify-between gap-3">
             <button
               onClick={oncekiIcerik}
               disabled={ilkMi}
