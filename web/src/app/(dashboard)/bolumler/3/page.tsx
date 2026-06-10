@@ -6,7 +6,7 @@ export const metadata: Metadata = {
 
 import Image from "next/image";
 import InteraktifQuiz from "@/components/InteraktifQuiz";
-import BolumSlider from "@/components/BolumSlider";
+import BolumCerceve from "@/components/BolumCerceve";
 import VeriTuruAvcisi from "@/components/oyunlar/VeriTuruAvcisi";
 import VeriLaboratuvari from "@/components/oyunlar/VeriLaboratuvari";
 import VeriTopla from "@/components/etkinlikler/VeriTopla";
@@ -424,7 +424,7 @@ const SlaytOyun = (
 
 const SlaytDegerlendirme = (
   <>
-    <InteraktifQuiz sorular={quizSorulari} />
+    <InteraktifQuiz sorular={quizSorulari} bolumNo={3} />
   </>
 );
 
@@ -599,38 +599,31 @@ const SlaytBolumOzeti3 = (
 
 export default function Bolum3() {
   return (
-    <BolumSlider
+    <BolumCerceve
       bolumNo={3}
-      bolumBaslik="Verinin Gücü"
-      bolumAltBaslik="YZ'nin Yakıtı"
-      seviye="6. Sınıf"
-      ders={4}
-      renk="from-violet-600 to-purple-700"
-      oncekiBolum={2}
-      sonrakiBolum={4}
-      slaytlar={[
-        { baslik: "Hoş Geldin!", icon: "👋", icerik: SlaytHosGeldin3 },
-        { baslik: "Kazanımlar", icon: "🎯", icerik: SlaytKazanimlar },
-        { baslik: "Veri Nedir?", icon: "📊", icerik: SlaytVeriNedir },
-        { baslik: "Veri Türleri", icon: "📝", icerik: SlaytVeriTurleri },
-        { baslik: "Yapısal ve Yapısız Veri", icon: "📋", icerik: SlaytYapisalVeri },
-        { baslik: "Veri Neden Önemli?", icon: "🔗", icerik: SlaytVeriNicinOnemli },
-        { baslik: "Veri Hazırlama Süreci", icon: "🔧", icerik: SlaytVeriHazirlama },
-        { baslik: "Büyük Veri", icon: "📦", icerik: SlaytBuyukVeri },
-        { baslik: "Veri Gizliliği ve KVKK", icon: "🔒", icerik: SlaytVeriGizliligi },
-        { baslik: "Laboratuvara Geçiş", icon: "🧭", icerik: SlaytGecisVeriLab },
-        { baslik: "Veri Laboratuvarı", icon: "🧪", icerik: SlaytVeriLab },
-        { baslik: "Etkinlik: Girdi Avcıları", icon: "🎮", icerik: SlaytEtkinlik1 },
-        { baslik: "Etkinlik: Veri Topla", icon: "🎮", icerik: SlaytEtkinlik2 },
-        { baslik: "Etkinlik: Veri Görselleştirme", icon: "📊", icerik: SlaytEtkinlik2b },
-        { baslik: "Etkinlik: Sınıf Anketi", icon: "🎮", icerik: SlaytEtkinlik3 },
-        { baslik: "Etkinlik: Veri Seti Keşfedici", icon: "🎮", icerik: SlaytEtkinlik4 },
-        { baslik: "Etkinlik: Veri Temizleme", icon: "🧹", icerik: SlaytEtkinlik4b },
-        { baslik: "Etkinlik: Veri Etiketleme", icon: "🎮", icerik: SlaytEtkinlik5 },
-        { baslik: "İnteraktif Oyun", icon: "🕹️", icerik: SlaytOyun },
-        { baslik: "Değerlendirme", icon: "📝", icerik: SlaytDegerlendirme },
-        { baslik: "Bölüm Özeti", icon: "🏆", icerik: SlaytBolumOzeti3 },
-        { baslik: "Materyaller", icon: "📥", icerik: SlaytMateryaller },
+      bolumler={[
+        { baslik: "Hoş Geldin!", icon: "👋", tur: "icerik", icerik: SlaytHosGeldin3 },
+        { baslik: "Kazanımlar", icon: "🎯", tur: "kazanim", icerik: SlaytKazanimlar },
+        { baslik: "Veri Nedir?", icon: "📊", tur: "icerik", icerik: SlaytVeriNedir },
+        { baslik: "Veri Türleri", icon: "📝", tur: "icerik", icerik: SlaytVeriTurleri },
+        { baslik: "Yapısal ve Yapısız Veri", icon: "📋", tur: "icerik", icerik: SlaytYapisalVeri },
+        { baslik: "Veri Neden Önemli?", icon: "🔗", tur: "icerik", icerik: SlaytVeriNicinOnemli },
+        { baslik: "Veri Hazırlama Süreci", icon: "🔧", tur: "icerik", icerik: SlaytVeriHazirlama },
+        { baslik: "Büyük Veri", icon: "📦", tur: "icerik", icerik: SlaytBuyukVeri },
+        { baslik: "Veri Gizliliği ve KVKK", icon: "🔒", tur: "icerik", icerik: SlaytVeriGizliligi },
+        { baslik: "Laboratuvara Geçiş", icon: "🧭", tur: "icerik", icerik: SlaytGecisVeriLab },
+        { baslik: "Veri Laboratuvarı", icon: "🧪", tur: "oyun", icerik: SlaytVeriLab },
+        { baslik: "Etkinlik: Girdi Avcıları", icon: "🎮", tur: "etkinlik", icerik: SlaytEtkinlik1 },
+        { baslik: "Etkinlik: Veri Topla", icon: "🎮", tur: "etkinlik", icerik: SlaytEtkinlik2 },
+        { baslik: "Etkinlik: Veri Görselleştirme", icon: "📊", tur: "etkinlik", icerik: SlaytEtkinlik2b },
+        { baslik: "Etkinlik: Sınıf Anketi", icon: "🎮", tur: "etkinlik", icerik: SlaytEtkinlik3 },
+        { baslik: "Etkinlik: Veri Seti Keşfedici", icon: "🎮", tur: "etkinlik", icerik: SlaytEtkinlik4 },
+        { baslik: "Etkinlik: Veri Temizleme", icon: "🧹", tur: "etkinlik", icerik: SlaytEtkinlik4b },
+        { baslik: "Etkinlik: Veri Etiketleme", icon: "🎮", tur: "etkinlik", icerik: SlaytEtkinlik5 },
+        { baslik: "İnteraktif Oyun", icon: "🕹️", tur: "oyun", icerik: SlaytOyun },
+        { baslik: "Değerlendirme", icon: "📝", tur: "quiz", icerik: SlaytDegerlendirme },
+        { baslik: "Bölüm Özeti", icon: "🏆", tur: "icerik", icerik: SlaytBolumOzeti3 },
+        { baslik: "Materyaller", icon: "📥", tur: "materyal", icerik: SlaytMateryaller },
       ]}
     />
   );

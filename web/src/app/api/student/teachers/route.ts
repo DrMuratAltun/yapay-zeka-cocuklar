@@ -13,7 +13,7 @@ export async function GET() {
   const { data: enrollment } = await adminClient
     .from('class_students')
     .select('class_id')
-    .eq('student_id', user.id)
+    .eq('user_id', user.id)
     .limit(1)
     .maybeSingle()
 

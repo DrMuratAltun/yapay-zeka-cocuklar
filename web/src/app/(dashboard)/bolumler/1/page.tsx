@@ -6,7 +6,7 @@ export const metadata: Metadata = {
 
 import Image from "next/image";
 import InteraktifQuiz from "@/components/InteraktifQuiz";
-import BolumSlider from "@/components/BolumSlider";
+import BolumCerceve from "@/components/BolumCerceve";
 import YzMiDegilMi from "@/components/oyunlar/YzMiDegilMi";
 import SinirAgiOyunAlani from "@/components/oyunlar/SinirAgiOyunAlani";
 import KimDahaZeki from "@/components/etkinlikler/KimDahaZeki";
@@ -351,25 +351,6 @@ const SlaytOnculer = (
   </section>
 );
 
-/* ---- Slayt 5: Video ---- */
-const SlaytVideo = (
-  <section className="rounded-2xl border border-[var(--color-border)] bg-[var(--color-bg-secondary)] p-4 sm:p-6">
-    <h3 className="mb-3 text-lg font-bold flex items-center gap-2">🎬 Yapay Zekanın Tarihçesi</h3>
-    <div className="relative w-full overflow-hidden rounded-xl" style={{ paddingBottom: "56.25%" }}>
-      <iframe
-        className="absolute inset-0 h-full w-full"
-        src="https://www.youtube.com/embed/ca_OjAqGpYs"
-        title="Yapay Zekanın Tarihçesi"
-        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-        allowFullScreen
-      />
-    </div>
-    <p className="mt-3 text-sm text-[var(--color-text-secondary)]">
-      📖 Yapay zekanın 1950&apos;lerden günümüze uzanan yolculuğunu keşfet!
-    </p>
-  </section>
-);
-
 /* ---- Slayt 6: YZ Tarihçesi (interaktif zaman makinesi) ---- */
 const SlaytTarihce = (
   <section className="space-y-3">
@@ -498,7 +479,7 @@ const SlaytOyun = (
 /* ---- Slayt 10: Değerlendirme ---- */
 const SlaytDegerlendirme = (
   <>
-    <InteraktifQuiz sorular={quizSorulari} />
+    <InteraktifQuiz sorular={quizSorulari} bolumNo={1} />
   </>
 );
 
@@ -686,37 +667,29 @@ const SlaytMateryaller = (
 
 export default function Bolum1() {
   return (
-    <BolumSlider
+    <BolumCerceve
       bolumNo={1}
-      bolumBaslik="Yapay Zeka Nedir?"
-      bolumAltBaslik="Keşif Yolculuğu"
-      seviye="6. Sınıf"
-      ders={4}
-      renk="from-sky-600 to-blue-700"
-      oncekiBolum={null}
-      sonrakiBolum={2}
-      slaytlar={[
-        { baslik: "Hoş Geldin!", icon: "👋", icerik: SlaytHosGeldin },
-        { baslik: "Kazanımlar", icon: "🎯", icerik: SlaytKazanimlar },
-        { baslik: "Yolculuk Başlıyor", icon: "🧭", icerik: SlaytGecis1 },
-        { baslik: "Zeka Nedir?", icon: "🧠", icerik: SlaytZekaNedir },
-        { baslik: "Yapay Zeka Nedir?", icon: "🤖", icerik: SlaytYapayZekaNedir },
-        { baslik: "Öncüler", icon: "👨‍🔬", icerik: SlaytOnculer },
-        { baslik: "Video", icon: "🎬", icerik: SlaytVideo },
-        { baslik: "YZ Tarihçesi", icon: "📅", icerik: SlaytTarihce },
-        { baslik: "YZ Türleri", icon: "🔬", icerik: SlaytYzTurleri },
-        { baslik: "Sinir Ağı Lab", icon: "🧪", icerik: SlaytSinirAgiLab },
-        { baslik: "Uygulama Zamanı", icon: "🎯", icerik: SlaytGecis2 },
-        { baslik: "Etkinlik: Kim Daha Zeki?", icon: "🎮", icerik: SlaytEtkinlik1 },
-        { baslik: "Etkinlik: Turing Testi", icon: "🧪", icerik: SlaytEtkinlik1b },
-        { baslik: "Etkinlik: YZ Dedektifi", icon: "🎮", icerik: SlaytEtkinlik2 },
-        { baslik: "Etkinlik: Zeka Karşılaştır", icon: "⚖️", icerik: SlaytEtkinlik2b },
-        { baslik: "Etkinlik: YZ Zaman Çizelgesi", icon: "🎮", icerik: SlaytEtkinlik3 },
-        { baslik: "İnteraktif Oyun", icon: "🕹️", icerik: SlaytOyun },
-        { baslik: "Kendini Sına", icon: "🎓", icerik: SlaytGecis3 },
-        { baslik: "Değerlendirme", icon: "📝", icerik: SlaytDegerlendirme },
-        { baslik: "Bölüm Özeti", icon: "🏆", icerik: SlaytBolumOzeti },
-        { baslik: "Materyaller", icon: "📥", icerik: SlaytMateryaller },
+      bolumler={[
+        { baslik: "Hoş Geldin!", icon: "👋", tur: "icerik", icerik: SlaytHosGeldin },
+        { baslik: "Kazanımlar", icon: "🎯", tur: "kazanim", icerik: SlaytKazanimlar },
+        { baslik: "Yolculuk Başlıyor", icon: "🧭", tur: "icerik", icerik: SlaytGecis1 },
+        { baslik: "Zeka Nedir?", icon: "🧠", tur: "icerik", icerik: SlaytZekaNedir },
+        { baslik: "Yapay Zeka Nedir?", icon: "🤖", tur: "icerik", icerik: SlaytYapayZekaNedir },
+        { baslik: "Öncüler", icon: "👨‍🔬", tur: "icerik", icerik: SlaytOnculer },
+        { baslik: "YZ Tarihçesi", icon: "📅", tur: "icerik", icerik: SlaytTarihce },
+        { baslik: "YZ Türleri", icon: "🔬", tur: "icerik", icerik: SlaytYzTurleri },
+        { baslik: "Sinir Ağı Lab", icon: "🧪", tur: "oyun", icerik: SlaytSinirAgiLab },
+        { baslik: "Uygulama Zamanı", icon: "🎯", tur: "icerik", icerik: SlaytGecis2 },
+        { baslik: "Etkinlik: Kim Daha Zeki?", icon: "🎮", tur: "etkinlik", icerik: SlaytEtkinlik1 },
+        { baslik: "Etkinlik: Turing Testi", icon: "🧪", tur: "etkinlik", icerik: SlaytEtkinlik1b },
+        { baslik: "Etkinlik: YZ Dedektifi", icon: "🎮", tur: "etkinlik", icerik: SlaytEtkinlik2 },
+        { baslik: "Etkinlik: Zeka Karşılaştır", icon: "⚖️", tur: "etkinlik", icerik: SlaytEtkinlik2b },
+        { baslik: "Etkinlik: YZ Zaman Çizelgesi", icon: "🎮", tur: "etkinlik", icerik: SlaytEtkinlik3 },
+        { baslik: "İnteraktif Oyun", icon: "🕹️", tur: "oyun", icerik: SlaytOyun },
+        { baslik: "Kendini Sına", icon: "🎓", tur: "icerik", icerik: SlaytGecis3 },
+        { baslik: "Değerlendirme", icon: "📝", tur: "quiz", icerik: SlaytDegerlendirme },
+        { baslik: "Bölüm Özeti", icon: "🏆", tur: "icerik", icerik: SlaytBolumOzeti },
+        { baslik: "Materyaller", icon: "📥", tur: "materyal", icerik: SlaytMateryaller },
       ]}
     />
   );

@@ -2,6 +2,7 @@
 
 import { useEffect, useMemo, useState } from "react";
 import Link from "next/link";
+import { BOLUM_META, okuBolumIlerleme, type BolumIlerlemeOzet } from "@/data/bolumler";
 
 interface StudentModule {
   bolumNo: number;
@@ -11,22 +12,9 @@ interface StudentModule {
   quizResult: { score: number; passed: boolean } | null;
 }
 
-const BOLUMLER = [
-  { no: 1, baslik: "Yapay Zeka Nedir?", altBaslik: "Keşif Yolculuğu", seviye: "6. Sınıf", ders: 4, renk: "from-sky-400 to-blue-500", bg: "from-sky-500 to-blue-600", ikon: "🔍", emoji: "🤖" },
-  { no: 2, baslik: "Günlük Hayatta YZ", altBaslik: "Yapay Zeka Etrafımızda", seviye: "6. Sınıf", ders: 4, renk: "from-emerald-400 to-teal-500", bg: "from-emerald-500 to-teal-600", ikon: "🏠", emoji: "🏡" },
-  { no: 3, baslik: "Verinin Gücü", altBaslik: "YZ'nin Yakıtı", seviye: "6. Sınıf", ders: 4, renk: "from-violet-400 to-purple-500", bg: "from-violet-500 to-purple-600", ikon: "📊", emoji: "📊" },
-  { no: 4, baslik: "Makineler Nasıl Öğrenir?", altBaslik: "ML Temelleri", seviye: "6-7. Sınıf", ders: 6, renk: "from-orange-400 to-amber-500", bg: "from-orange-500 to-amber-600", ikon: "🤖", emoji: "🧠" },
-  { no: 5, baslik: "Üretken Yapay Zeka", altBaslik: "YZ Araçları", seviye: "6-7. Sınıf", ders: 6, renk: "from-pink-400 to-rose-500", bg: "from-pink-500 to-rose-600", ikon: "✨", emoji: "✨" },
-  { no: 6, baslik: "Blok Tabanlı YZ Kodlama", altBaslik: "PictoBlox Projeleri", seviye: "7. Sınıf", ders: 8, renk: "from-blue-400 to-indigo-500", bg: "from-blue-500 to-indigo-600", ikon: "🧩", emoji: "🧩" },
-  { no: 7, baslik: "Gerçek Hayat Problemleri", altBaslik: "STEM Tabanlı YZ Çözümleri", seviye: "7-8. Sınıf", ders: 8, renk: "from-teal-400 to-cyan-500", bg: "from-teal-500 to-cyan-600", ikon: "🌍", emoji: "🌍" },
-  { no: 8, baslik: "Dijital İçerik Üretimi", altBaslik: "YZ ile Yaratıcılık", seviye: "7-8. Sınıf", ders: 6, renk: "from-rose-400 to-pink-500", bg: "from-rose-500 to-pink-600", ikon: "🎨", emoji: "🎨" },
-  { no: 9, baslik: "YZ ve Etik", altBaslik: "Doğru Kullanımın Pusulası", seviye: "7-8. Sınıf", ders: 4, renk: "from-amber-400 to-orange-500", bg: "from-amber-500 to-orange-600", ikon: "⚖️", emoji: "⚖️" },
-  { no: 10, baslik: "Gelecek Seninle Başlar", altBaslik: "Proje ve Portfolyo", seviye: "8. Sınıf", ders: 8, renk: "from-indigo-400 to-violet-500", bg: "from-indigo-500 to-violet-600", ikon: "🚀", emoji: "🚀" },
-];
-
 export default function BolumlerPage() {
   const [modules, setModules] = useState<StudentModule[]>([]);
-  const [ilerlemeler, setIlerlemeler] = useState<Record<number, number>>({});
+  const [ilerlemeler, setIlerlemeler] = useState<Record<number, BolumIlerlemeOzet>>({});
   const [role, setRole] = useState<"loading" | "anon" | "student" | "other">("loading");
 
   useEffect(() => {
@@ -46,24 +34,14 @@ export default function BolumlerPage() {
       })
       .catch(() => {});
 
-    try {
-      const out: Record<number, number> = {};
-      for (let no = 1; no <= 10; no++) {
-        const raw = localStorage.getItem(`bolum-${no}-tamamlananlar`);
-        if (raw) {
-          try {
-            const arr = JSON.parse(raw) as string[];
-            out[no] = arr.length;
-          } catch {}
-        }
-      }
-      setIlerlemeler(out);
-    } catch {}
+    const out: Record<number, BolumIlerlemeOzet> = {};
+    for (const b of BOLUM_META) out[b.no] = okuBolumIlerleme(b.no);
+    setIlerlemeler(out);
   }, []);
 
   const moduleMap = useMemo(() => new Map(modules.map((m) => [m.bolumNo, m])), [modules]);
   const hasAssigned = role === "student" && modules.length > 0;
-  const visible = hasAssigned ? BOLUMLER.filter((b) => moduleMap.has(b.no)) : BOLUMLER;
+  const visible = hasAssigned ? BOLUM_META.filter((b) => moduleMap.has(b.no)) : BOLUM_META;
 
   return (
     <div className="p-4 sm:p-6 lg:p-8 space-y-6">
@@ -82,7 +60,9 @@ export default function BolumlerPage() {
           const isLocked = hasAssigned && mod && !mod.unlocked;
           const isPassed = mod?.quizResult?.passed;
           const puan = mod?.quizResult?.score;
-          const tamamlananSayi = ilerlemeler[b.no] ?? 0;
+          const ilerleme = ilerlemeler[b.no];
+          const yuzde = ilerleme?.yuzde ?? 0;
+          const basladi = (ilerleme?.tamam ?? 0) > 0;
 
           if (isLocked) {
             return (
@@ -118,6 +98,11 @@ export default function BolumlerPage() {
                     ✓
                   </span>
                 )}
+                {basladi && !isPassed && (
+                  <span className="absolute right-3 top-3 rounded-full bg-white/90 px-2.5 py-1 text-[10px] font-bold text-violet-700 shadow">
+                    %{yuzde}
+                  </span>
+                )}
               </div>
               <div className="p-4">
                 <div className="flex items-center justify-between">
@@ -132,7 +117,7 @@ export default function BolumlerPage() {
                           : "bg-amber-100 text-amber-700 dark:bg-amber-950/40 dark:text-amber-300"
                       }`}
                     >
-                      {puan}%
+                      Quiz: %{puan}
                     </span>
                   )}
                 </div>
@@ -140,16 +125,22 @@ export default function BolumlerPage() {
                   {b.baslik}
                 </h3>
                 <p className="text-xs text-muted-foreground">{b.altBaslik}</p>
-                <div className="mt-3 flex items-center gap-2 text-[11px] text-muted-foreground">
-                  <span>{b.seviye}</span>
-                  <span>·</span>
-                  <span>{b.ders} ders saati</span>
-                  {tamamlananSayi > 0 && (
-                    <>
-                      <span>·</span>
-                      <span className="text-violet-600 font-semibold">{tamamlananSayi} içerik</span>
-                    </>
-                  )}
+
+                {/* İlerleme barı */}
+                <div className="mt-3 h-1.5 overflow-hidden rounded-full bg-[var(--color-bg-secondary)]">
+                  <div
+                    className={`h-full rounded-full bg-gradient-to-r ${b.renk} transition-all`}
+                    style={{ width: `${yuzde}%` }}
+                  />
+                </div>
+
+                <div className="mt-2 flex items-center justify-between gap-2 text-[11px] text-muted-foreground">
+                  <span>
+                    {b.seviye} · {b.ders} ders saati
+                  </span>
+                  <span className={`font-semibold ${basladi ? "text-violet-600 dark:text-violet-400" : ""}`}>
+                    {yuzde >= 100 ? "Tamamlandı 🎉" : basladi ? "Devam Et →" : "Başla →"}
+                  </span>
                 </div>
               </div>
             </Link>

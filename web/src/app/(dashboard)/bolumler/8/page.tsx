@@ -364,7 +364,7 @@ const SlaytOyun = (
 /* ---- Değerlendirme ---- */
 const SlaytDegerlendirme = (
   <>
-    <InteraktifQuiz sorular={quizSorulari} />
+    <InteraktifQuiz sorular={quizSorulari} bolumNo={8} />
   </>
 );
 
@@ -401,13 +401,6 @@ export default function Bolum8() {
   return (
     <BolumCerceve bolumNo={8}
      
-      bolumBaslik="Dijital İçerik Üretimi"
-      bolumAltBaslik="YZ ile Yaratıcılık"
-      seviye="7-8. Sınıf"
-      ders={6}
-      renk="from-rose-500 to-pink-600"
-      oncekiBolum={7}
-      sonrakiBolum={9}
       bolumler={[
         { id: "b8-kazanimlar", baslik: "Kazanımlar", icon: "🎯", tur: "kazanim", icerik: SlaytKazanimlar, varsayilanAcik: true },
         { id: "b8-goruntu-uretme", baslik: "YZ ile Görüntü Üretme", icon: "🖼️", tur: "icerik", icerik: SlaytGoruntuUretme, varsayilanAcik: true },

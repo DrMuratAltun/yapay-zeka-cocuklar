@@ -4,7 +4,7 @@ import Link from 'next/link'
 import { usePathname, useRouter } from 'next/navigation'
 
 const navItems = [
-  { href: '/okul', label: 'Dashboard' },
+  { href: '/okul', label: 'Okul Paneli' },
 ]
 
 export default function OkulLayout({
@@ -26,7 +26,7 @@ export default function OkulLayout({
         <div className="max-w-7xl mx-auto px-4 sm:px-6 h-14 flex items-center justify-between">
           <div className="flex items-center gap-6">
             <Link href="/okul" className="font-bold text-gray-900 text-lg">
-              GencYZ Okul Yonetimi
+              GençYZ Okul Yönetimi
             </Link>
             <nav className="hidden sm:flex items-center gap-1">
               {navItems.map((item) => (
@@ -49,13 +49,13 @@ export default function OkulLayout({
               href="/"
               className="text-sm text-gray-500 hover:text-gray-700"
             >
-              Siteye Don
+              Siteye Dön
             </Link>
             <button
               onClick={handleLogout}
               className="text-sm text-red-500 hover:text-red-700 font-medium"
             >
-              Cikis Yap
+              Çıkış Yap
             </button>
           </div>
         </div>

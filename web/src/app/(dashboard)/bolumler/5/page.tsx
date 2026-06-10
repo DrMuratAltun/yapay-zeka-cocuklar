@@ -6,7 +6,7 @@ export const metadata: Metadata = {
 
 import Image from "next/image";
 import InteraktifQuiz from "@/components/InteraktifQuiz";
-import BolumSlider from "@/components/BolumSlider";
+import BolumCerceve from "@/components/BolumCerceve";
 import PromptUstasi from "@/components/oyunlar/PromptUstasi";
 import PromptDeneme from "@/components/etkinlikler/PromptDeneme";
 import EtikSenaryolar from "@/components/etkinlikler/EtikSenaryolar";
@@ -516,7 +516,7 @@ const SlaytOyun = (
 /* ---- Slayt 6: Değerlendirme ---- */
 const SlaytDegerlendirme = (
   <>
-    <InteraktifQuiz sorular={quizSorulari} />
+    <InteraktifQuiz sorular={quizSorulari} bolumNo={5} />
   </>
 );
 
@@ -551,33 +551,26 @@ const SlaytMateryaller = (
 
 export default function Bolum5() {
   return (
-    <BolumSlider
+    <BolumCerceve
       bolumNo={5}
-      bolumBaslik="Üretken Yapay Zeka"
-      bolumAltBaslik="YZ Araçlarıyla Tanışın"
-      seviye="6-7. Sınıf"
-      ders={6}
-      renk="from-pink-500 to-rose-600"
-      oncekiBolum={4}
-      sonrakiBolum={6}
-      slaytlar={[
-        { baslik: "Hoş Geldin!", icon: "👋", icerik: SlaytHosGeldin5 },
-        { baslik: "Kazanımlar", icon: "🎯", icerik: SlaytKazanimlar },
-        { baslik: "Üretken YZ Nedir?", icon: "📖", icerik: SlaytUretkenYZ },
-        { baslik: "Büyük Dil Modelleri", icon: "🧠", icerik: SlaytLLM },
-        { baslik: "Prompt Mühendisliği", icon: "📝", icerik: SlaytPrompt },
-        { baslik: "YZ Halüsinasyonu", icon: "⚠️", icerik: SlaytHalusinasyon },
-        { baslik: "Etik Kullanım", icon: "⚖️", icerik: SlaytEtik },
-        { baslik: "Pratiğe Geçiş", icon: "✨", icerik: SlaytGecis5_1 },
-        { baslik: "Etkinlik: Prompt Düellosu", icon: "🎮", icerik: SlaytEtkinlik1 },
-        { baslik: "Etkinlik: Prompt Geliştirici", icon: "✨", icerik: SlaytEtkinlik1b },
-        { baslik: "Etkinlik: ChatGPT/Gemini", icon: "🎮", icerik: SlaytEtkinlik2 },
-        { baslik: "Etkinlik: Görüntü Üretme", icon: "🎮", icerik: SlaytEtkinlik3 },
-        { baslik: "Etkinlik: YZ Etik Mahkemesi", icon: "🎮", icerik: SlaytEtkinlik4 },
-        { baslik: "İnteraktif Oyun", icon: "🕹️", icerik: SlaytOyun },
-        { baslik: "Değerlendirme", icon: "📝", icerik: SlaytDegerlendirme },
-        { baslik: "Bölüm Özeti", icon: "🏆", icerik: SlaytBolumOzeti5 },
-        { baslik: "Materyaller", icon: "📥", icerik: SlaytMateryaller },
+      bolumler={[
+        { baslik: "Hoş Geldin!", icon: "👋", tur: "icerik", icerik: SlaytHosGeldin5 },
+        { baslik: "Kazanımlar", icon: "🎯", tur: "kazanim", icerik: SlaytKazanimlar },
+        { baslik: "Üretken YZ Nedir?", icon: "📖", tur: "icerik", icerik: SlaytUretkenYZ },
+        { baslik: "Büyük Dil Modelleri", icon: "🧠", tur: "icerik", icerik: SlaytLLM },
+        { baslik: "Prompt Mühendisliği", icon: "📝", tur: "icerik", icerik: SlaytPrompt },
+        { baslik: "YZ Halüsinasyonu", icon: "⚠️", tur: "icerik", icerik: SlaytHalusinasyon },
+        { baslik: "Etik Kullanım", icon: "⚖️", tur: "icerik", icerik: SlaytEtik },
+        { baslik: "Pratiğe Geçiş", icon: "✨", tur: "icerik", icerik: SlaytGecis5_1 },
+        { baslik: "Etkinlik: Prompt Düellosu", icon: "🎮", tur: "etkinlik", icerik: SlaytEtkinlik1 },
+        { baslik: "Etkinlik: Prompt Geliştirici", icon: "✨", tur: "etkinlik", icerik: SlaytEtkinlik1b },
+        { baslik: "Etkinlik: ChatGPT/Gemini", icon: "🎮", tur: "etkinlik", icerik: SlaytEtkinlik2 },
+        { baslik: "Etkinlik: Görüntü Üretme", icon: "🎮", tur: "etkinlik", icerik: SlaytEtkinlik3 },
+        { baslik: "Etkinlik: YZ Etik Mahkemesi", icon: "🎮", tur: "etkinlik", icerik: SlaytEtkinlik4 },
+        { baslik: "İnteraktif Oyun", icon: "🕹️", tur: "oyun", icerik: SlaytOyun },
+        { baslik: "Değerlendirme", icon: "📝", tur: "quiz", icerik: SlaytDegerlendirme },
+        { baslik: "Bölüm Özeti", icon: "🏆", tur: "icerik", icerik: SlaytBolumOzeti5 },
+        { baslik: "Materyaller", icon: "📥", tur: "materyal", icerik: SlaytMateryaller },
       ]}
     />
   );

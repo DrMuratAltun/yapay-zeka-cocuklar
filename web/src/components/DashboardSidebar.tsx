@@ -1,10 +1,18 @@
 "use client";
 
 import Link from "next/link";
-import { usePathname } from "next/navigation";
+import { usePathname, useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
+import { useTheme } from "@/hooks/useTheme";
 
 type Role = "super_admin" | "school_admin" | "teacher" | "student" | null;
+
+const ROL_ETIKETLERI: Record<Exclude<Role, null>, string> = {
+  super_admin: "Sistem Yöneticisi",
+  school_admin: "Okul Yöneticisi",
+  teacher: "Öğretmen",
+  student: "Öğrenci",
+};
 
 interface NavItem {
   href: string;
@@ -54,17 +62,6 @@ const IconClasses = (
     <path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2" />
     <circle cx="9" cy="7" r="4" />
     <path d="M23 21v-2a4 4 0 00-3-3.87M16 3.13a4 4 0 010 7.75" />
-  </svg>
-);
-const IconSearch = (
-  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-    <circle cx="11" cy="11" r="8" />
-    <line x1="21" y1="21" x2="16.65" y2="16.65" />
-  </svg>
-);
-const IconChevron = (
-  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-    <polyline points="9 18 15 12 9 6" />
   </svg>
 );
 const IconMenu = (
@@ -125,9 +122,10 @@ function linksForRole(role: Exclude<Role, null>): NavItem[] {
 
 export default function DashboardSidebar() {
   const pathname = usePathname();
+  const router = useRouter();
+  const { dark, toggle } = useTheme();
   const [role, setRole] = useState<Role | "loading">("loading");
   const [open, setOpen] = useState(false);
-  const [query, setQuery] = useState("");
 
   useEffect(() => {
     fetch("/api/auth/role")
@@ -140,12 +138,22 @@ export default function DashboardSidebar() {
     setOpen(false);
   }, [pathname]);
 
+  // Bölüm detay sayfaları kendi sol menüsünü (konu ağacı) getirir — çift sidebar olmasın
+  const bolumDetayinda = /^\/bolumler\/\d+/.test(pathname ?? "");
+  if (bolumDetayinda) return null;
+
   if (role === "loading" || role === null) return null;
 
   const navItems = linksForRole(role);
 
+  const cikisYap = async () => {
+    await fetch("/api/auth/logout", { method: "POST" }).catch(() => {});
+    router.push("/");
+    router.refresh();
+  };
+
   const content = (
-    <div className="flex flex-col gap-5 p-4">
+    <div className="flex h-full min-h-0 flex-col gap-5 p-4">
       {/* Marka */}
       <Link href="/" className="flex items-center gap-2 px-2 py-1">
         <span className="flex h-9 w-9 items-center justify-center rounded-xl bg-gradient-to-br from-violet-500 to-indigo-500 shadow-md">
@@ -157,26 +165,13 @@ export default function DashboardSidebar() {
         </span>
       </Link>
 
-      {/* Arama */}
-      <label className="flex items-center gap-2 rounded-xl bg-[var(--color-bg-secondary)] px-3 py-2 text-sm focus-within:ring-2 focus-within:ring-violet-400">
-        <span className="text-muted-foreground">{IconSearch}</span>
-        <input
-          type="search"
-          value={query}
-          onChange={(e) => setQuery(e.target.value)}
-          placeholder="Ara..."
-          className="flex-1 bg-transparent outline-none placeholder:text-muted-foreground text-[13px]"
-        />
-      </label>
-
       {/* Navigasyon */}
-      <nav className="space-y-0.5">
+      <nav className="flex-1 space-y-0.5">
         {navItems.map((item) => {
           const isActive =
             item.href === "/"
               ? pathname === "/"
               : pathname === item.href || pathname?.startsWith(item.href + "/");
-          const hasChildren = item.label === "Profil";
           return (
             <Link
               key={item.href}
@@ -191,11 +186,34 @@ export default function DashboardSidebar() {
                 {item.icon}
               </span>
               <span className="flex-1">{item.label}</span>
-              {hasChildren && IconChevron}
             </Link>
           );
         })}
       </nav>
+
+      {/* Alt bölüm: rol + tema + çıkış */}
+      <div className="space-y-2 border-t border-[var(--color-border)] pt-3">
+        <p className="px-2 text-[11px] font-semibold uppercase tracking-wide text-muted-foreground">
+          {ROL_ETIKETLERI[role]}
+        </p>
+        <div className="flex items-center gap-2">
+          <button
+            type="button"
+            onClick={toggle}
+            className="flex flex-1 items-center justify-center gap-2 rounded-lg border border-[var(--color-border)] px-3 py-2 text-xs font-semibold text-muted-foreground transition hover:bg-[var(--color-bg-secondary)] hover:text-foreground"
+            aria-label="Temayı değiştir"
+          >
+            {dark ? "☀️ Açık" : "🌙 Koyu"}
+          </button>
+          <button
+            type="button"
+            onClick={cikisYap}
+            className="flex flex-1 items-center justify-center gap-2 rounded-lg border border-rose-200 px-3 py-2 text-xs font-semibold text-rose-600 transition hover:bg-rose-50 dark:border-rose-900 dark:text-rose-400 dark:hover:bg-rose-950/30"
+          >
+            Çıkış Yap
+          </button>
+        </div>
+      </div>
     </div>
   );
 
@@ -238,7 +256,7 @@ export default function DashboardSidebar() {
 
       {/* Desktop sabit */}
       <aside className="hidden lg:block w-56 shrink-0 border-r border-[var(--color-border)] bg-[var(--color-bg)]">
-        <div className="sticky top-14">{content}</div>
+        <div className="sticky top-0 h-dvh overflow-y-auto">{content}</div>
       </aside>
     </>
   );

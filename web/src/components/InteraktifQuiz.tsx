@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { useActivityTracker } from "./ActivityTracker";
+import { useProgress } from "@/hooks/useProgress";
 
 interface Soru {
   soru: string;
@@ -10,22 +10,30 @@ interface Soru {
   aciklama?: string;
 }
 
+interface QuizSonucu {
+  passed: boolean;
+  minRequired: number;
+}
+
 /**
  * İnteraktif Quiz — stepper/slayt tipi
  * Her soru tek bir slayt. En sonda sonuç özeti.
- * Sağ/sol ok tuşlarıyla geçiş de mümkün.
+ * bolumNo verilirse sonuç /api/quiz-results'a kaydedilir (modül kilidi bu skora bakar).
  */
 export default function InteraktifQuiz({
   sorular,
   baslik = "Değerlendirme Testi",
+  bolumNo,
 }: {
   sorular: Soru[];
   baslik?: string;
+  bolumNo?: number;
 }) {
   const [aktif, setAktif] = useState(0); // 0..N-1 soru, N sonuç
   const [cevaplar, setCevaplar] = useState<Record<number, number>>({});
   const [sonucKaydedildi, setSonucKaydedildi] = useState(false);
-  const { completeActivity } = useActivityTracker();
+  const [sunucuSonucu, setSunucuSonucu] = useState<QuizSonucu | null>(null);
+  const { trackProgress } = useProgress();
 
   const toplam = sorular.length;
   const sonucAdimi = aktif === toplam;
@@ -41,12 +49,40 @@ export default function InteraktifQuiz({
     setCevaplar((prev) => ({ ...prev, [aktif]: secenekIndex }));
   }
 
+  async function sonucuKaydet(hesaplananSkor: number) {
+    // localStorage + student_progress (auth varsa) — öğretmen paneli görür
+    trackProgress({
+      activityType: "quiz_complete",
+      activitySlug: bolumNo ? `bolum-${bolumNo}-quiz` : `quiz-${baslik}`,
+      courseSlug: bolumNo ? `bolum-${bolumNo}` : undefined,
+      score: hesaplananSkor,
+      metadata: { dogru: dogruSayisi, toplam },
+    });
+
+    // Modül kilidi için resmi quiz sonucu
+    if (bolumNo) {
+      try {
+        const res = await fetch("/api/quiz-results", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ bolumNo, score: hesaplananSkor }),
+        });
+        if (res.ok) {
+          const data = (await res.json()) as QuizSonucu;
+          setSunucuSonucu(data);
+        }
+      } catch {
+        // Auth yok veya ağ hatası — localStorage kaydı yeterli
+      }
+    }
+  }
+
   function sonraki() {
     if (aktif >= toplam) return;
     if (aktif === toplam - 1) {
       // Son soru → sonucu hesapla ve kaydet
       if (!sonucKaydedildi) {
-        completeActivity(skor, { dogru: dogruSayisi, toplam });
+        void sonucuKaydet(skor);
         setSonucKaydedildi(true);
       }
     }
@@ -61,6 +97,7 @@ export default function InteraktifQuiz({
     setCevaplar({});
     setAktif(0);
     setSonucKaydedildi(false);
+    setSunucuSonucu(null);
   }
 
   const aktifCevap = cevaplar[aktif];
@@ -155,6 +192,20 @@ export default function InteraktifQuiz({
           <p className="mt-1 text-center text-sm text-[var(--color-text-secondary)]">
             {dogruSayisi} / {toplam} doğru cevap
           </p>
+
+          {sunucuSonucu && (
+            <p
+              className={`mx-auto mt-2 w-fit rounded-full px-4 py-1 text-center text-xs font-bold ${
+                sunucuSonucu.passed
+                  ? "bg-emerald-100 text-emerald-700 dark:bg-emerald-900/30 dark:text-emerald-300"
+                  : "bg-amber-100 text-amber-700 dark:bg-amber-900/30 dark:text-amber-300"
+              }`}
+            >
+              {sunucuSonucu.passed
+                ? "🔓 Tebrikler! Sonraki bölümün kilidi açıldı."
+                : `Geçme notu %${sunucuSonucu.minRequired} — tekrar deneyebilirsin!`}
+            </p>
+          )}
 
           {/* Skor ring */}
           <div className="mx-auto my-4 flex justify-center">

@@ -337,7 +337,7 @@ const SlaytOyun = (
 /* ---- Değerlendirme ---- */
 const SlaytDegerlendirme = (
   <>
-    <InteraktifQuiz sorular={quizSorulari} />
+    <InteraktifQuiz sorular={quizSorulari} bolumNo={7} />
   </>
 );
 
@@ -374,13 +374,6 @@ export default function Bolum7() {
   return (
     <BolumCerceve bolumNo={7}
      
-      bolumBaslik="Gerçek Hayat Problemleri"
-      bolumAltBaslik="STEM Tabanlı YZ Çözümleri"
-      seviye="7-8. Sınıf"
-      ders={8}
-      renk="from-teal-500 to-cyan-600"
-      oncekiBolum={6}
-      sonrakiBolum={8}
       bolumler={[
         { id: "b7-kazanimlar", baslik: "Kazanımlar", icon: "🎯", tur: "kazanim", icerik: SlaytKazanimlar, varsayilanAcik: true },
         { id: "b7-tasarim-dusuncesi", baslik: "Tasarım Düşüncesi", icon: "📖", tur: "icerik", icerik: SlaytTasarimDusuncesi, varsayilanAcik: true },

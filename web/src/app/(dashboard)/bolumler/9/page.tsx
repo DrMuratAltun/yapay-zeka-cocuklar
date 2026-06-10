@@ -5,7 +5,7 @@ export const metadata: Metadata = {
 };
 
 import Image from "next/image";
-import BolumSlider from "@/components/BolumSlider";
+import BolumCerceve from "@/components/BolumCerceve";
 import InteraktifQuiz from "@/components/InteraktifQuiz";
 import EtikPusula from "@/components/oyunlar/EtikPusula";
 import EtikMahkeme from "@/components/etkinlikler/EtikMahkeme";
@@ -392,7 +392,7 @@ const SlaytOyun = (
 
 const SlaytDegerlendirme = (
   <>
-    <InteraktifQuiz sorular={quizSorulari} />
+    <InteraktifQuiz sorular={quizSorulari} bolumNo={9} />
   </>
 );
 
@@ -425,35 +425,26 @@ const SlaytMateryaller = (
 );
 
 export default function Bolum9() {
-  const slaytlar = [
-    { baslik: "Hoş Geldin!", icon: "👋", icerik: SlaytHosGeldin9 },
-    { baslik: "Kazanımlar", icon: "🎯", icerik: SlaytKazanimlar },
-    { baslik: "YZ Etiği Nedir?", icon: "⚖️", icerik: SlaytEtikIlkeleri },
-    { baslik: "Önyargı Problemi", icon: "🔍", icerik: SlaytOnyargi },
-    { baslik: "Deepfake ve Dezenformasyon", icon: "🎭", icerik: SlaytDeepfake },
-    { baslik: "Toplumsal Etkiler", icon: "🌍", icerik: SlaytToplumsalEtki },
-    { baslik: "Pusulanı Bul", icon: "🧭", icerik: SlaytGecis9_1 },
-    { baslik: "Etkinlik: YZ Mahkemesi", icon: "🎮", icerik: SlaytEtkinlik1 },
-    { baslik: "Etkinlik: Önyargı Simülatörü", icon: "🔍", icerik: SlaytEtkinlik1b },
-    { baslik: "Etkinlik: Etik Pusula", icon: "🎮", icerik: SlaytEtkinlik2 },
-    { baslik: "Etkinlik: Deepfake Dedektifi", icon: "🎮", icerik: SlaytEtkinlik3 },
-    { baslik: "Etik Pusula", icon: "🧩", icerik: SlaytOyun },
-    { baslik: "Değerlendirme", icon: "📝", icerik: SlaytDegerlendirme },
-    { baslik: "Bölüm Özeti", icon: "🏆", icerik: SlaytBolumOzeti9 },
-    { baslik: "Materyaller", icon: "📥", icerik: SlaytMateryaller },
-  ];
-
   return (
-    <BolumSlider
+    <BolumCerceve
       bolumNo={9}
-      bolumBaslik="YZ ve Etik"
-      bolumAltBaslik="Doğru Kullanımın Pusulası"
-      seviye="7-8. Sınıf"
-      ders={4}
-      renk="from-amber-500 to-orange-600"
-      slaytlar={slaytlar}
-      oncekiBolum={8}
-      sonrakiBolum={10}
+      bolumler={[
+        { baslik: "Hoş Geldin!", icon: "👋", tur: "icerik", icerik: SlaytHosGeldin9 },
+        { baslik: "Kazanımlar", icon: "🎯", tur: "kazanim", icerik: SlaytKazanimlar },
+        { baslik: "YZ Etiği Nedir?", icon: "⚖️", tur: "icerik", icerik: SlaytEtikIlkeleri },
+        { baslik: "Önyargı Problemi", icon: "🔍", tur: "icerik", icerik: SlaytOnyargi },
+        { baslik: "Deepfake ve Dezenformasyon", icon: "🎭", tur: "icerik", icerik: SlaytDeepfake },
+        { baslik: "Toplumsal Etkiler", icon: "🌍", tur: "icerik", icerik: SlaytToplumsalEtki },
+        { baslik: "Pusulanı Bul", icon: "🧭", tur: "icerik", icerik: SlaytGecis9_1 },
+        { baslik: "Etkinlik: YZ Mahkemesi", icon: "🎮", tur: "etkinlik", icerik: SlaytEtkinlik1 },
+        { baslik: "Etkinlik: Önyargı Simülatörü", icon: "🔍", tur: "etkinlik", icerik: SlaytEtkinlik1b },
+        { baslik: "Etkinlik: Etik Pusula", icon: "🎮", tur: "etkinlik", icerik: SlaytEtkinlik2 },
+        { baslik: "Etkinlik: Deepfake Dedektifi", icon: "🎮", tur: "etkinlik", icerik: SlaytEtkinlik3 },
+        { baslik: "Etik Pusula", icon: "🧩", tur: "oyun", icerik: SlaytOyun },
+        { baslik: "Değerlendirme", icon: "📝", tur: "quiz", icerik: SlaytDegerlendirme },
+        { baslik: "Bölüm Özeti", icon: "🏆", tur: "icerik", icerik: SlaytBolumOzeti9 },
+        { baslik: "Materyaller", icon: "📥", tur: "materyal", icerik: SlaytMateryaller },
+      ]}
     />
   );
 }

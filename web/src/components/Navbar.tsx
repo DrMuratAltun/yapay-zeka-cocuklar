@@ -4,57 +4,16 @@ import Link from "next/link";
 import { useState, useRef, useEffect } from "react";
 import { useRouter, usePathname } from "next/navigation";
 import { createClient } from "@/lib/supabase/client";
+import { useTheme } from "@/hooks/useTheme";
+import { BOLUM_META } from "@/data/bolumler";
 
 type UserRole = "super_admin" | "school_admin" | "teacher" | "student" | null;
 
-function useTheme() {
-  const [dark, setDark] = useState(false);
-
-  useEffect(() => {
-    const stored = localStorage.getItem("theme");
-    if (stored === "dark") {
-      setDark(true);
-      document.documentElement.classList.add("dark");
-    } else if (stored === "light") {
-      setDark(false);
-      document.documentElement.classList.remove("dark");
-    } else {
-      // System preference
-      const prefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
-      setDark(prefersDark);
-      if (prefersDark) {
-        document.documentElement.classList.add("dark");
-      }
-    }
-  }, []);
-
-  const toggle = () => {
-    const next = !dark;
-    setDark(next);
-    if (next) {
-      document.documentElement.classList.add("dark");
-      localStorage.setItem("theme", "dark");
-    } else {
-      document.documentElement.classList.remove("dark");
-      localStorage.setItem("theme", "light");
-    }
-  };
-
-  return { dark, toggle };
-}
-
-const bolumler = [
-  { no: 1, baslik: "Yapay Zeka Nedir?", renk: "bg-sky-500" },
-  { no: 2, baslik: "Günlük Hayatta YZ", renk: "bg-emerald-500" },
-  { no: 3, baslik: "Verinin Gücü", renk: "bg-violet-500" },
-  { no: 4, baslik: "Makineler Nasıl Öğrenir?", renk: "bg-orange-500" },
-  { no: 5, baslik: "Üretken Yapay Zeka", renk: "bg-pink-500" },
-  { no: 6, baslik: "Blok Tabanlı YZ Kodlama", renk: "bg-blue-600" },
-  { no: 7, baslik: "Gerçek Hayat Problemleri", renk: "bg-teal-500" },
-  { no: 8, baslik: "Dijital İçerik Üretimi", renk: "bg-rose-500" },
-  { no: 9, baslik: "YZ ve Etik", renk: "bg-amber-600" },
-  { no: 10, baslik: "Gelecek Seninle Başlar", renk: "bg-indigo-600" },
-];
+const bolumler = BOLUM_META.map((b) => ({
+  no: b.no,
+  baslik: b.baslik,
+  renk: `bg-gradient-to-br ${b.bg}`,
+}));
 
 const navLinks = [
   { href: "/#ozellikler", label: "Özellikler" },
@@ -64,17 +23,17 @@ const navLinks = [
 ];
 
 const roleLabels: Record<string, string> = {
-  super_admin: "Sistem Yoneticisi",
-  school_admin: "Okul Yoneticisi",
-  teacher: "Ogretmen",
-  student: "Ogrenci",
+  super_admin: "Sistem Yöneticisi",
+  school_admin: "Okul Yöneticisi",
+  teacher: "Öğretmen",
+  student: "Öğrenci",
 };
 
 const rolePanelLinks: Record<string, { href: string; label: string }> = {
   super_admin: { href: "/admin/okullar", label: "Admin Paneli" },
   school_admin: { href: "/okul", label: "Okul Paneli" },
-  teacher: { href: "/okul", label: "Ogretmen Paneli" },
-  student: { href: "/ogrenci", label: "Ogrenci Paneli" },
+  teacher: { href: "/ogretmen", label: "Öğretmen Paneli" },
+  student: { href: "/ogrenci", label: "Öğrenci Paneli" },
 };
 
 export default function Navbar() {

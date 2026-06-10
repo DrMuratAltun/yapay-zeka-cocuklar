@@ -359,7 +359,7 @@ const SlaytOyun = (
 /* ---- Değerlendirme ---- */
 const SlaytDegerlendirme = (
   <>
-    <InteraktifQuiz sorular={quizSorulari} />
+    <InteraktifQuiz sorular={quizSorulari} bolumNo={6} />
   </>
 );
 
@@ -396,13 +396,6 @@ export default function Bolum6() {
   return (
     <BolumCerceve bolumNo={6}
      
-      bolumBaslik="Blok Tabanlı YZ Kodlama"
-      bolumAltBaslik="PictoBlox Projeleri"
-      seviye="7. Sınıf"
-      ders={8}
-      renk="from-blue-600 to-indigo-700"
-      oncekiBolum={5}
-      sonrakiBolum={7}
       bolumler={[
         { id: "b6-kazanimlar", baslik: "Kazanımlar", icon: "🎯", tur: "kazanim", icerik: SlaytKazanimlar, varsayilanAcik: true },
         { id: "b6-pictoblox-nedir", baslik: "PictoBlox Nedir?", icon: "🧩", tur: "icerik", icerik: SlaytPictoBlox, varsayilanAcik: true },

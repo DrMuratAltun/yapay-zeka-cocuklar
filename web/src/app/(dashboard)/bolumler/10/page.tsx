@@ -5,7 +5,7 @@ export const metadata: Metadata = {
 };
 
 import Image from "next/image";
-import BolumSlider from "@/components/BolumSlider";
+import BolumCerceve from "@/components/BolumCerceve";
 import InteraktifQuiz from "@/components/InteraktifQuiz";
 import KariyerKeswordi from "@/components/oyunlar/KariyerKeswordi";
 import PortfolyoOlusturucu from "@/components/etkinlikler/PortfolyoOlusturucu";
@@ -463,7 +463,7 @@ const SlaytOyun = (
 
 const SlaytDegerlendirme = (
   <>
-    <InteraktifQuiz sorular={quizSorulari} />
+    <InteraktifQuiz sorular={quizSorulari} bolumNo={10} />
   </>
 );
 
@@ -497,36 +497,27 @@ const SlaytMateryaller = (
 );
 
 export default function Bolum10() {
-  const slaytlar = [
-    { baslik: "Hoş Geldin!", icon: "👋", icerik: SlaytHosGeldin10 },
-    { baslik: "Kazanımlar", icon: "🎯", icerik: SlaytKazanimlar },
-    { baslik: "Final Projesi", icon: "🌟", icerik: SlaytFinalProjesi },
-    { baslik: "Proje Adımları", icon: "📋", icerik: SlaytProjeAdimlari },
-    { baslik: "Portfolyo Hazırlama", icon: "📂", icerik: SlaytPortfolyo },
-    { baslik: "Kariyer Fırsatları", icon: "💼", icerik: SlaytKariyer },
-    { baslik: "Öğrenmeye Devam Et", icon: "🚀", icerik: SlaytOgrenmeDevam },
-    { baslik: "Yapma Zamanı", icon: "🛠️", icerik: SlaytGecis10_1 },
-    { baslik: "Etkinlik: Final Projesi", icon: "🎮", icerik: SlaytEtkinlik1 },
-    { baslik: "Etkinlik: Kariyer Yol Haritası", icon: "🗺️", icerik: SlaytEtkinlik1b },
-    { baslik: "Etkinlik: Gelecek Fuarı", icon: "🎮", icerik: SlaytEtkinlik2 },
-    { baslik: "Etkinlik: Gelecek Mektubu", icon: "🎮", icerik: SlaytEtkinlik3 },
-    { baslik: "YZ Kariyer Keşfi", icon: "🧩", icerik: SlaytOyun },
-    { baslik: "Değerlendirme", icon: "📝", icerik: SlaytDegerlendirme },
-    { baslik: "Final Özet", icon: "🎓", icerik: SlaytBolumOzeti10 },
-    { baslik: "Materyaller", icon: "📥", icerik: SlaytMateryaller },
-  ];
-
   return (
-    <BolumSlider
+    <BolumCerceve
       bolumNo={10}
-      bolumBaslik="Gelecek Seninle Başlar"
-      bolumAltBaslik="Proje ve Portfolyo"
-      seviye="8. Sınıf"
-      ders={8}
-      renk="from-indigo-600 to-purple-700"
-      slaytlar={slaytlar}
-      oncekiBolum={9}
-      sonrakiBolum={null}
+      bolumler={[
+        { baslik: "Hoş Geldin!", icon: "👋", tur: "icerik", icerik: SlaytHosGeldin10 },
+        { baslik: "Kazanımlar", icon: "🎯", tur: "kazanim", icerik: SlaytKazanimlar },
+        { baslik: "Final Projesi", icon: "🌟", tur: "icerik", icerik: SlaytFinalProjesi },
+        { baslik: "Proje Adımları", icon: "📋", tur: "icerik", icerik: SlaytProjeAdimlari },
+        { baslik: "Portfolyo Hazırlama", icon: "📂", tur: "icerik", icerik: SlaytPortfolyo },
+        { baslik: "Kariyer Fırsatları", icon: "💼", tur: "icerik", icerik: SlaytKariyer },
+        { baslik: "Öğrenmeye Devam Et", icon: "🚀", tur: "icerik", icerik: SlaytOgrenmeDevam },
+        { baslik: "Yapma Zamanı", icon: "🛠️", tur: "icerik", icerik: SlaytGecis10_1 },
+        { baslik: "Etkinlik: Final Projesi", icon: "🎮", tur: "etkinlik", icerik: SlaytEtkinlik1 },
+        { baslik: "Etkinlik: Kariyer Yol Haritası", icon: "🗺️", tur: "etkinlik", icerik: SlaytEtkinlik1b },
+        { baslik: "Etkinlik: Gelecek Fuarı", icon: "🎮", tur: "etkinlik", icerik: SlaytEtkinlik2 },
+        { baslik: "Etkinlik: Gelecek Mektubu", icon: "🎮", tur: "etkinlik", icerik: SlaytEtkinlik3 },
+        { baslik: "YZ Kariyer Keşfi", icon: "🧩", tur: "oyun", icerik: SlaytOyun },
+        { baslik: "Değerlendirme", icon: "📝", tur: "quiz", icerik: SlaytDegerlendirme },
+        { baslik: "Final Özet", icon: "🎓", tur: "icerik", icerik: SlaytBolumOzeti10 },
+        { baslik: "Materyaller", icon: "📥", tur: "materyal", icerik: SlaytMateryaller },
+      ]}
     />
   );
 }

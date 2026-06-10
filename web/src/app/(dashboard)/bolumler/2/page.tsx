@@ -6,7 +6,7 @@ export const metadata: Metadata = {
 
 import Image from "next/image";
 import InteraktifQuiz from "@/components/InteraktifQuiz";
-import BolumSlider from "@/components/BolumSlider";
+import BolumCerceve from "@/components/BolumCerceve";
 import YzEslestirme from "@/components/oyunlar/YzEslestirme";
 import YzHaritasi from "@/components/etkinlikler/YzHaritasi";
 import YzVeyaDegil from "@/components/etkinlikler/YzVeyaDegil";
@@ -699,7 +699,7 @@ const SlaytOyun = (
 
 const SlaytDegerlendirme = (
   <>
-    <InteraktifQuiz sorular={quizSorulari} />
+    <InteraktifQuiz sorular={quizSorulari} bolumNo={2} />
   </>
 );
 
@@ -774,34 +774,27 @@ const SlaytMateryaller = (
 
 export default function Bolum2() {
   return (
-    <BolumSlider
+    <BolumCerceve
       bolumNo={2}
-      bolumBaslik="Günlük Hayatta YZ"
-      bolumAltBaslik="Yapay Zeka Etrafımızda"
-      seviye="6. Sınıf"
-      ders={4}
-      renk="from-emerald-600 to-teal-700"
-      oncekiBolum={1}
-      sonrakiBolum={3}
-      slaytlar={[
-        { baslik: "Hoş Geldin!", icon: "👋", icerik: SlaytHosGeldin2 },
-        { baslik: "Kazanımlar", icon: "🎯", icerik: SlaytKazanimlar },
-        { baslik: "YZ Her Yerde!", icon: "🌍", icerik: SlaytYzHerYerde },
-        { baslik: "Cebindeki Yapay Zeka", icon: "📱", icerik: SlaytCebindekiYz },
-        { baslik: "YZ Kullanım Alanları", icon: "🌐", icerik: SlaytYzKullanimAlanlari },
-        { baslik: "Öneri Sistemleri", icon: "🎬", icerik: SlaytOneriSistemleri },
-        { baslik: "Sesli Asistanlar", icon: "🎙️", icerik: SlaytSesliAsistanlar },
-        { baslik: "Detektiflik Zamanı", icon: "🔎", icerik: SlaytGecis2_1 },
-        { baslik: "Etkinlik: YZ Haritası", icon: "🎮", icerik: SlaytEtkinlik1 },
-        { baslik: "Akıllı Ev Simülatörü", icon: "🏠", icerik: SlaytAkilliEvSimulatoru },
-        { baslik: "Etkinlik: YZ veya Değil?", icon: "🎮", icerik: SlaytEtkinlik2 },
-        { baslik: "Etkinlik: Sesli Asistan", icon: "🎮", icerik: SlaytEtkinlik3 },
-        { baslik: "Öneri Sistemi Simülatörü", icon: "🎬", icerik: SlaytOneriSistemiSim },
-        { baslik: "Etkinlik: YZ Röportajı", icon: "🎮", icerik: SlaytEtkinlik4 },
-        { baslik: "İnteraktif Oyun", icon: "🕹️", icerik: SlaytOyun },
-        { baslik: "Değerlendirme", icon: "📝", icerik: SlaytDegerlendirme },
-        { baslik: "Bölüm Özeti", icon: "🏆", icerik: SlaytBolumOzeti2 },
-        { baslik: "Materyaller", icon: "📥", icerik: SlaytMateryaller },
+      bolumler={[
+        { baslik: "Hoş Geldin!", icon: "👋", tur: "icerik", icerik: SlaytHosGeldin2 },
+        { baslik: "Kazanımlar", icon: "🎯", tur: "kazanim", icerik: SlaytKazanimlar },
+        { baslik: "YZ Her Yerde!", icon: "🌍", tur: "icerik", icerik: SlaytYzHerYerde },
+        { baslik: "Cebindeki Yapay Zeka", icon: "📱", tur: "icerik", icerik: SlaytCebindekiYz },
+        { baslik: "YZ Kullanım Alanları", icon: "🌐", tur: "icerik", icerik: SlaytYzKullanimAlanlari },
+        { baslik: "Öneri Sistemleri", icon: "🎬", tur: "icerik", icerik: SlaytOneriSistemleri },
+        { baslik: "Sesli Asistanlar", icon: "🎙️", tur: "icerik", icerik: SlaytSesliAsistanlar },
+        { baslik: "Detektiflik Zamanı", icon: "🔎", tur: "icerik", icerik: SlaytGecis2_1 },
+        { baslik: "Etkinlik: YZ Haritası", icon: "🎮", tur: "etkinlik", icerik: SlaytEtkinlik1 },
+        { baslik: "Akıllı Ev Simülatörü", icon: "🏠", tur: "oyun", icerik: SlaytAkilliEvSimulatoru },
+        { baslik: "Etkinlik: YZ veya Değil?", icon: "🎮", tur: "etkinlik", icerik: SlaytEtkinlik2 },
+        { baslik: "Etkinlik: Sesli Asistan", icon: "🎮", tur: "etkinlik", icerik: SlaytEtkinlik3 },
+        { baslik: "Öneri Sistemi Simülatörü", icon: "🎬", tur: "oyun", icerik: SlaytOneriSistemiSim },
+        { baslik: "Etkinlik: YZ Röportajı", icon: "🎮", tur: "etkinlik", icerik: SlaytEtkinlik4 },
+        { baslik: "İnteraktif Oyun", icon: "🕹️", tur: "oyun", icerik: SlaytOyun },
+        { baslik: "Değerlendirme", icon: "📝", tur: "quiz", icerik: SlaytDegerlendirme },
+        { baslik: "Bölüm Özeti", icon: "🏆", tur: "icerik", icerik: SlaytBolumOzeti2 },
+        { baslik: "Materyaller", icon: "📥", tur: "materyal", icerik: SlaytMateryaller },
       ]}
     />
   );

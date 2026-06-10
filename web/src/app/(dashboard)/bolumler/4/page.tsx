@@ -6,7 +6,7 @@ export const metadata: Metadata = {
 
 import Image from "next/image";
 import InteraktifQuiz from "@/components/InteraktifQuiz";
-import BolumSlider from "@/components/BolumSlider";
+import BolumCerceve from "@/components/BolumCerceve";
 import KararAgaci from "@/components/oyunlar/KararAgaci";
 import SinirAgiOyunAlani from "@/components/oyunlar/SinirAgiOyunAlani";
 import OgrenmeTurleri from "@/components/oyunlar/OgrenmeTurleri";
@@ -711,7 +711,7 @@ const SlaytOyun = (
 /* ---- Slayt 6: Değerlendirme ---- */
 const SlaytDegerlendirme = (
   <>
-    <InteraktifQuiz sorular={quizSorulari} />
+    <InteraktifQuiz sorular={quizSorulari} bolumNo={4} />
   </>
 );
 
@@ -746,36 +746,29 @@ const SlaytMateryaller = (
 
 export default function Bolum4() {
   return (
-    <BolumSlider
+    <BolumCerceve
       bolumNo={4}
-      bolumBaslik="Makineler Nasıl Öğrenir?"
-      bolumAltBaslik="Makine Öğrenimi Temelleri"
-      seviye="6-7. Sınıf"
-      ders={6}
-      renk="from-orange-500 to-amber-600"
-      oncekiBolum={3}
-      sonrakiBolum={5}
-      slaytlar={[
-        { baslik: "Hoş Geldin!", icon: "👋", icerik: SlaytHosGeldin4 },
-        { baslik: "Kazanımlar", icon: "🎯", icerik: SlaytKazanimlar },
-        { baslik: "Geleneksel vs ML", icon: "📖", icerik: SlaytGelenekselVsML },
-        { baslik: "Öğrenme Türleri", icon: "🧠", icerik: SlaytOgrenimTurleri },
-        { baslik: "Öğrenme Türleri Lab", icon: "🎓", icerik: SlaytOgrenmeTurleriLab },
-        { baslik: "Sınıflandırma ve Tahmin", icon: "📊", icerik: SlaytSiniflandirma },
-        { baslik: "Karar Ağacı", icon: "🌳", icerik: SlaytKararAgaci },
-        { baslik: "Sinir Ağına Geçiş", icon: "🧭", icerik: SlaytGecis4_1 },
-        { baslik: "Sinir Ağı Lab", icon: "🧪", icerik: SlaytSinirAgiLab4 },
-        { baslik: "Teachable Machine", icon: "🤖", icerik: SlaytTeachableMachine },
-        { baslik: "Etkinlik: Meyve Sınıflandırıcı", icon: "🎮", icerik: SlaytEtkinlik1 },
-        { baslik: "Sınıflandırma Pratiği", icon: "🎯", icerik: SlaytSiniflandirmaPratigi },
-        { baslik: "Etkinlik: Teachable Machine", icon: "🎮", icerik: SlaytEtkinlik2 },
-        { baslik: "Öğrenim Türleri Quiz", icon: "📝", icerik: SlaytOgrenimTurleriQuiz },
-        { baslik: "Etkinlik: PictoBlox", icon: "🎮", icerik: SlaytEtkinlik3 },
-        { baslik: "Etkinlik: Model Başarı Raporu", icon: "🎮", icerik: SlaytEtkinlik4 },
-        { baslik: "İnteraktif Oyun", icon: "🕹️", icerik: SlaytOyun },
-        { baslik: "Değerlendirme", icon: "📝", icerik: SlaytDegerlendirme },
-        { baslik: "Bölüm Özeti", icon: "🏆", icerik: SlaytBolumOzeti4 },
-        { baslik: "Materyaller", icon: "📥", icerik: SlaytMateryaller },
+      bolumler={[
+        { baslik: "Hoş Geldin!", icon: "👋", tur: "icerik", icerik: SlaytHosGeldin4 },
+        { baslik: "Kazanımlar", icon: "🎯", tur: "kazanim", icerik: SlaytKazanimlar },
+        { baslik: "Geleneksel vs ML", icon: "📖", tur: "icerik", icerik: SlaytGelenekselVsML },
+        { baslik: "Öğrenme Türleri", icon: "🧠", tur: "icerik", icerik: SlaytOgrenimTurleri },
+        { baslik: "Öğrenme Türleri Lab", icon: "🎓", tur: "oyun", icerik: SlaytOgrenmeTurleriLab },
+        { baslik: "Sınıflandırma ve Tahmin", icon: "📊", tur: "icerik", icerik: SlaytSiniflandirma },
+        { baslik: "Karar Ağacı", icon: "🌳", tur: "icerik", icerik: SlaytKararAgaci },
+        { baslik: "Sinir Ağına Geçiş", icon: "🧭", tur: "icerik", icerik: SlaytGecis4_1 },
+        { baslik: "Sinir Ağı Lab", icon: "🧪", tur: "oyun", icerik: SlaytSinirAgiLab4 },
+        { baslik: "Teachable Machine", icon: "🤖", tur: "icerik", icerik: SlaytTeachableMachine },
+        { baslik: "Etkinlik: Meyve Sınıflandırıcı", icon: "🎮", tur: "etkinlik", icerik: SlaytEtkinlik1 },
+        { baslik: "Sınıflandırma Pratiği", icon: "🎯", tur: "icerik", icerik: SlaytSiniflandirmaPratigi },
+        { baslik: "Etkinlik: Teachable Machine", icon: "🎮", tur: "etkinlik", icerik: SlaytEtkinlik2 },
+        { baslik: "Öğrenim Türleri Quiz", icon: "📝", tur: "icerik", icerik: SlaytOgrenimTurleriQuiz },
+        { baslik: "Etkinlik: PictoBlox", icon: "🎮", tur: "etkinlik", icerik: SlaytEtkinlik3 },
+        { baslik: "Etkinlik: Model Başarı Raporu", icon: "🎮", tur: "etkinlik", icerik: SlaytEtkinlik4 },
+        { baslik: "İnteraktif Oyun", icon: "🕹️", tur: "oyun", icerik: SlaytOyun },
+        { baslik: "Değerlendirme", icon: "📝", tur: "quiz", icerik: SlaytDegerlendirme },
+        { baslik: "Bölüm Özeti", icon: "🏆", tur: "icerik", icerik: SlaytBolumOzeti4 },
+        { baslik: "Materyaller", icon: "📥", tur: "materyal", icerik: SlaytMateryaller },
       ]}
     />
   );

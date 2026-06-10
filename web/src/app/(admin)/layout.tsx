@@ -30,7 +30,7 @@ export default function AdminLayout({
               href="/admin/okullar"
               className="font-bold text-gray-900 text-lg"
             >
-              GencYZ Admin
+              GençYZ Admin
             </Link>
             <nav className="hidden sm:flex items-center gap-1">
               {navItems.map((item) => (
@@ -53,13 +53,13 @@ export default function AdminLayout({
               href="/"
               className="text-sm text-gray-500 hover:text-gray-700"
             >
-              Siteye Don
+              Siteye Dön
             </Link>
             <button
               onClick={handleLogout}
               className="text-sm text-red-500 hover:text-red-700 font-medium"
             >
-              Cikis Yap
+              Çıkış Yap
             </button>
           </div>
         </div>

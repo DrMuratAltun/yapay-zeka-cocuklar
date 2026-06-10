@@ -2,8 +2,6 @@
 
 import { useEffect, useState } from "react";
 import Link from "next/link";
-import DashboardLayout from "@/components/dashboard/DashboardLayout";
-import DashboardSidebar, { SidebarItem } from "@/components/dashboard/DashboardSidebar";
 import SinifKarti from "@/components/dashboard/SinifKarti";
 import YeniSinifModal from "@/components/dashboard/YeniSinifModal";
 
@@ -30,44 +28,6 @@ const DERS_PLANI = [
   { bolum: 9, konu: "YZ ve Etik", sinif: "7-8", saat: 4, emoji: "⚖️", renk: "from-amber-400 to-orange-500" },
   { bolum: 10, konu: "Gelecek Seninle Başlar", sinif: "8", saat: 8, emoji: "🚀", renk: "from-indigo-400 to-violet-500" },
 ];
-
-const ICON = {
-  home: (
-    <svg width="18" height="18" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">
-      <path d="m3 12 9-9 9 9M5 10v10h14V10" strokeLinecap="round" strokeLinejoin="round" />
-    </svg>
-  ),
-  dashboard: (
-    <svg width="18" height="18" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">
-      <rect x="3" y="3" width="7" height="9" rx="1.5" />
-      <rect x="14" y="3" width="7" height="5" rx="1.5" />
-      <rect x="14" y="12" width="7" height="9" rx="1.5" />
-      <rect x="3" y="16" width="7" height="5" rx="1.5" />
-    </svg>
-  ),
-  class: (
-    <svg width="18" height="18" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">
-      <path d="M22 10v6M2 10l10-5 10 5-10 5z" strokeLinejoin="round" />
-      <path d="M6 12v5c3 3 9 3 12 0v-5" strokeLinejoin="round" />
-    </svg>
-  ),
-  book: (
-    <svg width="18" height="18" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">
-      <path d="M4 19.5v-15A2.5 2.5 0 0 1 6.5 2H20v20H6.5a2.5 2.5 0 0 1 0-5H20" strokeLinecap="round" strokeLinejoin="round" />
-    </svg>
-  ),
-  user: (
-    <svg width="18" height="18" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">
-      <circle cx="12" cy="8" r="4" />
-      <path d="M4 21v-1a7 7 0 0 1 14 0v1" strokeLinecap="round" />
-    </svg>
-  ),
-  link: (
-    <svg width="18" height="18" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">
-      <path d="M10 13a5 5 0 0 0 7 0l3-3a5 5 0 0 0-7-7l-1 1M14 11a5 5 0 0 0-7 0l-3 3a5 5 0 0 0 7 7l1-1" strokeLinecap="round" strokeLinejoin="round" />
-    </svg>
-  ),
-};
 
 export default function OgretmenPaneli() {
   const [siniflar, setSiniflar] = useState<Sinif[]>([]);
@@ -109,88 +69,8 @@ export default function OgretmenPaneli() {
 
   const toplamOgrenci = siniflar.reduce((acc, s) => acc + s.student_count, 0);
 
-  const sidebarItems: SidebarItem[] = [
-    { label: "Ana Sayfa", href: "/", icon: ICON.home },
-    { label: "Panelim", href: "/ogretmen", icon: ICON.dashboard, aktif: true },
-    { label: "Sınıflarım", href: "/ogretmen#siniflar", icon: ICON.class },
-    { label: "Ders Planı", href: "/ogretmen#ders-plani", icon: ICON.book },
-    { label: "Kaynaklar", href: "/ogretmen#kaynaklar", icon: ICON.link },
-    { label: "Profil", href: "/ogretmen", icon: ICON.user },
-  ];
-
-  const sidebar = (
-    <DashboardSidebar
-      items={sidebarItems}
-      logoMetin="GençYZ"
-      logoEmoji="🤖"
-      kullaniciAd="Öğretmen"
-      kullaniciRol="BT Öğretmeni"
-    />
-  );
-
-  const rightRail = (
-    <div className="space-y-5">
-      <section className="rounded-2xl bg-gradient-to-br from-violet-500 to-indigo-600 p-4 text-white shadow-lg">
-        <p className="text-[10px] font-semibold uppercase tracking-wider text-white/80">
-          Hızlı Eylem
-        </p>
-        <h3 className="mt-1 text-lg font-extrabold">Yeni sınıf oluştur</h3>
-        <p className="mt-1 text-xs text-white/90">
-          Öğrencilerini sınıfına ekle, ilerlemelerini takip et.
-        </p>
-        <button
-          type="button"
-          onClick={() => setModalAcik(true)}
-          className="mt-3 w-full cursor-pointer rounded-lg bg-white px-4 py-2 text-sm font-bold text-indigo-700 transition hover:scale-[1.02]"
-        >
-          ➕ Yeni Sınıf
-        </button>
-      </section>
-
-      <section className="rounded-2xl border border-slate-200 bg-white p-4 dark:border-slate-800 dark:bg-slate-950">
-        <h3 className="mb-3 text-sm font-bold">Özet</h3>
-        <div className="space-y-2">
-          <div className="flex items-center justify-between rounded-lg bg-slate-50 p-3 dark:bg-slate-900">
-            <div>
-              <p className="text-[10px] uppercase tracking-wider text-slate-500">Sınıf</p>
-              <p className="text-xl font-extrabold text-violet-600">{siniflar.length}</p>
-            </div>
-            <span className="text-2xl">🏫</span>
-          </div>
-          <div className="flex items-center justify-between rounded-lg bg-slate-50 p-3 dark:bg-slate-900">
-            <div>
-              <p className="text-[10px] uppercase tracking-wider text-slate-500">Öğrenci</p>
-              <p className="text-xl font-extrabold text-emerald-600">{toplamOgrenci}</p>
-            </div>
-            <span className="text-2xl">👥</span>
-          </div>
-        </div>
-      </section>
-
-      <section className="rounded-2xl border border-slate-200 bg-white p-4 dark:border-slate-800 dark:bg-slate-950">
-        <h3 className="mb-2 text-sm font-bold">💡 İpucu</h3>
-        <p className="text-xs text-slate-600 dark:text-slate-400">
-          Öğrencilerine sınıf kodunu yazdır veya duvara as. <Link href="/kolay-giris" className="font-semibold text-violet-600 hover:underline">/kolay-giris</Link> sayfasından koda gelirler.
-        </p>
-      </section>
-    </div>
-  );
-
-  const ustSag = (
-    <button
-      type="button"
-      onClick={() => setModalAcik(true)}
-      className="hidden cursor-pointer items-center gap-2 rounded-lg bg-violet-600 px-3 py-1.5 text-sm font-bold text-white transition hover:bg-violet-700 sm:flex"
-    >
-      <svg width="14" height="14" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="3">
-        <path d="M12 5v14M5 12h14" strokeLinecap="round" />
-      </svg>
-      Yeni Sınıf
-    </button>
-  );
-
   return (
-    <DashboardLayout sidebar={sidebar} rightRail={rightRail} ustSag={ustSag}>
+    <div className="mx-auto max-w-6xl p-4 sm:p-6 lg:p-8">
       {/* Hero */}
       <div className="mb-6 overflow-hidden rounded-3xl bg-gradient-to-br from-indigo-600 via-violet-600 to-purple-700 p-6 text-white shadow-xl sm:p-8">
         <div className="flex flex-col justify-between gap-3 md:flex-row md:items-end">
@@ -382,6 +262,53 @@ export default function OgretmenPaneli() {
         </div>
       </section>
 
+      {/* Hızlı eylem, özet ve ipucu */}
+      <div className="mt-6 grid gap-4 lg:grid-cols-3">
+        <section className="rounded-2xl bg-gradient-to-br from-violet-500 to-indigo-600 p-4 text-white shadow-lg">
+          <p className="text-[10px] font-semibold uppercase tracking-wider text-white/80">
+            Hızlı Eylem
+          </p>
+          <h3 className="mt-1 text-lg font-extrabold">Yeni sınıf oluştur</h3>
+          <p className="mt-1 text-xs text-white/90">
+            Öğrencilerini sınıfına ekle, ilerlemelerini takip et.
+          </p>
+          <button
+            type="button"
+            onClick={() => setModalAcik(true)}
+            className="mt-3 w-full cursor-pointer rounded-lg bg-white px-4 py-2 text-sm font-bold text-indigo-700 transition hover:scale-[1.02]"
+          >
+            ➕ Yeni Sınıf
+          </button>
+        </section>
+
+        <section className="rounded-2xl border border-slate-200 bg-white p-4 dark:border-slate-800 dark:bg-slate-950">
+          <h3 className="mb-3 text-sm font-bold">Özet</h3>
+          <div className="space-y-2">
+            <div className="flex items-center justify-between rounded-lg bg-slate-50 p-3 dark:bg-slate-900">
+              <div>
+                <p className="text-[10px] uppercase tracking-wider text-slate-500">Sınıf</p>
+                <p className="text-xl font-extrabold text-violet-600">{siniflar.length}</p>
+              </div>
+              <span className="text-2xl">🏫</span>
+            </div>
+            <div className="flex items-center justify-between rounded-lg bg-slate-50 p-3 dark:bg-slate-900">
+              <div>
+                <p className="text-[10px] uppercase tracking-wider text-slate-500">Öğrenci</p>
+                <p className="text-xl font-extrabold text-emerald-600">{toplamOgrenci}</p>
+              </div>
+              <span className="text-2xl">👥</span>
+            </div>
+          </div>
+        </section>
+
+        <section className="rounded-2xl border border-slate-200 bg-white p-4 dark:border-slate-800 dark:bg-slate-950">
+          <h3 className="mb-2 text-sm font-bold">💡 İpucu</h3>
+          <p className="text-xs text-slate-600 dark:text-slate-400">
+            Öğrencilerine sınıf kodunu yazdır veya duvara as. <Link href="/kolay-giris" className="font-semibold text-violet-600 hover:underline">/kolay-giris</Link> sayfasından koda gelirler.
+          </p>
+        </section>
+      </div>
+
       {/* Modal */}
       <YeniSinifModal
         acik={modalAcik}
@@ -391,6 +318,6 @@ export default function OgretmenPaneli() {
           siniflariGetir();
         }}
       />
-    </DashboardLayout>
+    </div>
   );
 }
