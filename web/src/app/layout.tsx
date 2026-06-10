@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { Geist, Cinzel, Nunito } from "next/font/google";
-import { Analytics } from "@vercel/analytics/next";
 import { SpeedInsights } from "@vercel/speed-insights/next";
 import RouteShell from "@/components/RouteShell";
 import "./globals.css";
@@ -218,7 +217,6 @@ export default function RootLayout({
         >
           {children}
         </RouteShell>
-        <Analytics />
         <SpeedInsights />
       </body>
     </html>
