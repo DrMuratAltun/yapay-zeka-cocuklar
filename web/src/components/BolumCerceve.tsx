@@ -138,20 +138,19 @@ export default function BolumCerceve({ bolumNo, bolumler }: BolumCerceveProps) {
       .catch(() => {})
   }, [bolumNo])
 
-  // Slayt içeriği kendi alanında kayar (viewport kilitli) — slayt değişince başa sar
+  // Konu içi sayfalayıcı (IcSayfa) durumu — yan menüde 📄 2/3 gösterimi
+  const [icDurum, setIcDurum] = useState<IcIlerlemeDurum | null>(null)
+  const icBildir = useCallback((d: IcIlerlemeDurum) => setIcDurum(d), [])
+
+  // Slayt içeriği kendi alanında kayar (viewport kilitli) — slayt değişince başa sar.
+  // icDurum sıfırlama efektte DEĞİL burada: efekt, çocuğun bildir'inden sonra çalışıp siliyordu.
   const icerikRef = useRef<HTMLDivElement>(null)
   const bolumSec = useCallback((idx: number) => {
+    setIcDurum(null)
     setAktifIndex(idx)
     setMenuAcik(false)
     icerikRef.current?.scrollTo({ top: 0 })
   }, [])
-
-  // Konu içi sayfalayıcı (IcSayfa) durumu — yan menüde 📄 2/3 gösterimi
-  const [icDurum, setIcDurum] = useState<IcIlerlemeDurum | null>(null)
-  const icBildir = useCallback((d: IcIlerlemeDurum) => setIcDurum(d), [])
-  useEffect(() => {
-    setIcDurum(null)
-  }, [aktifIndex])
 
   const oncekiIcerik = () => aktifIndex > 0 && bolumSec(aktifIndex - 1)
   const sonrakiIcerik = () => aktifIndex < slaytlar.length - 1 && bolumSec(aktifIndex + 1)
